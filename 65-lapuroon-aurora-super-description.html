@@ -1,0 +1,485 @@
+<div class="kst-light-container" role="region" aria-label="Product Detail Container">
+  <style>
+     @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@100;200;300;400;500;600;700&display=swap');
+     
+    /* ========= KST: Scoped Variables & Base (Light) ========= */
+    .kst-light-container {
+      --kst-bg: #FFFFFF;
+      --kst-surface: #FFFFFF;
+      --kst-elev: #FAFAFA;
+      --kst-text: #222222;a
+      --kst-subtext: #666666;
+      --kst-accent: #F7A9C4;
+      --kst-accent-2: #E7D3E2;
+      --kst-accent-3: #FFB8B8;
+      --kst-danger: #E53E3E;
+      --kst-success: #38A169;
+      --kst-warning: #DD6B20;
+
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--kst-bg);
+      color: var(--kst-text) !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Pretendard", system-ui, Segoe UI, Roboto, Arial, Apple SD Gothic Neo, "Noto Sans", "Malgun Gothic", sans-serif;
+      line-height: 1.55;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .kst-light-container * {
+      box-sizing: border-box;
+      color: inherit !important;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .kst-container { padding: 16px; }
+    .kst-section { 
+      background: var(--kst-surface); 
+      border: 1px solid #F0F0F0; 
+      border-radius: 16px; 
+      padding: 16px; 
+      margin: 12px 0; 
+      box-shadow: 0 4px 12px rgba(244, 166, 166, 0.08); 
+    }
+    .kst-section-header { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .kst-section-kicker { 
+      font-size: 12px; 
+      letter-spacing: .12em; 
+      color: var(--kst-subtext) !important; 
+      text-transform: uppercase; 
+    }
+
+    /* Hero Section Styling */
+    #kst-basic-info {
+      background: linear-gradient(135deg, var(--kst-bg) 0%, #FDF8F8 100%);
+      border: 1px solid rgba(244, 166, 166, 0.3);
+    }
+    
+    .kst-hl {
+      font-weight: 200;
+      font-size: 60px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+    }
+
+    .kst-sp {
+      font-weight: 400;
+      font-size: 28px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: -14px;
+      margin-bottom: 30px;
+      opacity: 90%;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+    }
+
+    .kst-muted { color: var(--kst-subtext) !important; }
+    .kst-accent { color: var(--kst-accent) !important; }
+
+    /* Cards & blocks */
+    .kst-card { 
+      background: var(--kst-elev); 
+      border: 1px solid #F0F0F0; 
+      border-radius: 18px; 
+      padding: 18px; 
+      margin: 12px 0; 
+      box-shadow: 0 4px 12px rgba(244, 166, 166, 0.05);
+      display: flex; 
+      flex-direction: column; 
+      gap: 12px; 
+    }
+    .kst-badges { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 8px; 
+      margin: 14px 0 20px;
+    }
+    .kst-badge { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px; 
+      border-radius: 999px; 
+      padding: 8px 14px; 
+      font-size: 12px; 
+      border: 1px solid #E0E0E0; 
+      background: #F5F5F5; 
+      font-weight: 600; 
+    }
+    .kst-badge.kst-brand { 
+      border: 1px solid var(--kst-accent); 
+      background: var(--kst-accent);
+      color: #FFFFFF !important; 
+    }
+    .kst-badge.kst-key { 
+      border: 1px solid var(--kst-accent-2); 
+      background: var(--kst-accent-2);
+      color: #FFFFFF !important; 
+    }
+
+    /* Lists */
+    .kst-list-vert {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      padding-left: 0 !important; /* 추가하기 */
+    }
+    .kst-list-vert li { 
+      background: var(--kst-elev); 
+      border: 1px solid #F0F0F0; 
+      border-radius: 12px; 
+      padding: 12px; 
+      list-style: none; 
+    }
+    .kst-kv { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    .kst-kv .kst-k { color: var(--kst-subtext) !important; font-size: 12px; }
+    .kst-kv .kst-v { font-weight: 600; color: var(--kst-text) !important; }
+
+    /* Definition list + chips */
+    .kst-dl { margin: 0; }
+    .kst-dl dt { 
+      font-weight: 800; 
+      margin-top: 16px; 
+      color: var(--kst-text) !important;
+      font-size: 16px;
+    }
+    .kst-dl dd { margin: 8px 0 0 0; }
+    .kst-chipset { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .kst-chip { 
+      font-size: 11px; 
+      padding: 8px 14px; 
+      border-radius: 999px; 
+      border: 1px solid rgba(244, 166, 166, 0.4);
+      background: rgba(244, 166, 166, 0.1);
+      color: #B85555 !important; 
+      font-weight: 600;
+    }
+
+    /* Images / media blocks */
+    .kst-image-block, .kst-chart-block, .kst-video-block { 
+      position: relative; 
+      border-radius: 18px; 
+      overflow: hidden; 
+      background: var(--kst-elev); 
+      border: 1px dashed #E0E0E0; 
+      min-height: 180px; 
+      display: grid; 
+      place-items: center;
+    }
+    .kst-image-block img, .kst-chart-block img { 
+      width: 100%; 
+      height: auto; 
+      object-fit: cover; 
+      display: block; 
+    }
+    .kst-img-label { 
+      position: absolute; 
+      bottom: 12px; 
+      left: 12px; 
+      font-size: 11px; 
+      background: rgba(255, 255, 255, 1);
+      color: #666666 !important;
+      font-weight: 700;
+      border: 1px solid #F0F0F0;
+      padding: 6px 12px; 
+      border-radius: 999px; 
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Auto-hide empty media slots */
+    .kst-image-block:not(:has(img[src])) { display: none; }
+    .kst-image-block:has(img[src=""]) { display: none; }
+    .kst-chart-block:not(:has(img[src])) { display: none; }
+    .kst-chart-block:has(img[src=""]) { display: none; }
+    .kst-video-block:not(:has(video[src])) { display: none; }
+    .kst-video-block:has(video[src=""]) { display: none; }
+
+    /* Table wrapper (horizontal scroll only inside) */
+    .kst-table-wrap { 
+      overflow-x: auto; 
+      -webkit-overflow-scrolling: touch; 
+      border: 1px solid #F0F0F0; 
+      border-radius: 12px; 
+    }
+    .kst-table { 
+      min-width: 600px; 
+      border-collapse: collapse; 
+      width: 100%; 
+      background: var(--kst-elev); 
+      table-layout: auto !important;
+    }
+    .kst-table th, .kst-table td { 
+      text-align: left; 
+      padding: 12px; 
+      border-bottom: 1px solid #F0F0F0; 
+      white-space: nowrap !important;
+    }
+    .kst-table td { 
+      background-color: #FFF;
+    }
+    .kst-table th { 
+      color: var(--kst-accent) !important; 
+      font-weight: 700; 
+    }
+    .kst-table tr:hover { background: #FAFAFA; }
+
+    /* Scrollbar always visible (webkit) */
+    .kst-table-wrap::-webkit-scrollbar { height: 10px; }
+    .kst-table-wrap::-webkit-scrollbar-thumb { background: #E0E0E0; border-radius: 8px; }
+    .kst-table-wrap::-webkit-scrollbar-track { background: #F0F0F0; }
+
+    /* Numbered steps */
+    .kst-steps { display: grid; gap: 16px; counter-reset: kst-step; }
+    .kst-step { position: relative; padding-left: 54px; }
+    .kst-step::before {
+      counter-increment: kst-step;
+      content: counter(kst-step);
+      position: absolute; left: 0; top: 0;
+      width: 40px; height: 40px; display: grid; place-items: center;
+      border-radius: 999px; 
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%); 
+      color: #FFFFFF !important; 
+      border: none;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(244, 166, 166, 0.3);
+    }
+
+    /* Details / FAQ */
+    .kst-accordion { 
+      border: 1px solid #F0F0F0; 
+      border-radius: 12px; 
+      background: var(--kst-elev); 
+      overflow: hidden; 
+    }
+    .kst-accordion details { border-bottom: 1px solid #F0F0F0; }
+    .kst-accordion details:last-child { border-bottom: 0; }
+    .kst-accordion summary { 
+      cursor: pointer; 
+      padding: 14px; 
+      list-style: none; 
+      color: var(--kst-text) !important; 
+    }
+    .kst-accordion summary::-webkit-details-marker { display: none; }
+    .kst-accordion .kst-qa { 
+      padding: 0 14px 14px 14px; 
+      color: var(--kst-subtext) !important; 
+    }
+
+    /* Callouts */
+    .kst-callout { 
+      border-radius: 12px; 
+      padding: 12px; 
+      border: 1px solid #F0F0F0; 
+      background: #FAFAFA; 
+    }
+    .kst-callout.kst-danger { 
+      border-color: #FED7D7; 
+      background: #FFF5F5; 
+      color: #C53030 !important; 
+    }
+    .kst-callout.kst-warning { 
+      border-color: #FEEBC8; 
+      background: #FFFBF0; 
+      color: #DD6B20 !important; 
+    }
+    .kst-callout.kst-success { 
+      border-color: #C6F6D5; 
+      background: #F0FFF4; 
+      color: #276749 !important; 
+    }
+  </style>
+
+  <div class="kst-container">
+
+    <section id="kst-basic-info" class="kst-section">
+      <div class="kst-section-header">
+        <div class="kst-section-kicker">Premium Skin Booster</div>
+      </div>
+      <h1 class="kst-hl">LAPUROON AURORA Super</h1>
+      <h2 class="kst-sp" style="margin-top: -20px !important;">2.5mL x 2 Syringes</h2>
+      <p class="kst-muted">Intensive skin regeneration and deep hydration formula for radiant, youthful skin with lasting aurora glow effect</p>
+
+      <div class="kst-badges" aria-label="Product Badges">
+        <span class="kst-badge kst-brand">AURORA SUPER</span>
+        <span class="kst-badge">PROFESSIONAL USE</span>
+        <span class="kst-badge kst-key">2% PDRN</span>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="LAPUROON AURORA Super product packaging and syringes" />
+          <span class="kst-img-label">Product Package</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Sterile, injectable solution in pre-filled syringe format for professional treatments</p>
+      </div>
+    </section>
+
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Active Ingredients</span></div>
+      <dl class="kst-dl">
+        <dt>Primary PDRN Complex</dt>
+        <dd>High-concentration PDRN (Polydeoxyribonucleotide) derived from salmon DNA for intensive skin regeneration and tissue repair.</dd>
+        <div class="kst-chipset">
+          <span class="kst-chip">PDRN 2%</span>
+          <span class="kst-chip">Hyaluronic Acid 1%</span>
+        </div>
+
+        <dt>Revitalizing Enhancement System</dt>
+        <dd>Synergistic blend of peptides, amino acids, vitamins, minerals, and retinol for comprehensive skin rejuvenation.</dd>
+        <div class="kst-chipset">
+          <span class="kst-chip">Peptides Complex</span>
+          <span class="kst-chip">Amino Acids</span>
+          <span class="kst-chip">Vitamins & Minerals</span>
+          <span class="kst-chip">Retinol</span>
+        </div>
+      </dl>
+
+      <ul class="kst-list-vert" style="margin-top:10px">
+        <li><strong class="kst-accent">Deep Penetration</strong><br/><span class="kst-muted">Advanced formulation allows active ingredients to penetrate deep into the dermis for maximum effect.</span></li>
+        <li><strong class="kst-accent">Skin Barrier Strengthening</strong><br/><span class="kst-muted">Fortifies natural skin strength and promotes long-lasting nourishment from within.</span></li>
+        <li><strong class="kst-accent">Next-Generation PDRN</strong><br/><span class="kst-muted">Innovative formulation designed to enhance PDRN effectiveness for vivid, instantly noticeable results.</span></li>
+      </ul>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="PDRN molecular structure and skin penetration diagram" />
+        <span class="kst-img-label">Ingredient Technology</span>
+      </div>
+    </section>
+
+    <section id="kst-benefits" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Expected Efficacy</span></div>
+
+        <ul class="kst-list-vert" aria-label="Treatment benefits" style="margin-top: 20px !important;">
+          <li><strong class="kst-accent">Intense Hydration</strong><br/><span class="kst-muted">Deep skin hydration and nourishment for improved texture and elasticity</span></li>
+          <li><strong class="kst-accent">Skin Regeneration</strong><br/><span class="kst-muted">Promotion of natural skin regeneration and tissue repair processes</span></li>
+          <li><strong class="kst-accent">Anti-Aging Effects</strong><br/><span class="kst-muted">Reduction of fine lines and wrinkles with improved skin tone and texture</span></li>
+          <li><strong class="kst-accent">Aurora Glow</strong><br/><span class="kst-muted">Overall brightening effect with lasting radiance and luminous appearance</span></li>
+        </ul>
+        <div class="kst-badges" style="margin-top:10px">
+          <span class="kst-badge kst-key">Anti-Wrinkle</span>
+          <span class="kst-badge kst-key">Deep Hydration</span>
+          <span class="kst-badge kst-key">Radiance Boost</span>
+        </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="Before treatment - showing skin concerns" />
+          <span class="kst-img-label">Before Treatment</span>
+        </div>
+        <div class="kst-image-block" style="margin-top:10px">
+          <img src="" alt="After AURORA Super treatment results" />
+          <span class="kst-img-label">After Treatment</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Visible improvement in skin texture, hydration, and radiance following recommended treatment protocol.</p>
+      </div>
+    </section>
+
+    <section id="kst-howto" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Treatment Protocol</span></div>
+
+      <div class="kst-steps" style="margin-top: 20px !important;">
+        <div class="kst-step"><strong>Treatment Planning</strong><br/><span class="kst-muted">Recommended cycle of 3-5 sessions spaced 2-4 weeks apart for optimal results</span></div>
+        <div class="kst-step"><strong>Application Method</strong><br/><span class="kst-muted">Direct syringe injection, mesotherapy, or microneedling (MTS) application</span></div>
+        <div class="kst-step"><strong>Treatment Areas</strong><br/><span class="kst-muted">Suitable for entire face, neck, décolleté, and back of hands</span></div>
+        <div class="kst-step"><strong>Post-Treatment Care</strong><br/><span class="kst-muted">Follow professional aftercare guidelines for maximum effectiveness and longevity</span></div>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Recommended Sessions</div>
+            <div class="kst-v">3-5 treatments</div>
+          </div>
+          <div>
+            <div class="kst-k">Session Interval</div>
+            <div class="kst-v">2-4 weeks apart</div>
+          </div>
+          <div>
+            <div class="kst-k">Application Methods</div>
+            <div class="kst-v">Injection / Mesotherapy / Microneedling</div>
+          </div>
+          <div>
+            <div class="kst-k">Total Volume</div>
+            <div class="kst-v">5.0mL (2 x 2.5mL syringes)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="Treatment areas demonstration on face and neck" />
+        <span class="kst-img-label">Treatment Areas</span>
+      </div>
+    </section>
+
+    <section id="kst-comparison" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Product Comparison</span></div>
+
+      <div class="kst-table-wrap" role="region" aria-label="AURORA product comparison table" style="margin-top: 20px !important;">
+        <table class="kst-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Key Ingredients</th>
+              <th>Skin Type</th>
+              <th>Main Benefits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>AURORA Super</strong></td>
+              <td>PDRN 2%, HA 1%, Peptides, Retinol</td>
+              <td>Dry, rough, aging skin</td>
+              <td>Intensive regeneration, anti-wrinkle</td>
+            </tr>
+            <tr>
+              <td><strong>AURORA Vivid</strong></td>
+              <td>PDRN 0.2%, HA 1%, Glutathione</td>
+              <td>Dull, uneven skin tone</td>
+              <td>Brightening, antioxidant protection</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+        <p><strong class="kst-accent">Which Product Is Right for You?</strong></p>
+        <ul class="kst-list-vert">
+          <li><strong>Choose AURORA Super</strong> for intensive skin regeneration, deep hydration, and anti-aging effects on dry, rough, or aging skin</li>
+          <li><strong>Choose AURORA Vivid</strong> for skin brightening, antioxidant protection, and radiance enhancement on dull or uneven skin tone</li>
+        </ul>
+    </section>
+
+    <section id="kst-safety" class="kst-section">
+      <div class="kst-section-header" style="margin-bottom: 20px !important;"><span class="kst-section-kicker">Safety & Storage</span></div>
+      
+      <div class="kst-callout kst-warning">
+        <strong>Professional Use Only</strong> — This product is intended for professional use by qualified practitioners only.
+      </div>
+      
+      <div class="kst-callout" style="margin-top:10px">
+        <strong>Storage Instructions</strong> — Store in a cool, dry place away from direct sunlight. Use immediately after opening.
+      </div>
+
+      <ul class="kst-list-vert" style="margin-top:10px">
+        <li><strong class="kst-accent">Patch Test Recommended</strong><br/><span class="kst-muted">Perform patch test for individuals with sensitive skin before full treatment</span></li>
+        <li><strong class="kst-accent">Contraindications</strong><br/><span class="kst-muted">Avoid treating areas with active infections, inflammation, or breakouts</span></li>
+        <li><strong class="kst-accent">Storage Conditions</strong><br/><span class="kst-muted">Keep in cool, dark place and use immediately after opening for optimal efficacy</span></li>
+      </ul>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="Proper storage and handling instructions" />
+        <span class="kst-img-label">Storage Guidelines</span>
+      </div>
+    </section>
+
+  </div>
+</div>

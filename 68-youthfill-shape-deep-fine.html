@@ -1,0 +1,821 @@
+<style>
+  /* =========================================
+   YOUTHFILL Shopify Mobile Template Styles
+  ========================================== */
+
+  /* Basic Reset with kst- prefix */
+  .kst-main-container *, 
+  .kst-main-container *::before, 
+  .kst-main-container *::after { 
+    box-sizing: border-box !important; 
+  }
+  
+  .kst-main-container {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif !important;
+    color: var(--kst-text-primary) !important;
+    line-height: 1.6 !important;
+    background: #f1f2f5 !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    isolation: isolate !important;
+  }
+
+  /* Auto-hide image blocks with CSS :has() */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none !important;
+  }
+
+  .kst-main-container img, 
+  .kst-main-container video { 
+    max-width: 100% !important; 
+    height: auto !important; 
+    display: block !important;
+    object-fit: cover !important;
+  }
+  
+  /* =========================================
+   Design Tokens - YOUTHFILL Brand Colors
+  ========================================== */
+  .kst-main-container {
+    --kst-main-color: #55575b;
+    --kst-sub-color: #8b8e93;
+    --kst-text-primary: #47494e;
+    --kst-text-secondary: #4d5055;
+    --kst-background: #e6eaf1;
+    --kst-badge-bg: #5e6066;
+    --kst-badge-text: #F0F0F0;
+    --kst-badge-hover: #FFFFFF;
+    --kst-shape-color: #35C8CD;
+    --kst-deep-color: #8F69E8;
+    --kst-fine-color: #94C605;
+    --kst-card-bg: #FFFFFF;
+    --kst-border: #b5bbc9;
+    --kst-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  /* =========================================
+   Container
+  ========================================== */
+  .kst-container {
+    padding: 16px 12px !important;
+  }
+
+  /* =========================================
+   Sections
+  ========================================== */
+  .kst-section {
+    position: relative !important;
+    background: var(--kst-card-bg) !important;
+    border: 1px solid var(--kst-border) !important;
+    padding: 20px 16px !important;
+    margin: 16px 8px !important;
+    box-shadow: var(--kst-shadow) !important;
+    overflow: hidden !important;
+  }
+
+  .kst-section::before {
+    content: "" !important;
+    position: absolute !important; 
+    inset: -1px -1px auto -1px !important; 
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--kst-main-color), var(--kst-sub-color)) !important;
+    opacity: .8 !important;
+  }
+
+  .kst-section-title {
+    margin: 0 0 12px !important;
+    font-weight: 400 !important;
+    font-size: 1.25rem !important;
+    letter-spacing: .2px !important;
+    color: var(--kst-text-primary) !important;
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  
+  .kst-section-sub { 
+    margin: 0 0 14px !important; 
+    color: var(--kst-text-secondary) !important; 
+    font-size: .9rem !important; 
+  }
+  
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: var(--kst-card-bg) !important;
+    border: 1px solid var(--kst-border) !important;
+    padding: 20px 16px !important;
+    position: relative !important; 
+    overflow: hidden !important;
+    margin: 12px 8px !important;
+    box-shadow: var(--kst-shadow) !important;
+  }
+
+  .kst-hero::before {
+    content: "" !important;
+    position: absolute !important; 
+    inset: -20% -10% auto auto !important; 
+    width: 200px !important; 
+    height: 200px !important;
+    background: radial-gradient(circle, rgba(82,82,82,0.15), rgba(139,139,139,0.1)) !important; 
+    filter: blur(40px) !important; 
+    opacity: .7 !important;
+    animation: kst-hero-glow 18s linear infinite !important;
+  }
+
+  @keyframes kst-hero-glow {
+    0% { transform: translate(0,0) rotate(0deg) !important; }
+    50% { transform: translate(-10px, 5px) rotate(8deg) !important; }
+    100% { transform: translate(0,0) rotate(0deg) !important; }
+  }
+
+  .kst-labels { 
+    display: flex !important; 
+    gap: 6px !important; 
+    flex-wrap: wrap !important; 
+    margin-bottom: 12px !important;
+  }
+
+  .kst-badge {
+    display: inline-flex !important; 
+    align-items: center !important; 
+    gap: 4px !important;
+    padding: 6px 10px !important;
+    background: var(--kst-badge-bg) !important;
+    border: 1px solid var(--kst-border) !important;
+    color: var(--kst-badge-text) !important; 
+    font-size: .75rem !important; 
+    font-weight: 400 !important;
+  }
+
+  .kst-badge.kst-shape { 
+    background: var(--kst-shape-color) !important;
+    color: var(--kst-badge-hover) !important;
+    border-color: var(--kst-shape-color) !important;
+  }
+  
+  .kst-badge.kst-deep { 
+    background: var(--kst-deep-color) !important;
+    color: var(--kst-badge-hover) !important;
+    border-color: var(--kst-deep-color) !important;
+  }
+
+  .kst-badge.kst-fine { 
+    background: var(--kst-fine-color) !important;
+    color: var(--kst-badge-hover) !important;
+    border-color: var(--kst-fine-color) !important;
+  }
+
+  .kst-badge.kst-brand { 
+    background: var(--kst-main-color) !important;
+    color: var(--kst-badge-hover) !important;
+    border-color: var(--kst-main-color) !important;
+  }
+
+  .kst-hero-title {
+    margin: 0 0 8px !important;
+    font-weight: 600 !important;
+    font-size: 2rem !important;
+    letter-spacing: .2px !important;
+    color: var(--kst-text-primary) !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .kst-hero-spec {
+    margin: -8px 0 15px !important;
+    font-weight: 500 !important;
+    font-size: 1.4rem !important;
+    letter-spacing: .1px !important;
+    color: var(--kst-main-color) !important;
+  }
+
+  .kst-hero p { 
+    margin: 0 0 10px !important; 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-highlight {
+    border: 1px solid var(--kst-border) !important;
+    background: var(--kst-background) !important;
+    padding: 10px 12px !important; 
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .kst-card {
+    background: var(--kst-card-bg) !important; 
+    border: 1px solid var(--kst-border) !important; 
+    padding: 14px !important; 
+    box-shadow: var(--kst-shadow) !important; 
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease !important; 
+    margin: 8px 0 !important;
+  }
+
+  .kst-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1) !important;
+    border-color: var(--kst-main-color) !important;
+  }
+
+  .kst-card h4 { 
+    margin: 0 0 8px !important; 
+    font-size: .95rem !important; 
+    color: var(--kst-text-primary) !important; 
+    font-weight: 500 !important;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li { 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-muted { 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  /* =========================================
+   Image Blocks
+  ========================================== */
+  .kst-image-block {
+    position: relative !important;
+    background: var(--kst-background) !important;
+    border: 1px dashed var(--kst-border) !important;
+    aspect-ratio: 16/9 !important;
+    display: grid !important; 
+    place-items: center !important;
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 500 !important;
+    overflow: hidden !important;
+    margin: 8px 0 !important;
+  }
+
+  .kst-chart-block {
+    position: relative !important;
+    background: var(--kst-background) !important;
+    border: 1px dashed var(--kst-border) !important;
+    aspect-ratio: 4/3 !important;
+    display: grid !important; 
+    place-items: center !important;
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 600 !important;
+    overflow: hidden !important;
+    margin: 8px 0 !important;
+  }
+
+  /* =========================================
+   Definition Lists & Chips
+  ========================================== */
+  .kst-def {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important; 
+    margin: 0 !important;
+  }
+
+  .kst-def-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .kst-def dt { 
+    font-weight: 600 !important; 
+    color: var(--kst-text-primary) !important; 
+  }
+
+  .kst-def dd { 
+    margin: 0 !important; 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-chips { 
+    display: flex !important; 
+    flex-wrap: wrap !important; 
+    gap: 6px !important; 
+    margin: 10px 0 !important;
+  }
+
+  .kst-chip {
+    background: var(--kst-background) !important;
+    color: var(--kst-text-primary) !important; 
+    border: 1px solid var(--kst-border) !important;
+    padding: 5px 8px !important; 
+    font-size: .75rem !important; 
+    font-weight: 500 !important;
+  }
+
+  /* =========================================
+   Table
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border: 1px solid var(--kst-border) !important;
+    background: var(--kst-card-bg) !important;
+    margin: 8px 0 !important;
+    box-shadow: var(--kst-shadow) !important;
+  }
+
+  .kst-table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    color: var(--kst-text-primary) !important;
+    table-layout: auto !important;
+  }
+
+  .kst-table th, .kst-table td {
+    padding: 10px 12px !important; 
+    border-bottom: 1px solid var(--kst-border) !important;
+    border-left: 1px solid #00000000;
+    border-right: 1px solid #00000000;
+    text-align: left !important; 
+    vertical-align: top !important;
+    white-space: nowrap !important;
+  }
+
+  .kst-table thead th {
+    position: sticky !important; 
+    top: 0 !important;
+    background: var(--kst-background) !important;
+    z-index: 1 !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar { 
+    height: 6px !important; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-track { 
+    background: var(--kst-border) !important; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-thumb { 
+    background: var(--kst-main-color) !important; 
+  }
+
+  /* =========================================
+   Callouts & KPI
+  ========================================== */
+  .kst-callout {
+    border: 1px solid var(--kst-main-color) !important;
+    background: rgba(82,82,82,.1) !important;
+    color: var(--kst-text-primary) !important;
+    padding: 12px !important;
+    margin: 8px 0 !important;
+  }
+
+  .kst-callout strong { 
+    color: var(--kst-main-color) !important; 
+  }
+
+  .kst-kpi {
+    font-size: 1.6rem !important;
+    font-weight: 600 !important; 
+    color: var(--kst-text-primary) !important;
+  }
+
+  .kst-kpi .kst-unit { 
+    font-size: .8rem !important; 
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 500 !important; 
+    margin-left: 4px !important; 
+  }
+
+  .kst-label-value { 
+    display: flex !important; 
+    flex-direction: column !important;
+    gap: 4px !important; 
+    color: var(--kst-text-primary) !important; 
+    margin-bottom: 8px !important;
+  }
+
+  .kst-label-value .kst-label { 
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 500 !important;
+  }
+
+  /* Motion Preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .kst-main-container * { 
+      animation: none !important; 
+      transition: none !important; 
+    }
+  }
+</style>
+
+<div class="kst-main-container">
+  <header class="kst-container">
+    <div class="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge kst-brand">Authentic Derma</span>
+        <span class="kst-badge">HA Filler</span>
+        <span class="kst-badge">Cross-linked</span>
+        <span class="kst-badge">24mg/ml</span>
+      </div>
+      <h1 class="kst-hero-title">YOUTHFILL®</h1>
+      <h2 class="kst-hero-spec"><span style="color: #94C605;">FINE</span> / <span style="color: #8F69E8;">DEEP</span> / <span style="color: #35C8CD;">SHAPE</span></h2>
+      <p>Advanced cross-linked hyaluronic acid dermal fillers with lidocaine for enhanced patient comfort</p>
+      <div class="kst-highlight">Cross-linked HA 24mg/ml with 0.3% Lidocaine - Three specialized formulations for comprehensive facial treatments</div>
+      <div class="kst-image-block">[Main Product Image - YOUTHFILL Series]</div>
+    </div>
+  </header>
+
+  <main class="kst-container">
+
+    <section class="kst-section" id="kst-product-overview">
+      <h2 class="kst-section-title">Product Overview</h2>
+      <p class="kst-section-sub">Professional-grade cross-linked hyaluronic acid fillers with lidocaine, featuring HoPE technology for optimal results</p>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Package Contents</h4>
+          <ul>
+            <li>1.1ml x 1 pre-filled syringe</li>
+            <li>Cross-linked Hyaluronic Acid 24mg/ml</li>
+            <li>Lidocaine 0.3% for enhanced comfort</li>
+            <li>Available in three specialized viscosities</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Key Features</h4>
+          <div class="kst-chips">
+            <span class="kst-chip">HoPE Technology</span>
+            <span class="kst-chip">Monophasic Gel</span>
+            <span class="kst-chip">With Lidocaine</span>
+            <span class="kst-chip">Up to 12 Months</span>
+          </div>
+        </div>
+      </div>
+      <div class="kst-image-block">[Product Overview Image - Three Variants]</div>
+    </section>
+
+    <section class="kst-section" id="kst-composition">
+      <h2 class="kst-section-title">Composition & Technical Specifications</h2>
+      <div class="kst-def">
+        <div class="kst-def-item">
+          <dt>Active Ingredients</dt>
+          <dd>Cross-linked Hyaluronic Acid and Lidocaine</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Hyaluronic Acid Concentration</dt>
+          <dd>
+            <div class="kst-chips">
+              <span class="kst-badge kst-brand">24mg/ml</span>
+            </div>
+          </dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Lidocaine Concentration</dt>
+          <dd>0.3% for enhanced patient comfort</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Cross-linking Technology</dt>
+          <dd>HoPE (Homogeneous Process and Equilibration) technology with BDDE</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Gel Structure</dt>
+          <dd>Monophasic gel type</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Formulation</dt>
+          <dd>Single syringe type, 1.1ml per syringe</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Storage Conditions</dt>
+          <dd>Store at 1-30°C</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Shelf Life</dt>
+          <dd>24 months</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Duration</dt>
+          <dd>Results typically last up to 12 months</dd>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-product-variants">
+      <h2 class="kst-section-title">Product Variants Comparison</h2>
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Product Comparison Table">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Viscosity</th>
+              <th>Treatment Areas</th>
+              <th>Injection Layer</th>
+              <th>Needle Gauge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="kst-badge kst-fine">FINE</span></td>
+              <td>Low (Soft)</td>
+              <td>Fine lines, periorbital area, forehead, lip contouring</td>
+              <td>Superficial to upper dermis</td>
+              <td>30G needle</td>
+            </tr>
+            <tr>
+              <td><span class="kst-badge kst-deep">DEEP</span></td>
+              <td>Medium</td>
+              <td>Nasolabial folds, marionette lines, lip augmentation</td>
+              <td>Mid to deep dermis</td>
+              <td>27G needle</td>
+            </tr>
+            <tr>
+              <td><span class="kst-badge kst-shape">SHAPE</span></td>
+              <td>High (Hardest)</td>
+              <td>Cheeks, chin, jawline, nose, facial contouring</td>
+              <td>Deep dermis to subcutis</td>
+              <td>26G needle</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kst-image-block">[Treatment Areas Diagram]</div>
+    </section>
+
+    <section class="kst-section" id="kst-fine">
+      <h2 class="kst-section-title">YOUTHFILL® FINE</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-fine">FINE</span>
+        <span class="kst-badge">Fine Lines</span>
+        <span class="kst-badge">Lip Contouring</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">Designed for delicate areas requiring precise treatment. Ideal for fine lines, periorbital areas, and subtle lip contouring with natural-looking results.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Fine Lines</span>
+            <span class="kst-chip">Periorbital Area</span>
+            <span class="kst-chip">Forehead Lines</span>
+            <span class="kst-chip">Lip Contouring</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Key Benefits</h4>
+          <ul>
+            <li>Soft gel consistency for smooth injection</li>
+            <li>Perfect for delicate facial areas</li>
+            <li>Natural-looking enhancement</li>
+            <li>Minimal discomfort with lidocaine</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Technical Details</h4>
+          <div class="kst-label-value">
+            <div class="kst-label">Injection Layer</div>
+            <div>Superficial to upper dermis</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Recommended Needle</div>
+            <div>30G needle</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Duration</div>
+            <div>Up to 12 months</div>
+          </div>
+        </div>
+      </div>
+      <div class="kst-image-block">[YOUTHFILL FINE Treatment Areas]</div>
+    </section>
+
+    <section class="kst-section" id="kst-deep">
+      <h2 class="kst-section-title">YOUTHFILL® DEEP</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-deep">DEEP</span>
+        <span class="kst-badge">Deep Wrinkles</span>
+        <span class="kst-badge">Lip Augmentation</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">Medium viscosity filler that effectively corrects medium to deep wrinkles and folds. Provides excellent volume for lip augmentation and facial contour enhancement.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Nasolabial Folds</span>
+            <span class="kst-chip">Marionette Lines</span>
+            <span class="kst-chip">Lip Augmentation</span>
+            <span class="kst-chip">Temple Area</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Key Benefits</h4>
+          <ul>
+            <li>Optimal balance of viscosity and elasticity</li>
+            <li>Long-lasting volume enhancement</li>
+            <li>Natural feel and appearance</li>
+            <li>Effective for deeper facial folds</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Technical Details</h4>
+          <div class="kst-label-value">
+            <div class="kst-label">Injection Layer</div>
+            <div>Mid to deep dermis</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Recommended Needle</div>
+            <div>27G needle</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Duration</div>
+            <div>Up to 12 months</div>
+          </div>
+        </div>
+      </div>
+      <div class="kst-image-block">[YOUTHFILL DEEP Treatment Guide]</div>
+    </section>
+
+    <section class="kst-section" id="kst-shape">
+      <h2 class="kst-section-title">YOUTHFILL® SHAPE</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-shape">SHAPE</span>
+        <span class="kst-badge">Facial Contouring</span>
+        <span class="kst-badge">Volumetric Modeling</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">High-density filler designed for robust volumetric modeling and defining facial contours. Provides exceptional support and lifting capacity for advanced facial sculpting.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Cheeks</span>
+            <span class="kst-chip">Chin</span>
+            <span class="kst-chip">Jawline</span>
+            <span class="kst-chip">Nose</span>
+            <span class="kst-chip">Cheekbones</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Key Benefits</h4>
+          <ul>
+            <li>Highest density in YOUTHFILL line</li>
+            <li>Exceptional structural support</li>
+            <li>Strong lifting capacity</li>
+            <li>Ideal for advanced facial contouring</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Technical Details</h4>
+          <div class="kst-label-value">
+            <div class="kst-label">Injection Layer</div>
+            <div>Deep dermis to subcutaneous tissue</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Recommended Needle</div>
+            <div>26G needle</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Duration</div>
+            <div>Up to 12 months</div>
+          </div>
+        </div>
+      </div>
+      <div class="kst-image-block">[YOUTHFILL SHAPE Facial Contouring Guide]</div>
+    </section>
+
+    <section class="kst-section" id="kst-choosing-guide">
+      <h2 class="kst-section-title">Which Product Is Right for Me?</h2>
+      <p class="kst-section-sub">Choose the appropriate version based on your treatment area and desired outcome for customized results</p>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>For Fine Lines & Delicate Areas</h4>
+          <p class="kst-muted">Choose <strong>FINE</strong> for delicate areas with fine lines, periorbital treatment, forehead lines, and subtle lip contouring requiring natural-looking enhancement</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-fine">FINE</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>For Medium to Deep Wrinkles</h4>
+          <p class="kst-muted">Choose <strong>DEEP</strong> for nasolabial folds, marionette lines, lip augmentation, and areas requiring medium-density volume restoration with balanced viscosity</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-deep">DEEP</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>For Facial Contouring & Volumetric Modeling</h4>
+          <p class="kst-muted">Choose <strong>SHAPE</strong> for cheeks, chin, jawline, nose contouring, and areas requiring strong structural support for advanced facial sculpting</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-shape">SHAPE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-efficacy">
+      <h2 class="kst-section-title">Expected Efficacy</h2>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Wrinkle Improvement</h4>
+          <p class="kst-muted">Improvement of fine, medium, and deep wrinkles with natural-looking results</p>
+        </div>
+        <div class="kst-card">
+          <h4>Volumetric Enhancement</h4>
+          <p class="kst-muted">Restore lost facial volume and enhance facial contours for improved definition</p>
+        </div>
+        <div class="kst-card">
+          <h4>Facial Asymmetry Correction</h4>
+          <p class="kst-muted">Correction of facial asymmetry and volume loss for enhanced facial harmony</p>
+        </div>
+      </div>
+      <div class="kst-image-block">[Treatment Results Comparison]</div>
+    </section>
+
+    <section class="kst-section" id="kst-treatment-protocol">
+      <h2 class="kst-section-title">Treatment Guidelines</h2>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Injection Technique</h4>
+          <p class="kst-muted">Injection into dermal and subcutaneous layers, depending on the version and target area</p>
+        </div>
+        <div class="kst-card">
+          <h4>Treatment Cycle</h4>
+          <div class="kst-label-value">
+            <div class="kst-label">Duration</div>
+            <div>Up to 12 months</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Repeat Procedure</div>
+            <div>Recommended as needed based on individual response and product version</div>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Needle Recommendations</h4>
+          <ul>
+            <li><strong>FINE:</strong> 30G needle for superficial injections</li>
+            <li><strong>DEEP:</strong> 27G needle for mid to deep dermis</li>
+            <li><strong>SHAPE:</strong> 26G needle for deep dermis to subcutis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-safety-storage">
+      <h2 class="kst-section-title">Safety Information & Storage</h2>
+      <div class="kst-callout">
+        <strong>Important Precautions</strong> — Do not use on pregnant or breastfeeding women. Avoid if you have a history of allergies to hyaluronic acid or lidocaine. Professional administration required.
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Storage Requirements</h4>
+          <ul>
+            <li>Store at 1-30°C temperature range</li>
+            <li>Keep in original packaging</li>
+            <li>Protect from direct sunlight</li>
+            <li>Do not freeze</li>
+            <li>24 months shelf life</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Safety Guidelines</h4>
+          <ul>
+            <li>Trained professional must perform procedure</li>
+            <li>Check for allergies before treatment</li>
+            <li>Follow proper injection techniques</li>
+            <li>Monitor patient response during treatment</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kst-image-block">[Precautions and Storage Infographics]</div>
+    </section>
+
+    <section class="kst-section" id="kst-technology">
+      <h2 class="kst-section-title">HoPE Technology</h2>
+      <p class="kst-section-sub">Advanced cross-linking technology for superior performance and safety</p>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Homogeneous Process and Equilibration</h4>
+          <p class="kst-muted">HoPE technology ensures uniform cross-linking with BDDE (1,4-Butanediol diglycidyl ether) for consistent gel structure and optimal performance</p>
+        </div>
+        <div class="kst-card">
+          <h4>Monophasic Gel Structure</h4>
+          <p class="kst-muted">Single-phase gel formulation provides smooth injection experience and natural integration with facial tissues</p>
+        </div>
+        <div class="kst-card">
+          <h4>Enhanced Patient Comfort</h4>
+          <p class="kst-muted">0.3% Lidocaine concentration reduces injection discomfort while maintaining product stability and efficacy</p>
+        </div>
+      </div>
+      <div class="kst-image-block">[HoPE Technology Diagram]</div>
+    </section>
+
+  </main>
+</div>

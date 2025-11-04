@@ -1,0 +1,930 @@
+<style>
+        :root {
+            --kst-main-color: #E91E63;
+            --kst-sub-color: #EE6091;
+            --kst-text-color: #000000;
+            --kst-secondary-text: #8E1A42;
+            --kst-background: #FFFFFF;
+            --kst-badge-bg: #E91E63;
+            --kst-badge-text: #FFFFFF;
+            --kst-badge-hover: #F8BBD0;
+        }
+
+        * {
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--kst-background);
+            color: var(--kst-text-color) !important;
+            padding: 16px 12px;
+            line-height: 1.4;
+        }
+        
+        .kst-hero-section {
+            text-align: center;
+            margin-bottom: 48px;
+            background: var(--kst-background);
+            border-radius: 16px;
+            padding: 32px 16px;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.08);
+        }
+        
+        .kst-product-title {
+            font-size: 36px !important;
+            font-weight: 700 !important;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 16px;
+            letter-spacing: -1.5px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .kst-product-spec {
+            font-size: 28px !important;
+            font-weight: 400 !important;
+            color: var(--kst-main-color) !important;
+            margin-top: -16px;
+            margin-bottom: 24px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-product-subtitle {
+            font-size: 18px !important;
+            color: var(--kst-secondary-text) !important;
+            font-weight: 400;
+            margin-bottom: 24px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-category-badge {
+            background: var(--kst-badge-bg);
+            color: var(--kst-badge-text) !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px !important;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kst-section-title {
+            font-size: 28px !important;
+            font-weight: 700 !important;
+            color: var(--kst-text-color) !important;
+            text-align: center;
+            margin: 48px 0 32px 0;
+            letter-spacing: -1px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card {
+            background: var(--kst-background);
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .kst-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(233, 30, 99, 0.12);
+        }
+        
+        .kst-card h3 {
+            font-size: 20px !important;
+            font-weight: 700 !important;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card p {
+            font-size: 14px !important;
+            color: var(--kst-secondary-text) !important;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .kst-card ul,
+        .kst-card ol {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+        
+        .kst-card ul li,
+        .kst-card ol li {
+            font-size: 14px !important;
+            color: var(--kst-secondary-text) !important;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .kst-specs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .kst-spec-item {
+            background: var(--kst-background);
+            border-radius: 12px;
+            padding: 20px 16px;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.08);
+            text-align: center;
+        }
+        
+        .kst-spec-icon {
+            width: 32px;
+            height: 32px;
+            background: #f2f2f7;
+            border-radius: 8px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .kst-spec-label {
+            font-size: 12px !important;
+            color: var(--kst-secondary-text) !important;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kst-spec-value {
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 4px;
+            line-height: 1.1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-spec-unit {
+            font-size: 12px !important;
+            color: var(--kst-secondary-text) !important;
+            font-weight: 500;
+        }
+        
+        .kst-spec-description {
+            font-size: 12px !important;
+            color: var(--kst-secondary-text) !important;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+        
+        .kst-spec-featured {
+            background: linear-gradient(135deg, var(--kst-main-color) 0%, var(--kst-sub-color) 100%);
+            color: var(--kst-badge-text) !important;
+        }
+        
+        .kst-spec-featured .kst-spec-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--kst-badge-text) !important;
+        }
+        
+        .kst-spec-featured .kst-spec-label,
+        .kst-spec-featured .kst-spec-value,
+        .kst-spec-featured .kst-spec-unit,
+        .kst-spec-featured .kst-spec-description {
+            color: var(--kst-badge-text) !important;
+        }
+        
+        .kst-ingredient-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .kst-ingredient-item {
+            background: var(--kst-background);
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.08);
+        }
+        
+        .kst-ingredient-badge {
+            background: var(--kst-badge-bg);
+            color: var(--kst-badge-text) !important;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 11px !important;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kst-ingredient-item:nth-child(2) .kst-ingredient-badge { 
+            background: var(--kst-sub-color); 
+            color: var(--kst-text-color) !important; 
+        }
+        .kst-ingredient-item:nth-child(3) .kst-ingredient-badge { 
+            background: var(--kst-badge-bg); 
+        }
+        
+        .kst-ingredient-name {
+            font-size: 20px !important;
+            font-weight: 700 !important;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 8px;
+            line-height: 1.2;
+            word-wrap: break-word;
+        }
+        
+        .kst-ingredient-description {
+            font-size: 14px !important;
+            color: var(--kst-secondary-text) !important;
+            line-height: 1.5;
+        }
+        
+        .kst-steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .kst-step-item {
+            background: var(--kst-background);
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.08);
+            text-align: center;
+        }
+        
+        .kst-step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--kst-main-color), var(--kst-sub-color));
+            color: var(--kst-badge-text) !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px !important;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+        
+        .kst-step-title {
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-step-description {
+            font-size: 14px !important;
+            color: var(--kst-secondary-text) !important;
+            line-height: 1.5;
+        }
+        
+        .kst-table-wrap {
+            background: var(--kst-background);
+            border-radius: 16px;
+            overflow-x: auto;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.08);
+            margin: 24px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f2f2f7;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: var(--kst-secondary-text);
+            border-radius: 3px;
+        }
+        
+        .kst-table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+            table-layout: auto !important;
+        }
+        
+        .kst-table-wrap th {
+            background: #f2f2f7;
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            color: var(--kst-text-color) !important;
+            border-bottom: 1px solid #d1d1d6;
+            white-space: nowrap !important;
+        }
+        
+        .kst-table-wrap td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f2f2f7;
+            font-size: 14px !important;
+            color: var(--kst-text-color) !important;
+            vertical-align: middle;
+        }
+        
+        .kst-table-wrap .kst-spec-category {
+            font-weight: 600 !important;
+            background: #f8f9fa;
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-table-wrap .kst-highlight-value {
+            background: var(--kst-main-color);
+            color: var(--kst-badge-text) !important;
+            font-weight: 600 !important;
+            border-radius: 8px;
+            padding: 6px 10px;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        
+        .kst-image-block {
+            background: var(--kst-background);
+            border-radius: 16px;
+            margin: 24px 0;
+            min-height: 200px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.08);
+        }
+        
+        .kst-image-block:not(:has(img)) {
+            display: none;
+        }
+        
+        .kst-image-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .kst-warning-section {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin: 32px 0;
+        }
+        
+        .kst-warning-title {
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            color: #856404 !important;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-warning-title::before {
+            content: '⚠️';
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        
+        .kst-warning-content {
+            font-size: 14px !important;
+            color: #856404 !important;
+            line-height: 1.6;
+        }
+        
+        .kst-warning-list {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+        
+        .kst-warning-list li {
+            margin-bottom: 8px;
+            font-size: 14px !important;
+            color: #856404 !important;
+        }
+        
+        .kst-definition-list {
+            background: var(--kst-background);
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.08);
+            margin: 16px 0;
+        }
+        
+        .kst-definition-list dt {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-definition-list dd {
+            font-size: 14px !important;
+            color: var(--kst-secondary-text) !important;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            margin-left: 0;
+        }
+        
+        .kst-badge {
+            background: #f2f2f7;
+            color: var(--kst-text-color) !important;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px !important;
+            font-weight: 500;
+            display: inline-block;
+            margin: 2px 4px 2px 0;
+        }
+        
+        .kst-badge-primary {
+            background: var(--kst-badge-bg);
+            color: var(--kst-badge-text) !important;
+        }
+        
+        .kst-badge-success {
+            background: var(--kst-sub-color);
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-value-highlight {
+            font-size: 32px !important;
+            font-weight: 800 !important;
+            background: linear-gradient(135deg, var(--kst-main-color), var(--kst-sub-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 16px 0;
+            line-height: 1.1;
+            text-align: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-mb-16 {
+            margin-bottom: 16px;
+        }
+        
+        .kst-mb-24 {
+            margin-bottom: 24px;
+        }
+        
+        .kst-mb-32 {
+            margin-bottom: 32px;
+        }
+    </style>
+
+    <div class="kst-main-container">
+        
+        <!-- Hero Section -->
+        <div class="kst-hero-section">
+            <div class="kst-category-badge">Botulinum Toxin Type A</div>
+            <h1 class="kst-product-title">MEDITOXIN</h1>
+            <h2 class="kst-product-spec">100 Units (1 Vial)</h2>
+            <div class="kst-product-subtitle">High-purity botulinum toxin for precise cosmetic and therapeutic applications</div>
+        </div>
+        
+        <!-- Basic Product Information -->
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-card">
+            <h3>High-Purity Botulinum Toxin Type A</h3>
+            <p>MEDITOXIN is a premium botulinum toxin type A product manufactured by Medytox Inc., designed for both cosmetic and therapeutic applications. This 100-unit formulation provides temporary muscle relaxation for wrinkle reduction and medical treatments through precise neuromuscular blockade.</p>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- MEDITOXIN 100U product vial and packaging image -->
+        </div>
+        
+        <!-- Technical Specifications -->
+        <div class="kst-specs-list">
+            <div class="kst-spec-item kst-spec-featured">
+                <div class="kst-spec-icon">⚗️</div>
+                <div class="kst-spec-label">Active Units</div>
+                <div class="kst-spec-value">100</div>
+                <div class="kst-spec-unit">Units</div>
+                <div class="kst-spec-description">Clostridium Botulinum Toxin Type A (Hall strain)</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🧪</div>
+                <div class="kst-spec-label">Formulation</div>
+                <div class="kst-spec-value">Lyophilized</div>
+                <div class="kst-spec-unit">Powder</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">📊</div>
+                <div class="kst-spec-label">Purity Level</div>
+                <div class="kst-spec-value">High</div>
+                <div class="kst-spec-unit">Grade</div>
+                <div class="kst-spec-description">Low resistance risk</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">📦</div>
+                <div class="kst-spec-label">Package Size</div>
+                <div class="kst-spec-value">1</div>
+                <div class="kst-spec-unit">Vial</div>
+            </div>
+        </div>
+        
+        <div class="kst-value-highlight">100 Units Per Vial</div>
+        
+        <!-- Detailed Specifications Table -->
+        <h2 class="kst-section-title">Technical Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>Details</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="kst-spec-category">Active Ingredient</td>
+                        <td>Clostridium Botulinum Toxin Type A (Hall strain)</td>
+                        <td>100 units per vial</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Supporting Ingredients</td>
+                        <td>Human Serum Albumin, Sodium Chloride</td>
+                        <td>Stabilizing agents</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Storage Temperature</td>
+                        <td><span class="kst-highlight-value">2-8°C or Below -5°C</span></td>
+                        <td>Refrigerated or frozen storage</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Reconstitution</td>
+                        <td>0.9% Preservative-free Saline</td>
+                        <td>2.5 mL recommended dilution</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Post-Reconstitution</td>
+                        <td>Use within 24 hours</td>
+                        <td>Store at 2-8°C after mixing</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Application Method</td>
+                        <td>Intramuscular injection</td>
+                        <td>Qualified medical professional required</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Ingredients and Composition -->
+        <h2 class="kst-section-title">Composition & Ingredients</h2>
+        
+        <div class="kst-ingredient-list">
+            <div class="kst-ingredient-item">
+                <div class="kst-ingredient-badge">Active</div>
+                <div class="kst-ingredient-name">Clostridium Botulinum Toxin Type A</div>
+                <div class="kst-ingredient-description">
+                    Hall strain botulinum toxin providing precise neuromuscular blockade through acetylcholine release inhibition. This high-purity formulation ensures consistent and predictable results for both cosmetic and therapeutic applications.
+                </div>
+            </div>
+            
+            <div class="kst-ingredient-item">
+                <div class="kst-ingredient-badge">Stabilizer</div>
+                <div class="kst-ingredient-name">Human Serum Albumin</div>
+                <div class="kst-ingredient-description">
+                    Essential stabilizing protein that maintains toxin potency during storage and handling, ensuring product stability and extending shelf life while preserving therapeutic efficacy.
+                </div>
+            </div>
+            
+            <div class="kst-ingredient-item">
+                <div class="kst-ingredient-badge">Carrier</div>
+                <div class="kst-ingredient-name">Sodium Chloride</div>
+                <div class="kst-ingredient-description">
+                    Provides isotonic environment for safe injection and optimal tissue compatibility, ensuring comfortable administration and proper distribution of active ingredients.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Molecular structure or composition diagram -->
+        </div>
+        
+        <!-- Benefits and Effects -->
+        <h2 class="kst-section-title">Therapeutic Benefits & Effects</h2>
+        
+        <div class="kst-card">
+            <h3>Cosmetic Applications</h3>
+            <p>Temporary improvement of moderate to severe glabellar lines (frown lines) related to corrugator and/or procerus muscle activity. Also effective for treating forehead wrinkles, crow's feet, and wrinkles near the mouth.</p>
+            <div class="kst-mb-16">
+                <span class="kst-badge kst-badge-primary">Wrinkle Reduction</span>
+                <span class="kst-badge kst-badge-success">Facial Rejuvenation</span>
+                <span class="kst-badge kst-badge-primary">Non-Surgical Treatment</span>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Medical Applications</h3>
+            <p>Effective treatment for benign essential blepharospasm and upper limb local muscle spasticity associated with stroke. Provides significant therapeutic benefits for muscle-related conditions.</p>
+            <ul>
+                <li>Relief of involuntary eyelid spasms (blepharospasm)</li>
+                <li>Treatment of post-stroke upper limb spasticity</li>
+                <li>Muscle relaxation for therapeutic purposes</li>
+                <li>Minimally invasive alternative to surgical intervention</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Duration and Onset</h3>
+            <p>Initial effects typically visible within 3 days post-injection, with peak results achieved in 1-2 weeks. Treatment effects generally last 3-4 months, with some cases lasting up to 4-6 months.</p>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Treatment areas and effect timeline visualization -->
+        </div>
+        
+        <!-- Usage Instructions and Protocols -->
+        <h2 class="kst-section-title">Usage Protocols & Administration</h2>
+        
+        <div class="kst-steps-list">
+            <div class="kst-step-item">
+                <div class="kst-step-number">1</div>
+                <div class="kst-step-title">Preparation & Reconstitution</div>
+                <div class="kst-step-description">Reconstitute with 2.5 mL of 0.9% preservative-free sterile saline. This results in a concentration of 4 units/0.1 mL. Gently swirl to dissolve powder without shaking.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">2</div>
+                <div class="kst-step-title">Dosage Calculation</div>
+                <div class="kst-step-description">For glabellar lines: 20 units total divided into 5 injection sites (4 units per site). For blepharospasm: 1.25-2.5 units (0.05-0.1 mL) per site initially.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">3</div>
+                <div class="kst-step-title">Administration Technique</div>
+                <div class="kst-step-description">Perform intramuscular injections using sterile technique. Target corrugator and procerus muscles for glabellar lines with precise placement for optimal results.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">4</div>
+                <div class="kst-step-title">Post-Treatment Care</div>
+                <div class="kst-step-description">Monitor for initial effects within 3 days. Full results typically achieved in 1-2 weeks. Schedule follow-up and plan next treatment session after 3-4 months.</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Injection technique and anatomical guidance -->
+        </div>
+        
+        <!-- Dosage Guidelines -->
+        <h2 class="kst-section-title">Dosage Guidelines by Treatment Area</h2>
+        
+        <div class="kst-table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Treatment Area</th>
+                        <th>Recommended Dosage</th>
+                        <th>Injection Sites</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="kst-spec-category">Glabellar Lines</td>
+                        <td><span class="kst-highlight-value">20 Units</span></td>
+                        <td>5 sites (4 units each)</td>
+                        <td>3-4 months</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Blepharospasm</td>
+                        <td>1.25-2.5 Units</td>
+                        <td>Per injection site</td>
+                        <td>3-4 months</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Forehead Wrinkles</td>
+                        <td>Individualized</td>
+                        <td>Based on muscle activity</td>
+                        <td>3-4 months</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Upper Limb Spasticity</td>
+                        <td>Individualized</td>
+                        <td>Based on muscle size</td>
+                        <td>3-4 months</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Safety Information -->
+        <div class="kst-warning-section">
+            <div class="kst-warning-title">Important Safety Information</div>
+            <div class="kst-warning-content">
+                MEDITOXIN should only be administered by qualified medical professionals. Proper storage, handling, and injection techniques are essential for safe and effective treatment.
+                
+                <ul class="kst-warning-list">
+                    <li>Store unopened vials at 2-8°C or below -5°C in hermetic container</li>
+                    <li>Use reconstituted solution within 24 hours and store refrigerated</li>
+                    <li>Do not inject more frequently than every 3 months to reduce resistance risk</li>
+                    <li>Cumulative dose should not exceed 200 units in a 30-day period</li>
+                    <li>Inspect for clarity and colorlessness before use; discard if particulate matter present</li>
+                    <li>Administration must be performed by qualified medical professional</li>
+                </ul>
+                
+                Always consult product labeling and seek professional medical guidance before administration.
+            </div>
+        </div>
+        
+        <!-- Storage and Handling -->
+        <h2 class="kst-section-title">Storage & Handling Requirements</h2>
+        
+        <div class="kst-specs-list">
+            <div class="kst-spec-item kst-spec-featured">
+                <div class="kst-spec-icon">❄️</div>
+                <div class="kst-spec-label">Storage Temperature</div>
+                <div class="kst-spec-value">2-8°C</div>
+                <div class="kst-spec-unit">Refrigerated</div>
+                <div class="kst-spec-description">Or below -5°C for extended storage</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">⏱️</div>
+                <div class="kst-spec-label">Post-Reconstitution</div>
+                <div class="kst-spec-value">24</div>
+                <div class="kst-spec-unit">Hours</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🔒</div>
+                <div class="kst-spec-label">Light Protection</div>
+                <div class="kst-spec-value">Required</div>
+                <div class="kst-spec-unit">Always</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">📅</div>
+                <div class="kst-spec-label">Shelf Life</div>
+                <div class="kst-spec-value">36</div>
+                <div class="kst-spec-unit">Months</div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Proper Handling Guidelines</h3>
+            <p>Maintain cold chain during transport and storage in hermetic container. Avoid shaking or vigorous agitation. Use sterile, preservative-free saline for reconstitution. Discard any unused reconstituted solution after 24 hours.</p>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Storage and handling infographic -->
+        </div>
+        
+        <!-- Product Features -->
+        <h2 class="kst-section-title">Product Features & Benefits</h2>
+        
+        <div class="kst-definition-list">
+            <dt>Precise Dilution Control</dt>
+            <dd>The 100-unit vial allows for highly controlled dosing with 2.5 mL dilution resulting in 4 units/0.1 mL concentration, perfect for precise facial treatments.</dd>
+            
+            <dt>Low Resistance Risk</dt>
+            <dd>Designed for localized, fine-detail work with minimal risk of developing treatment resistance when used according to recommended protocols.</dd>
+            
+            <dt>Versatile Applications</dt>
+            <dd>Suitable for both cosmetic procedures (glabellar lines, forehead wrinkles, crow's feet) and medical conditions (blepharospasm, muscle spasticity).</dd>
+            
+            <dt>Single-Session Treatment</dt>
+            <dd>The 100-unit size is ideal for single-session treatments, providing highly controlled application without waste.</dd>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Product features visualization -->
+        </div>
+        
+        <!-- Professional Administration Guidelines -->
+        <h2 class="kst-section-title">Professional Administration Guidelines</h2>
+        
+        <div class="kst-card">
+            <h3>Qualified Practitioner Requirements</h3>
+            <p>MEDITOXIN must be administered by licensed medical professionals with proper training in botulinum toxin injection techniques, facial anatomy, and emergency response procedures.</p>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Patient Consultation</h3>
+            <p>Comprehensive patient assessment including medical history, current medications, previous botulinum toxin treatments, and realistic expectation setting is essential before treatment.</p>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Treatment Planning</h3>
+            <p>Individualized treatment plans based on facial anatomy, muscle strength, treatment goals, and patient response to previous treatments ensure optimal outcomes and safety.</p>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Professional administration guidance -->
+        </div>
+        
+        <!-- Manufacturer Information -->
+        <h2 class="kst-section-title">Manufacturer & Quality Assurance</h2>
+        
+        <div class="kst-definition-list">
+            <dt>Manufacturer</dt>
+            <dd>Medytox Inc. - Leading biotechnology company specializing in botulinum toxin research and development with stringent quality control standards.</dd>
+            
+            <dt>Product Features</dt>
+            <dd>High purity formulation with precise diffusion characteristics and minimal impact on surrounding muscles, comparable efficacy to leading botulinum toxins.</dd>
+            
+            <dt>Quality Standards</dt>
+            <dd>Manufactured under strict GMP conditions with comprehensive quality testing to ensure consistency, safety, and therapeutic efficacy.</dd>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Product Authenticity</h3>
+            <p>MEDITOXIN 100U is supplied as a lyophilized white powder in a sterile, colorless glass vial. Each package includes proper identification and lot tracking for authenticity verification and quality assurance.</p>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Manufacturer facility or quality certification logos -->
+        </div>
+        
+        <!-- Technical Documentation -->
+        <h2 class="kst-section-title">Technical Documentation</h2>
+        
+        <div class="kst-definition-list">
+            <dt>Package Contents</dt>
+            <dd>One sterile vial containing 100 units of Clostridium Botulinum Toxin Type A in lyophilized form, with complete product labeling and batch information.</dd>
+            
+            <dt>Reconstitution Requirements</dt>
+            <dd>0.9% preservative-free sodium chloride solution (not included), sterile syringes, and appropriate needle sizes for injection technique.</dd>
+            
+            <dt>Professional Resources</dt>
+            <dd>Comprehensive injection guides, anatomical references, and clinical protocols available through authorized distributors and professional training programs.</dd>
+        </div>
+        
+        <!-- Final Specifications Summary -->
+        <div class="kst-specs-list">
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">⏱️</div>
+                <div class="kst-spec-label">Onset Time</div>
+                <div class="kst-spec-value">3</div>
+                <div class="kst-spec-unit">Days</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">📋</div>
+                <div class="kst-spec-label">Peak Effect</div>
+                <div class="kst-spec-value">1-2</div>
+                <div class="kst-spec-unit">Weeks</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🏭</div>
+                <div class="kst-spec-label">Manufacturing</div>
+                <div class="kst-spec-value">GMP</div>
+                <div class="kst-spec-unit">Certified</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🔬</div>
+                <div class="kst-spec-label">Purity Testing</div>
+                <div class="kst-spec-value">High</div>
+                <div class="kst-spec-unit">Grade</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Final product showcase or clinical results -->
+        </div>
+        
+    </div>

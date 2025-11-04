@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luscilipo Orange Product Description</title>
+    <style>
+        /* Shopify conflict prevention with kst- prefix */
+        .kst-main-container {
+            max-width: 760px !important;
+            margin: 0 auto !important;
+            font-family: 'Helvetica Neue', 'Arial', sans-serif !important;
+            background: #ffffff !important;
+            color: #333333 !important;
+            padding: 0 !important;
+            line-height: 1.6 !important;
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container * {
+            box-sizing: border-box !important;
+        }
+        
+        /* Title overflow prevention */
+        .kst-section-title, .kst-pillar-title, .kst-category-title, .kst-protocol-header,
+        .kst-ingredient-name, .kst-benefit-title, .kst-step-title, .kst-related-title,
+        .kst-faq-question, .kst-warning-title, .kst-hero-title, .kst-hero-subtitle {
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        /* Basic section styles */
+        .kst-section {
+            padding: 40px 12px !important;
+            margin: 0 !important;
+            background: #f8f9fa !important;
+            color: #333333 !important;
+        }
+        
+        .kst-section:nth-child(even) {
+            background: #ffffff !important;
+        }
+        
+        .kst-section-title {
+            font-size: 24px !important;
+            font-weight: 300 !important;
+            color: #333333 !important;
+            text-align: center !important;
+            margin-bottom: 30px !important;
+            margin-top: 0 !important;
+        }
+        
+        /* Hero section styles */
+        .kst-hero-box {
+            background: #ffffff !important;
+            padding: 20px !important;
+            border-radius: 0px !important;
+            margin: 20px 8px !important;
+            min-height: 200px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+        } 
+
+        .kst-hero-title {
+            font-size: 38px !important;
+            font-weight: 600 !important;
+            color: #D94F1E !important;
+            text-align: center !important;
+            margin-top: 0px !important;
+            margin-bottom: 15px !important;
+            line-height: 1.3 !important;
+            word-break: break-all !important;
+        }
+        
+        .kst-hero-subtitle {
+            font-size: 19.2px !important;
+            font-weight: 400 !important;
+            color: #F16E2A !important;
+            text-align: center !important;
+            margin-top: 0px !important;
+            margin-bottom: 15px !important;
+            line-height: 1.3 !important;
+            word-break: break-all !important;
+        }
+        
+        .kst-hero-visual {
+            background: #ffffff !important;
+            padding: 20px !important;
+            border-radius: 0px !important;
+            margin: 20px 8px !important;
+            min-height: 200px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+        }
+        
+        .kst-hero-products {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+            margin: 20px 8px !important;
+        }
+        
+        .kst-product-box {
+            background: #ffffff !important;
+            border: 1px solid #e9ecef !important;
+            padding: 16px !important;
+            text-align: center !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-product-name {
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            color: #495057 !important;
+            margin-bottom: 8px !important;
+            margin-top: 0 !important;
+        }
+        
+        .kst-product-volume {
+            font-size: 12px !important;
+            color: #6c757d !important;
+            margin: 0 !important;
+        }
+        
+        /* Brand pillars section */
+        .kst-brand-pillars {
+            background: #ffffff !important;
+            padding: 0 !important;
+        }
+        
+        .kst-pillar-card {
+            padding: 40px 20px !important;
+            text-align: center !important;
+            border-bottom: 1px solid #e9ecef !important;
+            margin: 0 !important;
+        }
+        
+        .kst-pillar-card:last-child {
+            border-bottom: none !important;
+        }
+        
+        .kst-pillar-icon {
+            width: 60px !important;
+            height: 60px !important;
+            margin: 0 auto 20px !important;
+            background: #f8f9fa !important;
+            border-radius: 0px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #6c757d !important;
+            font-size: 10px !important;
+            font-style: italic !important;
+        }
+        
+        .kst-pillar-title {
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            color: #D94F1E !important;
+            text-transform: uppercase !important;
+            margin-bottom: 15px !important;
+            margin-top: 0 !important;
+            letter-spacing: 1px !important;
+        }
+        
+        .kst-pillar-subtitle {
+            font-size: 14px !important;
+            color: #495057 !important;
+            margin-bottom: 15px !important;
+            margin-top: 0 !important;
+            line-height: 1.5 !important;
+            font-weight: 500 !important;
+        }
+        
+        .kst-pillar-divider {
+            width: 60px !important;
+            height: 3px !important;
+            background: #D94F1E !important;
+            margin: 15px auto !important;
+        }
+        
+        .kst-pillar-description {
+            font-size: 12px !important;
+            color: #6c757d !important;
+            line-height: 1.5 !important;
+            margin: 0 !important;
+        }
+        
+        /* Ingredient information section */
+        .kst-ingredient-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            margin: 30px 8px !important;
+        }
+        
+        .kst-ingredient-card {
+            background: #ffffff !important;
+            padding: 25px !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+            border-top: 4px solid #D94F1E !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-ingredient-name {
+            font-size: 18px !important;
+            font-weight: 600 !important;
+            color: #333333 !important;
+            margin-bottom: 10px !important;
+            margin-top: 0 !important;
+        }
+        
+        .kst-ingredient-concentration {
+            background: #D94F1E !important;
+            color: #ffffff !important;
+            padding: 4px 12px !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            display: inline-block !important;
+            margin-bottom: 15px !important;
+            text-transform: uppercase !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-ingredient-description {
+            font-size: 14px !important;
+            color: #6c757d !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+        
+        /* Benefits section */
+        .kst-benefits-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            margin: 30px 8px !important;
+        }
+        
+        .kst-benefit-category {
+            padding: 25px !important;
+            border: 1px solid #e9ecef !important;
+            position: relative !important;
+            background: #ffffff !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-benefit-category::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 4px !important;
+            background: #D94F1E !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-category-title {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #D94F1E !important;
+            text-transform: uppercase !important;
+            margin-bottom: 20px !important;
+            margin-top: 0 !important;
+            letter-spacing: 1px !important;
+        }
+        
+        .kst-benefit-list {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        .kst-benefit-item {
+            padding: 12px 0 !important;
+            border-bottom: 1px solid #f8f9fa !important;
+            position: relative !important;
+            padding-left: 20px !important;
+            margin: 0 !important;
+        }
+        
+        .kst-benefit-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        .kst-benefit-item::before {
+            content: '' !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 18px !important;
+            width: 6px !important;
+            height: 6px !important;
+            background: #D94F1E !important;
+            border-radius: 50% !important;
+        }
+        
+        .kst-benefit-title {
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            color: #333333 !important;
+            margin-bottom: 5px !important;
+            margin-top: 0 !important;
+        }
+        
+        .kst-benefit-description {
+            font-size: 13px !important;
+            color: #6c757d !important;
+            line-height: 1.5 !important;
+            margin: 0 !important;
+        }
+        
+        /* Usage section */
+        .kst-usage-steps {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            margin: 30px 8px !important;
+        }
+        
+        .kst-step-card {
+            background: #ffffff !important;
+            padding: 25px !important;
+            border-radius: 0px !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+            text-align: center !important;
+        }
+        
+        .kst-step-number {
+            width: 40px !important;
+            height: 40px !important;
+            background: #D94F1E !important;
+            color: #ffffff !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            margin: 0 auto 15px !important;
+        }
+        
+        .kst-step-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #333333 !important;
+            margin-bottom: 12px !important;
+            margin-top: 0 !important;
+        }
+        
+        .kst-step-description {
+            font-size: 13px !important;
+            color: #6c757d !important;
+            line-height: 1.5 !important;
+            margin: 0 !important;
+        }
+        
+        /* Protocol section */
+        .kst-protocol-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            margin: 30px 8px !important;
+        }
+        
+        .kst-protocol-card {
+            background: #ffffff !important;
+            padding: 25px !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+            position: relative !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-protocol-card::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 4px !important;
+            background: linear-gradient(90deg, #D94F1E, #F16E2A) !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-protocol-header {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #D94F1E !important;
+            text-transform: uppercase !important;
+            margin-bottom: 15px !important;
+            margin-top: 0 !important;
+            letter-spacing: 1px !important;
+        }
+        
+        .kst-protocol-content {
+            font-size: 13px !important;
+            color: #495057 !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+        
+        /* Product specifications table */
+        .kst-table-wrap {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            margin: 25px 8px !important;
+            border-radius: 0px !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+        }
+        
+        .kst-specs-table {
+            width: 100% !important;
+            min-width: 600px !important;
+            border-collapse: separate !important;
+            border-spacing: 0 !important;
+            background: #ffffff !important;
+        }
+        
+        .kst-specs-table th {
+            background: #D94F1E !important;
+            color: #ffffff !important;
+            padding: 12px 16px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            border: none !important;
+            white-space: nowrap !important;
+        }
+        
+        .kst-specs-table th:first-child {
+            border-top-left-radius: 0px !important;
+        }
+        
+        .kst-specs-table th:last-child {
+            border-top-right-radius: 0px !important;
+        }
+        
+        .kst-specs-table td {
+            background: #ffffff !important;
+            padding: 12px 16px !important;
+            border-bottom: 1px solid #e9ecef !important;
+            font-size: 13px !important;
+            color: #495057 !important;
+            border-left: none !important;
+            border-right: none !important;
+        }
+        
+        .kst-specs-table tr:last-child td:first-child {
+            border-bottom-left-radius: 0px !important;
+        }
+        
+        .kst-specs-table tr:last-child td:last-child {
+            border-bottom-right-radius: 0px !important;
+        }
+        
+        .kst-specs-table tr:last-child td {
+            border-bottom: none !important;
+        }
+        
+        /* Warning section */
+        .kst-warning-box {
+            background: #fff3cd !important;
+            border: 1px solid #ffeaa7 !important;
+            border-left: 6px solid #f39c12 !important;
+            padding: 20px !important;
+            margin: 25px 8px !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-warning-title {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #856404 !important;
+            margin-bottom: 12px !important;
+            margin-top: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        .kst-warning-title::before {
+            content: '⚠' !important;
+            margin-right: 8px !important;
+            font-size: 18px !important;
+        }
+        
+        .kst-warning-content {
+            font-size: 13px !important;
+            color: #856404 !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+        
+        /* Image placeholder */
+        .kst-image-block, .kst-chart-block {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+            padding: 30px 15px !important;
+            text-align: center !important;
+            margin: 25px 8px !important;
+            color: #6c757d !important;
+            font-size: 13px !important;
+            font-style: italic !important;
+            min-height: 120px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border-radius: 0px !important;
+        }
+        
+        /* Auto hide empty image blocks using CSS :has() */
+        .kst-image-block:not(:has(img)), 
+        .kst-chart-block:not(:has(img)),
+        .kst-image-block:has(img[src=""]), 
+        .kst-chart-block:has(img[src=""]) {
+            display: none !important;
+        }
+        
+        .kst-image-block img, 
+        .kst-chart-block img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 0px !important;
+        }
+        
+        /* Definition list styles */
+        .kst-definition-list {
+            margin: 20px 8px !important;
+            padding: 0 !important;
+        }
+        
+        .kst-definition-list dt {
+            font-weight: 600 !important;
+            color: #333333 !important;
+            font-size: 14px !important;
+            margin-top: 15px !important;
+            margin-bottom: 5px !important;
+        }
+        
+        .kst-definition-list dd {
+            color: #6c757d !important;
+            font-size: 13px !important;
+            line-height: 1.5 !important;
+            margin-left: 0 !important;
+            margin-bottom: 10px !important;
+            padding-left: 15px !important;
+            border-left: 3px solid #e9ecef !important;
+        }
+        
+        /* Emphasis badges */
+        .kst-badge {
+            background: #D94F1E !important;
+            color: #ffffff !important;
+            padding: 3px 8px !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            border-radius: 0px !important;
+            text-transform: uppercase !important;
+            display: inline-block !important;
+            margin: 0 3px 3px 0 !important;
+        }
+        
+        .kst-badge.kst-secondary {
+            background: #6c757d !important;
+        }
+        
+        .kst-badge.kst-success {
+            background: #28a745 !important;
+        }
+        
+        .kst-badge.kst-info {
+            background: #17a2b8 !important;
+        }
+        
+        /* Text utilities */
+        .kst-text-center {
+            text-align: center !important;
+        }
+        
+        .kst-text-muted {
+            color: #6c757d !important;
+        }
+        
+        .kst-text-small {
+            font-size: 12px !important;
+        }
+        
+        .kst-font-weight-bold {
+            font-weight: 600 !important;
+        }
+        
+        /* Spacing utilities */
+        .kst-mb-0 { margin-bottom: 0 !important; }
+        .kst-mb-1 { margin-bottom: 8px !important; }
+        .kst-mb-2 { margin-bottom: 16px !important; }
+        .kst-mb-3 { margin-bottom: 24px !important; }
+        
+        .kst-mt-0 { margin-top: 0 !important; }
+        .kst-mt-1 { margin-top: 8px !important; }
+        .kst-mt-2 { margin-top: 16px !important; }
+        .kst-mt-3 { margin-top: 24px !important; }
+        
+        .kst-p-0 { padding: 0 !important; }
+        .kst-p-1 { padding: 8px !important; }
+        .kst-p-2 { padding: 16px !important; }
+        .kst-p-3 { padding: 24px !important; }
+    </style>
+</head>
+<body>
+    <div class="kst-main-container">
+        
+        <!-- Basic Information Section -->
+        <div class="kst-section">
+            <div class="kst-text-center">
+                <div class="kst-hero-box">
+                    <span class="kst-hero-title">Luscilipo Orange</span>
+                    <p class="kst-hero-subtitle">Professional Lipolytic Fat Dissolving Injection</p>
+                </div>
+                
+                <div class="kst-hero-products">
+                    <div class="kst-product-box">
+                        <div class="kst-product-name">Luscilipo Orange</div>
+                        <div class="kst-product-volume">10mL x 5 Vials</div>
+                    </div>
+                </div>
+                
+                <div class="kst-text-center kst-mt-3">
+                    <h1 class="kst-section-title">Advanced Fat Reduction & Body Contouring Solution</h1>
+                    <p class="kst-text-muted">Premium lipolytic injection for targeted fat reduction in face and body areas</p>
+                    <div class="kst-mt-2">
+                        <span class="kst-badge">Lipolytic Injection</span>
+                        <span class="kst-badge kst-secondary">Body Contouring</span>
+                        <span class="kst-badge kst-success">Face Slimming</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [Product Image - Luscilipo Orange vials and packaging display]
+            </div>
+        </div>
+        
+        <!-- Brand Pillars Section -->
+        <div class="kst-brand-pillars">
+            <div class="kst-pillar-card">
+                <div class="kst-pillar-title">Precision</div>
+                <div class="kst-pillar-subtitle">Targeted fat reduction technology</div>
+                <div class="kst-pillar-divider"></div>
+                <div class="kst-pillar-description">
+                    Advanced formulation designed for precise targeting of localized fat deposits in both facial and body areas
+                </div>
+            </div>
+            
+            <div class="kst-pillar-card">
+                <div class="kst-pillar-title">Innovation</div>
+                <div class="kst-pillar-subtitle">Scientific lipolysis breakthrough</div>
+                <div class="kst-pillar-divider"></div>
+                <div class="kst-pillar-description">
+                    Synergistic blend of natural extracts and vitamins for enhanced fat cell breakdown and skin firming
+                </div>
+            </div>
+            
+            <div class="kst-pillar-card">
+                <div class="kst-pillar-title">Safety</div>
+                <div class="kst-pillar-subtitle">Natural ingredient formulation</div>
+                <div class="kst-pillar-divider"></div>
+                <div class="kst-pillar-description">
+                    Carefully selected natural extracts and vitamins with anti-inflammatory properties for safer treatment
+                </div>
+            </div>
+        </div>
+        
+        <!-- Key Ingredients Section -->
+        <div class="kst-section">
+            <h2 class="kst-section-title">Key Ingredients & Active Components</h2>
+            
+            <div class="kst-ingredient-grid">
+                <div class="kst-ingredient-card">
+                    <div class="kst-ingredient-name">Bromelain</div>
+                    <div class="kst-ingredient-concentration">Active Enzyme</div>
+                    <div class="kst-ingredient-description">
+                        Powerful proteolytic enzyme that breaks down proteins and promotes fat cell dissolution. Known for its anti-inflammatory properties and ability to enhance lymphatic drainage.
+                    </div>
+                </div>
+                
+                <div class="kst-ingredient-card">
+                    <div class="kst-ingredient-name">Lecithin</div>
+                    <div class="kst-ingredient-concentration">Phospholipid Complex</div>
+                    <div class="kst-ingredient-description">
+                        Essential phospholipid that facilitates fat emulsification and cellular membrane breakdown. Acts as a natural lipolytic agent for effective fat reduction.
+                    </div>
+                </div>
+                
+                <div class="kst-ingredient-card">
+                    <div class="kst-ingredient-name">Vitamin Complex (B12, B2, C)</div>
+                    <div class="kst-ingredient-concentration">Essential Vitamins</div>
+                    <div class="kst-ingredient-description">
+                        Synergistic vitamin blend that supports cellular metabolism, enhances fat burning processes, and provides antioxidant protection for skin health.
+                    </div>
+                </div>
+                
+                <div class="kst-ingredient-card">
+                    <div class="kst-ingredient-name">Panax Ginseng Berry Extract</div>
+                    <div class="kst-ingredient-concentration">Premium Extract</div>
+                    <div class="kst-ingredient-description">
+                        Powerful adaptogenic extract that boosts circulation, enhances metabolic function, and provides energy support during the fat reduction process.
+                    </div>
+                </div>
+                
+                <div class="kst-ingredient-card">
+                    <div class="kst-ingredient-name">Centella Asiatica Extract</div>
+                    <div class="kst-ingredient-concentration">Healing Extract</div>
+                    <div class="kst-ingredient-description">
+                        Renowned for its healing and anti-inflammatory properties. Promotes collagen synthesis and helps maintain skin elasticity during fat reduction.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-definition-list">
+                <dt>Lipolytic Mechanism</dt>
+                <dd>The synergistic combination of Bromelain and Lecithin induces fat cell breakdown through enzymatic action and membrane disruption, promoting natural fat elimination.</dd>
+                
+                <dt>Skin Firming Technology</dt>
+                <dd>Natural extracts like Centella Asiatica and vitamin complex work together to enhance collagen production and maintain skin elasticity during the fat reduction process.</dd>
+                
+                <dt>Anti-inflammatory Support</dt>
+                <dd>Multiple natural extracts provide comprehensive anti-inflammatory benefits, minimizing treatment discomfort and promoting faster recovery.</dd>
+            </div>
+            
+            <div class="kst-image-block">
+                [Ingredient Infographic - Visual breakdown of key active components and their functions]
+            </div>
+        </div>
+        
+        <!-- Benefits & Effects Section -->
+        <div class="kst-section">
+            <h2 class="kst-section-title">Expected Results & Benefits</h2>
+            
+            <div class="kst-benefits-grid">
+                <div class="kst-benefit-category">
+                    <div class="kst-category-title">Facial Contouring</div>
+                    <ul class="kst-benefit-list">
+                        <li class="kst-benefit-item">
+                            <div class="kst-benefit-title">V-Line Definition</div>
+                            <div class="kst-benefit-description">Creates defined jawline contours for a more sculpted facial appearance</div>
+                        </li>
+                        <li class="kst-benefit-item">
+                            <div class="kst-benefit-title">Double Chin Reduction</div>
+                            <div class="kst-benefit-description">Effectively reduces submental fat for improved facial

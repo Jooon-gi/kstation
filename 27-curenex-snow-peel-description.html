@@ -1,0 +1,985 @@
+<style>
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+            background: #ffffff;
+            color: #000000 !important;
+            padding: 0;
+            line-height: 1.4;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        .kst-section {
+            margin-bottom: 60px;
+            padding: 0 16px;
+        }
+        
+        .kst-section-number {
+            font-size: 12px;
+            font-weight: 300;
+            color: #A6A6A6 !important;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-section-title {
+            font-size: 20px;
+            font-weight: 300;
+            color: #000000 !important;
+            margin-bottom: 32px;
+            letter-spacing: 1px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-image-block {
+            background: #fafafa;
+            border: 1px solid #f0f0f0;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 32px 0;
+            color: #cccccc !important;
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+        
+        .kst-image-block:not(:has(img)), 
+        .kst-image-block:has(img[src=""]),
+        .kst-chart-block:not(:has(img)), 
+        .kst-chart-block:has(img[src=""]) {
+            display: none;
+        }
+        
+        .kst-image-block img,
+        .kst-chart-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .kst-product-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .kst-product-badge {
+            background: #000000;
+            color: #ffffff !important;
+            padding: 6px 16px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .kst-product-title {
+            font-size: 28px;
+            font-weight: 400;
+            color: #000000 !important;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-product-spec {
+            font-size: 22px;
+            font-weight: 300;
+            color: #000000 !important;
+            margin-bottom: 24px;
+            margin-top: -12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .kst-product-subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            color: #777777 !important;
+            margin-bottom: 24px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-value-summary {
+            font-size: 14px;
+            font-weight: 300;
+            color: #777777 !important;
+            line-height: 1.6;
+            margin: 24px 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-ingredient-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .kst-ingredient-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        
+        .kst-ingredient-item:last-child {
+            border-bottom: 1px solid #000000;
+        }
+        
+        .kst-ingredient-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .kst-ingredient-name {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000000 !important;
+            margin-bottom: 6px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-ingredient-description {
+            font-size: 13px;
+            font-weight: 300;
+            color: #777777 !important;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-concentration-badge {
+            background: #000000;
+            color: #ffffff !important;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .kst-effect-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 32px 0;
+        }
+        
+        .kst-effect-card {
+            background: #fafafa;
+            padding: 20px;
+            border: 1px solid #f0f0f0;
+            border-radius: 0px;
+        }
+        
+        .kst-effect-title {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000000 !important;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-effect-description {
+            font-size: 13px;
+            font-weight: 300;
+            color: #777777 !important;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-effect-badges {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .kst-effect-badge {
+            background: #000000;
+            color: #ffffff !important;
+            padding: 4px 12px;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 12px;
+        }
+        
+        .kst-step-guide {
+            margin: 32px 0;
+        }
+        
+        .kst-step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .kst-step-item:last-child {
+            border-bottom: 1px solid #000000;
+        }
+        
+        .kst-step-number {
+            background: #000000;
+            color: #ffffff !important;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+        
+        .kst-step-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .kst-step-title {
+            font-size: 15px;
+            font-weight: 400;
+            color: #000000 !important;
+            margin-bottom: 6px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-step-description {
+            font-size: 13px;
+            font-weight: 300;
+            color: #777777 !important;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-protocol-block {
+            margin-bottom: 32px;
+            padding: 20px;
+            background: #fafafa;
+            border: 1px solid #f0f0f0;
+            border-radius: 0px;
+        }
+        
+        .kst-protocol-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .kst-protocol-title {
+            font-size: 15px;
+            font-weight: 400;
+            color: #000000 !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-protocol-type {
+            font-size: 11px;
+            font-weight: 300;
+            color: #A6A6A6 !important;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .kst-protocol-details {
+            font-size: 13px;
+            font-weight: 300;
+            color: #777777 !important;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 32px 0;
+            border: 1px solid #f0f0f0;
+            border-radius: 0px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 0px;
+        }
+        
+        .kst-spec-table {
+            min-width: 600px;
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+        }
+        
+        .kst-spec-table th {
+            background: #000000;
+            color: #ffffff !important;
+            padding: 16px 12px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+            border-right: 1px solid #333333;
+            white-space: nowrap !important;
+        }
+        
+        .kst-spec-table td {
+            padding: 16px 12px;
+            border-bottom: 1px solid #f0f0f0;
+            border-right: 1px solid #f0f0f0;
+            font-size: 13px;
+            font-weight: 300;
+            color: #777777 !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-spec-table tr:last-child td {
+            border-bottom: 1px solid #000000;
+        }
+        
+        .kst-data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+            gap: 16px;
+        }
+        
+        .kst-data-row:last-child {
+            border-bottom: 1px solid #000000;
+        }
+        
+        .kst-data-label {
+            font-size: 15px;
+            font-weight: 400;
+            color: #000000 !important;
+            flex: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-data-value {
+            font-size: 14px;
+            font-weight: 300;
+            color: #777777 !important;
+            text-align: right;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-safety-warning {
+            background: #fff8e1;
+            border: 1px solid #ffc107;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 32px 0;
+            border-radius: 0px;
+        }
+        
+        .kst-warning-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #000000 !important;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-warning-icon {
+            color: #ffc107 !important;
+            font-weight: bold;
+        }
+        
+        .kst-warning-content {
+            font-size: 13px;
+            font-weight: 300;
+            color: #777777 !important;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-divider {
+            width: 100%;
+            height: 1px;
+            background: #f0f0f0;
+            margin: 40px 0;
+        }
+        
+        .kst-text-block {
+            font-size: 13px;
+            font-weight: 300;
+            color: #777777 !important;
+            line-height: 1.6;
+            margin: 24px 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-synergy-block {
+            background: #f8f8f8;
+            padding: 20px;
+            margin: 24px 0;
+            border-radius: 0px;
+            border-left: 4px solid #000000;
+        }
+        
+        .kst-synergy-title {
+            font-size: 14px;
+            font-weight: 400;
+            color: #000000 !important;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-synergy-description {
+            font-size: 13px;
+            font-weight: 300;
+            color: #777777 !important;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-comparison-list {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+        }
+        
+        .kst-comparison-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .kst-comparison-item:last-child {
+            border-bottom: 1px solid #000000;
+        }
+        
+        .kst-comparison-check {
+            background: #000000;
+            color: #ffffff !important;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+        
+        .kst-comparison-text {
+            font-size: 14px;
+            font-weight: 300;
+            color: #000000 !important;
+            flex: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+ </style>
+
+    <div class="kst-main-container">
+        
+        <!-- Product Header -->
+        <div class="kst-section">
+            <div class="kst-product-header">
+                <div class="kst-product-badge">PROFESSIONAL SKINCARE</div>
+                <h1 class="kst-product-title">CURENEX SNOW PEEL</h1>
+                <h2 class="kst-product-spec">Two-Part Regenerative Peel System</h2>
+                <div class="kst-product-subtitle">Advanced C-TOX Powder + Snow Peel Activator</div>
+            </div>
+            
+            <div class="kst-image-block">
+                [CURENEX SNOW PEEL Product Kit Image]
+            </div>
+            
+            <div class="kst-value-summary">
+                Experience revolutionary skin transformation with CURENEX SNOW PEEL, a professional two-part system that combines advanced C-TOX powder with Snow Peel Activator. This innovative formula simultaneously exfoliates and rejuvenates skin, delivering deep hydration, brightening effects, and enhanced elasticity through cutting-edge biotechnology.
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- Ingredients & Composition -->
+        <div class="kst-section">
+            <div class="kst-section-number">01</div>
+            <h2 class="kst-section-title">Ingredients & Composition</h2>
+            
+            <ul class="kst-ingredient-list">
+                <li class="kst-ingredient-item">
+                    <div class="kst-ingredient-content">
+                        <div class="kst-ingredient-name">C-TOX Powder (Purified Hydrolyzed Sponge)</div>
+                        <div class="kst-ingredient-description">Advanced transdermal drug delivery system utilizing purified sponge spicules for enhanced penetration and continuous cellular stimulation up to 36 hours post-application</div>
+                    </div>
+                    <div class="kst-concentration-badge">1g x 4</div>
+                </li>
+                
+                <li class="kst-ingredient-item">
+                    <div class="kst-ingredient-content">
+                        <div class="kst-ingredient-name">PDRN (Salmon DNA)</div>
+                        <div class="kst-ingredient-description">Polynucleotide regenerative compound that stimulates tissue repair, collagen synthesis, and cellular renewal for enhanced skin recovery and anti-aging benefits</div>
+                    </div>
+                    <div class="kst-concentration-badge">ACTIVE</div>
+                </li>
+                
+                <li class="kst-ingredient-item">
+                    <div class="kst-ingredient-content">
+                        <div class="kst-ingredient-name">Multi-Peptides Complex</div>
+                        <div class="kst-ingredient-description">Targeted peptide matrix designed to enhance skin elasticity, firmness, and structural integrity through stimulated fibroblast activity</div>
+                    </div>
+                    <div class="kst-concentration-badge">COMPLEX</div>
+                </li>
+                
+                <li class="kst-ingredient-item">
+                    <div class="kst-ingredient-content">
+                        <div class="kst-ingredient-name">Glutathione</div>
+                        <div class="kst-ingredient-description">Powerful antioxidant providing brightening effects through melanin production inhibition and comprehensive cellular protection against oxidative stress</div>
+                    </div>
+                    <div class="kst-concentration-badge">PURE</div>
+                </li>
+                
+                <li class="kst-ingredient-item">
+                    <div class="kst-ingredient-content">
+                        <div class="kst-ingredient-name">Niacinamide (Vitamin B3)</div>
+                        <div class="kst-ingredient-description">Essential vitamin supporting skin barrier function, reducing hyperpigmentation, and providing anti-inflammatory benefits for improved skin texture</div>
+                    </div>
+                    <div class="kst-concentration-badge">VITAMIN</div>
+                </li>
+                
+                <li class="kst-ingredient-item">
+                    <div class="kst-ingredient-content">
+                        <div class="kst-ingredient-name">Hyaluronic Acid</div>
+                        <div class="kst-ingredient-description">High molecular weight humectant delivering intense hydration and plumping effects while maintaining optimal skin moisture balance</div>
+                    </div>
+                    <div class="kst-concentration-badge">HA</div>
+                </li>
+                
+                <li class="kst-ingredient-item">
+                    <div class="kst-ingredient-content">
+                        <div class="kst-ingredient-name">Gluconolactone</div>
+                        <div class="kst-ingredient-description">Gentle polyhydroxy acid providing controlled exfoliation and hydration without irritation, ideal for sensitive skin types</div>
+                    </div>
+                    <div class="kst-concentration-badge">PHA</div>
+                </li>
+            </ul>
+            
+            <div class="kst-image-block">
+                [Ingredient Molecular Structure and Interaction Diagram]
+            </div>
+            
+            <div class="kst-synergy-block">
+                <div class="kst-synergy-title">Advanced Synergistic Technology</div>
+                <div class="kst-synergy-description">The unique two-part system maximizes ingredient efficacy through controlled release mechanisms. C-TOX powder creates micro-channels for enhanced penetration while the activator delivers concentrated bioactive compounds deep into skin layers for optimal regenerative results.</div>
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- Benefits & Functions -->
+        <div class="kst-section">
+            <div class="kst-section-number">02</div>
+            <h2 class="kst-section-title">Benefits & Functions</h2>
+            
+            <div class="kst-effect-grid">
+                <div class="kst-effect-card">
+                    <div class="kst-effect-title">Exfoliation & Renewal</div>
+                    <div class="kst-effect-description">Advanced microdermabrasion-like exfoliation removes dead skin cells while promoting natural cellular turnover for smoother, refined skin texture</div>
+                    <div class="kst-effect-badges">
+                        <span class="kst-effect-badge">IMMEDIATE</span>
+                        <span class="kst-effect-badge">RENEWAL</span>
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-title">Skin Brightening</div>
+                    <div class="kst-effect-description">Glutathione and Niacinamide work synergistically to reduce melanin production, diminish dark spots, and create a luminous, even-toned complexion</div>
+                    <div class="kst-effect-badges">
+                        <span class="kst-effect-badge">WHITENING</span>
+                        <span class="kst-effect-badge">EVENING</span>
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-title">Deep Hydration</div>
+                    <div class="kst-effect-description">Hyaluronic Acid and advanced humectants deliver intensive moisture while strengthening the skin barrier for long-lasting hydration</div>
+                    <div class="kst-effect-badges">
+                        <span class="kst-effect-badge">MOISTURE</span>
+                        <span class="kst-effect-badge">BARRIER</span>
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-title">Anti-Aging & Firming</div>
+                    <div class="kst-effect-description">PDRN and peptide complex stimulate collagen production, reduce fine lines, and improve skin elasticity for a youthful appearance</div>
+                    <div class="kst-effect-badges">
+                        <span class="kst-effect-badge">COLLAGEN</span>
+                        <span class="kst-effect-badge">FIRMING</span>
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-title">Cellular Regeneration</div>
+                    <div class="kst-effect-description">PDRN promotes tissue repair and cellular regeneration, accelerating healing and improving overall skin health and vitality</div>
+                    <div class="kst-effect-badges">
+                        <span class="kst-effect-badge">REPAIR</span>
+                        <span class="kst-effect-badge">REGENERATION</span>
+                    </div>
+                </div>
+            </div>
+            
+            <ul class="kst-comparison-list">
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">✓</div>
+                    <div class="kst-comparison-text">Unique two-part system for maximum ingredient efficacy and controlled delivery</div>
+                </li>
+                
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">✓</div>
+                    <div class="kst-comparison-text">Professional-grade formulation with clinical-strength active ingredients</div>
+                </li>
+                
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">✓</div>
+                    <div class="kst-comparison-text">Continuous stimulation up to 36 hours for sustained regenerative benefits</div>
+                </li>
+                
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">✓</div>
+                    <div class="kst-comparison-text">Suitable for all skin types with gentle yet effective exfoliation</div>
+                </li>
+            </ul>
+            
+            <div class="kst-image-block">
+                [Before/After Treatment Results Comparison]
+            </div>
+            
+            <div class="kst-text-block">
+                The CURENEX SNOW PEEL system provides comprehensive skin transformation through its innovative dual-action approach. Long-term benefits include improved skin texture, enhanced radiance, reduced signs of aging, and strengthened skin barrier function. Regular treatments promote sustained cellular renewal and maintain optimal skin health.
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- Usage Instructions -->
+        <div class="kst-section">
+            <div class="kst-section-number">03</div>
+            <h2 class="kst-section-title">Usage Instructions</h2>
+            
+            <div class="kst-step-guide">
+                <div class="kst-step-item">
+                    <div class="kst-step-number">1</div>
+                    <div class="kst-step-content">
+                        <div class="kst-step-title">Skin Preparation</div>
+                        <div class="kst-step-description">Thoroughly cleanse the treatment area and ensure skin is completely dry. Remove all makeup, oils, and skincare products before application</div>
+                    </div>
+                </div>
+                
+                <div class="kst-step-item">
+                    <div class="kst-step-number">2</div>
+                    <div class="kst-step-content">
+                        <div class="kst-step-title">Product Mixing</div>
+                        <div class="kst-step-description">Mix C-TOX powder with Snow Peel Activator according to recommended ratios. Use immediately after mixing for optimal effectiveness</div>
+                    </div>
+                </div>
+                
+                <div class="kst-step-item">
+                    <div class="kst-step-number">3</div>
+                    <div class="kst-step-content">
+                        <div class="kst-step-title">Application Process</div>
+                        <div class="kst-step-description">Apply the mixed solution evenly to treatment area using gentle massage motions for 10 minutes, allowing spicules to penetrate the epidermal layer</div>
+                    </div>
+                </div>
+                
+                <div class="kst-step-item">
+                    <div class="kst-step-number">4</div>
+                    <div class="kst-step-content">
+                        <div class="kst-step-title">Post-Treatment Care</div>
+                        <div class="kst-step-description">Apply hydrating serum and sunscreen. Avoid high-temperature environments and intense exercise for one week following treatment</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [Step-by-Step Application Visual Guide]
+            </div>
+            
+            <div class="kst-protocol-block">
+                <div class="kst-protocol-header">
+                    <div class="kst-protocol-title">Professional Application Method</div>
+                    <div class="kst-protocol-type">ADVANCED</div>
+                </div>
+                <div class="kst-protocol-details">
+                    For certified professionals: Use micro-needling system or topical application with specialized massage techniques. Monitor skin response and adjust treatment intensity based on individual skin tolerance.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- Product Specifications -->
+        <div class="kst-section">
+            <div class="kst-section-number">04</div>
+            <h2 class="kst-section-title">Product Specifications</h2>
+            
+            <div class="kst-data-row">
+                <div class="kst-data-label">Product Composition</div>
+                <div class="kst-data-value">4 vials × 1g C-TOX Powder + 1 vial × 30ml Activator</div>
+            </div>
+            
+            <div class="kst-data-row">
+                <div class="kst-data-label">Treatment Areas</div>
+                <div class="kst-data-value">Entire face, neck</div>
+            </div>
+            
+            <div class="kst-data-row">
+                <div class="kst-data-label">Application Method</div>
+                <div class="kst-data-value">Micro-needling system, topical application</div>
+            </div>
+            
+            <div class="kst-data-row">
+                <div class="kst-data-label">Sessions per Kit</div>
+                <div class="kst-data-value">Up to 8 professional sessions</div>
+            </div>
+            
+            <div class="kst-data-row">
+                <div class="kst-data-label">Storage Temperature</div>
+                <div class="kst-data-value">1°C - 30°C</div>
+            </div>
+            
+            <div class="kst-data-row">
+                <div class="kst-data-label">Shelf Life</div>
+                <div class="kst-data-value">2 years from manufacture date</div>
+            </div>
+            
+            <div class="kst-text-block">
+                Store in a cool, dry area away from direct sunlight. Use immediately after mixing powder and activator for optimal effectiveness. The unique formulation maintains stability under proper storage conditions while preserving active ingredient potency.
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- Safety Information -->
+        <div class="kst-section">
+            <div class="kst-section-number">05</div>
+            <h2 class="kst-section-title">Safety Information</h2>
+            
+            <div class="kst-safety-warning">
+                <div class="kst-warning-title">
+                    <span class="kst-warning-icon">⚠</span>
+                    Professional Use Recommendation
+                </div>
+                <div class="kst-warning-content">
+                    This product is designed for administration by certified professionals for optimal results and safety. A tingling sensation may persist post-treatment. Avoid high-temperature environments and apply proper sun protection.
+                </div>
+            </div>
+            
+            <div class="kst-text-block">
+                Post-treatment care is essential for optimal results and safety. Apply hydrating serum and broad-spectrum sunscreen daily for one week following treatment. Avoid saunas, steam rooms, and intense physical exercise during the recovery period. Continuous skin stimulation may occur for up to 36 hours after application.
+            </div>
+            
+            <ul class="kst-comparison-list">
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">!</div>
+                    <div class="kst-comparison-text">Use immediately after mixing powder and activator components</div>
+                </li>
+                
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">!</div>
+                    <div class="kst-comparison-text">Avoid direct sunlight exposure and apply SPF protection for one week</div>
+                </li>
+                
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">!</div>
+                    <div class="kst-comparison-text">Professional administration recommended for optimal safety and results</div>
+                </li>
+                
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">!</div>
+                    <div class="kst-comparison-text">Store components separately until ready for immediate use</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- Treatment Protocol -->
+        <div class="kst-section">
+            <div class="kst-section-number">06</div>
+            <h2 class="kst-section-title">Treatment Protocol & Results</h2>
+            
+            <div class="kst-effect-grid">
+                <div class="kst-effect-card">
+                    <div class="kst-effect-title">Immediate Effects</div>
+                    <div class="kst-effect-description">Visible skin smoothing and radiance enhancement immediately following treatment with continued improvement over 36 hours</div>
+                    <div class="kst-effect-badges">
+                        <span class="kst-effect-badge">0-36 HOURS</span>
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-title">Short-term Benefits</div>
+                    <div class="kst-effect-description">Enhanced skin texture, improved hydration levels, and visible brightening effects within 1-2 weeks post-treatment</div>
+                    <div class="kst-effect-badges">
+                        <span class="kst-effect-badge">1-2 WEEKS</span>
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-title">Long-term Results</div>
+                    <div class="kst-effect-description">Sustained collagen production, improved skin elasticity, and comprehensive anti-aging benefits with complete treatment series</div>
+                    <div class="kst-effect-badges">
+                        <span class="kst-effect-badge">CUMULATIVE</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [Treatment Timeline and Expected Results Chart]
+            </div>
+            
+            <div class="kst-synergy-block">
+                <div class="kst-synergy-title">Continuous Cellular Stimulation</div>
+                <div class="kst-synergy-description">The C-TOX powder's unique spicule technology provides sustained cellular stimulation for up to 36 hours post-application, promoting natural exfoliation and enhanced absorption of regenerative ingredients for optimal treatment outcomes.</div>
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- Professional Recommendations -->
+        <div class="kst-section">
+            <div class="kst-section-number">07</div>
+            <h2 class="kst-section-title">Professional Recommendations</h2>
+            
+            <div class="kst-text-block">
+                CURENEX SNOW PEEL represents the pinnacle of professional skincare technology, combining advanced biotechnology with proven clinical ingredients. The innovative two-part system ensures maximum ingredient stability and efficacy while providing controlled, progressive skin transformation.
+            </div>
+            
+            <ul class="kst-comparison-list">
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">✓</div>
+                    <div class="kst-comparison-text">Suitable for professional aesthetic clinics and dermatology practices</div>
+                </li>
+                
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">✓</div>
+                    <div class="kst-comparison-text">Compatible with micro-needling and advanced skincare protocols</div>
+                </li>
+                
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">✓</div>
+                    <div class="kst-comparison-text">Optimal results when combined with professional skincare regimens</div>
+                </li>
+                
+                <li class="kst-comparison-item">
+                    <div class="kst-comparison-check">✓</div>
+                    <div class="kst-comparison-text">Customizable treatment intensity based on individual skin assessment</div>
+                </li>
+            </ul>
+            
+            <div class="kst-image-block">
+                [Professional Application Techniques and Best Practices]
+            </div>
+            
+            <div class="kst-protocol-block">
+                <div class="kst-protocol-header">
+                    <div class="kst-protocol-title">K-Beauty Innovation</div>
+                    <div class="kst-protocol-type">ADVANCED</div>
+                </div>
+                <div class="kst-protocol-details">
+                    Representing the latest in Korean skincare innovation, CURENEX SNOW PEEL combines traditional regenerative principles with cutting-edge biotechnology for superior skin transformation results in professional treatment settings.
+                </div>
+            </div>
+
+            <div class="kst-protocol-block">
+                <div class="kst-protocol-header">
+                    <div class="kst-protocol-title">Recommended Treatment Cycle</div>
+                    <div class="kst-protocol-type">STANDARD</div>
+                </div>
+                <div class="kst-protocol-details">
+                    3-5 sessions with approximately 4-week intervals between treatments for optimal results. Each kit provides sufficient product for up to 8 professional sessions.
+                </div>
+            </div>
+
+    </div>
+    

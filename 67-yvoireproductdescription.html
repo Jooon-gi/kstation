@@ -1,0 +1,892 @@
+<style>
+/* CSS Custom Properties for Color Palette */
+:root {
+--kst-main-gold: #F7C873;
+--kst-main-purple: #CDB6E4;
+--kst-main-blue: #9ED9DD;
+--kst-main-gold-dark: #ffab0e;
+--kst-main-purple-dark: #874ac5;
+--kst-main-blue-dark: #24bbc5;
+--kst-sub-gold: #FBE7C0;
+--kst-sub-purple: #E8DEF3;
+--kst-sub-blue: #CFEDEF;
+--kst-text-primary: #222222;
+--kst-text-secondary: #666666;
+--kst-gray: #d1d4e0;
+--kst-gray2:#edeef5;
+--kst-background: #FFFFFF;
+}
+
+/* Reset and base styles */
+.kst-main-container * {
+    box-sizing: border-box !important;
+}
+
+.kst-main-container {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif !important;
+    background: var(--kst-background) !important;
+    color: var(--kst-text-primary) !important;
+    padding: 16px !important;
+    line-height: 1.5 !important;
+    overflow-x: hidden !important;
+}
+
+/* Brand Header */
+.kst-brand-header {
+    text-align: center !important;
+    margin-bottom: 40px !important;
+}
+
+.kst-brand-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    margin-bottom: 20px !important;
+}
+
+.kst-logo-element {
+    width: 32px !important;
+    height: 10px !important;
+    border-radius: 2px !important;
+}
+
+.kst-logo-element:nth-child(1) { background: var(--kst-main-gold) !important; }
+.kst-logo-element:nth-child(2) { background: var(--kst-main-purple) !important; }
+.kst-logo-element:nth-child(3) { background: var(--kst-main-blue) !important; }
+
+.kst-brand-name {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 8px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+.kst-brand-tagline {
+    font-size: 12px !important;
+    color: var(--kst-text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+.kst-product-title {
+    font-size: 44px !important;
+    font-weight: 400 !important;
+    color: var(--kst-text-primary) !important;
+    text-align: center !important;
+    margin-bottom: 32px !important;
+    letter-spacing: -0.5px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+.kst-product-spec {
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    color: var(--kst-text-secondary) !important;
+    text-align: center !important;
+    margin-top: -28px !important;
+    margin-bottom: 40px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+/* Section styles */
+.kst-section {
+    background: var(--kst-background) !important;
+    padding: 24px 16px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    margin-bottom: 16px !important;
+    border: 1px solid var(--kst-gray2) !important;
+}
+
+.kst-section-title {
+    font-size: 22px !important;
+    font-weight: 400 !important;
+    color: var(--kst-text-primary) !important;
+    text-align: center !important;
+    margin-bottom: 24px !important;
+    letter-spacing: -0.3px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+/* Image placeholders with auto-hide */
+.kst-image-block,
+.kst-chart-block,
+.kst-visual-guide {
+    background: var(--kst-sub-blue) !important;
+    border: 2px dashed var(--kst-gray) !important;
+    padding: 24px 12px !important;
+    text-align: center !important;
+    border-radius: 6px !important;
+    color: var(--kst-text-secondary) !important;
+    font-size: 12px !important;
+    font-style: italic !important;
+    margin: 16px 0 !important;
+    min-height: 120px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Auto-hide empty image containers */
+.kst-image-block:not(:has(img)),
+.kst-chart-block:not(:has(img)),
+.kst-visual-guide:not(:has(img)) {
+    display: none !important;
+}
+
+.kst-image-block:has(img[src=""]),
+.kst-chart-block:has(img[src=""]),
+.kst-visual-guide:has(img[src=""]) {
+    display: none !important;
+}
+
+.kst-image-block img,
+.kst-chart-block img,
+.kst-visual-guide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 4px !important;
+}
+
+/* Main showcase image */
+.kst-main-showcase {
+    margin: 24px 0 !important;
+    min-height: 200px !important;
+}
+
+/* Chip badges */
+.kst-chip-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin: 12px 0 !important;
+    justify-content: center !important;
+}
+
+.kst-chip {
+    display: inline-block !important;
+    padding: 8px 12px !important;
+    background: var(--kst-main-gold) !important;
+    border: 1px solid var(--kst-gray) !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: var(--kst-background) !important;
+    transition: all 0.3s ease !important;
+}
+
+.kst-chip:hover {
+    background: var(--kst-sub-gold) !important;
+    color: var(--kst-text-primary) !important;
+}
+
+.kst-chip.kst-primary { 
+    background: var(--kst-main-gold) !important; 
+    color: var(--kst-background) !important; 
+}
+.kst-chip.kst-secondary { 
+    background: var(--kst-main-purple) !important; 
+    color: var(--kst-background) !important; 
+}
+.kst-chip.kst-tertiary { 
+    background: var(--kst-main-blue) !important; 
+    color: var(--kst-background) !important; 
+}
+
+/* Version comparison cards */
+.kst-version-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    margin-bottom: 24px !important;
+}
+
+.kst-version-card {
+    background: var(--kst-background) !important;
+    padding: 20px 16px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    border: 2px solid var(--kst-gray) !important;
+    overflow: hidden !important;
+    word-wrap: break-word !important;
+}
+
+.kst-version-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.kst-version-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 4px !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.kst-version-card:nth-child(1)::before { background: var(--kst-main-blue) !important; }
+.kst-version-card:nth-child(2)::before { background: var(--kst-main-purple) !important; }
+.kst-version-card:nth-child(3)::before { background: var(--kst-main-gold) !important; }
+
+.kst-version-name {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 8px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+.kst-version-viscosity {
+    font-size: 12px !important;
+    color: var(--kst-text-secondary) !important;
+    margin-bottom: 4px !important;
+    font-weight: 400 !important;
+}
+
+.kst-version-description {
+    font-size: 13px !important;
+    color: var(--kst-text-secondary) !important;
+    line-height: 1.5 !important;
+    margin-bottom: 12px !important;
+}
+
+.kst-version-areas {
+    font-size: 12px !important;
+    color: var(--kst-text-primary) !important;
+    font-weight: 500 !important;
+}
+
+/* Table container with horizontal scroll */
+.kst-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 16px 0 !important;
+    border-radius: 6px !important;
+    border: 1px solid var(--kst-gray) !important;
+    scrollbar-color: var(--kst-main-blue) var(--kst-sub-blue) !important;
+}
+
+.kst-table-wrap::-webkit-scrollbar {
+    height: 6px !important;
+    width: 6px !important;
+}
+
+.kst-table-wrap::-webkit-scrollbar-track {
+    background: var(--kst-sub-blue) !important;
+    border-radius: 3px !important;
+}
+
+.kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-main-blue) !important;
+    border-radius: 3px !important;
+    border: 1px solid var(--kst-gray) !important;
+}
+
+.kst-table-wrap::-webkit-scrollbar-thumb:hover {
+    background: var(--kst-main-purple) !important;
+}
+
+.kst-specifications-table {
+    width: 100% !important;
+    min-width: 600px !important;
+    border-collapse: collapse !important;
+    background: var(--kst-background) !important;
+    table-layout: auto !important;
+}
+
+.kst-specifications-table th,
+.kst-specifications-table td {
+    padding: 12px 16px !important;
+    text-align: left !important;
+    border-bottom: 1px solid var(--kst-sub-blue) !important;
+    color: var(--kst-text-secondary) !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+}
+
+.kst-specifications-table th {
+    background: var(--kst-sub-blue) !important;
+    font-weight: 500 !important;
+    color: var(--kst-text-primary) !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.3px !important;
+}
+
+.kst-specifications-table tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Benefits list */
+.kst-benefits-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+.kst-benefit-item {
+    display: flex !important;
+    gap: 12px !important;
+    align-items: flex-start !important;
+}
+
+.kst-benefit-number {
+    width: 32px !important;
+    height: 32px !important;
+    background: var(--kst-main-blue) !important;
+    border: 2px solid var(--kst-gray) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: var(--kst-background) !important;
+    flex-shrink: 0 !important;
+}
+
+.kst-benefit-content {
+    flex: 1 !important;
+}
+
+.kst-benefit-title {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 6px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+.kst-benefit-description {
+    font-size: 13px !important;
+    color: var(--kst-text-secondary) !important;
+    line-height: 1.5 !important;
+}
+
+/* Safety Warning */
+.kst-safety-warning {
+    background: var(--kst-sub-gold) !important;
+    border: 2px solid var(--kst-main-gold) !important;
+    border-radius: 6px !important;
+    padding: 20px 16px !important;
+    margin: 20px 0 !important;
+    position: relative !important;
+}
+
+.kst-warning-icon {
+    position: absolute !important;
+    top: 16px !important;
+    left: 16px !important;
+    width: 24px !important;
+    height: 24px !important;
+    background: var(--kst-main-gold) !important;
+    color: var(--kst-background) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+}
+
+.kst-warning-content {
+    margin-left: 36px !important;
+}
+
+.kst-warning-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 8px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+.kst-warning-text {
+    font-size: 13px !important;
+    color: var(--kst-text-primary) !important;
+    line-height: 1.5 !important;
+}
+
+/* Text utilities */
+.kst-text-center { text-align: center !important; }
+.kst-text-muted { color: var(--kst-text-secondary) !important; }
+.kst-text-small { font-size: 12px !important; }
+.kst-text-bold { font-weight: 600 !important; }
+
+/* Margin utilities */
+.kst-mb-0 { margin-bottom: 0 !important; }
+.kst-mb-1 { margin-bottom: 8px !important; }
+.kst-mb-2 { margin-bottom: 16px !important; }
+.kst-mb-3 { margin-bottom: 24px !important; }
+.kst-mt-1 { margin-top: 8px !important; }
+.kst-mt-2 { margin-top: 16px !important; }
+.kst-mt-3 { margin-top: 24px !important; }
+
+/* Lists */
+.kst-main-container ul,
+.kst-main-container ol {
+    margin: 12px 0 !important;
+    padding-left: 20px !important;
+}
+
+.kst-main-container ul li,
+.kst-main-container ol li {
+    font-size: 13px !important;
+    color: var(--kst-text-secondary) !important;
+    line-height: 1.5 !important;
+    margin-bottom: 6px !important;
+}
+
+/* Additional utility classes */
+.kst-highlight {
+    background: var(--kst-sub-gold) !important;
+    color: var(--kst-text-primary) !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+    font-weight: 500 !important;
+}
+
+.kst-badge {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    background: var(--kst-sub-blue) !important;
+    color: var(--kst-text-primary) !important;
+    border-radius: 4px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+}
+</style>
+
+<div class="kst-main-container">
+
+<div class="kst-brand-header">
+    <div class="kst-brand-logo">
+        <div class="kst-logo-element"></div>
+        <div class="kst-logo-element"></div>
+        <div class="kst-logo-element"></div>
+    </div>
+    <div class="kst-brand-name">LG Chem</div>
+    <div class="kst-brand-tagline">Advanced Dermal Filler Solutions</div>
+</div>
+
+<h1 class="kst-product-title">YVOIRE</h1>
+<h2 class="kst-product-spec">Classic Plus | Volume Plus | Contour Plus</h2>
+
+<div class="kst-image-block kst-main-showcase">
+    [Insert YVOIRE Product Line Showcase Image]
+</div>
+
+<div class="kst-section" id="kst-basic-info">
+    <h2 class="kst-section-title">Product Overview</h2>
+    
+    <div class="kst-chip-container">
+        <span class="kst-chip kst-primary">Hyaluronic Acid Filler</span>
+        <span class="kst-chip kst-secondary">Pre-filled Syringe</span>
+        <span class="kst-chip kst-tertiary">HICE Technology</span>
+    </div>
+    
+    <p style="font-size: 14px !important; color: var(--kst-text-secondary) !important; line-height: 1.6 !important; margin: 16px 0 !important;">
+        YVOIRE fillers contain highly cross-linked Hyaluronic Acid of non-animal origin with Lidocaine for enhanced comfort. Each product is supplied in a single-use package containing one 1.0 ml pre-filled syringe with accompanying needles.
+    </p>
+    
+    <div class="kst-text-center kst-mt-2">
+        <span class="kst-highlight">Duration: 6-12 months with natural, long-lasting results</span>
+    </div>
+</div>
+
+<div class="kst-section" id="kst-ingredients">
+    <h2 class="kst-section-title">Key Components</h2>
+    
+    <div class="kst-version-cards">
+        <div class="kst-version-card">
+            <div class="kst-version-name">Hyaluronic Acid</div>
+            <div class="kst-version-viscosity">Non-animal origin</div>
+            <div class="kst-version-description">
+                22 mg/ml concentration with HICE (High Concentration Equalized) cross-linking technology for stable gel structure and minimal BDDE cross-linkers.
+            </div>
+        </div>
+        
+        <div class="kst-version-card">
+            <div class="kst-version-name">Lidocaine Hydrochloride</div>
+            <div class="kst-version-viscosity">Local anesthetic</div>
+            <div class="kst-version-description">
+                0.3% concentration provides enhanced comfort during injection procedures, reducing patient discomfort and improving treatment experience.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-mt-2">
+        [Insert HICE Cross-linking Technology Visualization]
+    </div>
+</div>
+
+<div class="kst-section" id="kst-versions">
+    <h2 class="kst-section-title">Product Line Comparison</h2>
+    
+    <div class="kst-table-wrap">
+        <table class="kst-specifications-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Viscosity</th>
+                    <th>Treatment Area</th>
+                    <th>Injection Layer</th>
+                    <th>Needle Gauge</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="color: var(--kst-main-blue-dark) !important; font-weight: bold;">Classic Plus</td>
+                    <td>Low to Medium</td>
+                    <td>Fine lines and wrinkles</td>
+                    <td>Mid to deep dermis</td>
+                    <td>27G & 30G</td>
+                </tr>
+                <tr>
+                    <td style="color: var(--kst-main-purple-dark) !important; font-weight: bold;">Volume Plus</td>
+                    <td>Medium to High</td>
+                    <td>Deep wrinkles and folds</td>
+                    <td>Deep dermis to subcutaneous</td>
+                    <td>27G</td>
+                </tr>
+                <tr>
+                    <td style="color: var(--kst-main-gold-dark) !important; font-weight: bold;">Contour Plus</td>
+                    <td>High</td>
+                    <td>Volumizing and contouring</td>
+                    <td>Subcutaneous and supraperiosteal</td>
+                    <td>23G, 27G & 30G</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="kst-image-block kst-mt-2">
+        [Insert Treatment Area Comparison Chart]
+    </div>
+</div>
+
+<div class="kst-section" id="kst-product-details">
+    <h2 class="kst-section-title">Detailed Product Information</h2>
+    
+    <div class="kst-version-cards">
+        <div class="kst-version-card">
+            <div class="kst-version-name">YVOIRE Classic Plus</div>
+            <div class="kst-version-viscosity">Low to Medium Viscosity</div>
+            <div class="kst-version-description">
+                Designed for correction of fine and shallow lines, skin rejuvenation, and lip augmentation. Highly elastic with excellent flowability for natural results. The typical duration of effect is approximately 6-12 months.
+            </div>
+            <div class="kst-version-areas">
+                <strong>Treatment Areas:</strong> Glabella lines, tear troughs, crow's feet, barcode lines, upper eyelids.
+            </div>
+        </div>
+        
+        <div class="kst-version-card">
+            <div class="kst-version-name">YVOIRE Volume Plus</div>
+            <div class="kst-version-viscosity">Medium to High Viscosity</div>
+            <div class="kst-version-description">
+                Higher viscosity and viscoelasticity provide strong support and lifting capacity for deep facial depressions and volume restoration. The typical duration of effect is approximately 6-12 months.
+            </div>
+            <div class="kst-version-areas">
+                <strong>Treatment Areas:</strong> Nasolabial folds, marionette lines, cheeks, temples, forehead, nose and lip augmentation.
+            </div>
+        </div>
+        
+        <div class="kst-version-card">
+            <div class="kst-version-name">YVOIRE Contour Plus</div>
+            <div class="kst-version-viscosity">High Viscosity</div>
+            <div class="kst-version-description">
+                Highest viscosity and elasticity providing exceptional resistance to deformation for long-lasting, firm facial structure definition. The typical duration of effect is approximately 6-12 months.
+            </div>
+            <div class="kst-version-areas">
+                <strong>Treatment Areas:</strong> Cheekbones, chin, jawline, facial lipoatrophy correction, morphological deformities.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-mt-2">
+        [Insert Before/After Treatment Results Gallery]
+    </div>
+</div>
+
+<div class="kst-section" id="kst-benefits">
+    <h2 class="kst-section-title">Key Benefits</h2>
+    
+    <div class="kst-benefits-list">
+        <div class="kst-benefit-item">
+            <div class="kst-benefit-number">1</div>
+            <div class="kst-benefit-content">
+                <div class="kst-benefit-title">Improvement of Fine to Deep Wrinkles</div>
+                <div class="kst-benefit-description">
+                    Effective correction of various wrinkle depths with appropriate viscosity selection for each treatment area.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-benefit-item">
+            <div class="kst-benefit-number">2</div>
+            <div class="kst-benefit-content">
+                <div class="kst-benefit-title">Restoration of Facial Volume and Contouring</div>
+                <div class="kst-benefit-description">
+                    Advanced formulation provides excellent lifting capacity and structural support for comprehensive facial rejuvenation.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-benefit-item">
+            <div class="kst-benefit-number">3</div>
+            <div class="kst-benefit-content">
+                <div class="kst-benefit-title">Enhancement of Skin Hydration and Elasticity</div>
+                <div class="kst-benefit-description">
+                    Hyaluronic acid naturally attracts and retains moisture, improving overall skin texture and appearance.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-benefit-item">
+            <div class="kst-benefit-number">4</div>
+            <div class="kst-benefit-content">
+                <div class="kst-benefit-title">HICE Technology Advantage</div>
+                <div class="kst-benefit-description">
+                    Biphasic gel composed of large and small particles ensures smooth injection and optimal lifting capacity with minimal cross-linker use.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-text-center kst-mt-2">
+        <p class="kst-text-small kst-text-muted">
+            Clinical results demonstrate lasting improvements with natural-looking outcomes for 6-12 months.
+        </p>
+    </div>
+</div>
+
+<div class="kst-safety-warning">
+    <div class="kst-warning-icon">!</div>
+    <div class="kst-warning-content">
+        <div class="kst-warning-title">Important Safety Information</div>
+        <div class="kst-warning-text">Do not use in individuals with known hypersensitivity to hyaluronic acid or lidocaine. Consult healthcare provider before treatment.</div>
+    </div>
+</div>
+
+<div class="kst-section" id="kst-safety">
+    <h2 class="kst-section-title">Storage & Precautions</h2>
+    
+    <div class="kst-mb-3">
+        <h4 style="font-size: 16px !important; font-weight: 500 !important; color: var(--kst-text-primary) !important; margin-bottom: 12px !important;">Precautions</h4>
+        <ul>
+            <li>Do not use in individuals with known hypersensitivity to hyaluronic acid or lidocaine</li>
+            <li>Inform healthcare provider of any medical conditions or medications before use</li>
+            <li>Treatment should only be performed by qualified medical professionals</li>
+            <li>Follow proper injection techniques and sterile procedures</li>
+        </ul>
+    </div>
+    
+    <div class="kst-mb-3">
+        <h4 style="font-size: 16px !important; font-weight: 500 !important; color: var(--kst-text-primary) !important; margin-bottom: 12px !important;">Storage Conditions</h4>
+        <ul>
+            <li>Store at a temperature between 2°C and 25°C</li>
+            <li>Do not freeze the product</li>
+            <li>This product is for single use only</li>
+            <li>Keep in original packaging until use</li>
+        </ul>
+    </div>
+</div>
+
+<div class="kst-section" id="kst-technical">
+    <h2 class="kst-section-title">Technical Specifications</h2>
+    
+    <div class="kst-table-wrap">
+        <table class="kst-specifications-table">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Specification</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hyaluronic Acid Concentration</td>
+                    <td>22 mg/ml</td>
+                    <td>Non-animal origin</td>
+                </tr>
+                <tr>
+                    <td>Lidocaine Concentration</td>
+                    <td>0.3%</td>
+                    <td>Local anesthetic for comfort</td>
+                </tr>
+                <tr>
+                    <td>Package Volume</td>
+                    <td>1.0 ml</td>
+                    <td>Pre-filled syringe</td>
+                </tr>
+                <tr>
+                    <td>Cross-linking Technology</td>
+                    <td>HICE</td>
+                    <td>High Concentration Equalized</td>
+                </tr>
+                <tr>
+                    <td>Gel Structure</td>
+                    <td>Biphasic</td>
+                    <td>Large and small particles</td>
+                </tr>
+                <tr>
+                    <td>Duration of Effect</td>
+                    <td>6-12 months</td>
+                    <td>Individual results may vary</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="kst-image-block kst-mt-2">
+        [Insert Technical Specifications Chart]
+    </div>
+</div>
+
+<div class="kst-section" id="kst-selection-guide">
+    <h2 class="kst-section-title">Which Product Is Right for You?</h2>
+    
+    <p style="font-size: 14px !important; color: var(--kst-text-secondary) !important; line-height: 1.6 !important; margin: 16px 0 !important; text-align: center !important;">
+        Choose a product with different viscosity and injection layers depending on the treatment area and soft tissue volume requirements.
+    </p>
+    
+    <div class="kst-benefits-list">
+        <div class="kst-benefit-item">
+            <div class="kst-benefit-number" style="background: var(--kst-main-blue) !important;">C</div>
+            <div class="kst-benefit-content">
+                <div class="kst-benefit-title">YVOIRE Classic Plus</div>
+                <div class="kst-benefit-description">
+                    <strong>Ideal for:</strong> Superficial corrections, fine lines, delicate areas requiring precise placement and natural movement.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-benefit-item">
+            <div class="kst-benefit-number" style="background: var(--kst-main-purple) !important;">V</div>
+            <div class="kst-benefit-content">
+                <div class="kst-benefit-title">YVOIRE Volume Plus</div>
+                <div class="kst-benefit-description">
+                    <strong>Ideal for:</strong> Deep wrinkles, facial volume loss, areas requiring moderate to strong lifting support.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-benefit-item">
+            <div class="kst-benefit-number" style="background: var(--kst-main-gold) !important;">T</div>
+            <div class="kst-benefit-content">
+                <div class="kst-benefit-title">YVOIRE Contour Plus</div>
+                <div class="kst-benefit-description">
+                    <strong>Ideal for:</strong> Structural facial contouring, significant volume enhancement, long-lasting architectural changes.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-mt-2">
+        [Insert Product Selection Decision Tree]
+    </div>
+</div>
+
+<div class="kst-section" id="kst-professional">
+    <h2 class="kst-section-title">For Healthcare Professionals</h2>
+    
+    <div class="kst-mb-3">
+        <h4 style="font-size: 16px !important; font-weight: 500 !important; color: var(--kst-text-primary) !important; margin-bottom: 12px !important;">Injection Techniques</h4>
+        <ul>
+            <li>Use appropriate needle gauge as recommended for each product variant</li>
+            <li>Follow sterile injection procedures and aseptic techniques</li>
+            <li>Consider patient's facial anatomy and tissue characteristics</li>
+            <li>Inject slowly and steadily for optimal distribution</li>
+            <li>Massage gently if needed to ensure even distribution</li>
+        </ul>
+    </div>
+    
+    <div class="kst-mb-3">
+        <h4 style="font-size: 16px !important; font-weight: 500 !important; color: var(--kst-text-primary) !important; margin-bottom: 12px !important;">Treatment Protocols</h4>
+        <ul>
+            <li>Assess patient suitability and medical history</li>
+            <li>Perform allergy testing if indicated</li>
+            <li>Plan treatment areas and volumes based on desired outcomes</li>
+            <li>Schedule follow-up appointments for assessment</li>
+            <li>Document treatment details and patient response</li>
+        </ul>
+    </div>
+    
+    <div class="kst-image-block kst-mt-2">
+        [Insert Professional Training Materials Preview]
+    </div>
+</div>
+
+<div class="kst-section" id="kst-quality">
+    <h2 class="kst-section-title">Quality Standards & Certifications</h2>
+    
+    <div class="kst-chip-container">
+        <span class="kst-badge">CE Marked</span>
+        <span class="kst-badge">ISO Certified</span>
+        <span class="kst-badge">GMP Compliant</span>
+        <span class="kst-badge">FDA Cleared</span>
+    </div>
+    
+    <div class="kst-mt-3">
+        <h4 style="font-size: 16px !important; font-weight: 500 !important; color: var(--kst-text-primary) !important; margin-bottom: 12px !important;">Manufacturing Excellence</h4>
+        <p style="font-size: 13px !important; color: var(--kst-text-secondary) !important; line-height: 1.5 !important;">
+            Manufactured by LG Chem using advanced biotechnology and stringent quality control processes. Each batch undergoes comprehensive testing to ensure safety, efficacy, and consistency.
+        </p>
+    </div>
+    
+    <div class="kst-mt-2">
+        <h4 style="font-size: 16px !important; font-weight: 500 !important; color: var(--kst-text-primary) !important; margin-bottom: 8px !important;">Regulatory Compliance</h4>
+        <p style="font-size: 13px !important; color: var(--kst-text-secondary) !important; line-height: 1.5 !important;">
+            YVOIRE products meet international regulatory standards and are approved for use in multiple countries worldwide. All manufacturing processes follow Good Manufacturing Practice (GMP) guidelines.
+        </p>
+    </div>
+    
+    <div class="kst-image-block kst-mt-2">
+        [Insert Quality Certification Badges]
+    </div>
+</div>
+
+<div class="kst-section" id="kst-contact">
+    <h2 class="kst-section-title">Additional Information</h2>
+    
+    <div class="kst-text-center">
+        <p style="font-size: 14px !important; color: var(--kst-text-secondary) !important; line-height: 1.6 !important; margin: 16px 0 !important;">
+            For detailed product information, training materials, or technical support, please consult with your authorized distributor or contact LG Chem directly.
+        </p>
+        
+        <div class="kst-chip-container">
+            <span class="kst-chip kst-primary">Professional Use Only</span>
+            <span class="kst-chip kst-secondary">Prescription Required</span>
+        </div>
+    </div>
+    
+    <div class="kst-mt-3">
+        <p class="kst-text-small kst-text-muted kst-text-center">
+            YVOIRE is a registered trademark of LG Chem. All rights reserved. This information is intended for healthcare professionals only.
+        </p>
+    </div>
+</div>
+</div>

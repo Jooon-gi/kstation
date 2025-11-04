@@ -1,0 +1,726 @@
+<style>
+  /* =========================================
+   Shopify-Optimized Mobile Template Styles
+  ========================================== */
+
+  /* Basic Reset - kst prefix applied */
+  .kst-main-container *, 
+  .kst-main-container *::before, 
+  .kst-main-container *::after { 
+    box-sizing: border-box !important; 
+  }
+  
+  .kst-main-container {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif !important;
+    color: #333333 !important;
+    line-height: 1.6 !important;
+    background: #FFFFFF !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    isolation: isolate !important;
+  }
+
+  /* Auto-hide images functionality - CSS :has() based */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none !important;
+  }
+
+  .kst-main-container img, 
+  .kst-main-container video { 
+    max-width: 100% !important; 
+    height: auto !important; 
+    display: block !important;
+    object-fit: cover !important;
+  }
+  
+  /* =========================================
+   Design Tokens
+  ========================================== */
+  .kst-main-container {
+    --kst-main: #C8102E;
+    --kst-secondary: #D4AF37;
+    --kst-dark: #1A1A40;
+    --kst-light: #E6E6E6;
+    --kst-text: #333333;
+    --kst-text-muted: #888888;
+    --kst-background: #FFFFFF;
+    --kst-border: rgba(200, 16, 46, 0.15);
+    --kst-card: rgba(200, 16, 46, 0.05);
+    /* 홀로그램 효과를 위해 그림자 변수 수정 */
+    --kst-shadow: 
+      0 2px 10px rgba(0, 255, 255, 0.1), /* 시안 */
+      0 4px 15px rgba(255, 0, 255, 0.1), /* 마젠타 */
+      0 6px 20px rgba(255, 255, 0, 0.05); /* 옐로우 */
+  }
+
+  /* =========================================
+   Container
+  ========================================== */
+  .kst-container {
+    padding: 16px 12px !important;
+  }
+
+  /* =========================================
+   Sections
+  ========================================== */
+  .kst-section {
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    background: var(--kst-background) !important;
+    border: 1px solid var(--kst-border) !important;
+    padding: 20px 14px !important;
+    margin: 16px 8px !important;
+    box-shadow: var(--kst-shadow) !important;
+    border-radius: 8px !important;
+  }
+
+  .kst-section::before {
+    content: "" !important;
+    position: absolute !important; 
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--kst-main), var(--kst-secondary)) !important;
+    border-radius: 8px 8px 0 0 !important;
+  }
+
+  .kst-section-title {
+    margin: 0 0 12px !important;
+    font-weight: 800 !important;
+    font-size: 1.25rem !important;
+    letter-spacing: .2px !important;
+    word-wrap: break-word !important; 
+    overflow-wrap: break-word !important; 
+    hyphens: auto !important;
+    color: var(--kst-main) !important;
+    position: relative !important;
+  }
+
+  .kst-section-sub { 
+    margin: 0 0 14px !important; 
+    color: var(--kst-text-muted) !important; 
+    font-size: .9rem !important; 
+  }
+
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: linear-gradient(135deg, var(--kst-background), var(--kst-light)) !important;
+    border: 1px solid var(--kst-border) !important;
+    padding: 24px 16px !important;
+    position: relative !important; 
+    overflow: hidden !important;
+    margin: 12px 8px !important;
+    border-radius: 12px !important;
+  }
+
+  .kst-labels { 
+    display: flex !important; 
+    gap: 6px !important; 
+    flex-wrap: wrap !important; 
+    margin-bottom: 12px !important;
+  }
+
+  .kst-badge {
+    display: inline-flex !important; 
+    align-items: center !important; 
+    gap: 4px !important;
+    padding: 6px 12px !important;
+    background: var(--kst-main) !important;
+    color: var(--kst-background) !important; 
+    font-size: .75rem !important; 
+    font-weight: 700 !important;
+    border-radius: 20px !important;
+    transition: background 0.3s ease !important;
+  }
+
+  .kst-badge:hover {
+    background: var(--kst-secondary) !important;
+  }
+
+  .kst-badge.kst-brand { 
+    background: var(--kst-dark) !important; 
+  }
+  .kst-badge.kst-keyword { 
+    background: var(--kst-secondary) !important; 
+  }
+  .kst-badge.kst-num { 
+    background: var(--kst-main) !important; 
+  }
+
+  .kst-hero-title {
+    margin: 0 0 8px !important;
+    font-weight: 900 !important;
+    font-size: 2rem !important;
+    letter-spacing: .2px !important;
+    word-wrap: break-word !important; 
+    overflow-wrap: break-word !important; 
+    hyphens: auto !important;
+    color: var(--kst-dark) !important;
+  }
+
+  .kst-hero-spec {
+    margin: -8px 0 15px !important;
+    font-weight: 600 !important;
+    font-size: 1.2rem !important;
+    letter-spacing: .1px !important;
+    word-wrap: break-word !important; 
+    overflow-wrap: break-word !important; 
+    hyphens: auto !important;
+    color: var(--kst-main) !important;
+  }
+
+  .kst-hero p { 
+    margin: 0 0 10px !important; 
+    color: var(--kst-text-muted) !important; 
+  }
+
+  .kst-highlight {
+    border: 1px solid var(--kst-main) !important;
+    background: linear-gradient(135deg, rgba(200, 16, 46, 0.1), rgba(212, 175, 55, 0.1)) !important;
+    padding: 12px 16px !important; 
+    color: var(--kst-dark) !important;
+    margin-bottom: 16px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .kst-card {
+    background: var(--kst-background) !important; 
+    border: 1px solid var(--kst-border) !important; 
+    padding: 16px !important; 
+    box-shadow: var(--kst-shadow) !important; 
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease !important; 
+    margin: 8px 0 !important;
+    border-radius: 8px !important;
+  }
+
+  .kst-card:hover {
+    transform: translateY(-2px) !important;
+    /* 홀로그램 효과를 위해 hover 그림자 수정 */
+    box-shadow: 
+      0 4px 15px rgba(0, 255, 255, 0.2), 
+      0 8px 25px rgba(255, 0, 255, 0.2), 
+      0 12px 30px rgba(255, 255, 0, 0.1);
+    border-color: var(--kst-main) !important;
+  }
+
+  .kst-card h4 { 
+    margin: 0 0 8px !important; 
+    font-size: 1rem !important; 
+    color: var(--kst-dark) !important;
+    font-weight: 700 !important;
+  }
+
+  .kst-card ul li { 
+    color: var(--kst-text) !important; 
+    margin-bottom: 4px !important;
+  }
+
+  .kst-card ol li { 
+    color: var(--kst-text) !important; 
+    margin-bottom: 4px !important;
+  }
+
+  .kst-muted { 
+    color: var(--kst-text-muted) !important; 
+  }
+
+  /* =========================================
+   Image Blocks
+  ========================================== */
+  .kst-image-block {
+    position: relative !important;
+    background: var(--kst-light) !important;
+    border: 2px dashed var(--kst-border) !important;
+    aspect-ratio: 16/9 !important;
+    display: grid !important; 
+    place-items: center !important;
+    color: var(--kst-text-muted) !important; 
+    font-weight: 700 !important;
+    overflow: hidden !important;
+    margin: 8px !important;
+    border-radius: 8px !important;
+    min-height: 120px !important;
+  }
+
+  .kst-chart-block {
+    position: relative !important;
+    background: var(--kst-light) !important;
+    border: 2px dashed var(--kst-border) !important;
+    aspect-ratio: 4/3 !important;
+    display: grid !important; 
+    place-items: center !important;
+    color: var(--kst-text-muted) !important; 
+    font-weight: 700 !important;
+    overflow: hidden !important;
+    margin: 8px !important;
+    border-radius: 8px !important;
+    min-height: 150px !important;
+  }
+
+  /* =========================================
+   Definition Lists & Chips
+  ========================================== */
+  .kst-def {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important; 
+    margin: 0 !important;
+  }
+
+  .kst-def-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+
+  .kst-def dt { 
+    font-weight: 800 !important; 
+    color: var(--kst-dark) !important; 
+  }
+
+  .kst-def dd { 
+    margin: 0 !important; 
+    color: var(--kst-text) !important; 
+  }
+
+  .kst-chips { 
+    display: flex !important; 
+    flex-wrap: wrap !important; 
+    gap: 6px !important; 
+  }
+
+  .kst-chip {
+    background: var(--kst-main) !important;
+    color: var(--kst-background) !important; 
+    border: 1px solid var(--kst-main) !important;
+    padding: 6px 12px !important; 
+    font-size: .75rem !important; 
+    font-weight: 700 !important;
+    border-radius: 16px !important;
+  }
+
+  /* =========================================
+   Table
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    /* 수정된 부분: 테이블 전체 보더 제거 및 상단 여백 제거 */
+    background: var(--kst-background) !important;
+    margin: 8px 0 !important;
+    border-radius: 8px !important;
+    margin-top: 0 !important; 
+  }
+
+  .kst-table {
+    min-width: 800px !important;
+    border-collapse: separate !important; /* 수정된 부분: 보더 제어를 위해 collapse에서 separate로 변경 */
+    border-spacing: 0 !important; /* 수정된 부분: 셀 간 간격 제거 */
+    width: 100% !important;
+    color: var(--kst-text) !important;
+  }
+  
+  /* 수정된 부분: 헤더 셀에만 상단, 좌/우 보더 추가 */
+  .kst-table thead th {
+    position: sticky !important; 
+    top: 0 !important;
+    background: var(--kst-dark) !important;
+    color: var(--kst-background) !important;
+    font-weight: 700 !important;
+    z-index: 1 !important;
+    white-space: nowrap !important; /* 헤더 텍스트는 줄바꿈하지 않음 */
+    border-top: 1px solid var(--kst-border) !important;
+    border-left: 1px solid var(--kst-border) !important;
+  }
+  
+  .kst-table thead th:first-child {
+      border-top-left-radius: 8px !important; /* 좌측 상단 모서리 둥글게 */
+  }
+
+  .kst-table thead th:last-child {
+      border-top-right-radius: 8px !important; /* 우측 상단 모서리 둥글게 */
+      border-right: 1px solid var(--kst-border) !important; /* 우측 보더 추가 */
+  }
+  
+  /* 수정된 부분: 모든 셀에 하단 보더 및 좌/우 보더 추가 */
+  .kst-table th, .kst-table td {
+    padding: 12px !important; 
+    border-bottom: 1px solid var(--kst-border) !important;
+    text-align: left !important; 
+    vertical-align: top !important;
+    border-left: 1px solid var(--kst-border) !important;
+  }
+  
+  /* 마지막 셀에만 우측 보더 추가 */
+  .kst-table th:last-child,
+  .kst-table td:last-child {
+      border-right: 1px solid var(--kst-border) !important;
+  }
+  
+  /* 마지막 행의 셀들에서 하단 보더 제거 */
+  .kst-table tbody tr:last-child td {
+      border-bottom: none !important;
+  }
+
+
+  .kst-table-wrap::-webkit-scrollbar { 
+    height: 8px !important; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-track { 
+    background: var(--kst-light) !important; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-thumb { 
+    background: var(--kst-main) !important; 
+    border-radius: 4px !important;
+  }
+
+  /* =========================================
+   Callouts & KPI
+  ========================================== */
+  .kst-callout {
+    border: 1px solid var(--kst-secondary) !important;
+    background: rgba(212, 175, 55, 0.1) !important;
+    color: var(--kst-dark) !important;
+    padding: 12px !important;
+    margin: 8px 0 !important;
+    border-radius: 8px !important;
+  }
+
+  .kst-callout strong { 
+    color: var(--kst-main) !important; 
+  }
+
+  .kst-kpi {
+    font-size: 1.8rem !important;
+    font-weight: 900 !important; 
+    color: var(--kst-main) !important;
+  }
+
+  .kst-kpi .kst-unit { 
+    font-size: .9rem !important; 
+    color: var(--kst-text-muted) !important; 
+    font-weight: 700 !important; 
+    margin-left: 4px !important; 
+  }
+
+  .kst-label-value { 
+    display: flex !important; 
+    flex-direction: column !important;
+    gap: 4px !important; 
+    color: var(--kst-text) !important; 
+    margin-bottom: 8px !important;
+  }
+
+  .kst-label-value .kst-label { 
+    color: var(--kst-text-muted) !important; 
+    font-weight: 600 !important;
+  }
+
+  .kst-split { 
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important; 
+  }
+
+  /* Motion Preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .kst-main-container * { 
+      animation: none !important; 
+      transition: none !important; 
+    }
+  }
+</style>
+
+<div class="kst-main-container">
+  <header class="kst-container">
+    <div class="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge kst-brand">ExoCoBio</span>
+        <span class="kst-badge">Dermal Filler</span>
+        <span class="kst-badge kst-keyword">Hyaluronic Acid</span>
+        <span class="kst-badge kst-num">24mg/ml</span>
+      </div>
+      <h1 class="kst-hero-title">BONETTA Dermal Filler Series</h1>
+      <h2 class="kst-hero-spec" style="font-size: 28px !important; margin-top: 14px !important;">Fine · Deep · Volume</h2>
+      <h2 class="kst-hero-spec" style="color:#333333 !important; margin-top: -14px !important;">2 x 1.1ml Pre-filled Syringes</h2>
+      <p>Advanced cross-linked Hyaluronic Acid filler with Lidocaine for comprehensive facial rejuvenation and contouring</p>
+      <div class="kst-highlight">Premium HA filler with BDDE cross-linking and HENM technology for optimal viscoelasticity</div>
+      <div class="kst-image-block">Main Product Image Placeholder</div>
+    </div>
+  </header>
+
+  <main class="kst-container">
+
+    <section class="kst-section" id="kst-basic-info">
+      <h2 class="kst-section-title">Product Overview</h2>
+      <p class="kst-section-sub">Three specialized formulations for targeted aesthetic treatments</p>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>BONETTA Fine</h4>
+          <div class="kst-image-block">Fine Lines Treatment Image</div>
+          <p class="kst-muted">Low viscosity formula for superficial fine lines and delicate areas</p>
+        </div>
+        <div class="kst-card">
+          <h4>BONETTA Deep</h4>
+          <div class="kst-image-block">Deep Wrinkles Treatment Image</div>
+          <p class="kst-muted">Medium consistency for moderate to severe wrinkles and lip enhancement</p>
+        </div>
+        <div class="kst-card">
+          <h4>BONETTA Volume</h4>
+          <div class="kst-image-block">Facial Contouring Image</div>
+          <p class="kst-muted">High viscosity gel for facial contouring and significant volume enhancement</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-composition">
+      <h2 class="kst-section-title">Key Ingredients & Technology</h2>
+      <div class="kst-split">
+        <div>
+          <div class="kst-def">
+            <div class="kst-def-item">
+              <dt>Active Ingredients</dt>
+              <dd>
+                <div class="kst-chips">
+                  <span class="kst-chip">Cross-linked Hyaluronic Acid</span>
+                  <span class="kst-chip">Lidocaine HCl</span>
+                </div>
+              </dd>
+            </div>
+
+            <div class="kst-def-item">
+              <dt>Concentration</dt>
+              <dd>
+                <div class="kst-chips">
+                  <span class="kst-badge kst-num">24mg/ml HA</span>
+                  <span class="kst-badge kst-num">0.3% Lidocaine</span>
+                </div>
+              </dd>
+            </div>
+
+            <div class="kst-def-item">
+              <dt>Cross-linking Technology</dt>
+              <dd>BDDE cross-linking with HENM technology ensures optimal viscoelasticity, uniform distribution, and extended duration of results.</dd>
+            </div>
+
+            <div class="kst-def-item">
+              <dt>Gel Structure</dt>
+              <dd>Monophasic gel formulation provides outstanding viscosity control and smooth injection experience with enhanced patient comfort.</dd>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="kst-image-block" style="aspect-ratio:1/1;">HA Structure & Technology Image</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-benefits">
+      <h2 class="kst-section-title">Expected Benefits & Clinical Outcomes</h2>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Wrinkle Correction</h4>
+          <p class="kst-muted">Improvement of fine to deep wrinkles and facial folds</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-keyword">Anti-aging</span>
+            <span class="kst-badge kst-keyword">Smoothing</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Facial Contouring</h4>
+          <p class="kst-muted">Enhanced facial definition and volumizing effects</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-keyword">Contouring</span>
+            <span class="kst-badge kst-keyword">Volume</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Skin Revitalization</h4>
+          <p class="kst-muted">Improved hydration and natural collagen stimulation</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-keyword">Hydration</span>
+            <span class="kst-badge kst-keyword">Rejuvenation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-split">
+        <div class="kst-image-block">Before Treatment Image</div>
+        <div class="kst-image-block">After Treatment Results Image</div>
+      </div>
+
+      <p class="kst-muted">Long-term value with sustained outcomes ranging from 6-24 months depending on the product variant and individual factors.</p>
+
+      <div class="kst-card">
+        <h4>Clinical Benefits</h4>
+        <ul>
+          <li>Immediate visible improvement in targeted treatment areas</li>
+          <li>Natural-looking results with optimal tissue integration</li>
+          <li>Enhanced skin elasticity and texture improvement</li>
+          <li>Gradual collagen stimulation for long-term benefits</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-specs">
+      <h2 class="kst-section-title">Product Specifications & Comparison</h2>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <div class="kst-kpi">24<span class="kst-unit">mg/ml</span></div>
+          <div class="kst-muted">HA Concentration</div>
+        </div>
+        <div class="kst-card">
+          <div class="kst-kpi">0.3<span class="kst-unit">%</span></div>
+          <div class="kst-muted">Lidocaine Content</div>
+        </div>
+        <div class="kst-card">
+          <div class="kst-kpi">2<span class="kst-unit">syringes</span></div>
+          <div class="kst-muted">Per Pack (1.1ml each)</div>
+        </div>
+      </div>
+
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Product Comparison Table">
+          <thead>
+            <tr>
+              <th>Product Version</th>
+              <th>Viscosity</th>
+              <th>Treatment Areas</th>
+              <th>Injection Layer</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>BONETTA Fine</strong></td>
+              <td>Low</td>
+              <td>Fine lines, periorbital, lip hydration</td>
+              <td>Superficial to mid dermis</td>
+              <td>6-9 months</td>
+            </tr>
+            <tr>
+              <td><strong>BONETTA Deep</strong></td>
+              <td>Medium</td>
+              <td>Nasolabial folds, marionette lines, lip enhancement</td>
+              <td>Mid to deep dermis</td>
+              <td>9-18 months</td>
+            </tr>
+            <tr>
+              <td><strong>BONETTA Volume</strong></td>
+              <td>High</td>
+              <td>Facial contouring, nose reshaping, severe folds</td>
+              <td>Deep dermis to subcutaneous</td>
+              <td>12-24 months</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-label-value">
+          <div class="kst-label">Storage & Handling</div>
+          <div>Store in cool place between 2-25°C. Protect from direct sunlight and freezing. Single-use only. 24-month shelf life from manufacturing date.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-treatment-areas">
+      <h2 class="kst-section-title">Treatment Areas & Applications</h2>
+      
+      <div class="kst-card">
+        <h4>BONETTA Fine - Delicate Area Treatment</h4>
+        <div class="kst-image-block">Fine Lines Anatomical Guide</div>
+        <ul>
+          <li>Forehead lines and glabellar lines</li>
+          <li>Fine periorbital lines (crow's feet)</li>
+          <li>Perioral lines and lip line correction</li>
+          <li>Tear trough enhancement</li>
+        </ul>
+        <p class="kst-muted">Recommended needle gauge varies based on treatment area. Low viscosity ensures smooth injection and uniform distribution.</p>
+      </div>
+
+      <div class="kst-card">
+        <h4>BONETTA Deep - Moderate to Severe Correction</h4>
+        <div class="kst-image-block">Deep Wrinkles Anatomical Guide</div>
+        <ul>
+          <li>Nasolabial folds and marionette lines</li>
+          <li>Forehead creases and chin enhancement</li>
+          <li>Lip augmentation and plumping</li>
+          <li>Cheek volume enhancement</li>
+        </ul>
+        <p class="kst-muted">Medium consistency gel provides excellent moldability and stable, long-lasting results.</p>
+      </div>
+
+      <div class="kst-card">
+        <h4>BONETTA Volume - Structural Enhancement</h4>
+        <div class="kst-image-block">Facial Contouring Anatomical Guide</div>
+        <ul>
+          <li>Chin and cheekbone contouring</li>
+          <li>Jawline sculpting and definition</li>
+          <li>Non-surgical nose reshaping</li>
+          <li>Deep facial fold correction</li>
+        </ul>
+        <p class="kst-muted">Highest gel consistency provides the most durable effects for structural facial enhancement.</p>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-safety">
+      <h2 class="kst-section-title">Safety Information & Precautions</h2>
+      <div class="kst-callout">
+        <strong>Professional Use Only</strong> — This product is intended for use by qualified medical professionals only. Proper training and certification required.
+      </div>
+      <div class="kst-split">
+        <div class="kst-card">
+          <h4>Important Considerations</h4>
+          <ul>
+            <li>Single-use sterile product only</li>
+            <li>Do not use if package is damaged or opened</li>
+            <li>Contains contraindications - consult medical professional</li>
+            <li>Store according to specified temperature range</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Treatment Guidelines</h4>
+          <ul>
+            <li>Maintenance treatments every 6-24 months as needed</li>
+            <li>Individual results may vary based on patient factors</li>
+            <li>Follow proper injection techniques and protocols</li>
+            <li>Monitor patient response and provide appropriate aftercare</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-quality">
+      <h2 class="kst-section-title">Quality & Manufacturing</h2>
+      <div class="kst-labels">
+        <span class="kst-badge">ExoCoBio Inc.</span>
+        <span class="kst-badge">Pre-filled Syringe</span>
+        <span class="kst-badge">BDDE Cross-linking</span>
+        <span class="kst-badge">HENM Technology</span>
+      </div>
+      <div class="kst-card">
+        <p class="kst-muted">Manufactured by ExoCoBio Inc. using advanced cross-linking technology and quality control processes to ensure product consistency, safety, and efficacy.</p>
+      </div>
+    </section>
+
+  </main>
+</div>

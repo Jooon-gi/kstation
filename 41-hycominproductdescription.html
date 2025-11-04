@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYCOMIN Injection Product Description</title>
+    <style>
+        * {
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #1d1d1f !important;
+            padding: 16px 12px;
+            line-height: 1.4;
+        }
+        
+        .kst-hero-section {
+            text-align: center;
+            margin-bottom: 48px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .kst-product-title {
+            font-size: 36px !important;
+            font-weight: 700 !important;
+            color: #1d1d1f !important;
+            margin-bottom: 16px;
+            letter-spacing: -1.5px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .kst-product-spec {
+            font-size: 28px !important;
+            font-weight: 400 !important;
+            color: #1d1d1f !important;
+            margin-top: -16px;
+            margin-bottom: 24px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-product-subtitle {
+            font-size: 18px !important;
+            color: #BBBBBB !important;
+            font-weight: 400;
+            margin-bottom: 24px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-category-badge {
+            background: #E6332A;
+            color: #ffffff !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px !important;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kst-section-title {
+            font-size: 28px !important;
+            font-weight: 700 !important;
+            color: #1d1d1f !important;
+            text-align: center;
+            margin: 48px 0 32px 0;
+            letter-spacing: -1px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .kst-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .kst-card h3 {
+            font-size: 20px !important;
+            font-weight: 700 !important;
+            color: #1d1d1f !important;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card p {
+            font-size: 14px !important;
+            color: #BBBBBB !important;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .kst-card ul,
+        .kst-card ol {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+        
+        .kst-card ul li,
+        .kst-card ol li {
+            font-size: 14px !important;
+            color: #BBBBBB !important;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .kst-specs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .kst-spec-item {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .kst-spec-icon {
+            width: 32px;
+            height: 32px;
+            background: #f2f2f7;
+            border-radius: 8px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .kst-spec-label {
+            font-size: 12px !important;
+            color: #BBBBBB !important;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kst-spec-value {
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            color: #1d1d1f !important;
+            margin-bottom: 4px;
+            line-height: 1.1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-spec-unit {
+            font-size: 12px !important;
+            color: #BBBBBB !important;
+            font-weight: 500;
+        }
+        
+        .kst-spec-description {
+            font-size: 12px !important;
+            color: #BBBBBB !important;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+        
+        .kst-spec-featured {
+            background: #E6332A;
+            color: #ffffff !important;
+        }
+        
+        .kst-spec-featured .kst-spec-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff !important;
+        }
+        
+        .kst-spec-featured .kst-spec-label,
+        .kst-spec-featured .kst-spec-value,
+        .kst-spec-featured .kst-spec-unit,
+        .kst-spec-featured .kst-spec-description {
+            color: #ffffff !important;
+        }
+        
+        .kst-image-block {
+            background: #ffffff;
+            border-radius: 16px;
+            margin: 24px 0;
+            min-height: 200px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .kst-image-block:not(:has(img)) {
+            display: none;
+        }
+        
+        .kst-image-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .kst-definition-list {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 16px 0;
+        }
+        
+        .kst-definition-list dt {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #1d1d1f !important;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-definition-list dd {
+            font-size: 14px !important;
+            color: #BBBBBB !important;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            margin-left: 0;
+        }
+        
+        .kst-steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .kst-step-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .kst-step-number {
+            width: 50px;
+            height: 50px;
+            background: #E6332A;
+            color: #ffffff !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px !important;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+        
+        .kst-step-title {
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            color: #1d1d1f !important;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-step-description {
+            font-size: 14px !important;
+            color: #BBBBBB !important;
+            line-height: 1.5;
+        }
+        
+        .kst-table-wrap {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow-x: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 24px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f2f2f7;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: #BBBBBB;
+            border-radius: 3px;
+        }
+        
+        .kst-table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        
+        .kst-table-wrap th {
+            background: #f2f2f7;
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            color: #1d1d1f !important;
+            border-bottom: 1px solid #d1d1d6;
+            white-space: nowrap !important;
+        }
+        
+        .kst-table-wrap td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f2f2f7;
+            font-size: 14px !important;
+            color: #1d1d1f !important;
+            vertical-align: middle;
+        }
+        
+        .kst-table-wrap .kst-spec-category {
+            font-weight: 600 !important;
+            background: #f8f9fa;
+            color: #1d1d1f !important;
+        }
+        
+        .kst-table-wrap .kst-highlight-value {
+            background: #E6332A;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            border-radius: 8px;
+            padding: 6px 10px;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        
+        .kst-warning-section {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin: 32px 0;
+        }
+        
+        .kst-warning-title {
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            color: #856404 !important;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-warning-title::before {
+            content: '⚠️';
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        
+        .kst-warning-content {
+            font-size: 14px !important;
+            color: #856404 !important;
+            line-height: 1.6;
+        }
+        
+        .kst-warning-list {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+        
+        .kst-warning-list li {
+            margin-bottom: 8px;
+            font-size: 14px !important;
+            color: #856404 !important;
+        }
+        
+        .kst-badge {
+            background: #E6332A;
+            color: #ffffff !important;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px !important;
+            font-weight: 500;
+            display: inline-block;
+            margin: 2px 4px 2px 0;
+        }
+        
+        .kst-value-highlight {
+            font-size: 32px !important;
+            font-weight: 800 !important;
+            color: #E6332A !important;
+            margin: 16px 0;
+            line-height: 1.1;
+            text-align: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="kst-main-container">
+        
+        <!-- Hero Section -->
+        <div class="kst-hero-section">
+            <div class="kst-category-badge">Vitamin B12 Injection</div>
+            <h1 class="kst-product-title" style="color: #E6332A !important;">HYCOMIN</h1>
+            <h2 class="kst-product-spec">2mL x 50 Ampoules</h2>
+            <div class="kst-product-subtitle">Professional Hydroxocobalamin B12 Injection for Fatigue Recovery & Metabolic Support</div>
+        </div>
+        
+        <!-- Basic Product Information -->
+        <h2 class="kst-section-title">🧩 Essential Product Information</h2>
+        
+        <div class="kst-card">
+            <h3>Premium Vitamin B12 Injection Solution</h3>
+            <p>HYCOMIN injection contains high-grade Hydroxocobalamin, a bioactive form of Vitamin B12 that serves as a vital coenzyme for various metabolic functions. This professional-grade solution supports fat and carbohydrate metabolism, protein synthesis, cell replication, and nervous system maintenance for optimal health and energy recovery.</p>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Main product image placeholder -->
+        </div>
+        
+        <!-- Technical Specifications -->
+        <div class="kst-specs-list">
+            <div class="kst-spec-item kst-spec-featured">
+                <div class="kst-spec-icon">⚗️</div>
+                <div class="kst-spec-label">Active Ingredient</div>
+                <div class="kst-spec-value">Hydroxocobalamin</div>
+                <div class="kst-spec-unit">2.5mg/mL</div>
+                <div class="kst-spec-description">Bioactive Vitamin B12 form for enhanced absorption</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🧪</div>
+                <div class="kst-spec-label">Formulation</div>
+                <div class="kst-spec-value">Injectable</div>
+                <div class="kst-spec-unit">Solution</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">📦</div>
+                <div class="kst-spec-label">Package Size</div>
+                <div class="kst-spec-value">2mL</div>
+                <div class="kst-spec-unit">per ampoule</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🔢</div>
+                <div class="kst-spec-label">Quantity</div>
+                <div class="kst-spec-value">50</div>
+                <div class="kst-spec-unit">Ampoules</div>
+            </div>
+        </div>
+        
+        <div class="kst-value-highlight">2.5mg High-Potency B12</div>
+        
+        <!-- Detailed Specifications Table -->
+        <h2 class="kst-section-title">📋 Detailed Product Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>Details</th>
+                        <th>Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="kst-spec-category">Active Ingredient</td>
+                        <td><span class="kst-highlight-value">Hydroxocobalamin 2.5mg/mL</span></td>
+                        <td>Bioactive form of Vitamin B12</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Formulation Type</td>
+                        <td>Injectable Solution</td>
+                        <td>Direct absorption, maximum bioavailability</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Administration</td>
+                        <td>Intramuscular/Subcutaneous</td>
+                        <td>Professional medical application</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Storage Requirements</td>
+                        <td>1-30°C, away from light</td>
+                        <td>Maintains potency and stability</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Package Contents</td>
+                        <td>50 x 2mL Ampoules</td>
+                        <td>Convenient professional supply</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Application Method</td>
+                        <td>Single-use injection</td>
+                        <td>Sterile, contamination-free</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Mechanism of Action -->
+        <h2 class="kst-section-title">🧬 Mechanism of Action & Benefits</h2>
+        
+        <div class="kst-definition-list">
+            <dt>Vital Coenzyme Function</dt>
+            <dd>Hydroxocobalamin acts as a crucial cofactor in various metabolic processes, supporting the conversion of homocysteine to methionine, which is essential for DNA synthesis and cellular function.</dd>
+            
+            <dt>Nervous System Support</dt>
+            <dd>Plays a key role in maintaining healthy nervous system function and supports the formation of myelin sheaths that protect nerve fibers.</dd>
+            
+            <dt>Red Blood Cell Formation</dt>
+            <dd>Essential for proper red blood cell formation and maturation, helping prevent megaloblastic anemia and supporting oxygen transport.</dd>
+            
+            <dt>Metabolic Enhancement</dt>
+            <dd>Supports fat and carbohydrate metabolism while facilitating protein synthesis for optimal cellular energy production.</dd>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Mechanism of action diagram placeholder -->
+        </div>
+        
+        <!-- Benefits and Effects -->
+        <h2 class="kst-section-title">💡 Clinical Benefits & Effects</h2>
+        
+        <div class="kst-card">
+            <h3>Primary Health Benefits</h3>
+            <p>HYCOMIN injection provides comprehensive support for individuals with Vitamin B12 deficiency, offering rapid restoration of depleted B12 stores and supporting overall metabolic health and energy levels.</p>
+            <div class="kst-mb-16">
+                <span class="kst-badge">Fatigue Recovery</span>
+                <span class="kst-badge">Metabolic Support</span>
+                <span class="kst-badge">Nervous System Health</span>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Therapeutic Applications</h3>
+            <p>Specifically designed for the prevention and treatment of Vitamin B12 deficiency in patients requiring rapid correction of B12 levels.</p>
+            <ul>
+                <li>Treatment of confirmed Vitamin B12 deficiency</li>
+                <li>Support for chronic fatigue related to B12 deficiency</li>
+                <li>Maintenance of nervous system health</li>
+                <li>Enhancement of overall metabolic function</li>
+            </ul>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Clinical benefits visualization placeholder -->
+        </div>
+        
+        <!-- Usage Protocol -->
+        <h2 class="kst-section-title">🧪 Professional Usage Protocol</h2>
+        
+        <div class="kst-steps-list">
+            <div class="kst-step-item">
+                <div class="kst-step-number">1</div>
+                <div class="kst-step-title">Medical Assessment</div>
+                <div class="kst-step-description">Patient evaluation and B12 deficiency confirmation by qualified healthcare professional. Dosage and frequency determined based on individual condition severity.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">2</div>
+                <div class="kst-step-title">Preparation & Administration</div>
+                <div class="kst-step-description">Professional preparation of injection site and sterile administration via intramuscular or deep subcutaneous injection by qualified medical personnel.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">3</div>
+                <div class="kst-step-title">Treatment Schedule</div>
+                <div class="kst-step-description">Initial treatment may involve daily injections, followed by weekly or monthly maintenance schedule as determined by healthcare provider based on patient response.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">4</div>
+                <div class="kst-step-title">Monitoring & Follow-up</div>
+                <div class="kst-step-description">Regular monitoring of blood B12 levels and patient response. Adjustment of treatment frequency based on clinical assessment and laboratory results.</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Administration technique demonstration placeholder -->
+        </div>
+        
+        <!-- Comparison Table -->
+        <h2 class="kst-section-title">📊 Treatment Comparison</h2>
+        
+        <div class="kst-table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Key Ingredients</th>
+                        <th>Administration</th>
+                        <th>Primary Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="kst-spec-category">Vitamin B12 Deficiency</td>
+                        <td><span class="kst-highlight-value">Hydroxocobalamin</span></td>
+                        <td>Intramuscular/Subcutaneous</td>
+                        <td>Corrects B12 deficiency, supports metabolism</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Skin Enhancement</td>
+                        <td>Glutathione, Vitamin C</td>
+                        <td>Intravenous</td>
+                        <td>Antioxidant, skin brightening</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Liver Support</td>
+                        <td>Placental Extract</td>
+                        <td>Intramuscular</td>
+                        <td>Liver function, anti-inflammatory</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Safety Information -->
+        <div class="kst-warning-section">
+            <div class="kst-warning-title">Important Safety Information</div>
+            <div class="kst-warning-content">
+                This is a prescription medication that must be administered by qualified medical professionals. Proper safety protocols and patient assessment are essential for safe and effective use.
+                
+                <ul class="kst-warning-list">
+                    <li>Do not use in patients with known hypersensitivity to Hydroxocobalamin or cobalt</li>
+                    <li>Store in cool, dry place away from light at 1-30°C temperature range</li>
+                    <li>Single-use only - discard any unused portion to prevent contamination</li>
+                    <li>Monitor for potential side effects including injection site pain or allergic reactions</li>
+                    <li>Professional medical supervision required for administration and monitoring</li>
+                </ul>
+                
+                Always consult with qualified healthcare providers before use and follow professional medical guidance throughout treatment.
+            </div>
+        </div>
+        
+        <!-- Final Product Summary -->
+        <div class="kst-specs-list">
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">⏱️</div>
+                <div class="kst-spec-label">Treatment Duration</div>
+                <div class="kst-spec-value">Variable</div>
+                <div class="kst-spec-unit">Per Condition</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🏥</div>
+                <div class="kst-spec-label">Application Setting</div>
+                <div class="kst-spec-value">Professional</div>
+                <div class="kst-spec-unit">Medical Only</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🏭</div>
+                <div class="kst-spec-label">Manufacturing</div>
+                <div class="kst-spec-value">Pharmaceutical</div>
+                <div class="kst-spec-unit">Grade</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🔬</div>
+                <div class="kst-spec-label">Quality Standard</div>
+                <div class="kst-spec-value">Medical</div>
+                <div class="kst-spec-unit">Approved</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <!-- Final product showcase placeholder -->
+        </div>
+        
+    </div>
+</body>
+</html>

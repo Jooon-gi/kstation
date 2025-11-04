@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* KST Mobile Template Styles - Shopify Optimized */
+        
+        * {
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #eff1f3 !important;
+            color: #1C3557 !important;
+            padding: 0;
+            gap: 30px;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        
+        /* Main Header */
+        .kst-main-header {
+            background: linear-gradient(135deg, #1C3557 0%, #6CA6D9 100%);
+            color: #FFFFFF !important;
+            padding: 24px 16px;
+            position: relative;
+            overflow: hidden;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-main-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+        }
+        
+        .kst-classification-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF !important;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-product-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: #FFFFFF !important;
+        }
+
+        .kst-product-spec {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            margin-top: -10px;
+            position: relative;
+            z-index: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: #FFFFFF !important;
+        }
+        
+        .kst-product-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: #FFFFFF !important;
+        }
+        
+        /* Section Styles */
+        .kst-section {
+            margin: 40px 10px ;
+            overflow: hidden;
+            padding: 0px !important;
+            background-color: #ffffff00 !important;
+            border-radius: 8px !important;
+        }
+        
+        .kst-section-header {
+            background: #1C3557;
+            padding: 12px 16px;
+            border-bottom: 1px solid #6CA6D9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .kst-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF !important;
+            margin: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-section-code {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #BBBBBB !important;
+            background: rgba(21, 21, 21, 0.7);
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            white-space: nowrap;
+        }
+        
+        .kst-section-content {
+            padding: 16px 8px !important;
+        }
+        
+        /* Image Block - Auto Hide Feature */
+        .kst-image-block,
+        .kst-chart-block {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1C3557 0%, #6CA6D9 100%);
+            border: 2px solid #6CA6D9;
+            padding: 24px 16px;
+            text-align: center;
+            margin: 12px 8px;
+            border-radius: 8px;
+            color: #BBBBBB !important;
+            font-size: 13px;
+            font-weight: 500;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        /* Hide if no image */
+        .kst-image-block:not(:has(img)),
+        .kst-chart-block:not(:has(img)) {
+            display: none;
+        }
+        
+        /* Hide if empty src */
+        .kst-image-block:has(img[src=""]),
+        .kst-chart-block:has(img[src=""]),
+        .kst-image-block:has(img:not([src])),
+        .kst-chart-block:has(img:not([src])) {
+            display: none;
+        }
+        
+        .kst-image-block img,
+        .kst-chart-block img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        
+        .kst-image-block::before {
+            content: '📊';
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-size: 16px;
+        }
+        
+        /* Grid System - Mobile 1 Column Fixed */
+        .kst-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        .kst-card {
+            background: #eff1f3 !important;
+            border: 1px solid #a6aab3;
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.2s ease;
+            color: #1C3557 !important;
+        }
+        
+        .kst-card:hover {
+            border-color: #1C3557;
+            box-shadow: 0 4px 12px rgba(28, 53, 87, 0.1);
+        }
+        
+        /* Definition List Styles */
+        .kst-definition-list {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .kst-definition-list dt {
+            font-weight: 600;
+            color: #1C3557 !important;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+        
+        .kst-definition-list dd {
+            margin-left: 0;
+            margin-bottom: 12px;
+            color: #1C3557 !important;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        /* Badge Styles */
+        .kst-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 2px 4px 2px 0;
+        }
+        
+        .kst-badge-primary {
+            background: #1C3557;
+            color: #FFFFFF !important;
+        }
+        
+        .kst-badge-success {
+            background: #6CA6D9;
+            color: #FFFFFF !important;
+        }
+        
+        .kst-badge-warning {
+            background: #1C3557;
+            color: #FFFFFF !important;
+        }
+        
+        .kst-badge-info {
+            background: #6CA6D9;
+            color: #FFFFFF !important;
+        }
+        
+        /* Step Guide */
+        .kst-step-guide {
+            position: relative;
+            padding: 16px;
+            background: #eff1f3 !important;
+            border: 1px solid #a6aab3;
+            border-radius: 8px;
+            margin: 15px 0 25px ;
+        }
+        
+        .kst-step-number {
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            background: #1C3557;
+            color: #FFFFFF !important;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .kst-step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0d1e36 !important;
+            margin-bottom: 8px;
+            padding-top: 6px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-step-description {
+            font-size: 15px;
+            color: #3e5672 !important;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        /* Table Styles */
+        .kst-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border: 1px solid #3e5672;
+            margin: 0 -12px !important;
+        }
+        
+        .kst-table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+            background: #FFFFFF !important;
+        }
+        
+        .kst-table th,
+        .kst-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #3e5672;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-table th {
+            background: #1C3557 !important;
+            font-weight: 600;
+            color: #FFFFFF !important;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap !important;
+        }
+        
+        .kst-table td {
+            font-size: 13px;
+            color: #1C3557 !important;
+        }
+        
+        .kst-spec-value {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #1C3557 !important;
+        }
+        
+        /* Scrollbar Styles */
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #eff1f3;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: #1C3557;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb:hover {
+            background: #6CA6D9;
+        }
+        
+        /* Warning Box */
+        .kst-warning-box {
+            background: #1C3557 !important;
+            border: 1px solid #6CA6D9;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 8px;
+            position: relative;
+        }
+        
+        .kst-warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-size: 18px;
+        }
+        
+        .kst-warning-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF !important;
+            margin-bottom: 8px;
+            padding-left: 32px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-warning-content {
+            color: #BBBBBB !important;
+            line-height: 1.5;
+            padding-left: 32px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            font-size: 13px;
+        }
+        
+        .kst-warning-content ul,
+        .kst-warning-content ol {
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+        
+        .kst-warning-content li {
+            margin-bottom: 4px;
+            color: #BBBBBB !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            font-size: 13px;
+        }
+        
+        /* Protocol Panel */
+        .kst-protocol-panel {
+            background: #1C3557 !important;
+            color: #FFFFFF !important;
+            margin: 12px 8px;
+            border-radius: 12px;
+            padding: 20px 16px;
+            overflow: hidden;
+            border: 1px solid #6CA6D9;
+        }
+        
+        .kst-protocol-header {
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            text-align: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: #FFFFFF !important;
+        }
+        
+        .kst-protocol-identifier {
+            background: #6CA6D9;
+            color: #FFFFFF !important;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 12px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .kst-protocol-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF !important;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-protocol-details {
+            font-size: 13px;
+            color: #BBBBBB !important;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-parameter-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .kst-parameter-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 12px;
+            gap: 10px;
+        }
+        
+        .kst-parameter-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .kst-parameter-label {
+            color: #BBBBBB !important;
+            font-weight: 500;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-parameter-value {
+            color: #FFFFFF !important;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* List Styles Enhancement */
+        .kst-section ul,
+        .kst-card ul {
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+        
+        .kst-section ul li,
+        .kst-card ul li {
+            margin-bottom: 4px;
+            color: #1C3557 !important;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .kst-section ol,
+        .kst-card ol {
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+        
+        .kst-section ol li,
+        .kst-card ol li {
+            margin-bottom: 4px;
+            color: #1C3557 !important;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        /* Text Utility */
+        .kst-text-center {
+            text-align: center;
+        }
+        
+        .kst-text-muted {
+            color: #BBBBBB !important;
+        }
+        
+        .kst-text-primary {
+            color: #1C3557 !important;
+        }
+        
+        .kst-text-bold {
+            font-weight: 600;
+        }
+        
+        .kst-mb-small {
+            margin-bottom: 8px;
+        }
+        
+        .kst-mb-medium {
+            margin-bottom: 16px;
+        }
+        
+        .kst-mt-small {
+            margin-top: 8px;
+        }
+        
+        .kst-mt-medium {
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="kst-main-container">
+        
+        <!-- Main Header -->
+        <div class="kst-main-header">
+            <div class="kst-classification-tag">AESTHETIC SOLUTION • LIPOLYSIS INJECTION</div>
+            <h1 class="kst-product-title">CURENEX LIPO</h1>
+            <h2 class="kst-product-spec">Slim & Contouring Solution - 10mL x 5 Vials</h2>
+            <p class="kst-product-subtitle">Advanced lipolytic formula for localized fat reduction and body contouring with natural botanical extracts</p>
+        </div>
+        
+        <!-- Product Main Image -->
+        <div class="kst-image-block">
+            <img src="" alt="CURENEX LIPO Product Packaging - 10mL x 5 Vials">
+            [MAIN PRODUCT PHOTOGRAPHY AND PACKAGING DOCUMENTATION]
+        </div>
+        
+        <!-- 🧬 Ingredients & Composition Information -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Ingredients & Composition</h2>
+                <div class="kst-section-code">ING-001</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <dl class="kst-definition-list">
+                    <dt>Fucus Vesiculosus Extract (Brown Seaweed)</dt>
+                    <dd>
+                        Primary active ingredient that activates fat metabolism and promotes natural lipolysis through enhanced cellular metabolic processes
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-success">HIGH EFFICACY</span>
+                            <span class="kst-badge kst-badge-primary">BOTANICAL EXTRACT</span>
+                        </div>
+                    </dd>
+                    
+                    <dt>Aesculus Hippocastanum (Horse Chestnut) Extract</dt>
+                    <dd>
+                        Supports improved local blood circulation and lymphatic drainage for enhanced fat elimination and reduced swelling
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-info">CIRCULATION BOOST</span>
+                            <span class="kst-badge kst-badge-success">ANTI-INFLAMMATORY</span>
+                        </div>
+                    </dd>
+                    
+                    <dt>Cynara Scolymus (Artichoke) Extract</dt>
+                    <dd>
+                        Promotes fat metabolism and provides antioxidant protection while supporting liver function and toxin elimination
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-primary">METABOLIC SUPPORT</span>
+                            <span class="kst-badge kst-badge-info">ANTIOXIDANT</span>
+                        </div>
+                    </dd>
+                    
+                    <dt>Ascorbic Acid (Vitamin C)</dt>
+                    <dd>
+                        Stimulates collagen production for improved skin firmness and elasticity while providing stabilization for other active ingredients
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-warning">COLLAGEN BOOST</span>
+                            <span class="kst-badge kst-badge-success">STABILIZER</span>
+                        </div>
+                    </dd>
+                </dl>
+                
+                <div class="kst-mt-medium">
+                    <h4 class="kst-text-bold kst-mb-small" style="color: #0d1e36;">Synergistic Effects Analysis</h4>
+                    <div class="kst-card">
+                        <p>The botanical extract formulation works synergistically to activate fat metabolism, improve circulation, and promote skin tightening for comprehensive body contouring results with minimal downtime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ingredient Visualization Image -->
+        <div class="kst-image-block">
+            <img src="" alt="CURENEX LIPO Ingredient Composition and Molecular Structure">
+            [INGREDIENT MOLECULAR STRUCTURE AND COMPOSITION VISUALIZATION]
+        </div>
+        
+        <!-- 💡 Effects & Functions -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Expected Effects & Benefits</h2>
+                <div class="kst-section-code">EFF-002</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-grid">
+                    <div class="kst-card">
+                        <h4 class="kst-text-bold kst-mb-small">Localized Fat Reduction</h4>
+                        <p>Targeted breakdown of fat deposits in specific areas including face, abdomen, thighs, and arms for precise body contouring</p>
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-success">TARGETED ACTION</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kst-card">
+                        <h4 class="kst-text-bold kst-mb-small">Facial Contouring</h4>
+                        <p>Definition of facial contours including jawline enhancement and double chin reduction for improved facial profile</p>
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-info">V-LINE EFFECT</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kst-card">
+                        <h4 class="kst-text-bold kst-mb-small">Skin Firmness Enhancement</h4>
+                        <p>Improved skin elasticity and firmness through collagen stimulation and tissue tightening effects</p>
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-primary">ANTI-AGING</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="kst-mt-medium">
+                    <h4 class="kst-text-bold kst-mb-small">Mechanism of Action</h4>
+                    <ul>
+                        <li>Activates fat metabolism through natural lipolytic processes</li>
+                        <li>Enhances local blood circulation for improved nutrient delivery</li>
+                        <li>Promotes lymphatic drainage for efficient waste elimination</li>
+                        <li>Stimulates collagen production for long-term skin improvement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Before/After Results Image -->
+        <div class="kst-image-block">
+            <img src="" alt="CURENEX LIPO Before and After Treatment Results">
+            [BEFORE AND AFTER RESULTS COMPARISON DOCUMENTATION]
+        </div>
+        
+        <!-- 🧪 Usage & Treatment Information -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Usage & Treatment Protocol</h2>
+                <div class="kst-section-code">USE-003</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">1</div>
+                    <h3 class="kst-step-title">Pre-Treatment Preparation</h3>
+                    <p class="kst-step-description">
+                        Ensure sterile conditions and proper patient consultation. Assess treatment areas and determine appropriate dosage based on target zones and patient goals.
+                    </p>
+                </div>
+                
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">2</div>
+                    <h3 class="kst-step-title">Injection Technique</h3>
+                    <p class="kst-step-description">
+                        Direct injection into subcutaneous fat layer using fine-gauge syringe. Apply point-by-point technique for even distribution across treatment area.
+                    </p>
+                </div>
+                
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">3</div>
+                    <h3 class="kst-step-title">Treatment Cycle</h3>
+                    <p class="kst-step-description">
+                        Recommended 3-4 sessions with 7-10 day intervals between treatments for optimal results and proper healing time.
+                    </p>
+                </div>
+                
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">4</div>
+                    <h3 class="kst-step-title">Post-Treatment Care</h3>
+                    <p class="kst-step-description">
+                        Advise patients to drink plenty of water and engage in light exercise. Avoid hot baths, saunas, and strenuous activity for one week.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Usage Guide Image -->
+        <div class="kst-image-block">
+            <img src="" alt="CURENEX LIPO Step-by-Step Application Guide">
+            [STEP-BY-STEP VISUAL APPLICATION GUIDE AND TECHNIQUE DOCUMENTATION]
+        </div>
+        
+        <!-- 📊 Product Specifications & Comparison -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Treatment Specifications</h2>
+                <div class="kst-section-code">SPC-004</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-table-wrap">
+                    <table class="kst-table">
+                        <thead>
+                            <tr>
+                                <th>Target Area</th>
+                                <th>Key Action</th>
+                                <th>Typical Dose</th>
+                                <th>Notable Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Face Application</td>
+                                <td class="kst-spec-value">Contouring, Tightening</td>
+                                <td class="kst-spec-value">1-2ml per area</td>
+                                <td>Targeted fat reduction for facial definition</td>
+                            </tr>
+                            <tr>
+                                <td>Body Application</td>
+                                <td class="kst-spec-value">Localized Fat Breakdown</td>
+                                <td class="kst-spec-value">Up to 10ml per session</td>
+                                <td>Broad area fat reduction and cellulite improvement</td>
+                            </tr>
+                            <tr>
+                                <td>Treatment Cycle</td>
+                                <td class="kst-spec-value">Progressive Reduction</td>
+                                <td class="kst-spec-value">3-4 sessions</td>
+                                <td>7-10 day intervals between treatments</td>
+                            </tr>
+                            <tr>
+                                <td>Application Method</td>
+                                <td class="kst-spec-value">Subcutaneous Injection</td>
+                                <td class="kst-spec-value">Point-by-point</td>
+                                <td>Direct injection into fat layer</td>
+                            </tr>
+                            <tr>
+                                <td>Formulation</td>
+                                <td class="kst-spec-value">Botanical Extract Blend</td>
+                                <td class="kst-spec-value">10ml per vial</td>
+                                <td>Natural ingredients for safety</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="kst-mt-medium">
+                    <h4 class="kst-text-bold kst-mb-small" style="color: #1C3557;">Storage & Handling Conditions</h4>
+                    <div class="kst-card">
+                        <ul>
+                            <li><strong>Storage Temperature:</strong> Room temperature</li>
+                            <li><strong>Environment:</strong> Cool, dry place away from direct sunlight</li>
+                            <li><strong>Professional Use:</strong> For professional use only</li>
+                            <li><strong>Handling:</strong> Maintain sterile conditions during application</li>
+                            <li><strong>Packaging:</strong> 10ml ampoule type, 5 vials per box</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Treatment Protocols -->
+        <div class="kst-protocol-panel">
+            <div class="kst-protocol-header">Treatment Protocols</div>
+            
+            <div class="kst-protocol-identifier">FACE-APP</div>
+            <h3 class="kst-protocol-name">Facial Contouring Application</h3>
+            <p class="kst-protocol-details">
+                Specialized protocol for facial areas including double chin, jawline, and buccal fat targeting for precise V-line contouring and facial definition enhancement.
+            </p>
+            <div class="kst-parameter-box">
+                <div class="kst-parameter-row">
+                    <span class="kst-parameter-label">Target Areas:</span>
+                    <span class="kst-parameter-value">Double chin, Jawline, Buccal fat</span>
+                </div>
+                <div class="kst-parameter-row">
+                    <span class="kst-parameter-label">Dosage:</span>
+                    <span class="kst-parameter-value">1-2ml per area</span>
+                </div>
+                <div class="kst-parameter-row">
+                    <span class="kst-parameter-label">Sessions:</span>
+                    <span class="kst-parameter-value">3-4 treatments</span>
+                </div>
+            </div>
+            
+            <div class="kst-mt-medium">
+                <div class="kst-protocol-identifier">BODY-APP</div>
+                <h3 class="kst-protocol-name">Body Contouring Application</h3>
+                <p class="kst-protocol-details">
+                    Comprehensive body treatment protocol for larger areas including abdomen, thighs, arms, knees, calves, and love handles with optimized distribution techniques.
+                </p>
+                <div class="kst-parameter-box">
+                    <div class="kst-parameter-row">
+                        <span class="kst-parameter-label">Target Areas:</span>
+                        <span class="kst-parameter-value">Abdomen, Thighs, Arms, Love handles</span>
+                    </div>
+                    <div class="kst-parameter-row">
+                        <span class="kst-parameter-label">Dosage:</span>
+                        <span class="kst-parameter-value">Up to 10ml per session</span>
+                    </div>
+                    <div class="kst-parameter-row">
+                        <span class="kst-parameter-label">Technique:</span>
+                        <span class="kst-parameter-value">Point-by-point injection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Professional Application Reference -->
+        <div class="kst-image-block">
+            <img src="" alt="CURENEX LIPO Professional Application Reference Guide">
+            [PROFESSIONAL APPLICATION REFERENCE GUIDE AND ADVANCED TECHNIQUE DOCUMENTATION]
+        </div>
+        
+        <!-- ⚠️ Safety Information & Warnings -->
+        <div class="kst-warning-box">
+            <h3 class="kst-warning-title">Important Safety Information</h3>
+            <div class="kst-warning-content">
+                <p>Professional use only. Ensure proper training and sterile conditions for safe and effective treatment application.</p>
+                <ul>
+                    <li>For professional use only - trained practitioners required</li>
+                    <li>Maintain sterile injection technique throughout procedure</li>
+                    <li>Assess patient medical history and contraindications</li>
+                    <li>Monitor for allergic reactions or adverse effects</li>
+                    <li>Provide proper post-treatment care instructions</li>
+                    <li>Emergency contact and medical support should be available</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- ⚕️ Precautions & Post-Treatment Care -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Precautions & Post-Treatment Care</h2>
+                <div class="kst-section-code">PTC-005</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-card">
+                    <h4 class="kst-text-bold kst-mb-small">Post-Treatment Recommendations</h4>
+                    <ul>
+                        <li>Drink plenty of water to support natural metabolic processes</li>
+                        <li>Engage in light exercise to enhance circulation and results</li>
+                        <li>Avoid hot showers, baths, and saunas for at least one week</li>
+                        <li>Minimize strenuous physical activity for one week post-treatment</li>
+                        <li>Follow up with practitioner as scheduled for progress monitoring</li>
+                    </ul>
+                </div>
+                
+                <div class="kst-card kst-mt-medium">
+                    <h4 class="kst-text-bold kst-mb-small">Expected Timeline</h4>
+                    <dl class="kst-definition-list">
+                        <dt>Immediate (0-24 hours)</dt>
+                        <dd>Mild swelling and redness at injection sites - normal response</dd>
+                        
+                        <dt>Short-term (1-2 weeks)</dt>
+                        <dd>Initial reduction in targeted areas begins to become visible</dd>
+                        
+                        <dt>Medium-term (3-4 weeks)</dt>
+                        <dd>Progressive fat reduction and improved contouring becomes apparent</dd>
+                        
+                        <dt>Long-term (6-8 weeks)</dt>
+                        <dd>Final results with optimal contouring and skin tightening effects</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Treatment Results Visualization -->
+        <div class="kst-image-block">
+            <img src="" alt="CURENEX LIPO Treatment Timeline and Results Progression">
+            [TREATMENT TIMELINE AND PROGRESSIVE RESULTS VISUALIZATION]
+        </div>
+        
+        <!-- 📋 Technical Documentation -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Technical Documentation</h2>
+                <div class="kst-section-code">TEC-006</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-card">
+                    <h4 class="kst-text-bold kst-mb-small">Product Specifications</h4>
+                    <dl class="kst-definition-list">
+                        <dt>Package Contents</dt>
+                        <dd>5 vials of 10ml each, ampoule type formulation</dd>
+                        
+                        <dt>Active Ingredients</dt>
+                        <dd>Fucus Vesiculosus Extract, Aesculus Hippocastanum Extract, Cynara Scolymus Extract, Ascorbic Acid</dd>
+                        
+                        <dt>Formulation Type</dt>
+                        <dd>Injectable solution for subcutaneous administration</dd>
+                        
+                        <dt>Storage Requirements</dt>
+                        <dd>Room temperature, cool dry place, away from direct sunlight</dd>
+                        
+                        <dt>Professional Use</dt>
+                        <dd>For licensed practitioners and aesthetic professionals only</dd>
+                    </dl>
+                </div>
+                
+                <div class="kst-card kst-mt-medium">
+                    <h4 class="kst-text-bold kst-mb-small">Quality Assurance</h4>
+                    <ul>
+                        <li>Manufactured under strict quality control standards</li>
+                        <li>Natural botanical extract formulation for enhanced safety</li>
+                        <li>Sterile packaging maintains product integrity</li>
+                        <li>Batch tracking and lot number identification</li>
+                        <li>Professional-grade formulation for consistent results</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Product Certification Documentation -->
+        <div class="kst-image-block">
+            <img src="" alt="CURENEX LIPO Quality Certifications and Compliance Documentation">
+            [PRODUCT CERTIFICATION AND REGULATORY COMPLIANCE DOCUMENTATION]
+        </div>
+        
+        <!-- 🎯 Treatment Targeting Guide -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Treatment Targeting Guide</h2>
+                <div class="kst-section-code">TTG-007</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-table-wrap">
+                    <table class="kst-table">
+                        <thead>
+                            <tr>
+                                <th>Body Area</th>
+                                <th>Primary Concern</th>
+                                <th>Recommended Dose</th>
+                                <th>Expected Outcome</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Double Chin</td>
+                                <td>Submental fat</td>
+                                <td class="kst-spec-value">1-2ml</td>
+                                <td>Jawline definition, V-line enhancement</td>
+                            </tr>
+                            <tr>
+                                <td>Jawline</td>
+                                <td>Facial contouring</td>
+                                <td class="kst-spec-value">1-2ml</td>
+                                <td>Enhanced facial structure, tightening</td>
+                            </tr>
+                            <tr>
+                                <td>Abdomen</td>
+                                <td>Localized fat deposits</td>
+                                <td class="kst-spec-value">8-10ml</td>
+                                <td>Improved body contour, fat reduction</td>
+                            </tr>
+                            <tr>
+                                <td>Thighs</td>
+                                <td>Stubborn fat areas</td>
+                                <td class="kst-spec-value">6-8ml</td>
+                                <td>Smoother contour, cellulite improvement</td>
+                            </tr>
+                            <tr>
+                                <td>Arms</td>
+                                <td>Upper arm fat</td>
+                                <td class="kst-spec-value">4-6ml</td>
+                                <td>Toned appearance, reduced circumference</td>
+                            </tr>
+                            <tr>
+                                <td>Love Handles</td>
+                                <td>Waist contouring</td>
+                                <td class="kst-spec-value">6-8ml</td>
+                                <td>Waist definition, body shaping</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Treatment Area Mapping -->
+        <div class="kst-image-block">
+            <img src="" alt="CURENEX LIPO Treatment Area Mapping and Injection Points">
+            [TREATMENT AREA MAPPING WITH INJECTION POINTS AND DEPTH GUIDANCE]
+        </div>
+        
+        <!-- 🔬 Mechanism of Action -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Mechanism of Action</h2>
+                <div class="kst-section-code">MOA-008</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">1</div>
+                    <h3 class="kst-step-title">Lipolytic Activation</h3>
+                    <p class="kst-step-description">
+                        Fucus Vesiculosus extract initiates natural fat cell breakdown through enhanced metabolic activity and lipolytic enzyme activation.
+                    </p>
+                </div>
+                
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">2</div>
+                    <h3 class="kst-step-title">Circulation Enhancement</h3>
+                    <p class="kst-step-description">
+                        Horse Chestnut extract improves local blood flow and lymphatic drainage, facilitating efficient removal of metabolized fat.
+                    </p>
+                </div>
+                
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">3</div>
+                    <h3 class="kst-step-title">Metabolic Support</h3>
+                    <p class="kst-step-description">
+                        Artichoke extract provides metabolic support and antioxidant protection while promoting natural detoxification processes.
+                    </p>
+                </div>
+                
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">4</div>
+                    <h3 class="kst-step-title">Tissue Tightening</h3>
+                    <p class="kst-step-description">
+                        Ascorbic Acid stimulates collagen synthesis, improving skin elasticity and firmness for comprehensive contouring results.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Final Product Summary -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Product Summary</h2>
+                <div class="kst-section-code">SUM-009</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-card">
+                    <h4 class="kst-text-bold kst-mb-small">CURENEX LIPO Key Benefits</h4>
+                    <ul>
+                        <li>Natural botanical extract formulation for enhanced safety profile</li>
+                        <li>Dual application capability for both facial and body contouring</li>
+                        <li>Progressive fat reduction with minimal downtime</li>
+                        <li>Comprehensive approach including circulation improvement and skin tightening</li>
+                        <li>Professional-grade solution with consistent, predictable results</li>
+                        <li>Convenient packaging with multiple vials for complete treatment cycles</li>
+                    </ul>
+                </div>
+                
+                <div class="kst-card kst-mt-medium">
+                    <h4 class="kst-text-bold kst-mb-small">Ideal Candidates</h4>
+                    <p>CURENEX LIPO is suitable for individuals seeking non-surgical fat reduction and body contouring solutions. Best results are achieved in patients with localized fat deposits who maintain realistic expectations and follow post-treatment care guidelines.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Professional Contact Information -->
+        <div class="kst-protocol-panel">
+            <div class="kst-protocol-header">Professional Use Only</div>
+            <div class="kst-protocol-details">
+                CURENEX LIPO is intended for use by licensed aesthetic practitioners and medical professionals only. Proper training in injection techniques and patient assessment is required for safe and effective treatment outcomes.
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
+                

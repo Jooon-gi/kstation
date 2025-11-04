@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CINDELLA Product Detail Template</title>
+<style>
+  /* ========= KST Base Theme ========= */
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0;
+    background: #FFFFFF;
+    color: #000000;
+    font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Apple SD Gothic Neo, Noto Sans KR, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .kst-main-container *,
+  .kst-main-container *::before,
+  .kst-main-container *::after {
+    box-sizing: border-box;
+  }
+
+  .kst-container {
+    padding: 0 16px;
+  }
+
+  .kst-section {
+    margin: 24px 0;
+  }
+
+  .kst-card {
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #000000 !important;
+  }
+
+  .kst-card h1,
+  .kst-card h2,
+  .kst-card h3,
+  .kst-card h4,
+  .kst-card h5,
+  .kst-card h6 {
+    color: #000000 ;
+    margin: 0 0 12px 0;
+  }
+
+  .kst-card p {
+    color: #000000 !important;
+    margin: 0 0 12px 0;
+  }
+
+  .kst-card ul,
+  .kst-card ol {
+    margin: 0 0 12px 0;
+    padding-left: 20px;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li {
+    color: #000000 !important;
+    margin-bottom: 6px;
+  }
+
+  .kst-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .kst-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #D96CAA;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    border: 1px solid #D96CAA;
+    font-size: 14px;
+  }
+
+  .kst-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: #D96CAA;
+    border: 1px solid #D96CAA;
+    border-radius: 999px;
+    font-weight: 600;
+    color: #FFFFFF !important;
+    font-size: 13px;
+  }
+
+  .kst-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .kst-kicker {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: #D96CAA !important;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .kst-headline {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.25;
+    margin: 6px 0 10px;
+    font-weight: 800;
+    color: #D96CAA !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-spec {
+    font-size: clamp(1rem, 3.2vw, 1.6rem);
+    line-height: 1;
+    margin: -4px 0 15px !important;
+    font-weight: 500;
+    color: #777777 !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-sub {
+    color: #343434 !important;
+    margin: 0 0 16px;
+    font-size: 15px;
+  }
+
+  .kst-muted {
+    color: #777777 !important;
+    font-size: 14px;
+  }
+
+  .kst-section-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 0 0 16px;
+    color: #000000 !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #D96CAA;
+    border: 1px solid #D96CAA;
+    font-weight: 700;
+    color: #FFFFFF !important;
+    font-size: 12px;
+  }
+
+  .kst-num {
+    font-weight: 800;
+    color: #D96CAA !important;
+  }
+
+  .kst-percent {
+    font-weight: 900;
+    color: #D96CAA !important;
+    font-size: 1.8rem;
+  }
+
+  .kst-big-number {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 900;
+    color: #D96CAA !important;
+  }
+
+  /* Image blocks with auto-hide functionality */
+  .kst-image-block {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #f8f8f8, #eeeeee);
+    border: 1px dashed #D96CAA;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    color: #D96CAA !important;
+    font-weight: 600;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+
+  .kst-image-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-image-block:has(img:not([src])) {
+    display: none;
+  }
+
+  .kst-chart-block {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #f8f8f8, #eeeeee);
+    border: 1px dashed #D96CAA;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    color: #D96CAA !important;
+    font-weight: 600;
+    margin: 12px 0;
+  }
+
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]),
+  .kst-chart-block:has(img:not([src])) {
+    display: none;
+  }
+
+  /* Steps */
+  .kst-steps {
+    display: grid;
+    gap: 12px;
+  }
+
+  .kst-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+    background: #fcfcfc;
+    border: 1px solid #e2e2e2;
+    border-radius: 16px;
+    padding: 14px;
+  }
+
+  .kst-step-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: #D96CAA;
+    color: #FFFFFF !important;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 14px;
+  }
+
+  .kst-step-content {
+    color: #000000 !important;
+  }
+
+  .kst-step-content strong {
+    color: #000000 !important;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Key-Value pairs */
+  .kst-kv {
+    display: grid;
+    gap: 8px;
+  }
+
+  .kst-kv-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .kst-kv-row:last-child {
+    border-bottom: none;
+  }
+
+  .kst-key {
+    color: #D96CAA !important;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .kst-value {
+    color: #000000 !important;
+    font-size: 14px;
+  }
+
+  /* Table wrapper */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0;
+    border-radius: 12px;
+    border: 1px solid #e2e2e2;
+  }
+
+  .kst-table {
+    min-width: 600px;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+  }
+
+  .kst-table th,
+  .kst-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
+    color: #000000 !important;
+  }
+
+  .kst-table th {
+    background: #f8f8f8;
+    color: #D96CAA !important;
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    white-space: nowrap !important;
+  }
+
+  .kst-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* 스크롤바 항상 보이게 하기 (webkit) */
+    .kst-table-wrap::-webkit-scrollbar { height: 6px; }
+    .kst-table-wrap::-webkit-scrollbar-thumb { background: #D96CAA; border-radius: 8px; }
+    .kst-table-wrap::-webkit-scrollbar-track { background: #f8f8f8; border-radius: 8px; }
+
+  /* Tabs */
+  .kst-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .kst-tab-btn {
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid #D96CAA;
+    background: #FFFFFF;
+    color: #D96CAA !important;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .kst-tab-btn[aria-selected="true"] {
+    background: #D96CAA;
+    color: #FFFFFF !important;
+    border-color: #D96CAA;
+  }
+
+  .kst-tab-panel {
+    display: none;
+  }
+
+  .kst-tab-panel.kst-active {
+    display: block;
+  }
+
+  /* Accordion/Details */
+  .kst-faq-item {
+    border: 1px solid #e2e2e2;
+    background: #fff;
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+
+  .kst-faq-item summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: #D96CAA !important;
+    list-style: none;
+    padding: 4px 0;
+  }
+
+  .kst-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .kst-faq-item p {
+    margin-top: 8px;
+    color: #000000 !important;
+  }
+
+  /* Alerts */
+  .kst-alert {
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid;
+    margin: 12px 0;
+  }
+
+  .kst-alert.kst-warn {
+    background: #fff9e8;
+    border-color: #ffe2a5;
+  }
+
+  .kst-alert.kst-danger {
+    background: #fff0f0;
+    border-color: #ffc2c2;
+  }
+
+  .kst-alert.kst-safe {
+    background: #eefcf6;
+    border-color: #b6f2d4;
+  }
+
+  .kst-alert h3,
+  .kst-alert h4,
+  .kst-alert strong {
+    color: #000000 !important;
+    margin-bottom: 8px;
+  }
+
+  .kst-alert p,
+  .kst-alert li {
+    color: #000000 !important;
+  }
+
+  /* Ingredient cards */
+  .kst-ingredient-card {
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 8px;
+  }
+
+  .kst-ingredient-card strong {
+    color: #000000 !important;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .kst-ingredient-card .kst-muted {
+    margin-bottom: 8px;
+  }
+
+  /* Stats */
+  .kst-inline-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Responsive typography */
+  @media (max-width: 480px) {
+    .kst-container {
+      padding: 0 12px;
+    }
+    
+    .kst-card {
+      padding: 16px;
+    }
+    
+    .kst-headline {
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+    }
+    
+    .kst-section-title {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="kst-main-container">
+  
+  <!-- 🧩 Basic Product Information -->
+  <header class="kst-container">
+    <div class="kst-card">
+      <div class="kst-chips" aria-label="Category and Brand Tags">
+        <span class="kst-pill">Injectable</span>
+        <span class="kst-pill">DAEHAN NEW PHARM</span>
+        <span class="kst-pill">Antioxidant</span>
+      </div>
+      <p class="kst-kicker">Professional Anti-Aging Solution</p>
+      <h1 class="kst-headline">CINDELLA</h1>
+      <h2 class="kst-sub" 
+          style="font-size: 25px !important;
+                 margin: -18px 0 24px 0 !important;
+        ">
+          Injection [I.V.]
+      </h2>
+      <h2 class="kst-spec">5mL x 10 Ampoules</h2>
+      <p class="kst-sub">Alpha-Lipoic Acid injection for comprehensive anti-aging and skin brightening through powerful antioxidant action</p>
+      <div class="kst-chips" style="margin-bottom:16px">
+        <span class="kst-chip">#SkinBrightening</span>
+        <span class="kst-chip">#AntiAging</span>
+        <span class="kst-chip">#Detoxification</span>
+        <span class="kst-chip">#FatigueRecovery</span>
+      </div>
+    </div>
+    
+    <div class="kst-image-block" aria-label="Main product image placeholder">
+      CINDELLA Product Visual Placeholder
+    </div>
+  </header>
+
+  <main class="kst-container">
+
+    <!-- 🧬 Ingredients and Composition -->
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">🧬 Key Ingredients and Formulation</h2>
+        <p class="kst-muted">CINDELLA contains Thioctic Acid (Alpha-Lipoic Acid) in a sterile injectable solution formulated for professional administration.</p>
+        
+        <div class="kst-grid" style="margin-top:16px">
+          <div class="kst-ingredient-card">
+            <strong>Thioctic Acid (Alpha-Lipoic Acid)</strong>
+            <p class="kst-muted">Powerful antioxidant that neutralizes free radicals and boosts cellular metabolism</p>
+            <span class="kst-badge">25mg/5mL</span>
+          </div>
+        </div>
+        
+        <div class="kst-image-block" style="margin-top:16px">
+          Thioctic Acid Mechanism of Action Diagram Placeholder
+        </div>
+      </div>
+      
+      <div class="kst-card">
+        <h3 class="kst-section-title">Mechanism of Action</h3>
+        <p>As a coenzyme vital for cellular energy metabolism, Thioctic Acid operates in both water-soluble and fat-soluble domains within the body, making it more comprehensive than Vitamins C and E. It promotes glucose utilization, helps convert carbohydrates into energy, and prevents glycation of collagen - a key contributor to skin aging.</p>
+        <div class="kst-kv" style="margin-top:12px">
+          <div class="kst-kv-row">
+            <div class="kst-key">Antioxidant Action</div>
+            <div class="kst-value">Neutralizes free radicals and enhances effects of Vitamins C and E</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Melanin Suppression</div>
+            <div class="kst-value">Helps suppress melanin production for skin brightening</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Cellular Metabolism</div>
+            <div class="kst-value">Boosts cellular energy production and metabolism</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 💡 Benefits and Functions -->
+    <section id="kst-benefits" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">💡 Expected Benefits and Effects</h2>
+        <div class="kst-grid">
+          <div class="kst-card"><strong>Anti-Aging Effects</strong><p class="kst-muted">Reduction of fine lines and prevention of collagen glycation</p></div>
+          <div class="kst-card"><strong>Skin Brightening</strong><p class="kst-muted">Brighter, more even skin tone with reduced hyperpigmentation</p></div>
+          <div class="kst-card"><strong>Enhanced Antioxidant Defense</strong><p class="kst-muted">Comprehensive protection and detoxification support</p></div>
+          <div class="kst-card"><strong>Improved Skin Texture</strong><p class="kst-muted">Enhanced skin elasticity and overall texture improvement</p></div>
+          <div class="kst-card"><strong>Energy & Vitality</strong><p class="kst-muted">Fatigue recovery and increased energy levels</p></div>
+        </div>
+        
+        <div class="kst-chips" style="margin:16px 0">
+          <span class="kst-chip">Whitening</span>
+          <span class="kst-chip">Anti-Aging</span>
+          <span class="kst-chip">Detoxification</span>
+          <span class="kst-chip">Energy Boost</span>
+        </div>
+        
+        <div class="kst-grid">
+          <div>
+            <h4 class="kst-kicker" style="margin:8px 0">Comprehensive Benefits</h4>
+            <ul class="kst-list-vertical">
+              <li>Neutralizes harmful free radicals throughout the body</li>
+              <li>Enhances the antioxidant effects of other vitamins and nutrients</li>
+              <li>Supports cellular energy metabolism and glucose utilization</li>
+              <li>Helps prevent conversion of proteins into toxic sugar-derived substances</li>
+              <li>Contributes to overall skin health, tone, and radiance</li>
+            </ul>
+          </div>
+        </div>
+        
+        <p class="kst-muted" style="margin-top:16px">The synergistic effects of Thioctic Acid provide sustained improvements in skin quality and overall vitality when administered as part of a comprehensive treatment protocol.</p>
+      </div>
+    </section>
+
+    <!-- 🧪 Usage Instructions and Application -->
+    <section id="kst-usage" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">🧪 Usage Protocol and Administration</h2>
+        <div class="kst-alert kst-warn" style="margin-bottom:16px">
+          <strong>Professional Use Only</strong>
+          <p>This product must be administered by a certified medical professional via intravenous injection only.</p>
+        </div>
+        
+        <div class="kst-steps">
+          <div class="kst-step">
+            <div class="kst-step-dot">1</div>
+            <div class="kst-step-content">
+              <strong>Initial Treatment Phase</strong><br />
+              Administer once weekly for 10 treatment sessions
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-step-dot">2</div>
+            <div class="kst-step-content">
+              <strong>Maintenance Phase</strong><br />
+              Reduce frequency to once every 2 weeks or once monthly
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-step-dot">3</div>
+            <div class="kst-step-content">
+              <strong>Combination Protocol</strong><br />
+              Often combined with Glutathione and Vitamin C for enhanced effects
+            </div>
+          </div>
+        </div>
+        
+        <div class="kst-image-block" style="margin-top:16px">
+          Professional Administration Guide Placeholder
+        </div>
+      </div>
+      
+      <div class="kst-card">
+        <h3 class="kst-section-title">Cinderella Injection Protocol</h3>
+        <p>CINDELLA is often used as part of a "Cinderella Injection" or "Health Cocktail" protocol, combining Thioctic Acid with complementary ingredients for maximum skin whitening and anti-aging benefits.</p>
+        
+        <div class="kst-kv" style="margin-top:12px">
+          <div class="kst-kv-row">
+            <div class="kst-key">Treatment Cycle</div>
+            <div class="kst-value">10 sessions (weekly) + maintenance protocol</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Administration</div>
+            <div class="kst-value">Intravenous infusion by medical professional</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Combination</div>
+            <div class="kst-value">Often paired with Glutathione and Vitamin C</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📊 Product Specifications -->
+    <section id="kst-specs" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">📊 Product Specifications</h2>
+        
+        <div class="kst-grid">
+          <div class="kst-card">
+            <div class="kst-inline-stat">
+              <span class="kst-big-number">5mL</span>
+              <span class="kst-muted">Per Ampoule</span>
+            </div>
+          </div>
+          <div class="kst-card">
+            <div class="kst-inline-stat">
+              <span class="kst-big-number">10</span>
+              <span class="kst-muted">Ampoules/Box</span>
+            </div>
+          </div>
+          <div class="kst-card">
+            <div class="kst-inline-stat">
+              <span class="kst-big-number">25mg</span>
+              <span class="kst-muted">Active Ingredient</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kst-table-wrap" style="margin-top:16px">
+          <table class="kst-table" role="table" aria-label="Product Specification Table">
+            <thead>
+              <tr>
+                <th>Specification</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Active Ingredient</td><td>Thioctic Acid (Alpha-Lipoic Acid) 25mg/5mL</td></tr>
+              <tr><td>Formulation</td><td>Injectable liquid in brown ampoule</td></tr>
+              <tr><td>Package Contents</td><td>10 ampoules × 5mL per box</td></tr>
+              <tr><td>Administration</td><td>Intravenous injection by medical professional</td></tr>
+              <tr><td>Storage Temperature</td><td>1-30°C in sealed condition</td></tr>
+              <tr><td>Shelf Life</td><td>2 years from manufacturing date</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⚠️ Safety Information and Warnings -->
+    <section id="kst-safety" class="kst-section">
+      <div class="kst-alert kst-warn">
+        <h2 class="kst-section-title">⚠️ Important Safety Information</h2>
+        <p>Professional use only. Must be administered by certified medical professionals. Proper storage and handling required.</p>
+        <ul>
+          <li>Store in sealed condition at room temperature (1-30°C)</li>
+          <li>Professional administration required via IV infusion</li>
+          <li>Keep out of reach of children</li>
+          <li>Use only as directed by healthcare provider</li>
+        </ul>
+      </div>
+      
+        <div class="kst-alert kst-danger" style="margin-bottom:12px">
+          <strong>Contraindications and Precautions</strong>
+          <ul style="margin-top:8px">
+            <li>Do not use if pregnant or breastfeeding</li>
+            <li>Consult doctor before use if you have pre-existing medical conditions</li>
+            <li>Check for medication interactions before treatment</li>
+            <li>Open ampoules with caution to prevent glass contamination</li>
+          </ul>
+        </div>
+        
+        <div class="kst-alert kst-safe">
+          <strong>Storage and Handling Instructions</strong>
+          <ul style="margin-top:8px">
+            <li>Store at room temperature between 1-30°C</li>
+            <li>Keep in original sealed packaging until use</li>
+            <li>Protect from direct sunlight and extreme temperatures</li>
+            <li>Use within shelf life - 2 years from manufacturing date</li>
+          </ul>
+        </div>
+    </section>
+
+    <!-- ❓ FAQ and Information -->
+    <section id="kst-faq" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">❓ Frequently Asked Questions</h2>
+        
+        <details class="kst-faq-item" open>
+          <summary>Q. What makes CINDELLA different from other antioxidant treatments?</summary>
+          <p>A. CINDELLA contains Thioctic Acid (Alpha-Lipoic Acid), which operates in both water-soluble and fat-soluble domains, making it more comprehensive than Vitamins C and E alone. It also helps prevent collagen glycation, a key factor in skin aging.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. How is CINDELLA administered?</summary>
+          <p>A. CINDELLA must be administered by a certified medical professional via intravenous infusion. It cannot be self-administered and requires proper medical supervision.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. What is the recommended treatment schedule?</summary>
+          <p>A. The typical protocol involves 10 weekly sessions for the initial treatment phase, followed by maintenance sessions every 2 weeks or monthly as recommended by your healthcare provider.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. Can CINDELLA be combined with other treatments?</summary>
+          <p>A. Yes, CINDELLA is often used as part of a "Cinderella Injection" protocol, combined with Glutathione and Vitamin C for enhanced skin whitening and antioxidant effects. Consult your provider for optimal combinations.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. What are the expected benefits of CINDELLA treatment?</summary>
+          <p>A. Expected benefits include anti-aging effects, brighter and more even skin tone, enhanced antioxidant defense, improved skin elasticity, and increased energy levels through better cellular metabolism.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. How should CINDELLA be stored?</summary>
+          <p>A. Store CINDELLA in its original sealed packaging at room temperature between 1-30°C, away from direct sunlight. The product has a shelf life of 2 years from the manufacturing date.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="kst-container">
+    <div class="kst-card" style="text-align:center; background:#fcfcfc">
+      <small class="kst-muted">© DAEHAN NEW PHARM • Professional Use Only • Consult Healthcare Provider</small>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Tab functionality
+  const kstTabs = document.querySelectorAll('.kst-tab-btn');
+  kstTabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.dataset.tab;
+      
+      // Update button states
+      document.querySelectorAll('.kst-tab-btn').forEach(b => b.setAttribute('aria-selected', 'false'));
+      btn.setAttribute('aria-selected', 'true');
+      
+      // Update panel visibility
+      document.querySelectorAll('.kst-tab-panel').forEach(panel => {
+        panel.classList.remove('kst-active');
+      }); // 여기 괄호 추가
+      
+      const targetPanel = document.getElementById('kst-tab-' + targetTab);
+      if (targetPanel) {
+        targetPanel.classList.add('kst-active');
+      }
+    });
+  });
+
+  // Smooth scroll for internal links (if any)
+  document.querySelectorAll('a[href^="#kst-"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Auto-hide empty image containers on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const kstImageBlocks = document.querySelectorAll('.kst-image-block, .kst-chart-block');
+    kstImageBlocks.forEach(block => {
+      const img = block.querySelector('img');
+      if (!img || !img.src || img.src === '') {
+        block.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

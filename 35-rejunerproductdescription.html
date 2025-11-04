@@ -1,0 +1,718 @@
+<style>
+/* Reset and base styles with kst- prefix */
+.kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    background: #FFFFFF;
+    color: #000000 !important;
+    padding: 0;
+    line-height: 1.6;
+    box-sizing: border-box;
+    border-left: 1px solid #E2E8F0;
+    border-right: 1px solid #E2E8F0;
+}
+
+.kst-main-container * {
+    box-sizing: border-box;
+}
+
+/* Hide image blocks when no images are present */
+.kst-image-block:not(:has(img)) {
+    display: none !important;
+}
+
+.kst-image-block:has(img[src=""]) {
+    display: none !important;
+}
+
+.kst-chart-block:not(:has(img)) {
+    display: none !important;
+}
+
+.kst-chart-block:has(img[src=""]) {
+    display: none !important;
+}
+
+/* Hero Section */
+.kst-hero-section {
+    background: #FFFFFF;
+    padding: 30px 16px;
+    text-align: center;
+    border-bottom: 2px solid #E2E8F0;
+    border-top: 2px solid #E2E8F0;
+}
+
+.kst-product-title {
+    font-size: 30px;
+    font-weight: 900;
+    color: #000000 !important;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-product-spec {
+    font-size: 22px;
+    font-weight: 400;
+    color: #777777 !important;
+    margin-top: -12px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-product-subtitle {
+    font-size: 16px;
+    color: #A68C36 !important;
+    font-weight: 500;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-hero-description {
+    font-size: 14px;
+    color: #777777 !important;
+    margin: 0 auto 24px;
+    line-height: 1.7;
+}
+
+/* Section Styles */
+.kst-section {
+    padding: 40px 16px;
+    margin: 0;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.kst-section-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: #000000 !important;
+    text-align: left;
+    margin-bottom: 16px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-section-alt {
+    background: #f7fafc;
+}
+
+/* Image Blocks */
+.kst-image-block {
+    background: #f7fafc;
+    border: none;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.kst-image-block img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.kst-image-placeholder {
+    padding: 40px 20px;
+    text-align: center;
+    color: #777777 !important;
+    font-size: 14px;
+    font-style: italic;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card Styles */
+.kst-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 0;
+    padding: 16px;
+    margin: 12px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.kst-card:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.kst-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000 !important;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-card-content {
+    font-size: 14px;
+    color: #777777 !important;
+    line-height: 1.6;
+}
+
+/* Badge Styles */
+.kst-badge {
+    background: #A68C36;
+    color: #000000 !important;
+    padding: 4px 12px;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 4px 8px 4px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kst-badge-primary {
+    background: #A68C36;
+    color: #000000 !important;
+}
+
+.kst-badge-warning {
+    background: #F56565;
+    color: #FFFFFF !important;
+}
+
+/* Grid Layouts */
+.kst-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.kst-grid-item {
+    background: #FFFFFF;
+    padding: 16px;
+    border-radius: 0;
+    border: 1px solid #E2E8F0;
+    text-align: left;
+}
+
+.kst-grid-value {
+    font-size: 20px;
+    font-weight: 900;
+    color: #A68C36 !important;
+    margin-bottom: 4px;
+}
+
+.kst-grid-label {
+    font-size: 12px;
+    color: #777777 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Step Styles */
+.kst-step {
+    background: #f7fafc;
+    border: 1px solid #E2E8F0;
+    border-radius: 0;
+    padding: 16px;
+    margin: 16px 0;
+    position: relative;
+}
+
+.kst-step-number {
+    display: inline-block;
+    background: #A68C36;
+    color: #000000 !important;
+    padding: 2px 8px;
+    font-weight: 600;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.kst-step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000 !important;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-step-description {
+    font-size: 13px;
+    color: #777777 !important;
+    line-height: 1.5;
+}
+
+/* Table Styles */
+.kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px 0;
+    border-radius: 0;
+    border: 1px solid #E2E8F0;
+}
+
+.kst-table-wrap::-webkit-scrollbar {
+    height: 6px;
+}
+
+.kst-table-wrap::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.kst-table-wrap::-webkit-scrollbar-thumb {
+    background: #7b838a;
+}
+
+.kst-table {
+    min-width: 700px;
+    width: 100%;
+    background: #FFFFFF;
+    border-collapse: collapse;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.kst-table thead {
+    background: #f7fafc;
+    color: #000000 !important;
+    border-bottom: 2px solid #E2E8F0;
+}
+
+.kst-table th,
+.kst-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #E2E8F0;
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-table th {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #000000 !important;
+}
+
+.kst-table td {
+    color: #777777 !important;
+}
+
+.kst-table tbody tr:hover {
+    background: #f7fafc;
+}
+
+/* List Styles */
+.kst-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+}
+
+.kst-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+    color: #000000 !important;
+    font-size: 14px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.kst-list li:last-child {
+    border-bottom: none;
+}
+
+.kst-list li::before {
+    content: '•';
+    color: #A68C36 !important;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Definition List Styles */
+.kst-dl {
+    margin: 20px 0;
+}
+
+.kst-dt {
+    font-weight: 600;
+    color: #000000 !important;
+    font-size: 14px;
+    margin-bottom: 4px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-dd {
+    color: #777777 !important;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    margin-left: 0;
+    padding-left: 10px;
+    border-left: 2px solid #A68C36;
+}
+
+/* Warning/Safety Styles */
+.kst-warning {
+    background: #fff8e1;
+    border: 1px solid #A68C36;
+    border-radius: 0;
+    padding: 16px;
+    margin: 16px 0;
+}
+
+.kst-warning::before {
+    content: none !important;
+}
+
+.kst-warning-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #A68C36 !important;
+    margin-bottom: 8px;
+    padding-top: 0;
+}
+
+.kst-warning-content {
+    font-size: 13px;
+    color: #777777 !important;
+    line-height: 1.6;
+}
+
+.kst-warning-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+}
+
+.kst-warning-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 3px 0;
+    font-size: 12px;
+    color: #777777 !important;
+}
+
+.kst-warning-list li::before {
+    content: '•';
+    color: #A68C36 !important;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Chart Placeholder */
+.kst-chart-block {
+    background: #f7fafc;
+    border: none;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 0;
+    color: #777777 !important;
+    font-size: 14px;
+    font-style: italic;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+/* Text Utilities */
+.kst-text-center {
+    text-align: center;
+}
+
+.kst-text-muted {
+    color: #777777 !important;
+}
+
+.kst-text-small {
+    font-size: 12px;
+}
+
+.kst-mb-0 { margin-bottom: 0; }
+.kst-mb-1 { margin-bottom: 8px; }
+.kst-mb-2 { margin-bottom: 16px; }
+.kst-mb-3 { margin-bottom: 24px; }
+
+.kst-mt-0 { margin-top: 0; }
+.kst-mt-1 { margin-top: 8px; }
+.kst-mt-2 { margin-top: 16px; }
+.kst-mt-3 { margin-top: 24px; }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-hero-section">
+        <div class="kst-product-title">Rejuner</div>
+        <div class="kst-product-spec">2mL x 5 Vials (Gold, Black, Red)</div>
+        <div class="kst-product-subtitle">Advanced Collagen Stimulator</div>
+        <div class="kst-hero-description">
+            Premium PCL-based collagen stimulator for comprehensive facial rejuvenation, delivering up to 2 years of natural anti-aging results through neocollagenesis
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Main Product Image - Rejuner Vials Collection]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <span class="kst-badge">Premium Quality</span>
+            <h3 class="kst-card-title">Advanced Polycaprolactone Technology</h3>
+            <div class="kst-card-content">
+                Rejuner utilizes cutting-edge Polycaprolactone (PCL) technology to stimulate natural collagen production, offering three specialized formulations for targeted facial rejuvenation and anti-aging treatments.
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><span>Stimulates neocollagenesis for natural collagen regeneration</span></li>
+            <li><span>Three specialized labels for different treatment areas</span></li>
+            <li><span>Particle-free colloid formula ready for immediate use</span></li>
+            <li><span>Long-lasting effects up to 2 years duration</span></li>
+        </ul>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Active Ingredients & Composition</h2>
+        
+        <dl class="kst-dl">
+            <dt class="kst-dt">Polycaprolactone (PCL) - Gold Label</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">23%</span>
+                High-concentration PCL for comprehensive facial rejuvenation, targeting whole face anti-aging with maximum collagen stimulation
+            </dd>
+            
+            <dt class="kst-dt">Polycaprolactone (PCL) - Black Label</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">23%</span>
+                Specialized formulation for delicate areas including temples, under-eyes, and neck with concentrated treatment capability
+            </dd>
+            
+            <dt class="kst-dt">Polycaprolactone (PCL) - Red Label</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">12.5%</span>
+                Moderate concentration for managing early signs of aging and specific wrinkle correction in targeted areas
+            </dd>
+        </dl>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [PCL Technology Visualization - Molecular Structure]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Biocompatible & Hypoallergenic Formula</h3>
+            <div class="kst-card-content">
+                The particle-free colloid formulation ensures smooth application and uniform distribution under the skin, promoting consistent results across all treatment areas while maintaining excellent biocompatibility.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Benefits & Clinical Effects</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">4 Weeks</div>
+                <div class="kst-grid-label">Visible Improvement Onset</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Up to 2 Years</div>
+                <div class="kst-grid-label">Effect Duration (Gold/Black)</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Up to 1 Year</div>
+                <div class="kst-grid-label">Effect Duration (Red)</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">2cc</div>
+                <div class="kst-grid-label">Recommended Volume per Session</div>
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><span>Overall skin rejuvenation and natural lifting effect</span></li>
+            <li><span>Improved skin elasticity, texture, and density</span></li>
+            <li><span>Diminished appearance of wrinkles and fine lines</span></li>
+            <li><span>Pore tightening and enhanced skin brightness</span></li>
+        </ul>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Before & After Treatment Results Comparison]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Long-term Collagen Enhancement</h3>
+            <div class="kst-card-content">
+                Rejuner works by stimulating fibroblasts to produce new collagen naturally, providing gradual but significant improvements that develop over weeks to months for lasting anti-aging benefits.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Usage Protocol & Application</h2>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">1</div>
+            <div class="kst-step-title">Patient Assessment</div>
+            <div class="kst-step-description">Evaluate patient's skin condition and select appropriate Rejuner label based on treatment area and skin thickness</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">2</div>
+            <div class="kst-step-title">Preparation</div>
+            <div class="kst-step-description">Rejuner is ready to use without reconstitution. Ensure proper sterile technique and use fine-gauge needle (33-34G)</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">3</div>
+            <div class="kst-step-title">Injection Technique</div>
+            <div class="kst-step-description">Inject into the dermis using appropriate injection method (intradermal, MTS, or mesotherapy equipment)</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">4</div>
+            <div class="kst-step-title">Treatment Schedule</div>
+            <div class="kst-step-description">Recommended series of 3 sessions spaced at 4-week intervals for optimal neocollagenesis results</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">5</div>
+            <div class="kst-step-title">Post-Treatment Care</div>
+            <div class="kst-step-description">Monitor patient response and provide appropriate aftercare instructions for maximum treatment efficacy</div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Injection Technique & Treatment Area Guide]
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Specifications & Comparison</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                   <colgroup>
+                    <col><col><col><col style="width: 30%;"><col>
+                        <thead>
+                            <tr>
+                                <th>Label</th>
+                                <th>PCL Concentration</th>
+                                <th>Duration</th>
+                                <th>Treatment Area</th>
+                                <th>Primary Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Rejuner Gold</td>
+                                <td>23%</td>
+                                <td>Up to 2 years</td>
+                                <td>Whole face (excluding temples, neck, eye area)</td>
+                                <td>Overall facial rejuvenation</td>
+                            </tr>
+                            <tr>
+                                <td>Rejuner Black</td>
+                                <td>23%</td>
+                                <td>Up to 2 years</td>
+                                <td>Temple, under eyes, neck, delicate areas</td>
+                                <td>Concentrated treatment for thin skin</td>
+                            </tr>
+                            <tr>
+                                <td>Rejuner Red</td>
+                                <td>12.5%</td>
+                                <td>Up to 1 year</td>
+                                <td>Forehead, temporal, cheeks, nasolabial folds</td>
+                                <td>Managing early signs of aging</td>
+                            </tr>
+                        </tbody>
+                    </colgroup> 
+            </table>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Storage & Handling Requirements</h3>
+            <div class="kst-card-content">
+                Store in a cool, dry place at temperature between 2-28°C, away from direct sunlight. Do not freeze. Single-use product - contents must be used completely after opening.
+            </div>
+        </div>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">2-28°C</div>
+                <div class="kst-grid-label">Storage Temperature</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">5 Vials</div>
+                <div class="kst-grid-label">Package Contents</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">2mL</div>
+                <div class="kst-grid-label">Volume per Vial</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Safety Information & Precautions</h2>
+        
+        <div class="kst-warning">
+            <h3 class="kst-warning-title">Professional Use Only</h3>
+            <div class="kst-warning-content">
+                This product must be administered by qualified and certified medical professionals only. Not intended for personal use by untrained individuals.
+            </div>
+            <ul class="kst-warning-list">
+                <li>Ensure proper training in injection techniques before use</li>
+                <li>Maintain sterile conditions throughout the procedure</li>
+                <li>Use appropriate needle gauge (33-34G recommended)</li>
+                <li>Complete vial contents must be used after opening</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Treatment Considerations</h3>
+            <div class="kst-card-content">
+                Treatment volume may be adjusted by certified professionals based on individual patient condition. Initial improvements in skin hydration may be seen shortly after treatment, with significant collagen-induced rejuvenation becoming apparent over 4 weeks.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Quality Assurance</h3>
+            <div class="kst-card-content">
+                Rejuner meets stringent quality standards with biocompatible and hypoallergenic composition. Each batch undergoes rigorous testing to ensure safety and efficacy for professional aesthetic treatments.
+            </div>
+        </div>
+    </div>
+    
+</div>

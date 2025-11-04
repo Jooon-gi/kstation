@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saxenda Pen Product Description</title>
+    <style>
+        :root {
+            --kst-primary-color: #273579;
+            --kst-secondary-color: #7DA9E0;
+            --kst-text-primary: #222222;
+            --kst-text-secondary: #666666;
+            --kst-background: #FFFFFF;
+            --kst-badge-bg: #273579;
+            --kst-badge-text: #FFFFFF;
+            --kst-badge-hover: #7DA9E0;
+        }
+        
+        * {
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--kst-primary-color) 0%, var(--kst-secondary-color) 100%);
+            color: var(--kst-background) !important;
+            padding: 12px;
+            line-height: 1.5;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kst-main-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 8px;
+            filter: blur(40px);
+            z-index: 0;
+        }
+        
+        .kst-section {
+            background: var(--kst-background) !important;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card {
+            background: #eaecef;
+            color: var(--kst-text-primary) !important;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .kst-card h2,
+        .kst-card h3,
+        .kst-card h4 {
+            color: var(--kst-text-primary) !important;
+            margin-top: 0;
+            margin-bottom: 16px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card p,
+        .kst-card li,
+        .kst-card span {
+            color: var(--kst-text-secondary) !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-card ul li,
+        .kst-card ol li {
+            color: var(--kst-text-secondary) !important;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .kst-section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--kst-text-primary) !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-section-subtitle {
+            font-size: 14px;
+            color: var(--kst-primary-color) !important;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        /* Hero Section */
+        .kst-hero-section {
+            background: var(--kst-background);
+            color: var(--kst-text-primary) !important;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .kst-product-badge {
+            background: #f3f4f6;
+            color: #374151 !important;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .kst-product-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--kst-primary-color) !important;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .kst-product-subtitle {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--kst-secondary-color) !important;
+            margin-bottom: 24px;
+            margin-top: -14px;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-product-highlight {
+            color: var(--kst-primary-color) !important;
+        }
+        
+        .kst-hero-description {
+            font-size: 16px;
+            color: var(--kst-text-secondary) !important;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .kst-feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        
+        .kst-feature-tag {
+            background: var(--kst-primary-color);
+            color: var(--kst-badge-text) !important;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .kst-feature-icon {
+            width: 14px;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+        }
+        
+        /* Image blocks with auto-hide functionality */
+        .kst-image-block,
+        .kst-chart-block {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border: 2px dashed #cbd5e1;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            color: #64748b !important;
+            font-size: 14px;
+            font-style: italic;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 0;
+            box-sizing: border-box;
+        }
+        
+        .kst-image-block img,
+        .kst-chart-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        /* Auto-hide when no image or empty src */
+        .kst-image-block:not(:has(img)),
+        .kst-image-block:has(img[src=""]),
+        .kst-chart-block:not(:has(img)),
+        .kst-chart-block:has(img[src=""]) {
+            display: none;
+        }
+        
+        /* Grid layouts */
+        .kst-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        
+        .kst-grid-item {
+            background: #f5f6f7;            
+            padding: 16px;
+            border-radius: 6px;
+            border-left: 4px solid var(--kst-primary-color);
+        }
+        
+        .kst-grid-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 8px;
+        }
+        
+        .kst-grid-item p {
+            font-size: 14px;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        /* Stats and numbers */
+        .kst-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 16px 0;
+        }
+        
+        .kst-stat-card {
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .kst-stat-number {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--kst-primary-color) !important;
+            margin-bottom: 4px;
+        }
+        
+        .kst-stat-label {
+            font-size: 12px;
+            color: var(--kst-text-secondary) !important;
+            font-weight: 500;
+        }
+        
+        /* Steps */
+        .kst-steps-list {
+            margin: 16px 0;
+        }
+        
+        .kst-step-item {
+            background: #f5f6f7;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .kst-step-number {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            width: 24px;
+            height: 24px;
+            background: var(--kst-primary-color);
+            color: var(--kst-badge-text) !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .kst-step-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 6px;
+        }
+        
+        .kst-step-description {
+            font-size: 13px;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5;
+        }
+        
+        /* Tables */
+        .kst-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f8fafc;
+            border-radius: 3px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        
+        .kst-specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--kst-background);
+            table-layout: auto !important;
+        }
+        
+        .kst-specs-table th,
+        .kst-specs-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+            white-space: nowrap !important;
+        }
+        
+        .kst-specs-table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #374151 !important;
+        }
+        
+        .kst-specs-table td {
+            color: var(--kst-text-secondary) !important;
+        }
+        
+        /* Definition lists for ingredients */
+        .kst-definition-list {
+            margin: 16px 0;
+        }
+        
+        .kst-definition-item {
+            background: #f5f6f7;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--kst-primary-color);
+        }
+        
+        .kst-definition-term {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .kst-concentration-badge {
+            background: var(--kst-primary-color);
+            color: #FFFFFF !important;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .kst-definition-desc {
+            font-size: 14px;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        /* Warning boxes */
+        .kst-warning-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            position: relative;
+        }
+        
+        .kst-warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -8px;
+            left: 16px;
+            background: #f59e0b;
+            color: var(--kst-badge-text) !important;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .kst-warning-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #92400e !important;
+            margin-bottom: 8px;
+            padding-top: 8px;
+        }
+        
+        .kst-warning-content {
+            font-size: 13px;
+            color: #92400e !important;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        /* Target audience items */
+        .kst-target-item {
+            background: #f5f6f7;
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .kst-target-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .kst-target-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--kst-primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--kst-badge-text) !important;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        
+        .kst-target-content {
+            flex: 1;
+        }
+        
+        .kst-target-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 6px;
+        }
+        
+        .kst-target-description {
+            font-size: 13px;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        /* Responsive text scaling */
+        @media (max-width: 480px) {
+            .kst-main-container {
+                padding: 8px;
+            }
+            
+            .kst-card {
+                padding: 16px;
+            }
+            
+            .kst-product-title {
+                font-size: 24px;
+            }
+            
+            .kst-section-title {
+                font-size: 20px;
+            }
+            
+            .kst-stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="kst-main-container">
+        
+        <!-- Hero Section - Basic Information -->
+        <div class="kst-hero-section kst-section">
+            <div class="kst-product-badge">Weight Management • GLP-1 Injection</div>
+            <h1 class="kst-product-title">Saxenda Pen</h1>
+            <h2 class="kst-product-subtitle">6 mg/mL Pre-filled Injection Pen (3mL)</h2>
+            <div class="kst-hero-description">
+                Advanced liraglutide injection pen for chronic weight management. Designed for adults and adolescents with obesity or overweight conditions, supporting effective appetite regulation and sustainable weight loss when combined with a reduced-calorie diet and increased physical activity.
+            </div>
+            
+            <div class="kst-feature-tags">
+                <div class="kst-feature-tag">
+                    <div class="kst-feature-icon">✓</div>
+                    GLP-1 Receptor Agonist
+                </div>
+                <div class="kst-feature-tag">
+                    <div class="kst-feature-icon">⚡</div>
+                    Appetite Suppression
+                </div>
+                <div class="kst-feature-tag">
+                    <div class="kst-feature-icon">🎯</div>
+                    Daily Self-Injection
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [Saxenda Pen Product Image - Professional medical injection pen with packaging]
+            </div>
+        </div>
+        
+        <!-- Product Overview Stats -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Product Overview</h2>
+            <div class="kst-stats-grid">
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">3mL</div>
+                    <div class="kst-stat-label">Pen Volume</div>
+                </div>
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">6mg/mL</div>
+                    <div class="kst-stat-label">Concentration</div>
+                </div>
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">97%</div>
+                    <div class="kst-stat-label">Similar to Natural GLP-1</div>
+                </div>
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">30</div>
+                    <div class="kst-stat-label">Days Usage Period</div>
+                </div>
+            </div>
+            
+            <div class="kst-chart-block">
+                [Dose Escalation Chart - Weekly progression from 0.6mg to 3.0mg maintenance dose]
+            </div>
+        </div>
+        
+        <!-- Ingredients & Mechanism of Action -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Active Ingredient & Mechanism</h2>
+            <div class="kst-section-subtitle">GLP-1 Receptor Agonist Technology</div>
+            
+            <div class="kst-definition-list">
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">
+                        Liraglutide
+                        <span class="kst-concentration-badge" style="color: #eaecef !important;">6 mg/mL</span>
+                    </div>
+                    <p class="kst-definition-desc">A glucagon-like peptide-1 (GLP-1) receptor agonist that is 97% similar to the naturally occurring hormone GLP-1. Works by acting on areas of the brain involved in appetite regulation, leading to reduced feelings of hunger and increased feelings of satiety.</p>
+                </div>
+            </div>
+            
+            <h3>How Saxenda Works</h3>
+            <div class="kst-grid">
+                <div class="kst-grid-item">
+                    <h4>Appetite Regulation</h4>
+                    <p>Acts on brain receptors to reduce hunger signals and increase satiety, helping you feel fuller for longer periods.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Gastric Emptying Delay</h4>
+                    <p>Contributes to delayed gastric emptying, which helps maintain feelings of fullness and reduces food intake.</p>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [Mechanism of Action Diagram - GLP-1 receptor pathway and brain appetite centers]
+            </div>
+        </div>
+        
+        <!-- Effects & Benefits -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Expected Effects & Benefits</h2>
+            <div class="kst-section-subtitle">Chronic Weight Management Support</div>
+            
+            <div class="kst-grid">
+                <div class="kst-grid-item">
+                    <h4>Weight Loss Support</h4>
+                    <p>Assists in chronic weight management when combined with a reduced-calorie diet and increased physical activity.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Appetite Control</h4>
+                    <p>Promotes weight loss by regulating appetite and caloric intake through natural hormone mimicking.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Long-term Maintenance</h4>
+                    <p>Helps maintain weight reduction in the long term when used as part of a comprehensive lifestyle program.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Metabolic Benefits</h4>
+                    <p>Supports healthy metabolic function through improved glucose regulation and insulin sensitivity.</p>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [Clinical Results Chart - Weight loss progression over treatment period]
+            </div>
+        </div>
+        
+        <!-- Usage Instructions & Application -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Usage Instructions & Dose Escalation</h2>
+            <div class="kst-section-subtitle">Step-by-Step Application Guide</div>
+            
+            <div class="kst-steps-list">
+                <div class="kst-step-item">
+                    <div class="kst-step-number">1</div>
+                    <div class="kst-step-title">Week 1: Starting Dose (0.6 mg)</div>
+                    <div class="kst-step-description">Begin with 0.6 mg daily subcutaneous injection. Rotate injection sites between abdomen, thigh, or upper arm to prevent lipodystrophy.</div>
+                </div>
+                
+                <div class="kst-step-item">
+                    <div class="kst-step-number">2</div>
+                    <div class="kst-step-title">Weeks 2-5: Gradual Increase</div>
+                    <div class="kst-step-description">Increase dose by 0.6 mg each week: Week 2 (1.2 mg), Week 3 (1.8 mg), Week 4 (2.4 mg), Week 5 (3.0 mg maintenance dose).</div>
+                </div>
+                
+                <div class="kst-step-item">
+                    <div class="kst-step-number">3</div>
+                    <div class="kst-step-title">Daily Administration</div>
+                    <div class="kst-step-description">Inject once daily at any time of day, with or without food. Maintain consistent timing for optimal results.</div>
+                </div>
+                
+                <div class="kst-step-item">
+                    <div class="kst-step-number">4</div>
+                    <div class="kst-step-title">Injection Technique</div>
+                    <div class="kst-step-description">Use proper subcutaneous injection technique. Attach new needle for each injection and dispose of safely according to local regulations.</div>
+                </div>
+                
+                <div class="kst-step-item">
+                    <div class="kst-step-number">5</div>
+                    <div class="kst-step-title">Lifestyle Integration</div>
+                    <div class="kst-step-description">Combine with reduced-calorie diet and increased physical activity for maximum effectiveness.</div>
+                </div>
+            </div>
+            
+            <h3>Important Usage Notes</h3>
+            <ul>
+                <li>If a dose is missed and more than 12 hours have passed, skip the missed dose and resume normal schedule the following day</li>
+                <li>The dose escalation schedule is crucial to minimize gastrointestinal side effects</li>
+                <li>Users must be trained on proper injection technique and dose-setting before first use</li>
+                <li>Single-use needles are required for each injection (needles not included with pen)</li>
+            </ul>
+            
+            <div class="kst-image-block">
+                [Injection Technique Guide - Step-by-step visual demonstration of proper injection method]
+            </div>
+        </div>
+        
+        <!-- Target Population & Eligibility -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Who Is Saxenda For?</h2>
+            <div class="kst-section-subtitle">Eligible Patient Populations</div>
+            
+            <div class="kst-target-item">
+                <div class="kst-target-icon">👥</div>
+                <div class="kst-target-content">
+                    <div class="kst-target-title">Adults with Obesity (BMI ≥ 30 kg/m²)</div>
+                    <div class="kst-target-description">
+                        Adults diagnosed with obesity who have struggled with weight management through diet and exercise alone. The active ingredient mimics a natural hormone to regulate appetite and support sustainable weight loss.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-target-item">
+                <div class="kst-target-icon">🎯</div>
+                <div class="kst-target-content">
+                    <div class="kst-target-title">Overweight Adults with Comorbidities (BMI ≥ 27 kg/m²)</div>
+                    <div class="kst-target-description">
+                        Adults who are overweight with at least one weight-related comorbidity such as high blood pressure, type 2 diabetes, or dyslipidemia. The mechanism of action helps manage hunger and reduce caloric intake.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-target-item">
+                <div class="kst-target-icon">👨‍⚕️</div>
+                <div class="kst-target-content">
+                    <div class="kst-target-title">Adolescents (Ages 12-17) with Obesity</div>
+                    <div class="kst-target-description">
+                        Adolescents aged 12-17 years with a body weight above 60 kg and obesity. Works to regulate appetite and support weight loss efforts in conjunction with a healthy lifestyle under medical supervision.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-target-item">
+                <div class="kst-target-icon">📈</div>
+                <div class="kst-target-content">
+                    <div class="kst-target-title">Patients Seeking Long-term Weight Management</div>
+                    <div class="kst-target-description">
+                        Individuals committed to long-term weight management who understand that Saxenda is an adjunct to lifestyle modifications, not a standalone solution for weight loss.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Product Specifications & Storage -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Product Specifications & Storage Requirements</h2>
+            
+            <div class="kst-table-wrap">
+                <table class="kst-specs-table">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th>Details</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Active Ingredient</td>
+                            <td>Liraglutide 6 mg/mL</td>
+                            <td>GLP-1 receptor agonist for appetite regulation</td>
+                        </tr>
+                        <tr>
+                            <td>Pen Volume</td>
+                            <td>3 mL pre-filled pen</td>
+                            <td>Multiple doses per pen (up to 30 days)</td>
+                        </tr>
+                        <tr>
+                            <td>Dose Range</td>
+                            <td>0.6 mg to 3.0 mg daily</td>
+                            <td>Flexible dosing with escalation protocol</td>
+                        </tr>
+                        <tr>
+                            <td>Administration</td>
+                            <td>Once daily subcutaneous injection</td>
+                            <td>Convenient self-administration</td>
+                        </tr>
+                        <tr>
+                            <td>Pen Design</td>
+                            <td>Pre-filled, single-patient-use</td>
+                            <td>Ready-to-use convenience and safety</td>
+                        </tr>
+                        <tr>
+                            <td>Usage Period</td>
+                            <td>30 days after first use</td>
+                            <td>Optimal potency and safety</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>Storage Requirements</h3>
+            <div class="kst-grid">
+                <div class="kst-grid-item">
+                    <h4>Unopened Pens</h4>
+                    <p>Store in refrigerator at 2°C to 8°C (36°F to 46°F) until expiration date. Do not freeze - discard any pen that has been frozen.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>After First Use</h4>
+                    <p>Can be stored in refrigerator or at room temperature (15°C to 30°C / 59°F to 86°F) for up to 30 days. Must be discarded after 30 days even if solution remains.</p>
+                </div>
+            </div>
+            
+            <div class="kst-stats-grid">
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">2-8°C</div>
+                    <div class="kst-stat-label">Unopened Storage</div>
+                </div>
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">15-30°C</div>
+                    <div class="kst-stat-label">After Opening</div>
+                </div>
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">30 Days</div>
+                    <div class="kst-stat-label">Maximum Use Period</div>
+                </div>
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">Clear</div>
+                    <div class="kst-stat-label">Solution Appearance</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Safety Information & Warnings -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Safety Information & Important Warnings</h2>
+            
+            <div class="kst-warning-box">
+                <div class="kst-warning-title">Critical Safety Guidelines</div>
+                <div class="kst-warning-content">
+                    Do not use if you have a personal or family history of medullary thyroid carcinoma or Multiple Endocrine Neoplasia syndrome type 2. Not recommended for patients with a history of pancreatitis. Always consult healthcare provider before starting treatment.
+                </div>
+            </div>
+            
+            <div class="kst-warning-box">
+                <div class="kst-warning-title">Pre-Treatment Requirements</div>
+                <div class="kst-warning-content">
+                    Medical evaluation required to confirm BMI eligibility and assess for contraindications. Patients must be trained on proper injection technique and dose escalation protocol before first use.
+                </div>
+            </div>
+            
+            <div class="kst-warning-box">
+                <div class="kst-warning-title">Common Side Effects</div>
+                <div class="kst-warning-content">
+                    Most common side effects include nausea, vomiting, diarrhea, constipation, and injection site reactions. These typically decrease over time as the body adjusts to treatment. Dose escalation helps minimize gastrointestinal effects.
+                </div>
+            </div>
+            
+            <div class="kst-warning-box">
+                <div class="kst-warning-title">Product Handling Safety</div>
+                <div class="kst-warning-content">
+                    Never freeze the pen. Do not use if solution is not clear and colorless. Do not share pens with others due to risk of infection transmission. Dispose of needles and pens according to local medical waste guidelines.
+                </div>
+            </div>
+            
+            <h3>Emergency Response Protocol</h3>
+            <div class="kst-grid">
+                <div class="kst-grid-item">
+                    <h4>Severe Adverse Reactions</h4>
+                    <p>Contact healthcare provider immediately if experiencing severe abdominal pain, persistent vomiting, or signs of allergic reaction including rash, swelling, or difficulty breathing.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Medical Support</h4>
+                    <p>Ensure 24/7 access to healthcare provider contact information. Report any unexpected symptoms or concerns during treatment period.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Precautions & Contraindications -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Precautions & Contraindications</h2>
+            <div class="kst-section-subtitle">Important Medical Considerations</div>
+            
+            <h3>Absolute Contraindications</h3>
+            <ul>
+                <li>Personal or family history of medullary thyroid carcinoma (MTC)</li>
+                <li>Multiple Endocrine Neoplasia syndrome type 2 (MEN 2)</li>
+                <li>Previous serious hypersensitivity reaction to liraglutide or any excipients</li>
+                <li>Pregnancy and breastfeeding (not studied in these populations)</li>
+            </ul>
+            
+            <h3>Special Populations Requiring Caution</h3>
+            <div class="kst-grid">
+                <div class="kst-grid-item">
+                    <h4>Diabetic Patients</h4>
+                    <p>Monitor blood glucose closely, especially if taking insulin or sulfonylureas, as dose adjustments may be necessary to prevent hypoglycemia.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Kidney/Liver Impairment</h4>
+                    <p>Use with caution in patients with renal or hepatic impairment. Dose adjustment may be required based on severity of condition.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Elderly Patients</h4>
+                    <p>Limited experience in patients over 75 years. Start with lower doses and monitor more frequently for adverse effects.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Gallbladder Disease</h4>
+                    <p>May increase risk of gallbladder-related events. Monitor patients with history of gallstones or gallbladder disease.</p>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [Medical Assessment Flowchart - Patient evaluation and contraindication screening process]
+            </div>
+        </div>
+        
+        <!-- Clinical Effectiveness & Research -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Clinical Effectiveness & Research Data</h2>
+            <div class="kst-section-subtitle">Evidence-Based Weight Management</div>
+            
+            <div class="kst-stats-grid">
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">97%</div>
+                    <div class="kst-stat-label">Similarity to Natural GLP-1</div>
+                </div>
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">Multiple</div>
+                    <div class="kst-stat-label">Clinical Trials</div>
+                </div>
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">Proven</div>
+                    <div class="kst-stat-label">Safety Profile</div>
+                </div>
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">Long-term</div>
+                    <div class="kst-stat-label">Weight Maintenance</div>
+                </div>
+            </div>
+            
+            <h3>Clinical Study Results</h3>
+            <div class="kst-grid">
+                <div class="kst-grid-item">
+                    <h4>Weight Loss Efficacy</h4>
+                    <p>Clinical trials demonstrate significant weight loss when combined with lifestyle interventions compared to placebo plus lifestyle modifications.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Appetite Regulation</h4>
+                    <p>Proven reduction in hunger scores and increased satiety ratings in controlled clinical studies across diverse patient populations.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Safety Monitoring</h4>
+                    <p>Extensive safety database from clinical trials and post-marketing surveillance demonstrating manageable side effect profile.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Long-term Outcomes</h4>
+                    <p>Studies show sustained weight loss maintenance with continued treatment and lifestyle adherence over extended periods.</p>
+                </div>
+            </div>
+            
+            <div class="kst-chart-block">
+                [Clinical Trial Results Graph - Weight loss progression and maintenance data over treatment period]
+            </div>
+        </div>
+        
+        <!-- Professional Support & Monitoring -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Professional Support & Monitoring Requirements</h2>
+            <div class="kst-section-subtitle">Comprehensive Medical Supervision</div>
+            
+            <h3>Healthcare Provider Responsibilities</h3>
+            <div class="kst-grid">
+                <div class="kst-grid-item">
+                    <h4>Patient Assessment</h4>
+                    <p>Comprehensive medical history, BMI calculation, contraindication screening, and baseline laboratory evaluations before treatment initiation.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Training & Education</h4>
+                    <p>Proper injection technique instruction, dose escalation explanation, side effect management, and lifestyle counseling integration.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Regular Monitoring</h4>
+                    <p>Scheduled follow-up appointments for weight tracking, side effect assessment, dose optimization, and treatment plan adjustments.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Safety Surveillance</h4>
+                    <p>Ongoing monitoring for adverse events, drug interactions, and treatment effectiveness evaluation throughout therapy duration.</p>
+                </div>
+            </div>
+            
+            <h3>Patient Support Resources</h3>
+            <div class="kst-target-item">
+                <div class="kst-target-icon">📞</div>
+                <div class="kst-target-content">
+                    <div class="kst-target-title">24/7 Medical Support</div>
+                    <div class="kst-target-description">
+                        Access to healthcare provider contact information for urgent medical questions or adverse event reporting during treatment.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-target-item">
+                <div class="kst-target-icon">📚</div>
+                <div class="kst-target-content">
+                    <div class="kst-target-title">Educational Materials</div>
+                    <div class="kst-target-description">
+                        Comprehensive patient education resources including injection technique videos, dietary guidance, and lifestyle modification support.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lifestyle Integration -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Lifestyle Integration & Best Practices</h2>
+            <div class="kst-section-subtitle">Maximizing Treatment Success</div>
+            
+            <h3>Complementary Interventions</h3>
+            <div class="kst-grid">
+                <div class="kst-grid-item">
+                    <h4>Reduced-Calorie Diet</h4>
+                    <p>Structured nutrition plan with appropriate caloric deficit, balanced macronutrients, and sustainable eating patterns for long-term success.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Increased Physical Activity</h4>
+                    <p>Progressive exercise program incorporating both cardiovascular and resistance training, tailored to individual fitness levels and capabilities.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Behavioral Modifications</h4>
+                    <p>Cognitive-behavioral strategies for eating habits, stress management, and lifestyle pattern changes to support sustained weight management.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Regular Monitoring</h4>
+                    <p>Consistent weight tracking, symptom logging, and progress evaluation to optimize treatment outcomes and identify areas for improvement.</p>
+                </div>
+            </div>
+            
+            <h3>Treatment Success Factors</h3>
+            <ul>
+                <li>Adherence to daily injection schedule and dose escalation protocol</li>
+                <li>Consistent implementation of dietary and exercise recommendations</li>
+                <li>Regular healthcare provider follow-up and communication</li>
+                <li>Realistic goal setting and expectation management</li>
+                <li>Strong support system and behavioral change commitment</li>
+            </ul>
+            
+            <div class="kst-image-block">
+                [Lifestyle Integration Infographic - Comprehensive approach to weight management combining medication, diet, exercise, and behavioral support]
+            </div>
+        </div>
+        
+        <!-- Treatment Timeline & Expectations -->
+        <div class="kst-card kst-section">
+            <h2 class="kst-section-title">Treatment Timeline & What to Expect</h2>
+            <div class="kst-section-subtitle">Realistic Outcome Expectations</div>
+            
+            <div class="kst-steps-list">
+                <div class="kst-step-item">
+                    <div class="kst-step-number">1</div>
+                    <div class="kst-step-title">Weeks 1-4: Dose Escalation Period</div>
+                    <div class="kst-step-description">Gradual dose increases to minimize side effects. Initial appetite suppression may be noticed. Focus on establishing injection routine and dietary changes.</div>
+                </div>
+                
+                <div class="kst-step-item">
+                    <div class="kst-step-number">2</div>
+                    <div class="kst-step-title">Weeks 5-12: Stabilization Phase</div>
+                    <div class="kst-step-description">Maintenance dose achieved. Consistent appetite control and early weight loss typically observed. Side effects generally diminish during this period.</div>
+                </div>
+                
+                <div class="kst-step-item">
+                    <div class="kst-step-number">3</div>
+                    <div class="kst-step-description">Continued treatment with steady weight loss progression. Regular monitoring and lifestyle optimization to maximize effectiveness and maintain results.</div>
+                    <div class="kst-step-title">Months 3-6: Progressive Weight Loss</div>
+                </div>
+                
+                <div class="kst-step-item">
+                    <div class="kst-step-number">4</div>
+                    <div class="kst-step-title">6+ Months: Long-term Maintenance</div>
+                    <div class="kst-step-description">Focus shifts to weight maintenance and continued lifestyle adherence. Treatment duration determined by healthcare provider based on individual response and goals.</div>
+                </div>
+            </div>
+            
+            <h3>Realistic Expectations</h3>
+            <div class="kst-grid">
+                <div class="kst-grid-item">
+                    <h4>Individual Variation</h4>
+                    <p>Response rates and weight loss amounts vary significantly between individuals based on starting weight, lifestyle factors, and genetic predisposition.</p>
+                </div>
+                
+                <div class="kst-grid-item">
+                    <h4>Gradual Progress</h4>
+                    <p>Sustainable weight loss occurs gradually over months, not weeks. Patience and consistency with treatment and lifestyle modifications are essential.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

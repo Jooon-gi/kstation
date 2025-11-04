@@ -1,0 +1,999 @@
+<style>
+        :root {
+            --kst-main-color: #D6192D;
+            --kst-sub-color: #F4B21A;
+            --kst-text-primary: #222222;
+            --kst-text-secondary: #666666;
+            --kst-background: #FFFFFF;
+            --kst-badge-bg: #D6192D;
+            --kst-badge-text: #FFFFFF;
+            --kst-badge-hover: #F4B21A;
+        }
+        
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
+            background: var(--kst-background) !important;
+            color: var(--kst-text-primary) !important;
+            padding: 0 12px;
+            line-height: 1.2;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+        
+        .kst-main-container * {
+            box-sizing: border-box;
+        }
+        
+        .kst-section {
+            margin: 8px 0;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-header-block {
+            background: var(--kst-main-color) !important;
+            color: var(--kst-background) !important;
+            padding: 30px 16px;
+            margin: 8px 0;
+        }
+        
+        .kst-product-title {
+            font-size: 34px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: var(--kst-background) !important;
+        }
+
+        .kst-product-spec {
+            font-size: 26px;
+            font-weight: 100;
+            text-transform: uppercase;
+            margin-top: 10px;
+            margin-bottom: 12px;
+            line-height: 1.1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: var(--kst-background) !important;
+        }
+        
+        .kst-subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            opacity: 0.8;
+            color: var(--kst-background) !important;
+        }
+        
+        .kst-category-badge {
+            background: var(--kst-background) !important;
+            color: var(--kst-main-color) !important;
+            padding: 4px 8px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .kst-image-block {
+            background: var(--kst-main-color) !important;
+            color: var(--kst-background) !important;
+            padding: 40px 16px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 8px 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-image-block:not(:has(img)) {
+            display: none;
+        }
+        
+        .kst-image-block img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border: none;
+            background: none;
+        }
+        
+        .kst-chart-block {
+            background: var(--kst-main-color) !important;
+            color: var(--kst-background) !important;
+            padding: 40px 16px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 8px 0;
+        }
+        
+        .kst-chart-block:not(:has(img)) {
+            display: none;
+        }
+        
+        .kst-chart-block img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border: none;
+            background: none;
+        }
+        
+        .kst-core-value {
+            background: #f5f5f5 !important;
+            padding: 20px 16px;
+            margin: 8px 0;
+            text-align: center;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-slogan {
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-description {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.4;
+            font-family: 'Arial', sans-serif;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-section-header {
+            background: var(--kst-main-color) !important;
+            color: var(--kst-background) !important;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 8px 0 0 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card {
+            background: var(--kst-background) !important;
+            border: 2px solid var(--kst-main-color);
+            padding: 16px;
+            margin: 4px 0;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-card ul,
+        .kst-card ol {
+            margin: 10px 0;
+            padding-left: 20px;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-card ul li,
+        .kst-card ol li {
+            margin-bottom: 6px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.4;
+            font-family: 'Arial', sans-serif;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-ingredient-name {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-concentration-badge {
+            background: var(--kst-main-color) !important;
+            color: var(--kst-background) !important;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .kst-ingredient-info {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.4;
+            font-family: 'Arial', sans-serif;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-effects-grid {
+            background: var(--kst-main-color) !important;
+            padding: 2px;
+            margin: 0;
+        }
+        
+        .kst-effect-card {
+            background: var(--kst-background) !important;
+            padding: 16px;
+            margin: 2px 0;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-effect-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--kst-main-color) !important;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        
+        .kst-effect-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            line-height: 1.1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-effect-description {
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 1.4;
+            font-family: 'Arial', sans-serif;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-steps-container {
+            background: var(--kst-main-color) !important;
+            padding: 2px;
+            margin: 0;
+        }
+        
+        .kst-step-card {
+            background: var(--kst-background) !important;
+            padding: 20px 16px;
+            margin: 2px 0;
+            position: relative;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-step-number {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--kst-main-color) !important;
+            color: var(--kst-background) !important;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .kst-step-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin: 10px 0 8px 0;
+            line-height: 1.1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-step-description {
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 1.4;
+            font-family: 'Arial', sans-serif;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            background: var(--kst-main-color) !important;
+            padding: 2px;
+            margin: 0;
+        }
+        
+        .kst-specs-table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+            background: var(--kst-background) !important;
+        }
+        
+        .kst-specs-table th {
+            background: var(--kst-main-color) !important;
+            color: var(--kst-background) !important;
+            padding: 12px 8px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+            white-space: nowrap !important;
+        }
+        
+        .kst-specs-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--kst-main-color);
+            font-size: 11px;
+            font-weight: 400;
+            font-family: 'Arial', sans-serif;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-specs-table tr:nth-child(even) td {
+            background: #f5f5f5 !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f5f5f5;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: var(--kst-main-color);
+        }
+        
+        .kst-faq-item {
+            border-bottom: 2px solid var(--kst-main-color);
+            background: var(--kst-background) !important;
+            margin: 0;
+        }
+        
+        .kst-faq-question {
+            padding: 12px 16px;
+            background: #f5f5f5 !important;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--kst-main-color) !important;
+        }
+        
+        .kst-faq-question.kst-active::after {
+            content: '-';
+        }
+        
+        .kst-faq-answer {
+            padding: 12px 16px;
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 1.4;
+            font-family: 'Arial', sans-serif;
+            display: none;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-faq-answer.kst-active {
+            display: block;
+        }
+        
+        .kst-safety-section {
+            background: #fff3cd !important;
+            border: 2px solid var(--kst-sub-color);
+            margin: 8px 0;
+        }
+        
+        .kst-safety-header {
+            background: var(--kst-sub-color) !important;
+            color: var(--kst-text-primary) !important;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .kst-safety-content {
+            padding: 16px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.4;
+            font-family: 'Arial', sans-serif;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-safety-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0 0;
+        }
+        
+        .kst-safety-list li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 16px;
+            font-size: 11px;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-safety-list li::before {
+            content: '⚠ ';
+            position: absolute;
+            left: 0;
+            color: var(--kst-sub-color) !important;
+            font-weight: 700;
+        }
+        
+        .kst-tech-specs {
+            background: var(--kst-main-color) !important;
+            color: var(--kst-background) !important;
+            padding: 20px 16px;
+            margin: 8px 0;
+        }
+        
+        .kst-tech-title {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            color: var(--kst-background) !important;
+        }
+        
+        .kst-tech-grid {
+            background: var(--kst-main-color) !important;
+            padding: 2px;
+            margin: 0;
+        }
+        
+        .kst-spec-item {
+            background: var(--kst-background) !important;
+            color: var(--kst-text-primary) !important;
+            padding: 12px;
+            margin: 2px 0;
+            text-align: center;
+        }
+        
+        .kst-spec-label {
+            font-size: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-spec-value {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-warning-banner {
+            background: var(--kst-main-color) !important;
+            color: var(--kst-background) !important;
+            padding: 12px 16px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 8px 0;
+        }
+        
+        .kst-keyword-badge {
+            background: var(--kst-badge-bg) !important;
+            color: var(--kst-badge-text) !important;
+            padding: 4px 8px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin: 2px 4px 2px 0;
+        }
+        
+        .kst-keyword-badge:hover {
+            background: var(--kst-badge-hover) !important;
+        }
+        
+        .kst-dl {
+            margin: 12px 0;
+        }
+        
+        .kst-dt {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-dd {
+            margin-left: 0;
+            margin-bottom: 10px;
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 1.4;
+            font-family: 'Arial', sans-serif;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-text-center {
+            text-align: center;
+        }
+        
+        .kst-text-left {
+            text-align: left;
+        }
+        
+        .kst-mb-small {
+            margin-bottom: 8px;
+        }
+        
+        .kst-mb-medium {
+            margin-bottom: 16px;
+        }
+        
+        .kst-mt-small {
+            margin-top: 8px;
+        }
+        
+        .kst-mt-medium {
+            margin-top: 16px;
+        }
+    </style>
+    
+    <div class="kst-main-container">
+        
+        <!-- Header Block -->
+        <div class="kst-header-block">
+            <div class="kst-category-badge">BODY FILLER</div>
+            <h1 class="kst-product-title">SEDYFILL BODY FILLER</h1>
+            <h2 class="kst-product-spec">60CC SINGLE VIAL</h2>
+            <div class="kst-subtitle">NON-SURGICAL BODY CONTOURING SOLUTION</div>
+        </div>
+        
+        <!-- Main Product Image -->
+        <div class="kst-image-block kst-section">
+            SEDYFILL BODY FILLER 60CC PRODUCT IMAGE
+        </div>
+        
+        <!-- Core Value Summary -->
+        <div class="kst-core-value kst-section">
+            <div class="kst-slogan">ADVANCED HENM TECHNOLOGY FOR LASTING RESULTS</div>
+            <div class="kst-description">
+                Professional-grade body contouring filler with highly-purified, cross-linked hyaluronic acid utilizing unique HENM cross-linking technology for superior viscosity, cohesiveness, and lasting volumetric enhancement up to 2 years.
+            </div>
+        </div>
+        
+        <!-- Ingredients & Composition -->
+        <div class="kst-section">
+            <div class="kst-section-header">INGREDIENTS & COMPOSITION</div>
+            
+            <div class="kst-card">
+                <div class="kst-ingredient-name">HYALURONIC ACID</div>
+                <div class="kst-concentration-badge">20MG/ML</div>
+                <div class="kst-ingredient-info">
+                    Highly-purified, cross-linked hyaluronic acid from 100% non-animal derived sources. Provides exceptional biocompatibility and natural integration with human tissue for safe and effective body contouring applications.
+                </div>
+            </div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">HENM CROSS-LINKING TECHNOLOGY</div>
+                <div class="kst-description">
+                    Utilizes unique HENM cross-linking method to create a highly viscous and cohesive gel structure that maintains shape without spreading to adjacent tissues, ensuring precise contouring and longer-lasting results.
+                </div>
+                <div class="kst-mt-small">
+                    <span class="kst-keyword-badge">VISCOUS GEL</span>
+                    <span class="kst-keyword-badge">COHESIVE STRUCTURE</span>
+                    <span class="kst-keyword-badge">SHAPE RETENTION</span>
+                </div>
+            </div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">LIDOCAINE-FREE FORMULATION</div>
+                <div class="kst-description">
+                    This product does not contain Lidocaine, making it suitable for patients with anesthetic sensitivities while maintaining optimal comfort during professional application procedures.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ingredient Visualization -->
+        <div class="kst-image-block kst-section">
+            HYALURONIC ACID MOLECULAR STRUCTURE & HENM TECHNOLOGY VISUALIZATION
+        </div>
+        
+        <!-- Effects & Benefits -->
+        <div class="kst-section">
+            <div class="kst-section-header">KEY BENEFITS & EFFECTS</div>
+            
+            <div class="kst-effects-grid">
+                <div class="kst-effect-card">
+                    <div class="kst-effect-number">01</div>
+                    <div class="kst-effect-title">NON-SURGICAL BODY CONTOURING</div>
+                    <div class="kst-effect-description">
+                        Advanced volumetric enhancement for breasts, buttocks, and other body areas without surgical intervention, providing natural-looking results with minimal downtime.
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-number">02</div>
+                    <div class="kst-effect-title">SOFT TISSUE AUGMENTATION</div>
+                    <div class="kst-effect-description">
+                        Comprehensive soft tissue volumetric replenishment that enhances natural body contours and corrects asymmetries for improved aesthetic appearance.
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-number">03</div>
+                    <div class="kst-effect-title">BODY SHAPE CORRECTION</div>
+                    <div class="kst-effect-description">
+                        Effective correction of body shape irregularities and asymmetries, providing balanced proportions and enhanced natural contours.
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-number">04</div>
+                    <div class="kst-effect-title">POST-LIPOSUCTION RECOVERY</div>
+                    <div class="kst-effect-description">
+                        Specialized application for alignment and recovery of soft tissues after volumetric liposuction procedures, restoring smooth contours and natural appearance.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Before/After Results -->
+        <div class="kst-image-block kst-section">
+            BEFORE & AFTER TREATMENT RESULTS DOCUMENTATION
+        </div>
+        
+        <!-- Usage Guide & Application -->
+        <div class="kst-section">
+            <div class="kst-section-header">PROFESSIONAL APPLICATION PROTOCOL</div>
+            
+            <div class="kst-steps-container">
+                <div class="kst-step-card">
+                    <div class="kst-step-number">1</div>
+                    <div class="kst-step-title">PATIENT ASSESSMENT & PREPARATION</div>
+                    <div class="kst-step-description">
+                        Conduct thorough patient consultation, medical history review, and treatment area assessment. Prepare sterile environment and ensure proper patient positioning for optimal access.
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">2</div>
+                    <div class="kst-step-title">INJECTION TECHNIQUE</div>
+                    <div class="kst-step-description">
+                        Apply to subcutaneous layer or deep dermis using appropriate needle gauge or cannula for large volume applications. Ensure precise placement for volumetric effect.
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">3</div>
+                    <div class="kst-step-title">MOLDING & SHAPING</div>
+                    <div class="kst-step-description">
+                        Utilize the gel's moldable properties to achieve desired contouring. The cohesive structure allows for precise shaping while maintaining stability.
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">4</div>
+                    <div class="kst-step-title">POST-TREATMENT CARE</div>
+                    <div class="kst-step-description">
+                        Provide comprehensive aftercare instructions and schedule appropriate follow-up appointments to monitor results and ensure optimal healing.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-card kst-mt-small">
+                <div class="kst-dt">TREATMENT DURATION & FREQUENCY</div>
+                <div class="kst-description">
+                    Single application provides lasting results for 12-15 months, with potential extension up to 2 years with proper care. Repeat treatments can be performed to maintain desired effects.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Application Guide Visualization -->
+        <div class="kst-image-block kst-section">
+            PROFESSIONAL INJECTION TECHNIQUE REFERENCE GUIDE
+        </div>
+        
+        <!-- Product Specifications -->
+        <div class="kst-section">
+            <div class="kst-section-header">PRODUCT SPECIFICATIONS</div>
+            <div class="kst-table-wrap">
+                <table class="kst-specs-table">
+                    <thead>
+                        <tr>
+                            <th>SPECIFICATION</th>
+                            <th>VALUE</th>
+                            <th>DESCRIPTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Volume</td>
+                            <td>60ml</td>
+                            <td>Single vial packaging</td>
+                        </tr>
+                        <tr>
+                            <td>Concentration</td>
+                            <td>20mg/ml</td>
+                            <td>Hyaluronic acid content</td>
+                        </tr>
+                        <tr>
+                            <td>Cross-linking</td>
+                            <td>HENM Technology</td>
+                            <td>Advanced cross-linking method</td>
+                        </tr>
+                        <tr>
+                            <td>Application Layer</td>
+                            <td>Subcutaneous/Deep Dermis</td>
+                            <td>Optimal injection depth</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>12-24 months</td>
+                            <td>Expected result longevity</td>
+                        </tr>
+                        <tr>
+                            <td>Source</td>
+                            <td>Non-animal derived</td>
+                            <td>100% biocompatible origin</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="kst-card kst-mt-small">
+                <div class="kst-dt">STORAGE & HANDLING CONDITIONS</div>
+                <div class="kst-description">
+                    Store in cool, dark place away from direct sunlight. Maintain controlled temperature environment to preserve product integrity. Single-use application - do not reuse after opening.
+                </div>
+                <div class="kst-mt-small">
+                    <span class="kst-keyword-badge">COOL STORAGE</span>
+                    <span class="kst-keyword-badge">LIGHT PROTECTION</span>
+                    <span class="kst-keyword-badge">SINGLE USE</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technical Data -->
+        <div class="kst-tech-specs kst-section">
+            <div class="kst-tech-title">TECHNICAL DATA SPECIFICATIONS</div>
+            <div class="kst-tech-grid">
+                <div class="kst-spec-item">
+                    <div class="kst-spec-label">MOLECULAR WEIGHT</div>
+                    <div class="kst-spec-value">HIGH MW HA</div>
+                </div>
+                <div class="kst-spec-item">
+                    <div class="kst-spec-label">GEL STRUCTURE</div>
+                    <div class="kst-spec-value">COHESIVE</div>
+                </div>
+                <div class="kst-spec-item">
+                    <div class="kst-spec-label">VISCOSITY</div>
+                    <div class="kst-spec-value">HIGH</div>
+                </div>
+                <div class="kst-spec-item">
+                    <div class="kst-spec-label">CROSS-LINKING</div>
+                    <div class="kst-spec-value">HENM TECH</div>
+                </div>
+                <div class="kst-spec-item">
+                    <div class="kst-spec-label">SHELF LIFE</div>
+                    <div class="kst-spec-value">24 MONTHS</div>
+                </div>
+                <div class="kst-spec-item">
+                    <div class="kst-spec-label">PACKAGE TYPE</div>
+                    <div class="kst-spec-value">STERILE VIAL</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Safety Information & Warnings -->
+        <div class="kst-safety-section">
+            <div class="kst-safety-header">SAFETY INFORMATION & WARNINGS</div>
+            <div class="kst-safety-content">
+                Professional use only. Important safety information and precautions for proper product handling and application.
+                
+                <ul class="kst-safety-list">
+                    <li>Professional medical training required for administration</li>
+                    <li>Perform thorough patient consultation before treatment</li>
+                    <li>Do not inject into blood vessels</li>
+                    <li>Discontinue use if hypersensitivity to hyaluronic acid occurs</li>
+                    <li>Store according to specified temperature conditions</li>
+                    <li>Single-use application only - do not reuse</li>
+                    <li>Maintain sterile technique throughout procedure</li>
+                    <li>Monitor patient for adverse reactions during and after treatment</li>
+                </ul>
+                
+                <div class="kst-mt-medium">
+                    <div class="kst-dt">CONTRAINDICATIONS</div>
+                    <div class="kst-description">
+                        Do not use in patients with known hypersensitivity to hyaluronic acid. Consult medical professional for specific patient concerns and medical history considerations.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="kst-section">
+            <div class="kst-section-header">FREQUENTLY ASKED QUESTIONS</div>
+            
+            <div class="kst-faq-item">
+                <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    WHAT MAKES SEDYFILL DIFFERENT FROM OTHER BODY FILLERS?
+                </div>
+                <div class="kst-faq-answer">
+                    Sedyfill utilizes unique HENM cross-linking technology creating a highly viscous and cohesive gel structure that maintains shape without spreading to adjacent tissues, ensuring precise contouring and longer-lasting results up to 2 years.
+                </div>
+            </div>
+            
+            <div class="kst-faq-item">
+                <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    WHAT IS THE EXPECTED TIMELINE FOR VISIBLE RESULTS?
+                </div>
+                <div class="kst-faq-answer">
+                    Results are immediately visible after treatment with continued improvement over the following weeks. Full effects develop within 2-4 weeks and can last 12-15 months, with potential extension up to 2 years with proper care.
+                </div>
+            </div>
+            
+            <div class="kst-faq-item">
+                <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    WHAT AREAS CAN BE TREATED WITH SEDYFILL BODY FILLER?
+                </div>
+                <div class="kst-faq-answer">
+                    Sedyfill is designed for non-surgical breast enhancement, buttocks augmentation, leg asymmetry correction, intimate contouring, and smoothing skin surface irregularities after liposuction procedures.
+                </div>
+            </div>
+            
+            <div class="kst-faq-item">
+                <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    IS SEDYFILL SAFE AND BIOCOMPATIBLE?
+                </div>
+                <div class="kst-faq-answer">
+                    Yes, Sedyfill is made from 100% non-animal derived hyaluronic acid, making it safe and biologically compatible with the human body. However, professional medical administration is required.
+                </div>
+            </div>
+            
+            <div class="kst-faq-item">
+                <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    CAN TREATMENTS BE REPEATED FOR MAINTENANCE?
+                </div>
+                <div class="kst-faq-answer">
+                    Yes, repeat treatments can be performed to maintain desired effects. The treatment cycle allows for reapplication as needed to sustain optimal body contouring results.
+                </div>
+            </div>
+            
+            <div class="kst-faq-item">
+                <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    WHAT INJECTION TECHNIQUE IS RECOMMENDED?
+                </div>
+                <div class="kst-faq-answer">
+                    Injection should be performed at the subcutaneous layer or deep dermis level. Use of a cannula is often recommended for large volume body filler applications to ensure optimal distribution and patient comfort.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Application Areas Visualization -->
+        <div class="kst-image-block kst-section">
+            TREATMENT AREAS & APPLICATION ZONES REFERENCE GUIDE
+        </div>
+        
+        <!-- Product Benefits Summary -->
+        <div class="kst-section">
+            <div class="kst-section-header">COMPREHENSIVE BENEFITS OVERVIEW</div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">NON-SURGICAL BODY ENHANCEMENT</div>
+                <div class="kst-description">
+                    Advanced body contouring solution that provides significant volumetric enhancement without surgical intervention, offering natural-looking results with minimal downtime and recovery period.
+                </div>
+            </div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">ADVANCED HENM TECHNOLOGY</div>
+                <div class="kst-description">
+                    Unique cross-linking method ensures superior gel stability, cohesiveness, and longevity, providing reliable results that maintain their effectiveness for extended periods.
+                </div>
+            </div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">VERSATILE APPLICATION AREAS</div>
+                <div class="kst-description">
+                    Suitable for multiple body areas including breast enhancement, buttocks augmentation, leg contouring, and post-liposuction tissue recovery, offering comprehensive body sculpting solutions.
+                </div>
+                <div class="kst-mt-small">
+                    <span class="kst-keyword-badge">BREAST ENHANCEMENT</span>
+                    <span class="kst-keyword-badge">BUTTOCKS AUGMENTATION</span>
+                    <span class="kst-keyword-badge">LEG CONTOURING</span>
+                    <span class="kst-keyword-badge">POST-LIPOSUCTION CARE</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Final Product Packaging -->
+        <div class="kst-image-block kst-section">
+            SEDYFILL 60CC PRODUCT PACKAGING & VIAL SPECIFICATIONS
+        </div>
+        
+        <!-- Professional Use Banner -->
+        <div class="kst-warning-banner kst-section">
+            PROFESSIONAL USE ONLY - MEDICAL TRAINING REQUIRED
+        </div>
+        
+    </div>
+    
+    <script>
+        function kstToggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = element.classList.contains('kst-active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.kst-faq-question').forEach(q => {
+                q.classList.remove('kst-active');
+                q.nextElementSibling.classList.remove('kst-active');
+            });
+            
+            // Open clicked item if it wasn't already active
+            if (!isActive) {
+                element.classList.add('kst-active');
+                answer.classList.add('kst-active');
+            }
+        }
+    </script>

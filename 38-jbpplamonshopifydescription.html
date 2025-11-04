@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* KST Mobile Template Styles - Shopify Optimized */
+        
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0B5B52 !important;
+            color: #FFFFFF !important;
+            padding: 0;
+            line-height: 1.5;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+        
+        .kst-main-container *,
+        .kst-main-container *::before,
+        .kst-main-container *::after {
+            box-sizing: border-box;
+        }
+        
+        /* Main Header */
+        .kst-main-header {
+            background: linear-gradient(135deg, #033a34 0%, #0B5B52 40%, #9e8bae 130%);
+            color: #FFFFFF !important;
+            padding: 24px 16px;
+            position: relative;
+            overflow: hidden;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-main-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 2px, transparent 2px) repeat;
+    background-size: 20px 20px; /* 패턴 크기 조절 */
+}
+        
+        .kst-classification-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF !important;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-product-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: #FFFFFF !important;
+        }
+
+        .kst-product-spec {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            margin-top: -10px;
+            position: relative;
+            z-index: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: #FFFFFF !important;
+        }
+        
+        .kst-product-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            color: #FFFFFF !important;
+        }
+        
+        /* Section Styles */
+        .kst-section {
+            background: #FFFFFF !important;
+            margin: 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(11, 91, 82, 0.15);
+            border: 1px solid #BBBBBB;
+            overflow: hidden;
+        }
+        
+        .kst-section-header {
+            background: #0B5B52 ;
+            padding: 12px 16px;
+            border-bottom: 1px solid #BBBBBB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .kst-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF !important;
+            margin: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-section-code {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #FFFFFF !important;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            white-space: nowrap;
+        }
+        
+        .kst-section-content {
+            padding: 16px;
+            background: #FFFFFF !important;
+            color: #0B5B52 !important;
+        }
+        
+        /* Image Block - Auto Hide Feature */
+        .kst-image-block,
+        .kst-chart-block {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0B5B52 0%, #E88396 100%);
+            border: 2px solid #BBBBBB;
+            padding: 24px 16px;
+            text-align: center;
+            margin: 12px 8px;
+            border-radius: 8px;
+            color: #FFFFFF !important;
+            font-size: 13px;
+            font-weight: 500;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        /* Hide if no image */
+        .kst-image-block:not(:has(img)),
+        .kst-chart-block:not(:has(img)) {
+            display: none;
+        }
+        
+        /* Hide if empty src */
+        .kst-image-block:has(img[src=""]),
+        .kst-chart-block:has(img[src=""]),
+        .kst-image-block:has(img:not([src])),
+        .kst-chart-block:has(img:not([src])) {
+            display: none;
+        }
+        
+        .kst-image-block img,
+        .kst-chart-block img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        
+        .kst-image-block::before {
+            content: '💊';
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-size: 16px;
+        }
+        
+        /* Grid System - Mobile 1 Column Fixed */
+        .kst-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        .kst-card {
+            background: #FFFFFF !important;
+            border: 1px solid #BBBBBB;
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.2s ease;
+            color: #0B5B52 !important;
+        }
+        
+        .kst-card:hover {
+            border-color: #E88396;
+            box-shadow: 0 4px 12px rgba(232, 131, 150, 0.2);
+        }
+        
+        /* Definition List Styles */
+        .kst-definition-list {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .kst-definition-list dt {
+            font-weight: 600;
+            color: #0B5B52 !important;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+        
+        .kst-definition-list dd {
+            margin-left: 0;
+            margin-bottom: 12px;
+            color: #0B5B52 !important;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        /* Badge Styles */
+        .kst-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 2px 4px 2px 0;
+        }
+        
+        .kst-badge-primary {
+            background: #E88396;
+            color: #FFFFFF !important;
+        }
+        
+        .kst-badge-success {
+            background: #E88396;
+            color: #FFFFFF !important;
+        }
+        
+        .kst-badge-warning {
+            background: #BBBBBB;
+            color: #0B5B52 !important;
+        }
+        
+        .kst-badge-info {
+            background: #E88396;
+            color: #FFFFFF !important;
+        }
+        
+        /* Step Guide */
+        .kst-step-guide {
+            position: relative;
+            padding: 16px;
+            background: rgba(11, 91, 82, 0.05) !important;
+            border: 1px solid #BBBBBB;
+            border-radius: 8px;
+            margin: 28px 0;
+        }
+        
+        .kst-step-number {
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            background: #E88396;
+            color: #FFFFFF !important;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .kst-step-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0B5B52 !important;
+            margin-bottom: 8px;
+            padding-top: 6px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-step-description {
+            font-size: 13px;
+            color: #0B5B52 !important;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        /* Table Styles */
+        .kst-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 8px;
+            border: 1px solid #BBBBBB;
+            margin: 16px 0;
+        }
+        
+        .kst-table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+            background: #FFFFFF !important;
+        }
+        
+        .kst-table th,
+        .kst-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #BBBBBB;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-table th {
+            background: #0B5B52 !important;
+            font-weight: 600;
+            color: #FFFFFF !important;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap !important;
+        }
+        
+        .kst-table td {
+            font-size: 13px;
+            color: #0B5B52 !important;
+        }
+        
+        .kst-spec-value {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #E88396 !important;
+        }
+        
+        /* Scrollbar Styles */
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #BBBBBB;
+            border-radius: 4px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: #0B5B52;
+            border-radius: 4px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb:hover {
+            background: #E88396;
+        }
+        
+        /* Warning Box */
+        .kst-warning-box {
+            background: #dc6e6e !important;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 8px;
+            position: relative;
+        }
+        
+        .kst-warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: 30px;
+            left: 16px;
+            font-size: 18px;
+        }
+        
+        .kst-warning-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF !important;
+            margin-bottom: 8px;
+            padding-left: 32px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-warning-content {
+            color: #FFFFFF !important;
+            line-height: 1.5;
+            padding-left: 32px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            font-size: 13px;
+        }
+        
+        .kst-warning-content ul,
+        .kst-warning-content ol {
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+        
+        .kst-warning-content li {
+            margin-bottom: 4px;
+            color: #FFFFFF !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            font-size: 13px;
+        }
+        
+        /* List Styles */
+        .kst-section ul,
+        .kst-card ul {
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+        
+        .kst-section ul li,
+        .kst-card ul li {
+            margin-bottom: 4px;
+            color: #0B5B52 !important;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .kst-section ol,
+        .kst-card ol {
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+        
+        .kst-section ol li,
+        .kst-card ol li {
+            margin-bottom: 4px;
+            color: #0B5B52 !important;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        /* Text Utilities */
+        .kst-text-center {
+            text-align: center;
+        }
+        
+        .kst-text-muted {
+            color: #BBBBBB !important;
+        }
+        
+        .kst-text-primary {
+            color: #0B5B52 !important;
+        }
+        
+        .kst-text-bold {
+            font-weight: 600;
+        }
+        
+        .kst-mb-small {
+            margin-bottom: 8px;
+        }
+        
+        .kst-mb-medium {
+            margin-bottom: 16px;
+        }
+        
+        .kst-mt-small {
+            margin-top: 8px;
+        }
+        
+        .kst-mt-medium {
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="kst-main-container">
+        
+        <!-- Main Header -->
+        <div class="kst-main-header">
+            <div class="kst-classification-tag">REGENERATIVE INJECTION • PLACENTA EXTRACT</div>
+            <h1 class="kst-product-title">JBP PLAMON Injection</h1>
+            <h2 class="kst-product-spec">2mL x 10 Ampoules</h2>
+            <p class="kst-product-subtitle">Human placenta extract for skin regeneration, anti-aging, and overall wellness enhancement</p>
+        </div>
+        
+        <!-- Main Product Image -->
+        <div class="kst-image-block">
+            [MAIN PRODUCT PHOTOGRAPHY - JBP PLAMON PACKAGING AND AMPOULES]
+        </div>
+        
+        <!-- 🧬 Ingredients and Composition -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Ingredients & Composition</h2>
+                <div class="kst-section-code">ING-001</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <dl class="kst-definition-list">
+                    <dt>Human Placenta Extract</dt>
+                    <dd>
+                        Water-soluble human placenta hydrolysis extract containing various growth factors, cytokines, and physiologically active substances that promote tissue renewal and cellular metabolism.
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-primary">High Potency</span>
+                            <span class="kst-badge kst-badge-success">Medical Grade</span>
+                        </div>
+                    </dd>
+                </dl>
+                
+                <div class="kst-card">
+                    <h4 class="kst-text-bold kst-mb-small">Mechanism of Action</h4>
+                    <p>Activates fibroblasts, stimulates collagen production, and improves function of various organs including the liver. The extract contains essential growth factors that enhance cellular regeneration processes.</p>
+                    <div class="kst-mt-small">
+                        <span class="kst-badge kst-badge-info">Bioactive</span>
+                    </div>
+                </div>
+                
+                <div class="kst-mt-medium">
+                    <h4 class="kst-text-bold kst-mb-small">Key Benefits</h4>
+                    <ul>
+                        <li>Promotes tissue renewal and cellular metabolism</li>
+                        <li>Stimulates natural collagen production</li>
+                        <li>Enhances liver function and organ health</li>
+                        <li>Contains essential growth factors and cytokines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Effects and Results Image -->
+        <div class="kst-image-block">
+            [BEFORE/AFTER RESULTS AND CLINICAL EFFECTS DOCUMENTATION]
+        </div>
+        
+        <!-- 💡 Effects and Benefits -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Effects & Benefits</h2>
+                <div class="kst-section-code">EFF-002</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-grid">
+                    <div class="kst-card">
+                        <h4 class="kst-text-bold kst-mb-small">Skin Regeneration</h4>
+                        <p>Promotes skin regeneration, reduces pigmentation, and improves elasticity through enhanced cellular renewal processes.</p>
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-success">Proven Efficacy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kst-card">
+                        <h4 class="kst-text-bold kst-mb-small">Anti-Aging Properties</h4>
+                        <p>General anti-aging effects by neutralizing active oxygen and enhancing metabolism through enhanced cell division.</p>
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-primary">Long-term</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kst-card">
+                        <h4 class="kst-text-bold kst-mb-small">Menopausal Support</h4>
+                        <p>Alleviation of symptoms associated with menopausal disorders through hormone activity enhancement.</p>
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-info">Hormonal Balance</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kst-card">
+                        <h4 class="kst-text-bold kst-mb-small">Fatigue Recovery</h4>
+                        <p>Recovery from chronic fatigue and improved overall well-being through organ function restoration.</p>
+                        <div class="kst-mt-small">
+                            <span class="kst-badge kst-badge-success">Wellness</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 🧪 Usage & Application -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Usage & Application Method</h2>
+                <div class="kst-section-code">USE-003</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">1</div>
+                    <h3 class="kst-step-title">Preparation</h3>
+                    <p class="kst-step-description">
+                        Ensure sterile conditions and prepare injection site. Check ampoule integrity and allow to reach room temperature if refrigerated.
+                    </p>
+                </div>
+                
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">2</div>
+                    <h3 class="kst-step-title">Administration</h3>
+                    <p class="kst-step-description">
+                        Administer via subcutaneous injection. Can also be used for point-by-point micro applications or with microneedling devices.
+                    </p>
+                </div>
+                
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">3</div>
+                    <h3 class="kst-step-title">Treatment Cycle</h3>
+                    <p class="kst-step-description">
+                        Typically, one ampoule (2ml) is administered three times a week for two weeks (total of six injections).
+                    </p>
+                </div>
+                
+                <div class="kst-step-guide">
+                    <div class="kst-step-number">4</div>
+                    <h3 class="kst-step-title">Site Rotation</h3>
+                    <p class="kst-step-description">
+                        Change administration site each time to prevent skin induration and ensure optimal absorption.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Application Guide Image -->
+        <div class="kst-image-block">
+            [STEP-BY-STEP INJECTION TECHNIQUE AND SITE ROTATION GUIDE]
+        </div>
+        
+        <!-- 📊 Target Recommendations -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Target Recommendations</h2>
+                <div class="kst-section-code">TRG-004</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-table-wrap">
+                    <table class="kst-table">
+                        <thead>
+                            <tr>
+                                <th>Target Group</th>
+                                <th>Symptoms/Condition</th>
+                                <th>Benefits</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Adults with Menopausal Symptoms</td>
+                                <td>Hot flashes, irregular menstruation, fatigue, mood swings</td>
+                                <td>Enhances female hormone activity and supports natural healing processes</td>
+                            </tr>
+                            <tr>
+                                <td>Individuals Seeking Skin Revitalization</td>
+                                <td>Pigmentation, fine lines, loss of elasticity, dull skin tone</td>
+                                <td>Promotes cell division, activates fibroblasts, stimulates collagen</td>
+                            </tr>
+                            <tr>
+                                <td>People with Chronic Fatigue</td>
+                                <td>Persistent tiredness not caused by specific illness</td>
+                                <td>Supports organ function restoration, particularly liver health</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ⚠️ Safety Information -->
+        <div class="kst-warning-box">
+            <h3 class="kst-warning-title">Important Safety Information</h3>
+            <div class="kst-warning-content">
+                <p>Professional administration recommended for optimal safety and effectiveness. Important precautions to ensure safe usage:</p>
+                <ul>
+                    <li>Not for individuals with known hypersensitivity to the drug</li>
+                    <li>Contraindicated for those with organic diseases</li>
+                    <li>Not suitable for newborns/premature infants due to benzyl alcohol content</li>
+                    <li>Handle glass ampoules carefully to prevent glass fragment contamination</li>
+                    <li>Maintain sterile technique throughout administration</li>
+                    <li>Monitor for any adverse reactions during treatment</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 📦 Storage & Handling -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Storage & Handling</h2>
+                <div class="kst-section-code">STG-005</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <div class="kst-card">
+                    <h4 class="kst-text-bold kst-mb-small">Storage Requirements</h4>
+                    <ul>
+                        <li><strong>Temperature:</strong> Store at room temperature 1-30°C</li>
+                        <li><strong>Light Protection:</strong> Keep in light-resistant, sealed container</li>
+                        <li><strong>Freezing:</strong> Do not freeze</li>
+                        <li><strong>Container:</strong> Maintain original sealed packaging</li>
+                    </ul>
+                </div>
+                
+                <div class="kst-card kst-mt-medium">
+                    <h4 class="kst-text-bold kst-mb-small">Handling Precautions</h4>
+                    <ul>
+                        <li>Open glass ampoules carefully to minimize risk of contamination</li>
+                        <li>Use immediately after opening</li>
+                        <li>Ensure sterile technique during handling</li>
+                        <li>Dispose of used ampoules according to medical waste guidelines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Storage Guidelines Image -->
+        <div class="kst-image-block">
+            [PROPER STORAGE CONDITIONS AND HANDLING SAFETY GUIDELINES]
+        </div>
+        
+        <!-- 🔍 Product Specifications -->
+        <div class="kst-section">
+            <div class="kst-section-header">
+                <h2 class="kst-section-title">Product Specifications</h2>
+                <div class="kst-section-code">SPC-006</div>
+            </div>
+            
+            <div class="kst-section-content">
+                <dl class="kst-definition-list">
+                    <dt>Product Name</dt>
+                    <dd class="kst-spec-value">JBP PLAMON injection</dd>
+                    
+                    <dt>Volume per Ampoule</dt>
+                    <dd class="kst-spec-value">2mL</dd>
+                    
+                    <dt>Package Contents</dt>
+                    <dd class="kst-spec-value">10 Ampoules per box</dd>
+                    
+                    <dt>Active Ingredient</dt>
+                    <dd class="kst-spec-value">Human Placenta Extract</dd>
+                    
+                    <dt>Administration Route</dt>
+                    <dd class="kst-spec-value">Subcutaneous injection / Topical with microneedling</dd>
+                    
+                    <dt>Recommended Course</dt>
+                    <dd class="kst-spec-value">6 injections over 2 weeks (3x per week)</dd>
+                </dl>
+            </div>
+        </div>
+        
+        <!-- Professional Certification Image -->
+        <div class="kst-image-block">
+            [PROFESSIONAL CERTIFICATION AND QUALITY ASSURANCE DOCUMENTATION]
+        </div>
+        
+    </div>
+</body>
+</html>

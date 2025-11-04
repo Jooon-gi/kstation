@@ -1,0 +1,932 @@
+<style>
+/* Shopify conflict prevention with kst- prefix */
+.kst-main-container {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif !important;
+    background: #FFFFFF !important;
+    color: #4A4A4A !important;
+    padding: 0 !important;
+    line-height: 1.6 !important;
+    box-sizing: border-box !important;
+}
+
+.kst-main-container * {
+    box-sizing: border-box !important;
+}
+
+/* Hide icon areas and empty images */
+.kst-pillar-icon, .kst-cert-icon, .kst-image-block[src=""], .kst-chart-block[src=""] {
+    display: none !important;
+}
+
+/* Prevent title overflow */
+.kst-section-title, .kst-pillar-title, .kst-category-title, .kst-protocol-header,
+.kst-ingredient-name, .kst-benefit-title, .kst-step-title, .kst-related-title,
+.kst-faq-question, .kst-warning-title, .kst-hero-title, .kst-hero-subtitle {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+/* Basic section styles */
+.kst-section {
+    padding: 40px 12px !important;
+    margin: 0 !important;
+    background: linear-gradient(135deg, #f0f0f0 0%, #f7f7f7 100%) !important;
+    color: #4A4A4A !important;
+}
+
+.kst-section:nth-child(even) {
+    background: #FFFFFF !important;
+}
+
+.kst-section-title {
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    color: #4A4A4A !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+    margin-top: 0 !important;
+}
+
+/* Hero section */
+.kst-hero-box {
+    background: linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%) !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    margin: 20px 8px !important;
+    min-height: 200px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+} 
+
+.kst-hero-title {
+    font-size: 32px !important;
+    font-weight: 600 !important;
+    color: #4A90E2 !important;
+    text-align: center !important;
+    margin-top: 0px !important;
+    margin-bottom: 15px !important;
+    line-height: 1.3 !important;
+    word-break: break-all;
+}
+
+.kst-hero-subtitle {
+    font-size: 19.2px !important;
+    font-weight: 400 !important;
+    color: #888888 !important;
+    text-align: center !important;
+    margin-top: 0px !important;
+    margin-bottom: 15px !important;
+    line-height: 1.3 !important;
+    word-break: break-all;
+}
+
+.kst-hero-products {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin: 20px 8px !important;
+}
+
+.kst-product-box {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    padding: 16px !important;
+    text-align: center !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 8px !important;
+}
+
+.kst-product-name {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #4A4A4A !important;
+    margin-bottom: 8px !important;
+    margin-top: 0 !important;
+}
+
+.kst-product-volume {
+    font-size: 12px !important;
+    color: #888888 !important;
+    margin: 0 !important;
+}
+
+/* Ingredients section */
+.kst-ingredient-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin: 30px 8px !important;
+}
+
+.kst-ingredient-card {
+    background: #ffffff !important;
+    padding: 25px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    border-top: 4px solid #4A90E2 !important;
+    border-radius: 12px !important;
+}
+
+.kst-ingredient-name {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #4A4A4A !important;
+    margin-bottom: 10px !important;
+    margin-top: 0 !important;
+}
+
+.kst-ingredient-concentration {
+    background: #4A90E2 !important;
+    color: #FFFFFF !important;
+    padding: 4px 12px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+    margin-bottom: 15px !important;
+    text-transform: uppercase !important;
+    border-radius: 4px !important;
+}
+
+.kst-ingredient-description {
+    font-size: 14px !important;
+    color: #888888 !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+/* Benefits section */
+.kst-benefits-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin: 30px 8px !important;
+}
+
+.kst-benefit-category {
+    padding: 25px !important;
+    border: 1px solid #e9ecef !important;
+    position: relative !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+.kst-benefit-category::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 4px !important;
+    background: #4A90E2 !important;
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+}
+
+.kst-category-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #4A90E2 !important;
+    text-transform: uppercase !important;
+    margin-bottom: 20px !important;
+    margin-top: 0 !important;
+    letter-spacing: 1px !important;
+}
+
+.kst-benefit-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.kst-benefit-item {
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    position: relative !important;
+    padding-left: 20px !important;
+    margin: 0 !important;
+}
+
+.kst-benefit-item:last-child {
+    border-bottom: none !important;
+}
+
+.kst-benefit-item::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 18px !important;
+    width: 6px !important;
+    height: 6px !important;
+    background: #4A90E2 !important;
+    border-radius: 50% !important;
+}
+
+.kst-benefit-title {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #4A4A4A !important;
+    margin-bottom: 5px !important;
+    margin-top: 0 !important;
+}
+
+.kst-benefit-description {
+    font-size: 13px !important;
+    color: #888888 !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+}
+
+/* Product comparison table */
+.kst-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 25px 8px !important;
+    background: #ffffff00 !important;
+    border-radius: 6px !important;
+    border: 1px solid #f0f0f0 !important;
+}
+
+.kst-specs-table {
+    width: 100% !important;
+    min-width: 760px !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    background: #ffffff !important;
+}
+
+.kst-specs-table th {
+    background: #4A90E2 !important;
+    color: #FFFFFF !important;
+    padding: 12px 16px !important;
+    text-align: left !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap;
+}
+
+.kst-specs-table td {
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    font-size: 13px !important;
+    color: #4A4A4A !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+/* Scrollbar always visible (webkit) */
+    .kst-table-wrap::-webkit-scrollbar { height: 6px; }
+    .kst-table-wrap::-webkit-scrollbar-thumb { background: #4A90E2; border-radius: 8px; }
+    .kst-table-wrap::-webkit-scrollbar-track { background: #ffffff; border-radius: 8px; }
+
+/* Usage instructions */
+.kst-usage-steps {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin: 30px 8px !important;
+}
+
+.kst-step-card {
+    background: #ffffff !important;
+    padding: 25px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    text-align: center !important;
+}
+
+.kst-step-number {
+    width: 40px !important;
+    height: 40px !important;
+    background: #4A90E2 !important;
+    color: #FFFFFF !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin: 0 auto 15px !important;
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4) !important;
+}
+
+.kst-step-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #4A4A4A !important;
+    margin-bottom: 12px !important;
+    margin-top: 0 !important;
+}
+
+.kst-step-description {
+    font-size: 13px !important;
+    color: #888888 !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+}
+
+/* Warning box */
+.kst-warning-box {
+    background: #FFF8E1 !important;
+    border: 1px solid #FFE0B2 !important;
+    border-left: 6px solid #FFB74D !important;
+    padding: 20px !important;
+    margin: 25px 8px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+.kst-warning-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #BF360C !important;
+    margin-bottom: 12px !important;
+    margin-top: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.kst-warning-title::before {
+    content: '⚠' !important;
+    margin-right: 8px !important;
+    font-size: 18px !important;
+}
+
+.kst-warning-content {
+    font-size: 13px !important;
+    color: #BF360C !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+/* Auto-hide images */
+.kst-image-block:not(:has(img)), 
+.kst-chart-block:not(:has(img)),
+.kst-image-block:has(img[src=""]), 
+.kst-chart-block:has(img[src=""]) {
+    display: none !important;
+}
+
+.kst-image-block, .kst-chart-block {
+    background: #F5F5DC !important;
+    border: 2px dashed #D3D3C9 !important;
+    padding: 30px 15px !important;
+    text-align: center !important;
+    margin: 25px 8px !important;
+    color: #888888 !important;
+    font-size: 13px !important;
+    font-style: italic !important;
+    min-height: 120px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+}
+
+.kst-image-block img, 
+.kst-chart-block img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+}
+
+/* Definition list styles */
+.kst-definition-list {
+    margin: 20px 8px !important;
+    padding: 0 !important;
+}
+
+.kst-definition-list dt {
+    font-weight: 600 !important;
+    color: #4A4A4A !important;
+    font-size: 14px !important;
+    margin-top: 15px !important;
+    margin-bottom: 5px !important;
+}
+
+.kst-definition-list dd {
+    color: #888888 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-left: 0 !important;
+    margin-bottom: 10px !important;
+    padding-left: 15px !important;
+    border-left: 3px solid #D3D3C9 !important;
+}
+
+/* Badge styles */
+.kst-badge {
+    background: #4A90E2 !important;
+    color: #FFFFFF !important;
+    padding: 3px 8px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    display: inline-block !important;
+    margin: 0 3px 3px 0 !important;
+}
+
+.kst-badge:hover {
+    background: #D0021B !important;
+}
+
+.kst-badge.kst-secondary {
+    background: #888888 !important;
+}
+
+/* Utility classes */
+.kst-text-center {
+    text-align: center !important;
+}
+
+.kst-text-muted {
+    color: #888888 !important;
+}
+
+.kst-text-small {
+    font-size: 12px !important;
+}
+
+.kst-font-weight-bold {
+    font-weight: 600 !important;
+}
+
+/* Spacing utilities */
+.kst-mb-0 { margin-bottom: 0 !important; }
+.kst-mb-1 { margin-bottom: 8px !important; }
+.kst-mb-2 { margin-bottom: 16px !important; }
+.kst-mb-3 { margin-bottom: 24px !important; }
+
+.kst-mt-0 { margin-top: 0 !important; }
+.kst-mt-1 { margin-top: 8px !important; }
+.kst-mt-2 { margin-top: 16px !important; }
+.kst-mt-3 { margin-top: 24px !important; }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-section">
+        <div class="kst-text-center">
+            <div class="kst-hero-box">
+                <span class="kst-hero-title">DERMALAX</span>
+                <p class="kst-hero-subtitle">Advanced Hyaluronic Acid Dermal Filler Series</p>
+            </div>
+            
+            <div class="kst-hero-products">
+                <div class="kst-product-box">
+                    <div class="kst-product-name">DERMALAX Plus</div>
+                    <div class="kst-product-volume">1.1ml Pre-filled Syringe</div>
+                </div>
+                <div class="kst-product-box">
+                    <div class="kst-product-name">DERMALAX Deep Plus</div>
+                    <div class="kst-product-volume">1.1ml Pre-filled Syringe</div>
+                </div>
+                <div class="kst-product-box">
+                    <div class="kst-product-name">DERMALAX Implant Plus</div>
+                    <div class="kst-product-volume">1.1ml Pre-filled Syringe (2 syringes per package)</div>
+                </div>
+            </div>
+            
+            <div class="kst-text-center kst-mt-3">
+                <h1 class="kst-section-title">Premium Cross-Linked Hyaluronic Acid Filler</h1>
+                <p class="kst-text-muted">Stabilized non-animal hyaluronic acid gel with lidocaine for enhanced comfort</p>
+                <div class="kst-mt-2">
+                    <span class="kst-badge">HA Filler</span>
+                    <span class="kst-badge kst-secondary">Monophasic</span>
+                    <span class="kst-badge">BDDE Cross-linked</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Product line comparison and visual overview of DERMALAX series]
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Key Ingredients & Formulation</h2>
+        
+        <div class="kst-ingredient-grid">
+            <div class="kst-ingredient-card">
+                <div class="kst-ingredient-name">Hyaluronic Acid</div>
+                <div class="kst-ingredient-concentration">20-24mg/ml</div>
+                <div class="kst-ingredient-description">
+                    Highly purified, cross-linked hyaluronic acid providing excellent volume restoration and hydration. DERMALAX Plus contains 20mg/ml while Deep Plus and Implant Plus contain 24mg/ml for enhanced volumizing effects.
+                </div>
+            </div>
+            
+            <div class="kst-ingredient-card">
+                <div class="kst-ingredient-name">Lidocaine</div>
+                <div class="kst-ingredient-concentration">0.3%</div>
+                <div class="kst-ingredient-description">
+                    Local anesthetic integrated into the formulation to minimize discomfort during injection procedures, ensuring a more comfortable patient experience.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-definition-list">
+            <dt>BDDE Cross-Linking Technology</dt>
+            <dd>Advanced low-temperature cross-linking process using BDDE (1,4-Butanediol diglycidyl ether) ensures stable, monophasic gel structure with optimal durability and smooth injection characteristics.</dd>
+            
+            <dt>Monophasic Gel Structure</dt>
+            <dd>Uniform gel consistency provides smooth and even injection force, resulting in natural-looking results with consistent distribution throughout the treatment area.</dd>
+            
+            <dt>Non-Animal Origin</dt>
+            <dd>Sourced from non-animal origins through bacterial fermentation, ensuring biocompatibility and reducing the risk of allergic reactions.</dd>
+        </div>
+        
+        <div class="kst-chart-block">
+            [Cross-linking technology diagram showing molecular structure and gel formation process]
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Treatment Benefits & Applications</h2>
+        
+        <div class="kst-benefits-grid">
+            <div class="kst-benefit-category">
+                <div class="kst-category-title">Wrinkle Correction</div>
+                <ul class="kst-benefit-list">
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Fine Lines Treatment</div>
+                        <div class="kst-benefit-description">Effective correction of superficial lines and crow's feet</div>
+                    </li>
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Deep Wrinkle Reduction</div>
+                        <div class="kst-benefit-description">Treatment of nasolabial folds and marionette lines</div>
+                    </li>
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Forehead Lines</div>
+                        <div class="kst-benefit-description">Smoothing of horizontal forehead wrinkles</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="kst-benefit-category">
+                <div class="kst-category-title">Facial Contouring</div>
+                <ul class="kst-benefit-list">
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Lip Enhancement</div>
+                        <div class="kst-benefit-description">Natural lip augmentation and contouring</div>
+                    </li>
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Cheek Volumization</div>
+                        <div class="kst-benefit-description">Restoring youthful cheek volume and definition</div>
+                    </li>
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Jawline Definition</div>
+                        <div class="kst-benefit-description">Enhanced facial contour and jawline sculpting</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="kst-benefit-category">
+                <div class="kst-category-title">Skin Rejuvenation</div>
+                <ul class="kst-benefit-list">
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Deep Hydration</div>
+                        <div class="kst-benefit-description">Long-lasting skin moisture and plumpness</div>
+                    </li>
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Skin Texture Improvement</div>
+                        <div class="kst-benefit-description">Enhanced skin smoothness and elasticity</div>
+                    </li>
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Natural Results</div>
+                        <div class="kst-benefit-description">Subtle, natural-looking enhancement</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-chart-block">
+            [Before and after treatment results showing various applications]
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Comparison & Selection Guide</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>HA Concentration</th>
+                        <th>Viscosity</th>
+                        <th>Treatment Area</th>
+                        <th>Injection Layer</th>
+                        <th>Needle Gauge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>DERMALAX Plus</strong></td>
+                        <td>20 mg/ml</td>
+                        <td>Low</td>
+                        <td>Fine lines, crow's feet, periorbital lines</td>
+                        <td>Upper dermis</td>
+                        <td>30G</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DERMALAX Deep Plus</strong></td>
+                        <td>24 mg/ml</td>
+                        <td>Medium</td>
+                        <td>Nasolabial folds, lip contouring, cheeks</td>
+                        <td>Mid-to-deep dermis</td>
+                        <td>27G</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DERMALAX Implant Plus</strong></td>
+                        <td>24 mg/ml</td>
+                        <td>High</td>
+                        <td>Deep wrinkles, nose, chin, jawline</td>
+                        <td>Deep dermis/subcutaneous</td>
+                        <td>27G / 25G</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-definition-list">
+            <dt>Product Selection Guidelines</dt>
+            <dd>Choose based on treatment area depth and desired volume. Plus for fine lines, Deep Plus for moderate wrinkles, Implant Plus for significant volume enhancement.</dd>
+            
+            <dt>Duration of Results</dt>
+            <dd>Aesthetic effects typically last 6-12 months depending on product version, treatment area, and individual patient factors.</dd>
+            
+            <dt>Injection Technique</dt>
+            <dd>Injection depth and needle gauge vary by product to optimize treatment outcomes for specific anatomical areas.</dd>
+        </div>
+        
+        <div class="kst-image-block">
+            [Anatomical face map showing injection areas and depth guidelines]
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Application Protocol & Usage Instructions</h2>
+        
+        <div class="kst-usage-steps">
+            <div class="kst-step-card">
+                <div class="kst-step-number">1</div>
+                <div class="kst-step-title">Pre-Treatment Assessment</div>
+                <div class="kst-step-description">
+                    Evaluate treatment area, skin condition, and select appropriate DERMALAX product based on desired outcomes and anatomical considerations.
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">2</div>
+                <div class="kst-step-title">Preparation & Marking</div>
+                <div class="kst-step-description">
+                    Cleanse treatment area thoroughly and mark injection points. Prepare syringe and select appropriate needle gauge for chosen product.
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">3</div>
+                <div class="kst-step-title">Injection Technique</div>
+                <div class="kst-step-description">
+                    Inject at recommended depth using appropriate technique. For Plus: upper dermis, Deep Plus: mid-to-deep dermis, Implant Plus: deep dermis/subcutaneous.
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">4</div>
+                <div class="kst-step-title">Post-Injection Massage</div>
+                <div class="kst-step-description">
+                    Gently massage treated area if needed to ensure even distribution and optimal contouring results.
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">5</div>
+                <div class="kst-step-title">Assessment & Touch-ups</div>
+                <div class="kst-step-description">
+                    Evaluate immediate results and perform any necessary touch-up injections to achieve desired aesthetic outcome.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Step-by-step injection technique demonstration and proper handling procedures]
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Safety Information & Precautions</h2>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">Important Safety Guidelines</div>
+            <div class="kst-warning-content">
+                Do not inject intravascularly. Avoid intense heat or cold exposure for 3-4 days post-treatment. This product is for single-use only and should be used by qualified practitioners familiar with injection techniques and facial anatomy.
+            </div>
+        </div>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">Post-Treatment Care</div>
+            <div class="kst-warning-content">
+                Avoid alcohol consumption, sauna sessions, and direct sunbathing for 3-4 days following treatment. Do not combine with other dermal fillers in the same treatment session. Monitor treated area for any unusual reactions.
+            </div>
+        </div>
+        
+        <div class="kst-definition-list">
+            <dt>Storage Requirements</dt>
+            <dd>Store at 2-25°C in original packaging. Protect from direct sunlight and freezing temperatures. Check expiration date before use.</dd>
+            
+            <dt>Contraindications</dt>
+            <dd>Not suitable for patients with known hypersensitivity to hyaluronic acid or lidocaine. Avoid use in areas with active inflammation or infection.</dd>
+            
+            <dt>Professional Use Only</dt>
+            <dd>This product should only be administered by licensed healthcare professionals with appropriate training in dermal filler injection techniques.</dd>
+        </div>
+        
+        <div class="kst-image-block">
+            [Safety symbols and proper storage condition illustrations]
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Technical Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>DERMALAX Plus</th>
+                        <th>DERMALAX Deep Plus</th>
+                        <th>DERMALAX Implant Plus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HA Concentration</td>
+                        <td>20 mg/ml</td>
+                        <td>24 mg/ml</td>
+                        <td>24 mg/ml</td>
+                    </tr>
+                    <tr>
+                        <td>Lidocaine Content</td>
+                        <td>0.3%</td>
+                        <td>0.3%</td>
+                        <td>0.3%</td>
+                    </tr>
+                    <tr>
+                        <td>Volume per Syringe</td>
+                        <td>1.1 ml</td>
+                        <td>1.1 ml</td>
+                        <td>1.1 ml</td>
+                    </tr>
+                    <tr>
+                        <td>Package Quantity</td>
+                        <td>1 syringe</td>
+                        <td>1 syringe</td>
+                        <td>2 syringes</td>
+                    </tr>
+                    <tr>
+                        <td>Cross-linking Method</td>
+                        <td>BDDE</td>
+                        <td>BDDE</td>
+                        <td>BDDE</td>
+                    </tr>
+                    <tr>
+                        <td>Gel Structure</td>
+                        <td>Monophasic</td>
+                        <td>Monophasic</td>
+                        <td>Monophasic</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-definition-list">
+            <dt>Manufacturing Standards</dt>
+            <dd>Produced under strict quality control standards with consistent batch-to-batch reliability. Each syringe undergoes comprehensive quality testing.</dd>
+            
+            <dt>Sterilization Method</dt>
+            <dd>Steam sterilization ensures sterile, single-use product ready for immediate clinical application.</dd>
+            
+            <dt>Shelf Life</dt>
+            <dd>24 months from date of manufacture when stored under recommended conditions. Single-use product - discard after opening.</dd>
+        </div>
+        
+        <div class="kst-chart-block">
+            [Technical quality control data and manufacturing process overview]
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Treatment Duration & Results</h2>
+        
+        <div class="kst-usage-steps">
+            <div class="kst-step-card">
+                <div class="kst-step-number">6</div>
+                <div class="kst-step-title">DERMALAX Plus Results</div>
+                <div class="kst-step-description">
+                    Ideal for superficial fine lines with results lasting 6-12 months. Best suited for delicate areas requiring minimal volume and subtle correction.
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">12</div>
+                <div class="kst-step-title">DERMALAX Deep Plus Duration</div>
+                <div class="kst-step-description">
+                    Effective for moderate to severe wrinkles with 6-12 month duration. Provides superior volume restoration for pronounced facial features.
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">12</div>
+                <div class="kst-step-title">DERMALAX Implant Plus Longevity</div>
+                <div class="kst-step-description">
+                    Maximum volumization effects lasting 6-12 months. Ideal for structural enhancements and achieving defined facial contours.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-definition-list">
+            <dt>Immediate Results</dt>
+            <dd>Visible improvement immediately after treatment with continued enhancement as any minor swelling subsides over 24-48 hours.</dd>
+            
+            <dt>Optimal Results Timeline</dt>
+            <dd>Full treatment effects typically visible within 2 weeks as the product integrates with surrounding tissues and achieves final positioning.</dd>
+            
+            <dt>Touch-up Treatments</dt>
+            <dd>Additional treatments may be performed after 2-4 weeks if needed to achieve optimal aesthetic results or address specific areas.</dd>
+        </div>
+        
+        <div class="kst-image-block">
+            [Timeline of results showing immediate, 2-week, and long-term outcomes]
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Professional Guidelines</h2>
+        
+        <div class="kst-benefits-grid">
+            <div class="kst-benefit-category">
+                <div class="kst-category-title">Injection Techniques</div>
+                <ul class="kst-benefit-list">
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Linear Threading</div>
+                        <div class="kst-benefit-description">Ideal for nasolabial folds and linear wrinkles</div>
+                    </li>
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Serial Puncture</div>
+                        <div class="kst-benefit-description">Perfect for lip enhancement and volume building</div>
+                    </li>
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Fanning Technique</div>
+                        <div class="kst-benefit-description">Effective for cheek augmentation and large area coverage</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="kst-benefit-category">
+                <div class="kst-category-title">Best Practices</div>
+                <ul class="kst-benefit-list">
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Anatomy Knowledge</div>
+                        <div class="kst-benefit-description">Thorough understanding of facial anatomy and vascular mapping</div>
+                    </li>
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Sterile Technique</div>
+                        <div class="kst-benefit-description">Maintain strict aseptic conditions throughout procedure</div>
+                    </li>
+                    <li class="kst-benefit-item">
+                        <div class="kst-benefit-title">Patient Assessment</div>
+                        <div class="kst-benefit-description">Comprehensive evaluation of treatment goals and expectations</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-definition-list">
+            <dt>Recommended Training</dt>
+            <dd>Practitioners should complete specialized training in dermal filler injection techniques and facial anatomy before using DERMALAX products.</dd>
+            
+            <dt>Certification Requirements</dt>
+            <dd>Use restricted to licensed healthcare professionals in accordance with local regulations and professional guidelines.</dd>
+            
+            <dt>Continuing Education</dt>
+            <dd>Regular updates on injection techniques and safety protocols recommended to maintain optimal treatment outcomes.</dd>
+        </div>
+        
+        <div class="kst-image-block">
+            [Professional injection technique demonstrations and anatomical reference guides]
+        </div>
+    </div>
+
+</div>
