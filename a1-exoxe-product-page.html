@@ -1,28 +1,28 @@
-<div class="kst-light-container" role="region" aria-label="Product Detail Container">
+<div class="product-detail" role="region" aria-label="Product Detail Container">
   <style>
     /* ========= KST: Scoped Variables & Base ========= */
-    .kst-light-container {
-      --kst-bg: #f7f4f3;
-      --kst-surface: #ffffff;
-      --kst-elev: #faf8f7;
-      --kst-text: #1b1b1b;
-      --kst-subtext: #925c54;
-      --kst-accent: #d9a694;
-      --kst-accent-hover: #b87f6a;
-      --kst-text-light: #ffffff;
-      --kst-badge-bg: #d9a694;
-      --kst-badge-text: #1b1b1b;
+    .product-detail {
+      --color-bg: #f7f4f3;
+      --color-surface: #ffffff;
+      --color-elevation: #faf8f7;
+      --color-text: #1b1b1b;
+      --color-muted: #925c54;
+      --color-accent: #d9a694;
+      --color-accent-hover: #b87f6a;
+      --color-text-on-accent: #ffffff;
+      --color-badge-bg: #d9a694;
+      --color-badge-text: #1b1b1b;
 
       max-width: 760px;
       margin: 0 auto;
-      background: var(--kst-bg);
-      color: var(--kst-text);
+      background: var(--color-bg);
+      color: var(--color-text);
       font-family: -apple-system, BlinkMacSystemFont, "Inter", "Pretendard", system-ui, Segoe UI, Roboto, Arial, sans-serif;
       line-height: 1.55;
       overflow: hidden;
     }
 
-    .kst-light-container * {
+    .product-detail * {
       box-sizing: border-box;
       color: inherit;
       word-wrap: break-word;
@@ -30,21 +30,21 @@
       hyphens: auto;
     }
 
-    .kst-container { padding: 16px; }
-    .kst-section { 
+    .container { padding: 16px; }
+    .section { 
       background: var(--kst-surface); 
       border: 1px solid rgba(217, 166, 148, 0.2); 
       padding: 16px; 
       margin: 12px 0; 
       box-shadow: 0 4px 12px rgba(217, 166, 148, 0.1); 
     }
-    .kst-section-header { 
+    .section-header { 
       display: flex; 
       gap: 10px; 
       align-items: center; 
       margin-bottom: 10px; 
     }
-    .kst-section-kicker { 
+    .section-kicker { 
       font-size: 12px; 
       letter-spacing: .12em; 
       color: var(--kst-accent); 
@@ -58,7 +58,7 @@
       border: 1px solid rgba(217, 166, 148, 0.3);
     }
     
-    .kst-hl {
+    .heading-large {
       font-weight: 700;
       font-size: 30px;
       color: var(--kst-text);
@@ -66,7 +66,7 @@
       line-height: 1.2;
     }
 
-    .kst-sp {
+    .subheading {
       font-weight: 500;
       font-size: 20px;
       color: var(--kst-accent);
@@ -75,12 +75,12 @@
       line-height: 1.3;
     }
 
-    .kst-muted { color: var(--kst-subtext); }
-    .kst-accent { color: var(--kst-accent); }
+    .text-muted { color: var(--color-muted); }
+    .text-accent { color: var(--color-accent); }
 
     /* Cards & blocks */
-    .kst-card { 
-      background: var(--kst-elev); 
+    .card { 
+      background: var(--color-elevation); 
       border: 1px solid rgba(217, 166, 148, 0.15); 
       padding: 18px; 
       margin: 12px 0; 
@@ -89,79 +89,79 @@
       flex-direction: column; 
       gap: 12px; 
     }
-    .kst-badges { display: flex; flex-wrap: wrap; gap: 8px; }
-    .kst-badge { 
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge { 
       display: inline-flex; 
       align-items: center; 
       gap: 6px; 
       padding: 8px 14px; 
       font-size: 12px; 
-      border: 1px solid var(--kst-badge-bg); 
-      background: var(--kst-badge-bg); 
-      color: var(--kst-badge-text);
+      border: 1px solid var(--color-badge-bg); 
+      background: var(--color-badge-bg); 
+      color: var(--color-badge-text);
       font-weight: 600; 
     }
-    .kst-badge.kst-brand { 
-      border: 1px solid var(--kst-accent); 
+    .badge.badge--brand { 
+      border: 1px solid var(--color-accent); 
       background: rgba(217, 166, 148, 0.15);
-      color: var(--kst-text); 
+      color: var(--color-text); 
     }
 
     /* Lists */
-    .kst-list-vert {
+    .list-vertical {
       display: grid;
       gap: 10px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
-    .kst-list-vert li { 
-      background: var(--kst-elev); 
+    .list-vertical li { 
+      background: var(--color-elevation); 
       border: 1px solid rgba(217, 166, 148, 0.15); 
       padding: 12px; 
       list-style: none; 
-      color: var(--kst-text);
+      color: var(--color-text);
     }
-    .kst-kv { display: grid; grid-template-columns: 1fr; gap: 6px; }
-    .kst-kv .kst-k { color: var(--kst-subtext); font-size: 12px; }
-    .kst-kv .kst-v { font-weight: 500; color: var(--kst-text); }
+    .key-value { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    .key-value .key { color: var(--color-muted); font-size: 12px; }
+    .key-value .value { font-weight: 500; color: var(--color-text); }
 
     /* Definition list */
-    .kst-dl { margin: 0; }
-    .kst-dl dt { 
+    .definition-list { margin: 0; }
+    .definition-list dt { 
       font-weight: 600; 
       margin-top: 16px; 
-      color: var(--kst-text);
+      color: var(--color-text);
       font-size: 16px;
     }
-    .kst-dl dd { margin: 8px 0 0 0; color: var(--kst-text); }
-    .kst-chipset { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-    .kst-chip { 
+    .definition-list dd { margin: 8px 0 0 0; color: var(--color-text); }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .chip { 
       font-size: 11px; 
       padding: 8px 14px; 
       border: 1px solid rgba(217, 166, 148, 0.4);
       background: rgba(217, 166, 148, 0.15);
-      color: var(--kst-text); 
+      color: var(--color-text); 
       font-weight: 500;
     }
 
     /* Images */
-    .kst-image-block { 
+    .image-block { 
       position: relative; 
       overflow: hidden; 
-      background: var(--kst-elev); 
+      background: var(--color-elevation); 
       border: 1px dashed rgba(217, 166, 148, 0.3); 
       min-height: 180px; 
       display: grid; 
       place-items: center;
     }
-    .kst-image-block img { 
+    .image-block img { 
       width: 100%; 
       height: auto; 
       object-fit: cover; 
       display: block; 
     }
-    .kst-img-label { 
+    .image-label { 
       position: absolute; 
       bottom: 12px; 
       left: 12px; 
@@ -176,59 +176,59 @@
     }
 
     /* Auto-hide empty media */
-    .kst-image-block:not(:has(img[src])) { display: none; }
-    .kst-image-block:has(img[src=""]) { display: none; }
+    .image-block:not(:has(img[src])) { display: none; }
+    .image-block:has(img[src=""]) { display: none; }
 
     /* Table */
-    .kst-table-wrap {
+    .table-wrap {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       border: 1px solid rgba(217, 166, 148, 0.2);
     }
-    .kst-table {
+    .table {
       border-collapse: collapse;
       width: 100%;
-      background: var(--kst-elev);
+      background: var(--color-elevation);
       table-layout: auto;
     }
-    .kst-table th,
-    .kst-table td {
+    .table th,
+    .table td {
       text-align: left;
       padding: 12px;
       border-bottom: 1px solid rgba(217, 166, 148, 0.15);
-      color: var(--kst-text);
+      color: var(--color-text);
     }
-    .kst-table th {
-      color: var(--kst-accent);
+    .table th {
+      color: var(--color-accent);
       font-weight: 600;
       white-space: nowrap;
     }
-    .kst-table tr:hover {
+    .table tr:hover {
       background: rgba(217, 166, 148, 0.05);
     }
 
-    .kst-table-wrap::-webkit-scrollbar {
+    .table-wrap::-webkit-scrollbar {
       height: 10px;
     }
-    .kst-table-wrap::-webkit-scrollbar-thumb {
+    .table-wrap::-webkit-scrollbar-thumb {
       background: var(--kst-accent);
     }
-    .kst-table-wrap::-webkit-scrollbar-track {
+    .table-wrap::-webkit-scrollbar-track {
       background: rgba(217, 166, 148, 0.1);
     }
 
     /* Numbered steps */
-    .kst-steps {
+    .steps {
       display: grid;
       gap: 16px;
       counter-reset: kst-step;
     }
-    .kst-step {
+    .step {
       position: relative;
       padding-left: 54px;
-      color: var(--kst-text);
+      color: var(--color-text);
     }
-    .kst-step::before {
+    .step::before {
       counter-increment: kst-step;
       content: counter(kst-step);
       position: absolute;
@@ -238,8 +238,8 @@
       height: 40px;
       display: grid;
       place-items: center;
-      background: var(--kst-accent);
-      color: var(--kst-text-light);
+      background: var(--color-accent);
+      color: var(--color-text-on-accent);
       border: none;
       font-weight: 600;
       font-size: 16px;
@@ -247,187 +247,187 @@
     }
 
     /* Accordion */
-    .kst-accordion {
+    .accordion {
       border: 1px solid rgba(217, 166, 148, 0.2);
       background: var(--kst-elev);
       overflow: hidden;
     }
-    .kst-accordion details {
+    .accordion details {
       border-bottom: 1px solid rgba(217, 166, 148, 0.15);
     }
-    .kst-accordion details:last-child {
+    .accordion details:last-child {
       border-bottom: 0;
     }
-    .kst-accordion summary {
+    .accordion summary {
       cursor: pointer;
       padding: 14px;
       list-style: none;
-      color: var(--kst-text);
+      color: var(--color-text);
       font-weight: 500;
     }
-    .kst-accordion summary::-webkit-details-marker {
+    .accordion summary::-webkit-details-marker {
       display: none;
     }
-    .kst-accordion .kst-qa {
+    .accordion .qa {
       padding: 0 14px 14px 14px;
-      color: var(--kst-text);
+      color: var(--color-text);
     }
 
     /* Callouts */
-    .kst-callout {
+    .callout {
       padding: 12px;
       border: 1px solid rgba(217, 166, 148, 0.3);
       background: rgba(217, 166, 148, 0.1);
-      color: var(--kst-text);
+      color: var(--color-text);
     }
-    .kst-callout.kst-warning {
+    .callout.is-warning {
       border-color: rgba(217, 166, 148, 0.5);
       background: rgba(217, 166, 148, 0.15);
     }
   </style>
 
-  <div class="kst-container">
+  <div class="container">
 
-    <section id="kst-basic-info" class="kst-section">
-      <div class="kst-section-header">
-        <div class="kst-section-kicker">Premium Exosome Technology</div>
+    <section id="kst-basic-info" class="section">
+      <div class="section-header">
+        <div class="section-kicker">Premium Exosome Technology</div>
       </div>
-      <h1 class="kst-hl">EXOXE Exosome Skin Booster</h1>
-      <h2 class="kst-sp">Face/Skin & Hair Versions</h2>
-      <p class="kst-muted">Advanced regenerative skin booster utilizing over 6 billion exosome microparticles for cellular communication and tissue regeneration</p>
+      <h1 class="heading-large">EXOXE Exosome Skin Booster</h1>
+      <h2 class="subheading">Face/Skin & Hair Versions</h2>
+      <p class="text-muted">Advanced regenerative skin booster utilizing over 6 billion exosome microparticles for cellular communication and tissue regeneration</p>
 
-      <div class="kst-badges" aria-label="Product Badges">
-        <span class="kst-badge">50mg Pure EXO Powder</span>
-        <span class="kst-badge">5ml HA Solution</span>
-        <span class="kst-badge kst-brand">Nature intro Co., Ltd.</span>
+      <div class="badges" aria-label="Product Badges">
+        <span class="badge">50mg Pure EXO Powder</span>
+        <span class="badge">5ml HA Solution</span>
+        <span class="badge badge--brand">Nature intro Co., Ltd.</span>
       </div>
 
-      <div class="kst-card">
-        <div class="kst-image-block">
+      <div class="card">
+        <div class="image-block">
           <img src="" alt="EXOXE Exosome Skin Booster product package" />
-          <span class="kst-img-label">Main Product Image</span>
+          <span class="image-label">Main Product Image</span>
         </div>
-        <p class="kst-muted" style="margin-top:10px">Professional-grade exosome therapy for comprehensive skin and scalp rejuvenation</p>
+        <p class="text-muted" style="margin-top:10px">Professional-grade exosome therapy for comprehensive skin and scalp rejuvenation</p>
       </div>
 
     </section>
 
-    <section id="kst-ingredients" class="kst-section">
-      <div class="kst-section-header"><span class="kst-section-kicker">Active Ingredients & Mechanism</span></div>
-      <dl class="kst-dl">
+    <section id="kst-ingredients" class="section">
+      <div class="section-header"><span class="section-kicker">Active Ingredients & Mechanism</span></div>
+      <dl class="definition-list">
         <dt>Vial 1: PURE EXO Lyophilized Powder (50mg)</dt>
         <dd>Contains over 6 billion exosome microparticles enriched with 1,000+ growth factors and proteins for cellular communication and regeneration.</dd>
-        <div class="kst-chipset">
-          <span class="kst-chip">Hydrolyzed Collagen 886,000 PPM</span>
-          <span class="kst-chip">Collagen 100,000 PPM</span>
-          <span class="kst-chip">Sodium Hyaluronate</span>
-          <span class="kst-chip">Trehalose</span>
+        <div class="chips">
+          <span class="chip">Hydrolyzed Collagen 886,000 PPM</span>
+          <span class="chip">Collagen 100,000 PPM</span>
+          <span class="chip">Sodium Hyaluronate</span>
+          <span class="chip">Trehalose</span>
         </div>
 
         <dt>Vial 2: HA Solution (5ml)</dt>
         <dd>Sterile hyaluronic acid solution for Face/Skin version, or Saline Solution for Hair version to ensure optimal delivery.</dd>
-        <div class="kst-chipset">
-          <span class="kst-chip">Aqua</span>
-          <span class="kst-chip">Sodium Hyaluronate</span>
+        <div class="chips">
+          <span class="chip">Aqua</span>
+          <span class="chip">Sodium Hyaluronate</span>
         </div>
 
         <dt>Exosome Technology</dt>
         <dd>Nanosized extracellular vesicles (100-150nm) act as cellular communicators, transporting biological information to target cells for tissue regeneration, matrix synthesis, and inflammation control.</dd>
       </dl>
 
-      <ul class="kst-list-vert" style="margin-top:16px">
-        <li><strong class="kst-accent">Tissue Regeneration</strong><br/><span class="kst-muted">Activates repair processes, stimulates cell proliferation, and maintains cells in active, healthy state</span></li>
-        <li><strong class="kst-accent">Matrix Synthesis Boost</strong><br/><span class="kst-muted">Increases collagen production up to 600% and elastin up to 300%, strengthening dermal framework</span></li>
-        <li><strong class="kst-accent">Anti-inflammatory & Antioxidant</strong><br/><span class="kst-muted">Modulates immune cell activity, reduces inflammation, and neutralizes reactive oxygen species</span></li>
+      <ul class="list-vertical" style="margin-top:16px">
+        <li><strong class="text-accent">Tissue Regeneration</strong><br/><span class="text-muted">Activates repair processes, stimulates cell proliferation, and maintains cells in active, healthy state</span></li>
+        <li><strong class="text-accent">Matrix Synthesis Boost</strong><br/><span class="text-muted">Increases collagen production up to 600% and elastin up to 300%, strengthening dermal framework</span></li>
+        <li><strong class="text-accent">Anti-inflammatory & Antioxidant</strong><br/><span class="text-muted">Modulates immune cell activity, reduces inflammation, and neutralizes reactive oxygen species</span></li>
       </ul>
 
-      <div class="kst-image-block" style="margin-top:16px">
+      <div class="image-block" style="margin-top:16px">
         <img src="" alt="Exosome mechanism of action diagram" />
-        <span class="kst-img-label">Cellular Communication Process</span>
+        <span class="image-label">Cellular Communication Process</span>
       </div>
     </section>
 
-    <section id="kst-benefits" class="kst-section">
-      <div class="kst-section-header"><span class="kst-section-kicker">Expected Effects</span></div>
+    <section id="kst-benefits" class="section">
+      <div class="section-header"><span class="section-kicker">Expected Effects</span></div>
 
-      <div class="kst-card">
+      <div class="card">
         <h3 style="margin:0 0 12px 0; color: var(--kst-text); font-size: 18px; font-weight: 600;">For Face & Skin (EXOXE Face/Skin)</h3>
-        <ul class="kst-list-vert" aria-label="Facial benefits">
+        <ul class="list-vertical" aria-label="Facial benefits">
           <li>Enhanced skin elasticity and firmness</li>
           <li>Reduction of fine lines and wrinkles</li>
           <li>Improved skin tone and brightness</li>
           <li>Repair of damaged skin including acne and atrophic scars</li>
           <li>Comprehensive anti-aging and regeneration</li>
         </ul>
-        <div class="kst-badges" style="margin-top:10px">
-          <span class="kst-badge">FGF-Rich Formula</span>
-          <span class="kst-badge">Dermal Rejuvenation</span>
+        <div class="badges" style="margin-top:10px">
+          <span class="badge">FGF-Rich Formula</span>
+          <span class="badge">Dermal Rejuvenation</span>
         </div>
       </div>
 
-      <div class="kst-card">
+      <div class="card">
         <h3 style="margin:0 0 12px 0; color: var(--kst-text); font-size: 18px; font-weight: 600;">For Scalp & Hair (EXOXE Hair)</h3>
-        <ul class="kst-list-vert" aria-label="Hair benefits">
+        <ul class="list-vertical" aria-label="Hair benefits">
           <li>Improved scalp health and microcirculation</li>
           <li>Anti-inflammatory effect on hair follicles</li>
           <li>Regeneration of capillaries for better blood supply</li>
           <li>Increased nourishment for weak, thinning, or damaged hair</li>
           <li>Restoration of overall hair vitality</li>
         </ul>
-        <div class="kst-badges" style="margin-top:10px">
-          <span class="kst-badge">VEGF-Rich Formula</span>
-          <span class="kst-badge">Follicle Activation</span>
+        <div class="badges" style="margin-top:10px">
+          <span class="badge">VEGF-Rich Formula</span>
+          <span class="badge">Follicle Activation</span>
         </div>
       </div>
 
-      <div class="kst-image-block">
+      <div class="image-block">
         <img src="" alt="Before and after treatment comparison" />
-        <span class="kst-img-label">Treatment Results</span>
+        <span class="image-label">Treatment Results</span>
       </div>
     </section>
 
-    <section id="kst-howto" class="kst-section">
-      <div class="kst-section-header"><span class="kst-section-kicker">Usage Protocol</span></div>
+    <section id="kst-howto" class="section">
+      <div class="section-header"><span class="section-kicker">Usage Protocol</span></div>
 
-      <div class="kst-steps">
-        <div class="kst-step"><strong>Preparation</strong><br/><span class="kst-muted">Combine 5ml solution (HA for Face/Skin, Saline for Hair) into the vial of lyophilized powder (50mg PURE EXO) using a syringe. Mix gently until uniform liquid is obtained.</span></div>
-        <div class="kst-step"><strong>Application Method</strong><br/><span class="kst-muted">Professional use via Microneedling (MTS, Derma Pen) at depth 0.2-2.0mm, Mesotherapy/Injector Therapy, or topical application following intensive procedures.</span></div>
-        <div class="kst-step"><strong>Treatment Cycle</strong><br/><span class="kst-muted">Face/Skin: 3 sessions every 1-2 weeks (2.5-3.0ml per session). Scalp/Hair: Minimum 4 sessions, ideally 4+2, with 5ml per session.</span></div>
-        <div class="kst-step"><strong>Post-Treatment Care</strong><br/><span class="kst-muted">Apply moisturizing or soothing cream as needed. Avoid intervals exceeding 4 weeks between sessions.</span></div>
+      <div class="steps">
+        <div class="step"><strong>Preparation</strong><br/><span class="text-muted">Combine 5ml solution (HA for Face/Skin, Saline for Hair) into the vial of lyophilized powder (50mg PURE EXO) using a syringe. Mix gently until uniform liquid is obtained.</span></div>
+        <div class="step"><strong>Application Method</strong><br/><span class="text-muted">Professional use via Microneedling (MTS, Derma Pen) at depth 0.2-2.0mm, Mesotherapy/Injector Therapy, or topical application following intensive procedures.</span></div>
+        <div class="step"><strong>Treatment Cycle</strong><br/><span class="text-muted">Face/Skin: 3 sessions every 1-2 weeks (2.5-3.0ml per session). Scalp/Hair: Minimum 4 sessions, ideally 4+2, with 5ml per session.</span></div>
+        <div class="step"><strong>Post-Treatment Care</strong><br/><span class="text-muted">Apply moisturizing or soothing cream as needed. Avoid intervals exceeding 4 weeks between sessions.</span></div>
       </div>
 
-      <div class="kst-card">
-        <div class="kst-kv">
+      <div class="card">
+        <div class="key-value">
           <div>
-            <div class="kst-k">Face/Skin Treatment Cycle</div>
-            <div class="kst-v">3 sessions every 1-2 weeks</div>
+            <div class="key">Face/Skin Treatment Cycle</div>
+            <div class="value">3 sessions every 1-2 weeks</div>
           </div>
           <div>
-            <div class="kst-k">Hair Treatment Cycle</div>
-            <div class="kst-v">4-6 sessions, less than 2 weeks apart</div>
+            <div class="key">Hair Treatment Cycle</div>
+            <div class="value">4-6 sessions, less than 2 weeks apart</div>
           </div>
           <div>
-            <div class="kst-k">Maintenance</div>
-            <div class="kst-v">1-2 times per year (effects last 10-11 months)</div>
+            <div class="key">Maintenance</div>
+            <div class="value">1-2 times per year (effects last 10-11 months)</div>
           </div>
           <div>
-            <div class="kst-k">Application Depth</div>
-            <div class="kst-v">0.2mm to 2.0mm for microneedling</div>
+            <div class="key">Application Depth</div>
+            <div class="value">0.2mm to 2.0mm for microneedling</div>
           </div>
         </div>
       </div>
 
-      <div class="kst-image-block" style="margin-top:16px">
+      <div class="image-block" style="margin-top:16px">
         <img src="" alt="Reconstitution and application guide" />
-        <span class="kst-img-label">Application Technique</span>
+        <span class="image-label">Application Technique</span>
       </div>
     </section>
 
-    <section id="kst-specs" class="kst-section">
-      <div class="kst-section-header"><span class="kst-section-kicker">Product Specifications</span></div>
+    <section id="kst-specs" class="section">
+      <div class="section-header"><span class="section-kicker">Product Specifications</span></div>
 
-      <div class="kst-table-wrap" role="region" aria-label="Product comparison table">
-        <table class="kst-table">
+      <div class="table-wrap" role="region" aria-label="Product comparison table">
+        <table class="table">
           <thead>
             <tr>
               <th>Product Version</th>
@@ -453,9 +453,9 @@
         </table>
       </div>
 
-      <div class="kst-card">
+      <div class="card">
         <h3 style="margin:0 0 12px 0; color: var(--kst-text); font-size: 16px; font-weight: 600;">Package Configuration (Per Treatment Set)</h3>
-        <ul class="kst-list-vert">
+        <ul class="list-vertical">
           <li>1 vial of Pure EXO Lyophilized Powder (50mg)</li>
           <li>1 vial of Sterilized HA Solution (5ml) or Saline Solution for Hair</li>
           <li>Over 6 billion exosome microparticles per vial</li>
@@ -464,11 +464,11 @@
       </div>
     </section>
 
-    <section id="kst-recommendations" class="kst-section">
-      <div class="kst-section-header"><span class="kst-section-kicker">Recommended Guide by Target</span></div>
+    <section id="kst-recommendations" class="section">
+      <div class="section-header"><span class="section-kicker">Recommended Guide by Target</span></div>
 
-      <div class="kst-table-wrap" role="region" aria-label="Recommendations by concern">
-        <table class="kst-table">
+      <div class="table-wrap" role="region" aria-label="Recommendations by concern">
+        <table class="table">
           <thead>
             <tr>
               <th>Target Goal</th>
@@ -500,22 +500,22 @@
         </table>
       </div>
 
-      <div class="kst-image-block" style="margin-top:16px">
+      <div class="image-block" style="margin-top:16px">
         <img src="" alt="Treatment area mapping" />
-        <span class="kst-img-label">Application Areas</span>
+        <span class="image-label">Application Areas</span>
       </div>
     </section>
 
-    <section id="kst-safety" class="kst-section">
-      <div class="kst-section-header"><span class="kst-section-kicker">Precautions & Storage</span></div>
+    <section id="kst-safety" class="section">
+      <div class="section-header"><span class="section-kicker">Precautions & Storage</span></div>
       
-      <div class="kst-callout kst-warning">
+      <div class="callout is-warning">
         <strong>Storage Requirements</strong> — Store in a dry place at room temperature (1°C-30°C), away from direct sunlight. After reconstitution, use immediately or refrigerate (1°C-3°C) and use within one week.
       </div>
 
-      <div class="kst-card" style="margin-top:12px">
+      <div class="card" style="margin-top:12px">
         <h3 style="margin:0 0 12px 0; color: var(--kst-text); font-size: 16px; font-weight: 600;">General Precautions</h3>
-        <ul class="kst-list-vert">
+        <ul class="list-vertical">
           <li>For external use only by trained professionals</li>
           <li>Avoid contact with eyes</li>
           <li>Do not apply to scarred or irritated skin (dermatitis, eczema)</li>
@@ -523,9 +523,9 @@
         </ul>
       </div>
 
-      <div class="kst-card">
+      <div class="card">
         <h3 style="margin:0 0 12px 0; color: var(--kst-text); font-size: 16px; font-weight: 600;">Contraindications</h3>
-        <ul class="kst-list-vert">
+        <ul class="list-vertical">
           <li>Autoimmune or connective tissue diseases</li>
           <li>Existing facial implants</li>
           <li>Hypertrophic or keloid scarring tendency</li>
@@ -535,28 +535,28 @@
       </div>
     </section>
 
-    <section id="kst-faq" class="kst-section">
-      <div class="kst-section-header"><span class="kst-section-kicker">Frequently Asked Questions</span></div>
-      <div class="kst-accordion">
+    <section id="kst-faq" class="section">
+      <div class="section-header"><span class="section-kicker">Frequently Asked Questions</span></div>
+      <div class="accordion">
         <details>
           <summary>How long do the effects last?</summary>
-          <div class="kst-qa">Effects typically last around 10-11 months for facial treatments. Maintenance treatments recommended 1-2 times per year to prolong results.</div>
+          <div class="qa">Effects typically last around 10-11 months for facial treatments. Maintenance treatments recommended 1-2 times per year to prolong results.</div>
         </details>
         <details>
           <summary>What is the difference between Face/Skin and Hair versions?</summary>
-          <div class="kst-qa">Face/Skin version is enriched with Fibroblast Growth Factors (FGFs) for dermal regeneration and uses HA solution. Hair version contains Vascular Endothelial Growth Factors (VEGFs) for scalp microcirculation and uses Saline solution to prevent clumping.</div>
+          <div class="qa">Face/Skin version is enriched with Fibroblast Growth Factors (FGFs) for dermal regeneration and uses HA solution. Hair version contains Vascular Endothelial Growth Factors (VEGFs) for scalp microcirculation and uses Saline solution to prevent clumping.</div>
         </details>
         <details>
           <summary>Can I restart treatment if I miss the 4-week window?</summary>
-          <div class="kst-qa">If the interval between sessions exceeds 4 weeks, the therapy cycle should be restarted from the beginning for optimal results.</div>
+          <div class="qa">If the interval between sessions exceeds 4 weeks, the therapy cycle should be restarted from the beginning for optimal results.</div>
         </details>
         <details>
           <summary>What makes exosomes effective for skin regeneration?</summary>
-          <div class="kst-qa">Exosomes are nanosized vesicles (100-150nm) that act as cellular communicators, delivering over 1,000 types of growth factors and proteins directly to target cells, triggering natural regeneration processes including collagen synthesis increase up to 600%.</div>
+          <div class="qa">Exosomes are nanosized vesicles (100-150nm) that act as cellular communicators, delivering over 1,000 types of growth factors and proteins directly to target cells, triggering natural regeneration processes including collagen synthesis increase up to 600%.</div>
         </details>
         <details>
           <summary>Why use Saline for scalp treatment instead of HA?</summary>
-          <div class="kst-qa">Saline solution is recommended for scalp applications to prevent clumping and ensure comfortable, effective delivery to hair follicles.</div>
+          <div class="qa">Saline solution is recommended for scalp applications to prevent clumping and ensure comfortable, effective delivery to hair follicles.</div>
         </details>
       </div>
     </section>
