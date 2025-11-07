@@ -1,0 +1,766 @@
+<style>
+  /* ========= KST Base Theme (Dark Modern) ========= */
+  :root {
+    --kst-main-color: #1a1a1a;
+    --kst-sub-color: #7fc4e5;
+    --kst-text-primary: #ffffff;
+    --kst-text-secondary: #dcdcdc;
+    --kst-bg-color: #000000;
+    --kst-badge-bg: #7fc4e5;
+    --kst-badge-text: #1a1a1a;
+    --kst-badge-hover: #4da3ce;
+  }
+
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 16px 0;
+    background: var(--kst-bg-color);
+    color: var(--kst-text-primary);
+    font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .kst-main-container *,
+  .kst-main-container *::before,
+  .kst-main-container *::after {
+    box-sizing: border-box;
+  }
+
+  .kst-container {
+    padding: 0 16px;
+  }
+
+  .kst-section {
+    margin: 24px 0;
+  }
+
+  .kst-card {
+    background: var(--kst-main-color);
+    border: 1px solid #2a2a2a;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(127, 196, 229, .08);
+    padding: 20px;
+    color: var(--kst-text-primary);
+  }
+
+  .kst-card h1,
+  .kst-card h2,
+  .kst-card h3,
+  .kst-card h4,
+  .kst-card h5,
+  .kst-card h6 {
+    color: var(--kst-text-primary) !important;
+    margin: 0 0 12px 0;
+  }
+
+  .kst-card p {
+    color: var(--kst-text-primary) !important;
+    margin: 0 0 12px 0;
+  }
+
+  .kst-card ul,
+  .kst-card ol {
+    margin: 0 0 12px 0;
+    padding-left: 20px;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li {
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 6px;
+  }
+
+  .kst-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  .kst-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--kst-badge-bg);
+    color: var(--kst-badge-text);
+    font-weight: 500;
+    border: 1px solid var(--kst-sub-color);
+    font-size: 14px;
+  }
+
+  .kst-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: var(--kst-badge-bg);
+    border: 1px solid var(--kst-sub-color);
+    border-radius: 999px;
+    font-weight: 500;
+    color: var(--kst-badge-text);
+    font-size: 13px;
+  }
+
+  .kst-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .kst-kicker {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: var(--kst-sub-color);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .kst-headline {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.25;
+    margin: 6px 0 10px;
+    font-weight: 600;
+    color: var(--kst-text-primary);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-spec {
+    font-size: clamp(1rem, 3.2vw, 1.6rem);
+    line-height: 1;
+    margin: -4px 0 15px;
+    font-weight: 400;
+    color: var(--kst-text-secondary);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-sub {
+    color: var(--kst-text-secondary);
+    margin: 0 0 16px;
+    font-size: 15px;
+  }
+
+  .kst-muted {
+    color: var(--kst-text-secondary);
+    font-size: 14px;
+  }
+
+  .kst-section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 16px;
+    color: var(--kst-text-primary);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--kst-badge-bg);
+    border: 1px solid var(--kst-sub-color);
+    font-weight: 500;
+    color: var(--kst-badge-text);
+    font-size: 12px;
+  }
+
+  .kst-num {
+    font-weight: 600;
+    color: var(--kst-sub-color);
+  }
+
+  /* Image blocks with auto-hide functionality */
+  .kst-image-block {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border: 1px dashed #3a3a3a;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    color: var(--kst-sub-color);
+    font-weight: 500;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+
+  .kst-image-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-image-block:has(img:not([src])) {
+    display: none;
+  }
+
+  .kst-chart-block {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border: 1px dashed #3a3a3a;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    color: var(--kst-sub-color);
+    font-weight: 500;
+    margin: 12px 0;
+  }
+
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]),
+  .kst-chart-block:has(img:not([src])) {
+    display: none;
+  }
+
+  /* Definition List Styling */
+  .kst-dl {
+    margin: 16px 0;
+  }
+
+  .kst-dl dt {
+    font-weight: 600;
+    color: var(--kst-sub-color);
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+
+  .kst-dl dd {
+    margin-left: 0;
+    padding-left: 16px;
+    color: var(--kst-text-secondary);
+    margin-bottom: 8px;
+  }
+
+  /* Key-Value pairs */
+  .kst-kv {
+    margin: 16px 0;
+  }
+
+  .kst-kv-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .kst-kv-row:last-child {
+    border-bottom: none;
+  }
+
+  .kst-key {
+    font-weight: 500;
+    color: var(--kst-text-secondary);
+    flex: 0 0 40%;
+  }
+
+  .kst-value {
+    color: var(--kst-text-primary);
+    text-align: right;
+    flex: 1;
+  }
+
+  /* Alert boxes */
+  .kst-alert {
+    padding: 16px;
+    border-radius: 12px;
+    margin: 12px 0;
+  }
+
+  .kst-alert.kst-warn {
+    background: rgba(127, 196, 229, 0.1);
+    border: 1px solid var(--kst-sub-color);
+  }
+
+  .kst-alert.kst-danger {
+    background: rgba(255, 87, 87, 0.1);
+    border: 1px solid #ff5757;
+  }
+
+  .kst-alert ul {
+    margin: 8px 0 0 0;
+    padding-left: 20px;
+  }
+
+  .kst-alert ul li {
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 4px;
+  }
+
+  /* FAQ Styling */
+  .kst-faq-item {
+    border-bottom: 1px solid #2a2a2a;
+    padding: 16px 0;
+  }
+
+  .kst-faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .kst-faq-item summary {
+    font-weight: 600;
+    color: var(--kst-text-primary);
+    cursor: pointer;
+    list-style: none;
+    padding-right: 24px;
+    position: relative;
+  }
+
+  .kst-faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    color: var(--kst-sub-color);
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .kst-faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .kst-faq-item p {
+    margin-top: 12px;
+    color: var(--kst-text-secondary) !important;
+  }
+
+  /* Table Styling */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 0;
+    border-radius: 12px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    border-radius: 4px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-sub-color);
+    border-radius: 4px;
+  }
+
+  .kst-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    min-width: 500px;
+  }
+
+  .kst-table th {
+    background: #2a2a2a;
+    color: var(--kst-text-primary);
+    font-weight: 600;
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #3a3a3a;
+    white-space: nowrap;
+  }
+
+  .kst-table td {
+    padding: 12px;
+    border: 1px solid #2a2a2a;
+    color: var(--kst-text-secondary);
+  }
+
+  .kst-table tr:hover {
+    background: rgba(127, 196, 229, 0.05);
+  }
+</style>
+
+<div class="kst-main-container">
+  <main class="kst-container">
+
+    <!-- Product Overview Section -->
+    <section id="kst-overview" class="kst-section">
+      <div class="kst-card">
+        <div class="kst-kicker">PROFESSIONAL LIPOLYTIC SOLUTION</div>
+        <h1 class="kst-headline">Rejubeau Stylish Slim 9</h1>
+        <div class="kst-spec">Advanced Fat Dissolving Solution</div>
+        
+        <div class="kst-chips">
+          <span class="kst-pill">10ml × 5 Vials</span>
+          <span class="kst-pill">Face & Body</span>
+          <span class="kst-pill">Professional Use</span>
+        </div>
+
+        <div class="kst-image-block">
+          <!-- Insert product main image here -->
+        </div>
+        
+        <p class="kst-sub">Rejubeau Stylish Slim 9 is a powerful lipolytic solution designed for targeted fat reduction in localized areas. Formulated with Deoxycholic Acid and L-Carnitine, this advanced solution effectively breaks down fat cells while supporting natural metabolic processes for contouring and body refinement.</p>
+      </div>
+    </section>
+
+    <!-- Key Ingredients Section -->
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">💎 Core Ingredients & Mechanism</h2>
+        
+        <div class="kst-image-block">
+          <!-- Insert ingredient infographic image here -->
+        </div>
+
+        <dl class="kst-dl">
+          <dt>Deoxycholic Acid</dt>
+          <dd>A naturally occurring bile acid that physically destroys fat cell membranes through adipocytolysis, leading to permanent fat reduction in treated areas.</dd>
+          
+          <dt>L-Carnitine</dt>
+          <dd>Facilitates the transport of fatty acids into mitochondria for energy metabolism, assisting in the efficient removal of dissolved fat.</dd>
+          
+          <dt>Fucoxanthin</dt>
+          <dd>Natural marine carotenoid that aids in lipolysis and supports thermogenic fat breakdown processes.</dd>
+          
+          <dt>Bromelain & Papain</dt>
+          <dd>Plant-derived enzymes that reduce inflammation, improve circulation, and help excrete fat metabolites from the treatment area.</dd>
+          
+          <dt>Plant Extracts (Chestnut, Walnut)</dt>
+          <dd>Natural botanical compounds that help minimize skin sagging and support tissue firmness following fat reduction.</dd>
+        </dl>
+
+        <div class="kst-chips" style="margin-top:16px">
+          <span class="kst-chip">Adipocytolysis</span>
+          <span class="kst-chip">Metabolic Support</span>
+          <span class="kst-chip">Anti-Inflammatory</span>
+          <span class="kst-chip">Lymphatic Drainage</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expected Effects Section -->
+    <section id="kst-effects" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">✨ Expected Treatment Outcomes</h2>
+        
+        <div class="kst-image-block">
+          <!-- Insert efficacy summary infographic here -->
+        </div>
+
+        <ul>
+          <li><strong>Targeted Fat Reduction:</strong> Effectively reduces localized fat deposits in areas resistant to diet and exercise, including double chin, abdomen, thighs, and arms.</li>
+          
+          <li><strong>Contouring & Definition:</strong> Creates more defined facial lines (jawline, chin) and slimmer body contours through precise fat layer reduction.</li>
+          
+          <li><strong>Improved Circulation:</strong> Complex blend of active ingredients promotes lymphatic drainage and reduces local swelling for enhanced results.</li>
+          
+          <li><strong>Skin Firming Effect:</strong> Plant extracts work synergistically to minimize sagging and improve skin elasticity following fat reduction treatment.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Treatment Protocol Section -->
+    <section id="kst-protocol" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">📋 Treatment Protocol & Usage Guide</h2>
+        
+        <div class="kst-image-block">
+          <!-- Insert treatment area mapping image (face and body) here -->
+        </div>
+
+        <h3 class="kst-kicker" style="margin-top:16px">Treatment Areas</h3>
+        <div class="kst-chips">
+          <span class="kst-chip">Double Chin</span>
+          <span class="kst-chip">Jawline</span>
+          <span class="kst-chip">Cheeks</span>
+          <span class="kst-chip">Upper Arms</span>
+          <span class="kst-chip">Abdomen</span>
+          <span class="kst-chip">Love Handles</span>
+          <span class="kst-chip">Hips</span>
+          <span class="kst-chip">Inner/Outer Thighs</span>
+        </div>
+
+        <h3 class="kst-kicker" style="margin-top:20px">Recommended Treatment Cycle</h3>
+        <div class="kst-kv">
+          <div class="kst-kv-row">
+            <div class="kst-key">Sessions Required</div>
+            <div class="kst-value">3-6 treatments</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Session Interval</div>
+            <div class="kst-value">10-14 days apart</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Injection Depth</div>
+            <div class="kst-value">6-10mm (subcutaneous layer)</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Needle Gauge</div>
+            <div class="kst-value">27G or 30G sterile</div>
+          </div>
+        </div>
+
+        <h3 class="kst-kicker" style="margin-top:20px">Application Procedure</h3>
+        <ol>
+          <li>Cleanse and thoroughly disinfect the treatment area to prevent infection.</li>
+          <li>Prepare the appropriate volume per injection point (typically 0.1-0.3ml depending on area).</li>
+          <li>Inject solution into the subcutaneous fat layer using fan-shaped or point injection technique.</li>
+          <li>Gently massage the treated area post-injection to distribute solution and promote lymphatic drainage.</li>
+        </ol>
+
+        <p class="kst-muted" style="margin-top:16px"><strong>Note:</strong> Treatment frequency and dosage should be adjusted based on individual fat layer thickness and treatment response. Professional assessment is required before each session.</p>
+      </div>
+    </section>
+
+    <!-- Treatment Strategy Comparison -->
+    <section id="kst-comparison" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">⚖️ Treatment Strategy Comparison</h2>
+        
+        <div class="kst-table-wrap">
+          <table class="kst-table">
+            <thead>
+              <tr>
+                <th>Strategy</th>
+                <th>Key Focus</th>
+                <th>Target Area</th>
+                <th>Typical Dose</th>
+                <th>Notable Features</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Facial Contouring</strong></td>
+                <td>Deoxycholic Acid, Plant Extracts</td>
+                <td>Double Chin, Jawline, Cheeks</td>
+                <td>4-8ml total</td>
+                <td>Targeted definition, minimizes swelling</td>
+              </tr>
+              <tr>
+                <td><strong>Body Slimming</strong></td>
+                <td>Deoxycholic Acid, L-Carnitine</td>
+                <td>Abdomen, Thighs, Flanks, Arms</td>
+                <td>8-15ml per large area</td>
+                <td>Broad area reduction, metabolism support</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="kst-muted" style="margin-top:12px">The solution's versatile formulation allows for customized treatment approaches based on patient needs and target areas. Dosage adjustments should be made by qualified practitioners based on individual assessment.</p>
+      </div>
+    </section>
+
+    <!-- Product Specifications -->
+    <section id="kst-specs" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">📦 Product Specifications</h2>
+        
+        <div class="kst-kv">
+          <div class="kst-kv-row">
+            <div class="kst-key">Product Name</div>
+            <div class="kst-value">Rejubeau Stylish Slim 9 Solution</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Formulation</div>
+            <div class="kst-value">Liquid solution (ampoule-type)</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Volume per Vial</div>
+            <div class="kst-value">10ml</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Vials per Box</div>
+            <div class="kst-value">5 vials</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Total Volume</div>
+            <div class="kst-value">50ml per box</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Application</div>
+            <div class="kst-value">Subcutaneous injection</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Use Restriction</div>
+            <div class="kst-value">Professional use only</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Precautions & Safety -->
+    <section id="kst-safety" class="kst-section">
+      <div class="kst-alert kst-warn">
+        <h2 class="kst-section-title">⚠️ Precautions & Safety Information</h2>
+        
+        <h3 class="kst-kicker">Storage Conditions</h3>
+        <ul>
+          <li>Store in a cool, dry place away from direct sunlight</li>
+          <li>Stable at room temperature (1-30°C)</li>
+          <li>Do not freeze the product</li>
+          <li>Keep vials sealed until ready for use</li>
+        </ul>
+
+        <h3 class="kst-kicker" style="margin-top:16px">Administration Safety</h3>
+        <ul>
+          <li>Must only be administered by trained and certified professionals</li>
+          <li>Strictly avoid intravascular injection</li>
+          <li>Use sterile technique throughout procedure</li>
+          <li>Adhere to recommended 10-14 day intervals between sessions</li>
+        </ul>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-alert kst-danger" style="margin-bottom:12px">
+          <strong>Contraindications</strong>
+          <ul style="margin-top:8px">
+            <li>Active skin infection in the treatment area</li>
+            <li>Known allergy to any component of the formulation</li>
+            <li>Pregnancy or lactation period</li>
+            <li>Severe cardiovascular or metabolic disorders</li>
+          </ul>
+        </div>
+
+        <h3 class="kst-kicker" style="margin-top:16px">Expected Side Effects</h3>
+        <p class="kst-muted">Mild swelling, redness, and tenderness at injection sites are common post-procedure reactions and typically resolve within a few days. Patients should be informed of these expected responses prior to treatment.</p>
+
+        <h3 class="kst-kicker" style="margin-top:16px">Post-Treatment Care</h3>
+        <ul>
+          <li>Apply cold compress if swelling occurs</li>
+          <li>Avoid strenuous exercise for 24-48 hours</li>
+          <li>Maintain adequate hydration to support fat metabolism</li>
+          <li>Follow practitioner's specific aftercare instructions</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Additional Information -->
+    <section id="kst-additional" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">ℹ️ Additional Information</h2>
+        
+        <h3 class="kst-kicker">Mechanism of Action</h3>
+        <p>The solution causes localized destruction of adipocytes (fat cells), leading to permanent reduction in fat volume within the treated area. The body naturally processes and eliminates the dissolved fat through metabolic pathways over the following weeks.</p>
+
+        <h3 class="kst-kicker" style="margin-top:16px">Optimal Results</h3>
+        <p>For best outcomes, patients should maintain a healthy diet and lifestyle during the treatment cycle. Results become progressively visible over 4-8 weeks as the body metabolizes the dissolved fat. Final results are typically achieved 2-3 months after completing the full treatment series.</p>
+
+        <h3 class="kst-kicker" style="margin-top:16px">Treatment Intervals</h3>
+        <p>The recommended 10-14 day interval between sessions allows adequate time for the body to process dissolved fat and minimizes potential adverse reactions. This interval is crucial for optimal safety and efficacy.</p>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="kst-faq" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">❓ Frequently Asked Questions</h2>
+        
+        <details class="kst-faq-item" open>
+          <summary>Q. How does Rejubeau Stylish Slim 9 differ from other fat dissolving solutions?</summary>
+          <p>A. Rejubeau Stylish Slim 9 features a synergistic 9-ingredient formula combining Deoxycholic Acid for fat cell destruction with L-Carnitine for metabolic support, plus natural enzymes and plant extracts for enhanced results and reduced side effects.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. Is the fat reduction permanent?</summary>
+          <p>A. Yes, the treatment causes permanent destruction of fat cells in the treated area. However, maintaining results requires a stable weight, as remaining fat cells can still enlarge with weight gain.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. How many sessions are typically needed?</summary>
+          <p>A. Most patients require 3-6 sessions depending on the treatment area and individual fat layer thickness. Facial areas typically need fewer sessions than larger body areas.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. What is the typical downtime after treatment?</summary>
+          <p>A. Patients can resume normal activities immediately, though swelling and tenderness may persist for 3-7 days. Strenuous exercise should be avoided for 24-48 hours post-treatment.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. Can this be used for overall weight loss?</summary>
+          <p>A. No, Rejubeau Stylish Slim 9 is designed for targeted reduction of localized fat deposits, not general weight loss. It is most effective for contouring specific areas resistant to diet and exercise.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. What areas respond best to treatment?</summary>
+          <p>A. The double chin, jawline, and submental area typically show excellent results. Body areas like upper arms, abdomen, love handles, and inner thighs also respond well to treatment.</p>
+        </details>
+
+        <details class="kst-faq-item">
+          <summary>Q. Are there any long-term side effects?</summary>
+          <p>A. When administered properly by qualified professionals, long-term side effects are rare. The most common effects are temporary swelling and tenderness at injection sites.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Professional Use Notice -->
+    <section id="kst-notice" class="kst-section">
+      <div class="kst-card" style="background: rgba(127, 196, 229, 0.1); border-color: var(--kst-sub-color);">
+        <h2 class="kst-section-title">🏥 Professional Use Only</h2>
+        <p><strong>Important Notice:</strong> Rejubeau Stylish Slim 9 is a professional-grade medical aesthetic product that must only be administered by licensed healthcare practitioners with appropriate training in injection techniques and aesthetic procedures.</p>
+        
+        <p style="margin-top:12px">This product is not intended for consumer self-administration. Improper use may result in serious complications including infection, tissue damage, or adverse reactions.</p>
+
+        <div class="kst-chips" style="margin-top:16px">
+          <span class="kst-chip">Licensed Practitioners Only</span>
+          <span class="kst-chip">Professional Training Required</span>
+          <span class="kst-chip">Medical-Grade Product</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="kst-container">
+    <div class="kst-card" style="text-align:center; background:#1a1a1a">
+      <small class="kst-muted">© Rejubeau • Professional Aesthetic Solutions • For Healthcare Professionals Only</small>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // FAQ functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const kstFaqItems = document.querySelectorAll('.kst-faq-item');
+    kstFaqItems.forEach(item => {
+      const summary = item.querySelector('summary');
+      if (summary) {
+        summary.addEventListener('click', (e) => {
+          // Close other open items (optional accordion behavior)
+          // Remove this section if you want multiple items open at once
+          /*
+          kstFaqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.hasAttribute('open')) {
+              otherItem.removeAttribute('open');
+            }
+          });
+          */
+        });
+      }
+    });
+
+    // Auto-hide empty image containers
+    const kstImageBlocks = document.querySelectorAll('.kst-image-block, .kst-chart-block');
+    kstImageBlocks.forEach(block => {
+      const img = block.querySelector('img');
+      if (!img || !img.src || img.src === '') {
+        block.style.display = 'none';
+      }
+    });
+  });
+
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#kst-"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>

@@ -1,0 +1,620 @@
+<style>
+    :root {
+        --kst-color-main: #b21f24;
+        --kst-color-sub: #7a0e12;
+        --kst-color-text: #ffffff;
+        --kst-color-accent: #e4a6a8;
+        --kst-color-bg: #faf6f6;
+        --kst-color-badge-bg: #b21f24;
+        --kst-color-badge-text: #ffffff;
+        --kst-color-badge-hover: #7a0e12;
+        --kst-color-muted: #666666;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: var(--kst-color-bg);
+        color: var(--kst-color-muted) !important;
+        padding: 16px 12px;
+        line-height: 1.4;
+    }
+    
+    .kst-hero-section {
+        text-align: center;
+        margin-bottom: 48px;
+        background: var(--kst-color-text);
+        border-radius: 16px;
+        padding: 32px 16px;
+        box-shadow: 0 4px 20px rgba(178, 31, 36, 0.15);
+    }
+    
+    .kst-product-title {
+        font-size: 36px;
+        font-weight: 500;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 16px;
+        letter-spacing: -1.5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-subtitle {
+        font-size: 18px;
+        color: var(--kst-color-muted) !important;
+        font-weight: 400;
+        margin-bottom: 24px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-category-badge {
+        background: var(--kst-color-badge-bg);
+        color: var(--kst-color-badge-text) !important;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .kst-section-title {
+        font-size: 28px;
+        font-weight: 500;
+        color: var(--kst-color-main) !important;
+        text-align: center;
+        margin: 48px 0 32px 0;
+        letter-spacing: -1px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card {
+        background: var(--kst-color-text);
+        border-radius: 16px;
+        padding: 24px 20px;
+        margin-bottom: 16px;
+        box-shadow: 0 4px 20px rgba(178, 31, 36, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .kst-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(178, 31, 36, 0.15);
+    }
+    
+    .kst-card h3 {
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card p {
+        font-size: 14px;
+        color: var(--kst-color-muted) !important;
+        line-height: 1.5;
+        margin: 0 0 12px 0;
+    }
+    
+    .kst-card ul,
+    .kst-card ol {
+        margin: 12px 0;
+        padding-left: 20px;
+    }
+    
+    .kst-card ul li,
+    .kst-card ol li {
+        font-size: 14px;
+        color: var(--kst-color-muted) !important;
+        line-height: 1.5;
+        margin-bottom: 8px;
+    }
+    
+    .kst-specs-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .kst-spec-item {
+        background: var(--kst-color-text);
+        border-radius: 12px;
+        padding: 20px 16px;
+        box-shadow: 0 4px 20px rgba(178, 31, 36, 0.1);
+        text-align: center;
+    }
+    
+    .kst-spec-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--kst-color-bg);
+        border-radius: 8px;
+        margin: 0 auto 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+    }
+    
+    .kst-spec-label {
+        font-size: 12px;
+        color: var(--kst-color-muted) !important;
+        font-weight: 400;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .kst-spec-value {
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 4px;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-spec-unit {
+        font-size: 12px;
+        color: var(--kst-color-muted) !important;
+        font-weight: 400;
+    }
+    
+    .kst-spec-description {
+        font-size: 12px;
+        color: var(--kst-color-muted) !important;
+        margin-top: 8px;
+        line-height: 1.4;
+    }
+    
+    .kst-spec-featured {
+        background: linear-gradient(135deg, var(--kst-color-main) 0%, var(--kst-color-sub) 100%);
+        color: var(--kst-color-text);
+    }
+    
+    .kst-spec-featured .kst-spec-icon {
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--kst-color-text) !important;
+    }
+    
+    .kst-spec-featured .kst-spec-label,
+    .kst-spec-featured .kst-spec-value,
+    .kst-spec-featured .kst-spec-unit,
+    .kst-spec-featured .kst-spec-description {
+        color: var(--kst-color-text) !important;
+    }
+    
+    .kst-definition-list {
+        background: var(--kst-color-text);
+        border-radius: 16px;
+        padding: 24px 20px;
+        margin-bottom: 16px;
+        box-shadow: 0 4px 20px rgba(178, 31, 36, 0.1);
+    }
+    
+    .kst-definition-list dt {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 8px;
+        margin-top: 16px;
+    }
+    
+    .kst-definition-list dt:first-child {
+        margin-top: 0;
+    }
+    
+    .kst-definition-list dd {
+        font-size: 14px;
+        color: var(--kst-color-muted) !important;
+        line-height: 1.5;
+        margin-left: 0;
+        margin-bottom: 12px;
+    }
+    
+    .kst-warning-section {
+        background: linear-gradient(135deg, var(--kst-color-main), var(--kst-color-sub));
+        border-radius: 16px;
+        padding: 24px 20px;
+        margin: 32px 0;
+        box-shadow: 0 4px 20px rgba(178, 31, 36, 0.2);
+    }
+    
+    .kst-warning-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--kst-color-text) !important;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .kst-warning-title::before {
+        content: "⚠️";
+        font-size: 24px;
+    }
+    
+    .kst-warning-content {
+        font-size: 14px;
+        color: var(--kst-color-text) !important;
+        line-height: 1.6;
+    }
+    
+    .kst-warning-list {
+        margin: 16px 0;
+        padding-left: 20px;
+    }
+    
+    .kst-warning-list li {
+        font-size: 14px;
+        color: var(--kst-color-text) !important;
+        line-height: 1.6;
+        margin-bottom: 8px;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 16px 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(178, 31, 36, 0.1);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+        display: block;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: var(--kst-color-bg);
+        border-radius: 4px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-color-accent);
+        border-radius: 4px;
+    }
+    
+    .kst-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--kst-color-text);
+        table-layout: auto;
+    }
+    
+    .kst-table thead th {
+        background: var(--kst-color-main);
+        color: var(--kst-color-text) !important;
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+    
+    .kst-table tbody td {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--kst-color-bg);
+        font-size: 14px;
+        color: var(--kst-color-muted) !important;
+    }
+    
+    .kst-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .kst-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        margin-right: 8px;
+        margin-bottom: 8px;
+    }
+    
+    .kst-badge-primary {
+        background: var(--kst-color-main);
+        color: var(--kst-color-text) !important;
+    }
+    
+    .kst-badge-success {
+        background: var(--kst-color-accent);
+        color: var(--kst-color-sub) !important;
+    }
+    
+    .kst-image-block {
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 24px 0;
+        box-shadow: 0 4px 20px rgba(178, 31, 36, 0.1);
+    }
+    
+    .kst-image-block:not(:has(img)),
+    .kst-image-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    
+    .kst-mb-16 {
+        margin-bottom: 16px;
+    }
+</style>
+
+<div class="kst-main-container">
+    <!-- Hero Section -->
+    <div class="kst-hero-section">
+        <span class="kst-category-badge">Professional Skin Regeneration</span>
+        <h1 class="kst-product-title">RXC Red Exo Colla</h1>
+        <p class="kst-product-subtitle">Advanced Exosome & Collagen Regeneration System</p>
+    </div>
+    
+    <div class="kst-image-block">
+        <!-- Insert product packaging and vial configuration image -->
+        <img src="" alt="RXC Red Exo Colla Product">
+    </div>
+    
+    <!-- Product Overview -->
+    <h2 class="kst-section-title">🔬 Product Overview</h2>
+    
+    <div class="kst-card">
+        <h3>Package Configuration</h3>
+        <p>RXC Red Exo Colla is typically provided in a set of 5 vials containing Exosome Powder and Solvent for reconstitution. The configuration is designed for multiple treatment sessions with professional application.</p>
+    </div>
+    
+    <div class="kst-specs-list">
+        <div class="kst-spec-item kst-spec-featured">
+            <div class="kst-spec-icon">💉</div>
+            <div class="kst-spec-label">Package Size</div>
+            <div class="kst-spec-value">5 Vials</div>
+            <div class="kst-spec-description">Complete treatment set</div>
+        </div>
+    </div>
+    
+    <!-- Key Ingredients & Mechanism -->
+    <h2 class="kst-section-title">⚗️ Key Ingredients & Mechanism of Action</h2>
+    
+    <div class="kst-card">
+        <h3>Core Ingredient Composition</h3>
+        <ul>
+            <li><strong>Exosomes:</strong> Purified vesicles containing signaling molecules derived from stem cells</li>
+            <li><strong>Hydrolyzed Collagen:</strong> Provides structural support and hydration reservoir</li>
+            <li><strong>PDRN/PN (Polydeoxyribonucleotide/Polynucleotide):</strong> Promotes tissue repair and cellular optimization</li>
+        </ul>
+    </div>
+    
+    <div class="kst-image-block">
+        <!-- Insert diagram of Exosome mechanism on skin cell -->
+        <img src="" alt="Exosome Mechanism Diagram">
+    </div>
+    
+    <div class="kst-card">
+        <h3>How It Works</h3>
+        <p><strong>Exosome Action:</strong> Functions as intercellular messengers, delivering growth factors, proteins, and nucleic acids to target skin cells. This stimulates cellular regeneration, enhances collagen and elastin production, and helps modulate inflammatory responses in the skin.</p>
+        <p><strong>Collagen/PN Synergy:</strong> Provides structural support and acts as a hydration reservoir. PN/PDRN further aids in tissue repair and long-term skin health by promoting fibroblast activity and optimizing the cellular environment.</p>
+        <p>The combined action aims to restore the skin's youthful structure and function at the cellular level.</p>
+    </div>
+    
+    <!-- Main Expected Effects -->
+    <h2 class="kst-section-title">✨ Main Expected Effects</h2>
+    
+    <div class="kst-specs-list">
+        <div class="kst-spec-item">
+            <div class="kst-spec-icon">🔄</div>
+            <div class="kst-spec-label">Skin Regeneration</div>
+            <div class="kst-spec-description">Promotes repair of damaged skin barriers and tissues</div>
+        </div>
+        
+        <div class="kst-spec-item">
+            <div class="kst-spec-icon">💪</div>
+            <div class="kst-spec-label">Elasticity & Firmness</div>
+            <div class="kst-spec-description">Supports synthesis of collagen and elastin</div>
+        </div>
+        
+        <div class="kst-spec-item">
+            <div class="kst-spec-icon">✨</div>
+            <div class="kst-spec-label">Anti-Aging</div>
+            <div class="kst-spec-description">Reduces fine lines and wrinkles through enhanced dermal density</div>
+        </div>
+        
+        <div class="kst-spec-item">
+            <div class="kst-spec-icon">🌿</div>
+            <div class="kst-spec-label">Soothing Effect</div>
+            <div class="kst-spec-description">Calms irritated skin and reduces redness</div>
+        </div>
+    </div>
+    
+    <!-- Usage Protocol -->
+    <h2 class="kst-section-title">📋 Usage Protocol & Treatment Method</h2>
+    
+    <div class="kst-card">
+        <h3>Application Method</h3>
+        <p>Most commonly applied via:</p>
+        <ul>
+            <li><strong>Microneedling Therapy System (MTS)</strong></li>
+            <li><strong>Dermapen</strong></li>
+            <li><strong>Superficial micro-injections</strong> into the dermal layer for optimal absorption</li>
+        </ul>
+    </div>
+    
+    <div class="kst-card">
+        <h3>Treatment Cycle</h3>
+        <p>A typical program involves <strong>3 to 5 sessions</strong>, spaced <strong>1 to 2 weeks apart</strong>, followed by maintenance treatments as required.</p>
+    </div>
+    
+    <div class="kst-card">
+        <h3>Complementary Care</h3>
+        <p>Synergy with professional devices (MTS/Dermapen) is essential for penetration. Follow immediately with a deeply hydrating and soothing mask or regenerative ampoule post-procedure to maximize results and minimize recovery time.</p>
+    </div>
+    
+    <div class="kst-specs-list">
+        <div class="kst-spec-item kst-spec-featured">
+            <div class="kst-spec-icon">📅</div>
+            <div class="kst-spec-label">Treatment Sessions</div>
+            <div class="kst-spec-value">3-5</div>
+            <div class="kst-spec-unit">Sessions</div>
+            <div class="kst-spec-description">Spaced 1-2 weeks apart</div>
+        </div>
+    </div>
+    
+    <!-- Target Application Guide -->
+    <h2 class="kst-section-title">🎯 Recommended Guide by Target</h2>
+    
+    <div class="kst-table-wrap">
+        <table class="kst-table">
+            <thead>
+                <tr>
+                    <th>Target Area</th>
+                    <th>Symptoms/Situation</th>
+                    <th>Focus</th>
+                    <th>Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Facial Rejuvenation</td>
+                    <td>Dullness, loss of elasticity, fine lines, visible pores</td>
+                    <td>Overall skin health and structural support</td>
+                    <td>Exosomes boost collagen synthesis while collagen components provide immediate support</td>
+                </tr>
+                <tr>
+                    <td>Damaged/Sensitized Skin</td>
+                    <td>Post-procedure irritation, chronic redness, uneven texture</td>
+                    <td>Soothing and barrier repair</td>
+                    <td>Exosomes' anti-inflammatory properties aid in rapid recovery and cellular balance</td>
+                </tr>
+                <tr>
+                    <td>Neck & Décolletage</td>
+                    <td>Crepey skin, horizontal lines, textural irregularities</td>
+                    <td>Firming and deep hydration</td>
+                    <td>Addresses signs of aging in often-neglected areas by promoting elasticity</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Detailed Product Information -->
+    <h2 class="kst-section-title">📖 Detailed Product Information</h2>
+    
+    <div class="kst-definition-list">
+        <dt>Ingredient Composition</dt>
+        <dd>Exosomes, Hydrolyzed Collagen, PDRN/PN, and optimizing solvent for reconstitution</dd>
+        
+        <dt>Efficacy Summary</dt>
+        <dd>Targets the fundamental structure of the skin to promote regeneration, increase firmness, and improve overall texture and radiance</dd>
+        
+        <dt>How to Use</dt>
+        <dd>Requires reconstitution of the lyophilized (freeze-dried) exosome powder with the provided solvent immediately before application. Apply topically after a micro-needling procedure or administer via micro-injection</dd>
+        
+        <dt>Suitable For</dt>
+        <dd>Individuals seeking advanced anti-aging, intensive regeneration after aesthetic procedures, improvement in skin elasticity, and reduction in the appearance of acne scars or enlarged pores</dd>
+    </div>
+    
+    <!-- Application Guidance -->
+    <h2 class="kst-section-title">👨‍⚕️ Professional Application Guidance</h2>
+    
+    <div class="kst-card">
+        <h3>Professional Application</h3>
+        <p>Professional application is strongly recommended to ensure correct penetration depth and technique, particularly when using micro-injections. This ensures optimal results and safety.</p>
+    </div>
+    
+    <div class="kst-card">
+        <h3>Immediate Post-Treatment Care</h3>
+        <p>Expect temporary redness or mild swelling post-treatment, which usually subsides within 24-48 hours. Using a cool compress and a high-quality recovery cream is advised during the recovery period.</p>
+    </div>
+    
+    <!-- Precautions & Storage -->
+    <h2 class="kst-section-title">⚠️ Precautions & Storage Requirements</h2>
+    
+    <div class="kst-image-block">
+        <!-- Insert infographic on storage and handling -->
+        <img src="" alt="Storage Guidelines">
+    </div>
+    
+    <div class="kst-definition-list">
+        <dt>Storage Temperature</dt>
+        <dd>The powder component must be stored refrigerated (typically 2°C to 8°C or as specified by the manufacturer) to maintain the viability of the exosomes</dd>
+        
+        <dt>Time Limit After Opening</dt>
+        <dd>Once the powder is reconstituted with the solvent, the solution must be used immediately or within a few hours (typically within 3 hours) to ensure potency. Any remaining solution should be discarded</dd>
+        
+        <dt>General vs. Refrigerated Storage</dt>
+        <dd>Unopened powder vials require refrigeration. The solvent component may be stored at room temperature, but check manufacturer guidelines</dd>
+    </div>
+    
+    <div class="kst-warning-section">
+        <div class="kst-warning-title">Important Safety Precautions</div>
+        <div class="kst-warning-content">
+            Please observe the following precautions for safe and effective use:
+            
+            <ul class="kst-warning-list">
+                <li>Avoid excessive heat, direct sunlight, and freezing conditions</li>
+                <li>Do not use on infected or severely compromised skin without professional guidance</li>
+                <li>Professional consultation is required for proper application technique</li>
+                <li>Reconstituted solution must be used immediately - do not store after mixing</li>
+                <li>Keep refrigerated at all times before reconstitution</li>
+            </ul>
+            
+            Always consult with qualified medical professionals before beginning treatment. This product is intended for professional use only.
+        </div>
+    </div>
+    
+    <div class="kst-specs-list">
+        <div class="kst-spec-item">
+            <div class="kst-spec-icon">🌡️</div>
+            <div class="kst-spec-label">Storage Temperature</div>
+            <div class="kst-spec-value">2-8°C</div>
+            <div class="kst-spec-unit">Refrigerated</div>
+        </div>
+        
+        <div class="kst-spec-item">
+            <div class="kst-spec-icon">⏱️</div>
+            <div class="kst-spec-label">Use After Mixing</div>
+            <div class="kst-spec-value">≤ 3 Hours</div>
+            <div class="kst-spec-unit">Immediate Use</div>
+        </div>
+    </div>
+    
+    <!-- Product Keywords -->
+    <h2 class="kst-section-title">🔖 Product Keywords</h2>
+    
+    <div class="kst-card">
+        <div class="kst-mb-16">
+            <span class="kst-badge kst-badge-primary">Exosome Solution</span>
+            <span class="kst-badge kst-badge-primary">Skin Regeneration</span>
+            <span class="kst-badge kst-badge-primary">Collagen Booster</span>
+            <span class="kst-badge kst-badge-primary">Elasticity Improvement</span>
+            <span class="kst-badge kst-badge-success">MTS Ampoule</span>
+            <span class="kst-badge kst-badge-success">Micro-needling Serum</span>
+            <span class="kst-badge kst-badge-success">PN/PDRN</span>
+            <span class="kst-badge kst-badge-success">Fibroblast Stimulation</span>
+            <span class="kst-badge kst-badge-primary">Anti-Aging</span>
+            <span class="kst-badge kst-badge-primary">Professional Skincare</span>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,1021 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    :root {
+        --kst-color-main: #054243;
+        --kst-color-sub: #b5b5b5;
+        --kst-color-text-primary: #ffffff;
+        --kst-color-text-secondary: #e6e6e6;
+        --kst-color-background: #f7f7f7;
+        --kst-color-badge-bg: #0d4138;
+        --kst-color-badge-text: #ffffff;
+        --kst-color-badge-hover: #072e26;
+        --kst-color-dark: #1a1a1a;
+        --kst-color-muted: #6c757d;
+        --kst-color-border: #dee2e6;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #ffffff;
+        color: var(--kst-color-dark) !important;
+        padding: 0;
+        line-height: 1.5;
+        overflow-x: hidden;
+    }
+    
+    .kst-main-container * {
+        color: inherit;
+    }
+    
+    .kst-hero-section {
+        background: linear-gradient(135deg, var(--kst-color-main) 0%, #032e2f 100%);
+        padding: 40px 16px;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    
+    .kst-product-badge {
+        background: var(--kst-color-badge-bg);
+        color: var(--kst-color-badge-text) !important;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 16px;
+    }
+    
+    .kst-main-title {
+        font-size: 28px;
+        font-weight: 300;
+        color: var(--kst-color-text-primary) !important;
+        margin-bottom: 12px;
+        letter-spacing: -1px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-main-subtitle {
+        font-size: 20px;
+        font-weight: 200;
+        color: var(--kst-color-text-secondary) !important;
+        margin-bottom: 18px;
+        margin-top: -12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-subtitle {
+        font-size: 16px;
+        color: var(--kst-color-text-secondary) !important;
+        font-weight: 400;
+        margin: 0 auto;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-section {
+        padding: 16px;
+        margin-bottom: 20px;
+        color: var(--kst-color-dark) !important;
+    }
+    
+    .kst-section * {
+        color: var(--kst-color-dark) !important;
+    }
+    
+    .kst-section-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 16px;
+    }
+    
+    .kst-section-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--kst-color-dark) !important;
+        margin-bottom: 20px;
+        letter-spacing: -0.5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-image-block,
+    .kst-chart-block {
+        background: var(--kst-color-background);
+        padding: 0;
+        text-align: center;
+        margin: 20px 8px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .kst-image-block:not(:has(img)),
+    .kst-image-block:has(img[src=""]),
+    .kst-chart-block:not(:has(img)),
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-image-block img,
+    .kst-chart-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .kst-ingredient-card {
+        background: var(--kst-color-background);
+        padding: 20px 16px;
+        margin-bottom: 16px;
+        border-left: 4px solid var(--kst-color-main);
+        border-radius: 0 8px 8px 0;
+        transition: all 0.2s ease;
+    }
+    
+    .kst-ingredient-card:hover {
+        border-left-color: var(--kst-color-badge-hover);
+        background: #f1f3f4;
+    }
+    
+    .kst-ingredient-header {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+    
+    .kst-ingredient-name {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--kst-color-dark) !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-concentration-tag {
+        background: var(--kst-color-main);
+        color: var(--kst-color-text-primary) !important;
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        align-self: flex-start;
+    }
+    
+    .kst-ingredient-description {
+        font-size: 14px;
+        color: #495057 !important;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-benefits-list {
+        margin: 20px 0;
+    }
+    
+    .kst-benefit-item {
+        background: #ffffff;
+        border: 1px solid var(--kst-color-border);
+        padding: 16px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        position: relative;
+    }
+    
+    .kst-benefit-number {
+        width: 28px;
+        height: 28px;
+        background: var(--kst-color-main);
+        color: var(--kst-color-text-primary) !important;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+    
+    .kst-benefit-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-color-dark) !important;
+        margin-bottom: 8px;
+        line-height: 1.4;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-benefit-description {
+        font-size: 14px;
+        color: #495057 !important;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-protocol-steps {
+        margin: 20px 0;
+    }
+    
+    .kst-protocol-step {
+        background: #ffffff;
+        border: 1px solid var(--kst-color-border);
+        padding: 16px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        display: flex;
+        gap: 16px;
+    }
+    
+    .kst-step-number {
+        width: 32px;
+        height: 32px;
+        background: var(--kst-color-main);
+        color: var(--kst-color-text-primary) !important;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+    
+    .kst-step-content {
+        flex: 1;
+    }
+    
+    .kst-step-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-color-dark) !important;
+        margin-bottom: 6px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-step-description {
+        font-size: 14px;
+        color: #495057 !important;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-info-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px 0;
+    }
+    
+    .kst-info-card {
+        background: var(--kst-color-background);
+        padding: 16px;
+        border-radius: 8px;
+        border-left: 3px solid var(--kst-color-main);
+    }
+    
+    .kst-info-label {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 6px;
+    }
+    
+    .kst-info-value {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--kst-color-dark) !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 20px 0;
+        border-radius: 8px;
+        border: 1px solid var(--kst-color-border);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-color-sub);
+        border-radius: 4px;
+    }
+    
+    .kst-comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #ffffff;
+        table-layout: auto;
+    }
+    
+    .kst-comparison-table thead th {
+        background: var(--kst-color-main);
+        color: var(--kst-color-text-primary) !important;
+        padding: 12px;
+        text-align: left;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+        border-bottom: 2px solid var(--kst-color-badge-hover);
+    }
+    
+    .kst-comparison-table tbody td {
+        padding: 12px;
+        border-bottom: 1px solid var(--kst-color-border);
+        font-size: 13px;
+        color: var(--kst-color-dark) !important;
+        word-wrap: break-word;
+    }
+    
+    .kst-comparison-table tbody tr:hover {
+        background: var(--kst-color-background);
+    }
+    
+    .kst-faq-section {
+        margin: 20px 0;
+    }
+    
+    .kst-faq-item {
+        background: #ffffff;
+        border: 1px solid var(--kst-color-border);
+        border-radius: 8px;
+        margin-bottom: 12px;
+        overflow: hidden;
+    }
+    
+    .kst-faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 16px;
+        text-align: left;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--kst-color-dark) !important;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-faq-toggle {
+        font-size: 20px;
+        font-weight: 400;
+        color: var(--kst-color-main) !important;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+    }
+    
+    .kst-faq-item.kst-open .kst-faq-toggle {
+        transform: rotate(45deg);
+    }
+    
+    .kst-faq-answer {
+        padding: 0 16px;
+        font-size: 14px;
+        color: #495057 !important;
+        line-height: 1.6;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-faq-item.kst-open .kst-faq-answer {
+        max-height: 500px;
+        padding: 0 16px 16px 16px;
+    }
+    
+    .kst-safety-warning {
+        background: #fff3cd;
+        border: 2px solid #ffc107;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 20px 8px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    
+    .kst-warning-icon {
+        width: 32px;
+        height: 32px;
+        background: #ffc107;
+        color: var(--kst-color-dark) !important;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+    
+    .kst-warning-content {
+        flex: 1;
+    }
+    
+    .kst-warning-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--kst-color-dark) !important;
+        margin-bottom: 8px;
+        display: block;
+    }
+    
+    .kst-warning-content p {
+        font-size: 13px;
+        color: #495057 !important;
+        line-height: 1.6;
+        margin: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-divider {
+        height: 1px;
+        background: var(--kst-color-border);
+        margin: 32px 16px;
+    }
+    
+    .kst-summary-section {
+        background: var(--kst-color-background);
+        padding: 24px 16px;
+        border-radius: 8px;
+        margin: 20px 8px;
+        text-align: center;
+    }
+    
+    .kst-summary-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-summary-text {
+        font-size: 14px;
+        color: #495057 !important;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+</style>
+
+<div class="kst-main-container">
+    <!-- Hero Section -->
+    <div class="kst-hero-section">
+        <div class="kst-product-badge">Professional Chemical Peel</div>
+        <h1 class="kst-main-title">Soonsu Shining Peel</h1>
+        <div class="kst-main-subtitle">35% TCA Biphasic Peeling Solution</div>
+        <p class="kst-subtitle">Advanced whitening and skin renewal with protective oil-water formulation</p>
+    </div>
+
+    <!-- Product Image -->
+    <div class="kst-image-block">
+        <img src="" alt="Soonsu Shining Peel Product">
+    </div>
+
+    <!-- Basic Information -->
+    <div class="kst-section">
+        <div class="kst-section-label">Product Overview</div>
+        <h2 class="kst-section-title">Product Information</h2>
+        
+        <div class="kst-info-grid">
+            <div class="kst-info-card">
+                <div class="kst-info-label">Product Name</div>
+                <div class="kst-info-value">Soonsu Shining Peel (35% TCA)</div>
+            </div>
+            
+            <div class="kst-info-card">
+                <div class="kst-info-label">Package Volume</div>
+                <div class="kst-info-value">Box of 5 vials × 6ml (Total 30ml)</div>
+            </div>
+            
+            <div class="kst-info-card">
+                <div class="kst-info-label">Manufacturer</div>
+                <div class="kst-info-value">CosmoDerma, Inc. (South Korea)</div>
+            </div>
+            
+            <div class="kst-info-card">
+                <div class="kst-info-label">Formulation Type</div>
+                <div class="kst-info-value">Biphasic Chemical Peeling Solution</div>
+            </div>
+            
+            <div class="kst-info-card">
+                <div class="kst-info-label">Storage Conditions</div>
+                <div class="kst-info-value">Store at 5-25°C, away from direct sunlight</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Biphasic Formulation -->
+    <div class="kst-section">
+        <div class="kst-section-label">Technology</div>
+        <h2 class="kst-section-title">Unique Biphasic Formulation</h2>
+        <p class="kst-ingredient-description" style="margin-bottom: 16px;">
+            The Soonsu Shining Peel features a revolutionary two-phase solution that combines the benefits of both oil and water layers for optimal skin treatment results.
+        </p>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Oil Phase</div>
+            </div>
+            <div class="kst-ingredient-description">
+                Contains active substances like Squalene to prevent oxidation, protect the skin, and form a moisture barrier. This layer stabilizes the peel's components and significantly reduces the likelihood of side reactions and excessive peeling.
+            </div>
+        </div>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Water Phase</div>
+            </div>
+            <div class="kst-ingredient-description">
+                Contains exfoliating acids and vitamins to stimulate dermal cell renewal, promoting deep skin regeneration and brightening effects.
+            </div>
+        </div>
+    </div>
+
+    <!-- Biphasic Image -->
+    <div class="kst-image-block">
+        <img src="" alt="Biphasic Formulation Visualization">
+    </div>
+
+    <!-- Key Ingredients -->
+    <div class="kst-section">
+        <div class="kst-section-label">Formulation</div>
+        <h2 class="kst-section-title">Key Ingredients & Composition</h2>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">TCA (Trichloroacetic Acid)</div>
+                <div class="kst-concentration-tag">35% Concentration</div>
+            </div>
+            <div class="kst-ingredient-description">
+                Provides deep exfoliating action for intensive skin renewal and whitening effects. The 35% concentration ensures powerful yet controlled peeling.
+            </div>
+        </div>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Retinol & Vitamin C</div>
+            </div>
+            <div class="kst-ingredient-description">
+                Powerful antioxidants that enhance skin brightening, reduce fine lines, and promote collagen synthesis for anti-aging benefits.
+            </div>
+        </div>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Vitamin B12</div>
+            </div>
+            <div class="kst-ingredient-description">
+                Aids in strong antioxidant protection and hormonal balance in the skin, contributing to both whitening and anti-aging effects.
+            </div>
+        </div>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">AHA/BHA/PHA Complex</div>
+            </div>
+            <div class="kst-ingredient-description">
+                Glycolic Acid, Citric Acid, Lactic Acid (AHA); Salicylic Acid (BHA); Gluconic Acid, Mandelic Acid (PHA) - ensures multi-level gentle resurfacing for comprehensive exfoliation.
+            </div>
+        </div>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Amino Acids & Regeneration Factors</div>
+            </div>
+            <div class="kst-ingredient-description">
+                Proline, Glycine, Arginine, Sodium DNA (related to PN/PDRN) - support dermal regeneration, structural repair, and maximize collagen production.
+            </div>
+        </div>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Nourishing & Barrier Protection</div>
+            </div>
+            <div class="kst-ingredient-description">
+                Squalene Oil, Bixa Orellana Seed Oil, Peptides - provide skin nourishment, moisture barrier formation, and enhanced skin protection during the peeling process.
+            </div>
+        </div>
+    </div>
+
+    <!-- Ingredients Image -->
+    <div class="kst-image-block">
+        <img src="" alt="Ingredients and Mechanism of Action">
+    </div>
+
+    <!-- Expected Efficacy -->
+    <div class="kst-section">
+        <div class="kst-section-label">Benefits</div>
+        <h2 class="kst-section-title">Expected Efficacy</h2>
+        
+        <div class="kst-benefits-list">
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">1</div>
+                <div class="kst-benefit-title">Intense Whitening & Pigmentation Correction</div>
+                <div class="kst-benefit-description">
+                    Significant lightening of dark spots, pigmentation, and post-acne marks (PIH) for a more even, radiant complexion.
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">2</div>
+                <div class="kst-benefit-title">Advanced Skin Renewal</div>
+                <div class="kst-benefit-description">
+                    Promotes the peeling and removal of dead skin cells, improving overall complexion and tone while revealing fresh, healthy skin.
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">3</div>
+                <div class="kst-benefit-title">Collagen & Keratin Stimulation</div>
+                <div class="kst-benefit-description">
+                    Enriched with Proline and Glycine to increase collagen and keratin content, leading to improved skin elasticity and firmness.
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">4</div>
+                <div class="kst-benefit-title">Pore Refinement</div>
+                <div class="kst-benefit-description">
+                    Narrows enlarged pores and improves overall skin texture for a smoother, more refined appearance.
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">5</div>
+                <div class="kst-benefit-title">Multi-Area Treatment</div>
+                <div class="kst-benefit-description">
+                    Effective for renewal on the face, neck, chest, and localized body areas like hands and elbows for comprehensive skin improvement.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Efficacy Image -->
+    <div class="kst-image-block">
+        <img src="" alt="Efficacy Summary Infographics">
+    </div>
+
+    <!-- Treatment Protocol -->
+    <div class="kst-section">
+        <div class="kst-section-label">Application Guide</div>
+        <h2 class="kst-section-title">Usage Protocol (Treatment Guide)</h2>
+        
+        <div class="kst-info-grid">
+            <div class="kst-info-card">
+                <div class="kst-info-label">Recommended Cycle</div>
+                <div class="kst-info-value">4-6 sessions, every 7-12 days (1-2 week intervals)</div>
+            </div>
+            
+            <div class="kst-info-card">
+                <div class="kst-info-label">Treatment Areas</div>
+                <div class="kst-info-value">Face, Neck, Décolleté, Hands, Elbows, Groin, Stretch Mark Areas</div>
+            </div>
+        </div>
+        
+        <div class="kst-protocol-steps">
+            <div class="kst-protocol-step">
+                <div class="kst-step-number">1</div>
+                <div class="kst-step-content">
+                    <div class="kst-step-title">Preparation</div>
+                    <div class="kst-step-description">
+                        Remove the cap and shake the vial thoroughly for a few seconds until the two layers fully mix into a temporary emulsion, often indicated by a color change (e.g., to temporary green/yellow).
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-protocol-step">
+                <div class="kst-step-number">2</div>
+                <div class="kst-step-content">
+                    <div class="kst-step-title">Extraction</div>
+                    <div class="kst-step-description">
+                        Using a syringe (e.g., 17G or 18G drawing needle), extract the required dosage (typically 1.5-3ml depending on the area).
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-protocol-step">
+                <div class="kst-step-number">3</div>
+                <div class="kst-step-content">
+                    <div class="kst-step-title">Application</div>
+                    <div class="kst-step-description">
+                        Apply the solution using nitrile gloves or a brush, massaging vigorously into the skin in circular motions, starting from the T-zone and moving to the U-zone. Avoid contact with the eyes.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-protocol-step">
+                <div class="kst-step-number">4</div>
+                <div class="kst-step-content">
+                    <div class="kst-step-title">Duration</div>
+                    <div class="kst-step-description">
+                        Allow the product to perform for a specific time based on the area (see treatment strategy table below).
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-protocol-step">
+                <div class="kst-step-number">5</div>
+                <div class="kst-step-content">
+                    <div class="kst-step-title">Removal</div>
+                    <div class="kst-step-description">
+                        Cleanse the area with a gauze or non-woven pad soaked in plain water.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-protocol-step">
+                <div class="kst-step-number">6</div>
+                <div class="kst-step-content">
+                    <div class="kst-step-title">Post-Care</div>
+                    <div class="kst-step-description">
+                        Follow immediately with a neutralizing or glutathione-based SPF 50+ product for optimal protection and results.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Treatment Steps Image -->
+    <div class="kst-image-block">
+        <img src="" alt="Treatment Steps and Application Technique">
+    </div>
+
+    <!-- Treatment Strategy Table -->
+    <div class="kst-section">
+        <div class="kst-section-label">Treatment Strategy</div>
+        <h2 class="kst-section-title">Area-Based Treatment Protocol</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-comparison-table">
+                <thead>
+                    <tr>
+                        <th>Target Area</th>
+                        <th>Key Ingredients</th>
+                        <th>Recommended Dosage</th>
+                        <th>Application Time</th>
+                        <th>Main Efficacy Focus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Face, Neck & Décolleté</td>
+                        <td>TCA 35%, AHA/BHA/PHA, Retinol, Vit C/B12, Proline</td>
+                        <td>1.5 - 2.5ml</td>
+                        <td>3 - 5 minutes</td>
+                        <td>Radiance, Fine Line Reduction, Pore Minimization</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>Body & Localized Areas</td>
+                        <td>TCA 35%, AHA/BHA/PHA, Retinol, Squalene, Glycine</td>
+                        <td>2 - 3ml</td>
+                        <td>5 - 10 minutes</td>
+                        <td>Pigmentation Lightening (Elbows/Groin), Stretch Mark Correction</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Who Should Use -->
+    <div class="kst-section">
+        <div class="kst-section-label">Suitability</div>
+        <h2 class="kst-section-title">Which Product Is Right for Me?</h2>
+        <p class="kst-ingredient-description">
+            The Soonsu Shining Peel is suitable for all skin types seeking overall rejuvenation, lightening of hyperpigmentation, and texture improvement. It is a TCA-based peel optimized by its biphasic formula to minimize downtime, offering a safe and effective solution for both the face and body.
+        </p>
+    </div>
+
+    <div class="kst-divider"></div>
+
+    <!-- Detailed Description -->
+    <div class="kst-section">
+        <div class="kst-section-label">In-Depth Analysis</div>
+        <h2 class="kst-section-title">Detailed Description of Soonsu Shining Peel</h2>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Ingredient Composition & Mechanism</div>
+            </div>
+            <div class="kst-ingredient-description">
+                The 35% TCA provides a deep exfoliating action, while the presence of the triple acid complex (AHA, BHA, PHA) ensures multi-level gentle resurfacing. Crucially, components like Vitamin B12, Arginine, and the Amino Acids (Proline, Glycine) support dermal regeneration and structural repair, maximizing collagen production and minimizing traditional peel irritation.
+            </div>
+        </div>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Usage Area & Versatility</div>
+            </div>
+            <div class="kst-ingredient-description">
+                Applicable to a wide range of areas including the full face, forehead, peri-oral region, neck, décolleté, hands, and areas prone to dark spots or stretch marks. This versatility makes it an ideal solution for comprehensive skin treatment.
+            </div>
+        </div>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Efficacy Summary</div>
+            </div>
+            <div class="kst-ingredient-description">
+                This peel effectively targets signs of photo-aging, dullness, and skin imperfections. The combination of peeling agents with skin-supporting ingredients ensures the result is a brighter, smoother, and firmer complexion, rather than simply harsh exfoliation. It is specifically formulated for cell activation and collagen synthesis.
+            </div>
+        </div>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Application Method & Best Practices</div>
+            </div>
+            <div class="kst-ingredient-description">
+                Requires immediate and thorough shaking before each use to ensure the biphasic formula is properly combined, activating its protective and renewing properties simultaneously. Consistent massage is key to achieving optimal, uniform absorption.
+            </div>
+        </div>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Advanced Protection Features</div>
+            </div>
+            <div class="kst-ingredient-description">
+                The inclusion of Vitamin C and Vitamin B12 aids in strong antioxidant protection and hormonal balance in the skin, contributing to both the whitening and anti-aging effects. The unique oil layer forms an oily moisture film, which stabilizes the peel's components and significantly reduces the likelihood of side reactions and excessive peeling.
+            </div>
+        </div>
+    </div>
+
+    <!-- Mechanism Image -->
+    <div class="kst-image-block">
+        <img src="" alt="Skin Cross-Section Mechanism">
+    </div>
+
+    <!-- Precautions & Storage -->
+    <div class="kst-section">
+        <div class="kst-section-label">Safety Information</div>
+        <h2 class="kst-section-title">Precautions & Storage</h2>
+        
+        <div class="kst-info-grid">
+            <div class="kst-info-card">
+                <div class="kst-info-label">Storage Temperature</div>
+                <div class="kst-info-value">Store in a cool, dry place between 5-25°C</div>
+            </div>
+            
+            <div class="kst-info-card">
+                <div class="kst-info-label">Handling</div>
+                <div class="kst-info-value">Shake thoroughly immediately before use to ensure the two phases are fully mixed. Use immediately after preparation.</div>
+            </div>
+            
+            <div class="kst-info-card">
+                <div class="kst-info-label">Professional Use</div>
+                <div class="kst-info-value">This product is intended for professional use only and should be administered by a certified specialist.</div>
+            </div>
+            
+            <div class="kst-info-card">
+                <div class="kst-info-label">Contraindications</div>
+                <div class="kst-info-value">Avoid contact with eyes and mucous membranes. Use of high-level SPF 50+ protection is mandatory after the procedure.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Storage Image -->
+    <div class="kst-image-block">
+        <img src="" alt="Precautions and Storage Methods">
+    </div>
+
+    <!-- Safety Warning -->
+    <div class="kst-safety-warning">
+        <div class="kst-warning-icon">!</div>
+        <div class="kst-warning-content">
+            <span class="kst-warning-title">Important Safety Information</span>
+            <p>
+                Professional use only. This product must be administered by a certified specialist with proper training in chemical peel procedures. Always shake the vial thoroughly before use to properly mix the biphasic formula. Avoid contact with eyes and mucous membranes. Mandatory use of SPF 50+ protection following treatment. Store according to specified conditions (5-25°C). Follow all safety protocols and emergency procedures. Contact professional support for any concerns or adverse reactions.
+            </p>
+        </div>
+    </div>
+
+    <div class="kst-divider"></div>
+
+    <!-- FAQ Section -->
+    <div class="kst-section">
+        <div class="kst-section-label">Support</div>
+        <h2 class="kst-section-title">Frequently Asked Questions</h2>
+        
+        <div class="kst-faq-section">
+            <div class="kst-faq-item">
+                <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    What makes Soonsu Shining Peel different from other TCA peels?
+                    <span class="kst-faq-toggle">+</span>
+                </button>
+                <div class="kst-faq-answer">
+                    The unique biphasic formulation combines an oil phase with a water phase, providing protective barrier formation while delivering powerful exfoliation. This innovative approach minimizes side effects and downtime compared to traditional TCA peels.
+                </div>
+            </div>
+            
+            <div class="kst-faq-item">
+                <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    How many treatment sessions are recommended?
+                    <span class="kst-faq-toggle">+</span>
+                </button>
+                <div class="kst-faq-answer">
+                    A complete treatment cycle consists of 4-6 sessions, with treatments spaced every 7-12 days (approximately 1-2 week intervals) for optimal results and skin recovery.
+                </div>
+            </div>
+            
+            <div class="kst-faq-item">
+                <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    Can it be used on body areas as well as the face?
+                    <span class="kst-faq-toggle">+</span>
+                </button>
+                <div class="kst-faq-answer">
+                    Yes, Soonsu Shining Peel is effective for multiple areas including face, neck, décolleté, hands, elbows, groin, and areas with stretch marks. Treatment time and dosage may vary depending on the area.
+                </div>
+            </div>
+            
+            <div class="kst-faq-item">
+                <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    What are the optimal storage and handling requirements?
+                    <span class="kst-faq-toggle">+</span>
+                </button>
+                <div class="kst-faq-answer">
+                    Store in a cool, dry place between 5-25°C, away from direct sunlight. Maintain original packaging integrity and avoid temperature fluctuations. Always shake thoroughly before use to properly mix the biphasic formula.
+                </div>
+            </div>
+            
+            <div class="kst-faq-item">
+                <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                    What professional training or certification is required?
+                    <span class="kst-faq-toggle">+</span>
+                </button>
+                <div class="kst-faq-answer">
+                    This product is intended for professional use only and should be administered by certified specialists with proper training in chemical peel procedures and skin treatment protocols.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="kst-divider"></div>
+
+    <!-- Summary -->
+    <div class="kst-summary-section">
+        <h3 class="kst-summary-title">Professional Excellence in Skin Renewal</h3>
+        <p class="kst-summary-text">
+            Soonsu Shining Peel represents the pinnacle of advanced chemical peeling technology, delivering consistent professional-grade results through its innovative biphasic formulation. Combining powerful 35% TCA with protective oil-phase ingredients and comprehensive skin-supporting factors, it provides safe, effective treatment for whitening, pigmentation correction, and overall skin rejuvenation. Backed by proven methodology and quality manufacturing standards, Soonsu Shining Peel offers reliable performance for both facial and body treatments with minimized downtime and enhanced patient satisfaction.
+        </p>
+    </div>
+    
+</div>
+
+<script>
+    function kstToggleFAQ(element) {
+        const faqItem = element.parentElement;
+        const isOpen = faqItem.classList.contains('kst-open');
+        
+        document.querySelectorAll('.kst-faq-item').forEach(item => {
+            item.classList.remove('kst-open');
+        });
+        
+        if (!isOpen) {
+            faqItem.classList.add('kst-open');
+        }
+    }
+</script>

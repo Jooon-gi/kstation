@@ -1,0 +1,920 @@
+<style>
+  /* =========================================
+   SELATOX 10 - Shopify Product Description
+   Mobile-Only Layout (Max 760px)
+  ========================================== */
+
+  /* Base Reset with kst- prefix */
+  .kst-main-container *, 
+  .kst-main-container *::before, 
+  .kst-main-container *::after { 
+    box-sizing: border-box !important; 
+  }
+  
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--kst-text) !important;
+    line-height: 1.6;
+    background: var(--kst-background);
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* Image Auto-Hide Feature */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-main-container img, 
+  .kst-main-container video { 
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    object-fit: cover;
+  }
+  
+  /* =========================================
+   Color Variables - Custom Palette
+  ========================================== */
+  .kst-main-container {
+    --kst-primary: #f26c27;
+    --kst-secondary: #4c4c4c;
+    --kst-text: #1f1f1f;
+    --kst-text-muted: #4c4c4c;
+    --kst-border: #e8e8e8;
+    --kst-background: #ffffff;
+    --kst-card-bg: #ffffff;
+    --kst-badge-bg: #f26c27;
+    --kst-badge-text: #ffffff;
+    --kst-badge-hover: #c94f17;
+    --kst-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --kst-gradient: linear-gradient(135deg, #f26c27, #ff8547);
+  }
+
+  /* =========================================
+   Container & Layout
+  ========================================== */
+  .kst-container {
+    padding: 14px 12px;
+  }
+
+  /* =========================================
+   Section Styles
+  ========================================== */
+  .kst-section {
+    position: relative;
+    background: var(--kst-card-bg);
+    border: 1px solid var(--kst-border);
+    padding: 20px 16px;
+    margin: 14px 8px;
+    box-shadow: var(--kst-shadow);
+    overflow: hidden;
+  }
+
+  .kst-section::before {
+    content: "";
+    position: absolute; 
+    inset: -1px -1px auto -1px; 
+    height: 3px;
+    background: var(--kst-gradient);
+    opacity: .8;
+  }
+
+  .kst-section-title {
+    margin: 0 0 14px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: .3px;
+    color: var(--kst-text) !important;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .kst-section-title::after {
+    content: "";
+    height: 10px; 
+    width: 36px;
+    background: var(--kst-primary);
+    filter: blur(8px);
+    opacity: .5;
+  }
+
+  .kst-section-sub { 
+    margin: 0 0 14px; 
+    color: var(--kst-text-muted) !important; 
+    font-size: .9rem; 
+  }
+  
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: var(--kst-card-bg);
+    border: 1px solid var(--kst-border);
+    padding: 22px 16px;
+    position: relative; 
+    overflow: hidden;
+    margin: 12px 8px;
+    box-shadow: var(--kst-shadow);
+  }
+
+  .kst-hero::before {
+    content: "";
+    position: absolute; 
+    inset: -20% -10% auto auto; 
+    width: 280px; 
+    height: 280px;
+    background: radial-gradient(circle, rgba(242,108,39,.15), transparent);
+    filter: blur(30px); 
+    opacity: .6;
+    animation: kst-float 15s ease-in-out infinite;
+  }
+
+  @keyframes kst-float {
+    0%, 100% { transform: translate(0,0); }
+    50% { transform: translate(-10px, 8px); }
+  }
+
+  .kst-labels { 
+    display: flex; 
+    gap: 6px; 
+    flex-wrap: wrap; 
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-badge {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 4px;
+    padding: 7px 12px;
+    background: var(--kst-badge-bg);
+    border: 1px solid var(--kst-badge-hover);
+    color: var(--kst-badge-text) !important; 
+    font-size: .75rem; 
+    font-weight: 600;
+    letter-spacing: .3px;
+    transition: all .2s ease;
+  }
+
+  .kst-badge:hover { 
+    background: var(--kst-badge-hover);
+    transform: translateY(-1px);
+  }
+
+  .kst-hero-title {
+    margin: 0 0 10px;
+    font-weight: 700;
+    font-size: 1.9rem;
+    letter-spacing: .2px;
+    color: var(--kst-text) !important;
+    position: relative;
+    z-index: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .kst-hero-spec {
+    margin: -6px 0 16px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: .1px;
+    color: var(--kst-primary) !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-hero p { 
+    margin: 0 0 12px; 
+    color: var(--kst-text-muted) !important; 
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-highlight {
+    border: 1px solid var(--kst-primary);
+    background: rgba(242,108,39,.05);
+    padding: 12px 14px; 
+    color: var(--kst-text) !important;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+    border-left: 4px solid var(--kst-primary);
+  }
+
+  /* =========================================
+   Cards & Lists
+  ========================================== */
+  .kst-grid { 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+  }
+
+  .kst-card {
+    background: var(--kst-card-bg); 
+    border: 1px solid var(--kst-border); 
+    padding: 16px; 
+    box-shadow: var(--kst-shadow); 
+    transition: transform .2s ease, box-shadow .2s ease; 
+    margin: 0 8px;
+  }
+
+  .kst-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+
+  .kst-card h3, .kst-card h4 {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--kst-text) !important;
+    font-size: 1.05rem;
+  }
+
+  .kst-card p {
+    margin: 8px 0;
+    color: var(--kst-text-muted) !important;
+    font-size: .95rem;
+  }
+
+  .kst-card ul, .kst-card ol {
+    margin: 8px 0;
+    padding-left: 20px;
+  }
+
+  .kst-card ul li, .kst-card ol li {
+    margin: 6px 0;
+    color: var(--kst-text-muted) !important;
+    line-height: 1.6;
+  }
+
+  .kst-card ul li strong, .kst-card ol li strong {
+    color: var(--kst-text) !important;
+  }
+
+  /* =========================================
+   Definition Lists
+  ========================================== */
+  .kst-def-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .kst-def-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 12px;
+    background: rgba(242,108,39,.03);
+    border-left: 3px solid var(--kst-primary);
+  }
+
+  .kst-def-term {
+    font-weight: 600;
+    color: var(--kst-text) !important;
+    font-size: .95rem;
+  }
+
+  .kst-def-desc {
+    color: var(--kst-text-muted) !important;
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+
+  /* =========================================
+   Step Process
+  ========================================== */
+  .kst-process {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .kst-step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .kst-num {
+    min-width: 28px;
+    height: 28px;
+    background: var(--kst-primary);
+    color: var(--kst-badge-text) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .85rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .kst-step > div {
+    flex: 1;
+  }
+
+  .kst-step strong {
+    color: var(--kst-text) !important;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .kst-muted {
+    color: var(--kst-text-muted) !important;
+    font-size: .9rem;
+  }
+
+  /* =========================================
+   Split Layout
+  ========================================== */
+  .kst-split {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* =========================================
+   Tables
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 14px 0;
+    border: 1px solid var(--kst-border);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-primary);
+    border-radius: 4px;
+  }
+
+  .kst-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    font-size: .9rem;
+  }
+
+  .kst-table thead {
+    background: rgba(242,108,39,.08);
+  }
+
+  .kst-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--kst-text) !important;
+    border-bottom: 2px solid var(--kst-primary);
+    white-space: nowrap;
+  }
+
+  .kst-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--kst-border);
+    color: var(--kst-text-muted) !important;
+  }
+
+  .kst-table tbody tr:hover {
+    background: rgba(242,108,39,.03);
+  }
+
+  /* =========================================
+   Label-Value Pairs
+  ========================================== */
+  .kst-label-value {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 0;
+  }
+
+  .kst-label {
+    font-weight: 600;
+    color: var(--kst-text) !important;
+    font-size: .95rem;
+  }
+
+  .kst-label-value > div:not(.kst-label) {
+    color: var(--kst-text-muted) !important;
+    font-size: .9rem;
+  }
+
+  /* =========================================
+   Callout / Warning Box
+  ========================================== */
+  .kst-callout {
+    background: rgba(242,108,39,.08);
+    border: 1px solid var(--kst-primary);
+    border-left: 4px solid var(--kst-primary);
+    padding: 14px 16px;
+    margin: 14px 0;
+    color: var(--kst-text) !important;
+  }
+
+  .kst-callout strong {
+    color: var(--kst-primary) !important;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* =========================================
+   Image Blocks
+  ========================================== */
+  .kst-image-block {
+    width: 100%;
+    min-height: 180px;
+    background: rgba(232,232,232,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--kst-text-muted) !important;
+    font-size: .85rem;
+    margin: 14px 0;
+    border: 1px dashed var(--kst-border);
+  }
+
+  .kst-chart-block {
+    width: 100%;
+    min-height: 200px;
+    background: rgba(232,232,232,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--kst-text-muted) !important;
+    font-size: .85rem;
+    margin: 14px 0;
+    border: 1px dashed var(--kst-border);
+  }
+
+  /* =========================================
+   FAQ Accordion
+  ========================================== */
+  .kst-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .kst-ac-item {
+    border: 1px solid var(--kst-border);
+    background: var(--kst-card-bg);
+    overflow: hidden;
+  }
+
+  .kst-ac-button {
+    width: 100%;
+    padding: 14px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-weight: 600;
+    color: var(--kst-text) !important;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .95rem;
+  }
+
+  .kst-ac-button:hover {
+    background: rgba(242,108,39,.05);
+  }
+
+  .kst-ac-button span {
+    color: var(--kst-primary) !important;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .kst-ac-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    padding: 0 16px;
+    color: var(--kst-text-muted) !important;
+    font-size: .9rem;
+  }
+
+  .kst-ac-panel.kst-show {
+    max-height: 500px;
+    padding: 14px 16px;
+    border-top: 1px solid var(--kst-border);
+  }
+
+  /* =========================================
+   Footer
+  ========================================== */
+  .kst-footer {
+    background: rgba(232,232,232,.3);
+    padding: 20px 16px;
+    margin: 20px 8px 0;
+    border-top: 2px solid var(--kst-primary);
+  }
+</style>
+
+<div class="kst-main-container">
+  <div class="kst-container">
+    
+    <!-- Hero Section -->
+    <section class="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge">Skin Booster</span>
+        <span class="kst-badge">Mesotherapy</span>
+        <span class="kst-badge">Acetyl Hexapeptide-8</span>
+        <span class="kst-badge">5 Vials × 5ml</span>
+      </div>
+      
+      <h1 class="kst-hero-title">SELATOX 10 Skin Booster</h1>
+      <div class="kst-hero-spec">Advanced Peptide-Based Rejuvenation System</div>
+      
+      <p>SELATOX 10 is a professional-grade skin booster formulated with Acetyl Hexapeptide-8 (Botox-peptide) for non-invasive wrinkle reduction and skin revitalization. This comprehensive anti-aging solution combines powerful peptides, growth factors, and moisturizing agents to deliver lifting, firming, and brightening effects.</p>
+      
+      <div class="kst-highlight">
+        <strong>Package Contents:</strong> 5 vials × 5ml each (25ml total volume)
+      </div>
+
+      <div class="kst-image-block">[Product Package Image]</div>
+    </section>
+
+    <!-- Key Ingredients -->
+    <section class="kst-section" id="kst-ingredients">
+      <h2 class="kst-section-title">Key Ingredients & Composition</h2>
+      
+      <div class="kst-def-list">
+        <div class="kst-def-item">
+          <div class="kst-def-term">Acetyl Hexapeptide-8 (Botox-peptide)</div>
+          <div class="kst-def-desc">Primary active ingredient that inhibits muscle contractions, providing a non-toxic, Botox-like anti-wrinkle effect by intercepting nerve-to-muscle signals.</div>
+        </div>
+        
+        <div class="kst-def-item">
+          <div class="kst-def-term">Peptide Complex</div>
+          <div class="kst-def-desc">Palmitoyl Tetrapeptide-7 and Dipeptide work synergistically to support collagen synthesis and improve skin elasticity.</div>
+        </div>
+        
+        <div class="kst-def-item">
+          <div class="kst-def-term">Growth Factors</div>
+          <div class="kst-def-desc">EGF (Epidermal Growth Factor) and IGF1 promote cellular regeneration and tissue repair for long-term anti-aging benefits.</div>
+        </div>
+        
+        <div class="kst-def-item">
+          <div class="kst-def-term">Adenosine</div>
+          <div class="kst-def-desc">Functional ingredient that enhances skin elasticity and reduces the appearance of wrinkles.</div>
+        </div>
+        
+        <div class="kst-def-item">
+          <div class="kst-def-term">Arbutin</div>
+          <div class="kst-def-desc">Brightening agent that reduces hyperpigmentation and evens out skin tone.</div>
+        </div>
+        
+        <div class="kst-def-item">
+          <div class="kst-def-term">Hyaluronic Acid (HA)</div>
+          <div class="kst-def-desc">Provides deep hydration and strengthens the skin's natural barrier function.</div>
+        </div>
+        
+        <div class="kst-def-item">
+          <div class="kst-def-term">Additional Components</div>
+          <div class="kst-def-desc">Arginine, Glycerin, Butylene Glycol, DNA 0.2% (per 1ml), B Vitamins Complex, and Vitamins C/D/E for comprehensive skin support.</div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">[Ingredient Mechanism Diagram]</div>
+    </section>
+
+    <!-- Expected Efficacy -->
+    <section class="kst-section" id="kst-efficacy">
+      <h2 class="kst-section-title">Expected Efficacy & Benefits</h2>
+      
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Wrinkle Reduction & Prevention</h4>
+          <p>Acetyl Hexapeptide-8 inhibits muscle contractions to provide a non-toxic, Botox-like effect, reducing fine lines and expression wrinkles while preventing new wrinkle formation.</p>
+        </div>
+        
+        <div class="kst-card">
+          <h4>Skin Tightening & Lifting</h4>
+          <p>Firms the skin and improves overall elasticity, delivering a visible lifting effect for a more youthful contour.</p>
+        </div>
+        
+        <div class="kst-card">
+          <h4>Collagen & Elastin Stimulation</h4>
+          <p>Supports natural production of structural proteins for long-lasting anti-aging benefits and improved skin resilience.</p>
+        </div>
+        
+        <div class="kst-card">
+          <h4>Complexion Improvement</h4>
+          <p>Brightens skin tone, reduces enlarged pores, and minimizes black spots and hyperpigmentation for a more radiant appearance.</p>
+        </div>
+        
+        <div class="kst-card">
+          <h4>Deep Moisturization</h4>
+          <p>Hydrates the skin at multiple levels, strengthening the natural protective barrier function and maintaining optimal moisture balance.</p>
+        </div>
+      </div>
+
+      <div class="kst-image-block">[Before/After Comparison or Efficacy Chart]</div>
+    </section>
+
+    <!-- Mechanism of Action -->
+    <section class="kst-section" id="kst-mechanism">
+      <h2 class="kst-section-title">How SELATOX 10 Works</h2>
+      
+      <div class="kst-card">
+        <h4>Acetyl Hexapeptide-8 Action Mechanism</h4>
+        <p>The primary mechanism is attributed to Acetyl Hexapeptide-8, which intercepts the nerve-to-muscle signal transmission. This leads to controlled muscle relaxation, resulting in a significant reduction of expression wrinkles without compromising natural facial movement.</p>
+      </div>
+
+      <div class="kst-image-block">[Mechanism of Acetyl Hexapeptide-8 Action Diagram]</div>
+
+      <div class="kst-card">
+        <h4>Cumulative Benefits</h4>
+        <p>This peptide-based booster offers long-term cumulative benefits through:
+        <ul>
+          <li>Promoting cellular regeneration and renewal</li>
+          <li>Stimulating collagen and elastin production</li>
+          <li>Enhancing skin's natural repair mechanisms</li>
+          <li>Improving overall skin quality with consistent use</li>
+        </ul>
+        </p>
+      </div>
+    </section>
+
+    <!-- Treatment Protocol -->
+    <section class="kst-section" id="kst-protocol">
+      <h2 class="kst-section-title">Usage Protocol & Treatment Guide</h2>
+      
+      <div class="kst-callout">
+        <strong>Recommended Treatment Cycle</strong>
+        3-5 sessions at 1-2 week intervals for optimal results
+      </div>
+
+      <div class="kst-card">
+        <h4>Treatment Areas</h4>
+        <ul>
+          <li><strong>Face:</strong> Entire facial area including forehead, around eyes, nasolabial folds</li>
+          <li><strong>Neck:</strong> Front and sides of the neck</li>
+          <li><strong>Décolleté:</strong> Chest area for comprehensive rejuvenation</li>
+          <li><strong>Hands:</strong> Back of hands for anti-aging treatment</li>
+        </ul>
+      </div>
+
+      <h3 style="margin: 20px 0 12px; color: var(--kst-text) !important; font-weight: 600;">Application Methods</h3>
+
+      <div class="kst-split">
+        <div class="kst-card">
+          <h4>Professional Injection (Mesotherapy)</h4>
+          <ul>
+            <li><strong>Dosage:</strong> 0.1ml per injection point</li>
+            <li><strong>Spacing:</strong> Approximately 1cm between points</li>
+            <li><strong>Technique:</strong> Intradermal or subdermal injection</li>
+            <li><strong>Note:</strong> Professional use only by trained specialists</li>
+          </ul>
+        </div>
+        
+        <div class="kst-card">
+          <h4>Microneedling Application (MTS)</h4>
+          <ul>
+            <li><strong>Devices:</strong> Hydra Stamp, Hydra Roller, Dr. Pen, or nano-needling machines</li>
+            <li><strong>Method:</strong> Apply thin layer to clean skin, then use device until absorbed</li>
+            <li><strong>Preparation:</strong> Ensure treatment area is thoroughly cleaned and disinfected</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kst-card">
+        <h4>Treatment Protocol Notes</h4>
+        <ul>
+          <li>Shake the vial well before use</li>
+          <li>Use one 5ml vial per treatment session</li>
+          <li>Ensure proper sterile technique throughout application</li>
+          <li>Professional application by trained cosmetologists, aestheticians, or doctors recommended</li>
+        </ul>
+      </div>
+
+      <div class="kst-image-block">[Recommended Treatment Cycle & Dosage Chart]</div>
+      <div class="kst-image-block">[Application Method Visual Guide]</div>
+    </section>
+
+    <!-- Product Specifications -->
+    <section class="kst-section" id="kst-specs">
+      <h2 class="kst-section-title">Product Specifications</h2>
+      
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Product Specifications">
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Product Name</td>
+              <td>SELATOX 10 Skin Booster (Meso)</td>
+            </tr>
+            <tr>
+              <td>Package Contents</td>
+              <td>5 vials × 5ml each (25ml total)</td>
+            </tr>
+            <tr>
+              <td>Formulation</td>
+              <td>Liquid serum/ampoule in glass vials</td>
+            </tr>
+            <tr>
+              <td>Primary Active</td>
+              <td>Acetyl Hexapeptide-8 (Botox-peptide)</td>
+            </tr>
+            <tr>
+              <td>Target Skin Type</td>
+              <td>All skin types, particularly aging skin</td>
+            </tr>
+            <tr>
+              <td>Application Type</td>
+              <td>Professional injection or microneedling</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-label-value">
+          <div class="kst-label">Storage Conditions</div>
+          <div>
+            <strong>Before Opening:</strong> Store at 2-28°C (35.6-82.4°F) in a cool, dry place. Protect from direct sunlight.<br><br>
+            <strong>After Opening:</strong> Refrigerate at 1-5°C (33.8-41°F) and use within 3 months. Professional protocols often recommend using entire vial per treatment for optimal sterility.
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">[Storage & Handling Guidelines Image]</div>
+    </section>
+
+    <!-- Precautions & Safety -->
+    <section class="kst-section" id="kst-safety">
+      <h2 class="kst-section-title">Precautions & Safety Information</h2>
+      
+      <div class="kst-callout">
+        <strong>Professional Use Only</strong>
+        This product is intended for use by trained specialists including cosmetologists, aestheticians, or medical doctors.
+      </div>
+
+      <div class="kst-split">
+        <div class="kst-card">
+          <h4>General Precautions</h4>
+          <ul>
+            <li>Ensure treatment area is thoroughly cleaned and disinfected before application</li>
+            <li>Do not apply excessive force or pressure to the product vial</li>
+            <li>Consult a healthcare professional for proper application techniques</li>
+            <li>Perform patch test if client has sensitive skin</li>
+            <li>Do not use if vial is damaged or seal is broken</li>
+          </ul>
+        </div>
+        
+        <div class="kst-card">
+          <h4>Storage & Handling</h4>
+          <ul>
+            <li>Store unopened product at 2-28°C</li>
+            <li>Avoid heating or freezing the product</li>
+            <li>Protect from direct sunlight and extreme temperatures</li>
+            <li>After opening, refrigerate at 1-5°C</li>
+            <li>Use within 3 months after opening</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kst-image-block">[Precautions and Storage Methods Infographic]</div>
+    </section>
+
+    <!-- Product Comparison -->
+    <section class="kst-section" id="kst-comparison">
+      <h2 class="kst-section-title">Product Positioning</h2>
+      
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Product Comparison">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Key Ingredients</th>
+              <th>Treatment Areas</th>
+              <th>Skin Type</th>
+              <th>Main Efficacy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>SELATOX 10</strong></td>
+              <td>Acetyl Hexapeptide-8, Peptides, Adenosine, Arbutin</td>
+              <td>Face, Neck, Décolleté, Hands</td>
+              <td>All types, especially aging skin</td>
+              <td>Wrinkle reduction, lifting, tightening, collagen support, brightening</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-card">
+        <h4>Who Is SELATOX 10 Right For?</h4>
+        <p>SELATOX 10 is designed for individuals seeking a powerful, non-invasive anti-aging solution that targets both existing fine lines and wrinkles while maintaining youthful skin elasticity and tone. It is particularly suitable for those looking for a "Botox-like" effect without injections of Botulinum Toxin.</p>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="kst-section" id="kst-faq">
+      <h2 class="kst-section-title">Frequently Asked Questions</h2>
+      
+      <div class="kst-accordion" role="tablist">
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac1" aria-expanded="false">
+            How does SELATOX 10 differ from Botox injections? <span>＋</span>
+          </button>
+          <div id="kst-ac1" class="kst-ac-panel">SELATOX 10 contains Acetyl Hexapeptide-8, a peptide that mimics Botox effects by inhibiting muscle contractions at the surface level. Unlike Botulinum Toxin injections, SELATOX 10 is applied topically or via mesotherapy and provides a non-toxic alternative with cumulative benefits through repeated treatments.</div>
+        </div>
+        
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac2" aria-expanded="false">
+            How many treatment sessions are recommended? <span>＋</span>
+          </button>
+          <div id="kst-ac2" class="kst-ac-panel">A course of 3-5 sessions at 1-2 week intervals is commonly recommended for optimal results. Results are cumulative, with improvements in skin quality becoming more noticeable with each session.</div>
+        </div>
+        
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac3" aria-expanded="false">
+            Can SELATOX 10 be used with other treatments? <span>＋</span>
+          </button>
+          <div id="kst-ac3" class="kst-ac-panel">Yes, SELATOX 10 can be incorporated into comprehensive skincare protocols. However, consult with a trained professional to determine the best combination and timing of treatments for your specific skin needs.</div>
+        </div>
+        
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac4" aria-expanded="false">
+            What is the shelf life after opening a vial? <span>＋</span>
+          </button>
+          <div id="kst-ac4" class="kst-ac-panel">After opening, the product should be refrigerated at 1-5°C and used within 3 months. However, many professional protocols recommend using the entire 5ml vial per treatment session to ensure sterility and optimal efficacy.</div>
+        </div>
+        
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac5" aria-expanded="false">
+            Is SELATOX 10 suitable for all skin types? <span>＋</span>
+          </button>
+          <div id="kst-ac5" class="kst-ac-panel">Yes, SELATOX 10 is formulated for all skin types, particularly those showing signs of aging such as fine lines, wrinkles, loss of elasticity, and uneven skin tone. A patch test is recommended for individuals with very sensitive skin.</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="kst-footer">
+    <div class="kst-label-value">
+      <div class="kst-label">Professional Use Product</div>
+      <div>SELATOX 10 is intended for professional use by trained specialists. For more information or training inquiries, please contact your authorized distributor.</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // FAQ Accordion functionality
+  (function() {
+    const buttons = document.querySelectorAll('.kst-ac-button');
+    
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const item = btn.closest('.kst-ac-item');
+        const panel = item.querySelector('.kst-ac-panel');
+        const isOpen = item.getAttribute('aria-expanded') === 'true';
+        
+        // Close all other panels
+        document.querySelectorAll('.kst-ac-item').forEach(function(otherItem) {
+          if (otherItem !== item) {
+            otherItem.setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.kst-ac-button').setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.kst-ac-panel').classList.remove('kst-show');
+            otherItem.querySelector('.kst-ac-button span').textContent = '＋';
+          }
+        });
+        
+        // Toggle current panel
+        item.setAttribute('aria-expanded', String(!isOpen));
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        panel.classList.toggle('kst-show');
+        btn.querySelector('span').textContent = isOpen ? '＋' : '−';
+      });
+    });
+  })();
+</script>

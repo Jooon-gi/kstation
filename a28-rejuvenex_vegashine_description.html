@@ -1,0 +1,771 @@
+<style>
+    /* Reset and base styles with kst- prefix */
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', 'Helvetica Neue', sans-serif;
+        background: #ffffff;
+        color: #1f1f1f;
+        padding: 16px;
+        line-height: 1.5;
+        overflow-x: hidden;
+    }
+    
+    /* CSS Variables for Color Palette */
+    :root {
+        --kst-color-main: #d32f5a;
+        --kst-color-sub: #24356b;
+        --kst-color-text: #1f1f1f;
+        --kst-color-secondary: #e3d8df;
+        --kst-color-bg: #ffffff;
+        --kst-color-badge: #d32f5a;
+        --kst-color-badge-text: #ffffff;
+        --kst-color-badge-hover: #24356b;
+    }
+    
+    /* Brand Header */
+    .kst-brand-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .kst-brand-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin-bottom: 20px;
+    }
+    
+    .kst-logo-element {
+        width: 32px;
+        height: 10px;
+        border-radius: 2px;
+    }
+    
+    .kst-logo-element:nth-child(1) { background: var(--kst-color-main); }
+    .kst-logo-element:nth-child(2) { background: var(--kst-color-sub); }
+    .kst-logo-element:nth-child(3) { background: var(--kst-color-secondary); }
+    
+    .kst-brand-name {
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--kst-color-text) !important;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-brand-tagline {
+        font-size: 12px;
+        color: var(--kst-color-sub) !important;
+        font-weight: 400;
+    }
+    
+    .kst-product-title {
+        font-size: 32px;
+        font-weight: 400;
+        color: var(--kst-color-text) !important;
+        text-align: center;
+        margin-bottom: 32px;
+        letter-spacing: -0.5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-spec {
+        font-size: 24px;
+        font-weight: 300;
+        color: var(--kst-color-sub) !important;
+        text-align: center;
+        margin-top: -28px;
+        margin-bottom: 40px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    /* Section styles */
+    .kst-section {
+        background: var(--kst-color-bg);
+        padding: 24px 16px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(211, 47, 90, 0.06);
+        margin-bottom: 16px;
+        border: 1px solid var(--kst-color-secondary);
+    }
+    
+    .kst-section-title {
+        font-size: 22px;
+        font-weight: 400;
+        color: var(--kst-color-text) !important;
+        text-align: center;
+        margin-bottom: 24px;
+        letter-spacing: -0.3px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    /* Image placeholders with auto-hide */
+    .kst-image-block,
+    .kst-chart-block,
+    .kst-visual-guide {
+        background: #faf9fa;
+        border: 2px dashed var(--kst-color-secondary);
+        padding: 24px 12px;
+        text-align: center;
+        border-radius: 6px;
+        color: #a0aec0;
+        font-size: 12px;
+        font-style: italic;
+        margin: 16px 0;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Auto-hide empty image containers */
+    .kst-image-block:not(:has(img)),
+    .kst-chart-block:not(:has(img)),
+    .kst-visual-guide:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block:has(img[src=""]),
+    .kst-chart-block:has(img[src=""]),
+    .kst-visual-guide:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-image-block img,
+    .kst-chart-block img,
+    .kst-visual-guide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    
+    /* Main showcase image */
+    .kst-main-showcase {
+        margin: 24px 0;
+        min-height: 200px;
+    }
+    
+    /* Component cards - single column layout */
+    .kst-components-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .kst-component-card {
+        background: var(--kst-color-bg);
+        padding: 20px 16px;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(211, 47, 90, 0.06);
+        transition: all 0.3s ease;
+        position: relative;
+        border: 1px solid var(--kst-color-secondary);
+        overflow: hidden;
+        word-wrap: break-word;
+    }
+    
+    .kst-component-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(211, 47, 90, 0.12);
+    }
+    
+    .kst-card-number {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        font-size: 20px;
+        font-weight: 300;
+        color: var(--kst-color-secondary);
+    }
+    
+    .kst-card-flag {
+        display: flex;
+        gap: 3px;
+        margin-bottom: 16px;
+    }
+    
+    .kst-flag-stripe {
+        height: 6px;
+        border-radius: 1px;
+    }
+    
+    .kst-card-flag.kst-primary .kst-flag-stripe:nth-child(1) { width: 16px; background: var(--kst-color-main); }
+    .kst-card-flag.kst-primary .kst-flag-stripe:nth-child(2) { width: 28px; background: #dd4d74; }
+    .kst-card-flag.kst-primary .kst-flag-stripe:nth-child(3) { width: 40px; background: #e76b8d; }
+    
+    .kst-card-flag.kst-secondary .kst-flag-stripe:nth-child(1) { width: 20px; background: var(--kst-color-sub); }
+    .kst-card-flag.kst-secondary .kst-flag-stripe:nth-child(2) { width: 32px; background: #3a4d8a; }
+    .kst-card-flag.kst-secondary .kst-flag-stripe:nth-child(3) { width: 24px; background: #5065a9; }
+    
+    .kst-card-title {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--kst-color-text) !important;
+        margin-bottom: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-card-content {
+        font-size: 14px;
+        color: var(--kst-color-text) !important;
+        line-height: 1.6;
+    }
+    
+    .kst-card-content ul,
+    .kst-card-content ol {
+        margin: 8px 0;
+        padding-left: 20px;
+    }
+    
+    .kst-card-content ul li,
+    .kst-card-content ol li {
+        margin: 6px 0;
+        color: var(--kst-color-text) !important;
+    }
+    
+    /* Badge styles */
+    .kst-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        background: var(--kst-color-badge);
+        color: var(--kst-color-badge-text) !important;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 500;
+        margin: 4px;
+        transition: all 0.3s ease;
+    }
+    
+    .kst-badge:hover {
+        background: var(--kst-color-badge-hover);
+    }
+    
+    .kst-chip-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0;
+    }
+    
+    /* Table styles */
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 16px 0;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: var(--kst-color-secondary);
+        border-radius: 4px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-color-main);
+        border-radius: 4px;
+    }
+    
+    .kst-data-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+        font-size: 13px;
+    }
+    
+    .kst-data-table thead th {
+        background: var(--kst-color-main);
+        color: var(--kst-color-badge-text) !important;
+        padding: 12px 8px;
+        text-align: left;
+        font-weight: 500;
+        white-space: nowrap;
+        border-bottom: 2px solid var(--kst-color-sub);
+    }
+    
+    .kst-data-table tbody td {
+        padding: 12px 8px;
+        border-bottom: 1px solid var(--kst-color-secondary);
+        color: var(--kst-color-text) !important;
+    }
+    
+    .kst-data-table tbody tr:hover {
+        background: #faf9fa;
+    }
+    
+    /* Definition list */
+    .kst-definition-list {
+        margin: 16px 0;
+    }
+    
+    .kst-definition-item {
+        display: flex;
+        flex-direction: column;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--kst-color-secondary);
+    }
+    
+    .kst-definition-item:last-child {
+        border-bottom: none;
+    }
+    
+    .kst-definition-term {
+        font-weight: 500;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 4px;
+        font-size: 14px;
+    }
+    
+    .kst-definition-desc {
+        color: var(--kst-color-text) !important;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    
+    /* List styles */
+    .kst-section ul,
+    .kst-section ol {
+        margin: 12px 0;
+        padding-left: 24px;
+    }
+    
+    .kst-section ul li,
+    .kst-section ol li {
+        margin: 8px 0;
+        color: var(--kst-color-text) !important;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    /* Utility margins */
+    .kst-mt-2 { margin-top: 16px; }
+    .kst-mt-3 { margin-top: 24px; }
+    .kst-mb-2 { margin-bottom: 16px; }
+    .kst-mb-3 { margin-bottom: 24px; }
+    
+    /* Safety warning box */
+    .kst-safety-warning {
+        background: #fff5f5;
+        border-left: 4px solid var(--kst-color-main);
+        padding: 16px;
+        margin: 24px 0;
+        border-radius: 6px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    
+    .kst-warning-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--kst-color-main);
+        color: var(--kst-color-badge-text) !important;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+    
+    .kst-warning-content {
+        flex: 1;
+    }
+    
+    .kst-warning-title {
+        font-weight: 600;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 6px;
+        font-size: 15px;
+    }
+    
+    .kst-warning-text {
+        color: var(--kst-color-text) !important;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    
+    /* Stats grid */
+    .kst-stats-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 16px 0;
+    }
+    
+    .kst-stat-card {
+        background: #faf9fa;
+        padding: 16px;
+        border-radius: 6px;
+        text-align: center;
+        border: 1px solid var(--kst-color-secondary);
+    }
+    
+    .kst-stat-value {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 6px;
+    }
+    
+    .kst-stat-label {
+        font-size: 13px;
+        color: var(--kst-color-sub) !important;
+        font-weight: 400;
+    }
+</style>
+
+<div class="kst-main-container">
+    <!-- Brand Header -->
+    <div class="kst-brand-header">
+        <div class="kst-brand-logo">
+            <div class="kst-logo-element"></div>
+            <div class="kst-logo-element"></div>
+            <div class="kst-logo-element"></div>
+        </div>
+        <h1 class="kst-brand-name">Rejuvenex</h1>
+        <p class="kst-brand-tagline">Premium Skin Booster Solutions</p>
+    </div>
+    
+    <!-- Product Title -->
+    <h2 class="kst-product-title">Rejuvenex Vegashine</h2>
+    <p class="kst-product-spec">2.5ml × 5 Vials</p>
+    
+    <!-- Main Product Image -->
+    <div class="kst-image-block kst-main-showcase">
+        [INSERT PRODUCT IMAGE]
+    </div>
+    
+    <!-- Product Overview -->
+    <div class="kst-section" id="kst-overview">
+        <h2 class="kst-section-title">Product Overview</h2>
+        <p style="font-size: 15px; color: var(--kst-color-text) !important; line-height: 1.7; margin-bottom: 16px; text-align: center;">
+            Rejuvenex Vegashine is a premium skin booster focused on deep hydration and radiance. This advanced formulation delivers intense moisture retention while supporting skin elasticity and promoting a luminous, healthy glow.
+        </p>
+        
+        <div class="kst-chip-container" style="justify-content: center;">
+            <span class="kst-badge">Deep Hydration</span>
+            <span class="kst-badge">Enhanced Radiance</span>
+            <span class="kst-badge">Improved Elasticity</span>
+            <span class="kst-badge">Barrier Support</span>
+        </div>
+    </div>
+    
+    <!-- Key Ingredients -->
+    <div class="kst-section" id="kst-ingredients">
+        <h2 class="kst-section-title">Key Ingredients & Formulation</h2>
+        
+        <div class="kst-components-grid">
+            <div class="kst-component-card">
+                <div class="kst-card-number">01</div>
+                <div class="kst-card-flag kst-primary">
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                </div>
+                <h3 class="kst-card-title">Non-Cross-Linked Hyaluronic Acid (HA)</h3>
+                <div class="kst-card-content">
+                    <p>High-quality Hyaluronic Acid that provides deep moisture retention and hydration at multiple skin layers. This non-cross-linked formulation ensures optimal absorption and natural integration with skin tissues.</p>
+                </div>
+            </div>
+            
+            <div class="kst-component-card">
+                <div class="kst-card-number">02</div>
+                <div class="kst-card-flag kst-secondary">
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                </div>
+                <h3 class="kst-card-title">Multi-Peptide Complex</h3>
+                <div class="kst-card-content">
+                    <p>Advanced peptide blend that supports collagen production and enhances skin elasticity. These bioactive peptides work synergistically to strengthen the skin's structural integrity and promote firmness.</p>
+                </div>
+            </div>
+            
+            <div class="kst-component-card">
+                <div class="kst-card-number">03</div>
+                <div class="kst-card-flag kst-primary">
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                </div>
+                <h3 class="kst-card-title">Vitamin Complex</h3>
+                <div class="kst-card-content">
+                    <p>Potent antioxidant vitamin blend that provides brightening effects and protection against environmental stressors. Supports overall skin health and radiance while promoting an even, luminous complexion.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [INSERT INGREDIENT COMPOSITION CHART]
+        </div>
+        
+        <div class="kst-mt-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Formulation Details</h4>
+            <div class="kst-definition-list">
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">Formulation Type</div>
+                    <div class="kst-definition-desc">Liquid solution</div>
+                </div>
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">Packaging</div>
+                    <div class="kst-definition-desc">Sterile glass vials (2.5ml each)</div>
+                </div>
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">Volume per Box</div>
+                    <div class="kst-definition-desc">2.5ml × 5 Vials</div>
+                </div>
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">Application Type</div>
+                    <div class="kst-definition-desc">Professional administration required</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Expected Efficacy -->
+    <div class="kst-section" id="kst-efficacy">
+        <h2 class="kst-section-title">Expected Efficacy</h2>
+        
+        <div class="kst-stats-grid">
+            <div class="kst-stat-card">
+                <div class="kst-stat-value">💧</div>
+                <div class="kst-stat-label">Intense Hydration</div>
+            </div>
+            
+            <div class="kst-stat-card">
+                <div class="kst-stat-value">✨</div>
+                <div class="kst-stat-label">Enhanced Radiance & Glow</div>
+            </div>
+            
+            <div class="kst-stat-card">
+                <div class="kst-stat-value">🎯</div>
+                <div class="kst-stat-label">Improved Elasticity & Firmness</div>
+            </div>
+            
+            <div class="kst-stat-card">
+                <div class="kst-stat-value">🛡️</div>
+                <div class="kst-stat-label">Skin Barrier Support</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [INSERT EFFICACY SUMMARY CHART]
+        </div>
+        
+        <div class="kst-mt-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Comprehensive Benefits</h4>
+            <ul>
+                <li><strong>Deep Moisture Replenishment:</strong> High-quality Hyaluronic Acid deeply replenishes skin moisture at multiple layers</li>
+                <li><strong>Luminous Complexion:</strong> Promotes a dewy, radiant glow for visibly healthier-looking skin</li>
+                <li><strong>Enhanced Firmness:</strong> Peptides and active ingredients support skin structure and elasticity</li>
+                <li><strong>Barrier Strengthening:</strong> Helps soothe and strengthen the skin barrier against external stressors</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Usage Protocol -->
+    <div class="kst-section" id="kst-usage">
+        <h2 class="kst-section-title">Usage Protocol & Treatment Guide</h2>
+        
+        <div class="kst-mb-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Recommended Treatment Cycle</h4>
+            <div class="kst-definition-list">
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">Initial Course</div>
+                    <div class="kst-definition-desc">3-4 sessions spaced 1-2 weeks apart</div>
+                </div>
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">Maintenance Sessions</div>
+                    <div class="kst-definition-desc">Every 2-3 months as needed</div>
+                </div>
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">Treatment Areas</div>
+                    <div class="kst-definition-desc">Entire face, neck, décolleté area, and back of hands</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [INSERT TREATMENT DEPTH AND TECHNIQUE GUIDE]
+        </div>
+        
+        <div class="kst-mt-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Application Methods</h4>
+            <p style="font-size: 14px; color: var(--kst-color-text) !important; line-height: 1.6; margin-bottom: 12px;">
+                <strong>Professional administration is required</strong> for optimal and safe results. Suitable application techniques include:
+            </p>
+            <ul>
+                <li><strong>Mesotherapy:</strong> Direct micro-injection technique for precise delivery</li>
+                <li><strong>Dermapen/MTS:</strong> Microneedle Therapy System for enhanced absorption</li>
+                <li><strong>Hydra-Facial:</strong> Advanced infusion technique</li>
+                <li><strong>Nano-needle Injection:</strong> For best results when applied by trained specialists</li>
+            </ul>
+        </div>
+        
+        <div class="kst-image-block">
+            [INSERT TREATMENT AREA FACIAL MAP]
+        </div>
+    </div>
+    
+    <!-- Treatment Strategy -->
+    <div class="kst-section" id="kst-strategy">
+        <h2 class="kst-section-title">Treatment Strategy Overview</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-data-table">
+                <thead>
+                    <tr>
+                        <th>Purpose Classification</th>
+                        <th>Key Ingredients</th>
+                        <th>Treatment Areas</th>
+                        <th>Skin Type</th>
+                        <th>Main Efficacy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Deep Hydration & Glow</strong></td>
+                        <td>Non-Cross-Linked HA, Multi-Peptide Complex, Vitamins</td>
+                        <td>Face, Neck, Décolleté</td>
+                        <td>All Skin Types (especially dry/dull)</td>
+                        <td>Radiance, deep moisture, elasticity boost</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-mt-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Which Product Is Right for Me?</h4>
+            <p style="font-size: 14px; color: var(--kst-color-text) !important; line-height: 1.6;">
+                Rejuvenex Vegashine is an excellent choice for individuals seeking an immediate <strong>boost in hydration and a noticeable, healthy glow</strong>, while simultaneously supporting long-term skin health and elasticity.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Detailed Product Description -->
+    <div class="kst-section" id="kst-detailed">
+        <h2 class="kst-section-title">Detailed Description</h2>
+        
+        <div class="kst-mb-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Ingredient Composition</h4>
+            <p style="font-size: 14px; color: var(--kst-color-text) !important; line-height: 1.6;">
+                Features a sophisticated blend of <strong>Non-Cross-Linked Hyaluronic Acid</strong> for optimal hydration, <strong>Peptides</strong> to stimulate collagen and elastin synthesis, and a comprehensive <strong>Vitamin complex</strong> for antioxidant protection and brightening effects.
+            </p>
+        </div>
+        
+        <div class="kst-mb-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Usage Area</h4>
+            <p style="font-size: 14px; color: var(--kst-color-text) !important; line-height: 1.6;">
+                Recommended for revitalization of the <strong>full facial area</strong> and any skin lacking luster and moisture. Particularly effective for addressing initial signs of aging related to dehydration and loss of firmness.
+            </p>
+        </div>
+        
+        <div class="kst-mb-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Efficacy Summary</h4>
+            <p style="font-size: 14px; color: var(--kst-color-text) !important; line-height: 1.6;">
+                Provides instant <strong>skin luminosity</strong> and works to smooth and refine skin texture over a course of treatments. The high concentration of moisturizing agents makes it ideal for preparation before special events or as a regular maintenance treatment for supple, radiant skin.
+            </p>
+        </div>
+        
+        <div class="kst-mb-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Application Method</h4>
+            <p style="font-size: 14px; color: var(--kst-color-text) !important; line-height: 1.6;">
+                For best results, commonly applied via <strong>nano-needle injection</strong> or <strong>mesotherapy gun</strong> by a trained specialist. Injection depth should be tailored to the specific treatment area and technique used.
+            </p>
+        </div>
+        
+        <div class="kst-mb-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Additional Information</h4>
+            <p style="font-size: 14px; color: var(--kst-color-text) !important; line-height: 1.6;">
+                The unique formulation aims to minimize downtime while maximizing the skin's regenerative response. Ideal for those seeking professional-grade skin revitalization with visible, lasting results.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Precautions & Storage -->
+    <div class="kst-safety-warning">
+        <div class="kst-warning-icon">!</div>
+        <div class="kst-warning-content">
+            <div class="kst-warning-title">Important Safety Information</div>
+            <div class="kst-warning-text">For professional use only. Please review all precautions and storage requirements before use.</div>
+        </div>
+    </div>
+    
+    <div class="kst-section" id="kst-precautions">
+        <h2 class="kst-section-title">Precautions & Storage</h2>
+        
+        <div class="kst-mb-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Storage Conditions</h4>
+            <div class="kst-definition-list">
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">Storage Temperature</div>
+                    <div class="kst-definition-desc">Store in a cool, dry place between 1°C and 30°C</div>
+                </div>
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">Light Exposure</div>
+                    <div class="kst-definition-desc">Avoid exposure to high temperatures or direct light</div>
+                </div>
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">After Opening</div>
+                    <div class="kst-definition-desc">Single-use only. Use immediately after opening the vial</div>
+                </div>
+                <div class="kst-definition-item">
+                    <div class="kst-definition-term">Disposal</div>
+                    <div class="kst-definition-desc">Any remaining solution in opened vial must be discarded immediately after procedure to maintain sterility</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-mb-3">
+            <h4 style="font-size: 16px; font-weight: 500; color: var(--kst-color-text) !important; margin-bottom: 12px;">Important Precautions</h4>
+            <ul>
+                <li><strong>Professional Use Only:</strong> This product must be administered by trained healthcare professionals</li>
+                <li><strong>Injection Safety:</strong> Do not inject into blood vessels</li>
+                <li><strong>Expected Reactions:</strong> Temporary redness, swelling, or bruising at the injection site may occur</li>
+                <li><strong>Sterility:</strong> Maintain strict sterile technique during application</li>
+                <li><strong>Individual Assessment:</strong> Conduct thorough client consultation and skin assessment before treatment</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Meta Keywords -->
+    <div class="kst-section" id="kst-keywords" style="background: #faf9fa; border: none; box-shadow: none;">
+        <h2 class="kst-section-title" style="font-size: 14px; color: var(--kst-color-sub) !important;">Product Keywords</h2>
+        <div class="kst-chip-container" style="justify-content: center;">
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Skin Booster</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Hyaluronic Acid</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Mesotherapy</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Glow</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Radiance</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Hydration</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Peptide</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Non-Cross-Linked HA</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Elasticity Enhancement</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Micro-needling</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Dermapen</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Vegashine</span>
+            <span class="kst-badge" style="background: transparent; color: var(--kst-color-sub) !important; border: 1px solid var(--kst-color-secondary);">Skin Revitalization</span>
+        </div>
+    </div>
+</div>

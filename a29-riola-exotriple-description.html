@@ -1,0 +1,717 @@
+<!-- Riola Exotriple Product Description for Shopify -->
+<style>
+  /* CSS Variables - Color Palette */
+  :root {
+    --kst-color-main: #b49be4;
+    --kst-color-sub: #8b6cc6;
+    --kst-color-text: #ffffff;
+    --kst-color-text-secondary: #d7c8f1;
+    --kst-color-bg: #f9f7fc;
+    --kst-color-badge-bg: #b49be4;
+    --kst-color-badge-text: #ffffff;
+    --kst-color-badge-hover: #8b6cc6;
+  }
+
+  /* Global Reset for Container */
+  .kst-main-container * {
+    box-sizing: border-box !important;
+  }
+
+  /* Main Container */
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333 !important;
+    background-color: var(--kst-color-bg);
+  }
+
+  /* Section Styling */
+  .kst-section {
+    padding: 20px 16px;
+    margin-bottom: 16px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(180, 155, 228, 0.1);
+  }
+
+  /* Section Title */
+  .kst-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--kst-color-sub) !important;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--kst-color-main);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-section-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--kst-color-main) !important;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Hero Section */
+  .kst-hero {
+    background: linear-gradient(135deg, var(--kst-color-main) 0%, var(--kst-color-sub) 100%);
+    padding: 32px 16px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .kst-hero-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--kst-color-text) !important;
+    margin-bottom: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-hero-subtitle {
+    font-size: 16px;
+    color: var(--kst-color-text-secondary) !important;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  /* Badge */
+  .kst-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: var(--kst-color-badge-bg);
+    color: var(--kst-color-badge-text) !important;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 4px;
+  }
+
+  /* Image Block */
+  .kst-image-block {
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-image-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Chart Block */
+  .kst-chart-block {
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--kst-color-bg);
+    padding: 12px;
+  }
+
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-chart-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Text Content */
+  .kst-text-content {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333 !important;
+    margin-bottom: 16px;
+  }
+
+  .kst-text-content p {
+    margin-bottom: 12px;
+    color: #333 !important;
+  }
+
+  .kst-text-content strong {
+    color: var(--kst-color-sub) !important;
+    font-weight: 600;
+  }
+
+  /* List Styling */
+  .kst-list {
+    margin: 16px 0;
+    padding-left: 20px;
+  }
+
+  .kst-list li {
+    margin-bottom: 12px;
+    color: #333 !important;
+    line-height: 1.6;
+  }
+
+  .kst-list li strong {
+    color: var(--kst-color-sub) !important;
+  }
+
+  /* Definition List */
+  .kst-definition-list {
+    margin: 16px 0;
+  }
+
+  .kst-definition-term {
+    font-weight: 700;
+    color: var(--kst-color-sub) !important;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .kst-definition-desc {
+    margin-left: 0;
+    margin-bottom: 12px;
+    color: #333 !important;
+    line-height: 1.6;
+  }
+
+  /* Card Component */
+  .kst-card {
+    background-color: var(--kst-color-bg);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--kst-color-main);
+  }
+
+  .kst-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--kst-color-sub) !important;
+    margin-bottom: 12px;
+  }
+
+  .kst-card-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333 !important;
+  }
+
+  .kst-card ul,
+  .kst-card ol {
+    padding-left: 20px;
+    margin: 8px 0;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li {
+    margin-bottom: 8px;
+    color: #333 !important;
+  }
+
+  /* Highlight Box */
+  .kst-highlight {
+    background: linear-gradient(135deg, rgba(180, 155, 228, 0.15) 0%, rgba(139, 108, 198, 0.15) 100%);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+    border: 2px solid var(--kst-color-main);
+  }
+
+  .kst-highlight-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--kst-color-sub) !important;
+    margin-bottom: 12px;
+  }
+
+  .kst-highlight-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333 !important;
+  }
+
+  /* Table Wrapper */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 0;
+    border-radius: 12px;
+    background-color: #ffffff;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: var(--kst-color-bg);
+    border-radius: 4px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-color-main);
+    border-radius: 4px;
+  }
+
+  /* Table Styling */
+  .kst-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    font-size: 14px;
+  }
+
+  .kst-table thead {
+    background-color: var(--kst-color-main);
+  }
+
+  .kst-table thead th {
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--kst-color-text) !important;
+    white-space: nowrap;
+  }
+
+  .kst-table tbody tr {
+    border-bottom: 1px solid var(--kst-color-bg);
+  }
+
+  .kst-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .kst-table tbody td {
+    padding: 12px 8px;
+    color: #333 !important;
+    line-height: 1.5;
+  }
+
+  .kst-table tbody td:first-child {
+    font-weight: 600;
+    color: var(--kst-color-sub) !important;
+  }
+
+  /* Numbered Steps */
+  .kst-steps {
+    counter-reset: kst-step-counter;
+    margin: 16px 0;
+  }
+
+  .kst-step-item {
+    counter-increment: kst-step-counter;
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: var(--kst-color-bg);
+    border-radius: 12px;
+    position: relative;
+    padding-left: 56px;
+  }
+
+  .kst-step-item::before {
+    content: counter(kst-step-counter);
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--kst-color-main) 0%, var(--kst-color-sub) 100%);
+    color: var(--kst-color-text) !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .kst-step-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333 !important;
+  }
+
+  /* Info Box */
+  .kst-info-box {
+    background-color: var(--kst-color-bg);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+    border-left: 4px solid var(--kst-color-main);
+  }
+
+  .kst-info-box-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--kst-color-sub) !important;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .kst-info-box-title::before {
+    content: "ℹ️";
+    margin-right: 8px;
+    font-size: 18px;
+  }
+
+  .kst-info-box-content {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333 !important;
+  }
+
+  /* Warning Box */
+  .kst-warning-box {
+    background-color: #fff8e6;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+    border-left: 4px solid #ffa726;
+  }
+
+  .kst-warning-box-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f57c00 !important;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .kst-warning-box-title::before {
+    content: "⚠️";
+    margin-right: 8px;
+    font-size: 18px;
+  }
+
+  .kst-warning-box-content {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333 !important;
+  }
+
+  /* Muted Text */
+  .kst-muted {
+    color: #666 !important;
+    font-size: 14px;
+  }
+
+  /* Divider */
+  .kst-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--kst-color-main) 50%, transparent 100%);
+    margin: 24px 0;
+    border: none;
+  }
+</style>
+
+<div class="kst-main-container">
+  
+  <!-- Hero Section -->
+  <div class="kst-hero">
+    <h1 class="kst-hero-title">Riola Exotriple</h1>
+    <p class="kst-hero-subtitle">Premium Skin Rejuvenation Complex</p>
+    <div>
+      <span class="kst-badge">CICA Exosome</span>
+      <span class="kst-badge">PDRN</span>
+      <span class="kst-badge">Peptide Complex</span>
+    </div>
+  </div>
+
+  <!-- Product Overview -->
+  <section class="kst-section" id="kst-product-overview">
+    <h2 class="kst-section-title">Product Overview</h2>
+    
+    <div class="kst-image-block">
+      <img src="" alt="Riola Exotriple Product Package">
+    </div>
+
+    <div class="kst-text-content">
+      <p><strong>Riola Exotriple</strong> is a premium dual-vial skin rejuvenation system that combines high-purity CICA Exosome with PDRN, Collagen, and advanced Peptides to deliver comprehensive anti-aging, regenerative, and brightening benefits.</p>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Packaging Options</div>
+      <div class="kst-card-content">
+        <ul>
+          <li><strong>1 Set:</strong> 2 vials (1 Exosome vial + 1 Solvent vial)</li>
+          <li><strong>4 Sets:</strong> 8 vials per box</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Components per Set</div>
+      <div class="kst-card-content">
+        <ul>
+          <li><strong>No. 1:</strong> Exosome Freeze-Dried Ampoule (100mg x 1 vial)</li>
+          <li><strong>No. 2:</strong> PDRN + Peptides + Collagen Solvent Ampoule (6ml x 1 vial)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Ingredients -->
+  <section class="kst-section" id="kst-key-ingredients">
+    <h2 class="kst-section-title">Key Ingredients & Mechanism of Action</h2>
+
+    <div class="kst-image-block">
+      <img src="" alt="Riola Exotriple Key Ingredients">
+    </div>
+
+    <h3 class="kst-section-subtitle">Ingredient Composition</h3>
+    <div class="kst-text-content">
+      <ul class="kst-list">
+        <li>High-purity CICA Exosome (100mg freeze-dried powder)</li>
+        <li>PDRN (Polydeoxyribonucleotide)</li>
+        <li>AteloCollagen</li>
+        <li>Peptide Complex (5 growth factors + 7 amino acid peptides)</li>
+        <li>Glutathione</li>
+        <li>Ascorbic Acid (Vitamin C)</li>
+      </ul>
+    </div>
+
+    <h3 class="kst-section-subtitle">How It Works</h3>
+
+    <div class="kst-card">
+      <div class="kst-card-title">🌿 CICA Exosome</div>
+      <div class="kst-card-content">
+        <p>Plant-derived nanovesicles that facilitate intercellular communication, delivering essential elements to skin cells. They promote regeneration, collagen synthesis, and provide anti-inflammatory and antioxidant benefits.</p>
+      </div>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">🐟 PDRN (from Wild Alaskan Salmon)</div>
+      <div class="kst-card-content">
+        <p>Supports tissue repair and growth by stimulating metabolic activity in skin cells. Reinforces the skin's antioxidant barrier and enhances deep hydration for lasting moisture retention.</p>
+      </div>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">💎 Collagen & Peptides</div>
+      <div class="kst-card-content">
+        <p>The triple growth factor and peptide complex work synergistically to stimulate the production of new collagen and elastin, improving dermal structure, lifting the skin, and visibly reducing the appearance of wrinkles.</p>
+      </div>
+    </div>
+
+    <div class="kst-chart-block">
+      <img src="" alt="Mechanism of Exosome delivery to skin cells">
+    </div>
+  </section>
+
+  <!-- Main Expected Effects -->
+  <section class="kst-section" id="kst-expected-effects">
+    <h2 class="kst-section-title">Main Expected Effects</h2>
+
+    <div class="kst-image-block">
+      <img src="" alt="Riola Exotriple Before and After Results">
+    </div>
+
+    <div class="kst-highlight">
+      <div class="kst-highlight-title">Triple Action Benefits</div>
+      <div class="kst-highlight-content">
+        <ul class="kst-list">
+          <li><strong>Skin Regeneration:</strong> Accelerated skin repair and cellular renewal for healthier, more resilient skin</li>
+          <li><strong>Elasticity Improvement:</strong> Significant enhancement in skin firmness and elasticity, resulting in a lifted appearance</li>
+          <li><strong>Anti-Aging:</strong> Visible reduction in fine lines and wrinkles, restoring youthful contours</li>
+          <li><strong>Brightening:</strong> Tone evening with anti-pigmentation and antioxidant benefits for a luminous complexion</li>
+          <li><strong>Anti-Inflammatory:</strong> Soothing action that calms irritated or damaged skin, reducing redness</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usage Protocol -->
+  <section class="kst-section" id="kst-usage-protocol">
+    <h2 class="kst-section-title">Usage Protocol</h2>
+
+    <h3 class="kst-section-subtitle">Preparation Method</h3>
+
+    <div class="kst-image-block">
+      <img src="" alt="Vials before and after mixing">
+    </div>
+
+    <div class="kst-steps">
+      <div class="kst-step-item">
+        <div class="kst-step-content">
+          Open the aluminum cap and remove the rubber stopper from both Ampoule 1 (Exosome powder) and Ampoule 2 (Solvent).
+        </div>
+      </div>
+      <div class="kst-step-item">
+        <div class="kst-step-content">
+          Transfer the entire contents of <strong>Ampoule 2 (PDRN + Peptides + Collagen)</strong> into <strong>Ampoule 1 (Freeze-Dried Exosome)</strong>.
+        </div>
+      </div>
+      <div class="kst-step-item">
+        <div class="kst-step-content">
+          Gently shake or mix until the lyophilized Exosome powder is completely dissolved, creating the final solution.
+        </div>
+      </div>
+    </div>
+
+    <h3 class="kst-section-subtitle">Application Method</h3>
+    <div class="kst-info-box">
+      <div class="kst-info-box-title">Professional Application</div>
+      <div class="kst-info-box-content">
+        <p>Riola Exotriple is designed for professional application via:</p>
+        <ul class="kst-list">
+          <li><strong>Micro-Needle Therapy System (MTS)</strong> - Using microneedling devices such as rollers or pens</li>
+          <li><strong>Mesotherapy</strong> - Intradermal injection technique</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="kst-section-subtitle">Treatment Cycle</h3>
+    <div class="kst-card">
+      <div class="kst-card-content">
+        <ul>
+          <li><strong>Recommended Interval:</strong> Once every two weeks</li>
+          <li><strong>Complete Course:</strong> Multiple sessions (e.g., 4-session program) for optimal results</li>
+          <li><strong>Complementary Products:</strong> Use with soothing or moisturizing masks post-procedure to optimize skin recovery</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommended Guide by Target -->
+  <section class="kst-section" id="kst-target-guide">
+    <h2 class="kst-section-title">Recommended Guide by Target</h2>
+
+    <div class="kst-image-block">
+      <img src="" alt="Target Skin Concerns">
+    </div>
+
+    <div class="kst-table-wrap">
+      <table class="kst-table">
+        <thead>
+          <tr>
+            <th>Target Area</th>
+            <th>Symptoms/Situation</th>
+            <th>Why Riola Exotriple</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Aging & Wrinkled Skin</strong></td>
+            <td>Loss of elasticity, fine lines, and deep wrinkles</td>
+            <td>The combined PDRN and Peptide complex supports collagen and elastin synthesis for a lifting and firming effect</td>
+          </tr>
+          <tr>
+            <td><strong>Damaged & Sensitive Skin</strong></td>
+            <td>Redness, inflammation, post-procedure irritation, compromised skin barrier</td>
+            <td>CICA Exosome is known to calm irritation and provide building blocks essential for rapid skin cell repair</td>
+          </tr>
+          <tr>
+            <td><strong>Dull & Uneven Skin Tone</strong></td>
+            <td>Pigmentation, lack of radiance, and general dullness</td>
+            <td>Glutathione and Ascorbic Acid (Vitamin C) work to inhibit melanin production, provide powerful antioxidant protection, and promote a brighter complexion</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kst-highlight">
+      <div class="kst-highlight-title">Which product is right for me?</div>
+      <div class="kst-highlight-content">
+        <p>Based on your current condition and goals, <strong>Riola Exotriple</strong> is specifically designed for comprehensive skin rejuvenation, addressing multiple concerns like aging, damage, and dullness through its powerful combination of Exosome, PDRN, and Peptides.</p>
+        <p><strong>Choose this product if:</strong> Your main concern is achieving deep skin repair and a significant anti-aging boost with visible improvements in firmness, brightness, and overall skin health.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Description -->
+  <section class="kst-section" id="kst-detailed-description">
+    <h2 class="kst-section-title">Detailed Product Description</h2>
+
+    <div class="kst-image-block">
+      <img src="" alt="Riola Exotriple Detailed View">
+    </div>
+
+    <h3 class="kst-section-subtitle">🔹 Riola Exotriple Skin Rejuvenation Complex</h3>
+
+    <dl class="kst-definition-list">
+      <dt class="kst-definition-term">Ingredient Composition</dt>
+      <dd class="kst-definition-desc">High-purity Plant-Derived Centella Asiatica Exosome, French PDRN (extracted from wild Alaskan salmon), AteloCollagen, and a potent Peptide Complex.</dd>
+
+      <dt class="kst-definition-term">Efficacy Summary</dt>
+      <dd class="kst-definition-desc">Delivers a <strong>Triple Action</strong> of regeneration, firming, and brightening. It accelerates cell repair, visibly minimizes wrinkles, restores hydration, and calms inflammatory responses for a healthier, younger-looking appearance.</dd>
+
+      <dt class="kst-definition-term">How to Use</dt>
+      <dd class="kst-definition-desc">After mixing the two components, the solution is applied topically in conjunction with professional application methods (e.g., MTS or Mesotherapy). Treatment is recommended every two weeks.</dd>
+
+      <dt class="kst-definition-term">Suitable For</dt>
+      <dd class="kst-definition-desc">Individuals experiencing signs of aging, sun damage, compromised skin barrier, post-acne scarring, or those seeking an intensive boost in skin firmness and radiance.</dd>
+
+      <dt class="kst-definition-term">Additional Information</dt>
+      <dd class="kst-definition-desc">The product's dual-vial configuration ensures the stability and potency of the highly effective lyophilized CICA Exosome until the moment of use. The PDRN component not only supports regeneration but also offers a defense against oxidative stress.</dd>
+    </dl>
+  </section>
+
+  <!-- Precautions and Storage -->
+  <section class="kst-section" id="kst-precautions">
+    <h2 class="kst-section-title">Precautions and Storage</h2>
+
+    <div class="kst-warning-box">
+      <div class="kst-warning-box-title">Important Safety Information</div>
+      <div class="kst-warning-box-content">
+        <ul class="kst-list">
+          <li><strong>For Professional Use Only:</strong> This product should only be administered by trained professionals</li>
+          <li><strong>Do Not Use On:</strong> Wounded skin, active eczema, or dermatitis</li>
+          <li><strong>Keep Out of Reach:</strong> Store away from children</li>
+          <li><strong>Aseptic Techniques:</strong> Use only on clean, disinfected skin and follow proper sterilization procedures</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="kst-section-subtitle">Storage Conditions</h3>
+    <div class="kst-info-box">
+      <div class="kst-info-box-title">Proper Storage Guidelines</div>
+      <div class="kst-info-box-content">
+        <ul class="kst-list">
+          <li><strong>Temperature:</strong> Store in a cool, dry place between 2°C and 25°C</li>
+          <li><strong>Light Exposure:</strong> Keep away from direct sunlight</li>
+          <li><strong>Refrigeration:</strong> Generally recommended for optimal ingredient integrity</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="kst-section-subtitle">After Opening</h3>
+    <div class="kst-card">
+      <div class="kst-card-content">
+        <p><strong>Use Immediately:</strong> The mixed solution should be used immediately after reconstitution.</p>
+        <p><strong>Disposal:</strong> Dispose of any remaining solution after the procedure. Do not store or reuse.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="kst-divider">
+
+  <!-- Keywords Section -->
+  <section class="kst-section" id="kst-meta-keywords">
+    <h2 class="kst-section-title">🔖 Product Keywords</h2>
+    <div class="kst-text-content kst-muted">
+      <p>Exosome skin booster, CICA Exosome, PDRN, Collagen skin injection, anti-aging ampoule, skin regeneration, elasticity improvement, brightening serum, mesotherapy solution, MTS application, peptide complex, lyophilized exosome</p>
+    </div>
+  </section>
+
+</div>

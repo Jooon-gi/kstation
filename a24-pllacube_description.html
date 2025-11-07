@@ -1,0 +1,746 @@
+<style>
+    /* Reset and base styles with kst- prefix */
+    :root {
+        --kst-main-color: #4dbcd4;
+        --kst-sub-color: #1b7a8c;
+        --kst-text-color: #1a1a1a;
+        --kst-assist-color: #bce2ea;
+        --kst-bg-color: #ffffff;
+        --kst-badge-bg: #4dbcd4;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #1b7a8c;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--kst-bg-color);
+        color: var(--kst-text-color);
+        padding: 0;
+        line-height: 1.6;
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    /* Hide image blocks when no images are present */
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .kst-hero-section {
+        background: linear-gradient(135deg, var(--kst-assist-color) 0%, var(--kst-bg-color) 100%);
+        padding: 40px 16px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-hero-section::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle, rgba(77, 188, 212, 0.15) 0%, transparent 60%);
+        border-radius: 50%;
+    }
+    
+    .kst-product-logo {
+        width: 60px;
+        height: 60px;
+        background: var(--kst-main-color);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        box-shadow: 0 8px 25px rgba(77, 188, 212, 0.3);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .kst-product-logo::before {
+        content: '+';
+        color: var(--kst-badge-text);
+        font-size: 24px;
+        font-weight: 300;
+    }
+    
+    .kst-product-title {
+        font-size: 32px;
+        font-weight: 400;
+        color: var(--kst-text-color) !important;
+        margin-bottom: 16px;
+        letter-spacing: -0.5px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-spec {
+        font-size: 18px;
+        font-weight: 300;
+        color: var(--kst-sub-color) !important;
+        margin-top: -8px;
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-subtitle {
+        font-size: 16px;
+        color: var(--kst-main-color) !important;
+        font-weight: 500;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-hero-description {
+        font-size: 14px;
+        color: var(--kst-text-color) !important;
+        margin: 0 auto 30px;
+        line-height: 1.7;
+        position: relative;
+        z-index: 2;
+    }
+    
+    /* Section Styles */
+    .kst-section {
+        padding: 40px 16px;
+        margin: 0;
+    }
+    
+    .kst-section-title {
+        font-size: 24px;
+        font-weight: 300;
+        color: var(--kst-text-color) !important;
+        text-align: center;
+        margin-bottom: 30px;
+        letter-spacing: -0.5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-alt {
+        background: #f8fcfd;
+    }
+    
+    /* Image Blocks */
+    .kst-image-block {
+        background: transparent;
+        border: none;
+        border-radius: 12px;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+    
+    .kst-image-placeholder {
+        padding: 40px 20px;
+        text-align: center;
+        color: var(--kst-assist-color) !important;
+        font-size: 12px;
+        font-style: italic;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px dashed var(--kst-assist-color);
+        border-radius: 12px;
+    }
+    
+    /* Card Styles */
+    .kst-card {
+        background: var(--kst-bg-color);
+        border: 1px solid var(--kst-assist-color);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 12px 0;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .kst-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(77, 188, 212, 0.15);
+    }
+    
+    .kst-card-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--kst-sub-color) !important;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card-content {
+        font-size: 14px;
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+    }
+    
+    /* Badge Styles */
+    .kst-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        padding: 4px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+        margin: 4px 8px 4px 0;
+    }
+    
+    .kst-badge-primary {
+        background: var(--kst-main-color);
+        color: var(--kst-badge-text) !important;
+    }
+    
+    .kst-badge-secondary {
+        background: var(--kst-assist-color);
+        color: var(--kst-sub-color) !important;
+    }
+    
+    /* List Styles */
+    .kst-card ul,
+    .kst-card ol {
+        margin: 12px 0;
+        padding-left: 20px;
+    }
+    
+    .kst-card ul li,
+    .kst-card ol li {
+        color: var(--kst-text-color) !important;
+        margin-bottom: 8px;
+        line-height: 1.6;
+    }
+    
+    .kst-card ul li::marker {
+        color: var(--kst-main-color);
+    }
+    
+    /* Definition List */
+    .kst-definition-list {
+        margin: 16px 0;
+    }
+    
+    .kst-definition-item {
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--kst-assist-color);
+    }
+    
+    .kst-definition-item:last-child {
+        border-bottom: none;
+    }
+    
+    .kst-definition-term {
+        font-weight: 600;
+        color: var(--kst-sub-color) !important;
+        margin-bottom: 4px;
+    }
+    
+    .kst-definition-detail {
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+    }
+    
+    /* Table Styles */
+    .kst-table-wrap {
+        overflow-x: auto;
+        margin: 20px 0;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 12px;
+        border: 1px solid var(--kst-assist-color);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: var(--kst-assist-color);
+        border-radius: 4px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-main-color);
+        border-radius: 4px;
+    }
+    
+    .kst-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+    }
+    
+    .kst-table th {
+        background: var(--kst-main-color);
+        color: var(--kst-badge-text) !important;
+        padding: 12px;
+        text-align: left;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    
+    .kst-table td {
+        padding: 12px;
+        border-bottom: 1px solid var(--kst-assist-color);
+        color: var(--kst-text-color) !important;
+    }
+    
+    .kst-table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .kst-table tr:hover {
+        background: #f8fcfd;
+    }
+    
+    /* Highlight Box */
+    .kst-highlight {
+        background: linear-gradient(135deg, #f8fcfd 0%, var(--kst-bg-color) 100%);
+        border-left: 4px solid var(--kst-main-color);
+        padding: 16px;
+        margin: 20px 0;
+        border-radius: 8px;
+    }
+    
+    .kst-highlight-title {
+        font-weight: 600;
+        color: var(--kst-sub-color) !important;
+        margin-bottom: 8px;
+    }
+    
+    .kst-highlight-content {
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+    }
+    
+    /* Info Box */
+    .kst-info-box {
+        background: #f8fcfd;
+        border: 1px solid var(--kst-assist-color);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 16px 0;
+    }
+    
+    .kst-info-box-title {
+        font-weight: 600;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .kst-info-box-title::before {
+        content: 'ℹ';
+        display: inline-block;
+        margin-right: 8px;
+        font-size: 18px;
+    }
+    
+    .kst-info-box-content {
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+    }
+    
+    /* Warning Box */
+    .kst-warning {
+        background: #fff8f5;
+        border-left: 4px solid #ff9966;
+        padding: 16px;
+        margin: 20px 0;
+        border-radius: 8px;
+    }
+    
+    .kst-warning-title {
+        font-weight: 600;
+        color: #cc5500 !important;
+        margin-bottom: 8px;
+    }
+    
+    .kst-warning-content {
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+    
+    .kst-warning-list {
+        margin: 0;
+        padding-left: 20px;
+    }
+    
+    .kst-warning-list li {
+        color: var(--kst-text-color) !important;
+        margin-bottom: 6px;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- Hero Section -->
+    <div class="kst-hero-section">
+        <div class="kst-product-logo"></div>
+        <h1 class="kst-product-title">PLLACUBE</h1>
+        <div class="kst-product-spec">Poly-L-Lactic Acid & Hyaluronic Acid Skin Booster</div>
+        <div class="kst-product-subtitle">Bio-Stimulatory Collagen Generator</div>
+        <div class="kst-hero-description">
+            The ultimate solution for long-lasting skin rejuvenation through powerful collagen stimulation and volume restoration. PLLACUBE combines PLLA technology with hyaluronic acid for gradual, natural-looking improvements.
+        </div>
+    </div>
+    
+    <!-- Product Specifications Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Specifications</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Volume and Components</h3>
+            <div class="kst-card-content">
+                Supplied as 1 vial containing lyophilized PLLA powder, typically reconstituted to 5ml or more per treatment protocol.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Formulation & Packaging</h3>
+            <div class="kst-card-content">
+                Lyophilized powder in sterile vial for single-use reconstitution. Syringe and needles sold separately.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Storage Conditions</h3>
+            <div class="kst-card-content">
+                Store at room temperature (1°C ~ 30°C) in a dry, dark place before reconstitution. Must be used immediately after reconstitution or follow manufacturer storage guidelines.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Key Ingredients Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Key Ingredients & Basic Information</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert product composition image]
+            </div>
+        </div>
+        
+        <div class="kst-definition-list">
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">Poly-L-Lactic Acid (PLLA)</div>
+                <div class="kst-definition-detail">
+                    A powerful bio-stimulatory polymer that acts as a scaffold to encourage long-term production of natural collagen, leading to sustained improvement in skin quality.
+                </div>
+            </div>
+            
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">Hyaluronic Acid (HA)</div>
+                <div class="kst-definition-detail">
+                    Provides initial hydration and improved spreadability for optimal product distribution and immediate post-treatment plumping effects.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-info-box">
+            <div class="kst-info-box-title">Proprietary Concentration</div>
+            <div class="kst-info-box-content">
+                The PLLA concentration is specifically formulated to focus on stimulating the body's natural collagen production for long-lasting results.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Expected Efficacy Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Expected Efficacy</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert collagen production mechanism image]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🔹 Powerful Collagen Stimulation (Collagenesis)</h3>
+            <div class="kst-card-content">
+                PLLA acts as a scaffold to encourage the long-term production of natural collagen, leading to sustained improvement in skin quality and structure.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🔹 Volume and Elasticity Enhancement</h3>
+            <div class="kst-card-content">
+                Restores lost facial volume and significantly improves skin firmness and elasticity, effectively targeting skin sagging and age-related volume loss.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🔹 Wrinkle and Fine Line Reduction</h3>
+            <div class="kst-card-content">
+                Smooths out moderate to deep wrinkles over time as collagen regenerates, providing a more youthful appearance.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🔹 Overall Skin Rejuvenation</h3>
+            <div class="kst-card-content">
+                Leads to a thicker, healthier dermis and a more youthful complexion through comprehensive skin quality improvement.
+            </div>
+        </div>
+        
+        <div class="kst-highlight">
+            <div class="kst-highlight-title">Key Difference from Traditional Fillers</div>
+            <div class="kst-highlight-content">
+                Unlike traditional fillers that only add volume, PLLACUBE works by triggering a biological response, leading to gradual, natural-looking improvement in skin thickness and firmness that lasts significantly longer than typical skin boosters.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Usage Protocol Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Treatment Protocol Guide</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert recommended injection depth and area map]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Recommended Treatment Cycle</h3>
+            <div class="kst-card-content">
+                <ul>
+                    <li>Initial phase: 2 to 3 sessions spaced 4 to 6 weeks apart</li>
+                    <li>Maintenance: Annual treatment recommended for sustained results</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Treatment Areas</h3>
+            <div class="kst-card-content">
+                <ul>
+                    <li><strong>Entire face:</strong> Cheeks, temples, jawline for overall volume and elasticity improvement</li>
+                    <li><strong>Mid-face:</strong> Pre-auricular area for facial contouring</li>
+                    <li><strong>Neck lines:</strong> Areas needing improved firmness</li>
+                    <li><strong>Decolletage:</strong> Chest area rejuvenation</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Application Method</h3>
+            <div class="kst-card-content">
+                Dermal injection using fine needles or cannulas following the manufacturer's recommended reconstitution and injection technique. Application options include:
+                <ul>
+                    <li>Subdermal or deep dermal application</li>
+                    <li>Advanced MTS (Microneedle Therapy System)</li>
+                    <li>Mesotherapy techniques</li>
+                    <li>Multi-point injection approach for even distribution</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert reconstitution and injection process image]
+            </div>
+        </div>
+        
+        <div class="kst-info-box">
+            <div class="kst-info-box-title">Progressive Results Timeline</div>
+            <div class="kst-info-box-content">
+                The key advantage is the sustained effect that develops over several months. Full results are typically visible after the complete series of treatments. Results are progressive, not immediate, as collagen production increases gradually.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Treatment Strategy Comparison Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Treatment Strategy Overview</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Key Ingredients</th>
+                        <th>Treatment Areas</th>
+                        <th>Skin Type</th>
+                        <th>Main Efficacy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>PLLACUBE</strong></td>
+                        <td>PLLA, HA</td>
+                        <td>Face (overall), Neck, Decolletage</td>
+                        <td>All Skin Types (especially mature/aging)</td>
+                        <td>Collagen Stimulation, Volume Restoration, Long-Term Elasticity, Deep Wrinkle Reduction</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-highlight">
+            <div class="kst-highlight-title">Which Product Is Right for Me?</div>
+            <div class="kst-highlight-content">
+                PLLACUBE is ideal for individuals seeking a natural, gradual, and long-lasting solution to improve skin elasticity, reduce deep wrinkles, and restore lost facial volume by actively stimulating their body's own collagen production.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Detailed Product Description Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Detailed Description of PLLACUBE</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🔹 PLLACUBE: The Bio-Stimulatory Collagen Generator</h3>
+            <div class="kst-card-content">
+                <div class="kst-definition-list">
+                    <div class="kst-definition-item">
+                        <div class="kst-definition-term">Ingredient Composition</div>
+                        <div class="kst-definition-detail">
+                            Features Poly-L-Lactic Acid (PLLA), a biocompatible polymer known to promote significant collagen synthesis, coupled with Hyaluronic Acid (HA) for immediate post-treatment plumping and superior diffusion.
+                        </div>
+                    </div>
+                    
+                    <div class="kst-definition-item">
+                        <div class="kst-definition-term">Usage Area</div>
+                        <div class="kst-definition-detail">
+                            Focused on areas experiencing age-related volume loss and reduced elasticity, including the mid-face, pre-auricular area, temples, and neck.
+                        </div>
+                    </div>
+                    
+                    <div class="kst-definition-item">
+                        <div class="kst-definition-term">Efficacy Summary</div>
+                        <div class="kst-definition-detail">
+                            Unlike traditional fillers that only add volume, PLLACUBE works by triggering a biological response, leading to a gradual, natural-looking improvement in skin thickness and firmness that lasts significantly longer than typical skin boosters. It is designed to correct the underlying structural deficiencies that cause sagging and deep folds.
+                        </div>
+                    </div>
+                    
+                    <div class="kst-definition-item">
+                        <div class="kst-definition-term">Application Method</div>
+                        <div class="kst-definition-detail">
+                            Requires precise reconstitution and technique. Typically involves a multi-point injection approach across the target area to ensure even distribution and uniform collagen induction.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-info-box">
+            <div class="kst-info-box-title">Post-Treatment Care</div>
+            <div class="kst-info-box-content">
+                Proper massage post-treatment is often recommended to ensure even product dispersion and prevent nodule formation. Patients should be advised that results are progressive and develop over time.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Precautions & Storage Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Precautions & Storage</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert precautions and storage graphic]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Storage Temperature</h3>
+            <div class="kst-card-content">
+                Store the unopened vial at 1°C to 30°C. Avoid freezing.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Shelf Life After Opening</h3>
+            <div class="kst-card-content">
+                Contents must be reconstituted and used immediately for maximum efficacy and safety. Any remaining solution should be discarded according to medical waste protocols.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Reconstitution Guidelines</h3>
+            <div class="kst-card-content">
+                Must be prepared with the recommended sterile solution (e.g., Saline or Sterile Water for Injection) a specified time before treatment to allow for complete suspension of the PLLA particles. <strong>Follow the manufacturer's exact protocol for reconstitution.</strong>
+            </div>
+        </div>
+        
+        <div class="kst-warning">
+            <div class="kst-warning-title">Post-Treatment Care Instructions</div>
+            <div class="kst-warning-content">
+                Following these guidelines ensures optimal results and minimizes potential complications:
+            </div>
+            <ul class="kst-warning-list">
+                <li>Avoid excessive sun exposure for 24-48 hours after treatment</li>
+                <li>Avoid saunas and steam rooms for 24-48 hours</li>
+                <li>Avoid strenuous exercise for 24-48 hours</li>
+                <li>Massage the treated area as advised by the professional to ensure even distribution and prevent nodule formation</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Meta Keywords Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Product Keywords</h2>
+        
+        <div class="kst-card">
+            <div class="kst-card-content">
+                <div class="kst-badge">Skin booster</div>
+                <div class="kst-badge">PLLA</div>
+                <div class="kst-badge">Poly-L-Lactic Acid</div>
+                <div class="kst-badge">Hyaluronic Acid</div>
+                <div class="kst-badge">Collagen stimulator</div>
+                <div class="kst-badge">Collagenesis</div>
+                <div class="kst-badge">Volume restoration</div>
+                <div class="kst-badge">Elasticity enhancement</div>
+                <div class="kst-badge">Anti-aging</div>
+                <div class="kst-badge">Injectable booster</div>
+                <div class="kst-badge">Long-lasting rejuvenation</div>
+                <div class="kst-badge">Dermal filler alternative</div>
+                <div class="kst-badge">Mesotherapy</div>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,770 @@
+<style>
+    /* Reset and base styles with kst- prefix */
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    :root {
+        --kst-color-main: #284288;
+        --kst-color-sub: #f2b233;
+        --kst-color-text: #1f1f1f;
+        --kst-color-text-secondary: #d9d9e2;
+        --kst-color-bg: #ffffff;
+        --kst-color-badge-bg: #284288;
+        --kst-color-badge-text: #ffffff;
+        --kst-color-badge-hover: #f2b233;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        background: var(--kst-color-bg);
+        color: var(--kst-color-text) !important;
+        padding: 16px;
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+    
+    /* Product Title */
+    .kst-product-title {
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--kst-color-main) !important;
+        text-align: center;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-subtitle {
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--kst-color-text) !important;
+        text-align: center;
+        margin-bottom: 32px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Section styles */
+    .kst-section {
+        background: var(--kst-color-bg);
+        padding: 24px 16px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(40, 66, 136, 0.08);
+        margin-bottom: 16px;
+        border: 1px solid var(--kst-color-text-secondary);
+    }
+    
+    .kst-section-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--kst-color-main) !important;
+        text-align: left;
+        margin-bottom: 20px;
+        letter-spacing: -0.3px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        border-bottom: 2px solid var(--kst-color-sub);
+        padding-bottom: 8px;
+    }
+    
+    .kst-section p {
+        font-size: 14px;
+        color: var(--kst-color-text) !important;
+        line-height: 1.7;
+        margin-bottom: 12px;
+    }
+    
+    /* Image placeholders with auto-hide */
+    .kst-image-block,
+    .kst-chart-block {
+        background: #f7f9fc;
+        border: 2px dashed var(--kst-color-text-secondary);
+        padding: 24px 12px;
+        text-align: center;
+        border-radius: 6px;
+        color: #a0aec0;
+        font-size: 12px;
+        font-style: italic;
+        margin: 16px 0;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Auto-hide empty image containers */
+    .kst-image-block:not(:has(img)),
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block:has(img[src=""]),
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-image-block img,
+    .kst-chart-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 4px;
+        border: none;
+        background: none;
+    }
+    
+    /* Ingredient Cards */
+    .kst-ingredient-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 16px 0;
+    }
+    
+    .kst-ingredient-card {
+        background: #f7f9fc;
+        padding: 16px;
+        border-radius: 6px;
+        border-left: 4px solid var(--kst-color-main);
+    }
+    
+    .kst-ingredient-card h4 {
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .kst-ingredient-card p {
+        font-size: 13px !important;
+        color: var(--kst-color-text) !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
+    }
+    
+    /* Benefits List */
+    .kst-benefits-list {
+        margin: 16px 0;
+    }
+    
+    .kst-benefit-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 12px;
+        padding: 12px;
+        background: #f7f9fc;
+        border-radius: 6px;
+    }
+    
+    .kst-benefit-icon {
+        width: 24px;
+        height: 24px;
+        background: var(--kst-color-sub);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--kst-color-bg) !important;
+        font-weight: bold;
+        font-size: 14px;
+        margin-right: 12px;
+        flex-shrink: 0;
+    }
+    
+    .kst-benefit-text {
+        flex: 1;
+        font-size: 14px !important;
+        color: var(--kst-color-text) !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Table styles */
+    .kst-table-wrap {
+        overflow-x: auto;
+        margin: 16px 0;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 6px;
+        border: 1px solid var(--kst-color-text-secondary);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-color-main);
+        border-radius: 4px;
+    }
+    
+    .kst-comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+        background: var(--kst-color-bg);
+    }
+    
+    .kst-comparison-table thead th {
+        background: var(--kst-color-main);
+        color: var(--kst-color-bg) !important;
+        padding: 12px 8px;
+        text-align: left;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+        border: 1px solid var(--kst-color-text-secondary);
+    }
+    
+    .kst-comparison-table tbody td {
+        padding: 12px 8px;
+        font-size: 13px;
+        color: var(--kst-color-text) !important;
+        border: 1px solid var(--kst-color-text-secondary);
+        word-wrap: break-word;
+    }
+    
+    .kst-comparison-table tbody tr:nth-child(even) {
+        background: #f7f9fc;
+    }
+    
+    /* Badge styles */
+    .kst-badge-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 16px 0;
+    }
+    
+    .kst-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        background: var(--kst-color-badge-bg);
+        color: var(--kst-color-badge-text) !important;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 500;
+        transition: background 0.3s ease;
+    }
+    
+    .kst-badge:hover {
+        background: var(--kst-color-badge-hover);
+    }
+    
+    /* Version Cards */
+    .kst-version-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin: 20px 0;
+    }
+    
+    .kst-version-card {
+        background: var(--kst-color-bg);
+        border: 2px solid var(--kst-color-main);
+        border-radius: 8px;
+        padding: 20px 16px;
+        transition: all 0.3s ease;
+    }
+    
+    .kst-version-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(40, 66, 136, 0.15);
+    }
+    
+    .kst-version-name {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .kst-version-detail {
+        margin-bottom: 8px;
+    }
+    
+    .kst-version-label {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        color: var(--kst-color-sub) !important;
+        display: inline;
+    }
+    
+    .kst-version-value {
+        font-size: 13px !important;
+        color: var(--kst-color-text) !important;
+        display: inline;
+    }
+    
+    /* Protocol Steps */
+    .kst-protocol-steps {
+        counter-reset: kst-step-counter;
+        margin: 16px 0;
+    }
+    
+    .kst-protocol-step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 16px;
+        padding: 16px;
+        background: #f7f9fc;
+        border-radius: 6px;
+        counter-increment: kst-step-counter;
+    }
+    
+    .kst-protocol-step::before {
+        content: counter(kst-step-counter);
+        width: 32px;
+        height: 32px;
+        background: var(--kst-color-main);
+        color: var(--kst-color-bg) !important;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 16px;
+        margin-right: 12px;
+        flex-shrink: 0;
+    }
+    
+    .kst-protocol-content {
+        flex: 1;
+    }
+    
+    .kst-protocol-content h4 {
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .kst-protocol-content p {
+        font-size: 13px !important;
+        color: var(--kst-color-text) !important;
+        margin: 0 !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Warning Box */
+    .kst-warning-box {
+        background: #fff8e1;
+        border-left: 4px solid var(--kst-color-sub);
+        padding: 16px;
+        border-radius: 6px;
+        margin: 16px 0;
+    }
+    
+    .kst-warning-title {
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .kst-warning-box ul {
+        margin: 8px 0 0 0;
+        padding-left: 20px;
+    }
+    
+    .kst-warning-box ul li {
+        font-size: 13px !important;
+        color: var(--kst-color-text) !important;
+        line-height: 1.6 !important;
+        margin-bottom: 6px;
+    }
+    
+    /* List Styles */
+    .kst-section ul,
+    .kst-section ol {
+        margin: 12px 0;
+        padding-left: 24px;
+    }
+    
+    .kst-section ul li,
+    .kst-section ol li {
+        font-size: 14px !important;
+        color: var(--kst-color-text) !important;
+        line-height: 1.7 !important;
+        margin-bottom: 8px;
+    }
+    
+    /* Info Box */
+    .kst-info-box {
+        background: #e3f2fd;
+        border-left: 4px solid var(--kst-color-main);
+        padding: 16px;
+        border-radius: 6px;
+        margin: 16px 0;
+    }
+    
+    .kst-info-box p {
+        font-size: 14px !important;
+        color: var(--kst-color-text) !important;
+        margin: 0 !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Highlight text */
+    .kst-highlight {
+        background: var(--kst-color-sub);
+        color: var(--kst-color-text) !important;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-weight: 600;
+    }
+    
+    /* Utility classes */
+    .kst-mt-2 { margin-top: 16px; }
+    .kst-mt-3 { margin-top: 24px; }
+    .kst-mb-2 { margin-bottom: 16px; }
+    .kst-mb-3 { margin-bottom: 24px; }
+</style>
+
+<div class="kst-main-container">
+    <!-- Product Title -->
+    <h1 class="kst-product-title">Rejuvenex Forte Series</h1>
+    <p class="kst-product-subtitle">Advanced PDRN Skin Booster Line for Cellular Regeneration</p>
+    
+    <!-- Main Product Image -->
+    <div class="kst-image-block kst-main-showcase">
+        [INSERT MAIN PRODUCT IMAGE: Rejuvenex Forte Series packaging display]
+    </div>
+    
+    <!-- Product Overview -->
+    <div class="kst-section" id="kst-overview">
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <p>The <span class="kst-highlight">Rejuvenex Forte Series</span> represents a comprehensive line of advanced skin boosters designed to promote cellular regeneration and repair at the deepest dermal levels. This professional-grade treatment line harnesses the power of PDRN (Polydeoxyribonucleotide) derived from purified salmon DNA to deliver transformative results for aging, damaged, or stressed skin.</p>
+        
+        <div class="kst-ingredient-card">
+            <h4>Core Technology: PDRN</h4>
+            <p>Polydeoxyribonucleotide (PDRN) is a bio-compatible nucleotide complex that stimulates cellular repair, enhances tissue regeneration, and improves overall skin vitality. Derived from salmon DNA and purified for dermal application, PDRN works at the cellular level to restore skin health from within.</p>
+        </div>
+        
+        <div class="kst-badge-group">
+            <span class="kst-badge">Professional Use Only</span>
+            <span class="kst-badge">Salmon-Derived PDRN</span>
+            <span class="kst-badge">Cellular Regeneration</span>
+            <span class="kst-badge">Anti-Aging Solution</span>
+        </div>
+    </div>
+    
+    <!-- Product Line Image -->
+    <div class="kst-image-block">
+        [INSERT IMAGE: Four versions of Rejuvenex series side by side]
+    </div>
+    
+    <!-- Available Versions -->
+    <div class="kst-section" id="kst-versions">
+        <h2 class="kst-section-title">Available Versions</h2>
+        
+        <p>The Rejuvenex Series offers four specialized formulations, each targeting specific skin concerns and treatment goals:</p>
+        
+        <div class="kst-version-cards">
+            <div class="kst-version-card">
+                <h3 class="kst-version-name">🔹 Rejuvenex Forte</h3>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Focus:</span>
+                    <span class="kst-version-value">Intensive Anti-Aging & Regeneration</span>
+                </div>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Key Ingredient:</span>
+                    <span class="kst-version-value">PDRN 14.06mg per 2.5mL</span>
+                </div>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Treatment Areas:</span>
+                    <span class="kst-version-value">Entire face, neck, hands</span>
+                </div>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Packaging:</span>
+                    <span class="kst-version-value">2.5mL × 6 ampoules</span>
+                </div>
+            </div>
+            
+            <div class="kst-version-card">
+                <h3 class="kst-version-name">🔹 Rejuvenex Vega Shine</h3>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Focus:</span>
+                    <span class="kst-version-value">Brightening & Radiance</span>
+                </div>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Key Ingredients:</span>
+                    <span class="kst-version-value">c-PDRN, Vitamin C Derivative, Glutathione, Hyaluronic Acid</span>
+                </div>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Treatment Areas:</span>
+                    <span class="kst-version-value">Face, neck, décolletage</span>
+                </div>
+            </div>
+            
+            <div class="kst-version-card">
+                <h3 class="kst-version-name">🔹 Rejuvenex Hydro Essence</h3>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Focus:</span>
+                    <span class="kst-version-value">Deep Hydration & Barrier Repair</span>
+                </div>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Key Ingredients:</span>
+                    <span class="kst-version-value">c-PDRN, Sodium Hyaluronate (HA)</span>
+                </div>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Treatment Areas:</span>
+                    <span class="kst-version-value">Face, neck, hands</span>
+                </div>
+            </div>
+            
+            <div class="kst-version-card">
+                <h3 class="kst-version-name">🔹 Rejuvenex Sculpt V</h3>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Focus:</span>
+                    <span class="kst-version-value">Contouring & Fat Reduction</span>
+                </div>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Key Ingredients:</span>
+                    <span class="kst-version-value">c-PDRN, Sodium Deoxycholate, Carnitine, Lecithin</span>
+                </div>
+                <div class="kst-version-detail">
+                    <span class="kst-version-label">Treatment Areas:</span>
+                    <span class="kst-version-value">Jawline, cheeks, body contours</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Comparison Table -->
+    <div class="kst-section" id="kst-comparison">
+        <h2 class="kst-section-title">Version Comparison Table</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-comparison-table">
+                <thead>
+                    <tr>
+                        <th>Product Version</th>
+                        <th>Key Ingredients</th>
+                        <th>Treatment Areas</th>
+                        <th>Primary Focus</th>
+                        <th>Main Efficacy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Rejuvenex Forte</strong></td>
+                        <td>PDRN 14.06mg</td>
+                        <td>Entire face, Neck, Hands</td>
+                        <td>Intensive Regeneration</td>
+                        <td>Anti-aging, Elasticity, Pore Tightening, Repair</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vega Shine</strong></td>
+                        <td>c-PDRN, Vit C Derivative, Glutathione, HA</td>
+                        <td>Face, Neck, Décolletage</td>
+                        <td>Brightening & Glow</td>
+                        <td>Skin Radiance, Pigmentation Reduction, Hydration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hydro Essence</strong></td>
+                        <td>c-PDRN, Sodium Hyaluronate (HA)</td>
+                        <td>Face, Neck, Hands</td>
+                        <td>Deep Hydration</td>
+                        <td>Moisture Retention, Skin Barrier Repair, Fine Line Smoothing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sculpt V</strong></td>
+                        <td>c-PDRN, Sodium Deoxycholate, Carnitine</td>
+                        <td>Jawline, Cheeks, Body Contours</td>
+                        <td>Lipolysis & Contouring</td>
+                        <td>Fat Reduction, Edema Relief, V-line Definition</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-info-box kst-mt-3">
+            <p><strong>Which Product Is Right for Me?</strong> Based on your skin condition and treatment area, choose the appropriate version to experience a customized effect. Consult with a qualified aesthetic professional to determine the best formulation for your needs.</p>
+        </div>
+    </div>
+    
+    <!-- PDRN Mechanism Image -->
+    <div class="kst-image-block">
+        [INSERT IMAGE: Infographic showing PDRN mechanism of action - skin cross-section]
+    </div>
+    
+    <!-- Rejuvenex Forte Detailed Description -->
+    <div class="kst-section" id="kst-forte-details">
+        <h2 class="kst-section-title">Rejuvenex Forte: In-Depth Analysis</h2>
+        
+        <div class="kst-ingredient-grid">
+            <div class="kst-ingredient-card">
+                <h4>Ingredient Composition</h4>
+                <p>High concentration of PDRN (Polydeoxyribonucleotide) at 14.06mg per 2.5mL ampoule. The PDRN is derived from salmon DNA, purified and optimized for dermal regeneration.</p>
+            </div>
+            
+            <div class="kst-ingredient-card">
+                <h4>Formulation & Packaging</h4>
+                <p>Clear, transparent liquid solution packaged in sterile glass ampoules. Each box contains 6 ampoules of 2.5mL each, ensuring optimal dosage control and sterility.</p>
+            </div>
+        </div>
+        
+        <h3 style="font-size: 18px; font-weight: 600; color: var(--kst-color-main); margin: 20px 0 12px 0;">Key Benefits</h3>
+        
+        <div class="kst-benefits-list">
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-icon">✓</div>
+                <div class="kst-benefit-text"><strong>Intensive Anti-Aging Effects:</strong> Promotes cellular regeneration to reduce visible signs of aging</div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-icon">✓</div>
+                <div class="kst-benefit-text"><strong>Enhanced Elasticity & Firmness:</strong> Improves skin's inherent regenerative ability for firmer, more resilient tissue</div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-icon">✓</div>
+                <div class="kst-benefit-text"><strong>Water-Oil Balance Optimization:</strong> Restores natural skin balance for improved texture</div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-icon">✓</div>
+                <div class="kst-benefit-text"><strong>Pore Tightening:</strong> Minimizes enlarged pores for smoother skin appearance</div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-icon">✓</div>
+                <div class="kst-benefit-text"><strong>Fine Line Reduction:</strong> Softens and smooths superficial wrinkles</div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-icon">✓</div>
+                <div class="kst-benefit-text"><strong>Accelerated Wound Healing:</strong> Speeds recovery of acne marks and minor skin damage</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Before/After Image Placeholder -->
+    <div class="kst-image-block">
+        [INSERT IMAGE: Before/After comparison focusing on pore and texture improvement]
+    </div>
+    
+    <!-- Treatment Protocol -->
+    <div class="kst-section" id="kst-protocol">
+        <h2 class="kst-section-title">Treatment Protocol Guide</h2>
+        
+        <div class="kst-protocol-steps">
+            <div class="kst-protocol-step">
+                <div class="kst-protocol-content">
+                    <h4>Recommended Treatment Cycle</h4>
+                    <p>A complete course typically consists of 3 to 5 treatment sessions. Session intervals are determined by a qualified professional based on individual skin condition and response to treatment.</p>
+                </div>
+            </div>
+            
+            <div class="kst-protocol-step">
+                <div class="kst-protocol-content">
+                    <h4>Treatment Areas</h4>
+                    <p>Suitable for entire face, neck, décolletage, and back of hands. Specific versions target specialized areas for optimal results.</p>
+                </div>
+            </div>
+            
+            <div class="kst-protocol-step">
+                <div class="kst-protocol-content">
+                    <h4>Application Method</h4>
+                    <p>The product is administered via mesotherapy techniques, including direct micro-injection, multi-needle injection, or application using specialized devices such as MTS (Microneedle Therapy System) or Nano-needles.</p>
+                </div>
+            </div>
+            
+            <div class="kst-protocol-step">
+                <div class="kst-protocol-content">
+                    <h4>Dosage Guidelines</h4>
+                    <p>For comprehensive facial treatment, 6-8mL total dose is generally administered. When combined with other kinetic treatments, dosage may be increased up to 10mL under professional supervision.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-info-box kst-mt-3">
+            <p><strong>Professional Administration Required:</strong> Rejuvenex Forte Series products are for professional use only and must be administered by qualified aesthetic practitioners in appropriate clinical settings.</p>
+        </div>
+    </div>
+    
+    <!-- Facial Mapping Image -->
+    <div class="kst-image-block">
+        [INSERT IMAGE: Facial mapping for injection points or application areas]
+    </div>
+    
+    <!-- Other Versions Detailed -->
+    <div class="kst-section" id="kst-other-versions">
+        <h2 class="kst-section-title">Specialized Formulations</h2>
+        
+        <h3 style="font-size: 18px; font-weight: 600; color: var(--kst-color-main); margin: 20px 0 12px 0;">Rejuvenex Vega Shine</h3>
+        
+        <div class="kst-ingredient-card kst-mb-2">
+            <h4>Formulation Highlights</h4>
+            <p>c-PDRN combined with 3-O-ethyl ascorbic acid (stable Vitamin C), powerful antioxidant Glutathione, and Sodium Hyaluronate for comprehensive brightening.</p>
+        </div>
+        
+        <p>A specialized brightening booster that targets oxidative stress and pigmentation. Glutathione supports detoxification and whitening processes, while c-PDRN and HA provide hydration and cell renewal for a visibly radiant, dewy complexion. Formulated to combat dullness and environmental damage, restoring vitality and illumination to stressed skin.</p>
+        
+        <p><strong>Application Method:</strong> Can be applied via MTS/Microneedling or shallow injection techniques for optimal ingredient delivery.</p>
+        
+        <h3 style="font-size: 18px; font-weight: 600; color: var--kst-color-main); margin: 24px 0 12px 0;">Rejuvenex Hydro Essence</h3>
+        
+        <div class="kst-ingredient-card kst-mb-2">
+            <h4>Formulation Highlights</h4>
+            <p>c-PDRN and non-crosslinked high-purity Sodium Hyaluronate for intensive moisture restoration.</p>
+        </div>
+        
+        <p>Ideal for severely dry, dehydrated, or sensitive skin types. Focuses on deep moisture retention and strengthening the skin's protective barrier. The combination offers rapid hydration and helps smooth superficial fine lines caused by dryness, making it excellent for pre- and post-procedure recovery. Specifically designed to create a long-lasting internal moisture reservoir in the dermis.</p>
+        
+        <p><strong>Application Method:</strong> Shallow injection or microneedling ensures HA and c-PDRN are optimally delivered for hydro-rejuvenation.</p>
+        
+        <h3 style="font-size: 18px; font-weight: 600; color: var(--kst-color-main); margin: 24px 0 12px 0;">Rejuvenex Sculpt V</h3>
+        
+        <div class="kst-ingredient-card kst-mb-2">
+            <h4>Formulation Highlights</h4>
+            <p>c-PDRN blended with lipolytic agents including Sodium Deoxycholate, L-Carnitine, and Lecithin, complemented by soothing botanical extracts.</p>
+        </div>
+        
+        <p>A contouring solution designed to promote localized fat breakdown (lipolysis) and reduce fluid retention (edema), while the c-PDRN simultaneously ensures skin tightness and elasticity are maintained during the slimming process. Helps achieve a more defined and sculpted facial or body contour without invasive procedures.</p>
+        
+        <p><strong>Application Method:</strong> Targeted injection into localized fat deposits for precise contouring effects.</p>
+    </div>
+    
+    <!-- Storage & Precautions -->
+    <div class="kst-section" id="kst-storage">
+        <h2 class="kst-section-title">Storage & Precautions</h2>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">Storage Requirements</div>
+            <ul>
+                <li><strong>Temperature:</strong> Store at room temperature (1°C to 30°C). Avoid freezing.</li>
+                <li><strong>Light Protection:</strong> Must be kept in a shaded area, away from direct heat and light sources.</li>
+                <li><strong>Handling:</strong> Use immediately after opening the ampoule/vial. Contents are for professional administration only.</li>
+                <li><strong>Shelf Life:</strong> Typically 24 to 36 months from the manufacturing date. Consult packaging for exact expiry information.</li>
+            </ul>
+        </div>
+        
+        <h3 style="font-size: 16px; font-weight: 600; color: var(--kst-color-main); margin: 20px 0 12px 0;">Important Safety Information</h3>
+        
+        <ul>
+            <li>This product is for professional use only and must be administered by qualified healthcare practitioners</li>
+            <li>Conduct a thorough consultation and skin assessment before treatment</li>
+            <li>Follow strict aseptic techniques during administration</li>
+            <li>Do not use if packaging is damaged or product appears contaminated</li>
+            <li>Single-use only; do not reuse opened ampoules</li>
+            <li>Dispose of used materials according to local medical waste regulations</li>
+        </ul>
+    </div>
+    
+    <!-- Meta Keywords Section (hidden from view) -->
+    <div style="display: none;">
+        Skin booster, PDRN, Polydeoxyribonucleotide, c-PDRN, Salmon DNA, Skin regeneration, Elasticity, Anti-aging, Pore reduction, Acne scars, Hydro Essence, Vega Shine, Sculpt V, Brightening, Glutathione, Hyaluronic Acid, Mesotherapy, Contouring, Lipolysis, Pharma Research, Ampoule, Nano-needles
+    </div>
+</div>

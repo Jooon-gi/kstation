@@ -1,0 +1,826 @@
+<style>
+    :root {
+        --kst-main-color: #c93a2f;
+        --kst-sub-color: #2b2b2b;
+        --kst-text-primary: #ffffff;
+        --kst-text-secondary: #d9d9d9;
+        --kst-bg-color: #000000;
+        --kst-badge-bg: #c93a2f;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #8a1f17;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+        background: var(--kst-bg-color);
+        color: var(--kst-text-secondary) !important;
+        padding: 0 12px;
+        line-height: 1.6;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        position: relative;
+        isolation: isolate;
+    }
+
+    .kst-main-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .kst-main-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--kst-sub-color);
+        opacity: 0.3;
+        filter: blur(80px);
+        z-index: -1;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    .kst-section {
+        margin: 20px 0;
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-header-block {
+        background: linear-gradient(135deg, var(--kst-sub-color), #1a1a1a);
+        color: var(--kst-text-primary) !important;
+        padding: 30px 16px;
+        margin: 20px 0;
+        border-radius: 12px;
+        border: 1px solid #3a3a3a;
+        box-shadow: 0 10px 30px rgba(201, 58, 47, 0.15);
+    }
+    
+    .kst-product-title {
+        font-size: 34px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-primary) !important;
+        background: linear-gradient(90deg, #ff6b5a, var(--kst-main-color), #ff4d3d);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .kst-product-spec {
+        font-size: 26px;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: #a3a3a3 !important;
+    }
+    
+    .kst-subtitle {
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        opacity: 0.8;
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-category-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        padding: 6px 14px;
+        font-size: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 15px;
+        border-radius: 999px;
+        box-shadow: 0 4px 12px rgba(201, 58, 47, 0.3);
+    }
+    
+    .kst-image-block, .kst-chart-block {
+        background: rgba(43, 43, 43, 0.3);
+        border: 1px dashed rgba(201, 58, 47, 0.3);
+        padding: 40px 16px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 20px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: #9ca3af !important;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: none;
+        background: none;
+        border-radius: 8px;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: none;
+        background: none;
+        border-radius: 8px;
+    }
+    
+    .kst-core-value {
+        background: rgba(43, 43, 43, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(201, 58, 47, 0.3);
+        padding: 25px 16px;
+        margin: 20px 0;
+        text-align: center;
+        color: var(--kst-text-secondary) !important;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    
+    .kst-slogan {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 15px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-description {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-section-header {
+        background: var(--kst-sub-color);
+        color: var(--kst-text-primary) !important;
+        padding: 16px 16px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 20px 0 0 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        border-radius: 8px;
+        border-left: 4px solid var(--kst-main-color);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    
+    .kst-card {
+        background: rgba(43, 43, 43, 0.4);
+        border: 1px solid rgba(201, 58, 47, 0.2);
+        padding: 20px 16px;
+        margin: 10px 0;
+        color: var(--kst-text-secondary) !important;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    
+    .kst-card ul, .kst-card ol {
+        margin: 12px 0;
+        padding-left: 20px;
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-card ul li, .kst-card ol li {
+        margin: 8px 0;
+        line-height: 1.6;
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-dt {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        color: var(--kst-main-color) !important;
+    }
+    
+    .kst-dd {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--kst-text-secondary) !important;
+        margin-bottom: 15px;
+    }
+    
+    .kst-highlight {
+        background: rgba(201, 58, 47, 0.15);
+        color: var(--kst-text-primary) !important;
+        padding: 15px 16px;
+        margin: 15px 0;
+        border-left: 3px solid var(--kst-main-color);
+        border-radius: 6px;
+        font-weight: 500;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 20px 0;
+        border-radius: 8px;
+        border: 1px solid rgba(201, 58, 47, 0.2);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: rgba(43, 43, 43, 0.5);
+        border-radius: 4px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-main-color);
+        border-radius: 4px;
+    }
+    
+    .kst-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-table thead th {
+        background: var(--kst-sub-color);
+        color: var(--kst-text-primary) !important;
+        padding: 12px 10px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        border-bottom: 2px solid var(--kst-main-color);
+    }
+    
+    .kst-table tbody td {
+        padding: 12px 10px;
+        font-size: 13px;
+        border-bottom: 1px solid rgba(201, 58, 47, 0.1);
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-table tbody tr:hover {
+        background: rgba(201, 58, 47, 0.05);
+    }
+    
+    .kst-keyword-badge {
+        background: rgba(201, 58, 47, 0.15);
+        color: var(--kst-main-color) !important;
+        padding: 6px 12px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: inline-block;
+        margin: 4px 4px 4px 0;
+        border-radius: 4px;
+        border: 1px solid var(--kst-main-color);
+    }
+    
+    .kst-mt-small {
+        margin-top: 15px;
+    }
+    
+    .kst-mt-medium {
+        margin-top: 20px;
+    }
+    
+    .kst-icon-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px 0;
+    }
+    
+    .kst-icon-item {
+        background: rgba(43, 43, 43, 0.4);
+        border: 1px solid rgba(201, 58, 47, 0.2);
+        padding: 16px;
+        border-radius: 8px;
+        text-align: center;
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-icon-title {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+        color: var(--kst-main-color) !important;
+    }
+    
+    .kst-icon-desc {
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-faq-item {
+        margin: 15px 0;
+        border: 1px solid rgba(201, 58, 47, 0.2);
+        border-radius: 8px;
+        overflow: hidden;
+        background: rgba(43, 43, 43, 0.3);
+    }
+    
+    .kst-faq-question {
+        padding: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        color: var(--kst-text-primary) !important;
+        background: rgba(43, 43, 43, 0.5);
+        border-left: 3px solid transparent;
+        transition: all 0.3s ease;
+    }
+    
+    .kst-faq-question:hover {
+        background: rgba(201, 58, 47, 0.1);
+        border-left-color: var(--kst-main-color);
+    }
+    
+    .kst-faq-question.kst-active {
+        background: rgba(201, 58, 47, 0.15);
+        border-left-color: var(--kst-main-color);
+        color: var(--kst-main-color) !important;
+    }
+    
+    .kst-faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding: 0 16px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-faq-answer.kst-active {
+        max-height: 500px;
+        padding: 16px;
+    }
+    
+    .kst-tech-specs {
+        background: rgba(43, 43, 43, 0.4);
+        border: 1px solid rgba(201, 58, 47, 0.2);
+        padding: 20px 16px;
+        margin: 20px 0;
+        border-radius: 10px;
+    }
+    
+    .kst-tech-title {
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        color: var(--kst-text-primary) !important;
+        text-align: center;
+    }
+    
+    .kst-tech-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .kst-spec-item {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 12px;
+        border-radius: 6px;
+        border-left: 3px solid var(--kst-main-color);
+    }
+    
+    .kst-spec-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 6px;
+    }
+    
+    .kst-spec-value {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-benefit-list {
+        margin: 15px 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .kst-benefit-list li {
+        padding: 12px 12px 12px 36px;
+        margin: 8px 0;
+        background: rgba(43, 43, 43, 0.3);
+        border-left: 3px solid var(--kst-main-color);
+        border-radius: 6px;
+        position: relative;
+        color: var(--kst-text-secondary) !important;
+    }
+    
+    .kst-benefit-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        color: var(--kst-main-color);
+        font-weight: 700;
+        font-size: 16px;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- Header Block -->
+    <div class="kst-header-block">
+        <div class="kst-category-badge">SKIN BOOSTER / RH-COLLAGEN</div>
+        <h1 class="kst-product-title">SKINCOLLA</h1>
+        <div class="kst-product-spec">RH-Collagen Type 3</div>
+        <div class="kst-subtitle">5ml × 5 Vials Professional Formula</div>
+    </div>
+    
+    <!-- Product Image Placeholder -->
+    <div class="kst-image-block">
+        <!-- INSERT IMAGE: Product visualization (package and vial configuration) -->
+    </div>
+    
+    <!-- Core Value -->
+    <div class="kst-core-value">
+        <div class="kst-slogan">Advanced Collagen Regeneration Technology</div>
+        <div class="kst-description">
+            High concentration Recombinant Human Collagen Type 3 combined with Hyaluronic Acid for superior skin elasticity, firmness, and deep dermal regeneration.
+        </div>
+    </div>
+    
+    <!-- Key Ingredients Section -->
+    <div class="kst-section">
+        <div class="kst-section-header">KEY INGREDIENTS & BASIC INFORMATION</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">INGREDIENT COMPOSITION</div>
+            <div class="kst-dd">
+                High concentration of <strong>Recombinant Human Collagen (RH-Collagen) Type 3</strong>, combined with <strong>Hyaluronic Acid (HA)</strong> for optimal skin rejuvenation.
+            </div>
+            
+            <div class="kst-dt">FORMULATION & PACKAGING</div>
+            <div class="kst-dd">
+                Clear, liquid solution in individual sealed glass vials. Configuration: <strong>5ml × 5 vials</strong> per package.
+            </div>
+            
+            <div class="kst-dt">STORAGE CONDITIONS</div>
+            <div class="kst-dd">
+                <strong>Refrigerated storage (2~8°C)</strong> required. Must be stored in a cool, dark place to maintain stability and efficacy of active ingredients.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Image Placeholder for Ingredients -->
+    <div class="kst-chart-block">
+        <!-- INSERT IMAGE: Summary of efficacy/function (infographics on collagen stimulation) -->
+    </div>
+    
+    <!-- Expected Efficacy Section -->
+    <div class="kst-section">
+        <div class="kst-section-header">EXPECTED EFFICACY SUMMARY</div>
+        
+        <div class="kst-highlight">
+            PRIMARY FOCUS: Stimulates the body's natural Type III Collagen production for superior skin elasticity and firmness.
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">PRIMARY BENEFITS</div>
+            <ul class="kst-benefit-list">
+                <li>Stimulates natural Type III Collagen production</li>
+                <li>Superior skin elasticity enhancement</li>
+                <li>Improved skin firmness and density</li>
+                <li>Deep dermal structural improvement</li>
+            </ul>
+            
+            <div class="kst-dt kst-mt-medium">SECONDARY BENEFITS</div>
+            <ul class="kst-benefit-list">
+                <li>Deep moisturization through Hyaluronic Acid</li>
+                <li>Enhanced skin barrier function</li>
+                <li>Reduction in fine lines and wrinkles</li>
+                <li>Overall skin regeneration and renewal</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Usage Protocol Section -->
+    <div class="kst-section">
+        <div class="kst-section-header">USAGE PROTOCOL (TREATMENT GUIDE)</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">RECOMMENDED CYCLE</div>
+            <div class="kst-dd">
+                A course of <strong>3-4 sessions</strong> is typically recommended, administered at <strong>2-week intervals</strong>. Follow-up or maintenance sessions can be performed every 1-2 months for sustained results.
+            </div>
+            
+            <div class="kst-dt">TREATMENT AREAS</div>
+            <div class="kst-dd">
+                Suitable for multiple areas including:
+            </div>
+            <ul>
+                <li><strong>Entire face</strong> (cheeks, forehead, jawline)</li>
+                <li><strong>Neck</strong> area</li>
+                <li><strong>Décolletage</strong></li>
+                <li><strong>Back of hands</strong></li>
+            </ul>
+            
+            <div class="kst-dt">APPLICATION METHOD</div>
+            <div class="kst-dd">
+                Can be applied using <strong>Microneedling (MTS/Derma Roller)</strong> or through targeted <strong>Mesotherapy Injection</strong> techniques for optimal absorption and effectiveness.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Image Placeholder for Treatment Cycle -->
+    <div class="kst-chart-block">
+        <!-- INSERT IMAGE: Recommended treatment cycle & dosage (diagram) -->
+    </div>
+    
+    <!-- Treatment Strategy Comparison -->
+    <div class="kst-section">
+        <div class="kst-section-header">TREATMENT STRATEGY COMPARISON</div>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Key Ingredients</th>
+                        <th>Treatment Areas</th>
+                        <th>Skin Type</th>
+                        <th>Main Efficacy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>SKINCOLLA (RH-Collagen)</strong></td>
+                        <td>Recombinant Human Collagen, HA</td>
+                        <td>Face, Neck, Décolletage, Hands</td>
+                        <td>All Skin Types</td>
+                        <td>Collagen Synthesis, Elasticity, Firmness, Fine Wrinkle Reduction</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card kst-mt-small">
+            <div class="kst-dt">WHICH PRODUCT IS RIGHT FOR ME?</div>
+            <div class="kst-description">
+                SKINCOLLA is ideal for individuals seeking a powerful anti-aging treatment focused on deep-dermal structural improvement, specifically targeting <strong>collagen loss</strong> and related signs of aging like <strong>sagging</strong> and <strong>reduced firmness</strong>.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Detailed Description Section -->
+    <div class="kst-section">
+        <div class="kst-section-header">DETAILED DESCRIPTION OF SKINCOLLA (RH-COLLAGEN)</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">🔹 INGREDIENT COMPOSITION</div>
+            <div class="kst-dd">
+                The star ingredient is <strong>Recombinant Human Collagen (RH-Collagen) Type 3</strong>. This bio-compatible component is synthesized to closely match the body's natural collagen, ensuring high efficacy in stimulating fibroblast activity. The inclusion of <strong>Hyaluronic Acid</strong> provides immediate and long-lasting moisture.
+            </div>
+            
+            <div class="kst-dt">🔹 USAGE AREA</div>
+            <div class="kst-dd">
+                Applied broadly for rejuvenation across areas prone to age-related collagen depletion. Use for full facial revitalization or targeted firming on the neck and hands.
+            </div>
+            
+            <div class="kst-dt">🔹 EFFICACY SUMMARY</div>
+            <div class="kst-dd">
+                RH-Collagen is pivotal because <strong>Type III Collagen</strong> is abundant in youthful skin. By introducing this highly pure form, the product directly signals the skin to enter a <strong>regenerative phase</strong>, resulting in a noticeable improvement in skin texture, density, and elasticity. It helps to rebuild the skin's foundation from within.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Image Placeholder for Mechanism -->
+    <div class="kst-chart-block">
+        <!-- INSERT IMAGE: Ingredients and mechanism of action (collagen layer in skin cross-section) -->
+    </div>
+    
+    <!-- Application Method Details -->
+    <div class="kst-section">
+        <div class="kst-card">
+            <div class="kst-dt">APPLICATION METHOD</div>
+            <div class="kst-dd">
+                The liquid formulation allows for flexibility. <strong>Micro-injections</strong> are often preferred for delivering the component to the desired dermal layer, or it can be combined with <strong>MTS</strong> for overall surface absorption and cellular turnover.
+            </div>
+            
+            <div class="kst-dt">ADDITIONAL INFORMATION</div>
+            <div class="kst-dd">
+                The use of a <strong>recombinant human source</strong> minimizes the risk of allergic reactions compared to animal-derived collagen, making it a safe and highly effective option for true anti-aging regeneration.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Technical Specifications -->
+    <div class="kst-tech-specs kst-section">
+        <div class="kst-tech-title">TECHNICAL DATA SPECIFICATIONS</div>
+        <div class="kst-tech-grid">
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">STORAGE TEMPERATURE</div>
+                <div class="kst-spec-value">2~8°C (Refrigerated)</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">PACKAGE SIZE</div>
+                <div class="kst-spec-value">5ml × 5 Vials</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">FORMULATION</div>
+                <div class="kst-spec-value">Clear Liquid Solution</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">PRIMARY INGREDIENT</div>
+                <div class="kst-spec-value">RH-Collagen Type 3 + HA</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">USAGE</div>
+                <div class="kst-spec-value">Professional Use Only</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">SHELF LIFE AFTER OPENING</div>
+                <div class="kst-spec-value">Use Immediately</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Precautions & Storage -->
+    <div class="kst-section">
+        <div class="kst-section-header">PRECAUTIONS & STORAGE</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">STORAGE TEMPERATURE</div>
+            <div class="kst-dd">
+                <strong>Refrigerated storage (2~8°C)</strong> is crucial to maintain the stability and efficacy of the active ingredients. Protect the product from direct sunlight and heat.
+            </div>
+            
+            <div class="kst-dt">SHELF LIFE AFTER OPENING</div>
+            <div class="kst-dd">
+                Use the contents of the vial <strong>immediately</strong> after opening. Do not store or re-use opened vials to ensure product safety and effectiveness.
+            </div>
+            
+            <div class="kst-dt">GENERAL PRECAUTIONS</div>
+            <ul>
+                <li>For professional use only</li>
+                <li>Ensure the product is administered using appropriate sterile techniques</li>
+                <li>Do not inject into blood vessels</li>
+                <li>Protect from direct sunlight and heat</li>
+                <li>Store in a cool, dark place</li>
+                <li>Keep out of reach of children</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Image Placeholder for Precautions -->
+    <div class="kst-chart-block">
+        <!-- INSERT IMAGE: Precautions and storage methods (infographics) -->
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="kst-section">
+        <div class="kst-section-header">FREQUENTLY ASKED QUESTIONS</div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                HOW DOES RH-COLLAGEN DIFFER FROM ANIMAL-DERIVED COLLAGEN?
+            </div>
+            <div class="kst-faq-answer">
+                Recombinant Human Collagen (RH-Collagen) is synthesized to closely match the body's natural collagen structure, minimizing the risk of allergic reactions compared to animal-derived collagen. This bio-compatible approach ensures higher efficacy and safety for anti-aging regeneration.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHAT IS THE EXPECTED TIMELINE FOR VISIBLE RESULTS?
+            </div>
+            <div class="kst-faq-answer">
+                Initial improvements in skin hydration and texture can be noticed within 1-2 weeks after the first session. Progressive improvements in elasticity and firmness typically become more noticeable after completing the recommended 3-4 session course. Optimal results are achieved with consistent maintenance treatments every 1-2 months.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHY IS TYPE III COLLAGEN IMPORTANT?
+            </div>
+            <div class="kst-faq-answer">
+                Type III Collagen is abundant in youthful skin and plays a crucial role in maintaining skin elasticity and firmness. As we age, Type III Collagen production decreases, leading to sagging and loss of skin density. SKINCOLLA introduces this highly pure form to signal the skin to enter a regenerative phase, rebuilding the skin's foundation from within.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                CAN SKINCOLLA BE COMBINED WITH OTHER TREATMENTS?
+            </div>
+            <div class="kst-faq-answer">
+                Yes, SKINCOLLA can be effectively combined with other aesthetic treatments. It works well alongside laser treatments, chemical peels, and other skin rejuvenation procedures. However, always consult with a qualified professional to determine the best treatment combination and timing for your specific needs.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHO IS THE IDEAL CANDIDATE FOR SKINCOLLA?
+            </div>
+            <div class="kst-faq-answer">
+                SKINCOLLA is ideal for individuals seeking powerful anti-aging treatment focused on deep-dermal structural improvement. It's particularly effective for those experiencing collagen loss, skin sagging, reduced firmness, fine lines, and wrinkles. Suitable for all skin types when administered by qualified professionals.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Meta Keywords Section -->
+    <div class="kst-section">
+        <div class="kst-section-header">PRODUCT CLASSIFICATION KEYWORDS</div>
+        <div class="kst-card">
+            <div class="kst-description" style="text-align: center;">
+                <span class="kst-keyword-badge">SKIN BOOSTER</span>
+                <span class="kst-keyword-badge">RH-COLLAGEN</span>
+                <span class="kst-keyword-badge">RECOMBINANT HUMAN COLLAGEN</span>
+                <span class="kst-keyword-badge">TYPE 3 COLLAGEN</span>
+                <span class="kst-keyword-badge">ANTI-AGING</span>
+                <span class="kst-keyword-badge">ELASTICITY</span>
+                <span class="kst-keyword-badge">FIRMNESS</span>
+                <span class="kst-keyword-badge">MESOTHERAPY</span>
+                <span class="kst-keyword-badge">MICRONEEDLING</span>
+                <span class="kst-keyword-badge">HYALURONIC ACID</span>
+                <span class="kst-keyword-badge">FINE WRINKLES</span>
+                <span class="kst-keyword-badge">SKIN REGENERATION</span>
+                <span class="kst-keyword-badge">DERMAL FILLER ALTERNATIVE</span>
+                <span class="kst-keyword-badge">COLLAGEN STIMULATOR</span>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    function kstToggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        const isActive = element.classList.contains('kst-active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.kst-faq-question').forEach(q => {
+            q.classList.remove('kst-active');
+            q.nextElementSibling.classList.remove('kst-active');
+        });
+        
+        // Open clicked item if it wasn't already active
+        if (!isActive) {
+            element.classList.add('kst-active');
+            answer.classList.add('kst-active');
+        }
+    }
+</script
