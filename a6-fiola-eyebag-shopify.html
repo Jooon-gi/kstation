@@ -1,0 +1,1096 @@
+<style>
+    /* Reset and base styles with kst- prefix */
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--kst-bg-primary);
+        color: var(--kst-text-primary);
+        padding: 0;
+        line-height: 1.6;
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    :root {
+        --kst-color-main: #e9c9cb;
+        --kst-color-sub: #d8aeb2;
+        --kst-color-text-white: #ffffff;
+        --kst-color-text-secondary: #f2e6e6;
+        --kst-bg-primary: #f9f7f8;
+        --kst-badge-bg: #e9c9cb;
+        --kst-badge-text: #9d6b6e;
+        --kst-badge-hover: #d19fa4;
+        --kst-text-primary: #2d3748;
+        --kst-text-muted: #4a5568;
+        --kst-border-light: #e2e8f0;
+    }
+    
+    /* Hide image blocks when no images are present */
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .kst-hero-section {
+        background: linear-gradient(135deg, var(--kst-color-main) 0%, var(--kst-color-text-white) 100%);
+        padding: 40px 16px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-hero-section::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle, rgba(233, 201, 203, 0.3) 0%, transparent 60%);
+        border-radius: 50%;
+    }
+    
+    .kst-product-logo {
+        width: 60px;
+        height: 60px;
+        background: var(--kst-color-sub);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        box-shadow: 0 8px 25px rgba(216, 174, 178, 0.3);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .kst-product-logo::before {
+        content: '+';
+        color: var(--kst-color-text-white);
+        font-size: 24px;
+        font-weight: 300;
+    }
+    
+    .kst-product-title {
+        font-size: 32px;
+        font-weight: 400;
+        color: var(--kst-text-primary);
+        margin-bottom: 16px;
+        letter-spacing: -0.5px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-spec {
+        font-size: 20px;
+        font-weight: 300;
+        color: var(--kst-badge-text);
+        margin-top: -8px;
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-subtitle {
+        font-size: 16px;
+        color: var(--kst-badge-text);
+        font-weight: 500;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-hero-description {
+        font-size: 14px;
+        color: var(--kst-text-muted);
+        margin: 0 auto 30px;
+        line-height: 1.7;
+        position: relative;
+        z-index: 2;
+    }
+    
+    /* Section Styles */
+    .kst-section {
+        padding: 40px 16px;
+        margin: 0;
+    }
+    
+    .kst-section-title {
+        font-size: 24px;
+        font-weight: 300;
+        color: var(--kst-text-primary);
+        text-align: center;
+        margin-bottom: 30px;
+        letter-spacing: -0.5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-alt {
+        background: var(--kst-color-text-secondary);
+    }
+    
+    /* Image Blocks */
+    .kst-image-block {
+        background: linear-gradient(135deg, var(--kst-color-text-secondary) 0%, var(--kst-color-text-white) 100%);
+        border: 1px solid var(--kst-color-main);
+        border-radius: 12px;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+    
+    .kst-image-placeholder {
+        padding: 40px 20px;
+        text-align: center;
+        color: var(--kst-badge-text);
+        font-size: 12px;
+        font-style: italic;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Card Styles */
+    .kst-card {
+        background: var(--kst-color-text-white);
+        border: 1px solid var(--kst-border-light);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 12px 0;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .kst-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(233, 201, 203, 0.25);
+    }
+    
+    .kst-card-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--kst-text-primary);
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card-content {
+        font-size: 14px;
+        color: var(--kst-text-muted);
+        line-height: 1.6;
+    }
+    
+    /* Badge Styles */
+    .kst-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        padding: 4px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+        margin: 4px 8px 4px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .kst-badge-primary {
+        background: var(--kst-color-sub);
+        color: var(--kst-color-text-white);
+    }
+    
+    /* Grid Layouts */
+    .kst-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px 0;
+    }
+    
+    .kst-grid-item {
+        background: var(--kst-color-text-secondary);
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid var(--kst-border-light);
+        text-align: center;
+    }
+    
+    .kst-grid-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--kst-color-sub);
+        margin-bottom: 4px;
+    }
+    
+    .kst-grid-label {
+        font-size: 12px;
+        color: var(--kst-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Step Styles */
+    .kst-step {
+        background: linear-gradient(135deg, var(--kst-color-text-secondary) 0%, var(--kst-color-text-white) 100%);
+        border: 1px solid var(--kst-color-main);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 16px 0;
+        position: relative;
+    }
+    
+    .kst-step-number {
+        width: 30px;
+        height: 30px;
+        background: var(--kst-color-sub);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--kst-color-text-white);
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    
+    .kst-step-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--kst-badge-text);
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-step-description {
+        font-size: 13px;
+        color: var(--kst-text-muted);
+        line-height: 1.5;
+    }
+    
+    /* Table Styles */
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(233, 201, 203, 0.15);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-color-sub);
+        border-radius: 3px;
+    }
+    
+    .kst-table {
+        width: 100%;
+        background: var(--kst-color-text-white);
+        border-collapse: collapse;
+        border-radius: 12px;
+        overflow: hidden;
+        table-layout: auto;
+    }
+    
+    .kst-table thead {
+        background: var(--kst-color-sub);
+        color: var(--kst-color-text-white);
+    }
+    
+    .kst-table th,
+    .kst-table td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid var(--kst-border-light);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-table th {
+        font-weight: 600;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--kst-color-text-white);
+        white-space: nowrap;
+    }
+    
+    .kst-table td {
+        font-size: 13px;
+        color: var(--kst-text-muted);
+    }
+    
+    .kst-table tbody tr:hover {
+        background: var(--kst-color-text-secondary);
+    }
+    
+    /* List Styles */
+    .kst-list {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0;
+    }
+    
+    .kst-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 6px 0;
+        color: var(--kst-text-primary);
+        font-size: 14px;
+    }
+    
+    .kst-list-icon {
+        width: 16px;
+        height: 16px;
+        background: var(--kst-color-sub);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--kst-color-text-white);
+        font-size: 10px;
+        font-weight: bold;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    
+    .kst-list-icon::before {
+        content: '✓';
+    }
+    
+    /* Definition List Styles */
+    .kst-dl {
+        margin: 20px 0;
+    }
+    
+    .kst-dt {
+        font-weight: 600;
+        color: var(--kst-text-primary);
+        font-size: 14px;
+        margin-bottom: 4px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-dd {
+        color: var(--kst-text-muted);
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        margin-left: 0;
+        padding-left: 16px;
+        border-left: 3px solid var(--kst-color-main);
+    }
+    
+    /* FAQ Styles */
+    .kst-faq {
+        background: var(--kst-color-text-secondary);
+        border-radius: 12px;
+        margin: 12px 0;
+        border: 1px solid var(--kst-border-light);
+        overflow: hidden;
+    }
+    
+    .kst-faq-question {
+        padding: 16px;
+        background: var(--kst-color-text-secondary);
+        border: none;
+        width: 100%;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--kst-text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-faq-question:hover {
+        background: var(--kst-color-main);
+    }
+    
+    .kst-faq-icon {
+        font-size: 16px;
+        color: var(--kst-color-sub);
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+    }
+    
+    .kst-faq-answer {
+        padding: 0 16px 16px;
+        font-size: 13px;
+        color: var(--kst-text-muted);
+        line-height: 1.6;
+        display: none;
+    }
+    
+    .kst-faq.kst-active .kst-faq-answer {
+        display: block;
+    }
+    
+    .kst-faq.kst-active .kst-faq-icon {
+        transform: rotate(45deg);
+    }
+    
+    /* Warning/Safety Styles */
+    .kst-warning {
+        background: linear-gradient(135deg, var(--kst-color-text-secondary) 0%, var(--kst-color-main) 100%);
+        border: 2px solid var(--kst-color-sub);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        position: relative;
+    }
+    
+    .kst-warning::before {
+        content: '⚠️';
+        position: absolute;
+        top: -12px;
+        left: 20px;
+        background: var(--kst-color-sub);
+        color: var(--kst-color-text-white);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+    
+    .kst-warning-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-badge-text);
+        margin-bottom: 8px;
+        margin-top: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-warning-content {
+        font-size: 13px;
+        color: var(--kst-badge-text);
+        line-height: 1.6;
+    }
+    
+    .kst-warning-list {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0 0;
+    }
+    
+    .kst-warning-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 3px 0;
+        font-size: 12px;
+        color: var(--kst-badge-text);
+    }
+    
+    .kst-warning-list li::before {
+        content: '•';
+        color: var(--kst-badge-hover);
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+    
+    /* Chart Placeholder */
+    .kst-chart-block {
+        background: linear-gradient(135deg, var(--kst-color-text-secondary) 0%, var(--kst-color-text-white) 100%);
+        border: 1px solid var(--kst-color-main);
+        padding: 30px 20px;
+        text-align: center;
+        border-radius: 12px;
+        color: var(--kst-badge-text);
+        font-size: 12px;
+        font-style: italic;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    
+    /* Text Utilities */
+    .kst-text-center {
+        text-align: center;
+    }
+    
+    .kst-text-muted {
+        color: var(--kst-text-muted);
+    }
+    
+    .kst-text-small {
+        font-size: 12px;
+    }
+    
+    .kst-mb-0 { margin-bottom: 0; }
+    .kst-mb-1 { margin-bottom: 8px; }
+    .kst-mb-2 { margin-bottom: 16px; }
+    .kst-mb-3 { margin-bottom: 24px; }
+    
+    .kst-mt-0 { margin-top: 0; }
+    .kst-mt-1 { margin-top: 8px; }
+    .kst-mt-2 { margin-top: 16px; }
+    .kst-mt-3 { margin-top: 24px; }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- Hero Section -->
+    <div class="kst-hero-section">
+        <div class="kst-product-logo"></div>
+        <h1 class="kst-product-title">Fiola Eyebag Solution</h1>
+        <h2 class="kst-product-spec">1x2ml Vial - Versatile Facial Contouring</h2>
+        <div class="kst-product-subtitle">Advanced Peptide-Based Lipolysis Solution</div>
+        <div class="kst-hero-description">
+            Professional-grade facial contouring solution targeting under-eye bags, double chin, and localized fat deposits. Features advanced peptide technology for effective fat dissolution, lymphatic drainage, and tissue tightening without the harsh side effects of traditional PPC injections.
+        </div>
+    </div>
+    
+    <!-- Product Overview Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Fiola Eyebag Solution Product Image
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-badge">Professional Use Only</div>
+            <h3 class="kst-card-title">Non-Surgical Facial Contouring Solution</h3>
+            <div class="kst-card-content">
+                Fiola Eyebag Solution offers a non-surgical approach to facial contouring by actively dissolving localized fat cells while simultaneously promoting tissue regeneration and skin tightening. This innovative formula addresses fat accumulation, associated laxity, and puffiness in targeted facial areas.
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><div class="kst-list-icon"></div><span>Visible reduction of under-eye bags and puffiness</span></li>
+            <li><div class="kst-list-icon"></div><span>Effective double chin and submental fat reduction</span></li>
+            <li><div class="kst-list-icon"></div><span>Enhanced lymphatic drainage and circulation</span></li>
+            <li><div class="kst-list-icon"></div><span>Skin tightening and improved elasticity</span></li>
+        </ul>
+    </div>
+    
+    <!-- Key Ingredients Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Advanced Ingredient Formulation</h2>
+        
+        <dl class="kst-dl">
+            <dt class="kst-dt">Tripeptide-45</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">Core Active</span>
+                Advanced peptide that stimulates lipolysis (fat cell breakdown) in targeted areas, particularly effective in under-eye fat pads and submental regions.
+            </dd>
+            
+            <dt class="kst-dt">Octapeptide-11</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">Cell Regeneration</span>
+                Promotes cell regeneration and tissue repair, supporting skin recovery and enhanced elasticity following fat metabolism.
+            </dd>
+            
+            <dt class="kst-dt">Hyaluronic Acid</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">Hydration & Structure</span>
+                Supports skin hydration and structural integrity while promoting collagen stimulation for firmer, more youthful-looking skin.
+            </dd>
+            
+            <dt class="kst-dt">Horse Chestnut Extract</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">Circulation Booster</span>
+                Enhances microcirculation and lymphatic drainage, minimizing fluid retention and reducing chronic edema in treated areas.
+            </dd>
+            
+            <dt class="kst-dt">Fusang Flower Extract</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">Soothing Agent</span>
+                Natural botanical extract that provides soothing properties and supports skin conditioning during the treatment process.
+            </dd>
+        </dl>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Ingredient Mechanism Infographic
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Synergistic Mechanism of Action</h3>
+            <div class="kst-card-content">
+                The formula employs advanced peptides to stimulate lipolysis in targeted areas like under-eye fat pads. Concurrently, Horse Chestnut Extract enhances microcirculation and lymphatic drainage, minimizing fluid retention and swelling. Peptides and Hyaluronic Acid work together to promote tissue tightening, collagen stimulation, and improved skin elasticity, resulting in a firmer, lifted contour.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Benefits & Effects Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Expected Effects & Benefits</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Fat Reduction</div>
+                <div class="kst-grid-label">Localized Deposits</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Drainage</div>
+                <div class="kst-grid-label">Lymphatic System</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Lifting</div>
+                <div class="kst-grid-label">Tissue Tightening</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Contouring</div>
+                <div class="kst-grid-label">Facial Definition</div>
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><div class="kst-list-icon"></div><span>Targeted fat reduction in under-eye bags and double chin areas</span></li>
+            <li><div class="kst-list-icon"></div><span>Improvement of chronic puffiness and dark circles through enhanced circulation</span></li>
+            <li><div class="kst-list-icon"></div><span>Increased skin elasticity and tissue firmness, reducing laxity</span></li>
+            <li><div class="kst-list-icon"></div><span>Refinement of facial contours including jawline, nasal tip, and cheekbones</span></li>
+        </ul>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Before & After Results Comparison
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Long-Term Value</h3>
+            <div class="kst-card-content">
+                The specialized formulation is designed to be highly effective with minimal associated downtime, avoiding the severe swelling or bruising commonly linked to traditional PPC/Deoxycholic acid lipolytic injections. Results are progressive and natural-looking, with optimal outcomes visible after completing the recommended treatment cycle.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Treatment Protocol Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Usage Protocol & Treatment Guide</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Treatment Areas</h3>
+            <div class="kst-card-content">
+                Under-eye bags, double chin (submental fat), nasolabial folds, cheekbones, and nasal tissue.
+            </div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">1</div>
+            <div class="kst-step-title">Area Assessment</div>
+            <div class="kst-step-description">Evaluate treatment area and determine appropriate injection points. For under-eye bags, use 5 specific injection points spaced 0.3-0.5mm apart.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">2</div>
+            <div class="kst-step-title">Preparation</div>
+            <div class="kst-step-description">Cleanse and sterilize the treatment area. Ensure proper technique and sterile conditions are maintained throughout the procedure.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">3</div>
+            <div class="kst-step-title">Injection Technique</div>
+            <div class="kst-step-description">Inject directly into the subcutaneous fat layer (2-6mm depth) using a syringe. Standard protocol uses 1ml per side for under-eye treatment.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">4</div>
+            <div class="kst-step-title">Volume Guidelines</div>
+            <div class="kst-step-description">Total volume per session must not exceed 5ml. Adjust dosage based on treatment area: 1.0-2.0ml for under-eye bags, 2.0-5.0ml for double chin/face.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">5</div>
+            <div class="kst-step-title">Treatment Cycle</div>
+            <div class="kst-step-description">Typically 4-6 sessions recommended, performed at 10-14 day intervals to allow proper fat breakdown and lymphatic clearance.</div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Treatment Cycle & Injection Point Diagram
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Combination Treatment Compatibility</h3>
+            <div class="kst-card-content">
+                Compatible for combination treatments with complementary products like PDO threads or certain dermal fillers for enhanced contouring effects. Consult with your aesthetics professional for personalized treatment plans.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Treatment Area Specifications -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Treatment Area Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Target Area</th>
+                        <th>Primary Action</th>
+                        <th>Typical Dose</th>
+                        <th>Depth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Under-Eye Bags</td>
+                        <td>Fat Dissolution & Drainage</td>
+                        <td>1.0-2.0 ml</td>
+                        <td>2-6 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Double Chin/Face</td>
+                        <td>Fat Dissolution & Lifting</td>
+                        <td>2.0-5.0 ml</td>
+                        <td>4-6 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Nasolabial Folds</td>
+                        <td>Volume Reduction</td>
+                        <td>0.5-1.0 ml</td>
+                        <td>2-4 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Cheekbones</td>
+                        <td>Contouring</td>
+                        <td>1.0-2.0 ml</td>
+                        <td>3-5 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Nasal Tissue</td>
+                        <td>Refinement</td>
+                        <td>0.3-0.8 ml</td>
+                        <td>2-3 mm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Facial Treatment Area Guide
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Notable Features by Treatment Area</h3>
+            <div class="kst-card-content">
+                <strong>Under-Eye Bags:</strong> Reduces fat pads and chronic fluid retention/edema with minimal downtime.<br><br>
+                <strong>Double Chin:</strong> Targets submental fat for a sharper jawline and improved facial contouring, offering results comparable to surgical procedures without invasive techniques.
+            </div>
+        </div>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">1x2ml</div>
+                <div class="kst-grid-label">Vial Volume</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">5ml Max</div>
+                <div class="kst-grid-label">Per Session Limit</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">10-14 Days</div>
+                <div class="kst-grid-label">Treatment Interval</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Specifications -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Product Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product Type</td>
+                        <td>Injectable Lipolysis Solution</td>
+                    </tr>
+                    <tr>
+                        <td>Volume</td>
+                        <td>1x2ml Ampoule</td>
+                    </tr>
+                    <tr>
+                        <td>Formulation</td>
+                        <td>Liquid Solution</td>
+                    </tr>
+                    <tr>
+                        <td>Administration</td>
+                        <td>Subcutaneous Injection (Professional Use Only)</td>
+                    </tr>
+                    <tr>
+                        <td>Packaging</td>
+                        <td>Sterile Vial (Available individually or in kits)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Storage & Handling</h3>
+            <div class="kst-card-content">
+                Store the product in its original packaging in a cool, dry place (2°C - 25°C) away from direct sunlight and excessive heat. Do not freeze. Keep out of reach of children. Use within expiration date printed on packaging.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Safety & Precautions -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Safety Information & Precautions</h2>
+        
+        <div class="kst-warning">
+            <div class="kst-warning-title">Important Safety Information</div>
+            <div class="kst-warning-content">
+                This product is intended strictly for professional use by trained medical personnel. Proper injection technique and sterile conditions must be maintained at all times.
+            </div>
+            <ul class="kst-warning-list">
+                <li>Must be administered by certified medical professionals only</li>
+                <li>Adhere strictly to recommended dosage and injection depth guidelines</li>
+                <li>Maintain 10-14 day intervals between treatment sessions</li>
+                <li>Do not exceed 5ml total volume per session</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Treatment Interval Precautions</h3>
+            <div class="kst-card-content">
+                Adhere strictly to the recommended 10-14 day interval between sessions to allow the body sufficient time for fat breakdown and lymphatic clearance. This interval is critical for optimal results and safety.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Post-Treatment Recommendations</h3>
+            <div class="kst-card-content">
+                <ul class="kst-list">
+                    <li><div class="kst-list-icon"></div><span>Avoid makeup application for 12 hours after treatment</span></li>
+                    <li><div class="kst-list-icon"></div><span>Refrain from strenuous exercise for up to one week</span></li>
+                    <li><div class="kst-list-icon"></div><span>Avoid alcohol consumption, saunas, and excessive sun exposure for one week</span></li>
+                    <li><div class="kst-list-icon"></div><span>Apply ice pack or medical repair mask to soothe skin immediately after procedure</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Contraindications</h3>
+            <div class="kst-card-content">
+                Do not use on patients who are pregnant, breastfeeding, have active skin infections, bleeding disorders, or known allergies to any of the ingredients. Consultation and medical history assessment are required before treatment.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Advantages Over Traditional Methods -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Key Advantages</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Superior to Traditional PPC Injections</h3>
+            <div class="kst-card-content">
+                The specialized formulation is designed to be highly effective with minimal associated downtime, avoiding the severe swelling or bruising commonly linked to traditional PPC/Deoxycholic acid lipolytic injections. This makes Fiola Eyebag Solution an ideal choice for patients seeking effective results with reduced recovery time.
+            </div>
+        </div>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Minimal</div>
+                <div class="kst-grid-label">Downtime</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Reduced</div>
+                <div class="kst-grid-label">Swelling</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Less</div>
+                <div class="kst-grid-label">Bruising</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Natural</div>
+                <div class="kst-grid-label">Results</div>
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><div class="kst-list-icon"></div><span>Non-surgical alternative to blepharoplasty and liposuction</span></li>
+            <li><div class="kst-list-icon"></div><span>Advanced peptide technology for targeted fat metabolism</span></li>
+            <li><div class="kst-list-icon"></div><span>Multi-functional: addresses fat, puffiness, and skin laxity</span></li>
+            <li><div class="kst-list-icon"></div><span>Versatile application across multiple facial areas</span></li>
+        </ul>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Frequently Asked Questions</h2>
+        
+        <div class="kst-faq">
+            <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                <span>How many treatment sessions are typically needed?</span>
+                <span class="kst-faq-icon">+</span>
+            </button>
+            <div class="kst-faq-answer">
+                Typically 4-6 sessions are recommended, performed at 10-14 day intervals. The exact number depends on the individual's condition, treatment area, and desired results. Your practitioner will assess and recommend a personalized treatment plan.
+            </div>
+        </div>
+        
+        <div class="kst-faq">
+            <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                <span>What is the difference between this and traditional PPC injections?</span>
+                <span class="kst-faq-icon">+</span>
+            </button>
+            <div class="kst-faq-answer">
+                Fiola Eyebag Solution uses advanced peptide technology instead of harsh PPC/Deoxycholic acid. This results in minimal downtime, reduced swelling and bruising, and a more comfortable treatment experience while maintaining effective fat reduction results.
+            </div>
+        </div>
+        
+        <div class="kst-faq">
+            <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                <span>Is there any downtime after treatment?</span>
+                <span class="kst-faq-icon">+</span>
+            </button>
+            <div class="kst-faq-answer">
+                Downtime is minimal compared to traditional methods. Some mild swelling or redness may occur but typically subsides within a few days. Most patients can return to normal activities immediately, though strenuous exercise should be avoided for one week.
+            </div>
+        </div>
+        
+        <div class="kst-faq">
+            <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                <span>Can it be combined with other aesthetic treatments?</span>
+                <span class="kst-faq-icon">+</span>
+            </button>
+            <div class="kst-faq-answer">
+                Yes, Fiola Eyebag Solution is compatible with complementary treatments like PDO threads and certain dermal fillers for enhanced contouring effects. Consult with your aesthetics professional to develop a comprehensive treatment plan.
+            </div>
+        </div>
+        
+        <div class="kst-faq">
+            <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                <span>When will I see results?</span>
+                <span class="kst-faq-icon">+</span>
+            </button>
+            <div class="kst-faq-answer">
+                Results are progressive and natural-looking. Initial improvements may be visible within 2-3 weeks after the first session, with optimal outcomes becoming apparent after completing the full recommended treatment cycle of 4-6 sessions.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Professional Use Notice -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Professional Use Information</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">For Medical Professionals</h3>
+            <div class="kst-card-content">
+                Fiola Eyebag Solution is designed exclusively for use by trained medical professionals in clinical settings. Proper training in injection techniques, facial anatomy, and patient assessment is required before administering this product.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Technical Administration Guidelines</h3>
+            <div class="kst-card-content">
+                <strong>Injection Technique:</strong> Use a fine-gauge needle and inject slowly into the subcutaneous fat layer at the specified depth (2-6mm depending on treatment area).<br><br>
+                <strong>Injection Points:</strong> For under-eye treatment, use 5 specific injection points spaced 0.3-0.5mm apart per side, totaling 1ml per side.<br><br>
+                <strong>Session Limits:</strong> Never exceed 5ml total volume per treatment session to ensure patient safety and optimal results.
+            </div>
+        </div>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">2-6mm</div>
+                <div class="kst-grid-label">Injection Depth</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">0.3-0.5mm</div>
+                <div class="kst-grid-label">Point Spacing</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">4-6</div>
+                <div class="kst-grid-label">Sessions Recommended</div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    function kstToggleFAQ(button) {
+        const faqItem = button.parentElement;
+        const isActive = faqItem.classList.contains('kst-active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.kst-faq').forEach(item => {
+            item.classList.remove('kst-active');
+        });
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+            faqItem.classList.add('kst-active');
+        }
+    }
+</script>

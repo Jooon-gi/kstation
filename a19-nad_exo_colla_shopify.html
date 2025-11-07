@@ -1,0 +1,710 @@
+<style>
+    /* Reset and base styles with kst- prefix */
+    :root {
+        --kst-main-color: #4c91d4;
+        --kst-sub-color: #1e3d7a;
+        --kst-text-color: #1a1a1a;
+        --kst-assist-color: #c6d6eb;
+        --kst-bg-color: #f9fbfd;
+        --kst-badge-bg: #4c91d4;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #1e3d7a;
+        --kst-border-color: #c6d6eb;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+        background: #ffffff;
+        color: var(--kst-text-color) !important;
+        padding: 0;
+        line-height: 1.6;
+        box-sizing: border-box;
+        border-left: 1px solid var(--kst-border-color);
+        border-right: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    /* Hide image blocks when no images are present */
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .kst-hero-section {
+        background: var(--kst-bg-color);
+        padding: 30px 16px;
+        text-align: center;
+        border-bottom: 2px solid var(--kst-border-color);
+        border-top: 2px solid var(--kst-border-color);
+    }
+    
+    .kst-product-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--kst-sub-color) !important;
+        margin-bottom: 12px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-spec {
+        font-size: 22px;
+        font-weight: 400;
+        color: var(--kst-main-color) !important;
+        margin-top: -12px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-subtitle {
+        font-size: 16px;
+        color: var(--kst-main-color) !important;
+        font-weight: 500;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-hero-description {
+        font-size: 14px;
+        color: var(--kst-text-color) !important;
+        margin: 0 auto 24px;
+        line-height: 1.7;
+    }
+    
+    /* Section Styles */
+    .kst-section {
+        padding: 40px 16px;
+        margin: 0;
+        border-bottom: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--kst-sub-color) !important;
+        text-align: left;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-alt {
+        background: var(--kst-bg-color);
+    }
+    
+    /* Image Blocks */
+    .kst-image-block {
+        background: transparent;
+        border: none;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0;
+    }
+    
+    .kst-image-placeholder {
+        padding: 40px 20px;
+        text-align: center;
+        color: var(--kst-assist-color) !important;
+        font-size: 14px;
+        font-style: italic;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--kst-bg-color);
+        border: 1px dashed var(--kst-border-color);
+    }
+    
+    /* Card Styles */
+    .kst-card {
+        background: #ffffff;
+        border: 1px solid var(--kst-border-color);
+        border-radius: 0;
+        padding: 16px;
+        margin: 12px 0;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .kst-card:hover {
+        box-shadow: 0 2px 10px rgba(76, 145, 212, 0.1);
+    }
+    
+    .kst-card-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-sub-color) !important;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card-content {
+        font-size: 14px;
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+    }
+    
+    .kst-card ul,
+    .kst-card ol {
+        margin: 12px 0;
+        padding-left: 20px;
+        color: var(--kst-text-color) !important;
+    }
+    
+    .kst-card ul li,
+    .kst-card ol li {
+        margin: 8px 0;
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+    }
+    
+    /* Badge Styles */
+    .kst-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        padding: 4px 12px;
+        border-radius: 0;
+        font-size: 12px;
+        font-weight: 500;
+        display: inline-block;
+        margin: 4px 8px 4px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .kst-badge:hover {
+        background: var(--kst-badge-hover);
+    }
+    
+    .kst-badge-primary {
+        background: var(--kst-main-color);
+        color: #ffffff !important;
+    }
+    
+    .kst-badge-warning {
+        background: #d32f2f;
+        color: #ffffff !important;
+    }
+    
+    /* Grid Layouts */
+    .kst-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px 0;
+    }
+    
+    .kst-grid-item {
+        background: #ffffff;
+        padding: 16px;
+        border-radius: 0;
+        border: 1px solid var(--kst-border-color);
+        text-align: left;
+    }
+    
+    .kst-grid-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 4px;
+    }
+    
+    .kst-grid-label {
+        font-size: 14px;
+        color: var(--kst-text-color) !important;
+        font-weight: 400;
+    }
+    
+    /* Text Utilities */
+    .kst-text-muted {
+        color: #666666 !important;
+    }
+    
+    .kst-text-small {
+        font-size: 13px;
+    }
+    
+    .kst-text-center {
+        text-align: center;
+    }
+    
+    /* Definition List Styles */
+    .kst-info-list {
+        margin: 20px 0;
+    }
+    
+    .kst-info-item {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-info-item:last-child {
+        border-bottom: none;
+    }
+    
+    .kst-info-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--kst-sub-color) !important;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .kst-info-value {
+        font-size: 14px;
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+    }
+    
+    /* Table Styles */
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 20px 0;
+        border: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+        display: block;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: var(--kst-bg-color);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-assist-color);
+        border-radius: 4px;
+    }
+    
+    .kst-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+        min-width: 100%;
+    }
+    
+    .kst-table thead th {
+        background: var(--kst-bg-color);
+        color: var(--kst-sub-color) !important;
+        padding: 12px 16px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 13px;
+        border-bottom: 2px solid var(--kst-border-color);
+        white-space: nowrap;
+    }
+    
+    .kst-table tbody td {
+        padding: 12px 16px;
+        color: var(--kst-text-color) !important;
+        font-size: 14px;
+        border-bottom: 1px solid var(--kst-border-color);
+        line-height: 1.6;
+    }
+    
+    .kst-table tbody tr:hover {
+        background: var(--kst-bg-color);
+    }
+    
+    /* Warning Box */
+    .kst-warning {
+        background: #fff3e0;
+        border-left: 4px solid #f57c00;
+        padding: 16px;
+        margin: 20px 0;
+    }
+    
+    .kst-warning-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #e65100 !important;
+        margin-bottom: 8px;
+    }
+    
+    .kst-warning-content {
+        font-size: 14px;
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+    
+    .kst-warning-list {
+        margin: 0;
+        padding-left: 20px;
+    }
+    
+    .kst-warning-list li {
+        margin: 6px 0;
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- Hero Section -->
+    <div class="kst-hero-section">
+        <h1 class="kst-product-title">NAD+ EXO COLLA</h1>
+        <p class="kst-product-spec">Dual Ampoule System (NXC)</p>
+        <p class="kst-product-subtitle">Professional Skin Booster for Advanced Anti-Aging & Regeneration</p>
+        <p class="kst-hero-description">A revolutionary dual-ampoule system combining 300 billion exosomes, NAD+ complex, and low-molecular-weight collagen for comprehensive skin rejuvenation and cellular renewal.</p>
+    </div>
+    
+    <!-- Product Image Placeholder -->
+    <div class="kst-image-block">
+        <div class="kst-image-placeholder">
+            [Product Image: NAD+ EXO COLLA Dual Ampoule Set]
+        </div>
+    </div>
+    
+    <!-- Package Components Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Package Components</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Complete Dual Ampoule System</h3>
+            <div class="kst-card-content">
+                <p>Each set contains 2 specialized ampoules designed to work synergistically:</p>
+            </div>
+        </div>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Ampoule 1</div>
+                <div class="kst-grid-label">Lyophilized Powder Vial with Exosomes (approx. 300 billion particles)</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Ampoule 2</div>
+                <div class="kst-grid-label">Liquid Solution Vial with NAD+ Complex and Active Ingredients</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Ingredient Image Placeholder -->
+    <div class="kst-image-block">
+        <div class="kst-image-placeholder">
+            [Infographic: Key Ingredients and Target Skin Issues]
+        </div>
+    </div>
+    
+    <!-- Key Ingredients Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Key Ingredients & Mechanism of Action</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🧬 Exosomes (300 Billion Particles)</h3>
+            <div class="kst-card-content">
+                <p><strong>Source:</strong> Derived from mesenchymal stem cells</p>
+                <p><strong>Function:</strong> These nano-sized vesicles facilitate intercellular communication, promoting powerful regeneration, skin barrier repair, and rejuvenation at the cellular level.</p>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">⚡ NAD+ Complex (Nicotinamide Adenine Dinucleotide)</h3>
+            <div class="kst-card-content">
+                <p><strong>Function:</strong> Acts as a cellular energy booster, essential for metabolic processes. Supports enhanced cell regeneration and helps slow the cellular aging process by regulating key enzymes.</p>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">💧 Low-Molecular-Weight Collagen</h3>
+            <div class="kst-card-content">
+                <p><strong>Function:</strong> Provides structural support to the skin, helping to strengthen dermal density and improve elasticity through readily absorbable forms.</p>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🧪 Peptides & Growth Factors</h3>
+            <div class="kst-card-content">
+                <p><strong>Includes:</strong> EGF (Epidermal Growth Factor), IGF-1 (Insulin-like Growth Factor), bFGF (basic Fibroblast Growth Factor), VEGF (Vascular Endothelial Growth Factor)</p>
+                <p><strong>Function:</strong> Directly stimulate the production of collagen and elastin while accelerating overall cell regeneration and repair.</p>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">💦 Hyaluronic Acid</h3>
+            <div class="kst-card-content">
+                <p><strong>Function:</strong> Delivers deep hydration and enhances the skin's ability to retain moisture for long-lasting plumpness and suppleness.</p>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🌿 Additional Active Ingredients</h3>
+            <div class="kst-card-content">
+                <p>Comprehensive blend of vitamins and amino acids to support overall skin health and vitality.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Expected Effects Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Main Expected Effects</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <span class="kst-badge kst-badge-primary">Anti-Aging</span>
+                <p class="kst-info-value">Visible reduction in the appearance of wrinkles and fine lines</p>
+            </div>
+            <div class="kst-grid-item">
+                <span class="kst-badge kst-badge-primary">Cellular Energy</span>
+                <p class="kst-info-value">Increased cellular energy and stimulation of collagen production</p>
+            </div>
+            <div class="kst-grid-item">
+                <span class="kst-badge kst-badge-primary">Hydration</span>
+                <p class="kst-info-value">Deep hydration and skin barrier reinforcement</p>
+            </div>
+            <div class="kst-grid-item">
+                <span class="kst-badge kst-badge-primary">Elasticity</span>
+                <p class="kst-info-value">Enhanced elasticity and improved skin tone and texture</p>
+            </div>
+            <div class="kst-grid-item">
+                <span class="kst-badge kst-badge-primary">Soothing</span>
+                <p class="kst-info-value">Anti-inflammatory and soothing properties for stressed or damaged skin</p>
+            </div>
+            <div class="kst-grid-item">
+                <span class="kst-badge kst-badge-primary">Rejuvenation</span>
+                <p class="kst-info-value">Overall skin rejuvenation and restoration of firmness</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mixing Instructions Image -->
+    <div class="kst-image-block">
+        <div class="kst-image-placeholder">
+            [Visual Guide: Mixing the Dual Ampoules]
+        </div>
+    </div>
+    
+    <!-- Usage Protocol Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Usage Protocol & Treatment Method</h2>
+        
+        <div class="kst-warning">
+            <h3 class="kst-warning-title">⚠️ Professional Use Only</h3>
+            <div class="kst-warning-content">
+                This product is designed exclusively for professional application by trained aestheticians and medical practitioners.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Application Methods</h3>
+            <div class="kst-card-content">
+                <p>NAD+ EXO COLLA is suitable for various professional delivery systems:</p>
+                <ul>
+                    <li><strong>Mesotherapy:</strong> Direct intradermal injection technique</li>
+                    <li><strong>Microneedling (MTS):</strong> Micro-channel creation for deeper penetration</li>
+                    <li><strong>Dermapen Treatments:</strong> Automated micro-needling device application</li>
+                    <li><strong>Nano-needling:</strong> Surface-level micro-channel delivery</li>
+                </ul>
+                <p><strong>Important:</strong> The two ampoules (lyophilized powder and liquid solution) must be thoroughly mixed immediately prior to application.</p>
+            </div>
+        </div>
+        
+        <div class="kst-info-list">
+            <div class="kst-info-item">
+                <div class="kst-info-label">Initial Treatment Course</div>
+                <div class="kst-info-value">5 sessions performed every 2 weeks for optimal results</div>
+            </div>
+            <div class="kst-info-item">
+                <div class="kst-info-label">Maintenance Protocol</div>
+                <div class="kst-info-value">Once a month after the initial course is completed</div>
+            </div>
+            <div class="kst-info-item">
+                <div class="kst-info-label">Complementary Equipment</div>
+                <div class="kst-info-value">Synergy with professional MTS devices or Dermapens is necessary to facilitate deeper penetration of active ingredients</div>
+            </div>
+            <div class="kst-info-item">
+                <div class="kst-info-label">Post-Treatment Care</div>
+                <div class="kst-info-value">Post-treatment synergy may be enhanced with a soothing, regenerative mask or cream</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Target Guide Table -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Recommended Guide by Target</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Target Area</th>
+                        <th>Symptoms/Situation</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Advanced Anti-Aging</strong></td>
+                        <td>Severe wrinkles, loss of firmness, dullness</td>
+                        <td>High NAD+ content targets cellular energy decline for deep anti-aging and regeneration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Damaged/Stressed Skin</strong></td>
+                        <td>Post-treatment recovery, barrier impairment, inflammation</td>
+                        <td>Exosomes and Growth Factors accelerate skin barrier repair and provide powerful soothing/anti-inflammatory effects</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dehydrated Skin</strong></td>
+                        <td>Dryness, uneven texture, reduced luminosity</td>
+                        <td>Hyaluronic Acid and Collagen provide intense moisture and structural reinforcement for improved texture</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Detailed Product Description -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Detailed Description</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🔹 NAD+ EXO COLLA Skin Booster</h3>
+            <div class="kst-card-content">
+                <p><strong>Comprehensive Ingredient Composition:</strong></p>
+                <ul>
+                    <li>Lyophilized Exosome Powder (300 billion particles)</li>
+                    <li>NAD+ Complex Solution</li>
+                    <li>Low-Molecular-Weight Collagen</li>
+                    <li>Hyaluronic Acid</li>
+                    <li>Potent blend of Peptides</li>
+                    <li>Growth Factors (EGF, IGF-1, bFGF, VEGF)</li>
+                    <li>Vitamins and Amino Acids</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Efficacy Summary</h3>
+            <div class="kst-card-content">
+                <p>NAD+ EXO COLLA delivers a <strong>multi-layered renewal effect</strong> by:</p>
+                <ul>
+                    <li><strong>Boosting cellular energy</strong> through NAD+ complex</li>
+                    <li><strong>Facilitating intercellular repair</strong> via Exosomes</li>
+                    <li><strong>Rebuilding the dermal structure</strong> with Collagen, Hyaluronic Acid, and Peptides</li>
+                </ul>
+                <p>This comprehensive approach addresses signs of aging, dehydration, and poor skin tone simultaneously for transformative results.</p>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Suitable For</h3>
+            <div class="kst-card-content">
+                <ul>
+                    <li>Individuals experiencing <strong>dry or dull skin</strong></li>
+                    <li>Those with <strong>wrinkles and loss of firmness</strong></li>
+                    <li>Clients with <strong>reduced skin tone and texture</strong></li>
+                    <li>Patients requiring <strong>intensive skin recovery</strong> after aesthetic treatments</li>
+                    <li>All skin types needing anti-aging and intensive care</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Unique Dual-Ampoule System</h3>
+            <div class="kst-card-content">
+                <p>The product features a <strong>dual-ampoule system</strong> specifically designed to maintain the stability and potency of the heat-sensitive Exosomes and NAD+ until the moment of application. This innovative packaging ensures maximum efficacy of the regenerative components.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Precautions and Storage -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Precautions & Storage Instructions</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Infographic: Storage and Usage Instructions]
+            </div>
+        </div>
+        
+        <div class="kst-info-list">
+            <div class="kst-info-item">
+                <div class="kst-info-label">Storage Temperature</div>
+                <div class="kst-info-value">Unopened vials should be stored under refrigerated or cool conditions (2-8°C) to maintain the viability of the Exosomes and NAD+ complex. The lyophilized (powder) component should be refrigerated for optimal preservation of exosome activity.</div>
+            </div>
+            <div class="kst-info-item">
+                <div class="kst-info-label">Time Limit After Opening</div>
+                <div class="kst-info-value">The two components must be mixed immediately before application and any remaining solution must be discarded as the active ingredients' stability rapidly declines upon mixing.</div>
+            </div>
+            <div class="kst-info-item">
+                <div class="kst-info-label">Storage Location</div>
+                <div class="kst-info-value">Store in a cool, dark place away from direct sunlight. Refrigeration is recommended for maintaining optimal product efficacy.</div>
+            </div>
+        </div>
+        
+        <div class="kst-warning">
+            <h3 class="kst-warning-title">⚠️ General Precautions</h3>
+            <ul class="kst-warning-list">
+                <li><strong>Professional use only</strong> - This product is for trained practitioners</li>
+                <li>Avoid contact with eyes</li>
+                <li>Do not use on damaged or irritated skin</li>
+                <li>Patients should follow post-treatment care instructions carefully</li>
+                <li>Mix the two ampoules only immediately before use</li>
+                <li>Discard any unused mixed solution</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Meta Keywords -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Product Keywords</h2>
+        <div class="kst-card-content">
+            <span class="kst-badge">NAD+ EXO COLLA</span>
+            <span class="kst-badge">NAD+</span>
+            <span class="kst-badge">Exosome</span>
+            <span class="kst-badge">Stem Cell Exosome</span>
+            <span class="kst-badge">Low-Molecular-Weight Collagen</span>
+            <span class="kst-badge">Skin Booster</span>
+            <span class="kst-badge">Regeneration Injection</span>
+            <span class="kst-badge">Mesotherapy Solution</span>
+            <span class="kst-badge">Microneedling Serum</span>
+            <span class="kst-badge">MTS</span>
+            <span class="kst-badge">Anti-Aging</span>
+            <span class="kst-badge">Skin Elasticity</span>
+            <span class="kst-badge">Wrinkle Reduction</span>
+            <span class="kst-badge">Deep Hydration</span>
+            <span class="kst-badge">Cellular Energy</span>
+            <span class="kst-badge">Skin Repair</span>
+            <span class="kst-badge">Professional Use</span>
+        </div>
+    </div>
+    
+</div>

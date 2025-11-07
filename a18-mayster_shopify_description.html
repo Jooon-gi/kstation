@@ -1,0 +1,766 @@
+<style>
+  /* =========================================
+   Shopify-Optimized Mobile Template Styles
+  ========================================== */
+
+  /* Basic Reset with kst prefix */
+  .kst-container *, 
+  .kst-container *::before, 
+  .kst-container *::after { 
+    box-sizing: border-box; 
+  }
+  
+  .kst-container {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+    color: var(--kst-text-primary);
+    line-height: 1.6;
+    background: var(--kst-bg);
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* Image Auto-Hide - CSS :has() based */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-container img, 
+  .kst-container video { 
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    object-fit: cover;
+  }
+  
+  /* =========================================
+   Design Tokens - Custom Color Palette
+  ========================================== */
+  .kst-container {
+    --kst-primary: #d44f43;
+    --kst-secondary: #1f1f2e;
+    --kst-text-primary: #2b2b2b;
+    --kst-text-secondary: #e2e2e2;
+    --kst-bg: #ffffff;
+    --kst-badge-bg: #d44f43;
+    --kst-badge-text: #ffffff;
+    --kst-badge-hover: #a63a34;
+    --kst-border: #e2e2e2;
+    --kst-shadow: 0 4px 12px rgba(212, 79, 67, 0.08);
+    --kst-gradient: linear-gradient(135deg, rgba(212, 79, 67, 0.1), rgba(31, 31, 46, 0.05));
+  }
+
+  /* =========================================
+   Container
+  ========================================== */
+  .kst-content-wrapper {
+    padding: 16px 12px;
+  }
+
+  /* =========================================
+   Sections
+  ========================================== */
+  .kst-section {
+    position: relative;
+    background: var(--kst-bg);
+    border: 1px solid var(--kst-border);
+    padding: 20px 16px;
+    margin: 16px 8px;
+    box-shadow: var(--kst-shadow);
+    overflow: hidden;
+  }
+
+  .kst-section::before {
+    content: "";
+    position: absolute; 
+    inset: -1px -1px auto -1px; 
+    height: 3px;
+    background: var(--kst-primary);
+    opacity: .5;
+  }
+
+  .kst-section-title {
+    margin: 0 0 12px;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: .2px;
+    color: var(--kst-secondary);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .kst-section-title::after {
+    content: "";
+    height: 8px; 
+    width: 32px;
+    background: var(--kst-primary);
+    filter: blur(8px);
+    opacity: .4;
+  }
+
+  .kst-section-sub { 
+    margin: 0 0 14px; 
+    color: var(--kst-text-primary); 
+    font-size: .9rem; 
+  }
+  
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: var(--kst-bg);
+    border: 1px solid var(--kst-border);
+    padding: 20px 16px;
+    position: relative; 
+    overflow: hidden;
+    margin: 12px 8px;
+    box-shadow: var(--kst-shadow);
+  }
+
+  .kst-hero::before {
+    content: "";
+    position: absolute; 
+    inset: -20% -10% auto auto; 
+    width: 280px; 
+    height: 280px;
+    background: var(--kst-gradient); 
+    filter: blur(25px); 
+    opacity: .3;
+    animation: kst-blob 20s linear infinite;
+  }
+
+  @keyframes kst-blob {
+    0% { transform: translate(0,0) rotate(0deg); }
+    50% { transform: translate(-8px, 4px) rotate(6deg); }
+    100% { transform: translate(0,0) rotate(0deg); }
+  }
+
+  .kst-labels { 
+    display: flex; 
+    gap: 6px; 
+    flex-wrap: wrap; 
+    margin-bottom: 12px;
+  }
+
+  .kst-badge {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 4px;
+    padding: 6px 10px;
+    background: var(--kst-badge-bg);
+    border: 1px solid var(--kst-primary);
+    color: var(--kst-badge-text); 
+    font-size: .75rem; 
+    font-weight: 500;
+  }
+
+  .kst-hero-title {
+    margin: 0 0 8px;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: .2px;
+    color: var(--kst-secondary);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .kst-hero-spec {
+    margin: -8px 0 15px;
+    font-weight: 500;
+    font-size: 1.4rem;
+    letter-spacing: .1px;
+    color: var(--kst-primary);
+  }
+
+  .kst-hero p { 
+    margin: 0 0 10px; 
+    color: var(--kst-text-primary); 
+  }
+
+  .kst-highlight {
+    border: 1px solid var(--kst-primary);
+    background: rgba(212, 79, 67, 0.05);
+    padding: 10px 12px; 
+    color: var(--kst-secondary);
+    margin-bottom: 12px;
+  }
+
+  .kst-image-block {
+    width: 100%;
+    margin: 16px 0;
+    background: rgba(226, 226, 226, 0.1);
+    min-height: 200px;
+    border: 1px dashed var(--kst-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--kst-text-primary);
+    font-size: 0.9rem;
+  }
+
+  .kst-chart-block {
+    width: 100%;
+    margin: 16px 0;
+    background: rgba(226, 226, 226, 0.1);
+    min-height: 200px;
+    border: 1px dashed var(--kst-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--kst-text-primary);
+    font-size: 0.9rem;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+  }
+
+  .kst-card {
+    background: var(--kst-bg); 
+    border: 1px solid var(--kst-border); 
+    padding: 14px; 
+    box-shadow: var(--kst-shadow); 
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; 
+    margin: 0 8px;
+  }
+
+  .kst-card:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 16px rgba(212, 79, 67, 0.12); 
+    border-color: var(--kst-primary);
+  }
+
+  .kst-card h3, .kst-card h4 {
+    margin: 0 0 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--kst-secondary);
+  }
+
+  .kst-card p { 
+    margin: 0 0 8px; 
+    color: var(--kst-text-primary); 
+  }
+
+  .kst-card ul, .kst-card ol { 
+    margin: 8px 0; 
+    padding-left: 20px; 
+    color: var(--kst-text-primary);
+  }
+
+  .kst-card ul li, .kst-card ol li { 
+    margin-bottom: 6px; 
+    line-height: 1.5;
+    color: var(--kst-text-primary);
+  }
+
+  .kst-muted { 
+    color: var(--kst-text-primary); 
+    opacity: 0.7;
+    font-size: .9rem;
+  }
+
+  /* =========================================
+   Definition Lists
+  ========================================== */
+  .kst-def-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+  }
+
+  .kst-def-item {
+    background: var(--kst-bg);
+    border-left: 3px solid var(--kst-primary);
+    padding: 12px 14px;
+    margin: 0 8px;
+  }
+
+  .kst-def-term {
+    font-weight: 600;
+    color: var(--kst-secondary);
+    margin-bottom: 4px;
+  }
+
+  .kst-def-desc {
+    color: var(--kst-text-primary);
+    line-height: 1.5;
+  }
+
+  /* =========================================
+   Tables
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 8px;
+    border: 1px solid var(--kst-border);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: rgba(226, 226, 226, 0.2);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-primary);
+    border-radius: 4px;
+  }
+
+  .kst-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+  }
+
+  .kst-table thead th {
+    background: var(--kst-secondary);
+    color: var(--kst-text-secondary);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--kst-primary);
+  }
+
+  .kst-table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid var(--kst-border);
+    color: var(--kst-text-primary);
+  }
+
+  .kst-table tbody tr:hover {
+    background: rgba(212, 79, 67, 0.03);
+  }
+
+  /* =========================================
+   Label-Value Pairs
+  ========================================== */
+  .kst-label-value {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .kst-label {
+    font-weight: 600;
+    color: var(--kst-secondary);
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+
+  /* =========================================
+   Callouts
+  ========================================== */
+  .kst-callout {
+    background: rgba(212, 79, 67, 0.05);
+    border-left: 4px solid var(--kst-primary);
+    padding: 12px 14px;
+    margin: 16px 8px;
+    color: var(--kst-text-primary);
+  }
+
+  .kst-callout strong {
+    color: var(--kst-secondary);
+  }
+
+  /* =========================================
+   Split Layout
+  ========================================== */
+  .kst-split {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* =========================================
+   Steps
+  ========================================== */
+  .kst-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 8px;
+  }
+
+  .kst-step {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: var(--kst-bg);
+    border: 1px solid var(--kst-border);
+  }
+
+  .kst-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--kst-primary);
+    color: var(--kst-badge-text);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: .85rem;
+  }
+
+  .kst-step strong {
+    color: var(--kst-secondary);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* =========================================
+   KPI Display
+  ========================================== */
+  .kst-kpi {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--kst-primary);
+    margin-bottom: 4px;
+  }
+
+  .kst-unit {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--kst-text-primary);
+    margin-left: 4px;
+  }
+
+  /* =========================================
+   Footer
+  ========================================== */
+  .kst-footer {
+    background: var(--kst-secondary);
+    color: var(--kst-text-secondary);
+    padding: 20px 16px;
+    margin: 24px 8px 0;
+    text-align: center;
+  }
+
+  .kst-footer .kst-label {
+    color: var(--kst-primary);
+  }
+
+  .kst-footer a {
+    color: var(--kst-primary);
+    text-decoration: none;
+  }
+</style>
+
+<div class="kst-container">
+  <main class="kst-content-wrapper">
+
+    <!-- Hero Section -->
+    <section class="kst-hero" id="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge">Professional Use Only</span>
+        <span class="kst-badge">Two-Vial System</span>
+        <span class="kst-badge">PLLA + PDRN + HA</span>
+      </div>
+
+      <h1 class="kst-hero-title">MAYSTER HA/PDRN/PLLA<br>Booster + Activator</h1>
+      <p class="kst-hero-spec">Advanced Multi-Functional Skin Booster System</p>
+
+      <p>MAYSTER is a comprehensive two-part aesthetic treatment system combining powerful collagen-stimulating PLLA, tissue-regenerating PDRN, and deeply hydrating HA with an advanced Activator containing Glutathione and Peptide Complex for enhanced skin rejuvenation and brightening.</p>
+
+      <div class="kst-highlight">
+        <strong>Composition:</strong> Booster (Lyophilized Powder) + Activator (Liquid Solvent) — Typically supplied as 5 Booster vials + 5 Activator vials per set
+      </div>
+
+      <div class="kst-image-block">
+        <!-- Insert Product Packaging Image -->
+      </div>
+    </section>
+
+    <!-- Key Ingredients -->
+    <section class="kst-section" id="kst-ingredients">
+      <h2 class="kst-section-title">Key Ingredients & Composition</h2>
+      
+      <div class="kst-def-list">
+        <div class="kst-def-item">
+          <div class="kst-def-term">Booster Vial (Lyophilized Powder)</div>
+          <div class="kst-def-desc">
+            <strong>PLLA (Poly-L-Lactic Acid):</strong> Proven collagen stimulator that encourages natural collagen production over time for long-term firmness and structural improvement.<br><br>
+            <strong>PDRN (Polydeoxyribonucleotide):</strong> Tissue regeneration component that accelerates cell growth, improves wound healing, and provides anti-inflammatory benefits.<br><br>
+            <strong>HA (Hyaluronic Acid):</strong> Deeply hydrates skin, plumps fine lines, and improves overall volume and texture.
+          </div>
+        </div>
+
+        <div class="kst-def-item">
+          <div class="kst-def-term">Activator Vial (Liquid Solvent)</div>
+          <div class="kst-def-desc">
+            <strong>Glutathione:</strong> Powerful antioxidant that brightens complexion and helps even skin tone.<br><br>
+            <strong>Peptide Complex:</strong> Provides essential nutrients for cell revitalization and enhanced skin repair.<br><br>
+            <strong>Vitamin B Complex:</strong> Nourishing components that support overall skin health.
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <!-- Insert Ingredients Infographic -->
+      </div>
+    </section>
+
+    <!-- Expected Efficacy -->
+    <section class="kst-section" id="kst-efficacy">
+      <h2 class="kst-section-title">Expected Efficacy Summary</h2>
+      
+      <p class="kst-section-sub">MAYSTER delivers comprehensive skin regeneration through multiple mechanisms of action</p>
+
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Collagen & Elasticity Enhancement</h4>
+          <p>Stimulates natural collagen production (PLLA) for improved skin firmness and elasticity with progressive, long-lasting results.</p>
+        </div>
+
+        <div class="kst-card">
+          <h4>Regeneration & Repair</h4>
+          <p>Promotes tissue repair and cellular growth (PDRN) for enhanced wound healing and comprehensive anti-aging benefits.</p>
+        </div>
+
+        <div class="kst-card">
+          <h4>Deep Moisture & Volume</h4>
+          <p>Provides lasting hydration and subtle volume enhancement (HA) for plumper, more youthful-looking skin.</p>
+        </div>
+
+        <div class="kst-card">
+          <h4>Brightening Effect</h4>
+          <p>Contains Glutathione to help even skin tone and provide a brighter, more radiant complexion.</p>
+        </div>
+
+        <div class="kst-card">
+          <h4>Texture Improvement</h4>
+          <p>Reduces the appearance of fine lines, wrinkles, and enlarged pores for smoother, refined skin texture.</p>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <!-- Insert Efficacy Summary Infographic -->
+      </div>
+    </section>
+
+    <!-- Treatment Protocol -->
+    <section class="kst-section" id="kst-protocol">
+      <h2 class="kst-section-title">Usage Protocol & Treatment Guide</h2>
+
+      <div class="kst-callout">
+        <strong>Recommended Treatment Cycle:</strong> 3 sessions spaced 3-4 weeks apart, followed by maintenance sessions every 3-6 months as needed
+      </div>
+
+      <div class="kst-label-value">
+        <div class="kst-label">Treatment Areas</div>
+        <div>Entire face (including periocular and perioral areas), neck, décolletage, and back of the hands</div>
+      </div>
+
+      <div class="kst-steps">
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true">1</div>
+          <div>
+            <strong>Preparation</strong>
+            <div class="kst-muted">Mix the Activator liquid into the Booster powder vial to reconstitute the solution</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true">2</div>
+          <div>
+            <strong>Application</strong>
+            <div class="kst-muted">Apply using multi-needle injection, microneedling (MTS), or dermal filler injection techniques</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true">3</div>
+          <div>
+            <strong>Distribution</strong>
+            <div class="kst-muted">Ensure even distribution into the dermis for optimal results</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-label-value">
+        <div class="kst-label">Application Methods</div>
+        <div>
+          <ul>
+            <li><strong>Multi-needle Injection:</strong> For precise targeted delivery</li>
+            <li><strong>Microneedling (MTS):</strong> For broader coverage and enhanced absorption</li>
+            <li><strong>Dermal Filler Techniques:</strong> For volumizing and contouring applications</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <!-- Insert Treatment Protocol Diagram -->
+      </div>
+    </section>
+
+    <!-- Product Comparison -->
+    <section class="kst-section" id="kst-comparison">
+      <h2 class="kst-section-title">Product System Overview</h2>
+      
+      <p class="kst-section-sub">Understanding the comprehensive dual-component system</p>
+
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Product Component Comparison">
+          <thead>
+            <tr>
+              <th>Classification</th>
+              <th>Key Ingredients</th>
+              <th>Treatment Areas</th>
+              <th>Primary Action</th>
+              <th>Main Efficacy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>All-in-One Booster</strong></td>
+              <td>PLLA, PDRN, HA</td>
+              <td>Entire Face, Neck, Hands</td>
+              <td>Collagen Induction, Regeneration</td>
+              <td>Firmness, Elasticity, Deep Hydration, Brightening</td>
+            </tr>
+            <tr>
+              <td><strong>Activator</strong></td>
+              <td>Glutathione, Peptides</td>
+              <td>Pre-Mix Solvent</td>
+              <td>Anti-oxidation, Nourishment</td>
+              <td>Skin Brightening, Enhanced Repair</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-callout">
+        <strong>Who Is This For?</strong> MAYSTER is an excellent choice for individuals seeking a multi-benefit skin treatment that addresses signs of aging, lack of firmness, dullness, and dehydration through a single, powerful solution.
+      </div>
+    </section>
+
+    <!-- Detailed Description -->
+    <section class="kst-section" id="kst-details">
+      <h2 class="kst-section-title">How MAYSTER Works</h2>
+
+      <p>MAYSTER provides <strong>dual action</strong> by immediately moisturizing and rejuvenating (HA/PDRN) while offering sustained collagen production (PLLA) for progressive, long-lasting improvement in skin quality and structure.</p>
+
+      <div class="kst-highlight">
+        The blend of PLLA with fast-acting components (PDRN, HA) helps mitigate the delayed effects often associated with traditional PLLA-only treatments, providing visible improvement sooner while still building foundational collagen.
+      </div>
+
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Immediate Benefits</h4>
+          <ul>
+            <li>Instant hydration from Hyaluronic Acid</li>
+            <li>Rapid tissue repair activation from PDRN</li>
+            <li>Antioxidant protection from Glutathione</li>
+            <li>Enhanced nutrient delivery via Peptide Complex</li>
+          </ul>
+        </div>
+
+        <div class="kst-card">
+          <h4>Long-Term Benefits</h4>
+          <ul>
+            <li>Progressive collagen synthesis from PLLA</li>
+            <li>Sustained structural improvement</li>
+            <li>Cumulative anti-aging effects</li>
+            <li>Prolonged skin quality enhancement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <!-- Insert Mechanism of Action Cross-Section -->
+      </div>
+
+      <div class="kst-label-value">
+        <div class="kst-label">Mechanism of Action</div>
+        <div>MAYSTER effectively targets wrinkles, loss of elasticity, and uneven tone through a comprehensive approach combining immediate hydration, rapid regeneration, and sustained collagen stimulation for complete skin rejuvenation.</div>
+      </div>
+    </section>
+
+    <!-- Storage & Precautions -->
+    <section class="kst-section" id="kst-storage">
+      <h2 class="kst-section-title">Precautions & Storage Guidelines</h2>
+
+      <div class="kst-split">
+        <div class="kst-card">
+          <h4>Storage Requirements</h4>
+          <ul>
+            <li><strong>Unopened Vials:</strong> Store at room temperature as specified on packaging</li>
+            <li><strong>Environment:</strong> Keep away from extreme heat, cold, and direct sunlight</li>
+            <li><strong>Reconstituted Product:</strong> Use immediately after preparation</li>
+            <li><strong>Important:</strong> Do not store any remaining mixed product</li>
+          </ul>
+        </div>
+
+        <div class="kst-card">
+          <h4>Handling Guidelines</h4>
+          <ul>
+            <li>Booster and Activator must be fully mixed before use</li>
+            <li>Allow complete reconstitution of the powder</li>
+            <li>Follow strict aseptic techniques during preparation</li>
+            <li>Maintain sterile application procedures</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kst-callout">
+        <strong>Professional Use Only</strong> — This product is intended for use by trained aesthetic professionals only. Avoid application on areas with active skin infections or inflammation.
+      </div>
+
+      <div class="kst-image-block">
+        <!-- Insert Storage & Handling Infographic -->
+      </div>
+    </section>
+
+    <!-- Meta Keywords -->
+    <section class="kst-section" id="kst-keywords">
+      <h2 class="kst-section-title">Product Keywords</h2>
+      
+      <div class="kst-labels">
+        <span class="kst-badge">Skin Booster</span>
+        <span class="kst-badge">PLLA</span>
+        <span class="kst-badge">PDRN</span>
+        <span class="kst-badge">HA</span>
+        <span class="kst-badge">Collagen Stimulator</span>
+        <span class="kst-badge">Skin Regeneration</span>
+        <span class="kst-badge">Elasticity Enhancement</span>
+        <span class="kst-badge">Anti-Aging</span>
+        <span class="kst-badge">Volume Loss</span>
+        <span class="kst-badge">Glutathione</span>
+        <span class="kst-badge">Peptide Booster</span>
+        <span class="kst-badge">Microneedling</span>
+        <span class="kst-badge">Rejuvenating Ampoule</span>
+        <span class="kst-badge">Dermal Booster</span>
+        <span class="kst-badge">Skin Firming</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="kst-footer">
+    <div class="kst-label-value">
+      <div class="kst-label">For Professional Use Only</div>
+      <div>This product is intended for use by licensed aesthetic professionals. Consult with qualified practitioners for treatment recommendations.</div>
+    </div>
+  </footer>
+</div>

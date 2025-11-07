@@ -1,0 +1,835 @@
+<style>
+    :root {
+        --kst-color-main: #9c928b;
+        --kst-color-sub: #4f4a47;
+        --kst-color-text: #1f1f1f;
+        --kst-color-assist: #d9d6d3;
+        --kst-color-bg: #ffffff;
+        --kst-color-badge-bg: #9c928b;
+        --kst-color-badge-text: #ffffff;
+        --kst-color-badge-hover: #4f4a47;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: var(--kst-color-bg);
+        color: var(--kst-color-text) !important;
+        padding: 0;
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+    
+    .kst-hero-section {
+        background: linear-gradient(135deg, #f5f3f1 0%, #e8e5e2 100%);
+        padding: 40px 16px;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    
+    .kst-product-badge {
+        background: var(--kst-color-badge-bg);
+        color: var(--kst-color-badge-text);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 16px;
+    }
+    
+    .kst-main-title {
+        font-size: 28px;
+        font-weight: 300;
+        color: var(--kst-color-text) !important;
+        margin-bottom: 12px;
+        letter-spacing: -1px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-main-subtitle {
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--kst-color-sub) !important;
+        margin-bottom: 18px;
+        margin-top: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section {
+        padding: 16px;
+        margin-bottom: 20px;
+        color: var(--kst-color-text) !important;
+    }
+    
+    .kst-section-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--kst-color-sub) !important;
+        margin-bottom: 16px;
+    }
+    
+    .kst-section-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--kst-color-text) !important;
+        margin-bottom: 20px;
+        letter-spacing: -0.5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-image-block {
+        background: #f8f9fa;
+        padding: 40px 20px;
+        text-align: center;
+        margin: 20px 8px;
+        color: var(--kst-color-sub) !important;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 8px;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .kst-image-block:not(:has(img)),
+    .kst-image-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    
+    .kst-ingredient-card {
+        background: #f5f3f1;
+        padding: 20px 16px;
+        margin-bottom: 16px;
+        border-left: 4px solid var(--kst-color-main);
+        border-radius: 0 8px 8px 0;
+        transition: all 0.2s ease;
+    }
+    
+    .kst-ingredient-card:hover {
+        border-left-color: var(--kst-color-sub);
+        background: #eeebe8;
+    }
+    
+    .kst-ingredient-header {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+    
+    .kst-ingredient-name {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--kst-color-text) !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-concentration-tag {
+        background: var(--kst-color-main);
+        color: var(--kst-color-badge-text);
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        align-self: flex-start;
+    }
+    
+    .kst-ingredient-description {
+        font-size: 14px;
+        color: var(--kst-color-sub) !important;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-mechanism-list {
+        margin: 16px 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .kst-mechanism-item {
+        background: var(--kst-color-bg);
+        border: 1px solid var(--kst-color-assist);
+        padding: 14px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+    }
+    
+    .kst-mechanism-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--kst-color-text) !important;
+        margin-bottom: 6px;
+    }
+    
+    .kst-mechanism-text {
+        font-size: 14px;
+        color: var(--kst-color-sub) !important;
+        line-height: 1.5;
+    }
+    
+    .kst-benefits-list {
+        margin: 20px 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .kst-benefit-item {
+        background: var(--kst-color-bg);
+        border: 1px solid var(--kst-color-assist);
+        padding: 16px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+    }
+    
+    .kst-benefit-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-color-text) !important;
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+    
+    .kst-benefit-description {
+        font-size: 14px;
+        color: var(--kst-color-sub) !important;
+        line-height: 1.6;
+    }
+    
+    .kst-protocol-card {
+        background: #f5f3f1;
+        padding: 18px;
+        margin-bottom: 14px;
+        border-radius: 8px;
+        border-left: 3px solid var(--kst-color-main);
+    }
+    
+    .kst-protocol-label {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--kst-color-main) !important;
+        margin-bottom: 8px;
+    }
+    
+    .kst-protocol-content {
+        font-size: 14px;
+        color: var(--kst-color-text) !important;
+        line-height: 1.6;
+    }
+    
+    .kst-protocol-content strong {
+        color: var(--kst-color-text) !important;
+        font-weight: 600;
+    }
+    
+    .kst-divider {
+        height: 1px;
+        background: var(--kst-color-assist);
+        margin: 32px 16px;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 20px 8px;
+        border-radius: 8px;
+        border: 1px solid var(--kst-color-assist);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+        display: block;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-color-main);
+        border-radius: 4px;
+    }
+    
+    .kst-comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+        min-width: 600px;
+    }
+    
+    .kst-comparison-table thead th {
+        background: var(--kst-color-main);
+        color: var(--kst-color-badge-text) !important;
+        padding: 12px 10px;
+        text-align: left;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+        border-right: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .kst-comparison-table thead th:last-child {
+        border-right: none;
+    }
+    
+    .kst-comparison-table tbody td {
+        padding: 12px 10px;
+        border-bottom: 1px solid var(--kst-color-assist);
+        font-size: 13px;
+        color: var(--kst-color-text) !important;
+        line-height: 1.5;
+    }
+    
+    .kst-comparison-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .kst-comparison-table tbody tr:nth-child(even) {
+        background: #f9f8f7;
+    }
+    
+    .kst-info-box {
+        background: #f5f3f1;
+        padding: 18px 16px;
+        margin: 20px 8px;
+        border-radius: 8px;
+        border-left: 4px solid var(--kst-color-main);
+    }
+    
+    .kst-info-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-color-text) !important;
+        margin-bottom: 10px;
+    }
+    
+    .kst-info-text {
+        font-size: 14px;
+        color: var(--kst-color-sub) !important;
+        line-height: 1.6;
+    }
+    
+    .kst-detail-section {
+        background: var(--kst-color-bg);
+        padding: 20px 16px;
+        margin: 20px 8px;
+        border: 1px solid var(--kst-color-assist);
+        border-radius: 8px;
+    }
+    
+    .kst-detail-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--kst-color-text) !important;
+        margin-bottom: 14px;
+    }
+    
+    .kst-detail-content {
+        font-size: 14px;
+        color: var(--kst-color-sub) !important;
+        line-height: 1.7;
+    }
+    
+    .kst-detail-content p {
+        margin-bottom: 12px;
+    }
+    
+    .kst-detail-content strong {
+        color: var(--kst-color-text) !important;
+        font-weight: 600;
+    }
+    
+    .kst-detail-list {
+        margin: 12px 0;
+        padding-left: 20px;
+    }
+    
+    .kst-detail-list li {
+        margin-bottom: 8px;
+        color: var(--kst-color-sub) !important;
+    }
+    
+    .kst-storage-card {
+        background: #fff8f0;
+        padding: 18px;
+        margin: 20px 8px;
+        border-radius: 8px;
+        border: 2px solid #f0c090;
+    }
+    
+    .kst-storage-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #c07040 !important;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .kst-storage-icon {
+        width: 20px;
+        height: 20px;
+        background: #c07040;
+        color: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .kst-storage-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .kst-storage-item {
+        padding: 10px 0;
+        border-bottom: 1px solid #f0c090;
+        font-size: 14px;
+        color: #4f4a47 !important;
+        line-height: 1.5;
+    }
+    
+    .kst-storage-item:last-child {
+        border-bottom: none;
+    }
+    
+    .kst-storage-item strong {
+        color: #c07040 !important;
+        font-weight: 600;
+    }
+    
+    .kst-warning-box {
+        background: #fff5f5;
+        padding: 18px;
+        margin: 20px 8px;
+        border-radius: 8px;
+        border-left: 4px solid #e53e3e;
+    }
+    
+    .kst-warning-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #c53030 !important;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .kst-warning-icon {
+        width: 20px;
+        height: 20px;
+        background: #e53e3e;
+        color: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .kst-warning-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .kst-warning-item {
+        padding: 8px 0;
+        font-size: 14px;
+        color: #742a2a !important;
+        line-height: 1.5;
+        padding-left: 20px;
+        position: relative;
+    }
+    
+    .kst-warning-item:before {
+        content: "•";
+        position: absolute;
+        left: 8px;
+        color: #e53e3e;
+        font-weight: bold;
+    }
+    
+    .kst-summary-section {
+        background: linear-gradient(135deg, #f5f3f1 0%, #e8e5e2 100%);
+        padding: 28px 20px;
+        margin: 32px 8px 20px 8px;
+        border-radius: 12px;
+        text-align: center;
+    }
+    
+    .kst-summary-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--kst-color-text) !important;
+        margin-bottom: 14px;
+    }
+    
+    .kst-summary-text {
+        font-size: 14px;
+        color: var(--kst-color-sub) !important;
+        line-height: 1.7;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .kst-keywords {
+        padding: 20px 16px;
+        margin: 20px 8px;
+        background: #fafaf9;
+        border-radius: 8px;
+        text-align: center;
+    }
+    
+    .kst-keywords-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--kst-color-sub) !important;
+        margin-bottom: 12px;
+    }
+    
+    .kst-keywords-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+    
+    .kst-keyword-tag {
+        background: var(--kst-color-bg);
+        color: var(--kst-color-sub) !important;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        border: 1px solid var(--kst-color-assist);
+    }
+</style>
+
+<div class="kst-main-container">
+    <!-- Hero Section -->
+    <div class="kst-hero-section">
+        <span class="kst-product-badge">Professional Skin Booster</span>
+        <h1 class="kst-main-title">NMN Bottle NAD+ Booster</h1>
+        <p class="kst-main-subtitle">Cellular Rejuvenation Solution 5 mL</p>
+    </div>
+    
+    <!-- Product Overview -->
+    <div class="kst-section">
+        <div class="kst-section-label">Product Information</div>
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-protocol-card">
+            <div class="kst-protocol-label">Packaging</div>
+            <div class="kst-protocol-content">Sterile liquid solution supplied in a small glass vial</div>
+        </div>
+        
+        <div class="kst-protocol-card">
+            <div class="kst-protocol-label">Volume</div>
+            <div class="kst-protocol-content">5 mL per vial. Typically sold in boxes containing multiple vials (e.g., 5 or 10 vials per box)</div>
+        </div>
+        
+        <div class="kst-protocol-card">
+            <div class="kst-protocol-label">Application</div>
+            <div class="kst-protocol-content">Designed for professional use in Mesotherapy and Microneedling procedures</div>
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Key Ingredient -->
+    <div class="kst-section">
+        <div class="kst-section-label">Active Component</div>
+        <h2 class="kst-section-title">Key Ingredient & Formulation</h2>
+        
+        <div class="kst-ingredient-card">
+            <div class="kst-ingredient-header">
+                <div class="kst-ingredient-name">Nicotinamide Mononucleotide (NMN)</div>
+                <span class="kst-concentration-tag">Sterile Solution</span>
+            </div>
+            <div class="kst-ingredient-description">
+                NMN is a crucial and direct precursor to NAD+ (Nicotinamide Adenine Dinucleotide), a coenzyme essential for cellular energy production (ATP) and DNA repair. This 5 mL injectable solution is specifically formulated for professional aesthetic procedures.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <img src="" alt="NMN molecule structure and Sirtuin pathway">
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Mechanism of Action -->
+    <div class="kst-section">
+        <div class="kst-section-label">Science</div>
+        <h2 class="kst-section-title">Mechanism of Action</h2>
+        
+        <ul class="kst-mechanism-list">
+            <li class="kst-mechanism-item">
+                <div class="kst-mechanism-title">Cellular Energy Enhancement</div>
+                <div class="kst-mechanism-text">Boosts mitochondrial function, revitalizing skin cells and enhancing ATP production for optimal cellular performance</div>
+            </li>
+            
+            <li class="kst-mechanism-item">
+                <div class="kst-mechanism-title">Sirtuin Activation</div>
+                <div class="kst-mechanism-text">Activates 'longevity genes' (Sirtuins) which help manage cellular stress and promote skin regeneration, addressing age-related decline</div>
+            </li>
+            
+            <li class="kst-mechanism-item">
+                <div class="kst-mechanism-title">Skin-Specific Benefits</div>
+                <div class="kst-mechanism-text">When applied topically or intradermally, it supports the recovery of skin barrier function and enhances hydration and elasticity at a cellular level</div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Expected Effects -->
+    <div class="kst-section">
+        <div class="kst-section-label">Benefits</div>
+        <h2 class="kst-section-title">Summary of Expected Effects</h2>
+        
+        <ul class="kst-benefits-list">
+            <li class="kst-benefit-item">
+                <div class="kst-benefit-title">Skin Rejuvenation and Anti-Aging</div>
+                <div class="kst-benefit-description">Delays skin cell aging and improves overall skin vitality through cellular renewal mechanisms</div>
+            </li>
+            
+            <li class="kst-benefit-item">
+                <div class="kst-benefit-title">Enhanced Elasticity and Hydration</div>
+                <div class="kst-benefit-description">Promotes the regeneration of key dermal components, resulting in improved skin firmness and moisture retention</div>
+            </li>
+            
+            <li class="kst-benefit-item">
+                <div class="kst-benefit-title">Improved Skin Tone</div>
+                <div class="kst-benefit-description">Supports cellular detoxification processes, leading to a clearer and more radiant complexion</div>
+            </li>
+            
+            <li class="kst-benefit-item">
+                <div class="kst-benefit-title">Cellular Resilience</div>
+                <div class="kst-benefit-description">Aids in the repair of DNA damaged by UV exposure and environmental stressors, strengthening skin's defense mechanisms</div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Usage Protocol -->
+    <div class="kst-section">
+        <div class="kst-section-label">Treatment Guidelines</div>
+        <h2 class="kst-section-title">Usage Protocol</h2>
+        
+        <div class="kst-protocol-card">
+            <div class="kst-protocol-label">Treatment Cycle</div>
+            <div class="kst-protocol-content">Recommended as a course of treatment (e.g., 3 to 5 sessions) with 1 to 2-week intervals, followed by periodic maintenance sessions (e.g., monthly)</div>
+        </div>
+        
+        <div class="kst-protocol-card">
+            <div class="kst-protocol-label">Administration Method</div>
+            <div class="kst-protocol-content"><strong>Intradermal Injection (Mesotherapy)</strong>, Microneedling (Dermapen/Dermaroller), or non-invasive administration following laser treatments to maximize penetration. <strong>Must be administered by a qualified medical professional.</strong></div>
+        </div>
+        
+        <div class="kst-image-block">
+            <img src="" alt="Recommended injection points for facial mesotherapy">
+        </div>
+        
+        <div class="kst-info-box">
+            <div class="kst-info-title">Combination Treatment Examples</div>
+            <div class="kst-info-text">
+                <strong>For Maximum Rejuvenation:</strong> Can be combined with Hyaluronic Acid (HA) skin boosters or PDRN/PN solutions to provide structural support alongside cellular repair.<br><br>
+                <strong>For Brightening:</strong> Synergistic use with Glutathione or Vitamin C injections to amplify antioxidant and anti-pigmentation effects.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Comparison Table -->
+    <div class="kst-section">
+        <div class="kst-section-label">Treatment Strategies</div>
+        <h2 class="kst-section-title">Comparison by Strategy</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-comparison-table">
+                <thead>
+                    <tr>
+                        <th>Treatment Strategy</th>
+                        <th>Key Ingredients</th>
+                        <th>Expected Efficacy</th>
+                        <th>Recommended Combination</th>
+                        <th>Administration Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Core Skin Booster</td>
+                        <td>NMN (Nicotinamide Mononucleotide)</td>
+                        <td>Cellular rejuvenation, DNA repair, Elasticity</td>
+                        <td>N/A (Core solution)</td>
+                        <td>Intradermal Injection / Microneedling</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>NAD+ & Structural Support</td>
+                        <td>NMN + PDRN/HA</td>
+                        <td>Anti-aging + Deep hydration & tissue repair</td>
+                        <td>PDRN (Polydeoxyribonucleotide), Non-crosslinked HA</td>
+                        <td>Intradermal Injection</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>Systemic Anti-Fatigue</td>
+                        <td>NMN (IV) + Glutathione</td>
+                        <td>Whole-body energy boost & liver function</td>
+                        <td>High-dose Vitamin C, Glutathione</td>
+                        <td>Intravenous (IV) Infusion</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-info-box">
+            <div class="kst-info-title">Which product is right for me?</div>
+            <div class="kst-info-text">
+                If your goal is targeted <strong>skin quality improvement, fine line reduction, and complexion revitalization</strong>, using the NMN Bottle as a <strong>Skin Booster</strong> is recommended. If you are seeking broader benefits like <strong>systemic fatigue recovery and metabolic health</strong>, consult your doctor about using NMN as an <strong>Intravenous (IV) infusion</strong> component.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Detailed Description -->
+    <div class="kst-section">
+        <div class="kst-section-label">Product Details</div>
+        <h2 class="kst-section-title">Detailed Product Description</h2>
+        
+        <div class="kst-image-block">
+            <img src="" alt="Before/After comparison focusing on skin glow and texture">
+        </div>
+        
+        <div class="kst-detail-section">
+            <div class="kst-detail-title">🔹 NMN Bottle NAD+ Booster 5 mL</div>
+            <div class="kst-detail-content">
+                <p><strong>Ingredients & Efficacy:</strong> This 5 mL injectable solution delivers NMN directly into the skin layers. Its primary function is to combat the decline of NAD+ levels associated with aging. By boosting NAD+, it significantly enhances the skin cells' ability to produce energy, repair environmental damage (DNA repair), and stimulate the Sirtuin pathways vital for longevity. This action results in visibly firmer skin, reduced signs of fatigue, and improved moisture retention.</p>
+                
+                <p><strong>How to Use:</strong> Used primarily in professional aesthetic procedures. The solution is introduced into the dermis via a multi-point injection technique (Mesotherapy) or advanced delivery systems like DermaPen. The 5 mL volume is often suitable for treating the entire face, neck, or specific focus areas.</p>
+                
+                <p><strong>Suitable for:</strong> Clients experiencing dullness, loss of elasticity, uneven skin texture, and visible signs of chronological aging.</p>
+                
+                <p><strong>Combination Tip:</strong> For clients seeking comprehensive anti-aging, combining NMN Bottle treatments with Fractional Laser or RF Microneedling can open micro-channels, facilitating deeper and more effective absorption of the NMN solution.</p>
+                
+                <p><strong>Additional Information:</strong> As NMN functions at the cellular foundation, its effects accumulate over a treatment course. Consistency in the recommended protocol is key to achieving and maintaining optimal cellular rejuvenation and a youthful skin appearance.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Storage & Precautions -->
+    <div class="kst-section">
+        <div class="kst-section-label">Safety Information</div>
+        <h2 class="kst-section-title">Precautions and Storage</h2>
+        
+        <div class="kst-storage-card">
+            <div class="kst-storage-title">
+                <span class="kst-storage-icon">❄</span>
+                Storage Guidelines
+            </div>
+            <ul class="kst-storage-list">
+                <li class="kst-storage-item">
+                    <strong>Storage Temperature:</strong> Store in a cool, dark place or refrigeration (2°C - 8°C) away from direct light to ensure ingredient stability. Check specific box labeling for exact requirements.
+                </li>
+                <li class="kst-storage-item">
+                    <strong>Shelf life after opening:</strong> The vial is designed for single-session use. Any remaining solution after the treatment must be discarded immediately to maintain sterility.
+                </li>
+            </ul>
+        </div>
+        
+        <div class="kst-image-block">
+            <img src="" alt="Infographic detailing safe storage conditions">
+        </div>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">
+                <span class="kst-warning-icon">!</span>
+                Important Precautions
+            </div>
+            <ul class="kst-warning-list">
+                <li class="kst-warning-item"><strong>Prescription Use Only:</strong> This product is strictly for use by licensed medical practitioners.</li>
+                <li class="kst-warning-item"><strong>Administration:</strong> Only for intradermal or specified routes; not intended for self-administration.</li>
+                <li class="kst-warning-item"><strong>Temporary Reactions:</strong> Patients may experience temporary redness, swelling, or minor bruising at the injection sites, which typically resolve within 24-48 hours.</li>
+                <li class="kst-warning-item"><strong>Contraindications:</strong> Generally not advised for individuals who are pregnant, breastfeeding, or those with known hypersensitivity to the ingredients.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Summary -->
+    <div class="kst-summary-section">
+        <h3 class="kst-summary-title">Cellular Rejuvenation at Its Finest</h3>
+        <p class="kst-summary-text">
+            NMN Bottle NAD+ Booster represents the pinnacle of cellular anti-aging technology, delivering targeted rejuvenation through the enhancement of NAD+ levels. By addressing aging at the cellular foundation, this professional-grade solution provides comprehensive skin revitalization, improved elasticity, and enhanced cellular resilience. Backed by scientific research on longevity pathways and mitochondrial function, it offers a proven approach to maintaining youthful, radiant skin through consistent professional treatment protocols.
+        </p>
+    </div>
+    
+    <!-- Keywords -->
+    <div class="kst-keywords">
+        <div class="kst-keywords-label">Product Tags</div>
+        <div class="kst-keywords-list">
+            <span class="kst-keyword-tag">NMN injection</span>
+            <span class="kst-keyword-tag">NAD+ Booster</span>
+            <span class="kst-keyword-tag">Skin Booster</span>
+            <span class="kst-keyword-tag">Mesotherapy</span>
+            <span class="kst-keyword-tag">Anti-aging ampoule</span>
+            <span class="kst-keyword-tag">Cellular rejuvenation</span>
+            <span class="kst-keyword-tag">DNA repair</span>
+            <span class="kst-keyword-tag">Sirtuin activation</span>
+            <span class="kst-keyword-tag">Skin elasticity</span>
+            <span class="kst-keyword-tag">Intradermal injection</span>
+            <span class="kst-keyword-tag">5mL vial</span>
+            <span class="kst-keyword-tag">Vitality skin</span>
+        </div>
+    </div>
+    
+</div>

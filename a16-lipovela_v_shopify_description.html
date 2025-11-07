@@ -1,0 +1,873 @@
+<style>
+    :root {
+        --kst-main-color: #e33a2f;
+        --kst-sub-color: #b62820;
+        --kst-text-white: #ffffff;
+        --kst-text-accent: #f2c7c4;
+        --kst-bg-white: #ffffff;
+        --kst-badge-bg: #e33a2f;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #b62820;
+    }
+
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        background: var(--kst-bg-white);
+        color: #000000;
+        padding: 0 12px;
+        line-height: 1.2;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    .kst-section {
+        margin: 8px 0;
+        color: #000000;
+    }
+    
+    .kst-header-block {
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        padding: 30px 16px;
+        margin: 8px 0;
+    }
+    
+    .kst-product-title {
+        font-size: 34px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-white);
+    }
+
+    .kst-product-spec {
+        font-size: 26px;
+        font-weight: 100;
+        text-transform: uppercase;
+        margin-top: 10px;
+        margin-bottom: 12px;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-white);
+    }
+    
+    .kst-subtitle {
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 10px;
+        opacity: 0.9;
+        color: var(--kst-text-white);
+    }
+    
+    .kst-category-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        padding: 4px 8px;
+        font-size: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    
+    .kst-image-block {
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        padding: 40px 16px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 8px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: none;
+        background: none;
+    }
+    
+    .kst-chart-block {
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        padding: 40px 16px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 8px 0;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: none;
+        background: none;
+    }
+    
+    .kst-core-value {
+        background: #f5f5f5;
+        padding: 20px 16px;
+        margin: 8px 0;
+        text-align: center;
+        color: #000000;
+    }
+    
+    .kst-slogan {
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-description {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Arial', sans-serif;
+        color: #000000;
+    }
+    
+    .kst-section-header {
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 8px 0 0 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card {
+        background: var(--kst-bg-white);
+        border: 2px solid var(--kst-main-color);
+        padding: 16px;
+        margin: 4px 0;
+        color: #000000;
+    }
+    
+    .kst-card ul,
+    .kst-card ol {
+        margin: 10px 0;
+        padding-left: 20px;
+        color: #000000;
+    }
+    
+    .kst-card ul li,
+    .kst-card ol li {
+        margin-bottom: 6px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Arial', sans-serif;
+        color: #000000;
+    }
+    
+    .kst-ingredient-name {
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 8px;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-ingredient-desc {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: #000000;
+    }
+    
+    .kst-dt {
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-highlight-box {
+        background: #f9f9f9;
+        border-left: 4px solid var(--kst-main-color);
+        padding: 12px 16px;
+        margin: 8px 0;
+    }
+    
+    .kst-highlight-text {
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.5;
+        color: #000000;
+    }
+    
+    .kst-keyword-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        padding: 4px 8px;
+        font-size: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin: 3px 2px;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        margin: 8px 0;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-main-color);
+    }
+    
+    .kst-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+        min-width: 100%;
+    }
+    
+    .kst-table th {
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        padding: 10px 12px;
+        text-align: left;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+    }
+    
+    .kst-table td {
+        border: 1px solid #ddd;
+        padding: 10px 12px;
+        font-size: 11px;
+        line-height: 1.4;
+        color: #000000;
+    }
+    
+    .kst-table tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+    
+    .kst-mt-small {
+        margin-top: 12px;
+    }
+    
+    .kst-mt-medium {
+        margin-top: 16px;
+    }
+    
+    .kst-faq-item {
+        margin: 4px 0;
+        border: 2px solid var(--kst-main-color);
+    }
+    
+    .kst-faq-question {
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        padding: 12px 16px;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .kst-faq-question::after {
+        content: '+';
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+    }
+    
+    .kst-faq-question.kst-active::after {
+        content: '−';
+    }
+    
+    .kst-faq-answer {
+        padding: 0 16px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: var(--kst-bg-white);
+    }
+    
+    .kst-faq-answer.kst-active {
+        padding: 12px 16px;
+        max-height: 1000px;
+    }
+    
+    .kst-faq-answer .kst-description {
+        font-size: 11px;
+        line-height: 1.5;
+        color: #000000;
+    }
+    
+    .kst-warning-banner {
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        padding: 16px;
+        text-align: center;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin: 8px 0;
+    }
+    
+    .kst-tech-specs {
+        background: #f5f5f5;
+        padding: 20px 16px;
+        margin: 8px 0;
+    }
+    
+    .kst-tech-title {
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+        text-align: center;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-tech-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .kst-spec-item {
+        background: var(--kst-bg-white);
+        border: 1px solid var(--kst-main-color);
+        padding: 10px 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .kst-spec-label {
+        font-size: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-spec-value {
+        font-size: 11px;
+        font-weight: 500;
+        color: #000000;
+    }
+    
+    .kst-safety-box {
+        background: #fff5f4;
+        border: 2px solid var(--kst-main-color);
+        padding: 16px;
+        margin: 4px 0;
+    }
+    
+    .kst-safety-header {
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-safety-content {
+        font-size: 12px;
+        line-height: 1.5;
+        color: #000000;
+    }
+    
+    .kst-safety-list {
+        margin: 12px 0;
+        padding-left: 20px;
+    }
+    
+    .kst-safety-list li {
+        margin-bottom: 6px;
+        font-size: 11px;
+        line-height: 1.4;
+        color: #000000;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- Product Header -->
+    <div class="kst-header-block">
+        <div class="kst-category-badge">LIPOLYTIC SOLUTION</div>
+        <h1 class="kst-product-title">LIPOVELA V</h1>
+        <div class="kst-product-spec">FACIAL & LOCALIZED FAT REDUCTION</div>
+        <div class="kst-subtitle">V-LINE CONTOURING SOLUTION</div>
+    </div>
+    
+    <!-- Product Image Placeholder -->
+    <div class="kst-image-block">
+        [PRODUCT IMAGE PLACEHOLDER - LIPOVELA V VIAL]
+    </div>
+    
+    <!-- Core Value -->
+    <div class="kst-core-value">
+        <div class="kst-slogan">PRECISION FAT REDUCTION FOR DEFINED FACIAL CONTOURS</div>
+        <div class="kst-description">
+            Advanced lipolytic formula combining Deoxycholic Acid, PPC, and L-Carnitine for effective fat cell destruction and natural metabolism. Specialized for V-line definition, double chin reduction, and localized fat targeting with minimal swelling.
+        </div>
+    </div>
+    
+    <!-- Product Specifications -->
+    <div class="kst-section">
+        <div class="kst-section-header">PRODUCT SPECIFICATIONS</div>
+        <div class="kst-card">
+            <div class="kst-dt">PACKAGING & VOLUME</div>
+            <div class="kst-description">
+                10ml per vial, packaged as 5 vials per box (10ml × 5 vials). Liquid ampoule formulation designed for professional injection use.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Key Ingredients -->
+    <div class="kst-section">
+        <div class="kst-section-header">KEY ACTIVE INGREDIENTS</div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">🔹 DEOXYCHOLIC ACID</div>
+            <div class="kst-ingredient-desc">
+                Primary fat cell destruction agent that breaks down adipose cell membranes through lipolysis. Works synergistically with PPC for enhanced fat reduction results.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">🔹 PHOSPHATIDYLCHOLINE (PPC)</div>
+            <div class="kst-ingredient-desc">
+                Works in combination with Deoxycholic Acid to emulsify and break down fat cells, facilitating their removal through the body's natural metabolic processes.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">🔹 L-CARNITINE</div>
+            <div class="kst-ingredient-desc">
+                Essential for transporting liberated fatty acids to be metabolized and naturally excreted by the body. Enhances the fat-burning process after cell breakdown.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">🔹 BOTANICAL EXTRACTS</div>
+            <div class="kst-ingredient-desc">
+                Including Juglans Regia Seed and Fucus Vesiculosus extracts that contribute to skin tightening and reduction of post-treatment swelling.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mechanism Image -->
+    <div class="kst-image-block">
+        [MECHANISM OF ACTION INFOGRAPHIC - PPC/DEOXYCHOLIC ACID PROCESS]
+    </div>
+    
+    <!-- Expected Effects -->
+    <div class="kst-section">
+        <div class="kst-section-header">EXPECTED TREATMENT EFFECTS</div>
+        
+        <div class="kst-highlight-box">
+            <div class="kst-highlight-text">
+                ✓ V-LINE FACIAL CONTOURING: Defines jawline and creates the desired V-shaped facial profile
+            </div>
+        </div>
+        
+        <div class="kst-highlight-box">
+            <div class="kst-highlight-text">
+                ✓ DOUBLE CHIN REDUCTION: Effectively targets and reduces submental fat accumulation
+            </div>
+        </div>
+        
+        <div class="kst-highlight-box">
+            <div class="kst-highlight-text">
+                ✓ LOCALIZED FAT TARGETING: Addresses small, stubborn fat pockets in facial and body areas
+            </div>
+        </div>
+        
+        <div class="kst-highlight-box">
+            <div class="kst-highlight-text">
+                ✓ SKIN ELASTICITY MAINTENANCE: Prevents sagging with supportive ingredients post-fat reduction
+            </div>
+        </div>
+        
+        <div class="kst-highlight-box">
+            <div class="kst-highlight-text">
+                ✓ SWELLING MINIMIZATION: Botanical components reduce post-treatment edema for faster recovery
+            </div>
+        </div>
+    </div>
+    
+    <!-- Treatment Areas Image -->
+    <div class="kst-image-block">
+        [TREATMENT AREA FACIAL MAPPING & DOSAGE GUIDE]
+    </div>
+    
+    <!-- Treatment Protocol -->
+    <div class="kst-section">
+        <div class="kst-section-header">USAGE PROTOCOL & TREATMENT GUIDE</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">PRIMARY TREATMENT AREAS</div>
+            <ul>
+                <li>Double chin (submental area)</li>
+                <li>Jawline and jowls</li>
+                <li>Cheeks</li>
+                <li>Small localized body areas (armpit folds, knees)</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">RECOMMENDED TREATMENT CYCLE</div>
+            <div class="kst-description">
+                Typically requires 3-6 sessions performed at 1-week intervals. The exact number of sessions depends on the treatment area and volume of fat to be reduced.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">APPLICATION METHOD</div>
+            <div class="kst-description">
+                Direct syringe injection into the subcutaneous fat layer using multiple injection points within the target zone. Injection depth and volume per point must be adjusted based on the area's characteristics.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">IMPORTANT ADMINISTRATION NOTES</div>
+            <ul>
+                <li>Inject strictly into the subcutaneous fat layer only</li>
+                <li>Improper injection into muscle or dermis may cause complications</li>
+                <li>Use proper sterile techniques throughout the procedure</li>
+                <li>Adjust dosage based on individual patient needs and treatment area</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Treatment Strategy Comparison Table -->
+    <div class="kst-section">
+        <div class="kst-section-header">TREATMENT STRATEGIES BY AREA</div>
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>TREATMENT STRATEGY</th>
+                        <th>KEY INGREDIENT</th>
+                        <th>TARGET AREA</th>
+                        <th>TYPICAL DOSE PER SESSION</th>
+                        <th>NOTABLE FEATURES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Facial Contouring</strong></td>
+                        <td>Deoxycholic Acid, PPC, L-Carnitine</td>
+                        <td>Chin, Jawline, Cheeks</td>
+                        <td>4-8 ml (total)</td>
+                        <td>Highly effective for defining V-line and removing double chin fat</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Small Body Areas</strong></td>
+                        <td>Deoxycholic Acid, PPC, L-Carnitine</td>
+                        <td>Axillary folds, underarms, knees</td>
+                        <td>6-10 ml (total)</td>
+                        <td>Targeted reduction for localized, small-volume body fat deposits</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Detailed Product Description -->
+    <div class="kst-section">
+        <div class="kst-section-header">DETAILED PRODUCT DESCRIPTION</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">INGREDIENT COMPOSITION</div>
+            <div class="kst-description">
+                Features a potent blend of Deoxycholic Acid, Phosphatidylcholine, and L-Carnitine for dual-action fat reduction and metabolism. Also includes anti-swelling and skin-firming botanical extracts for comprehensive treatment benefits.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">PRIMARY TARGET AREAS</div>
+            <div class="kst-description">
+                Primarily focused on the face (double chin, jawline) but effective for small, localized body fat deposits in areas such as armpit folds and knees.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">EFFICACY SUMMARY</div>
+            <div class="kst-description">
+                Provides significant lipolysis to destroy fat cells, promotes metabolism and lymphatic circulation, and offers a contouring effect with reduced post-procedure swelling. The inclusion of Deoxycholic Acid ensures permanent fat cell destruction for long-lasting results.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">ADMINISTRATION GUIDELINES</div>
+            <div class="kst-description">
+                Injections should be administered into the subcutaneous fat layer at multiple points within the target zone. The injection depth and volume per point must be adjusted based on the area's characteristics and individual patient needs.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">ADDITIONAL BENEFITS</div>
+            <div class="kst-description">
+                LIPOVELA V is formulated to minimize pain and swelling often associated with lipolytic treatments, promoting faster recovery and improved patient satisfaction. The permanent destruction of fat cells provides long-lasting contouring results without the need for maintenance treatments.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Precautions & Storage -->
+    <div class="kst-section">
+        <div class="kst-section-header">PRECAUTIONS & STORAGE GUIDELINES</div>
+        
+        <div class="kst-safety-box">
+            <div class="kst-safety-header">STORAGE CONDITIONS</div>
+            <div class="kst-safety-content">
+                Store unopened vials at room temperature (1°C to 30°C), away from direct sunlight. Once opened, any unused solution should be discarded immediately. Do not freeze or expose to extreme temperatures.
+            </div>
+        </div>
+        
+        <div class="kst-safety-box">
+            <div class="kst-safety-header">TREATMENT INTERVAL PRECAUTIONS</div>
+            <div class="kst-safety-content">
+                Adhere strictly to the 1-week minimum interval between sessions to allow the body adequate time to process broken-down fat cells and minimize the risk of adverse reactions.
+            </div>
+        </div>
+        
+        <div class="kst-safety-box">
+            <div class="kst-safety-header">INJECTION PROTOCOL</div>
+            <div class="kst-safety-content">
+                <ul class="kst-safety-list">
+                    <li>Inject strictly into the subcutaneous fat layer only</li>
+                    <li>Improper injection (e.g., into muscle or dermis) can cause discomfort or complications</li>
+                    <li>Use proper sterile techniques throughout the procedure</li>
+                    <li>Ensure proper needle depth and angle for safe administration</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-safety-box">
+            <div class="kst-safety-header">POST-TREATMENT CARE INSTRUCTIONS</div>
+            <div class="kst-safety-content">
+                <ul class="kst-safety-list">
+                    <li>Avoid heat exposure (saunas, hot baths) for several days post-treatment</li>
+                    <li>Refrain from strenuous exercise for 48-72 hours</li>
+                    <li>Gentle massage of treated area may help promote lymphatic drainage</li>
+                    <li>Apply cold compress if swelling occurs</li>
+                    <li>Stay well-hydrated to support fat metabolism</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Technical Specifications -->
+    <div class="kst-tech-specs kst-section">
+        <div class="kst-tech-title">TECHNICAL SPECIFICATIONS</div>
+        <div class="kst-tech-grid">
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">FORMULATION TYPE</div>
+                <div class="kst-spec-value">Liquid Ampoule</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">VOLUME PER VIAL</div>
+                <div class="kst-spec-value">10ml</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">VIALS PER BOX</div>
+                <div class="kst-spec-value">5 vials</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">STORAGE TEMPERATURE</div>
+                <div class="kst-spec-value">1°C - 30°C</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">TREATMENT INTERVAL</div>
+                <div class="kst-spec-value">1 week minimum</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">TYPICAL SESSION COUNT</div>
+                <div class="kst-spec-value">3-6 sessions</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="kst-section">
+        <div class="kst-section-header">FREQUENTLY ASKED QUESTIONS</div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                HOW DOES LIPOVELA V WORK TO REDUCE FAT?
+            </div>
+            <div class="kst-faq-answer">
+                <div class="kst-description">
+                    LIPOVELA V contains Deoxycholic Acid and Phosphatidylcholine (PPC) that work synergistically to destroy fat cell membranes through lipolysis. Once the fat cells are broken down, L-Carnitine facilitates the transport and metabolism of liberated fatty acids, allowing them to be naturally processed and excreted by the body. This results in permanent fat cell destruction and long-lasting contouring results.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHAT IS THE EXPECTED TIMELINE FOR VISIBLE RESULTS?
+            </div>
+            <div class="kst-faq-answer">
+                <div class="kst-description">
+                    Initial results may be visible within 2-4 weeks after the first treatment as the body begins to metabolize destroyed fat cells. Progressive improvements occur with each session. Optimal results are typically achieved 4-6 weeks after completing the full treatment cycle (3-6 sessions). Individual results may vary based on the treatment area, volume of fat, and patient's metabolic rate.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                ARE THERE ANY CONTRAINDICATIONS OR LIMITATIONS?
+            </div>
+            <div class="kst-faq-answer">
+                <div class="kst-description">
+                    LIPOVELA V should not be used in patients with active infections in the treatment area, bleeding disorders, or allergies to any of the ingredients. Pregnant or breastfeeding women should avoid this treatment. Patients with severe liver or kidney disease should consult with a healthcare professional before treatment. Not recommended for large-volume fat reduction or as a substitute for weight loss.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHAT ARE THE PROPER STORAGE REQUIREMENTS?
+            </div>
+            <div class="kst-faq-answer">
+                <div class="kst-description">
+                    Store unopened vials at room temperature between 1°C to 30°C, away from direct sunlight and extreme temperatures. Do not freeze the product. Once a vial is opened, any unused solution should be discarded immediately to maintain sterility and efficacy. Keep out of reach of children and unauthorized personnel. Check expiration date before use.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                HOW IS LIPOVELA V DIFFERENT FROM OTHER FAT REDUCTION PRODUCTS?
+            </div>
+            <div class="kst-faq-answer">
+                <div class="kst-description">
+                    LIPOVELA V features a unique triple-action formula combining Deoxycholic Acid for fat cell destruction, PPC for emulsification, and L-Carnitine for enhanced metabolism. The addition of botanical extracts helps minimize swelling and maintain skin elasticity. This comprehensive formulation is specifically designed for facial contouring and small localized areas, offering permanent fat reduction with minimal downtime and reduced post-treatment discomfort compared to traditional lipolytic treatments.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHAT SHOULD PATIENTS EXPECT DURING RECOVERY?
+            </div>
+            <div class="kst-faq-answer">
+                <div class="kst-description">
+                    Patients may experience mild swelling, bruising, or tenderness in the treated area for 3-7 days post-treatment. These effects are normal and indicate the product is working. Cold compresses can help reduce swelling. Most patients can return to normal activities within 24-48 hours, though strenuous exercise and heat exposure should be avoided for several days. Gentle massage of the treated area may promote lymphatic drainage and faster recovery.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Keywords -->
+    <div class="kst-section">
+        <div class="kst-card">
+            <div class="kst-dt">PRODUCT KEYWORDS</div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">PPC LIPOLYSIS</span>
+                <span class="kst-keyword-badge">DEOXYCHOLIC ACID</span>
+                <span class="kst-keyword-badge">FACIAL FAT DISSOLVING</span>
+                <span class="kst-keyword-badge">V-LINE CONTOURING</span>
+                <span class="kst-keyword-badge">DOUBLE CHIN REMOVAL</span>
+                <span class="kst-keyword-badge">LOCALIZED FAT REDUCTION</span>
+                <span class="kst-keyword-badge">L-CARNITINE SLIMMING</span>
+                <span class="kst-keyword-badge">LIPOLYTIC AMPOULE</span>
+                <span class="kst-keyword-badge">GENUINE DERMA PRODUCT</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Final Product Image -->
+    <div class="kst-image-block kst-section">
+        [PRODUCT PACKAGING AND SPECIFICATIONS PLACEHOLDER]
+    </div>
+    
+    <!-- Professional Use Banner -->
+    <div class="kst-warning-banner kst-section">
+        PROFESSIONAL USE ONLY - FOR LICENSED PRACTITIONERS - FOLLOW ALL ADMINISTRATION GUIDELINES
+    </div>
+    
+</div>
+
+<script>
+    function kstToggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        const isActive = element.classList.contains('kst-active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.kst-faq-question').forEach(q => {
+            q.classList.remove('kst-active');
+            q.nextElementSibling.classList.remove('kst-active');
+        });
+        
+        // Open clicked item if it wasn't already active
+        if (!isActive) {
+            element.classList.add('kst-active');
+            answer.classList.add('kst-active');
+        }
+    }
+</script>

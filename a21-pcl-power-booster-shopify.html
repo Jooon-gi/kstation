@@ -1,0 +1,960 @@
+<style>
+  /* ========= KST Base Theme - PCL Power Booster ========= */
+  :root {
+    --kst-main: #ef8754;
+    --kst-main-hover: #c86639;
+    --kst-sub: #54585f;
+    --kst-text: #1f1f1f;
+    --kst-text-light: #54585f;
+    --kst-accent: #d8d8d8;
+    --kst-bg: #ffffff;
+    --kst-bg-light: #fafafa;
+    --kst-border: #e8e8e8;
+  }
+  
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 16px 0;
+    background: var(--kst-bg);
+    color: var(--kst-text);
+    font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Apple SD Gothic Neo, Noto Sans KR, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .kst-main-container *,
+  .kst-main-container *::before,
+  .kst-main-container *::after {
+    box-sizing: border-box;
+  }
+
+  .kst-container {
+    padding: 0 16px;
+  }
+
+  .kst-section {
+    margin: 24px 0;
+  }
+
+  .kst-card {
+    background: var(--kst-bg);
+    border: 1px solid var(--kst-border);
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(31,31,31,.06);
+    padding: 20px;
+    color: var(--kst-text);
+  }
+
+  .kst-card h1,
+  .kst-card h2,
+  .kst-card h3,
+  .kst-card h4,
+  .kst-card h5,
+  .kst-card h6 {
+    color: var(--kst-text) !important;
+    margin: 0 0 12px 0;
+  }
+
+  .kst-card p {
+    color: var(--kst-text) !important;
+    margin: 0 0 12px 0;
+  }
+
+  .kst-card ul,
+  .kst-card ol {
+    margin: 0 0 12px 0;
+    padding-left: 20px;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li {
+    color: var(--kst-text) !important;
+    margin-bottom: 6px;
+  }
+
+  .kst-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  .kst-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--kst-bg-light);
+    color: var(--kst-sub);
+    font-weight: 500;
+    border: 1px solid var(--kst-accent);
+    font-size: 14px;
+  }
+
+  .kst-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: var(--kst-bg-light);
+    border: 1px solid var(--kst-accent);
+    border-radius: 999px;
+    font-weight: 500;
+    color: var(--kst-sub);
+    font-size: 13px;
+  }
+
+  .kst-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .kst-kicker {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: var(--kst-main);
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .kst-headline {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    line-height: 1.25;
+    margin: 6px 0 10px;
+    font-weight: 600;
+    color: var(--kst-text) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-spec {
+    font-size: clamp(1rem, 3.2vw, 1.6rem);
+    line-height: 1.3;
+    margin: -4px 0 15px;
+    font-weight: 400;
+    color: var(--kst-sub) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-sub {
+    color: var(--kst-text-light) !important;
+    margin: 0 0 16px;
+    font-size: 15px;
+  }
+
+  .kst-muted {
+    color: var(--kst-text-light) !important;
+    font-size: 14px;
+  }
+
+  .kst-section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 16px;
+    color: var(--kst-text) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--kst-main);
+    font-weight: 500;
+    color: var(--kst-bg);
+    font-size: 12px;
+  }
+
+  .kst-badge:hover {
+    background: var(--kst-main-hover);
+  }
+
+  .kst-num {
+    font-weight: 600;
+    color: var(--kst-main);
+  }
+
+  .kst-percent {
+    font-weight: 700;
+    color: var(--kst-main);
+    font-size: 1.8rem;
+  }
+
+  .kst-big-number {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--kst-main);
+  }
+
+  /* Image blocks with auto-hide functionality */
+  .kst-image-block {
+    aspect-ratio: 16/9;
+    background: var(--kst-bg-light);
+    border: 1px dashed var(--kst-accent);
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    color: var(--kst-text-light);
+    font-weight: 500;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+
+  .kst-image-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-image-block:has(img:not([src])) {
+    display: none;
+  }
+
+  .kst-chart-block {
+    aspect-ratio: 4/3;
+    background: var(--kst-bg-light);
+    border: 1px dashed var(--kst-accent);
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    color: var(--kst-text-light);
+    font-weight: 500;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+
+  .kst-chart-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]),
+  .kst-chart-block:has(img:not([src])) {
+    display: none;
+  }
+
+  /* Key-Value Pairs */
+  .kst-kv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0;
+  }
+
+  .kst-kv-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--kst-border);
+  }
+
+  .kst-kv-row:last-child {
+    border-bottom: none;
+  }
+
+  .kst-key {
+    font-weight: 600;
+    color: var(--kst-sub) !important;
+    font-size: 14px;
+  }
+
+  .kst-value {
+    color: var(--kst-text) !important;
+    font-size: 14px;
+  }
+
+  /* Alert boxes */
+  .kst-alert {
+    border-radius: 12px;
+    padding: 16px;
+    margin: 12px 0;
+  }
+
+  .kst-alert.kst-warn {
+    background: #fff8f0;
+    border: 1px solid #ffd7a8;
+    color: var(--kst-text) !important;
+  }
+
+  .kst-alert.kst-warn ul li {
+    color: var(--kst-text) !important;
+  }
+
+  .kst-alert.kst-danger {
+    background: #fff5f5;
+    border: 1px solid #ffc9c9;
+    color: var(--kst-text) !important;
+  }
+
+  .kst-alert.kst-danger ul li {
+    color: var(--kst-text) !important;
+  }
+
+  .kst-alert.kst-safe {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: var(--kst-text) !important;
+  }
+
+  .kst-alert.kst-safe ul li {
+    color: var(--kst-text) !important;
+  }
+
+  .kst-alert.kst-info {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    color: var(--kst-text) !important;
+  }
+
+  .kst-alert.kst-info ul li {
+    color: var(--kst-text) !important;
+  }
+
+  /* Comparison Table */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 0;
+    border-radius: 12px;
+    border: 1px solid var(--kst-border);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: var(--kst-bg-light);
+    border-radius: 4px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-accent);
+    border-radius: 4px;
+  }
+
+  .kst-comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+  }
+
+  .kst-comp-table thead th {
+    background: var(--kst-bg-light);
+    color: var(--kst-text) !important;
+    font-weight: 600;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid var(--kst-border);
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .kst-comp-table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid var(--kst-border);
+    color: var(--kst-text) !important;
+    font-size: 14px;
+  }
+
+  .kst-comp-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* FAQ */
+  .kst-faq-item {
+    border: 1px solid var(--kst-border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+
+  .kst-faq-item summary {
+    font-weight: 600;
+    color: var(--kst-text) !important;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .kst-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .kst-faq-item summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--kst-main);
+    font-weight: 300;
+  }
+
+  .kst-faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .kst-faq-item p {
+    margin-top: 12px;
+    color: var(--kst-text-light) !important;
+  }
+
+  /* Definition List */
+  .kst-dl {
+    margin: 16px 0;
+  }
+
+  .kst-dl dt {
+    font-weight: 600;
+    color: var(--kst-text) !important;
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+
+  .kst-dl dd {
+    color: var(--kst-text-light) !important;
+    margin-left: 0;
+    padding-left: 16px;
+    border-left: 3px solid var(--kst-main);
+  }
+
+  /* Highlight box */
+  .kst-highlight {
+    background: linear-gradient(135deg, #fff4ed, #ffe8d9);
+    border: 2px solid var(--kst-main);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+
+  .kst-highlight h3 {
+    color: var(--kst-main) !important;
+    margin-top: 0;
+  }
+
+  /* Feature grid */
+  .kst-feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .kst-feature-item {
+    background: var(--kst-bg-light);
+    border: 1px solid var(--kst-border);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .kst-feature-item h4 {
+    color: var(--kst-main) !important;
+    font-size: 1rem;
+    margin: 0 0 8px 0;
+  }
+
+  .kst-feature-item p {
+    color: var(--kst-text) !important;
+    font-size: 14px;
+    margin: 0;
+  }
+</style>
+
+<div class="kst-main-container">
+  <main class="kst-container">
+
+    <!-- Product Overview -->
+    <section id="kst-overview" class="kst-section">
+      <div class="kst-card">
+        <div class="kst-kicker">Polycaprolactone Biostimulator</div>
+        <h1 class="kst-headline">PCL Power Booster</h1>
+        <p class="kst-spec">Liquid Elastin and Collagen Stimulator</p>
+        
+        <div class="kst-image-block">
+          <img src="" alt="PCL Power Booster Product">
+        </div>
+
+        <div class="kst-chips">
+          <span class="kst-badge">Collagen Regeneration</span>
+          <span class="kst-badge">Skin Lifting</span>
+          <span class="kst-badge">Long-Lasting Effect</span>
+        </div>
+
+        <p>PCL Power Booster is an advanced biostimulator based on <strong>Polycaprolactone (PCL)</strong>, a biodegradable and biocompatible polymer designed to stimulate continuous collagen and elastin production. This innovative liquid formula promotes neocollagenesis, enhances skin elasticity, and provides long-lasting regenerative benefits for comprehensive facial and body rejuvenation.</p>
+
+        <div class="kst-kv">
+          <div class="kst-kv-row">
+            <div class="kst-key">Product Name</div>
+            <div class="kst-value">PCL Power Booster</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Package</div>
+            <div class="kst-value">1 Vial × 2ml</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Manufacturer</div>
+            <div class="kst-value">STUNMEDICAL (South Korea)</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Main Ingredient</div>
+            <div class="kst-value">Polycaprolactone (PCL)</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Formulation</div>
+            <div class="kst-value">Fully Liquid Solution</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Ingredients -->
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">🧪 Key Ingredients & Concentration</h2>
+        
+        <div class="kst-image-block">
+          <img src="" alt="PCL Ingredients Composition">
+        </div>
+
+        <div class="kst-highlight">
+          <h3>Primary Active Component</h3>
+          <p><strong>Polycaprolactone (PCL)</strong> is a potent collagen stimulator used in aesthetic medicine for its long-lasting regenerative properties and biocompatibility.</p>
+        </div>
+
+        <div class="kst-dl">
+          <dt>Polycaprolactone (PCL)</dt>
+          <dd>12% to 20% solution (concentration may vary by variant, commonly 20% or 12%)</dd>
+
+          <dt>Methionyler -- Clostridium Botulinum Polypeptide-1</dt>
+          <dd>Advanced peptide technology for enhanced skin rejuvenation</dd>
+
+          <dt>Hexapeptide-40 (Botalinium Peptide)</dt>
+          <dd>Supports skin smoothing and wrinkle reduction</dd>
+
+          <dt>Sodium Hyaluronate (Hyaluronic Acid)</dt>
+          <dd>Provides hydration and skin plumping effects</dd>
+
+          <dt>Glycerin</dt>
+          <dd>Moisturizing agent for optimal skin hydration</dd>
+
+          <dt>PEG-20</dt>
+          <dd>Solubilizing agent ensuring smooth formulation</dd>
+
+          <dt>Water</dt>
+          <dd>Pharmaceutical-grade base solution</dd>
+        </div>
+
+        <div class="kst-alert kst-info">
+          <strong>Note:</strong> This formulation does not contain Lidocaine. The liquid structure with nano-sized particles allows for comfortable injection using fine needles (30G-31G).
+        </div>
+      </div>
+    </section>
+
+    <!-- Efficacy & Benefits -->
+    <section id="kst-benefits" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">✨ Efficacy & Benefits</h2>
+        
+        <div class="kst-image-block">
+          <img src="" alt="Mechanism of PCL stimulating collagen">
+        </div>
+
+        <div class="kst-feature-grid">
+          <div class="kst-feature-item">
+            <h4>🔬 Collagen Regeneration</h4>
+            <p>Acts as a liquid elastin and collagen stimulator to promote continuous proliferation of skin tissues and neocollagenesis.</p>
+          </div>
+
+          <div class="kst-feature-item">
+            <h4>⬆️ Skin Lifting & Firmness</h4>
+            <p>Provides noticeable skin lifting effects and improves overall tissue tension and elasticity for a more youthful appearance.</p>
+          </div>
+
+          <div class="kst-feature-item">
+            <h4>📉 Fine Wrinkle Reduction</h4>
+            <p>Helps smooth and reduce the appearance of fine lines and wrinkles through sustained collagen synthesis.</p>
+          </div>
+
+          <div class="kst-feature-item">
+            <h4>💧 Hydration & Tone Enhancement</h4>
+            <p>Enhances skin hydration for a plumper appearance and aids in skin whitening and overall tone improvement.</p>
+          </div>
+
+          <div class="kst-feature-item">
+            <h4>🩹 Scar Care & Recovery</h4>
+            <p>Supports the recovery and improvement of aged skin and scars through tissue regeneration.</p>
+          </div>
+
+          <div class="kst-feature-item">
+            <h4>⏱️ Long-Lasting Results</h4>
+            <p>Stimulating effect lasts up to 1 year or more as PCL nanoparticles form a fixed three-dimensional matrix for continuous tissue reconstruction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Treatment Protocol -->
+    <section id="kst-protocol" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">💉 Treatment Protocol & Instructions</h2>
+        
+        <div class="kst-image-block">
+          <img src="" alt="PCL Injection Technique">
+        </div>
+
+        <h3 class="kst-kicker">Injection Specifications</h3>
+        <div class="kst-kv">
+          <div class="kst-kv-row">
+            <div class="kst-key">Injection Layer</div>
+            <div class="kst-value">Intradermal (Dermis) to Subdermal</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Recommended Needle</div>
+            <div class="kst-value">30G to 31G or Mesotherapy Equipment</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Treatment Areas</div>
+            <div class="kst-value">Face, Neck, Décolleté, Hands, Periorbital Area</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Formulation Type</div>
+            <div class="kst-value">Single Vial (2ml) - Fully Liquid</div>
+          </div>
+        </div>
+
+        <h3 class="kst-kicker" style="margin-top:20px">Treatment Cycle</h3>
+        <div class="kst-highlight">
+          <p><strong>Primary Course:</strong> 3 sessions, performed once a month for three consecutive months</p>
+          <p><strong>Maintenance:</strong> Every 3 to 6 months thereafter</p>
+        </div>
+
+        <div class="kst-alert kst-info">
+          <strong>Professional Use Only:</strong> This product must be administered by licensed and trained medical or aesthetic professionals.
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Features -->
+    <section id="kst-technical" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">⚙️ Key Technical Features</h2>
+        
+        <div class="kst-image-block">
+          <img src="" alt="PCL Technology Features">
+        </div>
+
+        <div class="kst-dl">
+          <dt>Cross-linking Method</dt>
+          <dd>Not applicable as traditional cross-linked HA filler. Utilizes biodegradable, biocompatible polymer technology for tissue regeneration.</dd>
+
+          <dt>Gel Structure</dt>
+          <dd>Fully liquid form - solubilized PCL solution with polycaprolactone nanoparticles.</dd>
+
+          <dt>Particle Technology</dt>
+          <dd>Nano-sized polycaprolactone particles designed to minimize post-treatment complications and ensure smooth, even distribution.</dd>
+
+          <dt>Hypoallergenic Properties</dt>
+          <dd>Often well-tolerated and can be used as an alternative for patients with HA allergies.</dd>
+
+          <dt>No Microparticles</dt>
+          <dd>Fully solubilized PCL helps prevent lump formation and typically negates the need for aggressive post-treatment massage.</dd>
+
+          <dt>Cumulative Effect</dt>
+          <dd>Works by continuously supporting tissue reconstruction, leading to sustained results over time, particularly after completing the recommended initial course.</dd>
+
+          <dt>Treatment Compatibility</dt>
+          <dd>Can generally be used in combination with non-crosslinked skin enhancers or Botulinum Toxin (with recommended interval periods).</dd>
+        </div>
+      </div>
+    </section>
+
+    <!-- Treatment Strategy Comparison -->
+    <section id="kst-comparison" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">📊 Treatment Strategy Overview</h2>
+        
+        <div class="kst-image-block">
+          <img src="" alt="Treatment Strategy Comparison">
+        </div>
+
+        <p class="kst-muted">This product is a single-solution collagen biostimulator. The table below focuses on its general treatment strategy across different areas.</p>
+
+        <div class="kst-table-wrap">
+          <table class="kst-comp-table">
+            <thead>
+              <tr>
+                <th>Treatment Strategy</th>
+                <th>Viscosity</th>
+                <th>Treatment Area</th>
+                <th>Injection Layer</th>
+                <th>Needle Gauge</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>PCL Power Booster</strong></td>
+                <td>Very Low (Liquid Solution)</td>
+                <td>Face, Neck, Décolleté, Hands, Periorbital</td>
+                <td>Dermis / Subdermal</td>
+                <td>30G-31G / Mesotherapy</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who Is This For -->
+    <section id="kst-suitable" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">🎯 Which Product Is Right For Me?</h2>
+        
+        <div class="kst-image-block">
+          <img src="" alt="Ideal Candidate Profile">
+        </div>
+
+        <p>PCL Power Booster is an ideal choice for individuals seeking <strong>fundamental, long-term anti-aging</strong> and <strong>overall skin quality improvement</strong> rather than immediate, localized volume from traditional HA fillers.</p>
+
+        <h3 class="kst-kicker" style="margin-top:16px">Perfect For:</h3>
+        <ul>
+          <li>Individuals wanting to promote natural <strong>collagen synthesis</strong></li>
+          <li>Those seeking to restore skin <strong>elasticity</strong> and firmness</li>
+          <li>Patients looking for improvement of fine lines across larger treatment areas</li>
+          <li>Those with sensitivities or allergies to Hyaluronic Acid products</li>
+          <li>Individuals interested in <strong>long-lasting regenerative benefits</strong> (up to 1 year or more)</li>
+          <li>Patients seeking comprehensive facial and body rejuvenation</li>
+        </ul>
+
+        <div class="kst-alert kst-info">
+          <strong>Professional Consultation:</strong> Consult with a licensed aesthetic professional to determine if PCL Power Booster is suitable for your specific needs and skin condition.
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Description -->
+    <section id="kst-detailed" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">📝 Detailed Product Description</h2>
+        
+        <div class="kst-image-block">
+          <img src="" alt="PCL Power Booster Mechanism">
+        </div>
+
+        <div class="kst-highlight">
+          <h3>🔹 PCL Power Booster</h3>
+          <p class="kst-spec">Liquid Elastin and Collagen Stimulator</p>
+        </div>
+
+        <h3 class="kst-kicker">Efficacy</h3>
+        <p>Stimulates neocollagenesis and elastin production for a subtle lifting effect, improved skin elasticity, skin tone enhancement, hydration, and reduction of fine wrinkles.</p>
+
+        <h3 class="kst-kicker">Duration</h3>
+        <p>The stimulating effect is designed to be <strong>long-lasting, often up to 1 year or more</strong>, as the PCL nanoparticles form a fixed three-dimensional matrix to continuously support tissue reconstruction.</p>
+
+        <h3 class="kst-kicker">Treatment Areas</h3>
+        <p>Versatile application for:</p>
+        <ul>
+          <li><strong>Face:</strong> Full face rejuvenation</li>
+          <li><strong>Neck:</strong> Skin tightening and wrinkle reduction</li>
+          <li><strong>Décolleté:</strong> Chest area rejuvenation</li>
+          <li><strong>Hands:</strong> Back of hands rejuvenation</li>
+          <li><strong>Periorbital Area:</strong> Around the eyes (with appropriate technique)</li>
+        </ul>
+
+        <h3 class="kst-kicker">Usage</h3>
+        <p>Injected into the dermal layer to initiate the collagen regeneration process. The highly liquid, nano-sized colloid formulation ensures smooth injection and wide, even spread throughout the surrounding tissue.</p>
+
+        <h3 class="kst-kicker">Additional Advantages</h3>
+        <div class="kst-feature-grid">
+          <div class="kst-feature-item">
+            <h4>Hypoallergenic</h4>
+            <p>Well-tolerated and suitable for patients with HA allergies</p>
+          </div>
+          <div class="kst-feature-item">
+            <h4>No Microparticles</h4>
+            <p>Fully solubilized formula prevents lumps</p>
+          </div>
+          <div class="kst-feature-item">
+            <h4>Cumulative Effect</h4>
+            <p>Progressive improvement with each session</p>
+          </div>
+          <div class="kst-feature-item">
+            <h4>Minimal Massage Required</h4>
+            <p>Liquid formula spreads naturally</p>
+          </div>
+          <div class="kst-feature-item">
+            <h4>Nano-Sized Particles</h4>
+            <p>Minimizes post-treatment complications</p>
+          </div>
+          <div class="kst-feature-item">
+            <h4>Treatment Compatibility</h4>
+            <p>Can combine with other aesthetic procedures</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Precautions & Storage -->
+    <section id="kst-safety" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">⚠️ Precautions & Storage Guide</h2>
+        
+        <div class="kst-image-block">
+          <img src="" alt="Storage and Post-procedure Care">
+        </div>
+
+        <h3 class="kst-kicker">Storage Guidelines</h3>
+        <div class="kst-kv">
+          <div class="kst-kv-row">
+            <div class="kst-key">Temperature</div>
+            <div class="kst-value">Store between 2°C - 25°C (room temperature, protected from light)</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Shelf Life</div>
+            <div class="kst-value">Single-use sterile vial - discard immediately after opening</div>
+          </div>
+        </div>
+
+        <div class="kst-alert kst-warn">
+          <h3 style="margin-top:0">General Precautions</h3>
+          <ul>
+            <li><strong>Professional Use Only:</strong> Must be administered by licensed and trained medical/aesthetic professionals</li>
+            <li><strong>Do not use if:</strong> Pregnant, breastfeeding, allergic to any ingredients, or if you have an immune disease or infection</li>
+            <li><strong>Avoid concurrent treatment:</strong> With lasers or abrasion procedures without professional consultation</li>
+            <li><strong>Expected reactions:</strong> Mild swelling, redness, and/or bruising may occur at injection site but usually resolve within one week</li>
+          </ul>
+        </div>
+
+        <div class="kst-alert kst-danger">
+          <strong>⚠️ Critical Note:</strong> PCL is <strong>NOT dissolvable</strong> with hyaluronidase, unlike HA fillers. Ensure proper injection technique and placement.
+        </div>
+
+        <div class="kst-alert kst-info">
+          <h3 style="margin-top:0">Post-Treatment Care</h3>
+          <ul>
+            <li>Avoid excessive facial movements for 24 hours</li>
+            <li>Do not massage the treated area aggressively</li>
+            <li>Avoid direct sun exposure and use SPF protection</li>
+            <li>Stay hydrated and maintain healthy skin care routine</li>
+            <li>Follow all post-treatment instructions provided by your practitioner</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="kst-faq" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">❓ Frequently Asked Questions</h2>
+        
+        <details class="kst-faq-item" open>
+          <summary>Q. What makes PCL Power Booster different from traditional HA fillers?</summary>
+          <p>A. PCL Power Booster is a biostimulator that works by stimulating your body's natural collagen production, rather than simply adding volume. It provides long-lasting regenerative benefits (up to 1 year or more) and improves overall skin quality, while HA fillers provide immediate volume but typically last 6-12 months.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. How many treatments will I need to see results?</summary>
+          <p>A. The recommended primary course consists of 3 sessions performed once a month for three consecutive months. Results are cumulative and progressive, with optimal outcomes visible after completing the full course. Maintenance treatments are suggested every 3-6 months thereafter.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. Is the treatment painful?</summary>
+          <p>A. The liquid formula with nano-sized particles allows for smooth injection using fine needles (30G-31G), which minimizes discomfort. While this formulation does not contain Lidocaine, your practitioner may apply topical anesthetic if needed.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. Can I combine PCL Power Booster with other treatments?</summary>
+          <p>A. Yes, PCL Power Booster can generally be used in combination with non-crosslinked skin enhancers or Botulinum Toxin. However, recommended interval periods should be observed, and combination treatments should only be performed under professional guidance.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. What should I expect after treatment?</summary>
+          <p>A. Mild swelling, redness, and/or bruising may occur at the injection site but usually resolve within one week. Results develop gradually as collagen production is stimulated, with progressive improvement over the following weeks and months.</p>
+        </details>
+        
+        <details class="kst-faq-item">
+          <summary>Q. Can PCL Power Booster be dissolved if I'm not satisfied?</summary>
+          <p>A. No, PCL is NOT dissolvable with hyaluronidase like HA fillers. This is why proper injection technique and placement by an experienced professional is essential. Discuss your expectations thoroughly with your practitioner before treatment.</p>
+        </details>
+
+        <details class="kst-faq-item">
+          <summary>Q. Is PCL Power Booster suitable for people with HA allergies?</summary>
+          <p>A. Yes, PCL Power Booster is often well-tolerated and can be used as an alternative for patients with sensitivities or allergies to Hyaluronic Acid products. However, always consult with your healthcare provider about your specific allergies.</p>
+        </details>
+
+        <details class="kst-faq-item">
+          <summary>Q. Which areas can be treated with PCL Power Booster?</summary>
+          <p>A. PCL Power Booster is versatile and can be used on the full face, neck, décolleté, back of hands, and periorbital area. It's particularly effective for treating wrinkles and skin laxity across larger treatment areas.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Meta Keywords -->
+    <section id="kst-meta" class="kst-section">
+      <div class="kst-card" style="background:#fafafa">
+        <h2 class="kst-section-title">🔖 Product Keywords</h2>
+        <div class="kst-chips">
+          <span class="kst-chip">Polycaprolactone Booster</span>
+          <span class="kst-chip">PCL Skin Stimulator</span>
+          <span class="kst-chip">Collagen Regeneration</span>
+          <span class="kst-chip">Liquid PCL</span>
+          <span class="kst-chip">Anti-Aging Injectable</span>
+          <span class="kst-chip">Skin Elasticity</span>
+          <span class="kst-chip">Wrinkle Reduction</span>
+          <span class="kst-chip">Dermal Booster</span>
+          <span class="kst-chip">Skin Lifting</span>
+          <span class="kst-chip">Neocollagenesis</span>
+          <span class="kst-chip">Liquid PCL Solution</span>
+          <span class="kst-chip">Face Rejuvenation</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="kst-container">
+    <div class="kst-card" style="text-align:center; background:#fafafa">
+      <small class="kst-muted">For professional use only • Consult licensed practitioners • Store properly • Follow all safety guidelines</small>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#kst-"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Auto-hide empty image containers on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const imageBlocks = document.querySelectorAll('.kst-image-block, .kst-chart-block');
+    imageBlocks.forEach(block => {
+      const img = block.querySelector('img');
+      if (!img || !img.src || img.src === '') {
+        block.style.display = 'none';
+      }
+    });
+  });
+</script>

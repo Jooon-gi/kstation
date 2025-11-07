@@ -1,0 +1,780 @@
+<style>
+    :root {
+        --kst-main-color: #d66a1f;
+        --kst-sub-color: #a7490a;
+        --kst-text-color: #ffffff;
+        --kst-secondary-text: #f6caa5;
+        --kst-bg-color: #fff9f5;
+        --kst-badge-bg: #d66a1f;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #a7490a;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+        background: var(--kst-bg-color);
+        color: #333333;
+        padding: 0 12px;
+        line-height: 1.6;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        position: relative;
+        isolation: isolate;
+    }
+
+    .kst-main-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    .kst-section {
+        margin: 20px 0;
+        color: #333333;
+    }
+    
+    .kst-header-block {
+        background: linear-gradient(135deg, var(--kst-main-color), var(--kst-sub-color));
+        color: var(--kst-text-color);
+        padding: 30px 16px;
+        margin: 20px 0;
+        border-radius: 12px;
+        border: 1px solid var(--kst-sub-color);
+        box-shadow: 0 10px 30px rgba(214, 106, 31, 0.2);
+    }
+    
+    .kst-product-title {
+        font-size: 34px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-color) !important;
+    }
+
+    .kst-product-spec {
+        font-size: 26px;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-secondary-text) !important;
+    }
+    
+    .kst-subtitle {
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        opacity: 0.9;
+        color: var(--kst-text-color) !important;
+    }
+    
+    .kst-category-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        padding: 6px 14px;
+        font-size: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 15px;
+        border-radius: 999px;
+        box-shadow: 0 4px 12px rgba(214, 106, 31, 0.3);
+    }
+    
+    .kst-image-block, .kst-chart-block {
+        background: rgba(214, 106, 31, 0.05);
+        border: 1px dashed rgba(214, 106, 31, 0.2);
+        padding: 40px 16px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 20px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-main-color) !important;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(214, 106, 31, 0.1);
+    }
+    
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: none;
+        background: none;
+        border-radius: 8px;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: none;
+        background: none;
+        border-radius: 8px;
+    }
+    
+    .kst-core-value {
+        background: rgba(214, 106, 31, 0.08);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(214, 106, 31, 0.2);
+        padding: 25px 16px;
+        margin: 20px 0;
+        text-align: center;
+        color: #333333 !important;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(214, 106, 31, 0.1);
+    }
+    
+    .kst-slogan {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 15px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-main-color) !important;
+    }
+    
+    .kst-description {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        color: #666666 !important;
+    }
+    
+    .kst-section-header {
+        background: var(--kst-main-color);
+        color: var(--kst-text-color) !important;
+        padding: 16px 16px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 20px 0 0 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(214, 106, 31, 0.2);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card {
+        background: #ffffff;
+        border: 1px solid rgba(214, 106, 31, 0.2);
+        padding: 20px 16px;
+        margin: 12px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(214, 106, 31, 0.08);
+    }
+    
+    .kst-card ul, .kst-card ol {
+        padding-left: 20px;
+        margin: 10px 0;
+    }
+    
+    .kst-card ul li, .kst-card ol li {
+        margin: 8px 0;
+        color: #333333 !important;
+        line-height: 1.6;
+    }
+    
+    .kst-card ul li::marker {
+        color: var(--kst-main-color);
+    }
+    
+    .kst-dt {
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 12px;
+        color: var(--kst-main-color) !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-dd {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        color: #333333 !important;
+    }
+    
+    .kst-highlight-box {
+        background: rgba(214, 106, 31, 0.1);
+        border-left: 4px solid var(--kst-main-color);
+        padding: 16px;
+        margin: 12px 0;
+        border-radius: 4px;
+    }
+    
+    .kst-highlight-box .kst-dt {
+        color: var(--kst-sub-color) !important;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 15px 0;
+        border-radius: 8px;
+        border: 1px solid rgba(214, 106, 31, 0.2);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: rgba(214, 106, 31, 0.05);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-main-color);
+        border-radius: 4px;
+    }
+    
+    .kst-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+        background: #ffffff;
+    }
+    
+    .kst-table thead th {
+        background: var(--kst-main-color);
+        color: var(--kst-text-color) !important;
+        padding: 12px 10px;
+        text-align: left;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        border-bottom: 2px solid var(--kst-sub-color);
+    }
+    
+    .kst-table tbody td {
+        padding: 12px 10px;
+        border-bottom: 1px solid rgba(214, 106, 31, 0.1);
+        font-size: 14px;
+        color: #333333 !important;
+        line-height: 1.5;
+    }
+    
+    .kst-table tbody tr:hover {
+        background: rgba(214, 106, 31, 0.05);
+    }
+    
+    .kst-keyword-badge {
+        display: inline-block;
+        background: rgba(214, 106, 31, 0.1);
+        color: var(--kst-sub-color) !important;
+        padding: 4px 10px;
+        margin: 4px 4px 4px 0;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: 4px;
+        border: 1px solid rgba(214, 106, 31, 0.2);
+    }
+    
+    .kst-mt-small {
+        margin-top: 12px;
+    }
+    
+    .kst-mt-medium {
+        margin-top: 20px;
+    }
+    
+    .kst-faq-item {
+        margin: 12px 0;
+        border: 1px solid rgba(214, 106, 31, 0.2);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #ffffff;
+    }
+    
+    .kst-faq-question {
+        background: rgba(214, 106, 31, 0.08);
+        padding: 16px;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--kst-sub-color) !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-faq-question:hover {
+        background: rgba(214, 106, 31, 0.15);
+    }
+    
+    .kst-faq-question.kst-active {
+        background: var(--kst-main-color);
+        color: var(--kst-text-color) !important;
+    }
+    
+    .kst-faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding: 0 16px;
+        color: #333333 !important;
+        line-height: 1.6;
+    }
+    
+    .kst-faq-answer.kst-active {
+        max-height: 500px;
+        padding: 16px;
+    }
+    
+    .kst-tech-specs {
+        background: #ffffff;
+        border: 1px solid rgba(214, 106, 31, 0.2);
+        padding: 20px 16px;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(214, 106, 31, 0.08);
+    }
+    
+    .kst-tech-title {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        color: var(--kst-main-color) !important;
+        text-align: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-tech-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .kst-spec-item {
+        background: rgba(214, 106, 31, 0.05);
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid rgba(214, 106, 31, 0.15);
+    }
+    
+    .kst-spec-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--kst-sub-color) !important;
+        margin-bottom: 6px;
+    }
+    
+    .kst-spec-value {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--kst-main-color) !important;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- HEADER SECTION -->
+    <div class="kst-header-block">
+        <span class="kst-category-badge">LIPOLYTIC SOLUTION</span>
+        <h1 class="kst-product-title">LusciLipo</h1>
+        <p class="kst-product-spec">Lipolytic Solution</p>
+        <p class="kst-subtitle">Advanced Fat Dissolving Formula with Bromelain</p>
+    </div>
+    
+    <!-- PRODUCT IMAGE PLACEHOLDER -->
+    <div class="kst-image-block">
+        <!-- Insert main product image here -->
+    </div>
+    
+    <!-- CORE VALUE -->
+    <div class="kst-core-value">
+        <div class="kst-slogan">Non-Surgical Fat Reduction Solution</div>
+        <div class="kst-description">
+            Professional lipolytic formula combining Lecithin and Bromelain for effective fat reduction with minimized inflammation and swelling. Suitable for both facial and body contouring procedures.
+        </div>
+    </div>
+    
+    <!-- BASIC INFORMATION -->
+    <div class="kst-section">
+        <div class="kst-section-header">Product Overview</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">Product Specifications</div>
+            <div class="kst-dd">
+                <strong>Product Name:</strong> LusciLipo Lipolytic Solution<br>
+                <strong>Formula Type:</strong> Single Formula (Face and Body Contouring)<br>
+                <strong>Packaging:</strong> 10ml × 5 vials<br>
+                <strong>Solution Type:</strong> Clear Injectable Solution
+            </div>
+        </div>
+    </div>
+    
+    <!-- KEY INGREDIENTS -->
+    <div class="kst-section">
+        <div class="kst-section-header">Key Ingredients & Mechanism</div>
+        
+        <div class="kst-image-block">
+            <!-- Insert ingredients mechanism image here -->
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">Core Active Ingredients</div>
+            <ul>
+                <li><strong>Lecithin:</strong> Acts similarly to Phosphatidylcholine (PPC) by emulsifying and breaking down fat cells (adipocytes), promoting fat metabolism</li>
+                <li><strong>Bromelain:</strong> Natural enzyme with strong anti-inflammatory and anti-edema properties, minimizing post-treatment swelling and bruising</li>
+                <li><strong>Vitamin Complex (B Complex):</strong> Supports cellular metabolism and skin revitalization during the fat reduction process</li>
+                <li><strong>Natural Extracts:</strong> Enhances microcirculation and assists in detoxification through the lymphatic system</li>
+            </ul>
+        </div>
+        
+        <div class="kst-highlight-box">
+            <div class="kst-dt">How It Works</div>
+            <div class="kst-description">
+                LusciLipo promotes fat reduction by utilizing Lecithin to induce the breakdown and dissolution of fat cells. The released lipids are metabolized and cleared from the body primarily via the lymphatic system. Bromelain plays a crucial role by reducing local inflammation and swelling, which improves the overall contouring process and accelerates recovery time.
+            </div>
+        </div>
+    </div>
+    
+    <!-- EXPECTED EFFECTS -->
+    <div class="kst-section">
+        <div class="kst-section-header">Expected Results</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">Key Benefits</div>
+            <ul>
+                <li><strong>Targeted Fat Reduction:</strong> Effectively reduces localized fat deposits in specific areas including double chin, jowls, abdomen, and thighs</li>
+                <li><strong>Improved Contours:</strong> Enhances facial definition (V-Line effect) and body contours for a more sculpted appearance</li>
+                <li><strong>Cellulite Reduction:</strong> Breaks down fat nodules associated with cellulite, promoting smoother skin texture</li>
+                <li><strong>Skin Firmness:</strong> Supports skin tightening effects post-fat reduction, contributing to improved skin elasticity and a more toned appearance</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- TREATMENT PROTOCOL -->
+    <div class="kst-section">
+        <div class="kst-section-header">Usage Protocol & Treatment Guide</div>
+        
+        <div class="kst-image-block">
+            <!-- Insert treatment area mapping image (face/body) here -->
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">Treatment Areas</div>
+            <div class="kst-dd">
+                <strong>Facial Areas:</strong>
+                <ul>
+                    <li>Double chin (submental fat)</li>
+                    <li>Jawline (jowls)</li>
+                    <li>Chubby cheeks</li>
+                </ul>
+            </div>
+            <div class="kst-dd kst-mt-small">
+                <strong>Body Areas:</strong>
+                <ul>
+                    <li>Abdomen</li>
+                    <li>Flanks (love handles)</li>
+                    <li>Inner and outer thighs</li>
+                    <li>Buttocks</li>
+                    <li>Arms (bingo wings)</li>
+                    <li>Back fat</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">Recommended Treatment Cycle</div>
+            <div class="kst-description">
+                A series of <strong>3-6 sessions</strong> is typically recommended, with an interval of <strong>1 to 2 weeks</strong> between each session. Visible results often become apparent after the 2nd or 3rd session as the body progressively metabolizes the dissolved fat.
+            </div>
+        </div>
+        
+        <div class="kst-highlight-box">
+            <div class="kst-dt">Application Method</div>
+            <div class="kst-description">
+                Localized injection into the subcutaneous fat layer using a sterile syringe (27G or 30G needle recommended). Inject small, consistent amounts (0.2-0.3 ml) per injection point, maintaining approximately 1 cm spacing between injection sites. Do not exceed recommended volume limits per session.
+            </div>
+        </div>
+    </div>
+    
+    <!-- TREATMENT STRATEGIES COMPARISON -->
+    <div class="kst-section">
+        <div class="kst-section-header">Treatment Strategy Guide</div>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Treatment Strategy</th>
+                        <th>Key Focus</th>
+                        <th>Target Area</th>
+                        <th>Typical Dose</th>
+                        <th>Notable Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Facial Contouring</td>
+                        <td>Lecithin, Bromelain</td>
+                        <td>Chin, Jawline, Cheeks</td>
+                        <td>5-15ml total</td>
+                        <td>Focused on V-line definition and swelling control</td>
+                    </tr>
+                    <tr>
+                        <td>Broad Body Slimming</td>
+                        <td>Lecithin, Vitamins</td>
+                        <td>Abdomen, Thighs, Arms</td>
+                        <td>20-50ml total</td>
+                        <td>Targets broader fat deposits and cellulite reduction</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card kst-mt-small">
+            <div class="kst-description">
+                The single LusciLipo formulation can be strategically applied across different body areas with adjusted dosing protocols. The presence of Bromelain provides a significant advantage in managing post-injection inflammation, making it suitable for both delicate facial areas and larger body zones.
+            </div>
+        </div>
+    </div>
+    
+    <!-- DETAILED PRODUCT INFORMATION -->
+    <div class="kst-section">
+        <div class="kst-section-header">Detailed Product Information</div>
+        
+        <div class="kst-image-block">
+            <!-- Insert cross-section or mechanism detail image here -->
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">LusciLipo - Advanced Lipolytic Formula</div>
+            
+            <div class="kst-dd">
+                <strong>Ingredient Composition:</strong> Lecithin, Bromelain, Vitamin complex, and beneficial Natural Extracts working synergistically for optimal results.
+            </div>
+            
+            <div class="kst-dd kst-mt-small">
+                <strong>Ideal Target Areas:</strong> Effective for areas with excess fat accumulation and poor circulation, including facial zones (double chin) and various body areas requiring contouring.
+            </div>
+            
+            <div class="kst-dd kst-mt-small">
+                <strong>Efficacy Summary:</strong> Promotes lipolysis (fat cell breakdown) combined with significant anti-inflammatory action and edema reduction due to Bromelain, leading to smoother contouring results and faster recovery time.
+            </div>
+            
+            <div class="kst-dd kst-mt-small">
+                <strong>Application Technique:</strong> Requires precise injection into the targeted subcutaneous fat layer. Inject small, consistent amounts (0.2-0.3 ml per point), maintaining approximately 1 cm spacing between injection sites. Total volume per session should not exceed recommended safety limits.
+            </div>
+        </div>
+        
+        <div class="kst-highlight-box kst-mt-small">
+            <div class="kst-dt">Key Advantages</div>
+            <ul>
+                <li><strong>Non-Surgical Option:</strong> Provides a minimally invasive approach to achieving body contouring goals without general anesthesia or surgical procedures</li>
+                <li><strong>Bromelain Advantage:</strong> The inclusion of Bromelain is a distinguishing feature, actively managing post-injection inflammation and promoting quicker return to daily activities</li>
+                <li><strong>Versatile Application:</strong> Single formula suitable for both facial and body treatments, offering flexibility in treatment planning</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- PRECAUTIONS & STORAGE -->
+    <div class="kst-section">
+        <div class="kst-section-header">Precautions & Storage Guidelines</div>
+        
+        <div class="kst-image-block">
+            <!-- Insert precautions and storage infographic here -->
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">Storage Conditions</div>
+            <div class="kst-description">
+                Store unopened vials in a cool, dry place away from direct sunlight. Recommended storage temperature: 1°C to 30°C. Once opened, handle remaining solution according to professional guidelines or discard appropriately. Do not freeze or expose to extreme temperatures.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">Treatment Interval Guidelines</div>
+            <div class="kst-description">
+                Maintain the recommended <strong>7-to-14-day interval</strong> between sessions in the same treatment area. This allows sufficient time for the body to metabolize and clear the broken-down fat through the lymphatic system and enables proper healing of injection sites.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">Post-Treatment Care</div>
+            <ul>
+                <li>Perform gentle massage on the treated area to promote even distribution and lymphatic drainage</li>
+                <li>Maintain adequate hydration (increase water intake) to assist the body's natural detoxification processes</li>
+                <li>Avoid strenuous exercise for 24-48 hours post-treatment</li>
+                <li>Avoid alcohol consumption for 24 hours after treatment</li>
+                <li>Apply cold compress if swelling occurs (Bromelain already minimizes this effect)</li>
+                <li>Monitor treated areas for any unusual reactions and consult healthcare provider if concerns arise</li>
+            </ul>
+        </div>
+        
+        <div class="kst-highlight-box">
+            <div class="kst-dt">Important Safety Information</div>
+            <div class="kst-description">
+                This product is intended for professional use only. Treatments should be performed by qualified healthcare professionals trained in injection techniques. Not recommended for pregnant or nursing women, individuals with active infections at treatment sites, or those with known allergies to any ingredients. Consult with a healthcare provider before treatment if you have any medical conditions or concerns.
+            </div>
+        </div>
+    </div>
+    
+    <!-- TECHNICAL SPECIFICATIONS -->
+    <div class="kst-tech-specs kst-section">
+        <div class="kst-tech-title">Technical Specifications</div>
+        <div class="kst-tech-grid">
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">Package Size</div>
+                <div class="kst-spec-value">10ml × 5 vials</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">Solution Type</div>
+                <div class="kst-spec-value">Clear Injectable</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">Storage Temperature</div>
+                <div class="kst-spec-value">1°C - 30°C</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">Application Area</div>
+                <div class="kst-spec-value">Face & Body</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">Recommended Sessions</div>
+                <div class="kst-spec-value">3-6 Sessions</div>
+            </div>
+            <div class="kst-spec-item">
+                <div class="kst-spec-label">Session Interval</div>
+                <div class="kst-spec-value">1-2 Weeks</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FAQ SECTION -->
+    <div class="kst-section">
+        <div class="kst-section-header">Frequently Asked Questions</div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                How does LusciLipo differ from other fat dissolving injections?
+            </div>
+            <div class="kst-faq-answer">
+                LusciLipo features a unique combination of Lecithin for fat dissolution and Bromelain for anti-inflammatory effects. The inclusion of Bromelain is a key differentiator, as it actively manages post-injection inflammation and swelling, resulting in reduced downtime and improved patient comfort compared to standard fat dissolving solutions.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                When can I expect to see results?
+            </div>
+            <div class="kst-faq-answer">
+                Visible results typically become apparent after the 2nd or 3rd treatment session, as the body progressively metabolizes the dissolved fat through the lymphatic system. Full results are usually achieved within 4-8 weeks after completing the recommended 3-6 session series, though individual response times may vary based on treatment area, metabolism, and lifestyle factors.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                Is the treatment painful?
+            </div>
+            <div class="kst-faq-answer">
+                Discomfort during treatment is typically minimal to moderate and varies by individual pain tolerance and treatment area. Most patients describe a burning or stinging sensation during injection that subsides within minutes. Topical anesthetic can be applied before treatment to enhance comfort. The Bromelain component helps reduce post-treatment discomfort and swelling.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                Are the results permanent?
+            </div>
+            <div class="kst-faq-answer">
+                When fat cells are broken down and eliminated through LusciLipo treatment, they do not regenerate. However, maintaining results requires a healthy lifestyle with proper diet and exercise. Significant weight gain after treatment can cause remaining fat cells to enlarge, potentially diminishing the contouring effects achieved.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                What are the common side effects?
+            </div>
+            <div class="kst-faq-answer">
+                Common side effects include temporary swelling, redness, bruising, and tenderness at injection sites. These typically resolve within 3-7 days. The Bromelain component in LusciLipo is specifically included to minimize these effects. Rare side effects may include temporary numbness, itching, or firmness in treated areas. Serious adverse reactions are uncommon when administered by qualified professionals.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                Who should not use LusciLipo?
+            </div>
+            <div class="kst-faq-answer">
+                LusciLipo is not recommended for pregnant or nursing women, individuals with active infections or inflammation at treatment sites, those with known allergies to any ingredients (especially bromelain or pineapple), people with severe liver or kidney disease, or those with bleeding disorders. A thorough consultation with a qualified healthcare provider is essential to determine treatment suitability.
+            </div>
+        </div>
+    </div>
+    
+    <!-- PRODUCT IMAGE -->
+    <div class="kst-image-block kst-section">
+        <!-- Insert final product packaging and specifications image here -->
+    </div>
+    
+</div>
+
+<script>
+    function kstToggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        const isActive = element.classList.contains('kst-active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.kst-faq-question').forEach(q => {
+            q.classList.remove('kst-active');
+            q.nextElementSibling.classList.remove('kst-active');
+        });
+        
+        // Open clicked item if it wasn't already active
+        if (!isActive) {
+            element.classList.add('kst-active');
+            answer.classList.add('kst-active');
+        }
+    }
+</script>

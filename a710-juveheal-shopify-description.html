@@ -1,0 +1,935 @@
+<style>
+  /* =========================================
+   JUVEHEAL AMPOULE SERIES Shopify Mobile Template Styles
+  ========================================== */
+
+  /* Basic Reset with kst- prefix */
+  .kst-main-container *, 
+  .kst-main-container *::before, 
+  .kst-main-container *::after { 
+    box-sizing: border-box; 
+  }
+  
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+    color: var(--kst-text-primary) !important;
+    line-height: 1.6;
+    background: #f5f6f8;
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* Auto-hide image blocks with CSS :has() */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-main-container img, 
+  .kst-main-container video { 
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    object-fit: cover;
+  }
+  
+  /* =========================================
+   Design Tokens - JUVEHEAL Version Colors
+  ========================================== */
+  .kst-main-container {
+    --kst-version-a: #a36a2d;
+    --kst-version-b: #b34c44;
+    --kst-version-v: #e38b8f;
+    --kst-version-w: #7977D9;
+    --kst-text-primary: #2c3e50;
+    --kst-text-secondary: #5a6c7d;
+    --kst-background: #f0f2f5;
+    --kst-badge-bg: #e8ecf0;
+    --kst-badge-text: #FFFFFF;
+    --kst-card-bg: #FFFFFF;
+    --kst-border: #d4dce5;
+    --kst-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  /* =========================================
+   Container
+  ========================================== */
+  .kst-container {
+    padding: 16px 12px;
+  }
+
+  /* =========================================
+   Sections
+  ========================================== */
+  .kst-section {
+    position: relative;
+    background: var(--kst-card-bg);
+    border: 1px solid var(--kst-border);
+    padding: 20px 16px;
+    margin: 16px 8px;
+    box-shadow: var(--kst-shadow);
+    overflow: hidden;
+  }
+
+  .kst-section::before {
+    content: "";
+    position: absolute; 
+    inset: -1px -1px auto -1px; 
+    height: 3px;
+    background: linear-gradient(90deg, var(--kst-version-a), var(--kst-version-v));
+    opacity: .8;
+  }
+
+  .kst-section-title {
+    margin: 0 0 12px;
+    font-weight: 600;
+    font-size: 1.35rem;
+    letter-spacing: .2px;
+    color: var(--kst-text-primary) !important;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .kst-section-sub { 
+    margin: 0 0 14px; 
+    color: var(--kst-text-secondary) !important; 
+    font-size: .9rem; 
+  }
+  
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: var(--kst-card-bg);
+    border: 1px solid var(--kst-border);
+    padding: 24px 16px;
+    position: relative; 
+    overflow: hidden;
+    margin: 12px 8px;
+    box-shadow: var(--kst-shadow);
+  }
+
+  .kst-hero::before {
+    content: "";
+    position: absolute; 
+    inset: -20% -10% auto auto; 
+    width: 220px; 
+    height: 220px;
+    background: radial-gradient(circle, rgba(163,106,45,0.12), rgba(227,139,143,0.08)); 
+    filter: blur(40px); 
+    opacity: .7;
+    animation: kst-hero-glow 18s linear infinite;
+  }
+
+  @keyframes kst-hero-glow {
+    0% { transform: translate(0,0) rotate(0deg); }
+    50% { transform: translate(-10px, 5px) rotate(8deg); }
+    100% { transform: translate(0,0) rotate(0deg); }
+  }
+
+  .kst-labels { 
+    display: flex; 
+    gap: 6px; 
+    flex-wrap: wrap; 
+    margin-bottom: 12px;
+  }
+
+  .kst-badge {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 4px;
+    padding: 6px 10px;
+    background: var(--kst-badge-bg);
+    border: 1px solid var(--kst-border);
+    color: var(--kst-text-primary) !important; 
+    font-size: .75rem; 
+    font-weight: 500;
+  }
+
+  .kst-badge.kst-version-a { 
+    background: var(--kst-version-a);
+    color: var(--kst-badge-text) !important;
+    border-color: var(--kst-version-a);
+  }
+  
+  .kst-badge.kst-version-b { 
+    background: var(--kst-version-b);
+    color: var(--kst-badge-text) !important;
+    border-color: var(--kst-version-b);
+  }
+
+  .kst-badge.kst-version-v { 
+    background: var(--kst-version-v);
+    color: var(--kst-badge-text) !important;
+    border-color: var(--kst-version-v);
+  }
+
+  .kst-badge.kst-version-w { 
+    background: var(--kst-version-w);
+    color: var(--kst-badge-text) !important;
+    border-color: var(--kst-version-w);
+  }
+
+  .kst-hero-title {
+    margin: 0 0 8px;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: .2px;
+    color: var(--kst-text-primary) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .kst-hero-spec {
+    margin: -8px 0 15px;
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: .1px;
+    color: var(--kst-text-secondary) !important;
+  }
+
+  .kst-hero p { 
+    margin: 0 0 10px; 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-highlight {
+    border: 1px solid var(--kst-border);
+    background: var(--kst-background);
+    padding: 10px 12px; 
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 12px;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .kst-card {
+    background: var(--kst-card-bg); 
+    border: 1px solid var(--kst-border); 
+    padding: 14px; 
+    box-shadow: var(--kst-shadow); 
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; 
+    margin: 0;
+  }
+
+  .kst-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+
+  .kst-card h3,
+  .kst-card h4 { 
+    margin: 0 0 8px; 
+    font-weight: 600; 
+    font-size: 1.05rem; 
+    color: var(--kst-text-primary) !important; 
+  }
+
+  .kst-card p, 
+  .kst-card li { 
+    color: var(--kst-text-secondary) !important; 
+    font-size: .9rem; 
+  }
+
+  .kst-card ul, 
+  .kst-card ol { 
+    margin: 8px 0; 
+    padding-left: 20px; 
+  }
+
+  .kst-card ul li, 
+  .kst-card ol li { 
+    margin-bottom: 6px; 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-muted { 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  /* =========================================
+   Chips & Labels
+  ========================================== */
+  .kst-chips { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 6px; 
+    margin-top: 10px; 
+  }
+
+  .kst-chip { 
+    display: inline-block; 
+    padding: 4px 10px; 
+    background: var(--kst-background); 
+    border: 1px solid var(--kst-border); 
+    color: var(--kst-text-secondary) !important; 
+    font-size: .75rem; 
+  }
+
+  .kst-label-value {
+    margin-bottom: 12px;
+  }
+
+  .kst-label {
+    font-weight: 600;
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 4px;
+  }
+
+  /* =========================================
+   Table Styles
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0;
+    border: 1px solid var(--kst-border);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: var(--kst-background);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-border);
+  }
+
+  .kst-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    font-size: .85rem;
+  }
+
+  .kst-table thead th {
+    background: var(--kst-background);
+    padding: 10px 8px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--kst-text-primary) !important;
+    border-bottom: 2px solid var(--kst-border);
+    white-space: nowrap;
+  }
+
+  .kst-table tbody td {
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--kst-border);
+    color: var(--kst-text-secondary) !important;
+  }
+
+  .kst-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* =========================================
+   Callout & Alert Boxes
+  ========================================== */
+  .kst-callout {
+    background: var(--kst-background);
+    border-left: 3px solid var(--kst-version-a);
+    padding: 12px 14px;
+    margin: 12px 0;
+    color: var(--kst-text-primary) !important;
+  }
+
+  .kst-callout strong {
+    color: var(--kst-text-primary) !important;
+  }
+
+  /* =========================================
+   Image Blocks
+  ========================================== */
+  .kst-image-block,
+  .kst-chart-block {
+    margin: 16px 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .kst-image-block img,
+  .kst-chart-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* =========================================
+   Definition List
+  ========================================== */
+  .kst-card dl {
+    margin: 0;
+  }
+
+  .kst-card dt {
+    font-weight: 600;
+    color: var(--kst-text-primary) !important;
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+
+  .kst-card dt:first-child {
+    margin-top: 0;
+  }
+
+  .kst-card dd {
+    margin: 0 0 8px 0;
+    color: var(--kst-text-secondary) !important;
+  }
+</style>
+
+<div class="kst-main-container">
+  <main class="kst-container">
+
+    <!-- Hero Section -->
+    <section class="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge">Professional Use</span>
+        <span class="kst-badge">Multi-Shot Ampoule</span>
+        <span class="kst-badge">Mesotherapy</span>
+      </div>
+      <h1 class="kst-hero-title">Juveheal Ampoule Series</h1>
+      <p class="kst-hero-spec">5 mL × 5 Vials | Professional Skin Solutions</p>
+      <p>Professional multi-shot ampoule solutions designed for targeted skin concerns across four specialized versions. Each formulation delivers concentrated active ingredients for optimal results in clinical aesthetics.</p>
+      <div class="kst-highlight">
+        <strong>Professional Application:</strong> Designed for use via MTS (microneedling), nano-needles, or micro-injection (mesotherapy). Opened vials must be used immediately.
+      </div>
+    </section>
+
+    <div class="kst-image-block">
+      <img src="" alt="Juveheal Ampoule Series Product Range">
+    </div>
+
+    <!-- Series Overview -->
+    <section class="kst-section" id="kst-series-overview">
+      <h2 class="kst-section-title">Series Overview</h2>
+      <p class="kst-section-sub">Four specialized versions targeting different skin concerns with professional-grade formulations</p>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4><span class="kst-badge kst-version-a">Version A</span> Anti-Wrinkle & Elasticity</h4>
+          <p class="kst-muted">Intensive anti-aging solution with EGF/FGF2 and Adenosine for wrinkle improvement and elasticity enhancement. Ideal for mature, dry, and aging skin.</p>
+        </div>
+        <div class="kst-card">
+          <h4><span class="kst-badge kst-version-b">Version B</span> Lifting & Pore Reduction</h4>
+          <p class="kst-muted">Advanced firming solution featuring Botulinum Peptide and PDRN for strong lifting effects and pore size reduction. Perfect for sagging skin and weakened contours.</p>
+        </div>
+        <div class="kst-card">
+          <h4><span class="kst-badge kst-version-v">Version V</span> Pore/Sebum & Vitality</h4>
+          <p class="kst-muted">Pore tightening and vitality solution with 4GF Complex and high-concentration HA (3,500 ppm). Designed for oily, combination skin with enlarged pores.</p>
+        </div>
+        <div class="kst-card">
+          <h4><span class="kst-badge kst-version-w">Version W</span> Whitening & Pigmentation Control</h4>
+          <p class="kst-muted">Brilliant whitening solution with Mulberry Root Extract and Niacinamide for pigmentation control and brightening. Suitable for all skin types with dull tone.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- At-a-Glance Comparison Table -->
+    <section class="kst-section" id="kst-comparison-table">
+      <h2 class="kst-section-title">Quick Comparison Guide</h2>
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Juveheal Version Comparison">
+          <thead>
+            <tr>
+              <th>Version</th>
+              <th>Key Ingredients</th>
+              <th>Primary Areas</th>
+              <th>Skin Type</th>
+              <th>Main Efficacy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="kst-badge kst-version-a">A</span></td>
+              <td>EGF/FGF2, Collagen, Adenosine</td>
+              <td>Face, Neck</td>
+              <td>Mature, Dry</td>
+              <td>Wrinkle improvement, Elasticity</td>
+            </tr>
+            <tr>
+              <td><span class="kst-badge kst-version-b">B</span></td>
+              <td>Botulinum Peptide, 3GF, PDRN</td>
+              <td>Face, Jawline</td>
+              <td>Reduced Elasticity</td>
+              <td>Lifting, Firming, Pore reduction</td>
+            </tr>
+            <tr>
+              <td><span class="kst-badge kst-version-v">V</span></td>
+              <td>4GF Complex, HA 3,500ppm</td>
+              <td>Face, T-zone</td>
+              <td>Oily, Combination</td>
+              <td>Pore reduction, Vitality</td>
+            </tr>
+            <tr>
+              <td><span class="kst-badge kst-version-w">W</span></td>
+              <td>Mulberry Root, Niacinamide</td>
+              <td>Face, Pigmentation</td>
+              <td>All Types</td>
+              <td>Whitening, Brightening</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="kst-image-block">
+      <img src="" alt="Version Comparison Infographic">
+    </div>
+
+    <!-- Selection Guide -->
+    <section class="kst-section" id="kst-selection-guide">
+      <h2 class="kst-section-title">Which Version Fits Your Needs?</h2>
+      <p class="kst-section-sub">Select the optimal formulation based on primary skin concerns</p>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Visible Wrinkles & Loss of Elasticity</h4>
+          <p class="kst-muted">Choose <strong>Version A</strong> for deep wrinkles, dryness, and mature skin requiring intensive anti-aging care with peptide complexes.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Anti-Aging</span>
+            <span class="kst-chip">Wrinkle Care</span>
+            <span class="kst-chip">Elasticity</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Sagging & Enlarged Pores</h4>
+          <p class="kst-muted">Choose <strong>Version B</strong> for weakened contours, sagging skin, and enlarged pores requiring firming and lifting effects.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Lifting</span>
+            <span class="kst-chip">Firming</span>
+            <span class="kst-chip">Pore Care</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Oily Skin & Sebum Control</h4>
+          <p class="kst-muted">Choose <strong>Version V</strong> for oily or combination skin, enlarged pores, and concerns requiring vitality restoration with sebum control.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Pore Tightening</span>
+            <span class="kst-chip">Sebum Control</span>
+            <span class="kst-chip">Vitality</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Dull Tone & Hyperpigmentation</h4>
+          <p class="kst-muted">Choose <strong>Version W</strong> for dull complexion, melasma, dark spots, and uneven skin tone requiring brightening and pigmentation control.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Whitening</span>
+            <span class="kst-chip">Brightening</span>
+            <span class="kst-chip">Pigmentation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Version A Details -->
+    <section class="kst-section" id="kst-version-a">
+      <h2 class="kst-section-title">Juveheal A Ampoule</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-version-a">Version A</span>
+        <span class="kst-badge">Anti-Wrinkle</span>
+        <span class="kst-badge">Elasticity</span>
+      </div>
+      <p class="kst-section-sub">Intensive Anti-Aging & Wrinkle Solution</p>
+      
+      <div class="kst-highlight">
+        <strong>Specification:</strong> 5 mL per vial | 5 vials per carton | Concentrated liquid ampoule
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Juveheal A Ampoule Product">
+      </div>
+
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Key Ingredients</h4>
+          <dl>
+            <dt>Adenosine (0.04g in 100mL)</dt>
+            <dd>Clinically proven wrinkle reduction and skin regeneration</dd>
+            
+            <dt>rh-Oligopeptide-1 (EGF) & rh-Polypeptide-1 (FGF2)</dt>
+            <dd>Epidermal and fibroblast growth factors for cellular regeneration and elasticity enhancement</dd>
+            
+            <dt>Hydrolyzed Collagen</dt>
+            <dd>Deep hydration and elasticity support for skin structure</dd>
+            
+            <dt>Beta-Glucan</dt>
+            <dd>Skin barrier strengthening and soothing properties</dd>
+          </dl>
+        </div>
+
+        <div class="kst-card">
+          <h4>Expected Efficacy</h4>
+          <ul>
+            <li>Wrinkle improvement and smoothing of fine lines through Adenosine</li>
+            <li>Enhanced elasticity and firmness via EGF/FGF2 and Collagen</li>
+            <li>Deep nutrition and intensive hydration</li>
+            <li>Barrier strengthening and soothing effects</li>
+            <li>Reduction of wrinkle depth and length for youthful radiance</li>
+          </ul>
+        </div>
+
+        <div class="kst-card">
+          <h4>Treatment Protocol</h4>
+          <div class="kst-label-value">
+            <div class="kst-label">Recommended Sessions</div>
+            <div>3–5 sessions at 1–2 week intervals</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Treatment Areas</div>
+            <div>Entire face (forehead, crow's feet, nasolabial folds), neck, and décolletage</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Application Method</div>
+            <div>MTS (microneedling), nano-needles, or mesotherapy for optimal dermal delivery</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Version A Treatment Areas and Injection Pattern">
+      </div>
+    </section>
+
+    <!-- Version B Details -->
+    <section class="kst-section" id="kst-version-b">
+      <h2 class="kst-section-title">Juveheal B Ampoule</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-version-b">Version B</span>
+        <span class="kst-badge">Lifting</span>
+        <span class="kst-badge">Firming</span>
+      </div>
+      <p class="kst-section-sub">Advanced Firming & Lifting Solution</p>
+      
+      <div class="kst-highlight">
+        <strong>Specification:</strong> 5 mL per vial | 5 vials per carton | Non-sticky, high-density liquid
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Juveheal B Ampoule Product">
+      </div>
+
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Key Ingredients</h4>
+          <dl>
+            <dt>Methionyl r-Clostridium Botulinum Polypeptide-1 Hexapeptide-40</dt>
+            <dd>Botulinum peptide for powerful lifting and firming effects</dd>
+            
+            <dt>3GF Complex</dt>
+            <dd>Triple growth factor complex for cellular regeneration and skin density improvement</dd>
+            
+            <dt>PDRN (Polynucleotide)</dt>
+            <dd>Salmon-derived DNA for tissue repair and barrier support</dd>
+            
+            <dt>Hyaluronic Acid (HA)</dt>
+            <dd>Deep hydration and wrinkle improvement support</dd>
+          </dl>
+        </div>
+
+        <div class="kst-card">
+          <h4>Expected Efficacy</h4>
+          <ul>
+            <li>Strong lifting and firming effects through Botulinum Peptide</li>
+            <li>Skin density improvement and resilience restoration</li>
+            <li>Pore size reduction and sebum control</li>
+            <li>Enhanced cellular regeneration via PDRN and 3GF Complex</li>
+            <li>Immediate tightening sensation with long-term matrix remodeling</li>
+          </ul>
+        </div>
+
+        <div class="kst-card">
+          <h4>Treatment Protocol</h4>
+          <div class="kst-label-value">
+            <div class="kst-label">Recommended Sessions</div>
+            <div>3–5 sessions at 2–3 week intervals; maintenance every 6 months</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Treatment Areas</div>
+            <div>Entire face with focus on jawline, cheeks, and enlarged-pore zones</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Application Method</div>
+            <div>Mesotherapy, Derma pen/roller (MTS), or nano-needles</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Version B Treatment Cycle and Anatomical Mapping">
+      </div>
+    </section>
+
+    <!-- Version V Details -->
+    <section class="kst-section" id="kst-version-v">
+      <h2 class="kst-section-title">Juveheal V Ampoule</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-version-v">Version V</span>
+        <span class="kst-badge">Pore Care</span>
+        <span class="kst-badge">Vitality</span>
+      </div>
+      <p class="kst-section-sub">Pore Tightening & Vitality Solution</p>
+      
+      <div class="kst-highlight">
+        <strong>Specification:</strong> Multi-shot ampoule | Professional-grade formulation
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Juveheal V Ampoule Product">
+      </div>
+
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Key Ingredients</h4>
+          <dl>
+            <dt>4GF Complex</dt>
+            <dd>Four epidermal growth factor variants for comprehensive skin regeneration</dd>
+            
+            <dt>Nucleic Acid</dt>
+            <dd>Essential component for cell maintenance and growth promotion</dd>
+            
+            <dt>Hyaluronic Acid (HA) 3,500 ppm</dt>
+            <dd>High-concentration hydration for non-greasy water-glow effect</dd>
+          </dl>
+        </div>
+
+        <div class="kst-card">
+          <h4>Expected Efficacy</h4>
+          <ul>
+            <li>Pore reduction and sebum control for refined skin texture</li>
+            <li>Enhanced vitality and regeneration through 4GF Complex and Nucleic Acid</li>
+            <li>Deep hydration with water-glow effect from high-concentration HA</li>
+            <li>Texture smoothing and elasticity support</li>
+            <li>Improved dermal environment for oily and combination skin</li>
+          </ul>
+        </div>
+
+        <div class="kst-card">
+          <h4>Treatment Protocol</h4>
+          <div class="kst-label-value">
+            <div class="kst-label">Recommended Sessions</div>
+            <div>3–5 sessions at 1–2 week intervals</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Treatment Areas</div>
+            <div>Entire face with emphasis on T-zone and cheeks (enlarged pore areas)</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Application Method</div>
+            <div>MTS, nano-needles, or mesotherapy with shallow-depth focus</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Version V Efficacy and Facial Pore Mapping">
+      </div>
+    </section>
+
+    <!-- Version W Details -->
+    <section class="kst-section" id="kst-version-w">
+      <h2 class="kst-section-title">Juveheal W Ampoule</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-version-w">Version W</span>
+        <span class="kst-badge">Whitening</span>
+        <span class="kst-badge">Brightening</span>
+      </div>
+      <p class="kst-section-sub">Pigmentation Control & Brilliant Whitening</p>
+      
+      <div class="kst-highlight">
+        <strong>Specification:</strong> 5 mL per vial | Typically 5 vials per box
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Juveheal W Ampoule Product">
+      </div>
+
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Key Ingredients</h4>
+          <dl>
+            <dt>Mulberry Root Extract</dt>
+            <dd>Natural brightener for pigmentation control and dark spot prevention</dd>
+            
+            <dt>Niacinamide</dt>
+            <dd>Functional active for brightening and skin barrier support</dd>
+            
+            <dt>Probiotics</dt>
+            <dd>Microbiome support for barrier reinforcement</dd>
+            
+            <dt>Arbutin</dt>
+            <dd>Additional brightening agent for enhanced whitening effects</dd>
+          </dl>
+        </div>
+
+        <div class="kst-card">
+          <h4>Expected Efficacy</h4>
+          <ul>
+            <li>Intense whitening and correction of uneven skin tone</li>
+            <li>Pigmentation control and dark spot prevention</li>
+            <li>Deep hydration with refreshing, non-sticky finish</li>
+            <li>Barrier reinforcement and oxidative stress defense</li>
+            <li>Tyrosinase pathway modulation for melanin control</li>
+          </ul>
+        </div>
+
+        <div class="kst-card">
+          <h4>Treatment Protocol</h4>
+          <div class="kst-label-value">
+            <div class="kst-label">Recommended Sessions</div>
+            <div>3–5 sessions at 1–2 week intervals for melanin control</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Treatment Areas</div>
+            <div>Entire face with focus on hyperpigmentation, melasma, dullness; also neck and hands</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Application Method</div>
+            <div>MTS, nano-needles, mesotherapy, or topical post-resurfacing</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Version W Before/After and Brightening Mechanism">
+      </div>
+    </section>
+
+    <!-- Storage & Precautions -->
+    <section class="kst-section" id="kst-storage-precautions">
+      <h2 class="kst-section-title">Storage & Safety Information</h2>
+      <div class="kst-callout">
+        <strong>Professional Use Only</strong> – These products are designed for professional aesthetic and clinical use. Proper training and technique are required for safe administration.
+      </div>
+      
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Storage Requirements</h4>
+          <ul>
+            <li>Store at ambient/cool conditions below 30°C</li>
+            <li>Keep away from direct sunlight, extreme heat, and freezing temperatures</li>
+            <li>Avoid exposure to steam or high humidity</li>
+            <li>Use immediately after opening to maintain sterility and potency</li>
+            <li>Discard any remainder after opening</li>
+          </ul>
+        </div>
+
+        <div class="kst-card">
+          <h4>Safety Precautions</h4>
+          <ul>
+            <li>For professional (aesthetic/clinical) use only</li>
+            <li>Perform patch test before full application</li>
+            <li>Do not apply over open wounds, irritated, or inflamed skin</li>
+            <li>Avoid direct eye contact</li>
+            <li>Ensure proper injection technique and depth</li>
+            <li>Follow manufacturer protocols for optimal results</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Storage and Handling Instructions">
+      </div>
+    </section>
+
+    <!-- Product Keywords -->
+    <section class="kst-section" id="kst-keywords">
+      <h2 class="kst-section-title">Product Keywords</h2>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Version A Keywords</h4>
+          <div class="kst-chips">
+            <span class="kst-chip">Skin Booster</span>
+            <span class="kst-chip">EGF</span>
+            <span class="kst-chip">FGF2</span>
+            <span class="kst-chip">Adenosine</span>
+            <span class="kst-chip">Peptide Complex</span>
+            <span class="kst-chip">Collagen</span>
+            <span class="kst-chip">Anti-wrinkle</span>
+            <span class="kst-chip">Anti-aging</span>
+            <span class="kst-chip">Skin Regeneration</span>
+            <span class="kst-chip">Elasticity Enhancement</span>
+            <span class="kst-chip">Deep Nutrition</span>
+            <span class="kst-chip">Multi-shot</span>
+            <span class="kst-chip">Mesotherapy</span>
+          </div>
+        </div>
+
+        <div class="kst-card">
+          <h4>Version B Keywords</h4>
+          <div class="kst-chips">
+            <span class="kst-chip">Skin Booster</span>
+            <span class="kst-chip">Lifting</span>
+            <span class="kst-chip">Firming</span>
+            <span class="kst-chip">Botulinum Peptide</span>
+            <span class="kst-chip">3GF Complex</span>
+            <span class="kst-chip">PDRN</span>
+            <span class="kst-chip">Salmon DNA</span>
+            <span class="kst-chip">Pore Reduction</span>
+            <span class="kst-chip">Anti-aging</span>
+            <span class="kst-chip">Elasticity</span>
+            <span class="kst-chip">Nano-needles</span>
+            <span class="kst-chip">Skin Density</span>
+            <span class="kst-chip">Tightening</span>
+          </div>
+        </div>
+
+        <div class="kst-card">
+          <h4>Version V Keywords</h4>
+          <div class="kst-chips">
+            <span class="kst-chip">Skin Booster</span>
+            <span class="kst-chip">4GF</span>
+            <span class="kst-chip">Growth Factor</span>
+            <span class="kst-chip">Nucleic Acid</span>
+            <span class="kst-chip">Hyaluronic Acid</span>
+            <span class="kst-chip">HA</span>
+            <span class="kst-chip">Pore Minimizer</span>
+            <span class="kst-chip">Sebum Control</span>
+            <span class="kst-chip">Oily Skin</span>
+            <span class="kst-chip">Vitality Solution</span>
+            <span class="kst-chip">Skin Regeneration</span>
+            <span class="kst-chip">Elasticity Enhancement</span>
+          </div>
+        </div>
+
+        <div class="kst-card">
+          <h4>Version W Keywords</h4>
+          <div class="kst-chips">
+            <span class="kst-chip">Skin Booster</span>
+            <span class="kst-chip">Whitening</span>
+            <span class="kst-chip">Brightening</span>
+            <span class="kst-chip">Tone-up</span>
+            <span class="kst-chip">Niacinamide</span>
+            <span class="kst-chip">Mulberry Root Extract</span>
+            <span class="kst-chip">Pigmentation Control</span>
+            <span class="kst-chip">Melasma</span>
+            <span class="kst-chip">Dark Spots</span>
+            <span class="kst-chip">Radiant Skin</span>
+            <span class="kst-chip">Multi-shot</span>
+            <span class="kst-chip">Mesotherapy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>

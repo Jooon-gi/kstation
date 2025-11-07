@@ -1,0 +1,804 @@
+<style>
+  /* =========================================
+   Shopify-Optimized Mobile Template Styles
+  ========================================== */
+
+  /* 기본 리셋 - kst 접두사 적용 */
+  .kst-main-container *, 
+  .kst-main-container *::before, 
+  .kst-main-container *::after { 
+    box-sizing: border-box; 
+  }
+  
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+    color: #8ba0d1;
+    line-height: 1.6;
+    background: #f5f6f9;
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* 이미지 자동 숨김 기능 - CSS :has() 기반 */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-main-container img, 
+  .kst-main-container video { 
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    object-fit: cover;
+  }
+  
+  /* =========================================
+   Design Tokens - 요청된 컬러 팔레트
+  ========================================== */
+  .kst-main-container {
+    --kst-primary: #091841;
+    --kst-secondary: #0285D7;
+    --kst-text: #ffffff;
+    --kst-text-muted: #8ba0d1;
+    --kst-bg: #f5f6f9;
+    --kst-badge-bg: #0d1732;
+    --kst-badge-hover: #1c284f;
+    --kst-border: rgba(2, 133, 215, 0.2);
+    --kst-card: rgba(9, 24, 65, 0.03);
+    --kst-shadow-1: 0 10px 30px rgba(9, 24, 65, 0.15);
+    --kst-shadow-2: 0 2px 10px rgba(9, 24, 65, 0.1);
+  }
+
+  /* =========================================
+   Background Effects
+  ========================================== */
+  .kst-main-container::before {
+    content: "";
+    position: fixed; 
+    inset: -20vmax;
+    background:
+      radial-gradient(60vmax 60vmax at 10% 10%, rgba(2, 133, 215, 0.05), transparent 60%),
+      radial-gradient(55vmax 55vmax at 90% 20%, rgba(9, 24, 65, 0.08), transparent 60%);
+    filter: blur(30px);
+    z-index: -3;
+  }
+
+  /* =========================================
+   Container
+  ========================================== */
+  .kst-container {
+    padding: 16px 12px;
+  }
+
+  /* =========================================
+   Sections
+  ========================================== */
+  .kst-section {
+    position: relative;
+    background: var(--kst-text);
+    border: 1px solid var(--kst-border);
+    padding: 20px 16px;
+    margin: 16px 8px;
+    box-shadow: var(--kst-shadow-2);
+  }
+
+  .kst-section::before {
+    content: "";
+    position: absolute; 
+    inset: -1px -1px auto -1px; 
+    height: 3px;
+    background: linear-gradient(90deg, var(--kst-primary), var(--kst-secondary));
+    opacity: 1;
+  }
+
+  .kst-section-title {
+    margin: 0 0 12px;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.3px;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    hyphens: auto;
+    color: var(--kst-primary);
+    position: relative;
+    padding-bottom: 8px;
+  }
+
+  .kst-section-sub { 
+    margin: 0 0 14px; 
+    color: var(--kst-text-muted); 
+    font-size: 0.95rem; 
+    line-height: 1.5;
+  }
+
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: linear-gradient(135deg, var(--kst-primary) 0%, var(--kst-secondary) 100%);
+    border: none;
+    padding: 24px 16px;
+    position: relative; 
+    overflow: hidden;
+    margin: 12px 8px;
+    border-radius: 4px;
+  }
+
+  .kst-hero::before {
+    content: "";
+    position: absolute; 
+    inset: -20% -10% auto auto; 
+    width: 280px; 
+    height: 280px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    filter: blur(35px); 
+    opacity: 0.3;
+  }
+
+  .kst-labels { 
+    display: flex; 
+    gap: 6px; 
+    flex-wrap: wrap; 
+    margin-bottom: 14px;
+  }
+
+  .kst-badge {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 4px;
+    padding: 6px 12px;
+    background: var(--kst-badge-bg);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--kst-text); 
+    font-size: 0.75rem; 
+    font-weight: 600;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+  }
+
+  .kst-badge:hover {
+    background: var(--kst-badge-hover);
+  }
+
+  .kst-hero-title {
+    margin: 0 0 10px;
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    hyphens: auto;
+    color: var(--kst-text);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .kst-hero-spec {
+    margin: 0 0 16px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 0.2px;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    hyphens: auto;
+    color: rgba(255,255,255,0.95);
+  }
+
+  .kst-hero p { 
+    margin: 0 0 12px; 
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+  }
+
+  .kst-highlight {
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    padding: 12px 14px; 
+    color: var(--kst-text);
+    margin-bottom: 16px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+  }
+
+  .kst-card {
+    background: var(--kst-text); 
+    border: 1px solid var(--kst-border); 
+    padding: 16px; 
+    box-shadow: var(--kst-shadow-2); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; 
+    margin: 0 8px;
+    border-radius: 4px;
+  }
+
+  .kst-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--kst-shadow-1);
+    border-color: var(--kst-secondary);
+  }
+
+  .kst-card h4 { 
+    margin: 0 0 10px; 
+    font-size: 1.05rem; 
+    color: var(--kst-primary);
+    font-weight: 700;
+  }
+
+  .kst-card ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .kst-card ul li { 
+    color: var(--kst-text-muted); 
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .kst-card ol {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .kst-card ol li { 
+    color: var(--kst-text-muted);
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .kst-card p {
+    color: var(--kst-text-muted);
+    margin: 0 0 10px;
+    line-height: 1.5;
+  }
+
+  .kst-muted { 
+    color: var(--kst-text-muted); 
+  }
+
+  /* =========================================
+   Image Blocks
+  ========================================== */
+  .kst-image-block {
+    position: relative;
+    background: var(--kst-bg);
+    border: 1px dashed var(--kst-border);
+    aspect-ratio: 16/9;
+    display: grid; 
+    place-items: center;
+    color: var(--kst-text-muted); 
+    font-weight: 500;
+    overflow: hidden;
+    margin: 12px 0;
+    border-radius: 4px;
+  }
+
+  .kst-chart-block {
+    position: relative;
+    background: var(--kst-bg);
+    border: 1px dashed var(--kst-border);
+    aspect-ratio: 4/3;
+    display: grid; 
+    place-items: center;
+    color: var(--kst-text-muted); 
+    font-weight: 500;
+    overflow: hidden;
+    margin: 12px 0;
+    border-radius: 4px;
+  }
+
+  /* =========================================
+   Definition Lists & Chips
+  ========================================== */
+  .kst-def {
+    display: flex;
+    flex-direction: column;
+    gap: 14px; 
+    margin: 0;
+  }
+
+  .kst-def-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .kst-def dt { 
+    font-weight: 700; 
+    color: var(--kst-primary); 
+    font-size: 1rem;
+  }
+
+  .kst-def dd { 
+    margin: 0; 
+    color: var(--kst-text-muted);
+    line-height: 1.6;
+  }
+
+  .kst-chips { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 8px; 
+    margin-top: 4px;
+  }
+
+  .kst-chip {
+    background: var(--kst-badge-bg);
+    color: var(--kst-text); 
+    border: 1px solid var(--kst-border);
+    padding: 6px 10px; 
+    font-size: 0.8rem; 
+    font-weight: 600;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+  }
+
+  .kst-chip:hover {
+    background: var(--kst-badge-hover);
+  }
+
+  /* =========================================
+   Steps
+  ========================================== */
+  .kst-steps { 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+    counter-reset: kst-step; 
+  }
+
+  .kst-step {
+    display: flex; 
+    align-items: flex-start; 
+    gap: 12px;
+    padding: 14px; 
+    border: 1px solid var(--kst-border);
+    background: var(--kst-text);
+    border-radius: 4px;
+  }
+
+  .kst-step .kst-num {
+    min-width: 32px; 
+    height: 32px;
+    display: grid; 
+    place-items: center;
+    background: var(--kst-primary);
+    color: var(--kst-text); 
+    font-weight: 700; 
+    border-radius: 50%;
+    flex-shrink: 0;
+    counter-increment: kst-step;
+  }
+
+  .kst-step .kst-num::before { 
+    content: counter(kst-step); 
+  }
+
+  .kst-step-content {
+    flex: 1;
+  }
+
+  .kst-step strong { 
+    color: var(--kst-primary);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 1rem;
+  }
+
+  .kst-step .kst-muted { 
+    color: var(--kst-text-muted);
+    line-height: 1.5;
+  }
+
+  .kst-split { 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+  }
+
+  /* =========================================
+   Table
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--kst-border);
+    background: var(--kst-text);
+    margin: 12px 0;
+    border-radius: 4px;
+  }
+
+  .kst-table {
+    border-collapse: collapse;
+    width: 100%;
+    color: var(--kst-text-muted);
+    table-layout: auto;
+  }
+
+  .kst-table th, .kst-table td {
+    padding: 12px 14px; 
+    border-bottom: 1px solid var(--kst-border);
+    text-align: left; 
+    vertical-align: top;
+  }
+
+  .kst-table thead th {
+    position: sticky; 
+    top: 0;
+    background: var(--kst-primary);
+    color: var(--kst-text);
+    font-weight: 700;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  .kst-table tbody td {
+    color: var(--kst-text-muted);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar { 
+    height: 8px; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-track { 
+    background: var(--kst-bg); 
+  }
+  .kst-table-wrap::-webkit-scrollbar-thumb { 
+    background: var(--kst-secondary);
+    border-radius: 4px;
+  }
+
+  /* =========================================
+   Callouts & KPI
+  ========================================== */
+  .kst-callout {
+    border: 1px solid var(--kst-secondary);
+    background: rgba(2, 133, 215, 0.05);
+    color: var(--kst-primary);
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 4px;
+    border-left: 4px solid var(--kst-secondary);
+  }
+
+  .kst-callout strong { 
+    color: var(--kst-primary);
+    font-weight: 700;
+  }
+
+  .kst-kpi {
+    font-size: 2rem;
+    font-weight: 800; 
+    color: var(--kst-primary);
+    margin-bottom: 4px;
+  }
+
+  .kst-kpi .kst-unit { 
+    font-size: 1rem; 
+    color: var(--kst-text-muted); 
+    font-weight: 500; 
+    margin-left: 4px; 
+  }
+
+  .kst-label-value { 
+    display: flex; 
+    flex-direction: column;
+    gap: 6px; 
+    color: var(--kst-text-muted); 
+    margin-bottom: 10px;
+  }
+
+  .kst-label-value .kst-label { 
+    color: var(--kst-primary); 
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  /* =========================================
+   FAQ Accordion
+  ========================================== */
+  .kst-accordion { 
+    border: 1px solid var(--kst-border);
+    background: var(--kst-text);
+    margin: 12px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .kst-ac-item { 
+    border-bottom: 1px solid var(--kst-border); 
+  }
+
+  .kst-ac-item:last-child { 
+    border-bottom: none; 
+  }
+
+  .kst-ac-button {
+    width: 100%; 
+    text-align: left; 
+    background: transparent; 
+    border: 0; 
+    padding: 16px; 
+    color: var(--kst-primary); 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.2s ease;
+  }
+
+  .kst-ac-button:hover {
+    background: var(--kst-bg);
+  }
+
+  .kst-ac-button span {
+    color: var(--kst-secondary);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .kst-ac-panel { 
+    padding: 0 16px 16px; 
+    color: var(--kst-text-muted);
+    display: none;
+    line-height: 1.6;
+  }
+
+  .kst-ac-panel.kst-show { 
+    display: block; 
+  }
+
+  /* Footer */
+  .kst-footer {
+    color: var(--kst-text-muted); 
+    padding: 20px 12px 30px;
+    text-align: center;
+  }
+
+  /* Motion Preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .kst-main-container * { 
+      animation: none; 
+      transition: none; 
+    }
+  }
+</style>
+
+<div class="kst-main-container">
+  <header class="kst-container">
+    <div class="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge">Hair Restoration</span>
+        <span class="kst-badge">Exosome Therapy</span>
+        <span class="kst-badge">Professional Treatment</span>
+      </div>
+      <h1 class="kst-hero-title">LEUCO EXO HAIR</h1>
+      <h2 class="kst-hero-spec">Advanced Exosome Hair Growth Solution</h2>
+      <p>A cutting-edge, non-surgical hair restoration treatment utilizing stem cell-derived exosomes and growth factor complexes to combat hair loss and promote scalp revitalization.</p>
+      <div class="kst-highlight">Stimulate dormant follicles · Prolong growth phase · Reduce inflammation</div>
+      <div class="kst-image-block">Main Product Image</div>
+    </div>
+  </header>
+
+  <main class="kst-container">
+
+    <section class="kst-section" id="kst-product-overview">
+      <h2 class="kst-section-title">Product Overview</h2>
+      <p class="kst-section-sub">LEUCO EXO HAIR is typically supplied as a set of multiple vials (5-10 vials, each 5ml-10ml) designed for a complete treatment course. Specific packaging may vary by distributor.</p>
+      <div class="kst-image-block">Product Packaging Image</div>
+    </section>
+
+    <section class="kst-section" id="kst-composition">
+      <h2 class="kst-section-title">Key Ingredients & Mechanism of Action</h2>
+      <div class="kst-split">
+        <div>
+          <div class="kst-def">
+            <div class="kst-def-item">
+              <dt>Core Components</dt>
+              <dd>
+                <div class="kst-chips">
+                  <span class="kst-chip">Stem Cell-Derived Exosomes</span>
+                  <span class="kst-chip">Growth Factor Complex</span>
+                  <span class="kst-chip">Peptides</span>
+                  <span class="kst-chip">Amino Acids</span>
+                  <span class="kst-chip">Essential Vitamins</span>
+                </div>
+              </dd>
+            </div>
+
+            <div class="kst-def-item">
+              <dt>Growth Factors</dt>
+              <dd>
+                <div class="kst-chips">
+                  <span class="kst-chip">FGF (Fibroblast Growth Factor)</span>
+                  <span class="kst-chip">VEGF (Vascular Endothelial Growth Factor)</span>
+                  <span class="kst-chip">KGF (Keratinocyte Growth Factor)</span>
+                  <span class="kst-chip">IGF (Insulin-like Growth Factor)</span>
+                  <span class="kst-chip">bFGF (Basic Fibroblast Growth Factor)</span>
+                </div>
+              </dd>
+            </div>
+
+            <div class="kst-def-item">
+              <dt>Mechanism of Action</dt>
+              <dd>The specialized exosomes and growth factors are delivered directly to hair follicles, where they stimulate dormant follicle cells, prolong the anagen (growth) phase of the hair cycle, and reduce scalp inflammation—a common contributor to hair loss. This multi-targeted approach supports scalp regeneration and creates an optimal environment for robust hair growth.</dd>
+            </div>
+
+            <div class="kst-def-item">
+              <dt>Cellular Communication</dt>
+              <dd>High-potency signaling molecules are delivered directly to dermal papilla cells, which are essential for robust hair cycle progression. This enhances cellular survival and communication within the hair matrix, addressing root causes of non-scarring hair loss.</dd>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="kst-image-block" style="aspect-ratio:1/1;">Scalp Cross-Section: Hair Follicle Stimulation</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-benefits">
+      <h2 class="kst-section-title">Expected Benefits & Clinical Effects</h2>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Hair Loss Management</h4>
+          <p>Helps decrease the rate of hair shedding and minimize further hair loss progression through targeted follicle support.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Reduced Shedding</span>
+            <span class="kst-chip">Loss Prevention</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Improved Hair Density</h4>
+          <p>Supports the growth of thicker, stronger hair strands and increases overall hair density for fuller-looking results.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Thicker Strands</span>
+            <span class="kst-chip">Increased Volume</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Scalp Revitalization</h4>
+          <p>Soothes the scalp, reduces inflammation, and creates an optimal micro-environment conducive to healthy hair growth.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Anti-Inflammatory</span>
+            <span class="kst-chip">Nourishment</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Increased Hair Strength</h4>
+          <p>Strengthens existing hair shafts from the root, making them more resilient and less prone to breakage.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Fortified Strands</span>
+            <span class="kst-chip">Breakage Resistance</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">Clinical Results: Before & After Comparison</div>
+
+      <p class="kst-muted">Long-term use supports sustained hair health outcomes and maintains an optimal scalp environment for continued growth and vitality.</p>
+    </section>
+
+    <section class="kst-section" id="kst-usage">
+      <h2 class="kst-section-title">Treatment Protocol & Application</h2>
+      <p class="kst-section-sub">Professional administration ensures optimal delivery and absorption of active ingredients.</p>
+      
+      <div class="kst-steps" aria-label="Treatment Application Guide">
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div class="kst-step-content">
+            <strong>Professional Administration</strong>
+            <div class="kst-muted">Treatment must be administered by trained professionals using micro-needling (MTS), derma roller, or specialized scalp injection (mesotherapy) techniques.</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div class="kst-step-content">
+            <strong>Deep Follicle Penetration</strong>
+            <div class="kst-muted">Application methods ensure active ingredients reach deep into hair follicles for maximum efficacy.</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div class="kst-step-content">
+            <strong>Intensive Treatment Course</strong>
+            <div class="kst-muted">One session every 1-2 weeks for a total of 4-8 sessions during the initial intensive phase.</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div class="kst-step-content">
+            <strong>Maintenance Therapy</strong>
+            <div class="kst-muted">Following the intensive course, maintenance sessions are recommended once a month or every few months based on individual response.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">Treatment Cycle & Dosage Diagram</div>
+
+      <div class="kst-split">
+        <div class="kst-card">
+          <h4>Complementary Devices</h4>
+          <ul>
+            <li>Micro-needling devices (MTS/Derma Roller) to enhance absorption</li>
+            <li>Scalp massage tools for improved circulation</li>
+            <li>Professional injection equipment for mesotherapy</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Synergistic Products</h4>
+          <ul>
+            <li>Specialized hair loss shampoos targeting scalp health</li>
+            <li>Nutritional supplements supporting hair growth</li>
+            <li>Topical scalp treatments for ongoing maintenance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kst-callout">
+        <strong>Post-Treatment Care:</strong> Avoid washing hair or vigorous physical activity for 12-24 hours post-treatment to allow optimal absorption of active ingredients.
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-target-guide">
+      <h2 class="kst-section-title">Recommended Treatment Guide by Target</h2>
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Treatment Recommendations">
+          <thead>
+            <tr>
+              <th>Target Group</th>
+              <th>Symptoms/Situation</th>
+              <th>Treatment Strategy</th>
+              <th>Expected Outcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Early Hair Thinning</strong></td>
+              <td>Noticeable increase in shedding, widening part line, slight reduction in volume</td>
+              <td>Focus on revitalization and growth phase extension</td>
+              <td>Reactivates follicles and prolongs critical growth stage</td>
+            </tr>
+            <tr>
+              <td><strong>Stress-Related Loss (Telogen Effluvium)</strong></td>
+              <td>Diffuse hair loss following stress, illness, or hormonal change</td>
+              <td>Focus on calming inflammation and rebalancing scalp environment</td>
+              <td>Anti-inflammatory components help follicles recover from shock phase</td>
+            </tr>
+            <tr>
+              <td><strong>Post-Transplant Care</strong></td>
+              <td>Need to strengthen existing and newly transplanted hairs</td>
+              <td>Focus on enhanced nourishment and recovery of donor/recipient areas</td>
+              <td>Growth factors support cellular health and graft survival</td>
+            </tr>
+            <tr>
+              <td><strong>General Hair Health Maintenance</strong></td>
+              <td>Proactively manage potential future hair loss and improve quality</td>
+              <td>Periodic maintenance sessions (once every 3 months)</td>
+              <td>Continuous supply of vital components maintains healthy scalp</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-suitability">
+      <h2 class="kst-section-title">Who Should Consider LEUCO EXO HAIR?</h2>
+      <div class="kst-card">
+        <h4>Ideal Candidates</h4>
+        <ul>
+          <li>Individuals experiencing various forms of non-scarring alopecia (androgenetic, telogen effluvium)</li>
+          <li>Those with progressive hair thinning or reduced density</li>

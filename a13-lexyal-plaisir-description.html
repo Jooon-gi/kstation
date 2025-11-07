@@ -1,0 +1,1088 @@
+<style>
+    :root {
+        --kst-main-color: #4b5c9b;
+        --kst-sub-color: #1b2653;
+        --kst-text-color: #1a1a1a;
+        --kst-muted-color: #c9cede;
+        --kst-bg-color: #ffffff;
+        --kst-badge-bg: #4b5c9b;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #1b2653;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--kst-bg-color);
+        color: var(--kst-text-color);
+        padding: 12px;
+        line-height: 1.6;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -30%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(75, 92, 155, 0.1) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(40px);
+        z-index: 0;
+    }
+    
+    .kst-section {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card {
+        background: var(--kst-bg-color);
+        color: var(--kst-text-color);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+        box-shadow: 0 4px 15px rgba(75, 92, 155, 0.1);
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border: 1px solid var(--kst-muted-color);
+    }
+    
+    .kst-card h2,
+    .kst-card h3,
+    .kst-card h4 {
+        color: var(--kst-text-color);
+        margin-top: 0;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card p,
+    .kst-card li,
+    .kst-card span {
+        color: var(--kst-text-color);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-card ul li,
+    .kst-card ol li {
+        color: var(--kst-text-color);
+        margin-bottom: 8px;
+        line-height: 1.6;
+    }
+    
+    .kst-section-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: var(--kst-main-color);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-subtitle {
+        font-size: 14px;
+        color: var(--kst-main-color);
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+    
+    .kst-hero-section {
+        background: linear-gradient(135deg, var(--kst-bg-color) 0%, #f5f7fc 100%);
+        color: var(--kst-text-color);
+        padding: 24px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        text-align: center;
+        border: 1px solid var(--kst-muted-color);
+    }
+    
+    .kst-product-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 16px;
+    }
+    
+    .kst-product-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--kst-main-color);
+        margin-bottom: 16px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-subtitle {
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--kst-sub-color);
+        margin-bottom: 24px;
+        margin-top: -14px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-highlight {
+        color: var(--kst-main-color);
+    }
+    
+    .kst-hero-description {
+        font-size: 16px;
+        color: var(--kst-text-color);
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    
+    .kst-feature-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    
+    .kst-feature-tag {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        padding: 6px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        box-shadow: 0 4px 12px rgba(75, 92, 155, 0.2);
+    }
+    
+    .kst-feature-icon {
+        width: 14px;
+        height: 14px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8px;
+    }
+    
+    .kst-image-block,
+    .kst-chart-block {
+        background: #f5f7fc;
+        border: 2px dashed var(--kst-muted-color);
+        padding: 40px 20px;
+        text-align: center;
+        border-radius: 12px;
+        color: #9E9E9E;
+        font-size: 14px;
+        font-style: italic;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 16px 0;
+        box-sizing: border-box;
+    }
+    
+    .kst-image-block img,
+    .kst-chart-block img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    .kst-image-block:not(:has(img)),
+    .kst-image-block:has(img[src=""]),
+    .kst-chart-block:not(:has(img)),
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 16px 0;
+    }
+    
+    .kst-grid-item {
+        background: #f5f7fc;
+        padding: 16px;
+        border-radius: 8px;
+        border-left: 4px solid var(--kst-main-color);
+        border: 1px solid var(--kst-muted-color);
+    }
+    
+    .kst-grid-item h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-sub-color);
+        margin-bottom: 8px;
+    }
+    
+    .kst-grid-item p {
+        font-size: 14px;
+        color: var(--kst-text-color);
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    .kst-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin: 16px 0;
+    }
+    
+    .kst-stat-card {
+        background: #f5f7fc;
+        padding: 16px;
+        border-radius: 8px;
+        text-align: center;
+        border: 1px solid var(--kst-muted-color);
+    }
+    
+    .kst-stat-number {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--kst-main-color);
+        margin-bottom: 4px;
+    }
+    
+    .kst-stat-label {
+        font-size: 12px;
+        color: var(--kst-text-color);
+        font-weight: 400;
+    }
+    
+    .kst-steps-list {
+        margin: 16px 0;
+    }
+    
+    .kst-step-item {
+        background: #f5f7fc;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 50px;
+        border: 1px solid var(--kst-muted-color);
+    }
+    
+    .kst-step-number {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        width: 24px;
+        height: 24px;
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 12px;
+    }
+    
+    .kst-step-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--kst-sub-color);
+        margin-bottom: 6px;
+    }
+    
+    .kst-step-description {
+        font-size: 13px;
+        color: var(--kst-text-color);
+        line-height: 1.5;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 16px 0;
+        border-radius: 8px;
+        border: 1px solid var(--kst-muted-color);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f5f7fc;
+        border-radius: 3px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-muted-color);
+        border-radius: 3px;
+    }
+    
+    .kst-specs-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--kst-bg-color);
+        table-layout: auto;
+    }
+    
+    .kst-specs-table th,
+    .kst-specs-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--kst-muted-color);
+        font-size: 14px;
+    }
+    
+    .kst-specs-table th {
+        background: #f5f7fc;
+        font-weight: 600;
+        color: var(--kst-sub-color);
+        white-space: nowrap;
+    }
+    
+    .kst-specs-table td {
+        color: var(--kst-text-color);
+    }
+    
+    .kst-definition-list {
+        margin: 16px 0;
+    }
+    
+    .kst-definition-item {
+        background: #f5f7fc;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        border-left: 4px solid var(--kst-main-color);
+        border: 1px solid var(--kst-muted-color);
+    }
+    
+    .kst-definition-term {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-sub-color);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .kst-concentration-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        padding: 2px 8px;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 500;
+    }
+    
+    .kst-definition-desc {
+        font-size: 14px;
+        color: var(--kst-text-color);
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    .kst-warning-box {
+        background: #fff8e1;
+        border: 2px solid #ffb74d;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 16px 0;
+        position: relative;
+    }
+    
+    .kst-warning-box::before {
+        content: '⚠️';
+        position: absolute;
+        top: -8px;
+        left: 16px;
+        background: #ffb74d;
+        color: var(--kst-bg-color);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+    
+    .kst-warning-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #bf360c;
+        margin-bottom: 8px;
+        padding-top: 8px;
+    }
+    
+    .kst-warning-content {
+        font-size: 13px;
+        color: #bf360c;
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    .kst-target-item {
+        background: #f5f7fc;
+        padding: 16px;
+        border-radius: 8px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 12px;
+        transition: all 0.3s ease;
+        border: 1px solid var(--kst-muted-color);
+    }
+    
+    .kst-target-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--kst-badge-bg);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--kst-badge-text);
+        font-weight: 600;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+    
+    .kst-target-content {
+        flex: 1;
+    }
+    
+    .kst-target-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--kst-sub-color);
+        margin-bottom: 6px;
+    }
+    
+    .kst-target-description {
+        font-size: 13px;
+        color: var(--kst-text-color);
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    @media (max-width: 480px) {
+        .kst-main-container {
+            padding: 8px;
+        }
+        
+        .kst-card {
+            padding: 16px;
+        }
+        
+        .kst-product-title {
+            font-size: 24px;
+        }
+        
+        .kst-section-title {
+            font-size: 20px;
+        }
+        
+        .kst-stats-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-hero-section kst-section">
+        <div class="kst-product-badge">PLLA Collagen Stimulator • Premium Biostimulator</div>
+        <h1 class="kst-product-title"><span class="kst-product-highlight">LEXYAL Plaisir</span></h1>
+        <h2 class="kst-product-subtitle">120mg / 240mg</h2>
+        <div class="kst-hero-description">
+            A revolutionary hybrid injectable solution featuring Poly-L-Lactic Acid (PLLA) microspheres designed to stimulate natural collagen production. Available in two concentrations to meet diverse aesthetic needs—from subtle skin rejuvenation to significant volume restoration.
+        </div>
+        
+        <div class="kst-feature-tags">
+            <div class="kst-feature-tag">
+                <div class="kst-feature-icon">✓</div>
+                Natural Collagen Production
+            </div>
+            <div class="kst-feature-tag">
+                <div class="kst-feature-icon">⚡</div>
+                Long-lasting Results
+            </div>
+            <div class="kst-feature-tag">
+                <div class="kst-feature-icon">🎯</div>
+                Dual Concentration Options
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [LEXYAL Plaisir Product Hero Image - Vial showcase with both 120mg and 240mg versions]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Product Overview</h2>
+        <div class="kst-stats-grid">
+            <div class="kst-stat-card">
+                <div class="kst-stat-number">2</div>
+                <div class="kst-stat-label">Concentration Options</div>
+            </div>
+            <div class="kst-stat-card">
+                <div class="kst-stat-number">3</div>
+                <div class="kst-stat-label">Key Components</div>
+            </div>
+            <div class="kst-stat-card">
+                <div class="kst-stat-number">12-18</div>
+                <div class="kst-stat-label">Months Duration</div>
+            </div>
+            <div class="kst-stat-card">
+                <div class="kst-stat-number">2-3</div>
+                <div class="kst-stat-label">Treatment Sessions</div>
+            </div>
+        </div>
+        
+        <p>LEXYAL Plaisir is a hybrid injectable solution classified as a Poly-L-Lactic Acid (PLLA) based collagen stimulator. It comes as a dry powder in a single vial that must be reconstituted with saline and Lidocaine before use. The product line offers two distinct concentrations to address different aesthetic concerns and treatment depths.</p>
+        
+        <div class="kst-image-block">
+            [Product Packaging - LEXYAL Plaisir vial presentation and packaging details]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Key Ingredients & Composition</h2>
+        <div class="kst-section-subtitle">Primary Active Components</div>
+        
+        <div class="kst-definition-list">
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">
+                    Poly-L-Lactic Acid (PLLA)
+                    <span class="kst-concentration-badge">50mg (120mg) / 100mg (240mg)</span>
+                </div>
+                <p class="kst-definition-desc">A biodegradable polymer featuring uniform microspheres that stimulate the body's natural collagen production. PLLA acts as a scaffold that triggers a bio-stimulation response, encouraging gradual Type I and Type III collagen synthesis for long-lasting rejuvenation.</p>
+            </div>
+            
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">
+                    Carboxymethyl Cellulose (CMC)
+                </div>
+                <p class="kst-definition-desc">A stabilizing agent that ensures smooth reconstitution and uniform injection consistency. CMC helps maintain the suspension stability and prevents particle aggregation during the injection process.</p>
+            </div>
+            
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">
+                    Mannitol
+                </div>
+                <p class="kst-definition-desc">Acts as an additional stabilizer to preserve product integrity and facilitate optimal reconstitution. Mannitol ensures the PLLA powder dissolves evenly when mixed with the diluent.</p>
+            </div>
+            
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">
+                    Lidocaine (Added During Reconstitution)
+                </div>
+                <p class="kst-definition-desc">Lidocaine is not included in the dry product vial but is typically added by the practitioner during reconstitution (0.5ml for 120mg, 1ml for 240mg) to enhance patient comfort during the injection procedure.</p>
+            </div>
+        </div>
+        
+        <h3>Formulation Technology</h3>
+        <p>LEXYAL Plaisir utilizes Uniform PLLA Microspheres—consistently sized particles designed to minimize the risk of common PLLA side effects such as nodules, clumping, or granulomas. This advanced formulation technology ensures predictable, safe, and natural-looking results.</p>
+        
+        <div class="kst-image-block">
+            [PLLA Microsphere Technology - Visual representation of uniform particle structure]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Clinical Benefits & Efficacy</h2>
+        <div class="kst-section-subtitle">Expected Results & Outcomes</div>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <h4>Collagen Stimulation</h4>
+                <p>Promotes the natural production of Type I and Type III collagen for gradual, long-lasting rejuvenation. Results develop progressively over several weeks as new collagen is synthesized.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Volume Restoration</h4>
+                <p>Provides subtle to significant volume enhancement over time, depending on the version used. Ideal for restoring facial contours lost due to age-related volume depletion.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Wrinkle Reduction</h4>
+                <p>Smooths the appearance of fine lines, wrinkles, and folds. Particularly effective for treating periorbital lines, nasolabial folds, and marionette lines.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Improved Skin Quality</h4>
+                <p>Enhances skin texture, firmness, and elasticity, restoring a youthful glow. Improves overall skin architecture and quality through natural collagen remodeling.</p>
+            </div>
+        </div>
+        
+        <h3>Duration of Results</h3>
+        <p>Effects are sustained for approximately 12–18 months after completing the recommended initial course of 2-3 treatments. The longevity of results is attributed to the sustained collagen production triggered by PLLA biostimulation.</p>
+        
+        <div class="kst-image-block">
+            [Clinical Results - Before and after treatment progression imagery]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Treatment Protocol & Application</h2>
+        <div class="kst-section-subtitle">Reconstitution & Injection Guidelines</div>
+        
+        <div class="kst-steps-list">
+            <div class="kst-step-item">
+                <div class="kst-step-number">1</div>
+                <div class="kst-step-title">Product Selection</div>
+                <div class="kst-step-description">Choose LEXYAL Plaisir 120mg for superficial rejuvenation and fine lines, or 240mg for deep volume restoration and structural support based on treatment goals and target areas.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">2</div>
+                <div class="kst-step-title">Reconstitution Preparation</div>
+                <div class="kst-step-description">Mix the dry PLLA powder with normal saline and Lidocaine. For 120mg: use 4-6ml saline + 0.5ml Lidocaine. For 240mg: use 7-8ml saline + 1ml Lidocaine.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">3</div>
+                <div class="kst-step-title">Resting Period</div>
+                <div class="kst-step-description">Allow the mixture to rest for approximately 20-30 minutes after initial blending to ensure the PLLA powder is fully dissolved and the mixture is smooth and uniform.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">4</div>
+                <div class="kst-step-title">Injection Technique</div>
+                <div class="kst-step-description">For 120mg: inject into the dermal layer (1-1.2mm depth) using 32G/33G nano needles. For 240mg: inject into the subdermal layer using 23G/25G cannula for deeper volume restoration.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">5</div>
+                <div class="kst-step-title">Treatment Cycle</div>
+                <div class="kst-step-description">Complete 2-3 treatment sessions spaced 4-8 weeks apart, depending on the severity of skin deficiency and desired results. Schedule follow-up sessions as needed for optimal outcomes.</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Injection Technique Guide - Step-by-step visual demonstration of reconstitution and injection]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Product Specifications Comparison</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>LEXYAL Plaisir 120mg</th>
+                        <th>LEXYAL Plaisir 240mg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PLLA Content</td>
+                        <td>50mg (Total dry weight: 120mg)</td>
+                        <td>100mg (Total dry weight: 240mg)</td>
+                    </tr>
+                    <tr>
+                        <td>Injection Layer</td>
+                        <td>Dermal (1-1.2mm depth)</td>
+                        <td>Subdermal (Deep tissue)</td>
+                    </tr>
+                    <tr>
+                        <td>Recommended Needle</td>
+                        <td>32G / 33G Nano Needle</td>
+                        <td>23G / 25G Cannula</td>
+                    </tr>
+                    <tr>
+                        <td>Treatment Areas</td>
+                        <td>Under eyes, Forehead, Neck, Full Face</td>
+                        <td>Cheeks, Temples, Nasolabial folds, Jawline, Chin</td>
+                    </tr>
+                    <tr>
+                        <td>Reconstitution Volume</td>
+                        <td>4-6ml saline + 0.5ml Lidocaine</td>
+                        <td>7-8ml saline + 1ml Lidocaine</td>
+                    </tr>
+                    <tr>
+                        <td>Primary Focus</td>
+                        <td>Skin quality & Fine lines</td>
+                        <td>Deep volume & Contouring</td>
+                    </tr>
+                    <tr>
+                        <td>Duration of Effect</td>
+                        <td>12-18 months</td>
+                        <td>12-18 months</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-image-block">
+            [Comparative Treatment Zones - Facial mapping showing appropriate areas for each version]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Detailed Product Versions</h2>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">120</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">LEXYAL Plaisir 120mg - Superficial Rejuvenation</div>
+                <div class="kst-target-description">
+                    Formulated for superficial rejuvenation, treating fine lines and improving overall skin elasticity using a skinbooster technique. Primarily targets subtle volume loss, fine lines (e.g., periorbital lines), and improves skin texture for a refreshed, youthful glow. Ideal for delicate areas such as the under-eye region (to reduce hollowness and dark circles), forehead, and neck rejuvenation. Due to the smaller PLLA particle size and lower concentration, this version is suitable for a less-invasive mesotherapy-style approach, focusing on global skin quality improvement rather than major volume lift.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">240</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">LEXYAL Plaisir 240mg - Deep Volume & Contouring</div>
+                <div class="kst-target-description">
+                    Designed for significant volume restoration, correcting deep wrinkles, folds (e.g., nasolabial folds, marionette lines), and enhancing facial contours. Ideal for areas requiring noticeable volume and structure, including the cheeks, temples, jawline, and deep facial folds. The higher concentration of PLLA microspheres makes this version perfect for structural enhancement and soft volume creation, providing natural-looking results that enhance facial symmetry.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Version Comparison Visual - Side-by-side treatment zone illustrations for both versions]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Which Product Is Right For You?</h2>
+        <div class="kst-section-subtitle">Selection Guide Based on Treatment Goals</div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">🎯</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Choose LEXYAL Plaisir 120mg If:</div>
+                <div class="kst-target-description">
+                    You're looking for subtle rejuvenation, treatment of fine lines, improvement in skin texture and elasticity, or addressing delicate areas like under-eyes, forehead, and neck. This version is ideal for patients seeking a skinbooster approach with gradual, natural enhancement of overall skin quality.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">💎</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Choose LEXYAL Plaisir 240mg If:</div>
+                <div class="kst-target-description">
+                    You need significant volume restoration, correction of deep wrinkles and folds, facial contouring, or structural support in areas like cheeks, temples, jawline, and chin. This version provides more dramatic results for patients with advanced signs of aging or those seeking substantial facial enhancement.
+                </div>
+            </div>
+        </div>
+        
+        <p>Choose the product based on the target depth and the volume needed. Both versions can be used complementarily in a comprehensive treatment plan to address multiple aesthetic concerns simultaneously.</p>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Storage & Safety Guidelines</h2>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">Storage Requirements</div>
+            <div class="kst-warning-content">
+                Store in a sealed container at 1°C to 30°C (33.8°F to 86°F). Protect the product from direct sunlight and avoid freezing. Must be stored out of reach of children. Single-session use only—any unused portion of the reconstituted solution must be discarded.
+            </div>
+        </div>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">Professional Use Only</div>
+            <div class="kst-warning-content">
+                The product should only be administered by trained and qualified medical professionals. Improper injection technique may lead to complications such as swelling, redness, bruising, or nodule formation. Follow the specific reconstitution and injection guidelines for each product version carefully.
+            </div>
+        </div>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">Potential Side Effects</div>
+            <div class="kst-warning-content">
+                Common side effects may include temporary swelling, redness, bruising at injection sites, mild discomfort, or tenderness. These typically resolve within a few days. Rare complications may include nodule formation, granulomas, or infection if proper technique is not followed. Contact your healthcare provider if you experience persistent or severe reactions.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Safety and Storage Icons - Visual representation of proper handling and storage conditions]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Why Choose LEXYAL Plaisir?</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <h4>Uniform PLLA Technology</h4>
+                <p>Features consistently sized PLLA microspheres designed to minimize the risk of nodules, clumping, or granulomas, ensuring safer and more predictable outcomes.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Natural, Gradual Results</h4>
+                <p>Stimulates your body's own collagen production for results that develop progressively and look completely natural, avoiding the "overfilled" appearance.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Long-Lasting Effects</h4>
+                <p>Enjoy results that last 12-18 months, providing excellent value and reducing the frequency of maintenance treatments compared to temporary fillers.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Dual Concentration System</h4>
+                <p>Two optimized formulations allow practitioners to precisely target treatment depth and volume needs, from superficial skin quality to deep structural enhancement.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Biocompatible & Biodegradable</h4>
+                <p>PLLA is a proven biocompatible polymer that naturally breaks down in the body over time, with an established safety profile in aesthetic medicine.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Comprehensive Treatment Approach</h4>
+                <p>Addresses multiple signs of aging simultaneously—volume loss, wrinkles, skin quality, and facial contours—for holistic facial rejuvenation.</p>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Product Benefits Visualization - Infographic showing key advantages and unique features]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Treatment Areas & Applications</h2>
+        
+        <h3>LEXYAL Plaisir 120mg - Indicated Areas</h3>
+        <ul>
+            <li><strong>Under-Eye Region:</strong> Reduces hollowness, dark circles, and fine periorbital lines</li>
+            <li><strong>Forehead:</strong> Smooths horizontal lines and improves skin texture</li>
+            <li><strong>Neck:</strong> Enhances neck skin quality, reduces crepiness and fine wrinkles</li>
+            <li><strong>Full Face Rejuvenation:</strong> Overall improvement in skin elasticity, firmness, and radiance</li>
+        </ul>
+        
+        <h3>LEXYAL Plaisir 240mg - Indicated Areas</h3>
+        <ul>
+            <li><strong>Cheeks (Zygomatic Region):</strong> Restores mid-face volume and lifts sagging contours</li>
+            <li><strong>Temples:</strong> Corrects temporal hollowing for more youthful facial proportions</li>
+            <li><strong>Nasolabial Folds:</strong> Softens deep smile lines for a smoother appearance</li>
+            <li><strong>Marionette Lines:</strong> Reduces the appearance of downturned mouth corners</li>
+            <li><strong>Jawline:</strong> Enhances jawline definition and restores lower face structure</li>
+            <li><strong>Chin:</strong> Provides projection and improves chin contour</li>
+        </ul>
+        
+        <div class="kst-image-block">
+            [Facial Treatment Map - Detailed anatomical illustration showing all treatment zones]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Post-Treatment Care & Expectations</h2>
+        <div class="kst-section-subtitle">Maximizing Your Results</div>
+        
+        <div class="kst-steps-list">
+            <div class="kst-step-item">
+                <div class="kst-step-number">1</div>
+                <div class="kst-step-title">Immediate Post-Treatment (First 24 Hours)</div>
+                <div class="kst-step-description">Mild swelling, redness, or tenderness at injection sites is normal. Apply cold compress if needed. Avoid touching or massaging treated areas excessively.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">2</div>
+                <div class="kst-step-title">First Week</div>
+                <div class="kst-step-description">Avoid intense exercise, excessive heat exposure (saunas, hot yoga), and alcohol consumption for 48-72 hours. Sleep with head slightly elevated to minimize swelling.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">3</div>
+                <div class="kst-step-title">Results Timeline</div>
+                <div class="kst-step-description">Initial improvement may be subtle. Full results develop gradually over 8-12 weeks as new collagen is produced. Optimal results are typically achieved after completing the full treatment series.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">4</div>
+                <div class="kst-step-title">Follow-Up Treatments</div>
+                <div class="kst-step-description">Schedule follow-up sessions 4-8 weeks apart as recommended by your practitioner. Maintenance treatments may be suggested after 12-18 months to sustain results.</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Professional Administration Guidelines</h2>
+        <div class="kst-section-subtitle">For Healthcare Practitioners</div>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <h4>Patient Assessment</h4>
+                <p>Conduct thorough consultation to determine appropriate product version, treatment areas, and expected outcomes. Assess skin condition, volume loss severity, and patient expectations.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Reconstitution Protocol</h4>
+                <p>Follow precise reconstitution guidelines for each version. Ensure proper mixing and allow adequate resting time (20-30 minutes) for complete dissolution before injection.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Injection Technique</h4>
+                <p>Use appropriate needle gauge and injection depth for each product version. Employ proper injection techniques (linear threading, fanning, cross-hatching) based on treatment area and goals.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Patient Education</h4>
+                <p>Provide comprehensive pre- and post-treatment instructions. Set realistic expectations regarding gradual results timeline and the need for multiple treatment sessions.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Technical Product Information</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Formulation Type</td>
+                        <td>Lyophilized (freeze-dried) powder in vial</td>
+                    </tr>
+                    <tr>
+                        <td>Primary Ingredient</td>
+                        <td>Poly-L-Lactic Acid (PLLA) microspheres</td>
+                    </tr>
+                    <tr>
+                        <td>Stabilizers</td>
+                        <td>Carboxymethyl Cellulose (CMC), Mannitol</td>
+                    </tr>
+                    <tr>
+                        <td>Packaging</td>
+                        <td>Single sterile vial per package</td>
+                    </tr>
+                    <tr>
+                        <td>Reconstitution Required</td>
+                        <td>Yes - with normal saline and Lidocaine</td>
+                    </tr>
+                    <tr>
+                        <td>Shelf Life</td>
+                        <td>Refer to expiration date on packaging</td>
+                    </tr>
+                    <tr>
+                        <td>Storage Temperature</td>
+                        <td>1°C to 30°C (33.8°F to 86°F)</td>
+                    </tr>
+                    <tr>
+                        <td>Single Use</td>
+                        <td>Yes - discard unused reconstituted product</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Frequently Asked Questions</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <h4>How does LEXYAL Plaisir differ from traditional dermal fillers?</h4>
+                <p>Unlike hyaluronic acid fillers that provide immediate volume, LEXYAL Plaisir is a biostimulator that works by triggering your body's natural collagen production. Results develop gradually and last longer (12-18 months vs. 6-12 months for most fillers).</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>How many treatment sessions will I need?</h4>
+                <p>Most patients require 2-3 treatment sessions spaced 4-8 weeks apart for optimal results. Your practitioner will customize a treatment plan based on your individual needs and aesthetic goals.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>When will I see results?</h4>
+                <p>Initial improvements may be subtle. Full results develop gradually over 8-12 weeks as your body produces new collagen. This progressive approach ensures natural-looking enhancement.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Is the treatment painful?</h4>
+                <p>Lidocaine is added during reconstitution to enhance comfort. Most patients report minimal discomfort during the procedure. Additional topical numbing may be applied if needed.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Can I combine LEXYAL Plaisir with other treatments?</h4>
+                <p>Yes, LEXYAL Plaisir can be part of a comprehensive aesthetic treatment plan. Consult with your practitioner about combining with other modalities for enhanced results.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>What is the downtime?</h4>
+                <p>Minimal downtime. Most patients experience mild swelling or redness for 1-3 days. You can typically return to normal activities immediately, avoiding strenuous exercise for 24-48 hours.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Product Quality & Manufacturing</h2>
+        <div class="kst-section-subtitle">Quality Assurance Standards</div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">✓</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Advanced PLLA Technology</div>
+                <div class="kst-target-description">
+                    Features uniform PLLA microspheres with consistent particle size distribution, designed to minimize adverse effects and ensure predictable, safe results. This advanced technology represents the latest evolution in biostimulator formulations.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">🔬</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Rigorous Testing</div>
+                <div class="kst-target-description">
+                    Every batch undergoes comprehensive quality control testing to ensure sterility, purity, and consistent performance. Manufacturing follows strict pharmaceutical-grade standards.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">🛡️</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Proven Safety Profile</div>
+                <div class="kst-target-description">
+                    PLLA has been used in aesthetic medicine for over two decades with an established safety record. The biocompatible, biodegradable formula is naturally metabolized by the body.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Quality Assurance Process - Manufacturing and quality control visualization]
+        </div>
+    </div>
+
+</div>

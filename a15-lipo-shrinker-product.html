@@ -1,0 +1,998 @@
+<style>
+    :root {
+        --kst-main-color: #d8b74b;
+        --kst-sub-color: #a78a2f;
+        --kst-text-color: #3a3a3a;
+        --kst-auxiliary-color: #f2e7b3;
+        --kst-bg-color: #ffffff;
+        --kst-badge-bg: #d8b74b;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #a78a2f;
+        --kst-muted-text: #6e6e6e;
+        --kst-border-color: #e0e0e0;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(135deg, var(--kst-auxiliary-color) 0%, #faf8f0 100%);
+        color: var(--kst-text-color);
+        padding: 12px;
+        line-height: 1.6;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-main-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -30%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(216, 183, 75, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(40px);
+        z-index: 0;
+    }
+    
+    .kst-section {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card {
+        background: var(--kst-bg-color);
+        color: var(--kst-text-color);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-card h2,
+    .kst-card h3,
+    .kst-card h4 {
+        color: var(--kst-text-color);
+        margin-top: 0;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card p,
+    .kst-card li,
+    .kst-card span {
+        color: var(--kst-muted-text);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-card ul li,
+    .kst-card ol li {
+        color: var(--kst-muted-text);
+        margin-bottom: 8px;
+        line-height: 1.6;
+    }
+    
+    .kst-section-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: var(--kst-text-color);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-subtitle {
+        font-size: 14px;
+        color: var(--kst-main-color);
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+    
+    .kst-hero-section {
+        background: var(--kst-bg-color);
+        color: var(--kst-text-color);
+        padding: 24px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        text-align: center;
+        border: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-product-badge {
+        background: var(--kst-auxiliary-color);
+        color: var(--kst-sub-color);
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 16px;
+    }
+    
+    .kst-product-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--kst-text-color);
+        margin-bottom: 16px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-subtitle {
+        font-size: 20px;
+        font-weight: 400;
+        color: var(--kst-muted-text);
+        margin-bottom: 24px;
+        margin-top: -14px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-highlight {
+        color: var(--kst-main-color);
+    }
+    
+    .kst-hero-description {
+        font-size: 16px;
+        color: var(--kst-muted-text);
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    
+    .kst-feature-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    
+    .kst-feature-tag {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        padding: 6px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        box-shadow: 0 4px 12px rgba(216, 183, 75, 0.3);
+    }
+    
+    .kst-feature-icon {
+        width: 14px;
+        height: 14px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8px;
+    }
+    
+    .kst-image-block,
+    .kst-chart-block {
+        background: #f5f5f5;
+        border: 2px dashed var(--kst-border-color);
+        padding: 40px 20px;
+        text-align: center;
+        border-radius: 12px;
+        color: #999;
+        font-size: 14px;
+        font-style: italic;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 16px 0;
+        box-sizing: border-box;
+    }
+    
+    .kst-image-block img,
+    .kst-chart-block img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    .kst-image-block:not(:has(img)),
+    .kst-image-block:has(img[src=""]),
+    .kst-chart-block:not(:has(img)),
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 16px 0;
+    }
+    
+    .kst-grid-item {
+        background: #fafafa;
+        padding: 16px;
+        border-radius: 8px;
+        border-left: 4px solid var(--kst-main-color);
+        border: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-grid-item h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-text-color);
+        margin-bottom: 8px;
+    }
+    
+    .kst-grid-item p {
+        font-size: 14px;
+        color: var(--kst-muted-text);
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    .kst-definition-list {
+        margin: 16px 0;
+    }
+    
+    .kst-definition-item {
+        background: #fafafa;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        border-left: 4px solid var(--kst-main-color);
+        border: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-definition-term {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-text-color);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .kst-concentration-badge {
+        background: var(--kst-sub-color);
+        color: var(--kst-badge-text);
+        padding: 2px 8px;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 500;
+    }
+    
+    .kst-definition-desc {
+        font-size: 14px;
+        color: var(--kst-muted-text);
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 16px 0;
+        border-radius: 8px;
+        border: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        border-radius: 3px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-border-color);
+        border-radius: 3px;
+    }
+    
+    .kst-specs-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--kst-bg-color);
+        table-layout: auto;
+    }
+    
+    .kst-specs-table th,
+    .kst-specs-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--kst-border-color);
+        font-size: 14px;
+    }
+    
+    .kst-specs-table th {
+        background: var(--kst-auxiliary-color);
+        font-weight: 600;
+        color: var(--kst-sub-color);
+        white-space: nowrap;
+    }
+    
+    .kst-specs-table td {
+        color: var(--kst-muted-text);
+    }
+    
+    .kst-steps-list {
+        margin: 16px 0;
+    }
+    
+    .kst-step-item {
+        background: #fafafa;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 50px;
+        border: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-step-number {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        width: 24px;
+        height: 24px;
+        background: var(--kst-main-color);
+        color: var(--kst-badge-text);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 12px;
+    }
+    
+    .kst-step-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--kst-text-color);
+        margin-bottom: 6px;
+    }
+    
+    .kst-step-description {
+        font-size: 13px;
+        color: var(--kst-muted-text);
+        line-height: 1.5;
+    }
+    
+    .kst-warning-box {
+        background: #fffbf0;
+        border: 2px solid var(--kst-main-color);
+        border-radius: 8px;
+        padding: 16px;
+        margin: 16px 0;
+        position: relative;
+    }
+    
+    .kst-warning-box::before {
+        content: '⚠️';
+        position: absolute;
+        top: -8px;
+        left: 16px;
+        background: var(--kst-main-color);
+        color: var(--kst-badge-text);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+    
+    .kst-warning-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--kst-sub-color);
+        margin-bottom: 8px;
+        padding-top: 8px;
+    }
+    
+    .kst-warning-content {
+        font-size: 13px;
+        color: var(--kst-sub-color);
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    .kst-target-item {
+        background: #fafafa;
+        padding: 16px;
+        border-radius: 8px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 12px;
+        transition: all 0.3s ease;
+        border: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-target-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--kst-main-color);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--kst-badge-text);
+        font-weight: 600;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+    
+    .kst-target-content {
+        flex: 1;
+    }
+    
+    .kst-target-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--kst-text-color);
+        margin-bottom: 6px;
+    }
+    
+    .kst-target-description {
+        font-size: 13px;
+        color: var(--kst-muted-text);
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    @media (max-width: 480px) {
+        .kst-main-container {
+            padding: 8px;
+        }
+        
+        .kst-card {
+            padding: 16px;
+        }
+        
+        .kst-product-title {
+            font-size: 24px;
+        }
+        
+        .kst-section-title {
+            font-size: 20px;
+        }
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-hero-section kst-section">
+        <div class="kst-product-badge">Professional Lipolytic Solution • stunmedical</div>
+        <h1 class="kst-product-title"><span class="kst-product-highlight">Lipo Shrinker</span></h1>
+        <h2 class="kst-product-subtitle">10ml x 5 Vials</h2>
+        <div class="kst-hero-description">
+            Advanced fat-dissolving solution featuring synergistic PPC and Deoxycholate complex for targeted body contouring and facial definition. Professional-grade formula designed for effective localized fat reduction with enhanced lymphatic drainage support.
+        </div>
+        
+        <div class="kst-feature-tags">
+            <div class="kst-feature-tag">
+                <div class="kst-feature-icon">✓</div>
+                Targeted Fat Reduction
+            </div>
+            <div class="kst-feature-tag">
+                <div class="kst-feature-icon">⚡</div>
+                Facial Contouring
+            </div>
+            <div class="kst-feature-tag">
+                <div class="kst-feature-icon">🎯</div>
+                Body Slimming
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Product Hero Image - Lipo Shrinker vials and packaging showcase]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Product Overview</h2>
+        <p>Lipo Shrinker is a professional-grade lipolytic solution that combines phosphatidylcholine (PPC) and deoxycholate with circulation-promoting agents to effectively target and eliminate stubborn localized fat deposits. This advanced formulation works through a dual-action mechanism: deoxycholate emulsifies fat and destroys fat cell membranes, while PPC breaks down and dissolves the remaining lipids. The addition of L-Carnitine and supporting ingredients promotes lymphatic drainage, enabling natural excretion of dissolved fat.</p>
+        
+        <div class="kst-image-block">
+            [Mechanism of Action Infographic - Visual representation of fat dissolution process]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Key Ingredients & Formulation</h2>
+        <div class="kst-section-subtitle">Active Components</div>
+        
+        <div class="kst-definition-list">
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">
+                    Phosphatidylcholine (PPC)
+                </div>
+                <p class="kst-definition-desc">A phospholipid that effectively breaks down and dissolves fat cells, working synergistically with deoxycholate to target adipose tissue and promote fat metabolism.</p>
+            </div>
+            
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">
+                    Deoxycholate
+                </div>
+                <p class="kst-definition-desc">A bile acid that emulsifies fat and disrupts fat cell membranes, enabling the breakdown and elimination of localized fat deposits.</p>
+            </div>
+            
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">
+                    L-Carnitine
+                </div>
+                <p class="kst-definition-desc">An amino acid derivative that supports fat metabolism and enhances lymphatic drainage, facilitating the body's natural process of eliminating dissolved fat.</p>
+            </div>
+            
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">
+                    Circulation-Promoting Extracts
+                </div>
+                <p class="kst-definition-desc">Supporting botanical extracts that enhance microcirculation and promote efficient drainage of metabolized fat through the lymphatic system.</p>
+            </div>
+        </div>
+        
+        <h3>Synergistic Mechanism of Action</h3>
+        <p>The formulation works through a coordinated three-phase process: First, deoxycholate emulsifies and disrupts fat cell membranes. Second, PPC penetrates and dissolves the released lipids. Finally, L-Carnitine and circulation enhancers promote lymphatic drainage, allowing the body to naturally excrete the broken-down fat. This comprehensive approach ensures effective fat reduction with minimized downtime.</p>
+        
+        <div class="kst-image-block">
+            [Ingredient Synergy Diagram - Visual flow of how ingredients work together]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Expected Effects & Benefits</h2>
+        <div class="kst-section-subtitle">Clinical Outcomes</div>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <h4>Targeted Fat Reduction</h4>
+                <p>Effectively eliminates localized fat deposits and stubborn areas resistant to diet and exercise, providing noticeable volume reduction in treated zones.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Facial Contouring</h4>
+                <p>Ideal for defining the jawline and reducing double chin appearance, creating a more sculpted and youthful facial profile.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Body Slimming</h4>
+                <p>Reduces subcutaneous fat in problem areas including abdomen, hips, thighs, and arms for improved body proportions and silhouette.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Cellulite Improvement</h4>
+                <p>The lipolytic and drainage-promoting action helps smooth the appearance of cellulite by addressing underlying fat deposits and improving skin texture.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Skin Firmness Enhancement</h4>
+                <p>May offer mild firming effects in treated areas as volume is reduced and tissue remodeling occurs during the recovery process.</p>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Before/After Results - Clinical examples of treatment effectiveness]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Treatment Protocol & Application</h2>
+        <div class="kst-section-subtitle">Professional Administration Guidelines</div>
+        
+        <h3>Treatment Areas</h3>
+        <p>Lipo Shrinker is suitable for facial contouring (jawline, double chin, cheeks) and body applications (abdomen, flanks/love handles, inner and outer thighs, arms). The solution is injected into the subcutaneous fat layer using sterile technique.</p>
+        
+        <h3>Recommended Treatment Cycle</h3>
+        <p>Typically, 3-6 sessions are recommended, performed at intervals of 1-2 weeks. Individual results may vary based on treatment area, fat volume, and patient response. A comprehensive assessment should determine the optimal number of sessions.</p>
+        
+        <div class="kst-steps-list">
+            <div class="kst-step-item">
+                <div class="kst-step-number">1</div>
+                <div class="kst-step-title">Area Preparation</div>
+                <div class="kst-step-description">Cleanse and disinfect the treatment area thoroughly. Mark injection points using appropriate mapping technique for even distribution.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">2</div>
+                <div class="kst-step-title">Product Preparation</div>
+                <div class="kst-step-description">Lipo Shrinker is ready-to-use and requires no dilution. Draw the appropriate volume into a sterile syringe with 27G or 30G needle.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">3</div>
+                <div class="kst-step-title">Injection Technique</div>
+                <div class="kst-step-description">Inject into the subcutaneous fat layer using appropriate depth and volume per point. Facial: 0.1-0.2ml per point in fine grid pattern. Body: larger volumes distributed evenly across treatment zone.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">4</div>
+                <div class="kst-step-title">Post-Treatment Care</div>
+                <div class="kst-step-description">Apply gentle massage to distribute product evenly. Advise patient on expected temporary side effects including swelling, bruising, and tenderness.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">5</div>
+                <div class="kst-step-title">Follow-Up Protocol</div>
+                <div class="kst-step-description">Schedule next session in 1-2 weeks. Encourage adequate water intake and gentle lymphatic massage to optimize drainage and results.</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Anatomical Injection Guide - Proper depth and technique visualization]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Treatment Strategies by Area</h2>
+        <div class="kst-section-subtitle">Dosage & Technique Guidelines</div>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>Target Area</th>
+                        <th>Key Action</th>
+                        <th>Dose per Session</th>
+                        <th>Injection Technique</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Facial Contouring</td>
+                        <td>Targeted Fat Dissolution</td>
+                        <td>1ml - 2ml total</td>
+                        <td>Fine, precise grid pattern</td>
+                    </tr>
+                    <tr>
+                        <td>Small Body Areas</td>
+                        <td>Localized Volume Reduction</td>
+                        <td>3ml - 5ml per area</td>
+                        <td>Grid or spot injection</td>
+                    </tr>
+                    <tr>
+                        <td>Large Body Areas</td>
+                        <td>Broad Area Fat/Cellulite</td>
+                        <td>5ml - 10ml per area</td>
+                        <td>Wide, even distribution</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h3>Face vs. Body: Tailored Approach</h3>
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <h4>Facial Use Strategy</h4>
+                <p>Focuses on highly targeted reduction to enhance contour and definition. Small dosage (1-2ml) with precise placement makes it suitable for delicate facial structure improvements without over-treatment.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Body Use Strategy</h4>
+                <p>Targets larger pockets of fat and cellulite with higher total dosage (5-10ml) distributed across wider areas to achieve noticeable slimming and smoothing effects in problem zones.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Product Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product Name</td>
+                        <td>Lipo Shrinker</td>
+                    </tr>
+                    <tr>
+                        <td>Manufacturer</td>
+                        <td>stunmedical</td>
+                    </tr>
+                    <tr>
+                        <td>Package Configuration</td>
+                        <td>10ml x 5 Vials</td>
+                    </tr>
+                    <tr>
+                        <td>Formulation Type</td>
+                        <td>Liquid Solution (Ready-to-Use)</td>
+                    </tr>
+                    <tr>
+                        <td>Primary Ingredients</td>
+                        <td>PPC, Deoxycholate, L-Carnitine, Botanical Extracts</td>
+                    </tr>
+                    <tr>
+                        <td>Administration Method</td>
+                        <td>Local Injection (Subcutaneous)</td>
+                    </tr>
+                    <tr>
+                        <td>Needle Gauge</td>
+                        <td>27G or 30G recommended</td>
+                    </tr>
+                    <tr>
+                        <td>Storage Conditions</td>
+                        <td>2-30°C, away from direct sunlight</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Safety Information & Precautions</h2>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">Important Storage Requirements</div>
+            <div class="kst-warning-content">
+                Store in a cool, dark place at temperatures between 2-30°C. Do not freeze. Keep away from direct sunlight. Proper storage ensures product stability and effectiveness.
+            </div>
+        </div>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">Treatment Interval Requirements</div>
+            <div class="kst-warning-content">
+                A minimum interval of 1-2 weeks between sessions is crucial to allow the body sufficient time to process and eliminate dissolved fat. Do not exceed recommended treatment frequency.
+            </div>
+        </div>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">Contraindications</div>
+            <div class="kst-warning-content">
+                Do not use on pregnant or lactating women, individuals with severe liver or kidney disease, diabetes, or known allergies to ingredients (especially soy or deoxycholate). A thorough medical history assessment is required before treatment.
+            </div>
+        </div>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-title">Expected Post-Treatment Effects</div>
+            <div class="kst-warning-content">
+                Mild swelling, bruising, and tenderness at injection sites are common and temporary. These effects typically resolve within 3-7 days. Avoid excessive heat exposure (saunas, intense exercise) for 24-48 hours post-procedure.
+            </div>
+        </div>
+        
+        <h3>Post-Treatment Care Guidelines</h3>
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <h4>Immediate Care (24-48 hours)</h4>
+                <p>Avoid heat exposure, intense physical activity, and alcohol consumption. Apply cold compresses if needed to reduce swelling. Keep the treated area clean and dry.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Recovery Period (1-2 weeks)</h4>
+                <p>Increase water intake to support lymphatic drainage. Gentle massage can help distribute product and promote fat elimination. Avoid anti-inflammatory medications unless approved by practitioner.</p>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Safety Precautions Icons - Visual guide for storage and treatment safety]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Optimizing Treatment Results</h2>
+        <div class="kst-section-subtitle">Maximizing Effectiveness</div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">💧</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Adequate Hydration</div>
+                <div class="kst-target-description">
+                    Drinking plenty of water (2-3 liters daily) following treatment supports lymphatic drainage and helps the body efficiently eliminate metabolized fat.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">👐</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Gentle Lymphatic Massage</div>
+                <div class="kst-target-description">
+                    Light massage of treated areas in the days following injection can promote circulation and enhance lymphatic drainage, optimizing fat elimination.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">🎯</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Treatment Compliance</div>
+                <div class="kst-target-description">
+                    Adhering to the recommended treatment schedule and completing the full course (3-6 sessions) ensures optimal and lasting results.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">🥗</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Healthy Lifestyle Support</div>
+                <div class="kst-target-description">
+                    Maintaining a balanced diet and regular exercise routine helps preserve results and prevents new fat accumulation in treated areas.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Who Is This Product For?</h2>
+        <div class="kst-section-subtitle">Ideal Candidate Profiles</div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">👥</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Individuals with Localized Fat Deposits</div>
+                <div class="kst-target-description">
+                    Patients struggling with stubborn fat pockets that resist diet and exercise, seeking targeted reduction without surgical intervention. Ideal for those at or near their goal weight with specific problem areas.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">✨</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Facial Contouring Seekers</div>
+                <div class="kst-target-description">
+                    Individuals desiring improved jawline definition, double chin reduction, or enhanced facial contours without invasive procedures. Perfect for those seeking subtle yet noticeable facial refinement.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">🎯</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Body Contouring Candidates</div>
+                <div class="kst-target-description">
+                    Patients seeking improvement in body proportions through targeted fat reduction in areas like abdomen, flanks, thighs, or arms. Best suited for localized concerns rather than overall weight loss.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">💼</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Professional Practitioners</div>
+                <div class="kst-target-description">
+                    Licensed aesthetic practitioners, dermatologists, and cosmetic physicians seeking an effective, professional-grade lipolytic solution for their clinical practice.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <div class="kst-section-subtitle">Why Choose Lipo Shrinker?</div>
+        <h2 class="kst-section-title">Product Advantages</h2>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">⚡</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Dual-Action Formula</div>
+                <div class="kst-target-description">
+                    The synergistic combination of PPC and deoxycholate provides superior fat cell destruction and dissolution compared to single-ingredient formulations, ensuring comprehensive fat reduction.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">🔄</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Enhanced Drainage Support</div>
+                <div class="kst-target-description">
+                    Inclusion of L-Carnitine and circulation-promoting agents helps mitigate swelling and facilitates efficient removal of dissolved lipids, minimizing downtime compared to earlier generation lipolytics.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">🎯</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Versatile Application</div>
+                <div class="kst-target-description">
+                    Suitable for both facial and body applications with flexible dosing protocols, allowing practitioners to tailor treatment to individual patient needs and treatment areas.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">✅</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Ready-to-Use Convenience</div>
+                <div class="kst-target-description">
+                    No dilution required—the product is formulated at optimal concentration for immediate use, ensuring consistency and simplifying clinical workflow.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">📊</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Proven Efficacy</div>
+                <div class="kst-target-description">
+                    Formulated by stunmedical with clinically-validated ingredients known for effective fat reduction, providing reliable and predictable outcomes for practitioners and patients.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-target-item">
+            <div class="kst-target-icon">💎</div>
+            <div class="kst-target-content">
+                <div class="kst-target-title">Professional-Grade Quality</div>
+                <div class="kst-target-description">
+                    Manufactured to rigorous quality standards, ensuring product purity, consistency, and safety for professional aesthetic applications.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Results Showcase - Before/After clinical examples demonstrating effectiveness]
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Professional Administration Tips</h2>
+        <div class="kst-section-subtitle">Clinical Best Practices</div>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <h4>Patient Assessment</h4>
+                <p>Conduct thorough consultation to assess suitability, medical history, and contraindications. Set realistic expectations regarding number of sessions and expected outcomes.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Injection Technique</h4>
+                <p>Use proper depth (subcutaneous fat layer) and appropriate volume per injection point. Maintain consistent spacing for even distribution and optimal results.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Dosage Guidelines</h4>
+                <p>Adhere to recommended dosing limits per session and treatment course. Total dosage should not exceed professional guidelines to ensure patient safety.</p>
+            </div>
+            
+            <div class="kst-grid-item">
+                <h4>Patient Communication</h4>
+                <p>Educate patients on expected temporary side effects, post-treatment care, and timeline for visible results. Provide written aftercare instructions.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-card kst-section">
+        <h2 class="kst-section-title">Meta Keywords</h2>
+        <p style="font-size: 13px; color: var(--kst-muted-text); line-height: 1.6;">
+            PPC injection, contouring injection, fat dissolving ampoule, facial fat removal, double chin management, body slimming, deoxycholic acid, L-carnitine, localized obesity improvement, lipolytic solution, stunmedical, phosphatidylcholine, fat reduction treatment, non-surgical body contouring, jawline definition, cellulite treatment, subcutaneous fat reduction, aesthetic medicine, professional lipolytic, lymphatic drainage enhancement
+        </p>
+    </div>
+    
+</div>

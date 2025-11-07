@@ -1,0 +1,829 @@
+<style>
+    /* Reset and base styles with kst- prefix */
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--kst-bg-white);
+        color: var(--kst-text-main);
+        padding: 0;
+        line-height: 1.6;
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    /* CSS Variables for color palette */
+    :root {
+        --kst-primary: #f4d63c;
+        --kst-secondary: #c9a51d;
+        --kst-text-main: #2a2a2a;
+        --kst-text-sub: #f9edb7;
+        --kst-bg-white: #ffffff;
+        --kst-bg-alt: #fffbf5;
+        --kst-badge-bg: #f4d63c;
+        --kst-badge-text: #2a2a2a;
+        --kst-badge-hover: #c9a51d;
+        --kst-border: #f4d63c;
+        --kst-shadow: rgba(244, 214, 60, 0.2);
+    }
+    
+    /* Hide image blocks when no images are present */
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .kst-hero-section {
+        background: linear-gradient(135deg, var(--kst-text-sub) 0%, var(--kst-bg-white) 100%);
+        padding: 40px 16px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-hero-section::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle, rgba(244, 214, 60, 0.3) 0%, transparent 60%);
+        border-radius: 50%;
+    }
+    
+    .kst-product-logo {
+        width: 60px;
+        height: 60px;
+        background: var(--kst-primary);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        box-shadow: 0 8px 25px var(--kst-shadow);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .kst-product-logo::before {
+        content: '🌲';
+        font-size: 28px;
+    }
+    
+    .kst-product-title {
+        font-size: 32px;
+        font-weight: 400;
+        color: var(--kst-text-main) !important;
+        margin-bottom: 16px;
+        letter-spacing: -0.5px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-spec {
+        font-size: 25px;
+        font-weight: 300;
+        color: var(--kst-text-main) !important;
+        margin-top: -16px;
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-subtitle {
+        font-size: 16px;
+        color: var(--kst-secondary) !important;
+        font-weight: 500;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-hero-description {
+        font-size: 14px;
+        color: var(--kst-text-main) !important;
+        margin: 0 auto 30px;
+        line-height: 1.7;
+        position: relative;
+        z-index: 2;
+        opacity: 0.8;
+    }
+    
+    /* Section Styles */
+    .kst-section {
+        padding: 40px 16px;
+        margin: 0;
+    }
+    
+    .kst-section-title {
+        font-size: 24px;
+        font-weight: 300;
+        color: var(--kst-text-main) !important;
+        text-align: center;
+        margin-bottom: 30px;
+        letter-spacing: -0.5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-alt {
+        background: var(--kst-bg-alt);
+    }
+    
+    /* Image Blocks */
+    .kst-image-block {
+        border-radius: 12px;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+    
+    .kst-image-placeholder {
+        padding: 40px 20px;
+        text-align: center;
+        color: var(--kst-secondary);
+        font-size: 12px;
+        font-style: italic;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--kst-bg-alt);
+        border: 2px dashed var(--kst-border);
+        border-radius: 12px;
+    }
+    
+    /* Card Styles */
+    .kst-card {
+        background: var(--kst-bg-white);
+        border: 1px solid var(--kst-border);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 12px 0;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .kst-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px var(--kst-shadow);
+    }
+    
+    .kst-card-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--kst-text-main) !important;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card-content {
+        font-size: 14px;
+        color: var(--kst-text-main) !important;
+        line-height: 1.6;
+        opacity: 0.85;
+    }
+    
+    .kst-card ul,
+    .kst-card ol {
+        margin: 12px 0;
+        padding-left: 20px;
+    }
+    
+    .kst-card ul li,
+    .kst-card ol li {
+        color: var(--kst-text-main) !important;
+        margin: 8px 0;
+        line-height: 1.6;
+    }
+    
+    /* Badge Styles */
+    .kst-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        padding: 4px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+        margin: 4px 4px 4px 0;
+        transition: all 0.2s ease;
+    }
+    
+    .kst-badge:hover {
+        background: var(--kst-badge-hover);
+    }
+    
+    .kst-badge-primary {
+        background: var(--kst-primary);
+        color: var(--kst-text-main) !important;
+    }
+    
+    .kst-badge-secondary {
+        background: var(--kst-secondary);
+        color: var(--kst-bg-white) !important;
+    }
+    
+    /* Grid Styles */
+    .kst-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin: 20px 0;
+    }
+    
+    .kst-grid-item {
+        background: var(--kst-bg-white);
+        border: 1px solid var(--kst-border);
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    .kst-grid-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px var(--kst-shadow);
+    }
+    
+    .kst-grid-value {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--kst-secondary) !important;
+        margin-bottom: 8px;
+    }
+    
+    .kst-grid-label {
+        font-size: 12px;
+        color: var(--kst-text-main) !important;
+        opacity: 0.7;
+    }
+    
+    /* Definition List Styles */
+    .kst-definition-list {
+        margin: 20px 0;
+    }
+    
+    .kst-definition-item {
+        margin: 16px 0;
+        padding: 12px;
+        background: var(--kst-bg-alt);
+        border-left: 3px solid var(--kst-primary);
+        border-radius: 4px;
+    }
+    
+    .kst-definition-term {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--kst-text-main) !important;
+        margin-bottom: 6px;
+    }
+    
+    .kst-definition-description {
+        font-size: 14px;
+        color: var(--kst-text-main) !important;
+        line-height: 1.6;
+        opacity: 0.85;
+    }
+    
+    /* Table Styles */
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 20px 0;
+        border-radius: 12px;
+        border: 1px solid var(--kst-border);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: var(--kst-bg-alt);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-primary);
+        border-radius: 4px;
+    }
+    
+    .kst-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+    }
+    
+    .kst-table thead th {
+        background: var(--kst-primary);
+        color: var(--kst-text-main) !important;
+        padding: 12px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 13px;
+        white-space: nowrap;
+        border-bottom: 2px solid var(--kst-secondary);
+    }
+    
+    .kst-table tbody td {
+        padding: 12px;
+        border-bottom: 1px solid var(--kst-border);
+        color: var(--kst-text-main) !important;
+        font-size: 13px;
+    }
+    
+    .kst-table tbody tr:hover {
+        background: var(--kst-bg-alt);
+    }
+    
+    /* Text Utilities */
+    .kst-text-muted {
+        color: var(--kst-text-main) !important;
+        opacity: 0.6;
+    }
+    
+    .kst-text-small {
+        font-size: 13px;
+    }
+    
+    .kst-text-center {
+        text-align: center;
+    }
+    
+    /* Warning Box */
+    .kst-warning {
+        background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+        border-left: 4px solid var(--kst-secondary);
+        border-radius: 8px;
+        padding: 16px;
+        margin: 20px 0;
+    }
+    
+    .kst-warning-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-text-main) !important;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .kst-warning-title::before {
+        content: '⚠️';
+        margin-right: 8px;
+        font-size: 18px;
+    }
+    
+    .kst-warning-content {
+        font-size: 14px;
+        color: var(--kst-text-main) !important;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+    
+    .kst-warning-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .kst-warning-list li {
+        padding: 6px 0 6px 24px;
+        position: relative;
+        font-size: 14px;
+        color: var(--kst-text-main) !important;
+    }
+    
+    .kst-warning-list li::before {
+        content: '•';
+        position: absolute;
+        left: 8px;
+        color: var(--kst-secondary);
+        font-weight: bold;
+    }
+</style>
+
+<div class="kst-main-container">
+    <!-- Hero Section -->
+    <div class="kst-hero-section">
+        <div class="kst-product-logo"></div>
+        <h1 class="kst-product-title">Pine bottle Contouring Solution</h1>
+        <div class="kst-product-spec">10ml x 5 Vials</div>
+        <div class="kst-product-subtitle">Professional Fat Dissolving Solution</div>
+        <div class="kst-hero-description">
+            Advanced lipolytic injection for targeted facial and body contouring. Featuring synergistic action of Deoxycholic Acid, PPC, and L-Carnitine for effective fat reduction.
+        </div>
+    </div>
+    
+    <!-- Product Overview Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Lineup</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Product comparison image placeholder - Pine bottle V vs S]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-badge kst-badge-primary">Facial</div>
+            <h3 class="kst-card-title">Pine bottle V (Facial Contouring)</h3>
+            <div class="kst-card-content">
+                Optimized for delicate facial areas including double chin, jawline, and cheeks. Creates a sharper V-line profile with minimized swelling.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-badge kst-badge-secondary">Body</div>
+            <h3 class="kst-card-title">Pine bottle S (Body Contouring)</h3>
+            <div class="kst-card-content">
+                Higher concentration formula designed for broader, deeper fat layers on the body. Ideal for abdomen, thighs, flanks, and upper arms.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Key Ingredients Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Key Ingredients & Mechanism</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Ingredient mechanism diagram placeholder]
+            </div>
+        </div>
+        
+        <div class="kst-definition-list">
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">Deoxycholic Acid</div>
+                <div class="kst-definition-description">
+                    A bile acid naturally produced in the body that aids in the breakdown and absorption of dietary fat. Acts as the primary lipolytic agent by destroying fat cell membranes.
+                </div>
+            </div>
+            
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">Phosphatidylcholine (PPC)</div>
+                <div class="kst-definition-description">
+                    Works synergistically with Deoxycholic Acid to emulsify and break down fat cells, enhancing the overall lipolytic effect.
+                </div>
+            </div>
+            
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">L-Carnitine</div>
+                <div class="kst-definition-description">
+                    Helps transport fatty acids into the mitochondria to be converted into energy, assisting in the efficient removal of broken-down fat.
+                </div>
+            </div>
+            
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">Additional Components</div>
+                <div class="kst-definition-description">
+                    Horse Chestnut Extract for microcirculation and swelling reduction, plus vitamins and peptides for skin firming and regeneration.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">How It Works</h3>
+            <div class="kst-card-content">
+                The synergistic action of Deoxycholic Acid and PPC causes the destruction of fat cell membranes (lipolysis). The breakdown products are then naturally metabolized and excreted from the body, with L-Carnitine promoting efficient use of released fatty acids as energy. This process leads to targeted fat reduction and improved contouring, complemented by ingredients that reduce swelling and promote lymphatic drainage.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Expected Effects Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Expected Effects</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">V-Line</div>
+                <div class="kst-grid-label">Facial Contouring</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Sculpt</div>
+                <div class="kst-grid-label">Body Shaping</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Reduce</div>
+                <div class="kst-grid-label">Localized Fat</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Firm</div>
+                <div class="kst-grid-label">Skin Elasticity</div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Facial Contouring Benefits</h3>
+            <div class="kst-card-content">
+                <ul>
+                    <li>Targeted reduction of double chin</li>
+                    <li>Enhanced jawline definition for sharper V-line</li>
+                    <li>Improved cheek and facial contours</li>
+                    <li>Reduction of submental fat deposits</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Body Sculpting Benefits</h3>
+            <div class="kst-card-content">
+                <ul>
+                    <li>Improvement in appearance of excess abdominal fat</li>
+                    <li>Reduction of flank and love handle volume</li>
+                    <li>Enhanced thigh and arm contours</li>
+                    <li>Cellulite appearance improvement</li>
+                    <li>Overall body shape refinement</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Additional Skin Benefits</h3>
+            <div class="kst-card-content">
+                Reduction of post-treatment swelling, temporary improvement in skin elasticity and firmness in treated areas, enhanced lymphatic drainage.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Treatment Protocol Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Usage Protocol & Treatment Guide</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Treatment area mapping image placeholder - Face and body zones]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Treatment Areas</h3>
+            <div class="kst-card-content">
+                <strong>Face:</strong> Double chin, submental area, cheeks, jawline, marionette fat<br>
+                <strong>Body:</strong> Abdomen, hips, inner/outer thighs, flanks, upper arms, bra line
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Recommended Treatment Cycle</h3>
+            <div class="kst-card-content">
+                Typically 2-3 sessions are required for noticeable results, administered at 1-2 week intervals. The number of sessions can vary based on the target area and the amount of fat to be addressed.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Application Method</h3>
+            <div class="kst-card-content">
+                Direct injection into the subcutaneous fat layer using a sterile syringe (e.g., 27G or 30G needle) or via mesogun/hyaluron pen. <strong>Consult a professional protocol for exact depth and technique.</strong> Injection points should be small (0.2-0.5ml for facial, larger volumes for body) and spread across the target zone.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Facial injection point mapping image placeholder]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Post-Treatment Care</h3>
+            <div class="kst-card-content">
+                <ul>
+                    <li>Results become visible gradually as the body naturally eliminates destroyed fat cells</li>
+                    <li>Post-treatment massage can aid in lymphatic drainage</li>
+                    <li>Avoid vigorous exercise, saunas, and hot tubs for 48 hours</li>
+                    <li>Maintain proper hydration to support fat metabolism</li>
+                    <li>Ensure sterile technique for all injections</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Comparison Table Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Comparison Guide</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Version</th>
+                        <th>Key Focus</th>
+                        <th>Target Area</th>
+                        <th>Dose Per Session</th>
+                        <th>Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pine bottle V</strong></td>
+                        <td>Optimized Deoxycholic Acid/PPC Ratio</td>
+                        <td>Face (Double Chin, Jawline, Cheeks)</td>
+                        <td>4-10ml total</td>
+                        <td>Formulated for delicate facial areas, minimizes swelling</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pine bottle S</strong></td>
+                        <td>Higher Concentration Lipolytic Agents</td>
+                        <td>Body (Abdomen, Thighs, Flanks, Arms)</td>
+                        <td>10-25ml total</td>
+                        <td>Designed for broader, deeper fat layers on body</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Which Version Should I Choose?</h3>
+            <div class="kst-card-content">
+                <p><strong>Choose Pine bottle V if:</strong> Your primary goal is to achieve a sharper jawline and eliminate a double chin. This version is formulated specifically for the sensitive and limited volume of the facial fat layer.</p>
+                <p><strong>Choose Pine bottle S if:</strong> You are looking to treat larger, more extensive fat deposits on the abdomen, hips, or thighs. This version provides the higher concentration needed for effective body sculpting.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Detailed Product Versions -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Detailed Product Information</h2>
+        
+        <div class="kst-card">
+            <div class="kst-badge kst-badge-primary">Facial Solution</div>
+            <h3 class="kst-card-title">🔹 Pine bottle V (Facial Contouring)</h3>
+            <div class="kst-card-content">
+                <p><strong>Ingredient Composition:</strong> Contains a balanced mix of Deoxycholic Acid, PPC, L-Carnitine, and microcirculation enhancers designed specifically for facial use.</p>
+                
+                <p><strong>Target Area:</strong> Double chin, submental area, marionette fat, and areas contributing to a wider face profile.</p>
+                
+                <p><strong>Efficacy Summary:</strong> Highly effective targeted fat breakdown for V-line creation and facial slimming, with ingredients to reduce post-treatment swelling.</p>
+                
+                <p><strong>How to Use:</strong> Local injection into the subcutaneous fat layer. Recommended injection points are small (0.2-0.5ml) and spread across the target zone.</p>
+                
+                <p><strong>Additional Information:</strong> Results become visible gradually as the body naturally eliminates the destroyed fat cells. Post-treatment massage can aid in lymphatic drainage. Ensure a sterile technique for facial injections.</p>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Pine bottle V facial treatment zones image placeholder]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-badge kst-badge-secondary">Body Solution</div>
+            <h3 class="kst-card-title">🔹 Pine bottle S (Body Contouring)</h3>
+            <div class="kst-card-content">
+                <p><strong>Ingredient Composition:</strong> Features a higher concentration of key lipolytic agents (Deoxycholic Acid and PPC) for a stronger effect on body fat.</p>
+                
+                <p><strong>Target Area:</strong> Abdomen, inner/outer thighs, love handles (flanks), upper arms, and bra line fat.</p>
+                
+                <p><strong>Efficacy Summary:</strong> Powerful fat dissolution and reduction of localized obesity and cellulite. Supports overall body contour refinement.</p>
+                
+                <p><strong>How to Use:</strong> Requires a larger total volume distributed across the broader treatment area. The spot injection method is typically used, with deeper injection into the thicker subcutaneous fat layer than the facial version.</p>
+                
+                <p><strong>Additional Information:</strong> Due to the volume and concentration, mild temporary swelling or bruising post-treatment is more common than with the V version. Maintaining a healthy diet and active lifestyle enhances and prolongs results.</p>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Pine bottle S body treatment areas image placeholder]
+            </div>
+        </div>
+    </div>
+    
+    <!-- Precautions and Safety -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Precautions & Safety Information</h2>
+        
+        <div class="kst-warning">
+            <div class="kst-warning-title">Important Safety Information</div>
+            <div class="kst-warning-content">
+                This product is for professional use only. Proper training and certification in injection techniques are required.
+            </div>
+            <ul class="kst-warning-list">
+                <li>Adhere strictly to the recommended 1 to 2-week interval between sessions</li>
+                <li>Allow the body sufficient time to metabolize and excrete broken-down fat cells</li>
+                <li>Monitor for swelling subsidence between treatments</li>
+                <li>Do not exceed recommended dosage per session</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Contraindications</h3>
+            <div class="kst-card-content">
+                <strong>Do NOT use on:</strong>
+                <ul>
+                    <li>Pregnant or breastfeeding individuals</li>
+                    <li>Those with blood disorders or clotting issues</li>
+                    <li>Individuals with allergies to any ingredients</li>
+                    <li>Patients with severe liver or kidney disease</li>
+                    <li>Active infections or inflammation in treatment area</li>
+                </ul>
+                <strong>Do NOT inject:</strong>
+                <ul>
+                    <li>Directly into muscle tissue</li>
+                    <li>Into veins or blood vessels</li>
+                    <li>Directly into the skin dermis layer</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Storage Conditions</h3>
+            <div class="kst-card-content">
+                Store sealed vials in a cool, dark place, away from direct sunlight. Once opened, any unused contents should be discarded to maintain sterility. Keep out of reach of children.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Expected Side Effects</h3>
+            <div class="kst-card-content">
+                Common temporary side effects may include mild swelling, redness, bruising, or tenderness at injection sites. These typically subside within 3-7 days. Body treatments may experience more noticeable swelling than facial treatments.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Technical Specifications -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Technical Specifications</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">10ml</div>
+                <div class="kst-grid-label">Volume Per Vial</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">5 Vials</div>
+                <div class="kst-grid-label">Per Box</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Sterile</div>
+                <div class="kst-grid-label">Solution Type</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Pro Use</div>
+                <div class="kst-grid-label">Application Level</div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Product Format</h3>
+            <div class="kst-card-content">
+                10ml x 5 vials per box. Ampoule type sterile solution for professional injection use. Each vial is individually sealed to ensure sterility and product integrity.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Package specifications and dimensions image placeholder]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Professional Use Guidelines</h3>
+            <div class="kst-card-content">
+                This product is intended for use by trained medical professionals, aesthetic practitioners, and certified injection specialists. Proper training in subcutaneous injection techniques, sterile procedures, and patient assessment is essential before use.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Meta Keywords (hidden from display) -->
+    <div style="display: none;">
+        Pine bottle, Pine bottle V, Pine bottle S, contouring serum, facial fat dissolving, body fat dissolving, lipolytic injection, double chin removal, V-line contouring, deoxycholic acid injection, PPC, L-Carnitine, localized obesity improvement, body slimming solution, subcutaneous injection
+    </div>
+    
+</div>

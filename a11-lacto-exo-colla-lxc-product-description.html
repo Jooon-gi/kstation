@@ -1,0 +1,1093 @@
+<style>
+    :root {
+        --kst-main-color: #234ea4;
+        --kst-sub-color: #0e1a3b;
+        --kst-text-white: #ffffff;
+        --kst-text-accent: #a2b3d9;
+        --kst-bg-light: #f4f7fb;
+        --kst-badge-bg: #234ea4;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #16316e;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+        background: var(--kst-bg-light);
+        color: var(--kst-sub-color);
+        padding: 0 12px;
+        line-height: 1.6;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        position: relative;
+        isolation: isolate;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    .kst-section {
+        margin: 20px 0;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-header-block {
+        background: linear-gradient(135deg, var(--kst-main-color), var(--kst-sub-color));
+        color: var(--kst-text-white);
+        padding: 30px 16px;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(35, 78, 164, 0.2);
+    }
+    
+    .kst-product-title {
+        font-size: 34px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-white);
+    }
+    
+    .kst-product-spec {
+        font-size: 20px;
+        font-weight: 300;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-accent);
+    }
+    
+    .kst-subtitle {
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        opacity: 0.9;
+        color: var(--kst-text-white);
+    }
+    
+    .kst-category-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        padding: 6px 14px;
+        font-size: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 15px;
+        border-radius: 999px;
+        box-shadow: 0 4px 12px rgba(35, 78, 164, 0.3);
+    }
+    
+    .kst-image-block, .kst-chart-block {
+        background: var(--kst-text-white);
+        border: 1px dashed var(--kst-text-accent);
+        padding: 40px 16px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 20px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-accent);
+        border-radius: 12px;
+    }
+    
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: none;
+        background: none;
+        border-radius: 8px;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: none;
+        background: none;
+        border-radius: 8px;
+    }
+    
+    .kst-core-value {
+        background: var(--kst-text-white);
+        border: 2px solid var(--kst-main-color);
+        padding: 25px 16px;
+        margin: 20px 0;
+        text-align: center;
+        color: var(--kst-sub-color);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(35, 78, 164, 0.15);
+    }
+    
+    .kst-slogan {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 15px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-description {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-section-header {
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        padding: 16px 16px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 20px 0 0 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0 2px 10px rgba(35, 78, 164, 0.2);
+    }
+    
+    .kst-card {
+        background: var(--kst-text-white);
+        border: 1px solid var(--kst-text-accent);
+        padding: 20px;
+        margin: 14px 0;
+        color: var(--kst-sub-color);
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(35, 78, 164, 0.1);
+    }
+    
+    .kst-card ul,
+    .kst-card ol {
+        margin: 15px 0;
+        padding-left: 20px;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-card ul li,
+    .kst-card ol li {
+        margin-bottom: 8px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-ingredient-name {
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-concentration-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        font-size: 12px;
+        font-weight: 500;
+        padding: 6px 12px;
+        display: inline-block;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 999px;
+        box-shadow: 0 4px 12px rgba(35, 78, 164, 0.3);
+    }
+    
+    .kst-ingredient-info {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-effects-grid {
+        background: var(--kst-bg-light);
+        padding: 2px;
+        margin: 0;
+    }
+    
+    .kst-effect-card {
+        background: var(--kst-text-white);
+        padding: 20px 16px;
+        margin: 14px 0;
+        color: var(--kst-sub-color);
+        border-radius: 8px;
+        border: 1px solid var(--kst-text-accent);
+        box-shadow: 0 4px 15px rgba(35, 78, 164, 0.1);
+    }
+    
+    .kst-effect-number {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--kst-main-color);
+        line-height: 1;
+        margin-bottom: 12px;
+    }
+    
+    .kst-effect-title {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 8px;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-effect-description {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-steps-container {
+        background: var(--kst-bg-light);
+        padding: 2px;
+        margin: 0;
+    }
+    
+    .kst-step-card {
+        background: var(--kst-text-white);
+        padding: 25px 16px;
+        margin: 14px 0;
+        position: relative;
+        color: var(--kst-sub-color);
+        border-radius: 8px;
+        border: 1px solid var(--kst-text-accent);
+        box-shadow: 0 4px 15px rgba(35, 78, 164, 0.1);
+    }
+    
+    .kst-step-number {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(35, 78, 164, 0.4);
+    }
+    
+    .kst-step-title {
+        font-size: 14px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin: 15px 0 10px 0;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-step-description {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        background: var(--kst-text-white);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(35, 78, 164, 0.1);
+    }
+    
+    .kst-specs-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--kst-text-white);
+        table-layout: auto;
+    }
+    
+    .kst-specs-table th {
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        padding: 12px 16px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: left;
+        border-bottom: 1px solid var(--kst-text-accent);
+        white-space: nowrap;
+    }
+    
+    .kst-specs-table td {
+        padding: 10px 16px;
+        border-bottom: 1px solid var(--kst-text-accent);
+        font-size: 12px;
+        font-weight: 400;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-specs-table tr:nth-child(even) td {
+        background: var(--kst-bg-light);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: var(--kst-bg-light);
+        border-radius: 3px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-main-color);
+        border-radius: 3px;
+    }
+    
+    .kst-safety-section {
+        background: var(--kst-text-white);
+        border: 2px solid #e7c663;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(231, 198, 99, 0.2);
+    }
+    
+    .kst-safety-header {
+        background: #e7c663;
+        color: #000000;
+        padding: 16px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .kst-safety-content {
+        padding: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-safety-list {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0 0 0;
+    }
+    
+    .kst-safety-list li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 16px;
+        font-size: 11px;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-safety-list li::before {
+        content: '⚠ ';
+        position: absolute;
+        left: 0;
+        color: #e7c663;
+        font-weight: 700;
+    }
+    
+    .kst-protocol-container {
+        background: var(--kst-bg-light);
+        padding: 2px;
+        margin: 0;
+    }
+    
+    .kst-protocol-panel {
+        background: var(--kst-text-white);
+        padding: 25px 16px;
+        margin: 14px 0;
+        color: var(--kst-sub-color);
+        border-radius: 8px;
+        border: 1px solid var(--kst-text-accent);
+        box-shadow: 0 4px 15px rgba(35, 78, 164, 0.1);
+    }
+    
+    .kst-protocol-number {
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--kst-main-color);
+        line-height: 0.8;
+        margin-bottom: 15px;
+    }
+    
+    .kst-protocol-title {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 12px;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-protocol-content {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-faq-item {
+        border-bottom: 1px solid var(--kst-text-accent);
+        background: var(--kst-text-white);
+        margin: 0;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 15px rgba(35, 78, 164, 0.1);
+    }
+    
+    .kst-faq-question {
+        padding: 16px;
+        margin-top: 16px;
+        background: transparent;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-main-color);
+        display: block;
+    }
+    
+    .kst-faq-question::after {
+        content: '+';
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--kst-text-accent);
+        transition: transform 0.3s ease;
+    }
+    
+    .kst-faq-question.kst-active::after {
+        content: '−';
+        transform: translateY(-50%) rotate(45deg);
+        color: var(--kst-main-color);
+    }
+    
+    .kst-faq-answer {
+        padding: 16px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        display: none;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-faq-answer.kst-active {
+        display: block;
+    }
+    
+    .kst-keyword-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        padding: 6px 14px;
+        font-size: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin: 4px 4px 4px 0;
+        border-radius: 999px;
+    }
+    
+    .kst-highlight-text {
+        background: var(--kst-main-color);
+        color: var(--kst-text-white);
+        padding: 2px 4px;
+        font-weight: 700;
+        border-radius: 4px;
+    }
+    
+    .kst-dl {
+        margin: 20px 0;
+    }
+    
+    .kst-dt {
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        color: var(--kst-main-color);
+    }
+    
+    .kst-dd {
+        margin-left: 0;
+        margin-bottom: 12px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-sub-color);
+    }
+    
+    .kst-text-center {
+        text-align: center;
+    }
+    
+    .kst-mb-small {
+        margin-bottom: 12px;
+    }
+    
+    .kst-mb-medium {
+        margin-bottom: 20px;
+    }
+    
+    .kst-mt-small {
+        margin-top: 12px;
+    }
+    
+    .kst-mt-medium {
+        margin-top: 20px;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-header-block">
+        <div class="kst-category-badge">EXOSOME SKIN BOOSTER</div>
+        <h1 class="kst-product-title">LACTO EXO COLLA (LXC)</h1>
+        <h2 class="kst-product-spec">5-Set Box | Triple Exosome + H-PDRN + Collagen Complex</h2>
+        <div class="kst-subtitle">Fifth-Generation Advanced Skin Regeneration System</div>
+    </div>
+    
+    <div class="kst-image-block kst-section">
+        PRODUCT HERO IMAGE
+    </div>
+    
+    <div class="kst-core-value kst-section">
+        <div class="kst-slogan">Cellular-Level Skin Regeneration</div>
+        <div class="kst-description">
+            Advanced exosome nanoparticle technology combined with H-PDRN and collagen complex delivers comprehensive anti-aging treatment, targeting wrinkles, elasticity, hydration, and pigmentation simultaneously for visible transformation in just 4 weeks.
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">PACKAGE COMPONENTS</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">5-SET BOX CONFIGURATION</div>
+            <ul>
+                <li><strong>No. 1 Exosome (Lyophilized Ampoule):</strong> 5 vials × 100mg per vial</li>
+                <li><strong>No. 2 PDRN + Collagen + Peptides (Solvent Ampoule):</strong> 5 vials × 6ml per vial</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">SINGLE SET COMPONENTS</div>
+            <div class="kst-description">
+                Each single set includes 1 vial of No. 1 Exosome (100mg) and 1 vial of No. 2 PDRN + Collagen + Peptides (6ml) for individual treatment sessions.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">KEY INGREDIENTS & COMPOSITION</div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">No. 1: Triple Exosome Complex</div>
+            <div class="kst-concentration-badge">100mg per vial</div>
+            <div class="kst-ingredient-info">
+                <strong>Lactobacillus Exosomes:</strong> Probiotic-derived extracellular vesicles that enhance cellular communication and regeneration.<br><br>
+                <strong>Panax Ginseng Callus Extracellular Vesicles:</strong> Plant stem cell-derived vesicles promoting skin vitality and anti-aging effects.<br><br>
+                <strong>Cica (Centella Asiatica) Callus Extracellular Vesicles:</strong> Powerful anti-inflammatory and wound healing properties.<br><br>
+                <strong>Sodium Hyaluronate:</strong> Deep hydration and moisture barrier reinforcement.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">No. 2: PDRN + Collagen + Peptide Complex</div>
+            <div class="kst-concentration-badge">6ml per vial</div>
+            <div class="kst-ingredient-info">
+                <strong>H-PDRN (Polydeoxyribonucleotide):</strong> Supports damaged cell DNA repair and stimulates fibroblast activity to enhance natural collagen and elastin production.<br><br>
+                <strong>Atelocollagen & Hydrolyzed Collagen:</strong> Directly replenish structural skin proteins, improving firmness and preventing sagging.<br><br>
+                <strong>7 Amino Acid Peptides:</strong> Including Acetyl Hexapeptide-8 and Palmitoyl Pentapeptide-4 for enhanced anti-wrinkle effects.<br><br>
+                <strong>Tranexamic Acid:</strong> Brightening agent for pigmentation reduction.<br><br>
+                <strong>Ascorbic Acid:</strong> Antioxidant protection and collagen synthesis support.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">SYNERGISTIC MECHANISM OF ACTION</div>
+            <div class="kst-description">
+                The triple exosome complex utilizes nanoparticle technology to penetrate the skin barrier, delivering signaling molecules that promote cellular communication and regeneration. H-PDRN acts as a building block for DNA repair while stimulating fibroblast activity. The collagen and peptide complex provides immediate structural support and promotes long-term synthesis of skin proteins for comprehensive rejuvenation.
+            </div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">NANOPARTICLE DELIVERY</span>
+                <span class="kst-keyword-badge">DNA REPAIR</span>
+                <span class="kst-keyword-badge">COLLAGEN SYNTHESIS</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-section">
+        INGREDIENT MOLECULAR STRUCTURE VISUALIZATION
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">KEY BENEFITS & EFFECTS</div>
+        
+        <div class="kst-effects-grid">
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">01</div>
+                <div class="kst-effect-title">INTENSIVE SKIN REGENERATION</div>
+                <div class="kst-effect-description">
+                    Supports the renewal of skin cells and aids in the reconstruction of damaged dermal layers through advanced exosome technology and H-PDRN cellular repair mechanisms.
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">02</div>
+                <div class="kst-effect-title">ANTI-AGING & WRINKLE REDUCTION</div>
+                <div class="kst-effect-description">
+                    Improves skin elasticity and density, leading to visible smoothing of fine lines and wrinkles, particularly effective around the eye area through enhanced collagen and elastin production.
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">03</div>
+                <div class="kst-effect-title">PIGMENTATION & TONE CORRECTION</div>
+                <div class="kst-effect-description">
+                    Contains tranexamic acid and brightening components that help reduce the appearance of dark spots and pigmentation for a more even and luminous complexion.
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">04</div>
+                <div class="kst-effect-title">DEEP & LASTING HYDRATION</div>
+                <div class="kst-effect-description">
+                    Provides superior moisturization by supporting the skin's natural moisture barrier using sodium hyaluronate and collagen complex for long-lasting hydration.
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">05</div>
+                <div class="kst-effect-title">ANTI-INFLAMMATORY & SOOTHING ACTION</div>
+                <div class="kst-effect-description">
+                    Cica exosomes possess powerful properties that help calm the skin, reduce redness, and support wound healing processes for sensitive or post-procedure skin.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-section">
+        BEFORE/AFTER CLINICAL RESULTS DOCUMENTATION
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">USAGE PROTOCOL & APPLICATION</div>
+        
+        <div class="kst-steps-container">
+            <div class="kst-step-card">
+                <div class="kst-step-number">2</div>
+                <div class="kst-step-title">SKIN PREPARATION</div>
+                <div class="kst-step-description">
+                    Cleanse the treatment area thoroughly. Apply an adequate amount of the reconstituted solution to clean skin. Allow brief absorption for 1-3 minutes before proceeding.
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">3</div>
+                <div class="kst-step-title">MTS APPLICATION METHOD</div>
+                <div class="kst-step-description">
+                    Apply using Micro-Needle Therapy System (MTS) for optimal absorption. The professional delivery method maximizes penetration of active ingredients into skin layers. Do NOT use on wounded skin, eczema, or dermatitis.
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">4</div>
+                <div class="kst-step-title">POST-APPLICATION CARE</div>
+                <div class="kst-step-description">
+                    Follow professional post-procedure care guidelines. Avoid direct sun exposure and use appropriate sun protection. Keep the treated area clean and moisturized.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-card kst-mt-small">
+            <div class="kst-dt">RECOMMENDED TREATMENT CYCLE</div>
+            <div class="kst-description">
+                The optimal protocol consists of <span class="kst-highlight-text">3 sessions</span> spaced at <span class="kst-highlight-text">2 to 4-week intervals</span> for maximum results. Maintenance sessions are recommended once or twice a year thereafter to sustain improvements.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">COMPLEMENTARY APPLICATION METHODS</div>
+            <div class="kst-description">
+                For enhanced effectiveness, LXC can be combined with professional delivery methods such as Micro-Needle Therapy System (MTS) or needle-free impact technology to maximize absorption and penetration of active ingredients.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-section">
+        MTS APPLICATION TECHNIQUE REFERENCE GUIDE
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">RECOMMENDED TREATMENT STRATEGY BY TARGET</div>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>Target Strategy</th>
+                        <th>Primary Concern</th>
+                        <th>LXC Focus</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Global Anti-Aging</td>
+                        <td>Fine lines, loss of density, uneven tone</td>
+                        <td>Overall cellular regeneration and collagen boost</td>
+                        <td>Triple Exosome and PDRN complex addresses multiple signs of photo- and chrono-aging</td>
+                    </tr>
+                    <tr>
+                        <td>Damaged/Stressed Skin</td>
+                        <td>Redness, post-procedure healing, sensitivity</td>
+                        <td>Anti-inflammatory and repair mechanisms</td>
+                        <td>Cica Exosomes and H-PDRN support rapid cell repair and reduce inflammation</td>
+                    </tr>
+                    <tr>
+                        <td>Dry/Devitalized Skin</td>
+                        <td>Lack of moisture, dullness, poor texture</td>
+                        <td>Superior hydration and antioxidant barrier reinforcement</td>
+                        <td>Collagen and peptide complex provides deep, long-lasting moisture and strengthens skin's resilience</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card kst-mt-small">
+            <div class="kst-dt">WHO IS LXC SUITABLE FOR?</div>
+            <ul>
+                <li>Individuals seeking intensive anti-aging treatment</li>
+                <li>Those with loss of skin firmness or density</li>
+                <li>Clients with sun-damaged or pigmented skin</li>
+                <li>Those looking for enhanced post-procedure recovery</li>
+                <li>Anyone desiring comprehensive skin revitalization targeting texture, elasticity, hydration, and tone simultaneously</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">PRODUCT SPECIFICATIONS</div>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>Value</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product Type</td>
+                        <td>Professional Use</td>
+                        <td>For professional application only</td>
+                    </tr>
+                    <tr>
+                        <td>Exosome Content</td>
+                        <td>100mg per vial</td>
+                        <td>Triple exosome complex (freeze-dried)</td>
+                    </tr>
+                    <tr>
+                        <td>Solvent Volume</td>
+                        <td>6ml per vial</td>
+                        <td>PDRN + Collagen + Peptides solution</td>
+                    </tr>
+                    <tr>
+                        <td>Storage Temperature</td>
+                        <td>2°C - 25°C</td>
+                        <td>Cool, dry place away from direct sunlight</td>
+                    </tr>
+                    <tr>
+                        <td>Usage After Reconstitution</td>
+                        <td>Immediate use</td>
+                        <td>Do not store reconstituted mixture</td>
+                    </tr>
+                    <tr>
+                        <td>Application Method</td>
+                        <td>MTS/Professional</td>
+                        <td>Micro-Needle Therapy System or equivalent</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card kst-mt-small">
+            <div class="kst-dt">STORAGE & HANDLING CONDITIONS</div>
+            <div class="kst-description">
+                Store in a cool, dry place away from direct sunlight, maintaining temperature between 2°C and 25°C. General storage conditions apply (not strictly refrigerated), but temperature control is essential for maintaining product integrity. Once reconstituted, use immediately under professional supervision.
+            </div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">TEMPERATURE: 2-25°C</span>
+                <span class="kst-keyword-badge">AVOID DIRECT LIGHT</span>
+                <span class="kst-keyword-badge">IMMEDIATE USE AFTER MIXING</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">ADVANCED TECHNOLOGY</div>
+        
+        <div class="kst-protocol-container">
+            <div class="kst-protocol-panel">
+                <div class="kst-protocol-number">5th</div>
+                <div class="kst-protocol-title">GENERATION EXOSOME TECHNOLOGY</div>
+                <div class="kst-protocol-content">
+                    This fifth-generation skin enhancer utilizes advanced exosome nanoparticle technology for superior delivery of active ingredients. The nano-sized extracellular vesicles can effectively penetrate the skin barrier, allowing for visible clinical improvements in signs of aging within a 4-week period. This represents the cutting edge of regenerative aesthetic medicine.
+                </div>
+            </div>
+            
+            <div class="kst-protocol-panel">
+                <div class="kst-protocol-number">3X</div>
+                <div class="kst-protocol-title">TRIPLE EXOSOME SYNERGY</div>
+                <div class="kst-protocol-content">
+                    The unique combination of three distinct exosome sources (Lactobacillus, Panax Ginseng, and Cica) provides comprehensive cellular communication enhancement. Each exosome type contributes specialized benefits: probiotic-derived for regeneration, plant stem cell for vitality, and Centella Asiatica for soothing and healing.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-section">
+        EXOSOME NANOPARTICLE DELIVERY MECHANISM DIAGRAM
+    </div>
+    
+    <div class="kst-safety-section">
+        <div class="kst-safety-header">SAFETY INFORMATION & CONTRAINDICATIONS</div>
+        <div class="kst-safety-content">
+            Important safety information for proper product use. This product is for professional use only and must be administered by qualified practitioners.
+            
+            <ul class="kst-safety-list">
+                <li>Must NOT be applied to areas with open wounds, eczema, or dermatitis</li>
+                <li>Must NOT be used on active skin infections or compromised skin barrier</li>
+                <li>For professional use only - not for self-administration</li>
+                <li>Use immediately after reconstitution - do not store mixed solution</li>
+                <li>Perform skin assessment before treatment to ensure suitability</li>
+                <li>Follow strict sterile technique during application</li>
+                <li>Discontinue use if adverse reactions occur and seek medical advice</li>
+                <li>Store according to specified temperature conditions (2-25°C)</li>
+            </ul>
+            
+            <div class="kst-mt-medium">
+                <div class="kst-dt">POST-TREATMENT CARE</div>
+                <div class="kst-description">
+                    After treatment, clients should avoid direct sun exposure, use appropriate sun protection (SPF 30+), and follow all post-procedure care instructions provided by the treating professional. Temporary mild redness or sensitivity may occur and typically resolves within 24-48 hours.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">FREQUENTLY ASKED QUESTIONS</div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                HOW QUICKLY CAN I EXPECT TO SEE RESULTS?
+            </div>
+            <div class="kst-faq-answer">
+                Clinical improvements can be observed within a 4-week period following the complete treatment protocol. Initial effects such as improved hydration and skin radiance may be visible within the first week. Optimal results for wrinkle reduction, elasticity improvement, and pigmentation correction become progressively more apparent over the full treatment cycle of 3 sessions spaced 2-4 weeks apart.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHAT MAKES LXC DIFFERENT FROM OTHER SKIN BOOSTERS?
+            </div>
+            <div class="kst-faq-answer">
+                LXC represents fifth-generation technology featuring a unique triple exosome complex combined with H-PDRN and collagen. Unlike conventional skin boosters that focus on single mechanisms, LXC provides comprehensive cellular-level regeneration through advanced nanoparticle delivery, DNA repair support, and structural protein replenishment simultaneously. This multi-modal approach delivers superior anti-aging results.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                HOW SHOULD THE PRODUCT BE STORED?
+            </div>
+            <div class="kst-faq-answer">
+                Store unopened vials in a cool, dry place away from direct sunlight at temperatures between 2°C and 25°C. The product does not require strict refrigeration but temperature control is essential. Once the lyophilized powder is reconstituted with the solvent, use immediately and do not store the mixed solution.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                CAN LXC BE COMBINED WITH OTHER TREATMENTS?
+            </div>
+            <div class="kst-faq-answer">
+                Yes, LXC demonstrates excellent synergy with professional delivery methods such as Micro-Needle Therapy System (MTS) or needle-free impact technology. Consult with your qualified professional to determine the optimal combination treatment protocol based on your specific skin concerns and goals.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHAT IS THE RECOMMENDED MAINTENANCE SCHEDULE?
+            </div>
+            <div class="kst-faq-answer">
+                After completing the initial protocol of 3 sessions spaced 2-4 weeks apart, maintenance treatments are typically recommended once or twice per year to sustain the improvements achieved. Your treating professional can customize the maintenance schedule based on your individual response and aesthetic goals.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                ARE THERE ANY CONTRAINDICATIONS?
+            </div>
+            <div class="kst-faq-answer">
+                LXC must not be applied to skin with open wounds, active eczema, dermatitis, or other skin infections. This is a professional-use product that should only be administered by qualified practitioners who can assess skin suitability and ensure proper application technique.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">KEY FEATURES SUMMARY</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">COMPREHENSIVE SKIN REVITALIZATION</div>
+            <div class="kst-description">
+                LXC is specifically engineered for comprehensive skin revitalization, simultaneously targeting multiple aging concerns including texture improvement, elasticity enhancement, deep hydration, and tone correction. The advanced formulation addresses both immediate cosmetic needs and long-term skin health.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">PROFESSIONAL-GRADE FORMULATION</div>
+            <div class="kst-description">
+                This professional-grade skin booster combines cutting-edge exosome technology with proven regenerative ingredients (H-PDRN, collagen, peptides) to deliver clinical-strength results. The dual-vial system ensures optimal stability and potency of all active components.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">ADVANCED DELIVERY SYSTEM</div>
+            <div class="kst-description">
+                Utilizing nanoparticle technology, the triple exosome complex effectively penetrates the skin barrier to deliver signaling molecules directly to target cells. This advanced delivery mechanism ensures maximum bioavailability and therapeutic effect of all active ingredients.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-section">
+        PRODUCT PACKAGING AND SPECIFICATIONS
+    </div>
+    
+    <div class="kst-section kst-mb-medium">
+        <div class="kst-card kst-text-center">
+            <div class="kst-dt">ADMINISTRATOR META KEYWORDS</div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">LXC</span>
+                <span class="kst-keyword-badge">LACTO EXO COLLA</span>
+                <span class="kst-keyword-badge">EXOSOME SKIN BOOSTER</span>
+                <span class="kst-keyword-badge">SKIN REGENERATION</span>
+                <span class="kst-keyword-badge">PDRN</span>
+                <span class="kst-keyword-badge">POLYDEOXYRIBONUCLEOTIDE</span>
+                <span class="kst-keyword-badge">ANTI-AGING</span>
+                <span class="kst-keyword-badge">WRINKLE REDUCTION</span>
+                <span class="kst-keyword-badge">SKIN ELASTICITY</span>
+                <span class="kst-keyword-badge">SKIN DENSITY</span>
+                <span class="kst-keyword-badge">PIGMENTATION REDUCTION</span>
+                <span class="kst-keyword-badge">LACTOBACILLUS EXOSOME</span>
+                <span class="kst-keyword-badge">PANAX GINSENG</span>
+                <span class="kst-keyword-badge">CICA</span>
+                <span class="kst-keyword-badge">ATELOCOLLAGEN</span>
+                <span class="kst-keyword-badge">MICRO-NEEDLE THERAPY</span>
+                <span class="kst-keyword-badge">MTS APPLICATION</span>
+                <span class="kst-keyword-badge">COLLAGEN SYNTHESIS</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function kstToggleFAQ(element) {
+    var answer = element.nextElementSibling;
+    var isActive = element.classList.contains('kst-active');
+    var allQuestions = document.querySelectorAll('.kst-faq-question');
+    for (var i = 0; i < allQuestions.length; i++) {
+        allQuestions[i].classList.remove('kst-active');
+        allQuestions[i].nextElementSibling.classList.remove('kst-active');
+    }
+    if (!isActive) {
+        element.classList.add('kst-active');
+        answer.classList.add('kst-active');
+    }
+}
+</script>-number">1</div>
+                <div class="kst-step-title">PREPARATION & RECONSTITUTION</div>
+                <div class="kst-step-description">
+                    Reconstitute the lyophilized Exosome ampoule (No. 1) with the PDRN/Collagen solvent ampoule (No. 2). Shake well to ensure complete mixing of all active ingredients.
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step
