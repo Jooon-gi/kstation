@@ -1,0 +1,473 @@
+<div class="kst-main-container" role="region" aria-label="Product Detail Container">
+  <style>
+    /* ========= KST: Scoped Variables & Base ========= */
+    .kst-main-container {
+      --kst-bg: #FFFFFF;
+      --kst-surface: #FFFFFF;
+      --kst-elev: #F8F9FA;
+      --kst-text: #222222;
+      --kst-subtext: #555555;
+      --kst-accent: #FF6B5E;
+      --kst-accent-2: #FF8C73;
+      --kst-danger: #E53E3E;
+      --kst-success: #38A169;
+      --kst-warning: #DD6B20;
+
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--kst-bg);
+      color: var(--kst-text) !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Pretendard", system-ui, Segoe UI, Roboto, Arial, Apple SD Gothic Neo, "Noto Sans", "Malgun Gothic", sans-serif;
+      line-height: 1.55;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    /* Only affect elements inside container */
+    .kst-main-container * {
+      box-sizing: border-box;
+      color: inherit !important;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .kst-container { padding: 16px; }
+    .kst-section { 
+      background: var(--kst-surface); 
+      border: 1px solid #E2E8F0; 
+      border-radius: 18px; 
+      padding: 16px; 
+      margin: 20px 0; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+    }
+    .kst-section-header { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .kst-section-kicker { 
+      font-size: 12px; 
+      letter-spacing: .12em; 
+      color: var(--kst-subtext) !important; 
+      text-transform: uppercase; 
+    }
+
+    /* Hero Section Styling */
+    #kst-basic-info {
+      background: linear-gradient(135deg, var(--kst-bg) 0%, #FEF2F1 100%);
+      border: 1px solid rgba(255, 107, 94, 0.3);
+    }
+    
+    .kst-hl {
+      font-weight: 800;
+      font-size: 30px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .kst-sp {
+      font-weight: 400;
+      font-size: 24px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: -14px;
+      margin-bottom: 20px;
+      opacity: 90%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .kst-muted { color: var(--kst-subtext) !important; }
+    .kst-accent { color: var(--kst-accent) !important; }
+
+    /* Cards & blocks */
+    .kst-card { 
+      background: var(--kst-bg); 
+      border: 1px solid #E2E8F0; 
+      border-radius: 18px; 
+      padding: 18px; 
+      margin: 12px 0; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: flex; 
+      flex-direction: column; 
+    }
+    .kst-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .kst-badge { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px; 
+      border-radius: 999px; 
+      padding: 8px 14px; 
+      font-size: 12px; 
+      border: 1px solid var(--kst-accent); 
+      background: var(--kst-accent);
+      color: #FFFFFF !important; 
+      font-weight: 600; 
+    }
+    .kst-badge.kst-brand { 
+      border: 1px solid var(--kst-accent); 
+      background: var(--kst-accent);
+      color: #FFFFFF !important; 
+    }
+    .kst-badge.kst-key { 
+      border: 1px solid var(--kst-accent-2); 
+      background: var(--kst-accent-2);
+      color: #FFFFFF !important; 
+    }
+
+    /* Lists */
+    .kst-list-vert {
+      display: grid;
+      margin: 0;
+      padding: 0;
+      padding-left: 0 !important;
+      list-style: none;
+    }
+    .kst-list-vert li { 
+      background: var(--kst-elev); 
+      border: 1px solid #E2E8F0; 
+      border-radius: 12px; 
+      padding: 12px; 
+      list-style: none; 
+      margin: 10px 0 !important;
+    }
+    .kst-kv { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    .kst-kv .kst-k { color: var(--kst-subtext) !important; font-size: 12px; }
+    .kst-kv .kst-v { font-weight: 600; color: var(--kst-text) !important; }
+
+    /* Definition list + chips */
+    .kst-dl { margin: 0; }
+    .kst-dl dt { 
+      font-weight: 800; 
+      margin-top: 16px; 
+      color: var(--kst-text) !important;
+      font-size: 16px;
+    }
+    .kst-dl dd { margin: 8px 0 0 0; }
+    .kst-chipset { display: flex; flex-wrap: wrap; margin-top: 12px; }
+    .kst-chip { 
+      font-size: 11px; 
+      padding: 8px 14px; 
+      border-radius: 999px; 
+      border: 1px solid rgba(255, 107, 94, 0.4);
+      background: rgba(255, 107, 94, 0.1);
+      color: var(--kst-accent) !important; 
+      font-weight: 600;
+      margin: 10px 0 !important;
+    }
+
+    /* Images / media blocks */
+    .kst-image-block, .kst-chart-block, .kst-video-block { 
+      position: relative; 
+      border-radius: 18px; 
+      overflow: hidden; 
+      background: var(--kst-elev); 
+      border: 1px dashed #CBD5E0; 
+      min-height: 180px; 
+      display: grid; 
+      place-items: center;
+    }
+    .kst-image-block img, .kst-chart-block img { 
+      width: 100%; 
+      height: auto; 
+      object-fit: cover; 
+      display: block; 
+    }
+    .kst-img-label { 
+      position: absolute; 
+      bottom: 12px; 
+      left: 12px; 
+      font-size: 11px; 
+      background: rgba(255, 255, 255, 0.8);
+      color: #4A5568 !important;
+      font-weight: 700;
+      border: 1px solid #E2E8F0;
+      padding: 6px 12px; 
+      border-radius: 999px; 
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Auto-hide empty media slots (CSS :has) */
+    .kst-image-block:not(:has(img[src])) { display: none; }
+    .kst-image-block:has(img[src=""]) { display: none; }
+    .kst-chart-block:not(:has(img[src])) { display: none; }
+    .kst-chart-block:has(img[src=""]) { display: none; }
+    .kst-video-block:not(:has(video[src])) { display: none; }
+    .kst-video-block:has(video[src=""]) { display: none; }
+
+    /* Table wrapper (horizontal scroll only inside) */
+    .kst-table-wrap { 
+      overflow-x: auto; 
+      -webkit-overflow-scrolling: touch; 
+      border: 1px solid #E2E8F0; 
+      border-radius: 12px; 
+    }
+    .kst-table {
+      border-collapse: collapse; 
+      width: 100%; 
+      background: var(--kst-elev); 
+      table-layout: auto !important;
+    }
+    .kst-table th, .kst-table td { 
+      text-align: left; 
+      padding: 12px; 
+      border-bottom: 1px solid #E2E8F0;
+      white-space: nowrap !important;
+    }
+    .kst-table th { color: var(--kst-accent) !important; font-weight: 700; }
+    .kst-table tr:hover { background: #F0F4F8; }
+
+    /* Scrollbar always visible (webkit) */
+    .kst-table-wrap::-webkit-scrollbar { height: 10px; }
+    .kst-table-wrap::-webkit-scrollbar-thumb { background: #CBD5E0; border-radius: 8px; }
+    .kst-table-wrap::-webkit-scrollbar-track { background: #E2E8F0; }
+
+    /* Numbered steps */
+    .kst-steps { display: grid; counter-reset: kst-step; }
+    .kst-step { position: relative; margin: 10px 0; padding-left: 54px; }
+    .kst-step::before {
+      counter-increment: kst-step;
+      content: counter(kst-step);
+      position: absolute; left: 0; top: 0;
+      width: 40px; height: 40px; display: grid; place-items: center;
+      border-radius: 999px; 
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%); 
+      color: #FFFFFF !important; 
+      border: none;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(255, 107, 94, 0.2);
+    }
+
+    /* Details / FAQ */
+    .kst-accordion { border: 1px solid #E2E8F0; border-radius: 12px; background: var(--kst-elev); overflow: hidden; }
+    .kst-accordion details { border-bottom: 1px solid #E2E8F0; }
+    .kst-accordion details:last-child { border-bottom: 0; }
+    .kst-accordion summary { cursor: pointer; padding: 14px; list-style: none; color: var(--kst-text) !important; }
+    .kst-accordion summary::-webkit-details-marker { display: none; }
+    .kst-accordion .kst-qa { padding: 0 14px 14px 14px; color: var(--kst-subtext) !important; }
+
+    /* Callouts */
+    .kst-callout { border-radius: 12px; padding: 12px; border: 1px solid #E2E8F0; background: #F0F4F8; }
+    .kst-callout.kst-danger { border-color: #FED7D7; background: #FFF5F5; color: #C53030 !important; }
+    .kst-callout.kst-warning { border-color: #FEEBC8; background: #FFFBF0; color: #DD6B20 !important; }
+    .kst-callout.kst-success { border-color: #C6F6D5; background: #F0FFF4; color: #276749 !important; }
+  </style>
+
+  <div class="kst-container">
+
+    <section id="kst-basic-info" class="kst-section">
+      <div class="kst-section-header">
+        <div class="kst-section-kicker">PLLA Biostimulator</div>
+      </div>
+      <h1 class="kst-hl">MENNUS PLUS</h1>
+      <h2 class="kst-sp">PLA 360mg x 1 Vial</h2>
+      <p class="kst-muted">Advanced poly-L-lactic acid (PLLA) based filler designed for long-lasting collagen synthesis and volume restoration</p>
+
+      <div class="kst-badges" aria-label="Product Badges">
+        <span class="kst-badge kst-brand">BIOSTIMULATOR</span>
+        <span class="kst-badge">COLLAGEN BOOSTER</span>
+        <span class="kst-badge kst-key">18-24 MONTHS</span>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="MENNUS PLUS main product vial showcase" />
+          <span class="kst-img-label">MENNUS PLUS Product</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Single vial containing 360mg of poly-L-lactic acid powder for professional use</p>
+      </div>
+
+    </section>
+
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Active Ingredients</span></div>
+      <dl class="kst-dl">
+        <dt>Primary Active Component</dt>
+        <dd>Poly-L-lactic Acid (PLLA) - A biodegradable and biocompatible polymer that stimulates the body's natural collagen production.</dd>
+        <div class="kst-chipset">
+          <span class="kst-chip">PLA 360mg per vial</span>
+          <span class="kst-chip">Biodegradable</span>
+          <span class="kst-chip">Biocompatible</span>
+        </div>
+
+        <dt>Reconstitution Components</dt>
+        <dd>For preparation, mix with 8-10ml of sterile distilled water and 1-2ml of 2% Lidocaine for optimal injection experience.</dd>
+        <div class="kst-chipset">
+          <span class="kst-chip">Sterile Water 8-10ml</span>
+          <span class="kst-chip">2% Lidocaine 1-2ml</span>
+          <span class="kst-chip">Freeze-dry Technology</span>
+        </div>
+      </dl>
+
+      <ul class="kst-list-vert" style="margin-top:10px">
+        <li><strong class="kst-accent">Collagen Stimulation</strong><br/><span class="kst-muted">PLLA particles encourage the body to produce its own collagen, leading to natural and gradual improvement over time.</span></li>
+        <li><strong class="kst-accent">Spherical Design</strong><br/><span class="kst-muted">Specially designed spherical PLA particles allow for easy injection without needle blockage and create even, stable volume.</span></li>
+        <li><strong class="kst-accent">Fast Dilution</strong><br/><span class="kst-muted">Freeze-drying technology enables faster reconstitution and smoother injection experience.</span></li>
+      </ul>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="PLLA molecular structure and collagen synthesis diagram" />
+        <span class="kst-img-label">PLLA Structure</span>
+      </div>
+    </section>
+
+    <section id="kst-benefits" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Clinical Benefits</span></div>
+
+        <ul class="kst-list-vert" aria-label="Expected treatment outcomes">
+          <li>Long-lasting collagen regeneration and volume restoration</li>
+          <li>Improvement of deep wrinkles and fine lines</li>
+          <li>Overall skin rejuvenation and increased elasticity</li>
+          <li>Natural and gradual improvement over 18-24 months</li>
+        </ul>
+        <div class="kst-badges" style="margin-top:10px">
+          <span class="kst-badge kst-key">Volume Restoration</span>
+          <span class="kst-badge kst-key">Wrinkle Improvement</span>
+          <span class="kst-badge kst-key">Skin Elasticity</span>
+        </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="Before treatment - facial assessment" />
+          <span class="kst-img-label">Before Treatment</span>
+        </div>
+        <div class="kst-image-block" style="margin-top:10px">
+          <img src="" alt="After treatment results showing volume and texture improvement" />
+          <span class="kst-img-label">After Treatment Results</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Initial volume effect lasts 3-9 months, while collagen regeneration provides lasting results for 18-24 months.</p>
+      </div>
+    </section>
+
+    <section id="kst-protocol" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Treatment Protocol</span></div>
+
+      <div class="kst-steps">
+        <div class="kst-step"><strong>Preparation</strong><br/><span class="kst-muted">Reconstitute 360mg PLA powder with 8-10ml sterile distilled water and 1-2ml of 2% Lidocaine</span></div>
+        <div class="kst-step"><strong>Withdrawal</strong><br/><span class="kst-muted">Use 18G needle to withdraw the reconstituted solution from the vial</span></div>
+        <div class="kst-step"><strong>Injection</strong><br/><span class="kst-muted">Inject using 26G needle or 25G cannula into superficial dermal to subcutaneous layer</span></div>
+        <div class="kst-step"><strong>Post-Treatment</strong><br/><span class="kst-muted">Perform recommended massage and provide proper aftercare instructions to patients</span></div>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Treatment Sessions</div>
+            <div class="kst-v">1-3 sessions depending on individual needs</div>
+          </div>
+          <div>
+            <div class="kst-k">Effect Duration</div>
+            <div class="kst-v">18-24 months for collagen regeneration</div>
+          </div>
+          <div>
+            <div class="kst-k">Injection Layer</div>
+            <div class="kst-v">Superficial dermal to subcutaneous</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="Step-by-step injection technique guide" />
+        <span class="kst-img-label">Injection Technique</span>
+      </div>
+    </section>
+
+    <section id="kst-treatment-areas" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Treatment Applications</span></div>
+
+      <div class="kst-table-wrap" role="region" aria-label="Treatment strategy comparison">
+        <table class="kst-table">
+          <thead>
+            <tr>
+              <th>Treatment Strategy</th>
+              <th>Viscosity</th>
+              <th>Treatment Area</th>
+              <th>Injection Layer</th>
+              <th>Needle Gauge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Facial Volume & Contouring</td>
+              <td>Medium</td>
+              <td>Cheeks, temporal area, nasolabial folds, chin</td>
+              <td>Dermal to subcutaneous</td>
+              <td>25G cannula or 26G needle</td>
+            </tr>
+            <tr>
+              <td>Skin Rejuvenation</td>
+              <td>Low (after dilution)</td>
+              <td>Face, neck & decollete, hands</td>
+              <td>Superficial dermal</td>
+              <td>26G needle</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-card">
+        <p><strong class="kst-accent">Suitable Treatment Areas</strong></p>
+        <ul class="kst-list-vert">
+          <li>Face: cheeks, chin, temporal area, nasolabial folds</li>
+          <li>Neck and decollete area for skin quality improvement</li>
+          <li>Hands for volume restoration and skin rejuvenation</li>
+          <li>Any area requiring long-term collagen stimulation</li>
+        </ul>
+      </div>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="Facial injection zones and treatment areas diagram" />
+        <span class="kst-img-label">Treatment Areas</span>
+      </div>
+    </section>
+
+    <section id="kst-storage-safety" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Storage & Safety Information</span></div>
+      
+        <p><strong class="kst-accent">Storage Requirements</strong></p>
+        <ul class="kst-list-vert">
+          <li>Store at 2°C ~ 25°C in a cool, dry environment</li>
+          <li>Protect from direct sunlight and extreme temperatures</li>
+          <li>Use reconstituted product within 72 hours</li>
+          <li>Keep vial tightly sealed when not in use</li>
+        </ul>
+
+      <div class="kst-callout kst-warning"><strong>Important Precautions</strong> — Avoid use in patients with history of keloid formation or hypertrophic scarring. Common injection-related reactions may include swelling, pain, or hemorrhage.</div>
+      
+      <div class="kst-callout kst-danger" style="margin-top:10px"><strong>Post-Treatment Care</strong> — Patients should avoid saunas, swimming pools, and vigorous exercise for at least one week. Proper massage technique should be performed as instructed.</div>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="Storage conditions and safety precautions infographic" />
+        <span class="kst-img-label">Storage & Safety Guide</span>
+      </div>
+    </section>
+
+    <section class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Frequently Asked Questions</span></div>
+      <div class="kst-accordion">
+        <details>
+          <summary>How does MENNUS PLUS differ from traditional fillers?</summary>
+          <div class="kst-qa">Unlike temporary fillers, MENNUS PLUS is a biostimulator that works by encouraging the body to produce its own collagen, leading to natural and gradual improvement that lasts 18-24 months.</div>
+        </details>
+        <details>
+          <summary>What is the reconstitution process?</summary>
+          <div class="kst-qa">Mix the 360mg PLA powder with 8-10ml of sterile distilled water and 1-2ml of 2% Lidocaine. The freeze-drying technology allows for faster dilution and smoother injection.</div>
+        </details>
+        <details>
+          <summary>How many treatment sessions are typically needed?</summary>
+          <div class="kst-qa">Generally 1-3 sessions are recommended depending on individual patient needs and desired outcomes. The treatment plan should be customized for each patient.</div>
+        </details>
+        <details>
+          <summary>What are the expected results timeline?</summary>
+          <div class="kst-qa">Initial volume effect from the CMC gel component lasts approximately 3-9 months, while the secondary effect from collagen regeneration provides lasting results for 18-24 months.</div>
+        </details>
+      </div>
+    </section>
+
+  </div>
+</div>

@@ -1,0 +1,932 @@
+<style>
+    /* Reset and base styles with kst- prefix */
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--kst-bg-white);
+        color: var(--kst-text-primary);
+        padding: 0;
+        line-height: 1.6;
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    /* Color Variables */
+    :root {
+        --kst-main: #CB6C43;
+        --kst-sub: #F5B76B;
+        --kst-text-primary: #6b5e4c;
+        --kst-text-secondary: #e9e3da;
+        --kst-bg-white: #ffffff;
+        --kst-badge-bg: #EC839F;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #b68645;
+        --kst-border: #e9e3da;
+        --kst-bg-alt: #faf8f5;
+    }
+    
+    /* Hide image blocks when no images are present */
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .kst-hero-section {
+        background: linear-gradient(135deg, #faf8f5 0%, var(--kst-bg-white) 100%);
+        padding: 40px 16px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-hero-section::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle, rgba(203, 108, 67, 0.1) 0%, transparent 60%);
+        border-radius: 50%;
+    }
+    
+    .kst-product-logo {
+        width: 60px;
+        height: 60px;
+        background: var(--kst-main);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        box-shadow: 0 8px 25px rgba(203, 108, 67, 0.2);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .kst-product-logo::before {
+        content: '✦';
+        color: var(--kst-bg-white);
+        font-size: 24px;
+        font-weight: 300;
+    }
+    
+    .kst-product-title {
+        font-size: 32px;
+        font-weight: 400;
+        color: var(--kst-text-primary);
+        margin-bottom: 16px;
+        letter-spacing: -0.5px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-spec {
+        font-size: 18px;
+        font-weight: 300;
+        color: var(--kst-main);
+        margin-top: -8px;
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-subtitle {
+        font-size: 16px;
+        color: var(--kst-main);
+        font-weight: 500;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-hero-description {
+        font-size: 14px;
+        color: var(--kst-text-primary);
+        margin: 0 auto 30px;
+        line-height: 1.7;
+        position: relative;
+        z-index: 2;
+    }
+    
+    /* Section Styles */
+    .kst-section {
+        padding: 40px 16px;
+        margin: 0;
+    }
+    
+    .kst-section-title {
+        font-size: 24px;
+        font-weight: 300;
+        color: var(--kst-text-primary);
+        text-align: center;
+        margin-bottom: 30px;
+        letter-spacing: -0.5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-alt {
+        background: var(--kst-bg-alt);
+    }
+    
+    /* Image Blocks */
+    .kst-image-block {
+        background: linear-gradient(135deg, var(--kst-bg-alt) 0%, #f5f0ea 100%);
+        border: 1px solid var(--kst-border);
+        border-radius: 12px;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+    
+    .kst-image-placeholder {
+        padding: 40px 20px;
+        text-align: center;
+        color: var(--kst-main);
+        font-size: 12px;
+        font-style: italic;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Card Styles */
+    .kst-card {
+        background: var(--kst-bg-white);
+        border: 1px solid var(--kst-border);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 12px 0;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .kst-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(203, 108, 67, 0.15);
+    }
+    
+    .kst-card-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--kst-text-primary);
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card-content {
+        font-size: 14px;
+        color: var(--kst-text-primary);
+        line-height: 1.6;
+    }
+    
+    /* Badge Styles */
+    .kst-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text);
+        padding: 4px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+        margin: 4px 8px 4px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .kst-badge-primary {
+        background: var(--kst-main);
+        color: var(--kst-bg-white);
+    }
+    
+    .kst-badge-warning {
+        background: var(--kst-sub);
+        color: var(--kst-text-primary);
+    }
+    
+    /* Grid Layouts */
+    .kst-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px 0;
+    }
+    
+    .kst-grid-item {
+        background: var(--kst-bg-alt);
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid var(--kst-border);
+        text-align: center;
+    }
+    
+    .kst-grid-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--kst-main);
+        margin-bottom: 4px;
+    }
+    
+    .kst-grid-label {
+        font-size: 12px;
+        color: var(--kst-text-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Step Styles */
+    .kst-step {
+        background: linear-gradient(135deg, var(--kst-bg-alt) 0%, var(--kst-bg-white) 100%);
+        border: 1px solid var(--kst-border);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 16px 0;
+        position: relative;
+    }
+    
+    .kst-step-number {
+        width: 30px;
+        height: 30px;
+        background: var(--kst-main);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--kst-bg-white);
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    
+    .kst-step-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--kst-text-primary);
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-step-description {
+        font-size: 13px;
+        color: var(--kst-text-primary);
+        line-height: 1.5;
+    }
+    
+    /* Table Styles */
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(203, 108, 67, 0.1);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-main);
+        border-radius: 3px;
+    }
+    
+    .kst-table {
+        width: 100%;
+        background: var(--kst-bg-white);
+        border-collapse: collapse;
+        border-radius: 12px;
+        overflow: hidden;
+        table-layout: auto;
+    }
+    
+    .kst-table thead {
+        background: var(--kst-main);
+        color: var(--kst-bg-white);
+    }
+    
+    .kst-table th,
+    .kst-table td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid var(--kst-border);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-table th {
+        font-weight: 600;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--kst-bg-white);
+        white-space: nowrap;
+    }
+    
+    .kst-table td {
+        font-size: 13px;
+        color: var(--kst-text-primary);
+    }
+    
+    .kst-table tbody tr:hover {
+        background: var(--kst-bg-alt);
+    }
+    
+    /* List Styles */
+    .kst-list {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0;
+    }
+    
+    .kst-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 6px 0;
+        color: var(--kst-text-primary);
+        font-size: 14px;
+    }
+    
+    .kst-list-icon {
+        width: 16px;
+        height: 16px;
+        background: var(--kst-main);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--kst-bg-white);
+        font-size: 10px;
+        font-weight: bold;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    
+    .kst-list-icon::before {
+        content: '✓';
+    }
+    
+    /* Definition List Styles */
+    .kst-dl {
+        margin: 20px 0;
+    }
+    
+    .kst-dt {
+        font-weight: 600;
+        color: var(--kst-text-primary);
+        font-size: 14px;
+        margin-bottom: 4px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-dd {
+        color: var(--kst-text-primary);
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        margin-left: 0;
+        padding-left: 16px;
+        border-left: 3px solid var(--kst-sub);
+    }
+    
+    /* Warning/Safety Styles */
+    .kst-warning {
+        background: linear-gradient(135deg, #fef5e7 0%, #ffd89b 100%);
+        border: 2px solid var(--kst-sub);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        position: relative;
+    }
+    
+    .kst-warning::before {
+        content: '⚠️';
+        position: absolute;
+        top: -12px;
+        left: 20px;
+        background: var(--kst-sub);
+        color: var(--kst-bg-white);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+    
+    .kst-warning-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-text-primary);
+        margin-bottom: 8px;
+        margin-top: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-warning-content {
+        font-size: 13px;
+        color: var(--kst-text-primary);
+        line-height: 1.6;
+    }
+    
+    .kst-warning-list {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0 0;
+    }
+    
+    .kst-warning-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 3px 0;
+        font-size: 12px;
+        color: var(--kst-text-primary);
+    }
+    
+    .kst-warning-list li::before {
+        content: '•';
+        color: var(--kst-sub);
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+    
+    /* Chart Placeholder */
+    .kst-chart-block {
+        background: linear-gradient(135deg, var(--kst-bg-alt) 0%, #f5f0ea 100%);
+        border: 1px solid var(--kst-border);
+        padding: 30px 20px;
+        text-align: center;
+        border-radius: 12px;
+        color: var(--kst-main);
+        font-size: 12px;
+        font-style: italic;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    
+    /* Text Utilities */
+    .kst-text-center {
+        text-align: center;
+    }
+    
+    .kst-text-muted {
+        color: var(--kst-text-primary);
+    }
+    
+    .kst-text-small {
+        font-size: 12px;
+    }
+    
+    .kst-mb-0 { margin-bottom: 0; }
+    .kst-mb-1 { margin-bottom: 8px; }
+    .kst-mb-2 { margin-bottom: 16px; }
+    .kst-mb-3 { margin-bottom: 24px; }
+    
+    .kst-mt-0 { margin-top: 0; }
+    .kst-mt-1 { margin-top: 8px; }
+    .kst-mt-2 { margin-top: 16px; }
+    .kst-mt-3 { margin-top: 24px; }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- Hero Section -->
+    <div class="kst-hero-section">
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Product Packaging Image
+            </div>
+        </div>
+        <div class="kst-product-logo"></div>
+        <h1 class="kst-product-title">CAMELLIA EXO N°5<br>Exosome Skin Booster</h1>
+        <div class="kst-product-spec">Dual Ampoule System - 6 Vials Total</div>
+        <div class="kst-product-subtitle">Professional Exosome Skin Regeneration</div>
+        <div class="kst-hero-description">
+            Advanced dual ampoule system combining 5 plant-derived exosomes with high-purity PDRN and collagen peptides for intensive skin regeneration and anti-aging. Features 100mg exosome powder (3 vials) and 6ml PDRN + Collagen solvent (3 vials).
+        </div>
+    </div>
+    
+    <!-- Key Innovation Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Revolutionary Exosome Technology</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Exosome Technology Visualization
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-badge">Innovation</div>
+            <h3 class="kst-card-title">5 Plant-Derived Exosomes</h3>
+            <div class="kst-card-content">
+                Approximately 15 billion exosomes per ml, purified from the culture media of 5 specialized plant stem cells: Camellia Japonica, Red Ginseng, Centella Asiatica, Carrot, and Ice Plant. These ultra-nano particles contain various signaling molecules that facilitate intercellular communication for enhanced skin regeneration.
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><div class="kst-list-icon"></div><span>Promotes cellular regeneration and tissue repair</span></li>
+            <li><div class="kst-list-icon"></div><span>Powerful anti-inflammatory and antioxidant effects</span></li>
+            <li><div class="kst-list-icon"></div><span>Supports and repairs the skin barrier</span></li>
+            <li><div class="kst-list-icon"></div><span>Enhances intercellular communication</span></li>
+        </ul>
+    </div>
+    
+    <!-- Key Ingredients Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Triple-Action Ingredient Complex</h2>
+        
+        <dl class="kst-dl">
+            <dt class="kst-dt">5 Plant-Derived Exosomes</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">~15 Billion/ml</span>
+                Ultra-nano particles from Camellia Japonica, Red Ginseng, Centella Asiatica, Carrot, and Ice Plant stem cells. These exosomes deliver signaling molecules directly to skin cells, promoting regeneration, reducing inflammation, and repairing the skin barrier.
+            </dd>
+            
+            <dt class="kst-dt">PDRN (Polydeoxyribonucleotide)</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">30,000 PPM</span>
+                High-purity PDRN/PN acts as a DNA synthesis building block, accelerating tissue repair, enhancing cellular turnover, and promoting deep skin hydration while reconstructing damaged tissue at the molecular level.
+            </dd>
+            
+            <dt class="kst-dt">Collagen & Peptide Complex</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">Multi-Peptide</span>
+                Contains Atelocollagen, Hydrolyzed Collagen, and 8 specialized amino acid peptides including Biotinoyl Tripeptide-1, Nicotinoyl Tripeptide-1, and Nonapeptide-1. Provides structural support and stimulates natural collagen and elastin synthesis.
+            </dd>
+        </dl>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Ingredient Synergy Diagram
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Synergistic Action Mechanism</h3>
+            <div class="kst-card-content">
+                The combination of exosomes, PDRN, and collagen peptides creates a powerful synergistic effect. Exosomes deliver regenerative signals, PDRN provides the building blocks for tissue repair, and peptides stimulate the skin's own production of structural proteins, resulting in comprehensive skin rejuvenation.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Benefits Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Comprehensive Skin Benefits</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">✦</div>
+                <div class="kst-grid-label">Skin Regeneration</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">✦</div>
+                <div class="kst-grid-label">Anti-Aging</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">✦</div>
+                <div class="kst-grid-label">Deep Hydration</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">✦</div>
+                <div class="kst-grid-label">Anti-Inflammatory</div>
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><div class="kst-list-icon"></div><span>Accelerates repair of damaged tissue and promotes natural healing</span></li>
+            <li><div class="kst-list-icon"></div><span>Reduces fine lines and wrinkles while improving skin elasticity</span></li>
+            <li><div class="kst-list-icon"></div><span>Restores moisture barrier and provides long-lasting hydration</span></li>
+            <li><div class="kst-list-icon"></div><span>Soothes sensitive skin and improves overall tone and radiance</span></li>
+        </ul>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Before & After Results
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Long-Term Skin Transformation</h3>
+            <div class="kst-card-content">
+                Regular use promotes sustained improvements in skin quality, with visible enhancement in texture, firmness, and overall skin health. The regenerative effects continue to develop over time, leading to progressively healthier and more youthful-looking skin.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Usage Protocol Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Professional Application Protocol</h2>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">1</div>
+            <div class="kst-step-title">Preparation</div>
+            <div class="kst-step-description">Open the vial containing the Exosome Powder (Ampoule 1) and the vial containing the PDRN/Collagen Solvent (Ampoule 2). Carefully remove the rubber stoppers from both vials.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">2</div>
+            <div class="kst-step-title">Mixing</div>
+            <div class="kst-step-description">Carefully pour the entire contents of the PDRN/Solvent Ampoule into the Exosome Powder vial. Mix thoroughly until the powder is completely dissolved and the solution is uniform.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">3</div>
+            <div class="kst-step-title">Application</div>
+            <div class="kst-step-description">Apply the mixed solution directly to the desired treatment area (face, neck, décolletage). For optimal results, use during or immediately after a microneedling session to enhance penetration.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">4</div>
+            <div class="kst-step-title">Treatment Frequency</div>
+            <div class="kst-step-description">Recommended program: Apply once per week for a course of 4 consecutive weeks for optimal regenerative effects and visible results.</div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Microneedling Enhancement</h3>
+            <div class="kst-card-content">
+                Ideal for use with MTS rollers or dermapens to significantly enhance skin penetration and effectiveness. The microneedling process creates microchannels that allow the exosomes and active ingredients to reach deeper skin layers for maximum efficacy.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Post-Treatment Care</h3>
+            <div class="kst-card-content">
+                Follow application with a calming or soothing ampoule or mask to enhance results and comfort. Maintain proper post-procedure skincare routine for optimal outcomes.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Application Method Visualization
+            </div>
+        </div>
+    </div>
+    
+    <!-- Target Guide Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Personalized Treatment Guide</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Skin Type</th>
+                        <th>Primary Concerns</th>
+                        <th>Why CAMELLIA EXO N°5</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mature Skin</td>
+                        <td>Fine lines, wrinkles, loss of elasticity, sagging</td>
+                        <td>Exosomes, PDRN, and Collagen/Peptides work synergistically to boost structural protein synthesis and cellular regeneration</td>
+                    </tr>
+                    <tr>
+                        <td>Damaged/Irritated Skin</td>
+                        <td>Post-procedure care, compromised barrier, inflammation</td>
+                        <td>5 plant exosomes (especially Centella and Ice Plant) provide potent anti-inflammatory, antioxidant, and barrier-repairing effects</td>
+                    </tr>
+                    <tr>
+                        <td>Dull/Uneven Tone</td>
+                        <td>Lack of radiance, rough texture, minor pigmentation</td>
+                        <td>PDRN accelerates cell turnover while specific ingredients promote brightening and normalize skin texture for radiant appearance</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Which Product Is Right for Me?</h3>
+            <div class="kst-card-content">
+                Based on your current skin condition and aesthetic goals, CAMELLIA EXO N°5 is ideal for those seeking intensive anti-aging solutions, visible skin renewal, post-procedure recovery, and overall improvement in skin integrity and health.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Specifications Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Product Specifications</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">100mg</div>
+                <div class="kst-grid-label">Exosome Powder</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">6ml</div>
+                <div class="kst-grid-label">PDRN Solvent</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">6 Vials</div>
+                <div class="kst-grid-label">Total Package</div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Dual Ampoule System</h3>
+            <div class="kst-card-content">
+                The two-vial system ensures the stability and maximum efficacy of the active ingredients, particularly the purified exosomes, which are stored as a lyophilized powder. This innovative packaging preserves ingredient potency until the moment of use.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Advanced Exosome Extraction</h3>
+            <div class="kst-card-content">
+                Utilizes cutting-edge technology to extract and purify high-purity exosomes, ensuring an ultra-nano particle size for enhanced skin absorption and maximum therapeutic benefit.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Dual Ampoule System Diagram
+            </div>
+        </div>
+    </div>
+    
+    <!-- Suitable For Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Ideal Candidates</h2>
+        
+        <ul class="kst-list">
+            <li><div class="kst-list-icon"></div><span>All skin types seeking professional-grade anti-aging solutions</span></li>
+            <li><div class="kst-list-icon"></div><span>Individuals requiring intensive skin renewal and regeneration</span></li>
+            <li><div class="kst-list-icon"></div><span>Post-procedure recovery and enhanced healing support</span></li>
+            <li><div class="kst-list-icon"></div><span>Those seeking to improve overall skin integrity and resilience</span></li>
+            <li><div class="kst-list-icon"></div><span>Professional aesthetic practitioners and skincare specialists</span></li>
+        </ul>
+        
+        <div class="kst-card">
+            <div class="kst-badge">Professional Grade</div>
+            <h3 class="kst-card-title">For Trained Professionals</h3>
+            <div class="kst-card-content">
+                This product is intended for use by trained professionals to ensure proper application technique, safety protocols, and optimal treatment outcomes. Professional application maximizes the therapeutic benefits of the advanced exosome technology.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Safety & Precautions Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Safety Information & Precautions</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Safety & Storage Guidelines Infographic
+            </div>
+        </div>
+        
+        <div class="kst-warning">
+            <div class="kst-warning-title">Important Usage Guidelines</div>
+            <div class="kst-warning-content">
+                Please read and follow all safety precautions carefully to ensure safe and effective use of CAMELLIA EXO N°5.
+            </div>
+            <ul class="kst-warning-list">
+                <li>Professional use only - must be applied by trained practitioners</li>
+                <li>Use immediately after mixing - do not store mixed solution</li>
+                <li>Mild redness or irritation may occur temporarily after application</li>
+                <li>Avoid makeup, saunas, intense activity for 24 hours post-treatment</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Post-Application Care</h3>
+            <div class="kst-card-content">
+                Mild redness or irritation may occur temporarily, especially after microneedling procedures. Avoid direct sun exposure, makeup application, saunas, and intense physical activity for at least 24 hours following treatment to allow optimal healing and absorption.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Storage Instructions</h3>
+            <div class="kst-card-content">
+                Store unmixed, sealed vials in a cool, dark place or refrigerated as specified on the packaging to preserve ingredient integrity and potency. Keep away from direct sunlight and heat sources. Do not freeze.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Immediate Use Required</h3>
+            <div class="kst-card-content">
+                The mixed solution must be used immediately after preparation to maintain the stability and potency of the active components, particularly the delicate exosomes. Do not prepare in advance or attempt to store mixed solution.
+            </div>
+        </div>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Frequently Asked Questions</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">What makes CAMELLIA EXO N°5 different from other skin boosters?</h3>
+            <div class="kst-card-content">
+                CAMELLIA EXO N°5 uniquely combines 5 plant-derived exosomes with high-concentration PDRN (30,000 ppm) and a specialized collagen-peptide complex. This triple-action formula provides comprehensive regeneration at the cellular level, going beyond surface hydration to promote true skin renewal.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">How long does it take to see results?</h3>
+            <div class="kst-card-content">
+                Initial improvements in skin texture and hydration can be noticed within days after the first treatment. Optimal results appear after completing the recommended 4-week program (once weekly), with continued improvement in elasticity, firmness, and overall skin quality developing over time.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Can it be used without microneedling?</h3>
+            <div class="kst-card-content">
+                Yes, CAMELLIA EXO N°5 can be applied topically. However, combining it with microneedling (MTS rollers or dermapens) significantly enhances penetration and effectiveness, allowing the ultra-nano exosomes and active ingredients to reach deeper skin layers for maximum therapeutic benefit.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Is it suitable for sensitive skin?</h3>
+            <div class="kst-card-content">
+                Yes, the 5 plant-derived exosomes, particularly from Centella Asiatica and Ice Plant, provide powerful anti-inflammatory and soothing properties. The formula is designed to support barrier repair and reduce irritation, making it suitable for sensitive skin when applied by trained professionals.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Why is the dual ampoule system important?</h3>
+            <div class="kst-card-content">
+                The dual ampoule system separates the delicate lyophilized exosome powder from the liquid PDRN/collagen solvent until the moment of use. This preserves maximum ingredient stability, potency, and efficacy, ensuring you receive the full therapeutic benefits of fresh, active exosomes.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Keywords Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Product Keywords</h2>
+        
+        <div class="kst-card">
+            <div class="kst-card-content kst-text-center">
+                <div class="kst-badge">Exosome Skin Booster</div>
+                <div class="kst-badge">Camellia Exosome</div>
+                <div class="kst-badge">PDRN Regeneration</div>
+                <div class="kst-badge">Skin Elasticity</div>
+                <div class="kst-badge">Anti-Aging Ampoule</div>
+                <div class="kst-badge">Microneedling Synergy</div>
+                <div class="kst-badge">Tissue Repair</div>
+                <div class="kst-badge">Plant Stem Cell</div>
+                <div class="kst-badge">Collagen Peptides</div>
+                <div class="kst-badge">Skin Renewal</div>
+                <div class="kst-badge">Professional Skincare</div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    // FAQ toggle functionality removed as per instructions (no concrete action buttons)
+</script>

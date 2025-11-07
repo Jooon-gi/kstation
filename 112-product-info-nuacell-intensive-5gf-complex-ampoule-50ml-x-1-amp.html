@@ -1,0 +1,453 @@
+<div class="kst-light-container" role="region" aria-label="Product Detail Container">
+  <style>
+    /* ========= KST: Scoped Variables & Base (Light) ========= */
+    .kst-light-container {
+      --kst-bg: #FDFDFD;
+      --kst-surface: #FFFFFF;
+      --kst-elev: #F7F9FC;
+      --kst-text: #1A1A1A;
+      --kst-subtext: #616161;
+      --kst-accent: #E6A748;
+      --kst-accent-2: #C47B3B;
+      --kst-accent-3: #824C30;
+      --kst-danger: #E53E3E;
+      --kst-success: #38A169;
+      --kst-warning: #DD6B20;
+
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--kst-bg);
+      color: var(--kst-text) !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Pretendard", system-ui, Segoe UI, Roboto, Arial, Apple SD Gothic Neo, "Noto Sans", "Malgun Gothic", sans-serif;
+      line-height: 1.55;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .kst-light-container * {
+      box-sizing: border-box;
+      color: inherit !important;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .kst-container { padding: 16px; }
+    .kst-section { background: var(--kst-surface); border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; margin: 12px 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+    .kst-section-header { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .kst-section-kicker { font-size: 12px; letter-spacing: .12em; color: var(--kst-subtext) !important; text-transform: uppercase; }
+
+    /* Hero Section Styling */
+    #kst-basic-info {
+      background: linear-gradient(135deg, var(--kst-bg) 0%, #F7F9FC 100%);
+      border: 1px solid rgba(230, 167, 72, 0.3);
+    }
+    
+    .kst-hl {
+      font-weight: 500;
+      font-size: 30px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+    }
+
+    .kst-sp {
+      font-weight: 400;
+      font-size: 24px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: -14px;
+      margin-bottom: 20px;
+      opacity: 90%;
+    }
+
+    .kst-muted { color: var(--kst-subtext) !important; }
+    .kst-accent { color: var(--kst-accent) !important; }
+
+    /* Cards & blocks */
+    .kst-card { 
+      background: var(--kst-elev); 
+      border: 1px solid #E2E8F0; 
+      border-radius: 18px; 
+      padding: 18px; 
+      margin: 12px 0; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: flex; 
+      flex-direction: column; 
+      gap: 12px; 
+    }
+    .kst-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .kst-badge { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px; 
+      border-radius: 999px; 
+      padding: 8px 14px; 
+      font-size: 12px; 
+      border: 1px solid var(--kst-accent-2); 
+      background: var(--kst-accent-2);
+      color: #FFFFFF !important;
+      font-weight: 600; 
+    }
+    .kst-badge.kst-brand { 
+      border: 1px solid var(--kst-accent); 
+      background: var(--kst-accent);
+      color: #FFFFFF !important; 
+    }
+    .kst-badge.kst-key { 
+      border: 1px solid var(--kst-accent-3); 
+      background: var(--kst-accent-3);
+      color: #FFFFFF !important; 
+    }
+
+    /* Lists */
+    .kst-list-vert {
+      display: grid;
+      margin: 0;
+      padding: 0;
+      padding-left: 0px !important;
+      list-style: none;
+    }
+    .kst-list-vert li { 
+      background: var(--kst-elev); border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px; list-style: none;
+      margin: 10px 0 !important;
+      }
+    .kst-kv { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    .kst-kv .kst-k { color: var(--kst-subtext) !important; font-size: 12px; }
+    .kst-kv .kst-v { font-weight: 600; color: var(--kst-text) !important; }
+
+    /* Definition list + chips */
+    .kst-dl { margin: 0; }
+    .kst-dl dt { 
+      font-weight: 800; 
+      margin-top: 16px; 
+      color: var(--kst-text) !important;
+      font-size: 16px;
+    }
+    .kst-dl dd { margin: 8px 0 0 0; }
+    .kst-chipset { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .kst-chip { 
+      font-size: 11px; 
+      padding: 8px 14px; 
+      border-radius: 999px; 
+      border: 1px solid rgba(230, 167, 72, 0.4);
+      background: rgba(230, 167, 72, 0.1);
+      color: var(--kst-accent-3) !important; 
+      font-weight: 600;
+    }
+
+    /* Images / media blocks */
+    .kst-image-block, .kst-chart-block, .kst-video-block { 
+      position: relative; 
+      border-radius: 18px; 
+      overflow: hidden; 
+      background: var(--kst-elev); 
+      border: 1px dashed #CBD5E0; 
+      min-height: 180px; 
+      display: grid; 
+      place-items: center;
+    }
+    .kst-image-block img, .kst-chart-block img { width: 100%; height: auto; object-fit: cover; display: block; }
+    .kst-img-label { 
+      position: absolute; 
+      bottom: 12px; 
+      left: 12px; 
+      font-size: 11px; 
+      background: rgba(255, 255, 255, 0.8);
+      color: #4A5568 !important;
+      font-weight: 700;
+      border: 1px solid #E2E8F0;
+      padding: 6px 12px; 
+      border-radius: 999px; 
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Auto-hide empty media slots (CSS :has) */
+    .kst-image-block:not(:has(img[src])) {
+      display: none;
+    }
+    .kst-image-block:has(img[src=""]) {
+      display: none;
+    }
+    .kst-chart-block:not(:has(img[src])) {
+      display: none;
+    }
+    .kst-chart-block:has(img[src=""]) {
+      display: none;
+    }
+    .kst-video-block:not(:has(video[src])) {
+      display: none;
+    }
+    .kst-video-block:has(video[src=""]) {
+      display: none;
+    }
+
+    /* Numbered steps */
+    .kst-steps {
+      display: grid;
+      counter-reset: kst-step;
+    }
+    .kst-step {
+      position: relative;
+      padding-left: 54px;
+      margin: 12px 0;
+    }
+    .kst-step::before {
+      counter-increment: kst-step;
+      content: counter(kst-step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      color: #FFFFFF !important;
+      border: none;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(230, 167, 72, 0.2);
+    }
+
+    /* Details / FAQ */
+    .kst-accordion {
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      background: var(--kst-elev);
+      overflow: hidden;
+    }
+    .kst-accordion details {
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .kst-accordion details:last-child {
+      border-bottom: 0;
+    }
+    .kst-accordion summary {
+      cursor: pointer;
+      padding: 14px;
+      list-style: none;
+      color: var(--kst-text) !important;
+    }
+    .kst-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+    .kst-accordion .kst-qa {
+      padding: 0 14px 14px 14px;
+      color: var(--kst-subtext) !important;
+    }
+
+    /* Callouts */
+    .kst-callout {
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid #E2E8F0;
+      background: #F0F4F8;
+    }
+    .kst-callout.kst-danger {
+      border-color: #FED7D7;
+      background: #FFF5F5;
+      color: #C53030 !important;
+    }
+    .kst-callout.kst-warning {
+      border-color: #FEEBC8;
+      background: #FFFBF0;
+      color: #DD6B20 !important;
+    }
+    .kst-callout.kst-success {
+      border-color: #C6F6D5;
+      background: #F0FFF4;
+      color: #276749 !important;
+    }
+  </style>
+
+  <div class="kst-container">
+
+    <section id="kst-basic-info" class="kst-section">
+      <div class="kst-section-header">
+        <div class="kst-section-kicker">Advanced Skincare</div>
+      </div>
+      <h1 class="kst-hl"><span style="background: linear-gradient(135deg, var(--kst-text) 0%, var(--kst-text) 100%);
+                color: var(--kst-text) !important; font-weight: 200; font-size: 48px !important; -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;">NUACELL</span></br>Intensive 5GF Complex Ampoule</h1>
+      <h2 class="kst-sp">50mL x 1 Ampoule</h2>
+      <p class="kst-muted">Premium anti-aging ampoule with powerful 5-growth factor complex for skin regeneration and elasticity enhancement</p>
+
+      <div class="kst-badges" aria-label="Product Badges" style="margin: 14px 0 !important;">
+        <span class="kst-badge kst-brand">5GF COMPLEX</span>
+        <span class="kst-badge">ANTI-AGING</span>
+        <span class="kst-badge kst-key">REGENERATING</span>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="NUACELL Intensive 5GF Complex Ampoule main product image" />
+          <span class="kst-img-label">Main Product Image</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Advanced liposome technology ensures deep penetration of active ingredients</p>
+      </div>
+
+    </section>
+
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Key Ingredients</span></div>
+      <dl class="kst-dl">
+        <dt>5GF Complex (Growth Factors)</dt>
+        <dd>Powerful combination of five growth factors that work synergistically to support skin regeneration and cellular renewal.</dd>
+        <div class="kst-chipset">
+          <span class="kst-chip">sh-Oligopeptide-1 (EGF)</span>
+          <span class="kst-chip">sh-Polypeptide-62 (HGF)</span>
+          <span class="kst-chip">sh-Polypeptide-3 (FGF)</span>
+          <span class="kst-chip">sh-Polypeptide-22 (TGF)</span>
+        </div>
+
+        <dt>Supporting Active Ingredients</dt>
+        <dd>Carefully selected ingredients that enhance the effectiveness of the growth factor complex while providing additional skin benefits.</dd>
+        <div class="kst-chipset">
+          <span class="kst-chip">Copper Tripeptide-1</span>
+          <span class="kst-chip">Niacinamide</span>
+          <span class="kst-chip">Beta-Glucan</span>
+          <span class="kst-chip">Panax Ginseng Stem Cell</span>
+          <span class="kst-chip">Oleracea Acmella Extract</span>
+        </div>
+      </dl>
+
+      <ul class="kst-list-vert" style="margin-top:10px">
+        <li><strong class="kst-accent">Growth Factor Complex</strong><br/><span class="kst-muted">Five different growth factors work together to stimulate collagen production and accelerate skin repair processes.</span></li>
+        <li><strong class="kst-accent">Liposome Technology</strong><br/><span class="kst-muted">Advanced delivery system ensures maximum penetration of active ingredients into deeper skin layers.</span></li>
+        <li><strong class="kst-accent">Brightening & Firming</strong><br/><span class="kst-muted">Niacinamide and botanical extracts provide additional brightening and anti-wrinkle benefits.</span></li>
+      </ul>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="5GF Complex ingredient structure and benefits diagram" />
+        <span class="kst-img-label">5GF Complex Benefits</span>
+      </div>
+    </section>
+
+    <section id="kst-benefits" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Expected Benefits</span></div>
+
+        <ul class="kst-list-vert" aria-label="Key benefits and expected results">
+          <li>Promotes skin elasticity and reduces visible signs of aging</li>
+          <li>Enhances skin's natural glow and provides deep nourishment</li>
+          <li>Revitalizes skin and improves overall tone and texture</li>
+          <li>Visibly firms and plumps the skin surface</li>
+          <li>Diminishes the appearance of fine lines and wrinkles</li>
+          <li>Supplies vital nutrients for a more vibrant complexion</li>
+        </ul>
+        <div class="kst-badges" style="margin-top:10px">
+          <span class="kst-badge kst-key">Anti-aging</span>
+          <span class="kst-badge kst-key">Firming</span>
+          <span class="kst-badge kst-key">Brightening</span>
+        </div>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="Before and after results showing skin improvement" />
+        <span class="kst-img-label">Expected Results</span>
+      </div>
+    </section>
+
+    <section id="kst-howto" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Usage Instructions</span></div>
+
+      <div class="kst-steps">
+        <div class="kst-step"><strong>Cleanse & Tone</strong><br/><span class="kst-muted">Start with clean skin by using your regular cleanser and toner to prepare the skin for optimal absorption</span></div>
+        <div class="kst-step"><strong>Apply Ampoule</strong><br/><span class="kst-muted">Apply a moderate amount evenly to the entire face and neck area, avoiding the eye area</span></div>
+        <div class="kst-step"><strong>Gentle Massage</strong><br/><span class="kst-muted">Gently pat and massage with fingertips until the ampoule is fully absorbed into the skin</span></div>
+        <div class="kst-step"><strong>Follow with Moisturizer</strong><br/><span class="kst-muted">For best results, follow with your regular moisturizer to lock in the benefits</span></div>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Recommended Usage</div>
+            <div class="kst-v">Daily use as part of skincare routine</div>
+          </div>
+          <div>
+            <div class="kst-k">Application Areas</div>
+            <div class="kst-v">Entire face and neck</div>
+          </div>
+          <div>
+            <div class="kst-k">Best Time to Use</div>
+            <div class="kst-v">Morning and/or evening after cleansing</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="Step-by-step application guide demonstration" />
+        <span class="kst-img-label">Application Guide</span>
+      </div>
+    </section>
+
+    <section id="kst-specs" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Product Specifications</span></div>
+
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div><div class="kst-k">Product Type</div><div class="kst-v">Ampoule</div></div>
+          <div><div class="kst-k">Volume</div><div class="kst-v">50mL x 1 bottle</div></div>
+          <div><div class="kst-k">Main Technology</div><div class="kst-v">Advanced Liposome Technology</div></div>
+          <div><div class="kst-k">Key Complex</div><div class="kst-v">5GF Complex (Growth Factors)</div></div>
+        </div>
+      </div>
+
+        <p><strong class="kst-accent">Storage & Handling</strong></p>
+        <ul class="kst-list-vert">
+          <li>Store in a cool place, away from direct sunlight</li>
+          <li>Keep container tightly sealed when not in use</li>
+          <li>Avoid extreme temperature fluctuations</li>
+          <li>Use within recommended timeframe after opening</li>
+        </ul>
+    </section>
+
+    <section id="kst-technology" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Advanced Technology</span></div>
+        <div class="kst-image-block">
+          <img src="" alt="Liposome technology diagram showing skin penetration" />
+          <span class="kst-img-label">Liposome Technology</span>
+        </div>
+        <ul class="kst-list-vert" style="margin-top:10px">
+          <li><strong class="kst-accent">Deep Penetration</strong><br/><span class="kst-muted">Liposome technology ensures active ingredients penetrate deeply into skin layers for maximum efficacy</span></li>
+          <li><strong class="kst-accent">Enhanced Stability</strong><br/><span class="kst-muted">Advanced formulation maintains ingredient stability and potency throughout product lifecycle</span></li>
+          <li><strong class="kst-accent">Targeted Delivery</strong><br/><span class="kst-muted">Specialized delivery system targets specific skin concerns for optimal results</span></li>
+        </ul>
+    </section>
+
+    <section id="kst-safety" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Safety Information</span></div>
+      <div class="kst-callout kst-warning"><strong>Patch Test Recommended</strong> – Perform a patch test before first use. Apply a small amount to inner wrist or behind ear and wait 24 hours.</div>
+      <div class="kst-callout kst-danger" style="margin-top:10px"><strong>Discontinue Use If</strong> – Stop using immediately if redness, swelling, or irritation occurs and consult a dermatologist if symptoms persist.</div>
+      <div class="kst-callout" style="margin-top:10px"><strong>For External Use Only</strong> – Avoid contact with eyes. If contact occurs, rinse thoroughly with water.</div>
+    </section>
+
+    <section id="kst-faq" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Frequently Asked Questions</span></div>
+      <div class="kst-accordion">
+        <details>
+          <summary>How often should I use the 5GF Complex Ampoule?</summary>
+          <div class="kst-qa">The ampoule is designed for daily use as part of your skincare routine. You can use it once or twice daily, depending on your skin's needs and tolerance.</div>
+        </details>
+        <details>
+          <summary>Can I use this with other skincare products?</summary>
+          <div class="kst-qa">Yes, this ampoule can be incorporated into your existing skincare routine. Apply after cleansing and toning, but before heavier creams or oils.</div>
+        </details>
+        <details>
+          <summary>What makes the 5GF complex special?</summary>
+          <div class="kst-qa">The 5GF complex contains five different growth factors (EGF, HGF, FGF, TGF, and Copper Tripeptide-1) that work synergistically to support skin regeneration and improve elasticity.</div>
+        </details>
+        <details>
+          <summary>How long before I see results?</summary>
+          <div class="kst-qa">Individual results may vary, but many users notice improvements in skin texture and hydration within 2-4 weeks of consistent daily use.</div>
+        </details>
+      </div>
+    </section>
+
+  </div>
+</div>

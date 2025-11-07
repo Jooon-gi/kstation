@@ -1,0 +1,671 @@
+<div class="kst-light-container" role="region" aria-label="Product Detail Container">
+  <style>
+    /* ========= KST: Scoped Variables & Base ========= */
+    .kst-light-container {
+      --kst-main: #a18cd1;
+      --kst-sub: #5b4fa3;
+      --kst-text: #3a3a3a;
+      --kst-assist: #d2cfe8;
+      --kst-bg: #ffffff;
+      --kst-badge-bg: #a18cd1;
+      --kst-badge-text: #ffffff;
+      --kst-badge-hover: #7f6ac0;
+      --kst-surface: #f9f8fc;
+      --kst-border: #e8e4f5;
+
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--kst-bg);
+      color: var(--kst-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Pretendard", system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      overflow: hidden;
+      border-radius: 0;
+    }
+
+    .kst-light-container * {
+      box-sizing: border-box;
+      color: inherit;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .kst-container { padding: 16px; }
+    
+    .kst-section { 
+      background: var(--kst-bg); 
+      border: 1px solid var(--kst-border); 
+      border-radius: 16px; 
+      padding: 20px 16px; 
+      margin: 16px 0;
+    }
+    
+    .kst-section-header { 
+      display: flex; 
+      gap: 10px; 
+      align-items: center; 
+      margin-bottom: 14px; 
+    }
+    
+    .kst-section-kicker { 
+      font-size: 11px; 
+      letter-spacing: 0.1em; 
+      color: var(--kst-sub); 
+      text-transform: uppercase; 
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    #kst-basic-info {
+      background: linear-gradient(135deg, var(--kst-surface) 0%, #f0eef8 100%);
+      border: 1px solid var(--kst-assist);
+    }
+    
+    .kst-hl {
+      font-weight: 700;
+      font-size: 28px;
+      background: linear-gradient(135deg, var(--kst-main) 0%, var(--kst-sub) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .kst-sp {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--kst-sub);
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .kst-muted { 
+      color: var(--kst-text); 
+      opacity: 0.7;
+      font-size: 14px;
+    }
+    
+    .kst-accent { color: var(--kst-main); }
+
+    /* Cards & blocks */
+    .kst-card { 
+      background: var(--kst-surface); 
+      border: 1px solid var(--kst-border); 
+      border-radius: 14px; 
+      padding: 16px; 
+      margin: 14px 0;
+    }
+    
+    .kst-badges { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 8px; 
+      margin: 14px 0;
+    }
+    
+    .kst-badge { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px; 
+      border-radius: 999px; 
+      padding: 8px 14px; 
+      font-size: 11px; 
+      border: 1px solid var(--kst-badge-bg); 
+      background: var(--kst-badge-bg); 
+      color: var(--kst-badge-text);
+      font-weight: 600;
+    }
+
+    /* Lists */
+    .kst-list-vert {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .kst-list-vert li { 
+      background: var(--kst-surface); 
+      border: 1px solid var(--kst-border); 
+      border-radius: 10px; 
+      padding: 14px; 
+      list-style: none;
+      line-height: 1.5;
+    }
+    
+    .kst-kv { 
+      display: grid; 
+      grid-template-columns: 1fr; 
+      gap: 10px; 
+    }
+    
+    .kst-kv .kst-k { 
+      color: var(--kst-sub); 
+      font-size: 12px; 
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .kst-kv .kst-v { 
+      font-weight: 500; 
+      color: var(--kst-text); 
+      font-size: 14px;
+    }
+
+    /* Definition list */
+    .kst-dl { margin: 0; }
+    
+    .kst-dl dt { 
+      font-weight: 700; 
+      margin-top: 18px; 
+      color: var(--kst-main);
+      font-size: 16px;
+    }
+    
+    .kst-dl dd { 
+      margin: 8px 0 0 0; 
+      color: var(--kst-text);
+      line-height: 1.6;
+    }
+    
+    .kst-chipset { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 8px; 
+      margin-top: 12px; 
+    }
+    
+    .kst-chip { 
+      font-size: 11px; 
+      padding: 6px 12px; 
+      border-radius: 999px; 
+      border: 1px solid var(--kst-assist);
+      background: var(--kst-surface);
+      color: var(--kst-sub); 
+      font-weight: 500;
+    }
+
+    /* Images */
+    .kst-image-block { 
+      position: relative; 
+      border-radius: 14px; 
+      overflow: hidden; 
+      background: var(--kst-surface); 
+      border: 1px dashed var(--kst-assist); 
+      min-height: 200px; 
+      display: grid; 
+      place-items: center;
+      margin: 14px 0;
+    }
+    
+    .kst-image-block img { 
+      width: 100%; 
+      height: auto; 
+      object-fit: cover; 
+      display: block; 
+    }
+    
+    .kst-img-label { 
+      position: absolute; 
+      bottom: 12px; 
+      left: 12px; 
+      font-size: 11px; 
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--kst-sub);
+      font-weight: 600;
+      border: 1px solid var(--kst-assist);
+      padding: 6px 12px; 
+      border-radius: 999px; 
+      backdrop-filter: blur(10px);
+    }
+
+    /* Auto-hide empty images */
+    .kst-image-block:not(:has(img[src])) {
+      display: none;
+    }
+    .kst-image-block:has(img[src=""]) {
+      display: none;
+    }
+
+    /* Table */
+    .kst-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid var(--kst-border);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+    
+    .kst-table {
+      border-collapse: collapse;
+      width: 100%;
+      background: var(--kst-surface);
+      table-layout: auto;
+    }
+    
+    .kst-table th,
+    .kst-table td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid var(--kst-border);
+    }
+    
+    .kst-table th {
+      color: var(--kst-main);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
+    .kst-table tr:hover {
+      background: var(--kst-surface);
+    }
+
+    .kst-table-wrap::-webkit-scrollbar {
+      height: 8px;
+    }
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+      background: var(--kst-main);
+      border-radius: 8px;
+    }
+    .kst-table-wrap::-webkit-scrollbar-track {
+      background: var(--kst-border);
+    }
+
+    /* Steps */
+    .kst-steps {
+      display: grid;
+      gap: 16px;
+      counter-reset: kst-step;
+      margin: 14px 0;
+    }
+    
+    .kst-step {
+      position: relative;
+      padding-left: 54px;
+      min-height: 40px;
+    }
+    
+    .kst-step::before {
+      counter-increment: kst-step;
+      content: counter(kst-step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--kst-main) 0%, var(--kst-sub) 100%);
+      color: var(--kst-badge-text);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    /* Accordion */
+    .kst-accordion {
+      border: 1px solid var(--kst-border);
+      border-radius: 12px;
+      background: var(--kst-surface);
+      overflow: hidden;
+      margin: 14px 0;
+    }
+    
+    .kst-accordion details {
+      border-bottom: 1px solid var(--kst-border);
+    }
+    
+    .kst-accordion details:last-child {
+      border-bottom: 0;
+    }
+    
+    .kst-accordion summary {
+      cursor: pointer;
+      padding: 14px;
+      list-style: none;
+      color: var(--kst-text);
+      font-weight: 600;
+    }
+    
+    .kst-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    .kst-accordion .kst-qa {
+      padding: 0 14px 14px 14px;
+      color: var(--kst-text);
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    /* Callouts */
+    .kst-callout {
+      border-radius: 12px;
+      padding: 14px;
+      border: 1px solid var(--kst-border);
+      background: var(--kst-surface);
+      margin: 14px 0;
+      line-height: 1.6;
+    }
+    
+    .kst-callout.kst-warning {
+      border-color: #f5c98b;
+      background: #fffbf0;
+      color: #7d5a1a;
+    }
+    
+    .kst-callout.kst-info {
+      border-color: var(--kst-assist);
+      background: var(--kst-surface);
+      color: var(--kst-sub);
+    }
+  </style>
+
+  <div class="kst-container">
+
+    <!-- Basic Product Info -->
+    <section id="kst-basic-info" class="kst-section">
+      <div class="kst-section-header">
+        <div class="kst-section-kicker">Professional Skin Booster</div>
+      </div>
+      <h1 class="kst-hl">EVE WHITE SKIN BOOSTER</h1>
+      <h2 class="kst-sp">5 vials × 5 mL per box</h2>
+      <p class="kst-muted">All-in-one advanced formula combining 5 powerful ingredients for comprehensive skin brightening, regeneration, and anti-aging benefits</p>
+
+      <div class="kst-badges" aria-label="Product Highlights">
+        <span class="kst-badge">Glutathione</span>
+        <span class="kst-badge">PDRN</span>
+        <span class="kst-badge">Exosome</span>
+        <span class="kst-badge">Peptide Complex</span>
+        <span class="kst-badge">Hyaluronic Acid</span>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="EVE WHITE SKIN BOOSTER product packaging" />
+          <span class="kst-img-label">Main Product Image</span>
+        </div>
+        <p class="kst-muted" style="margin-top:12px">Professional-grade skin booster developed by BS Pharm Korea Co. Ltd. using advanced Korean technology</p>
+      </div>
+    </section>
+
+    <!-- Key Ingredients -->
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-section-header">
+        <span class="kst-section-kicker">5 Key Active Ingredients</span>
+      </div>
+      
+      <dl class="kst-dl">
+        <dt>Glutathione</dt>
+        <dd>Master antioxidant that provides powerful skin brightening effects by reducing melanin production and protecting against environmental damage. Known as the ultimate whitening agent for achieving luminous, even-toned complexion.</dd>
+
+        <dt>PDRN (Polydeoxyribonucleotide / Sodium DNA)</dt>
+        <dd>Derived from salmon DNA, this advanced ingredient promotes cellular regeneration, tissue repair, and wound healing. Significantly enhances skin elasticity and accelerates the natural renewal process for healthier, more resilient skin.</dd>
+
+        <dt>Exosome (Plant-Derived)</dt>
+        <dd>Often sourced from Centella Asiatica, these microscopic vesicles regulate cell activity and promote deep skin regeneration. Provides powerful anti-inflammatory benefits while stimulating cellular renewal at the deepest levels.</dd>
+
+        <dt>Acetyl Hexapeptide-8</dt>
+        <dd>A potent peptide that acts as a "botox-like" agent, helping to improve skin elasticity and dramatically reduce the appearance of wrinkles and fine lines. Works to maintain youthful firmness and smooth texture.</dd>
+
+        <dt>Sodium Hyaluronate (Hyaluronic Acid)</dt>
+        <dd>A highly effective form of Hyaluronic Acid that deeply attracts and binds moisture to the skin. Provides intense hydration and a visible plumping effect, resulting in smoother, more supple skin texture.</dd>
+      </dl>
+
+      <div class="kst-image-block" style="margin-top:16px">
+        <img src="" alt="EVE WHITE ingredient mechanism diagram" />
+        <span class="kst-img-label">Ingredient Synergy Infographic</span>
+      </div>
+    </section>
+
+    <!-- Efficacy & Benefits -->
+    <section id="kst-benefits" class="kst-section">
+      <div class="kst-section-header">
+        <span class="kst-section-kicker">Expected Benefits</span>
+      </div>
+
+      <div class="kst-card">
+        <ul class="kst-list-vert" aria-label="Key treatment benefits">
+          <li><strong class="kst-accent">Powerful Whitening & Brightening</strong><br/><span class="kst-muted">Glutathione and Exosome work together to target hyperpigmentation, reduce dullness, and promote an even, luminous complexion with visible clarity.</span></li>
+          
+          <li><strong class="kst-accent">Intensive Hydration & Plumping</strong><br/><span class="kst-muted">Sodium Hyaluronate deeply moisturizes the skin, improves overall texture, and enhances suppleness for a healthy, hydrated glow.</span></li>
+          
+          <li><strong class="kst-accent">Skin Regeneration & Firming</strong><br/><span class="kst-muted">PDRN, Peptides, and Exosome stimulate cellular repair and boost collagen production, improving skin elasticity, reducing fine lines, and effectively combating signs of aging.</span></li>
+          
+          <li><strong class="kst-accent">Antioxidant Protection</strong><br/><span class="kst-muted">Glutathione and Exosome shield the skin from environmental damage, neutralize harmful free radicals, and prevent premature aging caused by oxidative stress.</span></li>
+        </ul>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="Before treatment skin condition" />
+          <span class="kst-img-label">Before Treatment</span>
+        </div>
+        <div class="kst-image-block" style="margin-top:12px">
+          <img src="" alt="After EVE WHITE treatment results" />
+          <span class="kst-img-label">After Treatment Results</span>
+        </div>
+        <p class="kst-muted" style="margin-top:12px">Visible improvements in skin tone, texture, and overall radiance typically appear within treatment cycle and maintain effectiveness for extended periods.</p>
+      </div>
+    </section>
+
+    <!-- Treatment Protocol -->
+    <section id="kst-howto" class="kst-section">
+      <div class="kst-section-header">
+        <span class="kst-section-kicker">Usage Protocol & Application</span>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Recommended Treatment Cycle</div>
+            <div class="kst-v">3-5 sessions at 2-3 week intervals (10-21 days)</div>
+          </div>
+          <div>
+            <div class="kst-k">Treatment Areas</div>
+            <div class="kst-v">Entire face, neck, décolletage, and hands</div>
+          </div>
+          <div>
+            <div class="kst-k">Dosage per Session</div>
+            <div class="kst-v">2.5 mL recommended for full-face treatment</div>
+          </div>
+          <div>
+            <div class="kst-k">Application Methods</div>
+            <div class="kst-v">Microneedling (Dermapen), Mesotherapy injection, Meso gun device, Stamp-type devices</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-steps">
+        <div class="kst-step">
+          <strong>Preparation & Numbing</strong><br/>
+          <span class="kst-muted">Cleanse treatment area thoroughly. Apply numbing cream 20-30 minutes prior to treatment for optimal patient comfort during the procedure.</span>
+        </div>
+        <div class="kst-step">
+          <strong>Professional Application</strong><br/>
+          <span class="kst-muted">Administer EVE WHITE using professional techniques such as Dermapen microneedling, mesotherapy injection, or meso gun device under proper aseptic conditions.</span>
+        </div>
+        <div class="kst-step">
+          <strong>Post-Treatment Care</strong><br/>
+          <span class="kst-muted">Mild redness may appear for approximately 24 hours post-treatment, which typically subsides without affecting daily activities. Apply soothing care as recommended.</span>
+        </div>
+        <div class="kst-step">
+          <strong>Follow-Up Sessions</strong><br/>
+          <span class="kst-muted">Schedule subsequent sessions at 2-3 week intervals to achieve and maintain optimal results throughout the full treatment cycle.</span>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="EVE WHITE application method demonstration" />
+        <span class="kst-img-label">Application Technique Guide</span>
+      </div>
+    </section>
+
+    <!-- Product Specifications -->
+    <section id="kst-specs" class="kst-section">
+      <div class="kst-section-header">
+        <span class="kst-section-kicker">Product Specifications</span>
+      </div>
+
+      <div class="kst-table-wrap" role="region" aria-label="Product details table">
+        <table class="kst-table">
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Product Name</td>
+              <td>EVE WHITE SKIN BOOSTER</td>
+            </tr>
+            <tr>
+              <td>Packaging</td>
+              <td>5 vials × 5 mL per box</td>
+            </tr>
+            <tr>
+              <td>Form</td>
+              <td>Clear liquid solution in glass vials</td>
+            </tr>
+            <tr>
+              <td>Manufacturer</td>
+              <td>BS Pharm Korea Co. Ltd.</td>
+            </tr>
+            <tr>
+              <td>Origin</td>
+              <td>South Korea</td>
+            </tr>
+            <tr>
+              <td>Usage Type</td>
+              <td>Professional use only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-card">
+        <p><strong class="kst-accent">Storage & Handling Requirements</strong></p>
+        <ul class="kst-list-vert">
+          <li>Store at room temperature between 2-25°C (36-77°F) in a cool, dry place</li>
+          <li>Keep away from direct sunlight and excessive heat sources</li>
+          <li>Product comes in sterile, single-use vials - use immediately after opening</li>
+          <li>Discard any unused portion after opening - do not store or reuse</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Safety & Precautions -->
+    <section id="kst-safety" class="kst-section">
+      <div class="kst-section-header">
+        <span class="kst-section-kicker">Safety Information & Precautions</span>
+      </div>
+      
+      <div class="kst-callout kst-warning">
+        <strong>Professional Use Only</strong> — EVE WHITE SKIN BOOSTER is intended for professional use only and must be administered by qualified specialists under proper aseptic conditions. This is not for self-administration.
+      </div>
+
+      <div class="kst-callout kst-info" style="margin-top:12px">
+        <strong>Post-Treatment Care Guidelines</strong> — After treatment, mild redness may appear for approximately 24 hours and typically subsides naturally. Avoid hot baths, saunas, intense physical activity, and direct sun exposure for several days following application. Apply gentle skincare as recommended by your specialist.
+      </div>
+
+      <div class="kst-card">
+        <p><strong class="kst-accent">Important Safety Notes</strong></p>
+        <ul class="kst-list-vert">
+          <li>Single-use sterile vials must be used immediately upon opening</li>
+          <li>Do not reuse or store opened vials</li>
+          <li>Ensure proper sterilization of all equipment before treatment</li>
+          <li>Monitor patient for any adverse reactions during and after treatment</li>
+          <li>Keep detailed treatment records including batch numbers and dates</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Who Should Use This -->
+    <section id="kst-target" class="kst-section">
+      <div class="kst-section-header">
+        <span class="kst-section-kicker">Ideal Candidates</span>
+      </div>
+      
+      <div class="kst-card">
+        <p style="margin-bottom:12px"><strong class="kst-accent">EVE WHITE is particularly suitable for individuals with:</strong></p>
+        <ul class="kst-list-vert">
+          <li><strong>Dull, Tired-Looking Skin</strong><br/><span class="kst-muted">Those experiencing lack of vitality, uneven skin tone, or general lackluster appearance seeking revitalization</span></li>
+          
+          <li><strong>Hyperpigmentation & Sun Damage</strong><br/><span class="kst-muted">Individuals with dark spots, melasma, age spots, or uneven skin tone from sun exposure</span></li>
+          
+          <li><strong>Dehydrated or Dry Skin</strong><br/><span class="kst-muted">Those seeking intensive hydration, improved moisture retention, and enhanced skin suppleness</span></li>
+          
+          <li><strong>Early Signs of Aging</strong><br/><span class="kst-muted">Mature skin showing fine lines, reduced firmness, loss of elasticity, and decreased collagen production</span></li>
+        </ul>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="EVE WHITE ideal candidate skin types" />
+        <span class="kst-img-label">Target Skin Concerns</span>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="kst-faq" class="kst-section">
+      <div class="kst-section-header">
+        <span class="kst-section-kicker">Frequently Asked Questions</span>
+      </div>
+      
+      <div class="kst-accordion">
+        <details>
+          <summary>How long do results from EVE WHITE treatments last?</summary>
+          <div class="kst-qa">Results typically maintain effectiveness for 6-8 weeks after completing the full treatment cycle of 3-5 sessions. Duration may vary based on individual skin type, lifestyle factors, and adherence to post-treatment care guidelines.</div>
+        </details>
+        
+        <details>
+          <summary>What makes EVE WHITE different from other skin boosters?</summary>
+          <div class="kst-qa">EVE WHITE combines 5 powerful active ingredients (Glutathione, PDRN, Exosome, Acetyl Hexapeptide-8, and Sodium Hyaluronate) in one comprehensive formula, providing synergistic effects for brightening, regeneration, hydration, and anti-aging simultaneously.</div>
+        </details>
+        
+        <details>
+          <summary>Is there any downtime after treatment?</summary>
+          <div class="kst-qa">Mild redness may appear for approximately 24 hours post-treatment, which typically subsides naturally without affecting daily activities. Most patients can return to normal routines immediately, avoiding only hot baths, saunas, and intense physical activity for a few days.</div>
+        </details>
+        
+        <details>
+          <summary>How many sessions are recommended for optimal results?</summary>
+          <div class="kst-qa">A complete treatment cycle consists of 3-5 sessions, administered at 2-3 week intervals (10-21 days). Your specialist will recommend the exact number based on your specific skin concerns and desired outcomes.</div>
+        </details>
+        
+        <details>
+          <summary>Can EVE WHITE be combined with other aesthetic treatments?</summary>
+          <div class="kst-qa">EVE WHITE can often be incorporated into comprehensive skincare protocols. However, consult with your qualified specialist before combining with other active treatments to ensure compatibility and optimal safety.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Product Image Gallery -->
+    <section id="kst-gallery" class="kst-section">
+      <div class="kst-section-header">
+        <span class="kst-section-kicker">Product Gallery</span>
+      </div>
+      
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="EVE WHITE packaging details" />
+          <span class="kst-img-label">Package Details</span>
+        </div>
+        <div class="kst-image-block" style="margin-top:12px">
+          <img src="" alt="EVE WHITE vial close-up" />
+          <span class="kst-img-label">Product Close-up</span>
+        </div>
+        <div class="kst-image-block" style="margin-top:12px">
+          <img src="" alt="EVE WHITE treatment room setup" />
+          <span class="kst-img-label">Professional Treatment Setup</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
