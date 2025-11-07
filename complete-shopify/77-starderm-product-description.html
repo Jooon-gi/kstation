@@ -1,0 +1,976 @@
+<style>
+    :root {
+        --kst-main-color: #C43729;
+        --kst-sub-color: #2A3C91;
+        --kst-text-primary: #222222;
+        --kst-text-secondary: #666666;
+        --kst-background-accent: #C79E74;
+        --kst-badge-bg: #C43729;
+        --kst-badge-text: #FFFFFF;
+        --kst-badge-hover: #E07E74;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
+        background: #ffffff !important;
+        color: var(--kst-text-primary) !important;
+        padding: 0 12px;
+        line-height: 1.2;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    .kst-section {
+        margin: 8px 0;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-header-block {
+        background: var(--kst-main-color) !important;
+        color: var(--kst-badge-text) !important;
+        padding: 30px 16px;
+        margin: 8px 0;
+    }
+    
+    .kst-product-title {
+        font-size: 34px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-badge-text) !important;
+    }
+
+    .kst-product-spec {
+        font-size: 26px;
+        font-weight: 100;
+        text-transform: uppercase;
+        margin-top: 10px;
+        margin-bottom: 12px;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-badge-text) !important;
+    }
+    
+    .kst-subtitle {
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 10px;
+        opacity: 0.8;
+        color: var(--kst-badge-text) !important;
+    }
+    
+    .kst-category-badge {
+        background: var(--kst-badge-text) !important;
+        color: var(--kst-main-color) !important;
+        padding: 4px 8px;
+        font-size: 10px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    
+    .kst-image-block {
+        background: var(--kst-main-color) !important;
+        color: var(--kst-badge-text) !important;
+        padding: 40px 16px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 8px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: none;
+        background: none;
+    }
+    
+    .kst-core-value {
+        background: var(--kst-background-accent) !important;
+        padding: 20px 16px;
+        margin: 8px 0;
+        text-align: center;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-slogan {
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-description {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-section-header {
+        background: var(--kst-main-color) !important;
+        color: var(--kst-badge-text) !important;
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 20px 0 4px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card {
+        background: var(--kst-badge-text) !important;
+        border: 2px solid var(--kst-main-color);
+        padding: 16px;
+        margin: 4px 0;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-card ul,
+    .kst-card ol {
+        margin: 10px 0;
+        padding-left: 20px;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-card ul li,
+    .kst-card ol li {
+        margin-bottom: 6px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-ingredient-name {
+        font-size: 16px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-concentration-badge {
+        background: var(--kst-main-color) !important;
+        color: var(--kst-badge-text) !important;
+        font-size: 12px;
+        font-weight: 900;
+        padding: 6px 10px;
+        display: inline-block;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .kst-ingredient-info {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-effects-grid {
+        background: var(--kst-main-color) !important;
+        padding: 2px;
+        margin: 0;
+    }
+    
+    .kst-effect-card {
+        background: var(--kst-badge-text) !important;
+        padding: 16px;
+        margin: 2px 0;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-effect-number {
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--kst-main-color) !important;
+        line-height: 1;
+        margin-bottom: 8px;
+    }
+    
+    .kst-effect-title {
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 8px;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-effect-description {
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        background: var(--kst-main-color) !important;
+        padding: 2px;
+        margin: 0;
+    }
+    
+    .kst-specs-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--kst-badge-text) !important;
+        table-layout: auto !important;
+    }
+    
+    .kst-specs-table th {
+        background: var(--kst-main-color) !important;
+        color: var(--kst-badge-text) !important;
+        padding: 12px 8px;
+        font-size: 10px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: left;
+        white-space: nowrap !important;
+    }
+    
+    .kst-specs-table td {
+        padding: 10px 8px;
+        border-bottom: 1px solid var(--kst-main-color);
+        font-size: 11px;
+        font-weight: 400;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-specs-table tr:nth-child(even) td {
+        background: #f5f5f5 !important;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #d8d8d8;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-main-color);
+        border-radius: 3px;
+    }
+    
+    .kst-product-versions {
+        background: var(--kst-main-color) !important;
+        padding: 2px;
+        margin: 0;
+    }
+    
+    .kst-version-card {
+        background: var(--kst-badge-text) !important;
+        padding: 20px 16px;
+        margin: 2px 0;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-version-name {
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-main-color) !important;
+    }
+    
+    .kst-version-type-badge {
+        background: var(--kst-sub-color) !important;
+        color: var(--kst-badge-text) !important;
+        font-size: 10px;
+        font-weight: 900;
+        padding: 4px 8px;
+        display: inline-block;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .kst-version-content {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-safety-section {
+        background: #fff3cd !important;
+        border: 2px solid #ffc107;
+        margin: 8px 0;
+    }
+    
+    .kst-safety-header {
+        background: #ffc107 !important;
+        color: var(--kst-text-primary) !important;
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .kst-safety-content {
+        padding: 16px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-safety-list {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0 0 0;
+    }
+    
+    .kst-safety-list li {
+        margin-bottom: 6px;
+        position: relative;
+        padding-left: 16px;
+        font-size: 11px;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-safety-list li::before {
+        content: '⚠';
+        position: absolute;
+        left: 0;
+        color: #ffc107 !important;
+        font-weight: 900;
+    }
+    
+    .kst-keyword-badge {
+        background: var(--kst-main-color) !important;
+        color: var(--kst-badge-text) !important;
+        padding: 4px 8px;
+        font-size: 10px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin: 2px 4px 2px 0;
+    }
+    
+    .kst-dl {
+        margin: 12px 0;
+    }
+    
+    .kst-dt {
+        font-weight: 900;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-dd {
+        margin-left: 0;
+        margin-bottom: 10px;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Arial', sans-serif;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-mt-small {
+        margin-top: 8px;
+    }
+    
+    .kst-mt-medium {
+        margin-top: 16px;
+    }
+    
+    .kst-mb-small {
+        margin-bottom: 8px;
+    }
+    
+    .kst-faq-item {
+        border-bottom: 2px solid var(--kst-main-color);
+        background: var(--kst-badge-text) !important;
+        margin: 0;
+    }
+    
+    .kst-faq-question {
+        padding: 12px 16px;
+        background: #f5f5f5 !important;
+        cursor: pointer;
+        font-size: 11px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-faq-question::after {
+        content: '+';
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        font-weight: 900;
+        color: var(--kst-main-color) !important;
+    }
+    
+    .kst-faq-question.kst-active::after {
+        content: '-';
+    }
+    
+    .kst-faq-answer {
+        padding: 12px 16px;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Arial', sans-serif;
+        display: none;
+        color: var(--kst-text-primary) !important;
+    }
+    
+    .kst-faq-answer.kst-active {
+        display: block;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- Header Block -->
+    <div class="kst-header-block">
+        <div class="kst-category-badge">DERMAL FILLER</div>
+        <h1 class="kst-product-title">STARDERM SERIES</h1>
+        <h2 class="kst-product-spec">TERA · PICO · MEGA</h2>
+        <div class="kst-subtitle">CROSS-LINKED HYALURONIC ACID FILLER</div>
+    </div>
+    
+    <!-- Main Product Image -->
+    <div class="kst-image-block kst-section">
+        [STARDERM SERIES PRODUCT HERO IMAGE PLACEHOLDER]
+    </div>
+    
+    <!-- Core Value Summary -->
+    <div class="kst-core-value kst-section">
+        <div class="kst-slogan">ADVANCED MULTI-LAYERED PHASIC GEL TECHNOLOGY</div>
+        <div class="kst-description">
+            Revolutionary cross-linked hyaluronic acid series offering comprehensive solutions for fine wrinkles to deep volume enhancement with integrated lidocaine for optimal patient comfort during procedures.
+        </div>
+    </div>
+    
+    <!-- Ingredients & Composition -->
+    <div class="kst-section">
+        <div class="kst-section-header">INGREDIENTS & COMPOSITION</div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">CROSS-LINKED HYALURONIC ACID</div>
+            <div class="kst-concentration-badge">20MG/ML</div>
+            <div class="kst-ingredient-info">
+                Premium cross-linked hyaluronic acid utilizing advanced BDDE cross-linking technology to maximize efficiency while minimizing side effects. Multi-layered phasic gel structure provides optimal integration with facial tissues.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">LIDOCAINE</div>
+            <div class="kst-concentration-badge">0.3%</div>
+            <div class="kst-ingredient-info">
+                Integrated lidocaine ensures patient comfort by minimizing discomfort during injection procedures while maintaining product integrity and effectiveness.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">ADVANCED FORMULATION TECHNOLOGY</div>
+            <div class="kst-description">
+                BDDE cross-linking method combined with multi-layered phasic gel structure delivered in convenient pre-filled syringe format for optimal injection control and consistency.
+            </div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">BDDE CROSS-LINKING</span>
+                <span class="kst-keyword-badge">MULTI-LAYERED GEL</span>
+                <span class="kst-keyword-badge">PRE-FILLED SYRINGE</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Ingredient Visualization -->
+    <div class="kst-image-block kst-section">
+        [HYALURONIC ACID CROSS-LINKING TECHNOLOGY VISUALIZATION PLACEHOLDER]
+    </div>
+    
+    <!-- Effects & Benefits -->
+    <div class="kst-section">
+        <div class="kst-section-header">KEY BENEFITS & EFFECTS</div>
+        
+        <div class="kst-effects-grid">
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">01</div>
+                <div class="kst-effect-title">WRINKLE IMPROVEMENT</div>
+                <div class="kst-effect-description">
+                    Comprehensive improvement of fine to deep wrinkles through advanced hyaluronic acid integration with natural skin matrix
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">02</div>
+                <div class="kst-effect-title">VOLUME ENHANCEMENT</div>
+                <div class="kst-effect-description">
+                    Effective volume restoration and facial contouring for natural-looking dimensional improvements
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">03</div>
+                <div class="kst-effect-title">FACIAL CORRECTION</div>
+                <div class="kst-effect-description">
+                    Precise correction of facial depressions and folds with long-lasting natural results
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Versions -->
+    <div class="kst-section">
+        <div class="kst-section-header">PRODUCT VERSIONS & APPLICATIONS</div>
+        
+        <div class="kst-product-versions">
+            <div class="kst-version-card">
+                <div class="kst-version-name">STARDERM PICO</div>
+                <div class="kst-version-type-badge">LOW VISCOSITY</div>
+                <div class="kst-version-content">
+                    <strong>Treatment Areas:</strong> Fine wrinkles, under-eye bags, lips<br>
+                    <strong>Injection Layer:</strong> Mid to upper dermis<br>
+                    <strong>Needle Gauge:</strong> 27G, 30G<br>
+                    <strong>Efficacy:</strong> Correction of fine lines and superficial wrinkles with smooth injection for natural-looking results in delicate areas
+                </div>
+            </div>
+            
+            <div class="kst-version-card">
+                <div class="kst-version-name">STARDERM MEGA</div>
+                <div class="kst-version-type-badge">MEDIUM VISCOSITY</div>
+                <div class="kst-version-content">
+                    <strong>Treatment Areas:</strong> Deep wrinkles, nasolabial folds, cheekbones<br>
+                    <strong>Injection Layer:</strong> Deep dermis<br>
+                    <strong>Needle Gauge:</strong> 27G<br>
+                    <strong>Efficacy:</strong> Improvement of deep wrinkles and restoration of facial volume with effective filling of deep folds and facial contouring
+                </div>
+            </div>
+            
+            <div class="kst-version-card">
+                <div class="kst-version-name">STARDERM TERA</div>
+                <div class="kst-version-type-badge">HIGH VISCOSITY</div>
+                <div class="kst-version-content">
+                    <strong>Treatment Areas:</strong> Nose, chin, cheeks, forehead<br>
+                    <strong>Injection Layer:</strong> Subcutaneous layer<br>
+                    <strong>Needle Gauge:</strong> 25G, 27G<br>
+                    <strong>Efficacy:</strong> Volumizing and contouring for structural facial enhancement with highest viscosity for significant volume and strong contours
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Comparison Table -->
+    <div class="kst-section">
+        <div class="kst-section-header">PRODUCT SPECIFICATIONS COMPARISON</div>
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>PRODUCT VERSION</th>
+                        <th>VISCOSITY</th>
+                        <th>TREATMENT AREA</th>
+                        <th>INJECTION LAYER</th>
+                        <th>NEEDLE GAUGE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>STARDERM PICO</td>
+                        <td>Low</td>
+                        <td>Fine wrinkles, under-eye bags, lips</td>
+                        <td>Mid to upper dermis</td>
+                        <td>27G, 30G</td>
+                    </tr>
+                    <tr>
+                        <td>STARDERM MEGA</td>
+                        <td>Medium</td>
+                        <td>Deep wrinkles, nasolabial folds, cheekbones</td>
+                        <td>Deep dermis</td>
+                        <td>27G</td>
+                    </tr>
+                    <tr>
+                        <td>STARDERM TERA</td>
+                        <td>High</td>
+                        <td>Volumizing, contouring, nose, chin</td>
+                        <td>Subcutaneous layer</td>
+                        <td>25G, 27G</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card kst-mt-small">
+            <div class="kst-dt">PRODUCT SELECTION GUIDE</div>
+            <div class="kst-description">
+                Choose a product with different viscosity and injection layers depending on the treatment area and soft tissue volume requirements. Each formulation is specifically designed for optimal results in targeted applications.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Application Guide -->
+    <div class="kst-image-block kst-section">
+        [TREATMENT AREA APPLICATION GUIDE PLACEHOLDER]
+    </div>
+    
+    <!-- Product Specifications -->
+    <div class="kst-section">
+        <div class="kst-section-header">TECHNICAL SPECIFICATIONS</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">PACKAGE SPECIFICATIONS</div>
+            <div class="kst-dd">Volume: 1ml per syringe</div>
+            <div class="kst-dd">Composition: 1 syringe per package</div>
+            <div class="kst-dd">Formulation Type: Pre-filled syringe type</div>
+            <div class="kst-dd">Gel Structure: Multi-layered phasic</div>
+            <div class="kst-dd">Cross-linking Method: BDDE technology</div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">TREATMENT CYCLE & DURATION</div>
+            <div class="kst-description">
+                Duration can last several months, depending on the product version and individual patient characteristics. Regular follow-up assessments recommended for optimal results.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">MANUFACTURER INFORMATION</div>
+            <div class="kst-description">
+                Manufactured by Starpharmtec Co., Ltd. under strict quality control standards ensuring consistent product quality and safety.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Safety Information & Warnings -->
+    <div class="kst-safety-section">
+        <div class="kst-safety-header">SAFETY INFORMATION & STORAGE GUIDE</div>
+        <div class="kst-safety-content">
+            Important safety information and storage requirements for maintaining product integrity and ensuring safe administration.
+            
+            <ul class="kst-safety-list">
+                <li>This product should be administered by a qualified medical professional only</li>
+                <li>Store at room temperature (1°C - 30°C) - Do not freeze</li>
+                <li>Protect from direct sunlight exposure</li>
+                <li>Keep away from children and unauthorized personnel</li>
+                <li>Follow recommended injection guidelines strictly</li>
+                <li>Monitor for unexpected reactions during and after treatment</li>
+                <li>Maintain sterile conditions throughout procedure</li>
+                <li>Ensure proper needle gauge selection for each product version</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Technical Documentation -->
+    <div class="kst-section">
+        <div class="kst-section-header">PROFESSIONAL APPLICATION GUIDANCE</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">INJECTION TECHNIQUE RECOMMENDATIONS</div>
+            <div class="kst-description">
+                Proper injection techniques vary by product version and treatment area. Consider patient anatomy, desired outcomes, and product characteristics when selecting injection methodology.
+            </div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">LAYER-SPECIFIC INJECTION</span>
+                <span class="kst-keyword-badge">ANATOMICAL CONSIDERATIONS</span>
+                <span class="kst-keyword-badge">VOLUME CONTROL</span>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">TREATMENT PLANNING CONSIDERATIONS</div>
+            <div class="kst-description">
+                Comprehensive treatment planning should account for patient expectations, facial anatomy, skin condition, and desired aesthetic outcomes when selecting appropriate STARDERM series products.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Final Product Packaging -->
+    <div class="kst-image-block kst-section">
+        [STARDERM SERIES PACKAGING AND SPECIFICATIONS PLACEHOLDER]
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="kst-section">
+        <div class="kst-section-header">FREQUENTLY ASKED QUESTIONS</div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                HOW TO CHOOSE THE RIGHT STARDERM PRODUCT FOR TREATMENT?
+            </div>
+            <div class="kst-faq-answer">
+                Product selection depends on treatment area and desired volume. PICO for fine wrinkles and delicate areas, MEGA for deep wrinkles and facial folds, TERA for significant volume enhancement and contouring.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHAT IS THE EXPECTED DURATION OF RESULTS?
+            </div>
+            <div class="kst-faq-answer">
+                Results typically last several months depending on the product version, injection technique, treatment area, and individual patient metabolism. Regular follow-up assessments help optimize longevity.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHAT ARE THE ADVANTAGES OF BDDE CROSS-LINKING TECHNOLOGY?
+            </div>
+            <div class="kst-faq-answer">
+                BDDE cross-linking technology maximizes product efficiency while minimizing side effects, providing superior integration with facial tissues and enhanced durability of results.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHY IS LIDOCAINE INCLUDED IN THE FORMULATION?
+            </div>
+            <div class="kst-faq-answer">
+                Integrated lidocaine (0.3%) significantly reduces patient discomfort during injection procedures while maintaining product integrity and effectiveness throughout treatment.
+            </div>
+        </div>
+        
+        <div class="kst-faq-item">
+            <div class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                WHAT ARE THE PROPER STORAGE REQUIREMENTS?
+            </div>
+            <div class="kst-faq-answer">
+                Store at room temperature (1°C - 30°C), protect from direct sunlight, do not freeze, and keep away from children. Proper storage maintains product integrity and safety.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Clinical Evidence -->
+    <div class="kst-section">
+        <div class="kst-section-header">CLINICAL EVIDENCE & QUALITY ASSURANCE</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">MANUFACTURING STANDARDS</div>
+            <div class="kst-description">
+                Manufactured by Starpharmtec Co., Ltd. under stringent quality control protocols ensuring consistent product quality, safety, and efficacy across all STARDERM series products.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">MULTI-LAYERED PHASIC GEL TECHNOLOGY</div>
+            <div class="kst-description">
+                Advanced gel structure provides optimal tissue integration, natural feel, and long-lasting results through innovative multi-layered phasic formulation design.
+            </div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">TISSUE INTEGRATION</span>
+                <span class="kst-keyword-badge">NATURAL FEEL</span>
+                <span class="kst-keyword-badge">LONG-LASTING</span>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">PRE-FILLED SYRINGE BENEFITS</div>
+            <div class="kst-description">
+                Convenient pre-filled syringe format ensures sterility, accurate dosing, optimal injection control, and reduced preparation time for enhanced clinical efficiency.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Treatment Protocol Guide -->
+    <div class="kst-image-block kst-section">
+        [INJECTION DEPTH AND TECHNIQUE GUIDE VISUALIZATION PLACEHOLDER]
+    </div>
+    
+    <!-- Professional Training -->
+    <div class="kst-section">
+        <div class="kst-section-header">PROFESSIONAL TRAINING & CERTIFICATION</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">RECOMMENDED TRAINING REQUIREMENTS</div>
+            <div class="kst-description">
+                Proper training in facial anatomy, injection techniques, and aesthetic assessment is essential for optimal treatment outcomes and patient safety with STARDERM series products.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">INJECTION TECHNIQUE MASTERY</div>
+            <div class="kst-description">
+                Understanding of injection depths, needle selection, anatomical landmarks, and product-specific techniques ensures safe and effective treatment delivery.
+            </div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">FACIAL ANATOMY</span>
+                <span class="kst-keyword-badge">INJECTION DEPTHS</span>
+                <span class="kst-keyword-badge">NEEDLE SELECTION</span>
+                <span class="kst-keyword-badge">SAFETY PROTOCOLS</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contraindications -->
+    <div class="kst-safety-section">
+        <div class="kst-safety-header">CONTRAINDICATIONS & PRECAUTIONS</div>
+        <div class="kst-safety-content">
+            Important contraindications and precautions for safe product administration and optimal patient outcomes.
+            
+            <ul class="kst-safety-list">
+                <li>Not recommended for patients with known hypersensitivity to hyaluronic acid or lidocaine</li>
+                <li>Avoid injection in areas with active inflammation or infection</li>
+                <li>Exercise caution in patients with bleeding disorders or taking anticoagulants</li>
+                <li>Not suitable for pregnant or breastfeeding patients</li>
+                <li>Avoid injection near permanent implants or fillers</li>
+                <li>Consider patient medical history and current medications</li>
+                <li>Perform thorough consultation and consent process</li>
+                <li>Monitor for delayed hypersensitivity reactions</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Product Comparison Benefits -->
+    <div class="kst-section">
+        <div class="kst-section-header">COMPETITIVE ADVANTAGES</div>
+        
+        <div class="kst-effects-grid">
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">01</div>
+                <div class="kst-effect-title">INTEGRATED LIDOCAINE</div>
+                <div class="kst-effect-description">
+                    Built-in 0.3% lidocaine provides immediate comfort without compromising product efficacy or requiring separate anesthetic procedures
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">02</div>
+                <div class="kst-effect-title">BDDE CROSS-LINKING</div>
+                <div class="kst-effect-description">
+                    Advanced cross-linking technology ensures optimal balance between longevity and biocompatibility for superior clinical outcomes
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">03</div>
+                <div class="kst-effect-title">COMPLETE SERIES SOLUTION</div>
+                <div class="kst-effect-description">
+                    Three viscosity options provide comprehensive treatment solutions for all facial enhancement needs from fine lines to volumizing
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">04</div>
+                <div class="kst-effect-title">CONSISTENT QUALITY</div>
+                <div class="kst-effect-description">
+                    Starpharmtec manufacturing ensures batch-to-batch consistency and reliability for predictable treatment outcomes
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Treatment Areas Visualization -->
+    <div class="kst-image-block kst-section">
+        [FACIAL TREATMENT AREAS AND PRODUCT SELECTION GUIDE PLACEHOLDER]
+    </div>
+    
+    <!-- Professional Use Banner -->
+    <div class="kst-safety-section">
+        <div class="kst-safety-header">PROFESSIONAL USE ONLY</div>
+        <div class="kst-safety-content">
+            <div class="kst-description">
+                STARDERM series products are intended for use by qualified medical professionals only. Proper training in dermal filler injection techniques and facial anatomy is essential for safe and effective treatment outcomes.
+            </div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">Hyaluronic Acid Filler</span>
+                <span class="kst-keyword-badge">Lidocaine Filler</span>
+                <span class="kst-keyword-badge">HA Filler</span>
+                <span class="kst-keyword-badge">Dermal Filler</span>
+                <span class="kst-keyword-badge">Facial Volume</span>
+                <span class="kst-keyword-badge">Wrinkle Correction</span>
+                <span class="kst-keyword-badge">Contouring</span>
+                <span class="kst-keyword-badge">STARDERM PICO</span>
+                <span class="kst-keyword-badge">STARDERM MEGA</span>
+                <span class="kst-keyword-badge">STARDERM TERA</span>
+                <span class="kst-keyword-badge">Starpharmtec</span>
+                <span class="kst-keyword-badge">Facial Filler</span>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    function kstToggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        const isActive = element.classList.contains('kst-active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.kst-faq-question').forEach(q => {
+            q.classList.remove('kst-active');
+            q.nextElementSibling.classList.remove('kst-active');
+        });
+        
+        // Open clicked item if it wasn't already active
+        if (!isActive) {
+            element.classList.add('kst-active');
+            answer.classList.add('kst-active');
+        }
+    }
+</script>

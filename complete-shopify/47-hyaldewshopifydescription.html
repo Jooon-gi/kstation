@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<style>
+    .kst-main-container {
+        max-width: 760px !important;
+        margin: 0 auto !important;
+        font-family: 'Inter', 'Segoe UI', sans-serif !important;
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        overflow-x: hidden !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box !important;
+    }
+    
+    .kst-section {
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 12px !important;
+    }
+    
+    .kst-flowing-header {
+        background: linear-gradient(135deg, #26292f 0%, #3A3D42 100%) !important;
+        padding: 20px 12px 30px !important;
+        text-align: center !important;
+        position: relative !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+    }
+    
+    .kst-card {
+        background: #FFFFFF !important;
+        margin: 0 8px 40px !important;
+        padding: 20px 16px !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 12px rgba(58, 61, 66, 0.1) !important;
+        position: relative !important;
+        max-width: calc(100% - 16px) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        color: #000000 !important;
+        border: 1px solid #f0f0f0 !important;
+    }
+    
+    .kst-section-tag {
+        background: #3A3D42 !important;
+        color: #e8b980 !important;
+        padding: 6px 12px !important;
+        border-radius: 4px !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        display: inline-block !important;
+        margin-bottom: 12px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    .kst-flowing-title {
+        font-size: 22px !important;
+        font-weight: 600 !important;
+        color: #3A3D42 !important;
+        margin-bottom: 16px !important;
+        text-align: center !important;
+        position: relative !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-product-title {
+        font-size: 44px !important;
+        font-weight: 700 !important;
+        color: #FFFFFF !important;
+        margin-bottom: 8px !important;
+        text-align: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+
+    .kst-product-spec {
+        font-size: 26px !important;
+        font-weight: 500 !important;
+        color: #e8b980 !important;
+        margin-bottom: 18px !important;
+        margin-top: -8px !important;
+        text-align: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-product-subtitle {
+        font-size: 16px !important;
+        color: #e8b980 !important;
+        margin-bottom: 16px !important;
+        text-align: center !important;
+        font-style: italic !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-brand-badge {
+        background: #e8b980 !important;
+        color: #3A3D42 !important;
+        padding: 6px 12px !important;
+        border-radius: 4px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        display: inline-block !important;
+        margin-bottom: 16px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+    }
+    
+    .kst-core-value {
+        background: linear-gradient(135deg, #FFFFFF 0%, #cfd3d7 100%) !important;
+        padding: 16px !important;
+        margin: 12px 0 !important;
+        border-radius: 6px !important;
+        border: 2px solid #e8b980 !important;
+        position: relative !important;
+        color: #000000 !important;
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        text-align: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-ingredient-name {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: #3A3D42 !important;
+        margin-bottom: 8px !important;
+        position: relative !important;
+        z-index: 2 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-concentration-pill {
+        background: #3A3D42 !important;
+        color: #e8b980 !important;
+        padding: 4px 10px !important;
+        border-radius: 12px !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        display: inline-block !important;
+        margin-bottom: 10px !important;
+        margin-right: 6px !important;
+    }
+    
+    .kst-ingredient-description {
+        color: #7F7F7F !important;
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        position: relative !important;
+        z-index: 2 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-definition-list {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .kst-definition-list dt {
+        font-weight: 600 !important;
+        color: #3A3D42 !important;
+        margin-top: 16px !important;
+        margin-bottom: 8px !important;
+        font-size: 16px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-definition-list dd {
+        margin: 0 0 12px 0 !important;
+        color: #7F7F7F !important;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-chip-list {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        margin: 12px 0 !important;
+    }
+    
+    .kst-chip {
+        background: #e8b980 !important;
+        color: #3A3D42 !important;
+        padding: 6px 12px !important;
+        border-radius: 16px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        display: inline-block !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    .kst-benefits-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        margin: 16px 0 !important;
+    }
+    
+    .kst-benefit-item {
+        background: linear-gradient(135deg, #FFFFFF 0%, #f8f9fa 100%) !important;
+        padding: 16px 20px !important;
+        border-left: 4px solid #e8b980 !important;
+        box-shadow: 0 2px 8px rgba(58, 61, 66, 0.2) !important;
+        position: relative !important;
+        color: #000000 !important;
+    }
+    
+    .kst-benefit-number {
+        width: 24px !important;
+        height: 24px !important;
+        padding: 3px 0 0 !important;
+        background: #e8b980 !important;
+        color: #3A3D42 !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-weight: 700 !important;
+        font-size: 13px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .kst-benefit-title {
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        color: #3A3D42 !important;
+        margin-bottom: 6px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-benefit-text {
+        color: #7F7F7F !important;
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        margin: 16px 0 !important;
+        border: 1px solid #f0f0f0 !important;
+        border-radius: 6px !important;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 6px !important;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f1f1f1 !important;
+        border-radius: 3px !important;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: #e8b980 !important;
+        border-radius: 3px !important;
+    }
+
+    .kst-specs-table {
+        table-layout: auto !important;
+        white-space: nowrap !important; 
+    }
+    
+    .kst-specs-table {
+        width: 100% !important;
+        min-width: 600px !important;
+        border-collapse: collapse !important;
+        background: #FFFFFF !important;
+        border-radius: 6px !important;
+        overflow: hidden !important;
+    }
+    
+    .kst-specs-table th,
+    .kst-specs-table td {
+        border: 1px solid #f0f0f0 !important; 
+        padding: 12px 10px !important;
+        text-align: left !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-specs-table th {
+        background: #3A3D42 !important;
+        color: #e8b980 !important;
+        padding: 12px 10px !important;
+        font-weight: 600 !important;
+        font-size: 13px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+        text-align: center !important;
+    }
+    
+    .kst-specs-table td {
+        color: #7F7F7F !important;
+        font-size: 13px !important;
+        text-align: center !important;
+    }
+    
+    .kst-specs-table tbody tr:hover {
+        background: #f8f9fa !important;
+    }
+    
+    .kst-image-block {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+        border: 2px dashed #e8b980 !important;
+        padding: 25px 16px !important;
+        text-align: center !important;
+        margin: 20px 8px !important;
+        border-radius: 6px !important;
+        color: #7F7F7F !important;
+        font-size: 11px !important;
+        font-style: italic !important;
+        position: relative !important;
+        overflow: hidden !important;
+        max-width: calc(100% - 16px) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    .kst-image-block::before {
+        content: '📷' !important;
+        position: absolute !important;
+        top: 16px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        color: #e8b980 !important;
+        font-size: 18px !important;
+    }
+    
+    .kst-image-block:not(:has(img)),
+    .kst-image-block:has(img[src=""]) {
+        display: none !important;
+    }
+    
+    .kst-image-block img {
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+        border-radius: 4px !important;
+    }
+    
+    .kst-version-card {
+        background: linear-gradient(135deg, #FFFFFF 0%, #f8f9fa 100%) !important;
+        padding: 20px 16px !important;
+        border-radius: 6px !important;
+        border: 2px solid #f0f0f0 !important;
+        margin-bottom: 16px !important;
+        color: #000000 !important;
+    }
+    
+    .kst-version-title {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: #3A3D42 !important;
+        margin-bottom: 12px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-version-highlight {
+        background: #e8b980 !important;
+        color: #3A3D42 !important;
+        padding: 4px 8px !important;
+        border-radius: 12px !important;
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        display: inline-block !important;
+        margin-left: 8px !important;
+        text-transform: uppercase !important;
+    }
+    
+    .kst-version-details {
+        color: #7F7F7F !important;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 12px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-tech-feature {
+        background: linear-gradient(135deg, #FFFFFF 0%, #f8f9fa 100%) !important;
+        padding: 16px !important;
+        margin: 16px 0 !important;
+        border-left: 4px solid #3A3D42 !important;
+        box-shadow: 0 2px 8px rgba(58, 61, 66, 0.2) !important;
+        color: #000000 !important;
+    }
+    
+    .kst-tech-title {
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        color: #3A3D42 !important;
+        margin-bottom: 8px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-tech-text {
+        color: #7F7F7F !important;
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-safety-warning {
+        background: linear-gradient(135deg, #fff3cd, #ffeaa7) !important;
+        border: 2px solid #ffc107 !important;
+        padding: 16px !important;
+        margin: 16px 8px !important;
+        border-radius: 6px !important;
+        position: relative !important;
+        max-width: calc(100% - 16px) !important;
+        color: #856404 !important;
+    }
+    
+    .kst-safety-warning::before {
+        content: '⚠️' !important;
+        position: absolute !important;
+        top: -12px !important;
+        left: 16px !important;
+        background: #ffc107 !important;
+        color: #856404 !important;
+        width: 24px !important;
+        height: 24px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 14px !important;
+    }
+    
+    .kst-safety-title {
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        color: #856404 !important;
+        margin-bottom: 12px !important;
+        margin-left: 12px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-safety-content {
+        color: #6c5609 !important;
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .kst-safety-content p {
+        margin-bottom: 8px !important;
+        color: #6c5609 !important;
+    }
+    
+    .kst-safety-content strong {
+        color: #856404 !important;
+    }
+    
+    .kst-vertical-list {
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+    }
+    
+    .kst-vertical-list li {
+        background: linear-gradient(135deg, #FFFFFF 0%, #f8f9fa 100%) !important;
+        padding: 12px 16px !important;
+        margin-bottom: 14px !important;
+        border-left: 3px solid #D0A46F !important;
+        box-shadow: 0 2px 8px rgba(58, 61, 66, 0.2) !important;
+        color: #000000 !important;
+        font-size: 14px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- Product Header -->
+    <div class="kst-flowing-header kst-section">
+        <div class="kst-brand-badge">BioPlus Co., Ltd.</div>
+        <h1 class="kst-product-title">HYALDEW</h1>
+        <h2 class="kst-product-spec">ALL • MID • FINE</h2>
+        <div class="kst-product-subtitle">Advanced Cross-Linked Hyaluronic Acid Dermal Filler</div>
+        <div class="kst-core-value">
+            Revolutionary MCL Technology for comprehensive facial rejuvenation from fine lines to deep wrinkles with enhanced volume and contouring capabilities
+        </div>
+        <div class="kst-image-block">
+            [HYALDEW PRODUCT LINEUP - ALL THREE VARIANTS HERO IMAGE]
+        </div>
+    </div>
+    
+    <!-- Key Ingredients & Technology -->
+    <div class="kst-card kst-section">
+        <div class="kst-section-tag">Core Components</div>
+        <h2 class="kst-flowing-title">Advanced Formulation Technology</h2>
+        
+        <dl class="kst-definition-list">
+            <dt>Cross-Linked Hyaluronic Acid (HA)</dt>
+            <dd>
+                <div class="kst-concentration-pill">20mg/ml</div>
+                Premium quality hyaluronic acid sourced from non-animal biofermentation, processed through patented Multi-staged Cross-Linking (MCL) technology creating ultrafine HA microbeads within a stable gel structure for enhanced viscosity and extended duration
+            </dd>
+            
+            <dt>Lidocaine HCl</dt>
+            <dd>
+                <div class="kst-concentration-pill">0.3%</div>
+                Integrated local anesthetic for enhanced patient comfort during injection procedures, ensuring a more pleasant treatment experience
+            </dd>
+            
+            <dt>Multi-staged Cross-Linking (MCL) Technology</dt>
+            <dd>
+                <div class="kst-concentration-pill">Patented Process</div>
+                Unique 3-staged processing technique that creates highly cohesive microbead gel structure, providing superior viscosity control and extended aesthetic effect duration up to 12 months
+            </dd>
+        </dl>
+        
+        <div class="kst-chip-list">
+            <span class="kst-chip">Non-Animal Source</span>
+            <span class="kst-chip">MCL Technology</span>
+            <span class="kst-chip">Microbead Structure</span>
+            <span class="kst-chip">High Cohesivity</span>
+            <span class="kst-chip">Extended Duration</span>
+        </div>
+        
+        <div class="kst-image-block">
+            [MCL TECHNOLOGY PROCESS AND MOLECULAR STRUCTURE VISUALIZATION]
+        </div>
+        
+        <div class="kst-tech-feature">
+            <h4 class="kst-tech-title">Patented MCL Technology Advantage</h4>
+            <div class="kst-tech-text">
+                The Multi-staged Cross-Linking process creates a unique microbead gel structure that maintains high viscosity while ensuring smooth injection flow, providing optimal moldability and long-lasting results
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Variants Comparison -->
+    <div class="kst-card kst-section">
+        <div class="kst-section-tag">Product Variants</div>
+        <h2 class="kst-flowing-title">HYALDEW Series Comparison</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Viscosity</th>
+                        <th>Treatment Area</th>
+                        <th>Injection Layer</th>
+                        <th>Needle Gauge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>HyalDew Fine</strong></td>
+                        <td>Low</td>
+                        <td>Fine wrinkles, crow's feet, perioral lines</td>
+                        <td>Upper Dermis</td>
+                        <td>30G 13mm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HyalDew Mid</strong></td>
+                        <td>Medium</td>
+                        <td>Moderate wrinkles, lips, oral commissures</td>
+                        <td>Middle Dermis</td>
+                        <td>27G 13mm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HyalDew All</strong></td>
+                        <td>High</td>
+                        <td>Deep folds, facial contouring</td>
+                        <td>Deep Dermis/Subcutis</td>
+                        <td>25G 13mm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-image-block">
+            [TREATMENT AREA MAPPING AND INJECTION DEPTH GUIDE]
+        </div>
+    </div>
+    
+    <!-- Individual Product Details -->
+    <div class="kst-card kst-section">
+        <div class="kst-section-tag">Detailed Specifications</div>
+        <h2 class="kst-flowing-title">Individual Product Profiles</h2>
+        
+        <div class="kst-version-card">
+            <h3 class="kst-version-title">
+                HyalDew Fine
+                <span class="kst-version-highlight">Superficial</span>
+            </h3>
+            <div class="kst-version-details">
+                <strong>Target:</strong> Very thin, superficial lines and skin texture improvement<br>
+                <strong>Areas:</strong> Periorbital (crow's feet), perioral lines, glabellar region, forehead lines<br>
+                <strong>Duration:</strong> Up to 12 months aesthetic effect<br>
+                <strong>Key Feature:</strong> Smallest particle size for delicate areas and subtle corrections
+            </div>
+        </div>
+        
+        <div class="kst-version-card">
+            <h3 class="kst-version-title">
+                HyalDew Mid
+                <span class="kst-version-highlight">Versatile</span>
+            </h3>
+            <div class="kst-version-details">
+                <strong>Target:</strong> Moderate wrinkles, folds, and lip enhancement<br>
+                <strong>Areas:</strong> Glabellar lines, oral commissures, nasolabial folds, lip augmentation<br>
+                <strong>Duration:</strong> Up to 12 months aesthetic effect<br>
+                <strong>Key Feature:</strong> Medium particle size and viscosity for natural-looking results across various facial areas
+            </div>
+        </div>
+        
+        <div class="kst-version-card">
+            <h3 class="kst-version-title">
+                HyalDew All
+                <span class="kst-version-highlight">Volume</span>
+            </h3>
+            <div class="kst-version-details">
+                <strong>Target:</strong> Deep folds correction, volume enhancement, and facial contouring<br>
+                <strong>Areas:</strong> Forehead, cheeks, nose bridge, chin, deep nasolabial folds<br>
+                <strong>Duration:</strong> Up to 12 months aesthetic effect<br>
+                <strong>Key Feature:</strong> High viscosity and larger particle size for excellent volume and moldability
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [INDIVIDUAL PRODUCT SYRINGES AND PACKAGING IMAGES]
+        </div>
+    </div>
+    
+    <!-- Benefits & Efficacy -->
+    <div class="kst-card kst-section">
+        <div class="kst-section-tag">Performance Benefits</div>
+        <h2 class="kst-flowing-title">Key Therapeutic Advantages</h2>
+        
+        <div class="kst-benefits-grid">
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">1</div>
+                <h4 class="kst-benefit-title">Comprehensive Facial Rejuvenation</h4>
+                <div class="kst-benefit-text">
+                    Complete solution for all levels of aging concerns, from fine surface lines to deep structural volume loss with targeted formulations for each treatment depth
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">2</div>
+                <h4 class="kst-benefit-title">Enhanced Comfort Experience</h4>
+                <div class="kst-benefit-text">
+                    Integrated lidocaine ensures patient comfort during procedures while maintaining product integrity and effectiveness
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">3</div>
+                <h4 class="kst-benefit-title">Extended Duration Results</h4>
+                <div class="kst-benefit-text">
+                    MCL technology provides aesthetic effects lasting up to 12 months across all variants, reducing treatment frequency requirements
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">4</div>
+                <h4 class="kst-benefit-title">Superior Moldability & Cohesion</h4>
+                <div class="kst-benefit-text">
+                    Microbead gel structure ensures excellent moldability for precise contouring while maintaining high cohesivity for natural results
+                </div>
+            </div>
+        </div>
+        
+        <ul class="kst-vertical-list">
+            <li>Improved skin hydration, elasticity, and firmness across all treatment areas</li>
+            <li>Volumetric enhancement and precise facial contouring capabilities</li>
+            <li>Biocompatible formulation with non-animal hyaluronic acid source</li>
+            <li>Professional-grade 1.0ml prefilled syringe with included needles</li>
+        </ul>
+        
+        <div class="kst-image-block">
+            [BEFORE/AFTER TREATMENT RESULTS AND EFFECTIVENESS DEMONSTRATION]
+        </div>
+    </div>
+    
+    <!-- Safety & Storage -->
+    <div class="kst-safety-warning kst-section">
+        <div class="kst-safety-title">Important Safety & Storage Information</div>
+        <div class="kst-safety-content">
+            <p><strong>Storage Requirements:</strong> Store at temperature between 1°C to 30°C. Do not freeze or expose to excessive heat.</p>
+            <p><strong>Usage Guidelines:</strong> Single-use only. Discard immediately after use. Do not reuse or resterilize.</p>
+            <p><strong>Safety Precautions:</strong> Do not apply force or pressure to the product. Keep away from direct sunlight. Do not inject into blood vessels.</p>
+            <p><strong>Professional Use Only:</strong> This product is intended for use by qualified medical professionals only.</p>
+        </div>
+    </div>
+    
+    <!-- Technical Specifications -->
+    <div class="kst-card kst-section">
+        <div class="kst-section-tag">Technical Details</div>
+        <h2 class="kst-flowing-title">Product Specifications</h2>
+        
+        <div class="kst-tech-feature">
+            <h4 class="kst-tech-title">Manufacturing Standards</h4>
+            <div class="kst-tech-text">
+                <strong>Manufacturer:</strong> BioPlus Co., Ltd., South Korea<br>
+                <strong>Volume:</strong> 1.0ml prefilled syringe per pack<br>
+                <strong>Formulation:</strong> Syringe type with sterile packaging<br>
+                <strong>Cross-linking Method:</strong> Patented Multi-staged Cross-Linking (MCL) technology
+            </div>
+        </div>
+        
+        <div class="kst-tech-feature">
+            <h4 class="kst-tech-title">Product Characteristics</h4>
+            <div class="kst-tech-text">
+                <strong>Gel Structure:</strong> Microbead gel structure with high cohesivity<br>
+                <strong>HA Source:</strong> Non-animal biofermentation<br>
+                <strong>Needle Inclusion:</strong> Two needles included (gauge varies by version)<br>
+                <strong>Shelf Life:</strong> Check individual product labeling for expiration dates
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [PRODUCT PACKAGING AND STERILE SYRINGE COMPONENTS]
+        </div>
+    </div>
+    
+    <!-- Professional Usage Guidelines -->
+    <div class="kst-card kst-section">
+        <div class="kst-section-tag">Professional Guidelines</div>
+        <h2 class="kst-flowing-title">Treatment Recommendations</h2>
+        
+        <div class="kst-benefits-grid">
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">1</div>
+                <h4 class="kst-benefit-title">Patient Assessment</h4>
+                <div class="kst-benefit-text">
+                    Evaluate patient's skin condition, treatment goals, and medical history to select appropriate HYALDEW variant and determine optimal injection protocol
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">2</div>
+                <h4 class="kst-benefit-title">Product Selection</h4>
+                <div class="kst-benefit-text">
+                    Choose Fine for superficial corrections, Mid for moderate enhancement, or All for deep volumizing based on treatment area and desired outcome
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">3</div>
+                <h4 class="kst-benefit-title">Injection Technique</h4>
+                <div class="kst-benefit-text">
+                    Follow proper injection depth guidelines: Upper dermis for Fine, Middle dermis for Mid, Deep dermis/Subcutis for All using recommended needle gauges
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">4</div>
+                <h4 class="kst-benefit-title">Post-Treatment Care</h4>
+                <div class="kst-benefit-text">
+                    Provide appropriate aftercare instructions and schedule follow-up appointments to monitor results and patient satisfaction
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [INJECTION TECHNIQUE GUIDE AND ANATOMICAL REFERENCE]
+        </div>
+    </div>
+    
+    <!-- Treatment Areas Guide -->
+    <div class="kst-card kst-section">
+        <div class="kst-section-tag">Application Areas</div>
+        <h2 class="kst-flowing-title">Recommended Treatment Zones</h2>
+        
+        <div class="kst-version-card">
+            <h3 class="kst-version-title">Fine Lines & Surface Corrections</h3>
+            <div class="kst-version-details">
+                <strong>HyalDew Fine Applications:</strong><br>
+                • Periorbital area (crow's feet around eyes)<br>
+                • Perioral lines (smoker's lines around mouth)<br>
+                • Glabellar region (between eyebrows)<br>
+                • Forehead horizontal lines<br>
+                • Skin texture improvement
+            </div>
+        </div>
+        
+        <div class="kst-version-card">
+            <h3 class="kst-version-title">Moderate Enhancement</h3>
+            <div class="kst-version-details">
+                <strong>HyalDew Mid Applications:</strong><br>
+                • Glabellar lines (frown lines)<br>
+                • Oral commissures (corner of mouth)<br>
+                • Moderate nasolabial folds<br>
+                • Lip augmentation and definition<br>
+                • Marionette lines
+            </div>
+        </div>
+        
+        <div class="kst-version-card">
+            <h3 class="kst-version-title">Volume & Contouring</h3>
+            <div class="kst-version-details">
+                <strong>HyalDew All Applications:</strong><br>
+                • Forehead volume enhancement<br>
+                • Cheek augmentation and lifting<br>
+                • Nose bridge contouring<br>
+                • Chin projection and definition<br>
+                • Deep nasolabial folds correction
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [FACIAL TREATMENT ZONES MAPPING AND INJECTION SITES]
+        </div>
+    </div>
+    
+    <!-- Product Selection Guide -->
+    <div class="kst-card kst-section">
+        <div class="kst-section-tag">Selection Guide</div>
+        <h2 class="kst-flowing-title">Which HYALDEW is Right for Your Patient?</h2>
+        
+        <div class="kst-tech-feature">
+            <h4 class="kst-tech-title">Decision Framework</h4>
+            <div class="kst-tech-text">
+                Select the appropriate HYALDEW variant based on treatment depth, soft tissue volume requirements, and desired aesthetic outcome. Consider patient's age, skin condition, and treatment goals when making your selection.
+            </div>
+        </div>
+        
+        <ul class="kst-vertical-list">
+            <li><strong>For Natural Fine Line Improvement:</strong> Choose HyalDew Fine for subtle, natural-looking corrections in delicate areas</li>
+            <li><strong>For Moderate Wrinkle Correction:</strong> Select HyalDew Mid for versatile treatment of moderate lines and lip enhancement</li>
+            <li><strong>For Deep Fold Correction & Contouring:</strong> Use HyalDew All for significant volume enhancement and structural improvements</li>
+            <li><strong>For Combination Treatments:</strong> Multiple variants can be used in the same patient for comprehensive facial rejuvenation</li>
+        </ul>
+        
+        <div class="kst-chip-list">
+            <span class="kst-chip">Professional Assessment</span>
+            <span class="kst-chip">Customized Treatment</span>
+            <span class="kst-chip">Optimal Results</span>
+            <span class="kst-chip">Patient Satisfaction</span>
+        </div>
+        
+        <div class="kst-image-block">
+            [TREATMENT DECISION FLOWCHART AND PATIENT CONSULTATION GUIDE]
+        </div>
+    </div>
+    
+    <!-- Quality Assurance -->
+    <div class="kst-card kst-section">
+        <div class="kst-section-tag">Quality Standards</div>
+        <h2 class="kst-flowing-title">Manufacturing Excellence</h2>
+        
+        <div class="kst-tech-feature">
+            <h4 class="kst-tech-title">BioPlus Quality Commitment</h4>
+            <div class="kst-tech-text">
+                Manufactured in South Korea under strict quality control standards, HYALDEW represents the pinnacle of Korean biotechnology innovation in aesthetic medicine. Each batch undergoes rigorous testing to ensure consistency, safety, and efficacy.
+            </div>
+        </div>
+        
+        <div class="kst-tech-feature">
+            <h4 class="kst-tech-title">Patented MCL Technology</h4>
+            <div class="kst-tech-text">
+                The exclusive Multi-staged Cross-Linking process creates a unique three-dimensional network structure that provides superior gel stability, optimal viscosity, and extended duration compared to conventional cross-linking methods.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [MANUFACTURING FACILITY AND QUALITY CONTROL PROCESSES]
+        </div>
+    </div>
+
+</div>

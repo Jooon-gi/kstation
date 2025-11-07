@@ -1,0 +1,646 @@
+<style>
+        :root {
+            --kst-main-color: #FF7108;
+            --kst-gradient-color: #FFA868;
+            --kst-text-color: #303750;
+            --kst-sub-text-color: #262932;
+            --kst-background-color: #fffcfb;
+            --kst-badge-bg: #EAB73D;
+            --kst-badge-text: #F1F1F1;
+            --kst-badge-hover: #FFFFFF;
+            --kst-border-color: #E2E8F0;
+        }
+
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+            background: #ffffff;
+            color: var(--kst-text-color) !important;
+            padding: 0;
+            line-height: 1.6;
+            box-sizing: border-box;
+            border-left: 1px solid var(--kst-border-color);
+            border-right: 1px solid var(--kst-border-color);
+        }
+        
+        .kst-main-container * {
+            box-sizing: border-box;
+        }
+        
+        /* Hide image blocks when no images are present */
+        .kst-image-block:not(:has(img)) {
+            display: none !important;
+        }
+        
+        .kst-image-block:has(img[src=""]) {
+            display: none !important;
+        }
+        
+        /* Hero Section */
+        .kst-hero-section {
+            background: var(--kst-background-color);
+            padding: 30px 16px;
+            text-align: center;
+            border-bottom: 2px solid var(--kst-main-color);
+            border-top: 2px solid var(--kst-main-color);
+        }
+        
+        .kst-product-title {
+            font-size: 30px;
+            font-weight: 600;
+            color: var(--kst-main-color) !important;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .kst-product-spec {
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--kst-gradient-color) !important;
+            margin-top: -12px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-product-subtitle {
+            font-size: 16px;
+            color: var(--kst-sub-text-color) !important;
+            font-weight: 500;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-hero-description {
+            font-size: 14px;
+            color: var(--kst-text-color) !important;
+            margin: 0 auto 24px;
+            line-height: 1.7;
+        }
+        
+        /* Section Styles */
+        .kst-section {
+            padding: 40px 16px;
+            margin: 0;
+            border-bottom: 1px solid var(--kst-border-color);
+        }
+        
+        .kst-section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--kst-text-color) !important;
+            text-align: left;
+            margin-bottom: 16px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-section-alt {
+            background: var(--kst-background-color);
+        }
+        
+        /* Image Blocks */
+        .kst-image-block {
+            background: var(--kst-background-color);
+            border: none;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--kst-border-color);
+        }
+        
+        .kst-image-block img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 0;
+        }
+        
+        .kst-image-placeholder {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--kst-sub-text-color) !important;
+            font-size: 14px;
+            font-style: italic;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Card Styles */
+        .kst-card {
+            background: #ffffff;
+            border: 1px solid var(--kst-border-color);
+            border-radius: 0;
+            padding: 16px;
+            margin: 12px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .kst-card:hover {
+            box-shadow: 0 2px 10px rgba(255, 113, 8, 0.1);
+        }
+        
+        .kst-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card-content {
+            font-size: 14px;
+            color: var(--kst-text-color) !important;
+            line-height: 1.6;
+        }
+        
+        /* Badge Styles */
+        .kst-badge {
+            background: var(--kst-badge-bg);
+            color: var(--kst-badge-text) !important;
+            padding: 4px 12px;
+            border-radius: 0;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 4px 8px 4px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kst-badge-primary {
+            background: var(--kst-main-color);
+            color: #ffffff !important;
+        }
+        
+        .kst-badge-warning {
+            background: #F56565;
+            color: #ffffff !important;
+        }
+        
+        /* Grid Layouts */
+        .kst-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .kst-grid-item {
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 0;
+            border: 1px solid var(--kst-border-color);
+            text-align: left;
+        }
+        
+        .kst-grid-value {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--kst-main-color) !important;
+            margin-bottom: 4px;
+        }
+        
+        .kst-grid-label {
+            font-size: 12px;
+            color: var(--kst-sub-text-color) !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Table Styles */
+        .kst-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            border-radius: 0;
+            border: 1px solid var(--kst-border-color);
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: var(--kst-main-color);
+            border-radius: 3px;
+        }
+        
+        .kst-table {
+            width: 100%;
+            background: #ffffff;
+            border-collapse: collapse;
+            border-radius: 0;
+            overflow: hidden;
+            table-layout: auto !important;
+        }
+        
+        .kst-table thead {
+            background: var(--kst-background-color);
+            color: var(--kst-text-color) !important;
+            border-bottom: 2px solid var(--kst-gradient-color);
+        }
+        
+        .kst-table th,
+        .kst-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--kst-border-color);
+            font-size: 14px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            table-layout: auto !important;
+        }
+        
+        .kst-table th {
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--kst-text-color) !important;
+            white-space: nowrap !important;
+        }
+        
+        .kst-table td {
+            color: var(--kst-sub-text-color) !important;
+        }
+        
+        .kst-table tbody tr:hover {
+            background: var(--kst-background-color);
+        }
+        
+        /* List Styles */
+        .kst-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+        
+        .kst-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 0;
+            color: var(--kst-text-color) !important;
+            font-size: 14px;
+            border-bottom: 1px solid var(--kst-border-color);
+        }
+        
+        .kst-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Definition List Styles */
+        .kst-dl {
+            margin: 20px 0;
+        }
+        
+        .kst-dt {
+            font-weight: 600;
+            color: var(--kst-text-color) !important;
+            font-size: 14px;
+            margin-bottom: 4px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-dd {
+            color: var(--kst-sub-text-color) !important;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            margin-left: 0;
+            padding-left: 10px;
+            border-left: 2px solid var(--kst-main-color);
+        }
+        
+        /* Warning/Safety Styles */
+        .kst-warning {
+            background: #fff8e1;
+            border: 1px solid var(--kst-badge-bg);
+            border-radius: 0;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        
+        .kst-warning::before {
+            content: none !important;
+        }
+        
+        .kst-warning-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #B78000 !important;
+            margin-bottom: 8px;
+            padding-top: 0;
+        }
+        
+        .kst-warning-content {
+            font-size: 13px;
+            color: #B78000 !important;
+            line-height: 1.6;
+        }
+        
+        .kst-warning-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0;
+        }
+        
+        .kst-warning-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            padding: 3px 0;
+            font-size: 12px;
+            color: #B78000 !important;
+        }
+        
+        .kst-warning-list li::before {
+            content: '•';
+            color: var(--kst-badge-bg) !important;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        /* Text Utilities */
+        .kst-text-center {
+            text-align: center;
+        }
+        
+        .kst-text-muted {
+            color: var(--kst-sub-text-color) !important;
+        }
+        
+        .kst-text-small {
+            font-size: 12px;
+        }
+        
+        .kst-mb-0 { margin-bottom: 0; }
+        .kst-mb-1 { margin-bottom: 8px; }
+        .kst-mb-2 { margin-bottom: 16px; }
+        .kst-mb-3 { margin-bottom: 24px; }
+        
+        .kst-mt-0 { margin-top: 0; }
+        .kst-mt-1 { margin-top: 8px; }
+        .kst-mt-2 { margin-top: 16px; }
+        .kst-mt-3 { margin-top: 24px; }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-hero-section">
+        <div class="kst-product-title">NABOTA</div>
+        <div class="kst-product-spec">200 Units (1 Vial)</div>
+        <div class="kst-product-subtitle">Botulinum Toxin Type A</div>
+        <div class="kst-hero-description">
+            Premium botulinum toxin for comprehensive facial and body treatments. Manufactured by Daewoong Pharmaceutical with advanced Hi-PURE™ technology for reduced impurities and enhanced safety.
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Main NABOTA 200unit Product Image]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <span class="kst-badge kst-badge-primary">Premium Quality</span>
+            <h3 class="kst-card-title">NABOTA Botulinum Toxin Type A</h3>
+            <div class="kst-card-content">
+                NABOTA 200unit is a high-concentration botulinum toxin ideal for extensive treatments including combined facial and body procedures. Manufactured using Daewoong's patented Hi-PURE™ purification technology to minimize impurities and enhance treatment safety.
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><span>200 units per vial for comprehensive treatments</span></li>
+            <li><span>Manufactured by Daewoong Pharmaceutical Co., Ltd.</span></li>
+            <li><span>Hi-PURE™ technology for reduced impurities</span></li>
+            <li><span>Suitable for both cosmetic and medical applications</span></li>
+        </ul>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Key Ingredients & Composition</h2>
+        
+        <dl class="kst-dl">
+            <dt class="kst-dt">Clostridium Botulinum Toxin Type A</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">200 Units</span>
+                The active ingredient responsible for muscle relaxation and wrinkle reduction
+            </dd>
+            
+            <dt class="kst-dt">Human Serum Albumin</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge">Stabilizer</span>
+                Acts as a stabilizing agent to maintain product integrity
+            </dd>
+            
+            <dt class="kst-dt">Sodium Chloride</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge">Buffer</span>
+                Provides isotonic conditions for safe injection
+            </dd>
+        </dl>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [NABOTA Ingredient Composition Diagram]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Hi-PURE™ Technology</h3>
+            <div class="kst-card-content">
+                Daewoong's patented purification process ensures higher purity levels by removing unnecessary proteins and impurities, resulting in more predictable results and reduced risk of resistance development.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Treatment Applications & Effects</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">3-6</div>
+                <div class="kst-grid-label">Months Duration</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">1-2</div>
+                <div class="kst-grid-label">Weeks Maximum Effect</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Few Days</div>
+                <div class="kst-grid-label">Onset of Effects</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">200</div>
+                <div class="kst-grid-label">Units per Vial</div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Cosmetic Applications</h3>
+            <div class="kst-card-content">
+                Effective for treating moderate to severe glabellar lines, forehead wrinkles, and crow's feet. Also excellent for jawline slimming through masseter muscle treatment.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Medical Indications</h3>
+            <div class="kst-card-content">
+                FDA-approved for post-stroke upper limb spasticity, cervical dystonia, benign essential blepharospasm, and hyperhidrosis treatment of palms and feet.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Treatment Results Before/After Comparison]
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Dosage Guidelines by Treatment Area</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Treatment Area</th>
+                        <th>Recommended Units</th>
+                        <th>Injection Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Glabellar Lines</td>
+                        <td>20 units total</td>
+                        <td>5 injection points</td>
+                    </tr>
+                    <tr>
+                        <td>Crow's Feet</td>
+                        <td>12-24 units per side</td>
+                        <td>Multiple points</td>
+                    </tr>
+                    <tr>
+                        <td>Masseter Muscles</td>
+                        <td>50-60 units per side</td>
+                        <td>2-3 injection points</td>
+                    </tr>
+                    <tr>
+                        <td>Upper Limb Spasticity</td>
+                        <td>15-200 units per muscle</td>
+                        <td>Up to 360 units total</td>
+                    </tr>
+                    <tr>
+                        <td>Large Muscle Areas</td>
+                        <td>Variable dosing</td>
+                        <td>Trapezius, calves</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Reconstitution Protocol</h3>
+            <div class="kst-card-content">
+                Use sterile, preservative-free 0.9% Sodium Chloride Injection. Slowly inject diluent against vial wall to avoid foaming. Reconstitution volume varies by treatment area and professional preference.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Injection Technique and Dosage Guide Visual]
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Storage & Handling</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">2-8°C</div>
+                <div class="kst-grid-label">Storage Temperature</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">24 Hours</div>
+                <div class="kst-grid-label">Use After Reconstitution</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Single Use</div>
+                <div class="kst-grid-label">Vial Application</div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Proper Storage Conditions</h3>
+            <div class="kst-card-content">
+                Store in sealed container under refrigeration at 2-8°C. Do not freeze. After reconstitution, use within 24 hours while stored in refrigerator. Discard any unused portion.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Storage and Handling Instructions Visual]
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Safety Information & Precautions</h2>
+        
+        <div class="kst-warning">
+            <h3 class="kst-warning-title">Important Safety Warnings</h3>
+            <div class="kst-warning-content">
+                This product should only be administered by qualified medical professionals trained in botulinum toxin injection techniques.
+            </div>
+            <ul class="kst-warning-list">
+                <li>Do not use on pregnant or nursing mothers</li>
+                <li>Contraindicated for individuals with botulinum toxin hypersensitivity</li>
+                <li>Single-dose use only - discard unused portion</li>
+                <li>Requires neurologist or rehabilitation physician administration</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Professional Administration Required</h3>
+            <div class="kst-card-content">
+                Always consult with qualified medical professionals before use. Administration should be performed by neurologists or rehabilitation physicians specifically trained in botulinum toxin A injection techniques.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Contraindications</h3>
+            <div class="kst-card-content">
+                Not suitable for individuals with known hypersensitivity to botulinum toxin preparations or any component of the formulation. Avoid use during pregnancy and lactation.
+            </div>
+        </div>
+    </div>
+    
+</div>

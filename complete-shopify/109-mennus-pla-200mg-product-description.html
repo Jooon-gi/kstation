@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENNUS Product Description</title>
+    <style>
+        :root {
+            --kst-main-color: #43cc3c;
+            --kst-sub-color: #222222;
+            --kst-text-color: #000000;
+            --kst-text-muted: #555555;
+            --kst-bg-color: #FFFFFF;
+            --kst-badge-bg: #3ece36;
+            --kst-border-color: #acdbab;
+            --kst-badge-text: #000000;
+            --kst-badge-hover: #222222;
+        }
+
+        .kst-main-container {
+            max-width: 760px !important;
+            margin: 0 auto !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', 'sans-serif' !important;
+            background: var(--kst-bg-color) !important;
+            color: var(--kst-text-color) !important;
+            padding: 0 12px !important;
+            line-height: 1.6 !important;
+            overflow-x: hidden !important;
+            box-sizing: border-box !important;
+            position: relative !important;
+            isolation: isolate !important;
+        }
+
+        .kst-main-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .kst-main-container * {
+            box-sizing: border-box !important;
+        }
+        
+        .kst-section {
+            margin: 20px 0 !important;
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-header-block {
+            background: linear-gradient(135deg, var(--kst-bg-color), #f8f9fa) !important;
+            color: var(--kst-text-color) !important;
+            padding: 30px 16px !important;
+            margin: 20px 0 !important;
+            border-radius: 12px !important;
+            border: 1px solid var(--kst-border-color) !important;
+            box-shadow: 0 10px 30px rgba(109, 255, 101, 0.1) !important;
+        }
+        
+        .kst-product-title {
+            font-size: 34px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            margin: 0 !important;
+            line-height: 1.1 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            color: var(--kst-text-color) !important;
+            background: linear-gradient(90deg, var(--kst-main-color), var(--kst-sub-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .kst-product-spec {
+            font-size: 26px !important;
+            font-weight: 300 !important;
+            text-transform: uppercase !important;
+            margin-top: 15px !important;
+            margin-bottom: 20px !important;
+            line-height: 1.2 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            color: var(--kst-text-muted) !important;
+        }
+        
+        .kst-subtitle {
+            font-size: 14px !important;
+            font-weight: 400 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            margin-top: 15px !important;
+            opacity: 0.8 !important;
+            color: var(--kst-text-muted) !important;
+        }
+        
+        .kst-category-badge {
+            background: var(--kst-badge-bg) !important;
+            color: var(--kst-badge-text) !important;
+            padding: 6px 14px !important;
+            font-size: 10px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            display: inline-block !important;
+            margin-bottom: 15px !important;
+            border-radius: 999px !important;
+            box-shadow: 0 4px 12px rgba(109, 255, 101, 0.3) !important;
+        }
+        
+        .kst-image-block, .kst-chart-block {
+            background: rgba(109, 255, 101, 0.05) !important;
+            border: 1px dashed var(--kst-border-color;) !important;
+            padding: 40px 16px !important;
+            text-align: center !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            margin: 20px 0 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            color: var(--kst-text-muted) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 15px rgba(109, 255, 101, 0.1) !important;
+        }
+        
+        .kst-image-block:not(:has(img)) {
+            display: none !important;
+        }
+        
+        .kst-image-block img {
+            width: 100% !important;
+            height: auto !important;
+            object-fit: cover !important;
+            border: none !important;
+            background: none !important;
+            border-radius: 8px !important;
+        }
+        
+        .kst-chart-block:not(:has(img)) {
+            display: none !important;
+        }
+        
+        .kst-chart-block img {
+            width: 100% !important;
+            height: auto !important;
+            object-fit: cover !important;
+            border: none !important;
+            background: none !important;
+            border-radius: 8px !important;
+        }
+        
+        .kst-core-value {
+            background: rgba(109, 255, 101, 0.08) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border: 1px solid var(--kst-border-color) !important;
+            padding: 25px 16px !important;
+            margin: 20px 0 !important;
+            text-align: center !important;
+            color: var(--kst-text-color) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 15px rgba(109, 255, 101, 0.1) !important;
+        }
+        
+        .kst-slogan {
+            font-size: 18px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            letter-spacing: -0.5px !important;
+            margin-bottom: 15px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-description {
+            font-size: 14px !important;
+            font-weight: 400 !important;
+            line-height: 1.6 !important;
+            font-family: 'Arial', sans-serif !important;
+            color: var(--kst-text-muted) !important;
+        }
+        
+        .kst-section-header {
+            background: var(--kst-sub-color) !important;
+            color: var(--kst-bg-color) !important;
+            padding: 16px 16px !important;
+            font-size: 14px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            margin: 20px 0 0 0 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            border-radius: 8px 8px 0 0 !important;
+            box-shadow: 0 2px 10px rgba(34, 34, 34, 0.1) !important;
+        }
+        
+        .kst-card {
+            background: var(--kst-bg-color) !important;
+            border: 1px solid var(--kst-border-color) !important;
+            padding: 20px !important;
+            margin: 14px 0 !important;
+            color: var(--kst-text-color) !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 15px rgba(109, 255, 101, 0.1) !important;
+        }
+        
+        .kst-card ul,
+        .kst-card ol {
+            margin: 15px 0 !important;
+            padding-left: 20px !important;
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-card ul li,
+        .kst-card ol li {
+            margin-bottom: 8px !important;
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            line-height: 1.6 !important;
+            font-family: 'Arial', sans-serif !important;
+            color: var(--kst-text-muted) !important;
+        }
+        
+        .kst-ingredient-name {
+            font-size: 16px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            letter-spacing: -0.5px !important;
+            margin-bottom: 12px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-concentration-badge {
+            background: var(--kst-main-color) !important;
+            color: var(--kst-badge-text) !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            padding: 6px 12px !important;
+            display: inline-block !important;
+            margin-bottom: 15px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            border-radius: 999px !important;
+            box-shadow: 0 4px 12px rgba(109, 255, 101, 0.4) !important;
+        }
+        
+        .kst-ingredient-info {
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            line-height: 1.6 !important;
+            font-family: 'Arial', sans-serif !important;
+            color: var(--kst-text-muted) !important;
+        }
+        
+        .kst-effects-grid {
+            background: var(--kst-bg-color) !important;
+            padding: 2px !important;
+            margin: 0 !important;
+        }
+        
+        .kst-effect-card {
+            background: var(--kst-bg-color) !important;
+            padding: 20px 16px !important;
+            margin: 14px 0 !important;
+            color: var(--kst-text-color) !important;
+            border-radius: 8px !important;
+            border: 1px solid var(--kst-border-color) !important;
+            box-shadow: 0 4px 15px rgba(109, 255, 101, 0.1) !important;
+        }
+        
+        .kst-effect-number {
+            font-size: 28px !important;
+            font-weight: 900 !important;
+            color: var(--kst-main-color) !important;
+            line-height: 1 !important;
+            margin-bottom: 12px !important;
+        }
+        
+        .kst-effect-title {
+            font-size: 14px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            letter-spacing: -0.5px !important;
+            margin-bottom: 8px !important;
+            line-height: 1.3 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-effect-description {
+            font-size: 12px !important;
+            font-weight: 400 !important;
+            line-height: 1.6 !important;
+            font-family: 'Arial', sans-serif !important;
+            color: var(--kst-text-muted) !important;
+        }
+        
+        .kst-steps-container {
+            background: var(--kst-bg-color) !important;
+            padding: 2px !important;
+            margin: 20px 0 10px !important;
+        }
+        
+        .kst-step-card {
+            background: var(--kst-bg-color) !important;
+            padding: 25px 16px !important;
+            margin: 14px 0 !important;
+            position: relative !important;
+            color: var(--kst-text-color) !important;
+            border-radius: 8px !important;
+            border: 1px solid var(--kst-border-color) !important;
+            box-shadow: 0 4px 15px rgba(109, 255, 101, 0.1) !important;
+        }
+        
+        .kst-step-number {
+            position: absolute !important;
+            top: -12px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            background: var(--kst-main-color) !important;
+            color: var(--kst-badge-text) !important;
+            width: 24px !important;
+            height: 24px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 12px rgba(109, 255, 101, 0.4) !important;
+        }
+        
+        .kst-step-title {
+            font-size: 14px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            letter-spacing: -0.5px !important;
+            margin: 15px 0 10px 0 !important;
+            line-height: 1.3 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-step-description {
+            font-size: 12px !important;
+            font-weight: 400 !important;
+            line-height: 1.6 !important;
+            font-family: 'Arial', sans-serif !important;
+            color: var(--kst-text-muted) !important;
+        }
+        
+        .kst-table-wrap {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            background: var(--kst-bg-color) !important;
+            box-shadow: 0 4px 15px rgba(109, 255, 101, 0.1) !important;
+            margin: 3px 0;
+        }
+        
+        .kst-specs-table {
+            width: 100% !important;
+            min-width: 600px !important;
+            border-collapse: collapse !important;
+            background: var(--kst-bg-color) !important;
+        }
+        
+        .kst-specs-table th {
+            background: var(--kst-sub-color) !important;
+            color: var(--kst-bg-color) !important;
+            padding: 12px 16px !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            text-align: left !important;
+            border-bottom: 1px solid var(--kst-border-color) !important;
+            white-space: nowrap !important;
+        }
+        
+        .kst-specs-table td {
+            padding: 10px 16px !important;
+            border-bottom: 1px solid rgba(109, 255, 101, 0.1) !important;
+            font-size: 12px !important;
+            font-weight: 400 !important;
+            font-family: 'Arial', sans-serif !important;
+            color: var(--kst-text-muted) !important;
+            border-bottom: 1px solid var(--kst-border-color) !important;
+            border-left: #00000000 !important;
+            border-right: #00000000 !important;
+        }
+        
+        .kst-specs-table tr:nth-child(even) td {
+            background: rgba(109, 255, 101, 0.02) !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: var(--kst-bg-color) !important;
+            border-radius: 3px !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: var(--kst-main-color) !important;
+            border-radius: 3px !important;
+        }
+        
+        .kst-stats-grid {
+            background: var(--kst-bg-color) !important;
+            padding: 2px !important;
+            margin: 0 !important;
+        }
+        
+        .kst-stat-card {
+            background: var(--kst-bg-color) !important;
+            padding: 25px 16px !important;
+            margin: 14px 0 !important;
+            text-align: center !important;
+            color: var(--kst-text-color) !important;
+            border-radius: 8px !important;
+            border: 1px solid var(--kst-border-color) !important;
+            box-shadow: 0 4px 15px rgba(109, 255, 101, 0.1) !important;
+        }
+        
+        .kst-stat-number {
+            font-size: 24px !important;
+            font-weight: 900 !important;
+            color: var(--kst-main-color) !important;
+            line-height: 1 !important;
+            margin-bottom: 8px !important;
+        }
+        
+        .kst-stat-label {
+            font-size: 9px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            margin-bottom: 6px !important;
+            color: var(--kst-text-muted) !important;
+        }
+        
+        .kst-stat-desc {
+            font-size: 8px !important;
+            font-weight: 400 !important;
+            line-height: 1.3 !important;
+            font-family: 'Arial', sans-serif !important;
+            color: var(--kst-text-muted) !important;
+        }
+        
+        .kst-safety-section {
+            background: #FFF3CD !important;
+            border: 2px solid #FFD700 !important;
+            margin: 20px 0 !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2) !important;
+        }
+        
+        .kst-safety-header {
+            background: #FFD700 !important;
+            color: var(--kst-text-color) !important;
+            padding: 16px !important;
+            font-size: 14px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .kst-safety-content {
+            padding: 20px !important;
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            line-height: 1.6 !important;
+            font-family: 'Arial', sans-serif !important;
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-safety-list {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 15px 0 0 0 !important;
+        }
+        
+        .kst-safety-list li {
+            margin-bottom: 8px !important;
+            position: relative !important;
+            padding-left: 16px !important;
+            font-size: 11px !important;
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-safety-list li::before {
+            content: '⚠' !important;
+            position: absolute !important;
+            left: 0 !important;
+            color: #FFD700 !important;
+            font-weight: 900 !important;
+        }
+        
+        .kst-keyword-badge {
+            background: var(--kst-badge-bg) !important;
+            color: var(--kst-badge-text) !important;
+            padding: 6px 14px !important;
+            font-size: 10px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            display: inline-block !important;
+            margin: 4px 4px 4px 0 !important;
+            border-radius: 999px !important;
+            border: 1px solid rgba(109, 255, 101, 0.3) !important;
+        }
+        
+        .kst-dt {
+            font-weight: 900 !important;
+            font-size: 12px !important;
+            text-transform: uppercase !important;
+            margin-bottom: 8px !important;
+            color: var(--kst-text-color) !important;
+        }
+        
+        .kst-dd {
+            margin-left: 0 !important;
+            margin-bottom: 12px !important;
+            font-size: 12px !important;
+            font-weight: 400 !important;
+            line-height: 1.6 !important;
+            font-family: 'Arial', sans-serif !important;
+            color: var(--kst-text-muted) !important;
+        }
+        
+        .kst-mt-small {
+            margin-top: 12px !important;
+        }
+        
+        .kst-mt-medium {
+            margin-top: 20px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="kst-main-container">
+        
+        <div class="kst-header-block">
+            <div class="kst-category-badge">COLLAGEN BIOSTIMULATOR</div>
+            <h1 class="kst-product-title">MENNUS</h1>
+            <h2 class="kst-product-spec">PLA 200mg x 1 Vial</h2>
+            <div class="kst-subtitle">ADVANCED NEOCOLLAGENESIS TECHNOLOGY</div>
+        </div>
+        
+        <div class="kst-image-block kst-section">
+            [MENNUS PRODUCT HERO IMAGE PLACEHOLDER]
+        </div>
+        
+        <div class="kst-core-value kst-section">
+            <div class="kst-slogan">LONG-LASTING COLLAGEN REGENERATION</div>
+            <div class="kst-description">
+                Advanced biostimulator that promotes neocollagenesis for sustained facial volume restoration and wrinkle improvement through natural collagen production stimulation over an extended period.
+            </div>
+        </div>
+        
+        <div class="kst-section">
+            <div class="kst-section-header">ACTIVE INGREDIENTS & COMPOSITION</div>
+            
+            <div class="kst-card">
+                <div class="kst-ingredient-name">POLY-D,L-LACTIC ACID (PLA)</div>
+                <div class="kst-concentration-badge">PRIMARY COMPONENT</div>
+                <div class="kst-ingredient-info">
+                    Biodegradable spherical PLA particles that stimulate natural collagen synthesis through controlled tissue response. The spherical particle shape ensures even volume creation and prevents needle blockage during injection.
+                </div>
+            </div>
+            
+            <div class="kst-card">
+                <div class="kst-ingredient-name">CARBOXYMETHYL CELLULOSE (CMC)</div>
+                <div class="kst-concentration-badge">SECONDARY COMPONENT</div>
+                <div class="kst-ingredient-info">
+                    CMC gel component provides immediate volumizing effect while serving as a carrier matrix for PLA particles, ensuring optimal distribution and biocompatibility.
+                </div>
+            </div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">TOTAL FORMULATION</div>
+                <div class="kst-description">
+                    200mg of combined PLA and CMC ingredients per vial in freeze-dried powder form. This biostimulator formulation is designed to restore and maintain facial volume by promoting the body's natural collagen production.
+                </div>
+                <div class="kst-mt-small">
+                    <span class="kst-keyword-badge">BIODEGRADABLE</span>
+                    <span class="kst-keyword-badge">SPHERICAL PARTICLES</span>
+                    <span class="kst-keyword-badge">FREEZE-DRIED TECHNOLOGY</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block kst-section">
+            [PLA MICROSPHERE MECHANISM VISUALIZATION PLACEHOLDER]
+        </div>
+        
+        <div class="kst-section">
+            <div class="kst-section-header">KEY BENEFITS & EFFECTS</div>
+            
+            <div class="kst-effects-grid">
+                <div class="kst-effect-card">
+                    <div class="kst-effect-number">01</div>
+                    <div class="kst-effect-title">LONG-LASTING COLLAGEN REGENERATION</div>
+                    <div class="kst-effect-description">
+                        Stimulates natural collagen synthesis for sustained improvement lasting 18-24 months with progressive tissue regeneration.
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-number">02</div>
+                    <div class="kst-effect-title">FACIAL VOLUME RESTORATION</div>
+                    <div class="kst-effect-description">
+                        Restores lost facial volume and contours through dual-action mechanism: immediate CMC gel effect and long-term PLA stimulation.
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-number">03</div>
+                    <div class="kst-effect-title">WRINKLE IMPROVEMENT</div>
+                    <div class="kst-effect-description">
+                        Effectively improves both fine and deep wrinkles through enhanced skin elasticity and firmness from collagen regeneration.
+                    </div>
+                </div>
+                
+                <div class="kst-effect-card">
+                    <div class="kst-effect-number">04</div>
+                    <div class="kst-effect-title">SKIN TEXTURE ENHANCEMENT</div>
+                    <div class="kst-effect-description">
+                        Improves overall skin texture, elasticity, and firmness through comprehensive neocollagenesis process.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-card kst-mt-small">
+                <div class="kst-dt">DUAL-PHASE EFFECTIVENESS</div>
+                <ul>
+                    <li>Immediate volume effect from CMC gel component lasting 3-9 months</li>
+                    <li>Secondary long-term effects from collagen regeneration lasting 6-24 months</li>
+                    <li>Total treatment efficacy extends up to 18-24 months</li>
+                    <li>Progressive improvement through natural collagen synthesis</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-image-block kst-section">
+            [BEFORE/AFTER TREATMENT RESULTS PLACEHOLDER]
+        </div>
+        
+        <div class="kst-section">
+            <div class="kst-section-header">STEP-BY-STEP USAGE PROTOCOL</div>
+            
+            <div class="kst-steps-container">
+                <div class="kst-step-card">
+                    <div class="kst-step-number">1</div>
+                    <div class="kst-step-title">PREPARATION & RECONSTITUTION</div>
+                    <div class="kst-step-description">
+                        Reconstitute the freeze-dried powder with sterile distilled water. Optional: mix with 1-2 mL of 2% Lidocaine for enhanced patient comfort during treatment.
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">2</div>
+                    <div class="kst-step-title">NEEDLE PREPARATION</div>
+                    <div class="kst-step-description">
+                        Use 18G needle to withdraw the reconstituted solution, then switch to 26G needle for precise injection into the targeted treatment area.
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">3</div>
+                    <div class="kst-step-title">INJECTION TECHNIQUE</div>
+                    <div class="kst-step-description">
+                        Inject into dermal layer or subcutaneous layer depending on treatment area. The spherical PLA particles ensure smooth injection with low pressure requirements.
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">4</div>
+                    <div class="kst-step-title">TREATMENT AREAS</div>
+                    <div class="kst-step-description">
+                        Apply to entire facial area excluding glabella and eye region. Suitable for deep forehead wrinkles, nasolabial folds, temporal and cheekbone augmentation.
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">5</div>
+                    <div class="kst-step-title">POST-TREATMENT CARE</div>
+                    <div class="kst-step-description">
+                        Monitor patient response and schedule follow-up treatments as needed. Treatment cycle consists of 1-3 sessions for optimal results.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-card kst-mt-small">
+                <div class="kst-dt">TREATMENT FREQUENCY & TIMING</div>
+                <div class="kst-description">
+                    Recommended treatment cycle of 1-3 treatments. Single treatment session provides immediate volume for 3-9 months, with secondary efficacy from collagen regeneration lasting 6-24 months.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-section">
+            <div class="kst-section-header">APPLICATION PROTOCOLS</div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">INJECTION LAYER SPECIFICATIONS</div>
+                <div class="kst-description">
+                    Target dermal layer or subcutaneous layer based on treatment objectives. Deep dermis injection for wrinkle correction, subcutaneous for volume restoration.
+                </div>
+            </div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">NEEDLE GAUGE PROTOCOL</div>
+                <div class="kst-description">
+                    Use 18G needle for solution withdrawal to prevent particle damage, then 26G needle for patient injection to ensure comfort and precision.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block kst-section">
+            [INJECTION TECHNIQUE REFERENCE GUIDE PLACEHOLDER]
+        </div>
+        
+        <div class="kst-section">
+            <div class="kst-section-header">PRODUCT SPECIFICATIONS</div>
+            <div class="kst-table-wrap">
+                <table class="kst-specs-table">
+                    <thead>
+                        <tr>
+                            <th>SPECIFICATION</th>
+                            <th>VALUE</th>
+                            <th>DESCRIPTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Volume</td>
+                            <td>200mg</td>
+                            <td>Per single vial</td>
+                        </tr>
+                        <tr>
+                            <td>Formulation Type</td>
+                            <td>Freeze-dried powder</td>
+                            <td>Lyophilized spherical particles</td>
+                        </tr>
+                        <tr>
+                            <td>Cross-linking</td>
+                            <td>Not cross-linked</td>
+                            <td>Non-cross-linked gel structure</td>
+                        </tr>
+                        <tr>
+                            <td>Particle Shape</td>
+                            <td>Spherical</td>
+                            <td>Even volume creation</td>
+                        </tr>
+                        <tr>
+                            <td>Storage Temperature</td>
+                            <td>2-25°C</td>
+                            <td>Room temperature storage</td>
+                        </tr>
+                        <tr>
+                            <td>Shelf Life</td>
+                            <td>24 months</td>
+                            <td>From manufacture date</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="kst-card kst-mt-small">
+                <div class="kst-dt">STORAGE & HANDLING CONDITIONS</div>
+                <div class="kst-description">
+                    Store at room temperature (2-25°C) away from direct sunlight. Keep in original packaging until use. For professional use only by certified medical professionals or dermatologists.
+                </div>
+                <div class="kst-mt-small">
+                    <span class="kst-keyword-badge">ROOM TEMPERATURE</span>
+                    <span class="kst-keyword-badge">LIGHT PROTECTION</span>
+                    <span class="kst-keyword-badge">PROFESSIONAL USE</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-section">
+            <div class="kst-section-header">TREATMENT DURATION & RESULTS</div>
+            
+            <div class="kst-stats-grid">
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">3-9</div>
+                    <div class="kst-stat-label">MONTHS</div>
+                    <div class="kst-stat-desc">Initial volume effect duration</div>
+                </div>
+                
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">6-24</div>
+                    <div class="kst-stat-label">MONTHS</div>
+                    <div class="kst-stat-desc">Secondary collagen effect</div>
+                </div>
+                
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">18-24</div>
+                    <div class="kst-stat-label">MONTHS</div>
+                    <div class="kst-stat-desc">Total treatment efficacy</div>
+                </div>
+                
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">1-3</div>
+                    <div class="kst-stat-label">TREATMENTS</div>
+                    <div class="kst-stat-desc">Recommended treatment cycle</div>
+                </div>
+                
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">200</div>
+                    <div class="kst-stat-label">MG</div>
+                    <div class="kst-stat-desc">Active ingredient per vial</div>
+                </div>
+                
+                <div class="kst-stat-card">
+                    <div class="kst-stat-number">26G</div>
+                    <div class="kst-stat-label">NEEDLE</div>
+                    <div class="kst-stat-desc">Recommended injection gauge</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block kst-section">
+            [TREATMENT TIMELINE AND RESULTS CHART PLACEHOLDER]
+        </div>
+        
+        <div class="kst-section">
+            <div class="kst-section-header">MANUFACTURER & QUALITY STANDARDS</div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">MANUFACTURER INFORMATION</div>
+                <div class="kst-description">
+                    Manufactured by Maypharm Co., Ltd. utilizing advanced freeze-drying technology to reduce reconstitution time and ensure optimal particle integrity.
+                </div>
+            </div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">QUALITY FEATURES</div>
+                <ul>
+                    <li>Spherical PLA particles for even distribution</li>
+                    <li>Low injection pressure requirements</li>
+                    <li>Biodegradable materials with no residue</li>
+                    <li>Freeze-drying technology for stability</li>
+                    <li>Professional-grade formulation standards</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-safety-section">
+            <div class="kst-safety-header">SAFETY INFORMATION & PRECAUTIONS</div>
+            <div class="kst-safety-content">
+                For professional use only by certified medical professionals or dermatologists. Read complete instructions before use.
+                
+                <ul class="kst-safety-list">
+                    <li>Professional administration required</li>
+                    <li>Avoid glabella and eye region</li>
+                    <li>Store away from direct sunlight</li>
+                    <li>Use proper needle gauge specifications</li>
+                    <li>Monitor patient response during treatment</li>
+                    <li>Follow recommended reconstitution procedures</li>
+                    <li>Maintain sterile injection techniques</li>
+                    <li>Document treatment parameters</li>
+                </ul>
+                
+                <div class="kst-mt-medium">
+                    <div class="kst-dt">PROFESSIONAL GUIDELINES</div>
+                    <div class="kst-description">
+                        This product is intended for use by qualified medical professionals only. Proper training in injection techniques and facial anatomy is essential for safe and effective treatment outcomes.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-section">
+            <div class="kst-section-header">TECHNICAL DOCUMENTATION</div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">FORMULATION TECHNOLOGY</div>
+                <div class="kst-description">
+                    MENNUS utilizes advanced freeze-drying technology combined with spherical PLA particle engineering to ensure optimal biocompatibility and treatment effectiveness.
+                </div>
+                <div class="kst-mt-small">
+                    <span class="kst-keyword-badge">FREEZE-DRIED</span>
+                    <span class="kst-keyword-badge">SPHERICAL PARTICLES</span>
+                    <span class="kst-keyword-badge">BIOSTIMULATOR</span>
+                </div>
+            </div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">MECHANISM OF ACTION</div>
+                <div class="kst-description">
+                    Dual-phase mechanism combining immediate volumizing from CMC gel with long-term collagen stimulation from PLA microspheres. The biodegradable components are naturally processed by the body, leaving enhanced tissue structure through neocollagenesis.
+                </div>
+            </div>
+            
+            <div class="kst-card">
+                <div class="kst-dt">META KEYWORDS</div>
+                <div class="kst-description">
+                    Poly-L-Lactic Acid Filler, PLA Filler, CMC Filler, Collagen Stimulator, Neocollagenesis, Long-Lasting Filler, Facial Volume, Wrinkle Improvement, Injectable, Maypharm, Biodegradable Filler, Skin Rejuvenation
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block kst-section">
+            [PRODUCT PACKAGING AND VIAL SPECIFICATIONS PLACEHOLDER]
+        </div>
+        
+    </div>
+</body>
+</html>

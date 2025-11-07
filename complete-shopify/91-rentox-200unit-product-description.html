@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReNTox Botulinum Toxin Type A - Product Description</title>
+<style>
+  :root {
+    --kst-primary: #D9A73F;
+    --kst-secondary: #E6C878;
+    --kst-text-primary: #FFFFFF;
+    --kst-text-secondary: #CCCCCC;
+    --kst-background: #D9A73F;
+    --kst-badge-bg: #D9A73F;
+    --kst-badge-text: #FFFFFF;
+    --kst-badge-hover: #E6C878;
+    --kst-dark-text: #1f2a44;
+    --kst-card-bg: #FFFFFF;
+    --kst-border: rgba(217, 167, 63, 0.2);
+  }
+
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 16px 0;
+    background: linear-gradient(135deg, #f8f4eb, #faf7f0);
+    font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Apple SD Gothic Neo, Noto Sans KR, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .kst-main-container *,
+  .kst-main-container *::before,
+  .kst-main-container *::after {
+    box-sizing: border-box;
+  }
+
+  .kst-container {
+    padding: 0 16px;
+  }
+
+  .kst-section {
+    margin: 24px 0;
+  }
+
+  .kst-card {
+    background: var(--kst-card-bg);
+    border: 1px solid var(--kst-border);
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(217, 167, 63, 0.08);
+    padding: 20px;
+    color: var(--kst-dark-text) !important;
+  }
+
+  .kst-card h1,
+  .kst-card h2,
+  .kst-card h3,
+  .kst-card h4,
+  .kst-card h5,
+  .kst-card h6 {
+    color: var(--kst-dark-text);
+    margin: 0 0 12px 0;
+  }
+
+  .kst-card p {
+    color: var(--kst-dark-text);
+    margin: 0 0 12px 0;
+  }
+
+  .kst-card ul,
+  .kst-card ol {
+    margin: 0 0 12px 0;
+    padding-left: 20px;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li {
+    color: var(--kst-dark-text);
+    margin-bottom: 6px;
+  }
+
+  .kst-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  .kst-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--kst-primary);
+    color: var(--kst-badge-text) !important;
+    font-weight: 600;
+    border: 1px solid var(--kst-secondary);
+    font-size: 14px;
+  }
+
+  .kst-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: var(--kst-primary);
+    border: 1px solid var(--kst-secondary);
+    border-radius: 999px;
+    font-weight: 600;
+    color: var(--kst-badge-text) !important;
+    font-size: 13px;
+  }
+
+  .kst-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .kst-kicker {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: #e7bd62 !important;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .kst-headline {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    line-height: 1.25;
+    margin: 6px 0 10px;
+    font-weight: 800;
+    color: var(--kst-primary) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-spec {
+    font-size: clamp(1rem, 3.2vw, 1.6rem);
+    line-height: 1;
+    margin: -4px 0 15px !important;
+    font-weight: 500;
+    color: #a2720a !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-sub {
+    color: #6b7a90 !important;
+    margin: 0 0 16px;
+    font-size: 15px;
+  }
+
+  .kst-muted {
+    color: #6b7a90 !important;
+    font-size: 14px;
+  }
+
+  .kst-section-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 0 0 16px;
+    color: var(--kst-dark-text) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--kst-badge-bg);
+    border: 1px solid var(--kst-secondary);
+    font-weight: 700;
+    color: var(--kst-badge-text) !important;
+    font-size: 12px;
+  }
+
+  .kst-num {
+    font-weight: 800;
+    color: var(--kst-primary) !important;
+  }
+
+  .kst-percent {
+    font-weight: 900;
+    color: var(--kst-primary) !important;
+    font-size: 1.8rem;
+  }
+
+  .kst-big-number {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 900;
+    color: var(--kst-primary) !important;
+  }
+
+  /* Image blocks with auto-hide functionality */
+  .kst-image-block {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #faf7f0, #f8f4eb);
+    border: 1px dashed var(--kst-secondary);
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    color: var(--kst-primary) !important;
+    font-weight: 600;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+
+  .kst-image-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-image-block:has(img:not([src])) {
+    display: none;
+  }
+
+  /* Steps */
+  .kst-steps {
+    display: grid;
+    gap: 12px;
+  }
+
+  .kst-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+    background: #faf7f0;
+    border: 1px solid var(--kst-border);
+    border-radius: 16px;
+    padding: 14px;
+  }
+
+  .kst-step-dot {
+    width: auto;
+    height: 32px;
+    border-radius: 999px;
+    background: var(--kst-primary);
+    color: var(--kst-badge-text) !important;
+    display: grid;
+    place-items: center;
+    padding: 0px 12px !important;
+    font-weight: 800;
+    font-size: 14px;
+  }
+
+  .kst-step-content {
+    color: var(--kst-dark-text) !important;
+  }
+
+  .kst-step-content strong {
+    color: var(--kst-dark-text) !important;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Key-Value pairs */
+  .kst-kv {
+    display: grid;
+    gap: 8px;
+  }
+
+  .kst-kv-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--kst-border);
+  }
+
+  .kst-kv-row:last-child {
+    border-bottom: none;
+  }
+
+  .kst-key {
+    color: var(--kst-primary) !important;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .kst-value {
+    color: var(--kst-dark-text) !important;
+    font-size: 14px;
+  }
+
+  /* Table wrapper */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0;
+    border-radius: 12px;
+    border: 1px solid var(--kst-border);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 6px; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-thumb { 
+    background: var(--kst-primary); 
+    border-radius: 8px; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-track { 
+    background: #faf7f0; 
+    border-radius: 8px; 
+  }
+
+  .kst-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    table-layout: auto !important;
+  }
+
+  .kst-table th,
+  .kst-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--kst-border);
+    text-align: left;
+    color: var(--kst-dark-text) !important;
+    white-space: nowrap !important; 
+  }
+
+  .kst-table th {
+    background: #faf7f0;
+    color: var(--kst-primary) !important;
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+  }
+
+  .kst-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Tabs */
+  .kst-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .kst-tab-btn {
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--kst-secondary);
+    background: #faf7f0;
+    color: var(--kst-primary) !important;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .kst-tab-btn[aria-selected="true"] {
+    background: var(--kst-primary);
+    color: var(--kst-badge-text) !important;
+    border-color: var(--kst-primary);
+  }
+
+  .kst-tab-panel {
+    display: none;
+  }
+
+  .kst-tab-panel.kst-active {
+    display: block;
+  }
+
+  /* Accordion/Details */
+  .kst-faq-item {
+    border: 1px solid var(--kst-border);
+    background: var(--kst-card-bg);
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+
+  .kst-faq-item summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: var(--kst-primary) !important;
+    list-style: none;
+    padding: 4px 0;
+  }
+
+  .kst-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .kst-faq-item p {
+    margin-top: 8px;
+    color: var(--kst-dark-text) !important;
+  }
+
+  /* Alerts */
+  .kst-alert {
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid;
+    margin: 12px 0;
+  }
+
+  .kst-alert.kst-warn {
+    background: #fff8e1;
+    border-color: #ffcc02;
+  }
+
+  .kst-alert.kst-danger {
+    background: #ffebee;
+    border-color: #f44336;
+  }
+
+  .kst-alert.kst-safe {
+    background: #f3f8f6;
+    border-color: var(--kst-secondary);
+  }
+
+  .kst-alert h3,
+  .kst-alert h4,
+  .kst-alert strong {
+    color: var(--kst-dark-text) !important;
+    margin-bottom: 8px;
+  }
+
+  .kst-alert p,
+  .kst-alert li {
+    color: var(--kst-dark-text) !important;
+  }
+
+  /* Stats */
+  .kst-inline-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* List styles */
+  .kst-list-vertical {
+    display: grid;
+    gap: 8px;
+  }
+
+  .kst-list-vertical li {
+    color: var(--kst-dark-text) !important;
+    font-size: 14px;
+  }
+
+  /* Ingredient cards */
+  .kst-ingredient-card {
+    background: var(--kst-card-bg);
+    border: 1px solid var(--kst-border);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 8px;
+  }
+
+  .kst-ingredient-card strong {
+    color: var(--kst-dark-text) !important;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .kst-ingredient-card .kst-muted {
+    margin-bottom: 8px;
+  }
+
+  /* Responsive typography */
+  @media (max-width: 480px) {
+    .kst-container {
+      padding: 0 12px;
+    }
+    
+    .kst-card {
+      padding: 16px;
+    }
+    
+    .kst-headline {
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+    }
+    
+    .kst-section-title {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="kst-main-container">
+  
+  <header class="kst-container">
+    <div class="kst-card">
+      <div class="kst-chips" aria-label="Category and Brand Tags">
+        <span class="kst-pill">Botulinum Toxin</span>
+        <span class="kst-pill">Pharma Research Bio</span>
+        <span class="kst-pill">ReNTox™</span>
+      </div>
+      <p class="kst-kicker">Professional Grade Botulinum Toxin Type A</p>
+      <h1 class="kst-headline">ReNTox™ 200unit</h1>
+      <h2 class="kst-spec">Clostridium Botulinum Toxin Type A - 200 Units per Vial</h2>
+      <p class="kst-sub">Advanced botulinum toxin for wrinkle improvement, facial contouring, and muscle spasticity treatment</p>
+      <div class="kst-chips" style="margin-bottom:16px">
+        <span class="kst-chip">#WrinkleImprovement</span>
+        <span class="kst-chip">#FacialContouring</span>
+        <span class="kst-chip">#MuscleRelaxation</span>
+      </div>
+    </div>
+    
+    <div class="kst-image-block" aria-label="ReNTox product image">
+      ReNTox™ 200U Product Visual
+    </div>
+  </header>
+
+  <main class="kst-container">
+
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">🧬 Active Ingredients and Composition</h2>
+        <p class="kst-muted">ReNTox™ contains high-quality Clostridium botulinum toxin type A, formulated as freeze-dried powder for optimal stability and reconstitution.</p>
+        
+        <div class="kst-grid" style="margin-top:16px">
+          <div class="kst-ingredient-card">
+            <strong>Clostridium Botulinum Toxin Type A</strong>
+            <p class="kst-muted">Primary active ingredient for muscle relaxation and wrinkle reduction</p>
+            <span class="kst-badge">200 Units</span>
+          </div>
+        </div>
+        
+        <div class="kst-image-block" style="margin-top:16px">
+          Botulinum Toxin Molecular Structure Visualization
+        </div>
+      </div>
+      
+      <div class="kst-section">
+        <div class="kst-card">
+          <h3 class="kst-section-title">Reconstitution Guidelines</h3>
+          <p>For optimal results, reconstitute with sterile, preservative-free normal saline (0.9% Sodium chloride Injection). The diluent should create a vacuum when injected into the vial.</p>
+          <div class="kst-kv" style="margin-top:12px">
+            <div class="kst-kv-row">
+              <div class="kst-key">Diluent Type</div>
+              <div class="kst-value">Sterile preservative-free 0.9% Sodium Chloride</div>
+            </div>
+            <div class="kst-kv-row">
+              <div class="kst-key">Storage Method</div>
+              <div class="kst-value">Refrigerated at 2-8°C before and after reconstitution</div>
+            </div>
+            <div class="kst-kv-row">
+              <div class="kst-key">Usage Window</div>
+              <div class="kst-value">Use immediately or within 24 hours after reconstitution</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kst-benefits" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">💡 Clinical Applications and Effects</h2>
+        <div class="kst-grid">
+          <div class="kst-card"><strong>Glabellar Wrinkle Improvement</strong><p class="kst-muted">Temporary improvement of moderate to severe glabellar lines</p></div>
+          <div class="kst-card"><strong>Chronic Facial Wrinkles</strong><p class="kst-muted">Effective treatment for crow's feet and forehead lines</p></div>
+          <div class="kst-card"><strong>Masseter Muscle Hypertrophy</strong><p class="kst-muted">V-line lifting effect through jawline contouring</p></div>
+          <div class="kst-card"><strong>Focal Muscle Spasticity</strong><p class="kst-muted">Therapeutic muscle relaxation for spasticity conditions</p></div>
+        </div>
+        
+        <div class="kst-chips" style="margin:16px 0">
+          <span class="kst-chip">Facial Enhancement</span>
+          <span class="kst-chip">Body Contouring</span>
+          <span class="kst-chip">Therapeutic Use</span>
+          <span class="kst-chip">Professional Grade</span>
+        </div>
+        
+        <div class="kst-grid">
+          <div>
+            <h4 class="kst-kicker" style="margin:8px 0">Treatment Benefits</h4>
+            <ul class="kst-list-vertical">
+              <li>Temporary improvement of moderate to severe facial wrinkles</li>
+              <li>Effective correction of chronic expression lines</li>
+              <li>V-line facial contouring through masseter reduction</li>
+              <li>Therapeutic muscle spasticity management</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="kst-image-block" style="margin-top:16px">
+          Treatment Areas and Expected Results Visualization
+        </div>
+        
+        <p class="kst-muted" style="margin-top:16px">Effects typically last 3-4 months, with some reports extending up to 6-8 months depending on treatment area and individual factors.</p>
+      </div>
+    </section>
+
+    <section id="kst-usage" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">🧪 Treatment Protocol and Administration</h2>
+        <div class="kst-steps">
+          <div class="kst-step">
+            <div class="kst-step-dot">1</div>
+            <div class="kst-step-content">
+              <strong>Patient Assessment</strong><br />
+              Evaluate target muscles and determine precise dosage based on treatment area and patient requirements
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-step-dot">2</div>
+            <div class="kst-step-content">
+              <strong>Reconstitution Process</strong><br />
+              Gently inject sterile saline into vial, ensuring vacuum pull occurs for proper mixing
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-step-dot">3</div>
+            <div class="kst-step-content">
+              <strong>Injection Technique</strong><br />
+              Administer precise doses to targeted muscle groups using appropriate injection depth
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-step-dot">4</div>
+            <div class="kst-step-content">
+              <strong>Post-Treatment Care</strong><br />
+              Monitor patient and provide appropriate aftercare instructions
+            </div>
+          </div>
+        </div>
+        <p class="kst-muted" style="margin-top:12px">Maximum cumulative dose should not exceed 200 units in a 30-day period. Professional medical administration required.</p>
+      </div>
+      
+      <div class="kst-section">
+        <div class="kst-card">
+          <div class="kst-tabs" role="tablist" aria-label="Treatment Method Tabs">
+            <button class="kst-tab-btn" role="tab" aria-selected="true" data-tab="facial">Facial Treatment</button>
+            <button class="kst-tab-btn" role="tab" aria-selected="false" data-tab="body">Body Treatment</button>
+          </div>
+          
+          <div id="kst-tab-facial" class="kst-tab-panel kst-active" role="tabpanel">
+            <div class="kst-card" style="background:#faf7f0">
+              <strong>Facial Treatment Protocol</strong>
+              <ol>
+                <li>Glabellar lines: Multiple injection points between eyebrows</li>
+                <li>Crow's feet: Lateral canthal area with 3-4 injection sites</li>
+                <li>Forehead lines: Horizontal distribution across forehead muscles</li>
+                <li>Effects typically visible 2-3 days post-treatment, maximum at 1-2 weeks</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div id="kst-tab-body" class="kst-tab-panel" role="tabpanel">
+            <div class="kst-card" style="background:#faf7f0">
+              <strong>Body Contouring Protocol</strong>
+              <ol>
+                <li>Masseter muscle: Bilateral injection for jawline slimming</li>
+                <li>Trapezius muscle: Multiple points for shoulder line refinement</li>
+                <li>Calf muscle: Strategic placement for leg contouring</li>
+                <li>Higher dosage requirements for larger muscle groups</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div class="kst-image-block" style="margin-top:16px">
+            Treatment Protocol Visual Guide
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kst-specs" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">📊 Product Specifications</h2>
+        
+        <div class="kst-grid">
+          <div class="kst-card">
+            <div class="kst-inline-stat">
+              <span class="kst-big-number">200U</span>
+              <span class="kst-muted">Units per Vial</span>
+            </div>
+          </div>
+          <div class="kst-card">
+            <div class="kst-inline-stat">
+              <span class="kst-big-number">2-8°C</span>
+              <span class="kst-muted">Storage Temperature</span>
+            </div>
+          </div>
+          <div class="kst-card">
+            <div class="kst-inline-stat">
+              <span class="kst-big-number">24hrs</span>
+              <span class="kst-muted">Post-Reconstitution Use</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kst-table-wrap" style="margin-top:16px">
+          <table class="kst-table" role="table" aria-label="Treatment Comparison Table">
+            <thead>
+              <tr>
+                <th>Treatment Area</th>
+                <th>Typical Units</th>
+                <th>Duration</th>
+                <th>Onset</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Glabellar Lines</td><td>20-25 units</td><td>3-4 months</td><td>2-3 days</td></tr>
+              <tr><td>Crow's Feet</td><td>15-20 units</td><td>3-4 months</td><td>2-3 days</td></tr>
+              <tr><td>Forehead Lines</td><td>10-20 units</td><td>3-4 months</td><td>2-3 days</td></tr>
+              <tr><td>Masseter Hypertrophy</td><td>30-50 units</td><td>4-6 months</td><td>1-2 weeks</td></tr>
+              <tr><td>Trapezius</td><td>40-80 units</td><td>3-5 months</td><td>1-2 weeks</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="kst-kv" style="margin-top:16px">
+          <div class="kst-kv-row">
+            <div class="kst-key">Storage Requirements</div>
+            <div class="kst-value">Refrigerated storage at 2-8°C, protect from light</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Shelf Life</div>
+            <div class="kst-value">As indicated on packaging, use within 24 hours after reconstitution</div>
+          </div>
+          <div class="kst-kv-row">
+            <div class="kst-key">Manufacturer</div>
+            <div class="kst-value">Pharma Research Bio - Professional medical grade</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kst-timeline" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">⏱️ Treatment Timeline and Results</h2>
+        <div class="kst-steps">
+          <div class="kst-step">
+            <div class="kst-step-dot">Day 1</div>
+            <div class="kst-step-content">
+              <strong>Treatment Day</strong>
+              <p>Professional administration by trained medical practitioner</p>
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-step-dot">2-3</div>
+            <div class="kst-step-content">
+              <strong>Initial Effects</strong>
+              <p>First signs of muscle relaxation and wrinkle reduction become visible</p>
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-step-dot">1-2wk</div>
+            <div class="kst-step-content">
+              <strong>Maximum Effect</strong>
+              <p>Full treatment results achieved, optimal wrinkle improvement visible</p>
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-step-dot">3-4mo</div>
+            <div class="kst-step-content">
+              <strong>Duration Period</strong>
+              <p>Effects gradually diminish, retreatment may be considered</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kst-precautions" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">⚠️ Warnings and Precautions</h2>
+        <div class="kst-alert kst-danger">
+          <strong>Serious Warnings:</strong>
+          <p>The effects of botulinum toxin may spread beyond the injection site, potentially causing symptoms such as muscle weakness or difficulty breathing or swallowing. [cite_start]Immediate medical attention is required if these symptoms occur. [cite: 26, 25]</p>
+        </div>
+        <div class="kst-alert kst-warn">
+          <strong>Hypersensitivity:</strong>
+          <p>Serious hypersensitivity reactions are possible. [cite_start]Do not use this product if you have a known hypersensitivity to any of its ingredients. [cite: 27]</p>
+        </div>
+        <div class="kst-alert kst-safe">
+          <strong>Professional Use Only:</strong>
+          [cite_start]<p>This product should only be administered by trained medical professionals. [cite: 28]</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kst-metadata" class="kst-section">
+      <div class="kst-card">
+        <h2 class="kst-section-title">🔖 Metadata Keywords</h2>
+        <div class="kst-chips">
+          <span class="kst-chip">botulinum toxin</span>
+          <span class="kst-chip">200 units</span>
+          <span class="kst-chip">wrinkle improvement</span>
+          <span class="kst-chip">lifting</span>
+          <span class="kst-chip">cosmetic toxin</span>
+          <span class="kst-chip">genuine toxin</span>
+          <span class="kst-chip">resistance management</span>
+          <span class="kst-chip">muscle relaxation</span>
+          <span class="kst-chip">frown lines</span>
+          <span class="kst-chip">glabellar lines</span>
+          <span class="kst-chip">jawline</span>
+          <span class="kst-chip">masseter</span>
+          <span class="kst-chip">reconstitution</span>
+          <span class="kst-chip">facial cosmetic</span>
+          <span class="kst-chip">body treatment</span>
+          <span class="kst-chip">Pharma Research Bio</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>

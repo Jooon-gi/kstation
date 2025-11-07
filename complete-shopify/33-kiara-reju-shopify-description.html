@@ -1,0 +1,713 @@
+<!-- KIARA REJU Product Description for Shopify -->
+<style>
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Times New Roman', 'Georgia', serif;
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        line-height: 1.4;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    /* Image auto-hide functionality */
+    .kst-image-block:not(:has(img)),
+    .kst-image-block:has(img[src=""]),
+    .kst-chart-block:not(:has(img)),
+    .kst-chart-block:has(img[src=""]),
+    .kst-product-image:not(:has(img)),
+    .kst-product-image:has(img[src=""]) {
+        display: none !important;
+    }
+    
+    .kst-interface-header {
+        background: linear-gradient(90deg, #008080 0%, #00B3B3 100%);
+        color: #FFFFFF !important;
+        padding: 15px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #008080;
+    }
+    
+    .kst-system-title {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        max-width: 100%;
+        color: #FFFFFF !important;
+    }
+    
+    .kst-section {
+        background: #FFFFFF !important;
+        border: 1px solid #e2e8f0;
+        margin: 30px 0 !important;
+        max-width: 100%;
+    }
+    
+    .kst-section-header {
+        background: #f8f9fa !important;
+        padding: 8px 15px;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #777777 !important;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-header.kst-primary {
+        background: #008080 !important;
+        color: #FFFFFF !important;
+    }
+    
+    .kst-section-header.kst-secondary {
+        background: #00B3B3 !important;
+        color: #FFFFFF !important;
+    }
+    
+    .kst-section-header.kst-accent {
+        background: #008080 !important;
+        color: #FFFFFF !important;
+    }
+    
+    .kst-section-header.kst-warning {
+        background: #f6e05e !important;
+        color: #744210 !important;
+    }
+    
+    .kst-section-header.kst-clinical {
+        background: #008080 !important;
+        color: #FFFFFF !important;
+    }
+    
+    .kst-section-header.kst-info {
+        background: #00B3B3 !important;
+        color: #FFFFFF !important;
+    }
+    
+    .kst-content {
+        padding: 15px;
+    }
+    
+    .kst-hero-content {
+        padding: 20px 15px;
+        text-align: center;
+    }
+    
+    .kst-main-title {
+        font-size: 38px;
+        font-weight: 700;
+        color: #000000 !important;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-main-spec {
+        font-size: 20px;
+        font-weight: 500;
+        color: #777777 !important;
+        margin-bottom: 16px;
+        margin-top: -6px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-subtitle {
+        font-size: 12px;
+        color: #777777 !important;
+        margin-bottom: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-category-badge {
+        background: #008080;
+        color: #FFFFFF !important;
+        padding: 4px 8px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: 15px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+    }
+    
+    .kst-slogan {
+        font-size: 14px;
+        color: #000000 !important;
+        font-style: italic;
+        margin-top: 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-image-block {
+        background: #008080;
+        color: #FFFFFF !important;
+        padding: 20px 15px;
+        margin: 12px;
+        border: 2px solid #00B3B3;
+        font-size: 10px;
+        text-align: center;
+        position: relative;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        max-width: 100%;
+    }
+    
+    .kst-image-block::before {
+        content: '>';
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        color: #FFFFFF !important;
+        font-weight: 700;
+    }
+    
+    .kst-image-block::after {
+        content: '_';
+        animation: kst-blink 1s infinite;
+        margin-left: 4px;
+    }
+    
+    .kst-image-block img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    
+    @keyframes kst-blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }
+    
+    .kst-data-list {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .kst-data-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 8px 0;
+        border-bottom: 1px solid #f7fafc;
+        font-size: 11px;
+    }
+    
+    .kst-data-item:last-child {
+        border-bottom: none;
+    }
+    
+    .kst-data-label {
+        font-weight: 600;
+        color: #000000 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        flex: 1;
+        margin-right: 10px;
+    }
+    
+    .kst-data-value {
+        background: #f8f9fa;
+        color: #777777 !important;
+        padding: 2px 8px;
+        font-weight: 700;
+        font-family: 'Courier New', 'Consolas', monospace;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        flex-shrink: 0;
+        max-width: 50%;
+    }
+    
+    .kst-ingredient-list {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .kst-ingredient-item {
+        margin-bottom: 15px;
+        padding: 12px;
+        background: #f7fafc;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .kst-ingredient-name {
+        font-size: 12px;
+        font-weight: 700;
+        color: #000000 !important;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-ingredient-concentration {
+        background: #008080;
+        color: #FFFFFF !important;
+        padding: 3px 8px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        display: inline-block;
+        margin-bottom: 8px;
+    }
+    
+    .kst-ingredient-description {
+        font-size: 10px;
+        color: #777777 !important;
+        line-height: 1.4;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-effect-list {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .kst-effect-item {
+        background: #FFFFFF;
+        border: 1px solid #e2e8f0;
+        padding: 15px 12px;
+        margin-bottom: 12px;
+        position: relative;
+    }
+    
+    .kst-effect-id {
+        position: absolute;
+        top: 5px;
+        right: 8px;
+        font-size: 8px;
+        color: #777777 !important;
+        font-weight: 700;
+    }
+    
+    .kst-effect-name {
+        font-size: 12px;
+        font-weight: 700;
+        color: #000000 !important;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-effect-description {
+        font-size: 10px;
+        color: #777777 !important;
+        line-height: 1.4;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-steps-container {
+        display: block;
+        margin: 16px 0 -12px;
+        padding: 0;
+    }
+    
+    .kst-step-card {
+        background: #f7fafc;
+        border: 1px solid #e2e8f0;
+        padding: 15px 12px;
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+    .kst-step-number {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #008080;
+        color: #FFFFFF !important;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 700;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+    }
+    
+    .kst-step-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: #000000 !important;
+        margin: 12px 0 8px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-step-description {
+        font-size: 10px;
+        color: #777777 !important;
+        line-height: 1.4;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 15px 0;
+    }
+    
+    .kst-table {
+        width: 100%;
+        min-width: 600px;
+        border-collapse: collapse;
+        font-size: 11px;
+    }
+    
+    .kst-table th,
+    .kst-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-table th {
+        background: #f8f9fa !important;
+        font-weight: 700;
+        color: #000000 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        white-space: nowrap !important;
+    }
+    
+    .kst-table td {
+        color: #777777 !important;
+    }
+    
+    .kst-status-bar {
+        background: #008080;
+        color: #FFFFFF !important;
+        padding: 8px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        flex-wrap: wrap;
+    }
+    
+    .kst-status-indicators {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .kst-indicator {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .kst-indicator-dot {
+        width: 6px !important;
+        height: 6px !important;
+        background: #FFFFFF;
+        border-radius: 100px !important;
+    }
+    
+    /* Scrollbar Styling */
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: #008080;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb:hover {
+        background: #00B3B3;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- Interface Header -->
+    <div class="kst-interface-header">
+        <div class="kst-system-title">KIARA REJU Product Interface</div>
+    </div>
+    
+    <!-- Basic Product Information -->
+    <div class="kst-section">
+        <div class="kst-section-header kst-primary">Basic Product Information</div>
+        <div class="kst-hero-content">
+            <div class="kst-category-badge">Skin Booster</div>
+            <h1 class="kst-main-title">KIARA REJU</h1>
+            <h2 class="kst-main-spec">2.2mL x 3 Syringes</h2>
+            <p class="kst-subtitle">Advanced Regenerative Skin Booster with PDRN, HA & Niacinamide</p>
+            <p class="kst-slogan">Revolutionary Multi-Active Formula for Complete Skin Rejuvenation</p>
+        </div>
+    </div>
+    
+    <!-- Product Showcase -->
+    <div class="kst-image-block">
+        LOADING PRODUCT_SHOWCASE.IMG... [KIARA_REJU_MAIN_PRODUCT_VISUALIZATION]
+    </div>
+    
+    <!-- Ingredient Analysis -->
+    <div class="kst-section">
+        <div class="kst-section-header kst-primary">Ingredient Analysis</div>
+        <div class="kst-content">
+            <div class="kst-ingredient-list">
+                <div class="kst-ingredient-item">
+                    <div class="kst-ingredient-name">Hyaluronic Acid (HA)</div>
+                    <div class="kst-ingredient-concentration">20mg/mL</div>
+                    <div class="kst-ingredient-description">High molecular weight hyaluronic acid provides deep hydration and moisture retention, creating a plumping effect and improving skin texture for immediate visible results.</div>
+                </div>
+                
+                <div class="kst-ingredient-item">
+                    <div class="kst-ingredient-name">Polynucleotides (PDRN)</div>
+                    <div class="kst-ingredient-concentration">5mg/mL</div>
+                    <div class="kst-ingredient-description">Advanced tissue regeneration activator that promotes cellular repair, stimulates collagen synthesis, and enhances skin healing processes at the molecular level.</div>
+                </div>
+                
+                <div class="kst-ingredient-item">
+                    <div class="kst-ingredient-name">Niacinamide</div>
+                    <div class="kst-ingredient-concentration">1mg/mL</div>
+                    <div class="kst-ingredient-description">Vitamin B3 derivative that brightens skin tone, reduces inflammation, minimizes pore appearance, and regulates sebum production for enhanced skin clarity.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Molecular Structure Visualization -->
+    <div class="kst-image-block">
+        RENDERING MOLECULAR_STRUCTURE.3D... [INGREDIENT_MOLECULAR_VISUALIZATION]
+    </div>
+    
+    <!-- Effects & Functions -->
+    <div class="kst-section">
+        <div class="kst-section-header kst-accent">Effects & Functions</div>
+        <div class="kst-content">
+            <div class="kst-effect-list">
+                <div class="kst-effect-item">
+                    <div class="kst-effect-id">EFF_01</div>
+                    <div class="kst-effect-name">Deep Hydration & Moisturization</div>
+                    <div class="kst-effect-description">Provides intensive moisture through hyaluronic acid penetration, maintaining optimal skin hydration levels and creating a natural plumping effect for smoother appearance.</div>
+                </div>
+                
+                <div class="kst-effect-item">
+                    <div class="kst-effect-id">EFF_02</div>
+                    <div class="kst-effect-name">Skin Tone & Texture Improvement</div>
+                    <div class="kst-effect-description">Enhances overall skin radiance and luminosity while refining skin texture through cellular regeneration and surface renewal processes.</div>
+                </div>
+                
+                <div class="kst-effect-item">
+                    <div class="kst-effect-id">EFF_03</div>
+                    <div class="kst-effect-name">Enhanced Elasticity & Anti-Aging</div>
+                    <div class="kst-effect-description">Stimulates collagen and elastin production to improve skin elasticity, reduce fine lines and wrinkles, and restore youthful firmness.</div>
+                </div>
+                
+                <div class="kst-effect-item">
+                    <div class="kst-effect-id">EFF_04</div>
+                    <div class="kst-effect-name">Strengthened Barrier Function</div>
+                    <div class="kst-effect-description">Reinforces the skin's natural protective barrier, improving resistance to environmental stressors and maintaining long-term skin health.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Efficacy Documentation -->
+    <div class="kst-image-block">
+        ACCESSING BEFORE_AFTER_RESULTS.DATA... [EFFICACY_DOCUMENTATION_AND_RESULTS]
+    </div>
+    
+    <!-- Application Guidelines -->
+    <div class="kst-section">
+        <div class="kst-section-header kst-accent">Application Guidelines</div>
+        <div class="kst-content">
+            <div class="kst-steps-container">
+                <div class="kst-step-card">
+                    <div class="kst-step-number">1</div>
+                    <div class="kst-step-title">Preparation Phase</div>
+                    <div class="kst-step-description">Prepare treatment area with proper cleansing and sterilization. Ensure equipment (30G or 32G fine needles) is ready for direct injection or device application such as MTS or Hydra Derma stamps.</div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">2</div>
+                    <div class="kst-step-title">Treatment Areas</div>
+                    <div class="kst-step-description">Suitable for entire face, neck, décolleté, and back of hands. Adjust injection depth and method based on specific treatment area and individual skin condition requirements.</div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">3</div>
+                    <div class="kst-step-title">Application Method</div>
+                    <div class="kst-step-description">Administer via direct syringe injection into dermal or epidermal layer. Can also be used with microneedling devices for enhanced absorption and comfort.</div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">4</div>
+                    <div class="kst-step-title">Treatment Schedule</div>
+                    <div class="kst-step-description">Recommended series of 3-4 treatments spaced 2-4 weeks apart. Maintenance sessions every 6-9 months for sustained results and continued skin improvement.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Application Guide Visualization -->
+    <div class="kst-image-block">
+        RENDERING TECHNICAL_REFERENCE.3D... [APPLICATION_GUIDE_AND_PROFESSIONAL_USAGE_DOCUMENTATION]
+    </div>
+    
+    <!-- Product Specifications -->
+    <div class="kst-section">
+        <div class="kst-section-header kst-primary">Product Specifications</div>
+        <div class="kst-content">
+            <div class="kst-table-wrap">
+                <table class="kst-table">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th>Value</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Formulation Type</td>
+                            <td>Pre-filled Syringe</td>
+                            <td>Ready-to-use sterile solution</td>
+                        </tr>
+                        <tr>
+                            <td>Volume per Syringe</td>
+                            <td>2.2mL</td>
+                            <td>Optimal dosage for treatment</td>
+                        </tr>
+                        <tr>
+                            <td>Package Contents</td>
+                            <td>3 Syringes</td>
+                            <td>Complete treatment series</td>
+                        </tr>
+                        <tr>
+                            <td>Storage Temperature</td>
+                            <td>1-30°C</td>
+                            <td>Room temperature stable</td>
+                        </tr>
+                        <tr>
+                            <td>Shelf Life</td>
+                            <td>36 Months</td>
+                            <td>From manufacturing date</td>
+                        </tr>
+                        <tr>
+                            <td>Skin Type Compatibility</td>
+                            <td>All Types</td>
+                            <td>Including sensitive skin</td>
+                        </tr>
+                        <tr>
+                            <td>Professional Use</td>
+                            <td>Required</td>
+                            <td>Licensed practitioners only</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="kst-data-list">
+                <div class="kst-data-item">
+                    <div class="kst-data-label">Storage Conditions</div>
+                    <div class="kst-data-value">Cool, Dry Place</div>
+                </div>
+                <div class="kst-data-item">
+                    <div class="kst-data-label">Light Protection</div>
+                    <div class="kst-data-value">Away from Direct Sunlight</div>
+                </div>
+                <div class="kst-data-item">
+                    <div class="kst-data-label">Package Integrity</div>
+                    <div class="kst-data-value">Do Not Use if Seal Broken</div>
+                </div>
+                <div class="kst-data-item">
+                    <div class="kst-data-label">Mechanism of Action</div>
+                    <div class="kst-data-value">Regenerative Activator</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Technical Documentation -->
+    <div class="kst-image-block">
+        LOADING PRODUCT_DOCUMENTATION.PKG... [PACKAGING_SPECIFICATIONS_AND_REGULATORY_COMPLIANCE_DATA]
+    </div>
+    
+    <!-- Status Bar -->
+    <div class="kst-status-bar">
+        <div>KIARA REJU Product Interface v2.1 - Professional Use Only</div>
+        <div class="kst-status-indicators">
+            <div class="kst-indicator">
+                <div class="kst-indicator-dot"></div>
+                <span>System Ready</span>
+            </div>
+            <div class="kst-indicator">
+                <div class="kst-indicator-dot"></div>
+                <span>Data Verified</span>
+            </div>
+        </div>
+    </div>
+    
+</div>

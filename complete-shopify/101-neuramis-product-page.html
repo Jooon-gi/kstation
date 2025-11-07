@@ -1,0 +1,835 @@
+<style>
+  /* =========================================
+   NEURAMIS Shopify Mobile Template Styles
+  ========================================== */
+
+  /* Basic Reset with kst- prefix */
+  .kst-main-container *, 
+  .kst-main-container *::before, 
+  .kst-main-container *::after { 
+    box-sizing: border-box !important; 
+  }
+  
+  .kst-main-container {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif !important;
+    color: var(--kst-text-primary) !important;
+    line-height: 1.6 !important;
+    background: #e9edf1 !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    isolation: isolate !important;
+  }
+
+  /* Auto-hide image blocks with CSS :has() */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none !important;
+  }
+
+  .kst-main-container img, 
+  .kst-main-container video { 
+    max-width: 100% !important; 
+    height: auto !important; 
+    display: block !important;
+    object-fit: cover !important;
+  }
+  
+  /* =========================================
+   Design Tokens - NEURAMIS Brand Colors
+  ========================================== */
+  .kst-main-container {
+    --kst-main-color: #7b8dc0;
+    --kst-sub-color: #717274;
+    --kst-text-primary: #22253c;
+    --kst-text-secondary: #494949;
+    --kst-background: #efefef;
+    --kst-badge-bg: rgb(28, 42, 70);
+    --kst-badge-text: #F1F1F1;
+    --kst-badge-text-hover: #FFFFFF;
+    --kst-lidocaine-color: #39399a;
+    --kst-light-lidocaine-color: #7f90ee;
+    --kst-deep-lidocaine-color: #7e2b49;
+    --kst-deep-non-lido-color: #d06a7e;
+    --kst-volume-lidocaine-color: #f09b2c;
+    --kst-card-bg: #FFFFFF;
+    --kst-border: #D6DCE5;
+    --kst-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  /* =========================================
+   Container
+  ========================================== */
+  .kst-container {
+    padding: 16px 12px !important;
+  }
+
+  /* =========================================
+   Sections
+  ========================================== */
+  .kst-section {
+    position: relative !important;
+    background: var(--kst-card-bg) !important;
+    border: 1px solid var(--kst-border) !important;
+    padding: 20px 16px !important;
+    margin: 16px 8px !important;
+    box-shadow: var(--kst-shadow) !important;
+    overflow: hidden !important;
+  }
+
+  .kst-section::before {
+    content: "" !important;
+    position: absolute !important; 
+    inset: -1px -1px auto -1px !important; 
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--kst-main-color), var(--kst-sub-color)) !important;
+    opacity: .8 !important;
+  }
+
+  .kst-section-title {
+    margin: 0 0 12px !important;
+    font-weight: 400 !important;
+    font-size: 1.25rem !important;
+    letter-spacing: .2px !important;
+    color: var(--kst-text-primary) !important;
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  
+  .kst-section-sub { 
+    margin: 0 0 14px !important; 
+    color: var(--kst-text-secondary) !important; 
+    font-size: .9rem !important; 
+  }
+  
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: var(--kst-card-bg) !important;
+    border: 1px solid var(--kst-border) !important;
+    padding: 20px 16px !important;
+    position: relative !important; 
+    overflow: hidden !important;
+    margin: 12px 8px !important;
+    box-shadow: var(--kst-shadow) !important;
+  }
+
+  .kst-hero::before {
+    content: "" !important;
+    position: absolute !important; 
+    inset: -20% -10% auto auto !important; 
+    width: 200px !important; 
+    height: 200px !important;
+    background: radial-gradient(circle, rgba(135,80,18,0.15), rgba(162,136,107,0.1)) !important; 
+    filter: blur(40px) !important; 
+    opacity: .7 !important;
+    animation: kst-hero-glow 18s linear infinite !important;
+  }
+
+  @keyframes kst-hero-glow {
+    0% { transform: translate(0,0) rotate(0deg) !important; }
+    50% { transform: translate(-10px, 5px) rotate(8deg) !important; }
+    100% { transform: translate(0,0) rotate(0deg) !important; }
+  }
+
+  .kst-labels { 
+    display: flex !important; 
+    gap: 6px !important; 
+    flex-wrap: wrap !important; 
+    margin-bottom: 12px !important;
+  }
+
+  .kst-badge {
+    display: inline-flex !important; 
+    align-items: center !important; 
+    gap: 4px !important;
+    padding: 6px 10px !important;
+    background: var(--kst-badge-bg) !important;
+    border: 1px solid var(--kst-border) !important;
+    color: var(--kst-badge-text) !important; 
+    font-size: .75rem !important; 
+    font-weight: 400 !important;
+  }
+
+  .kst-badge.kst-lidocaine { 
+    background: var(--kst-lidocaine-color) !important;
+    color: var(--kst-badge-text-hover) !important;
+    border-color: var(--kst-lidocaine-color) !important;
+  }
+  
+  .kst-badge.kst-light-lidocaine { 
+    background: var(--kst-light-lidocaine-color) !important;
+    color: var(--kst-badge-text-hover) !important;
+    border-color: var(--kst-light-lidocaine-color) !important;
+  }
+
+  .kst-badge.kst-deep-lidocaine { 
+    background: var(--kst-deep-lidocaine-color) !important;
+    color: var(--kst-badge-text-hover) !important;
+    border-color: var(--kst-deep-lidocaine-color) !important;
+  }
+
+  .kst-badge.kst-deep-non-lido { 
+    background: var(--kst-deep-non-lido-color) !important;
+    color: var(--kst-badge-text-hover) !important;
+    border-color: var(--kst-deep-non-lido-color) !important;
+  }
+
+  .kst-badge.kst-volume-lidocaine { 
+    background: var(--kst-volume-lidocaine-color) !important;
+    color: var(--kst-badge-text-hover) !important;
+    border-color: var(--kst-volume-lidocaine-color) !important;
+  }
+
+  .kst-badge.kst-brand { 
+    background: var(--kst-main-color) !important;
+    color: var(--kst-badge-text-hover) !important;
+    border-color: var(--kst-main-color) !important;
+  }
+
+  .kst-hero-title {
+    margin: 0 0 8px !important;
+    font-weight: 600 !important;
+    font-size: 2rem !important;
+    letter-spacing: .2px !important;
+    color: var(--kst-text-primary) !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .kst-hero-spec {
+    margin: -8px 0 15px !important;
+    font-weight: 500 !important;
+    font-size: 1.4rem !important;
+    letter-spacing: .1px !important;
+    color: var(--kst-main-color) !important;
+  }
+
+  .kst-hero p { 
+    margin: 0 0 10px !important; 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-highlight {
+    border: 1px solid var(--kst-border) !important;
+    background: var(--kst-background) !important;
+    padding: 10px 12px !important; 
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .kst-card {
+    background: var(--kst-card-bg) !important; 
+    border: 1px solid var(--kst-border) !important; 
+    padding: 14px !important; 
+    box-shadow: var(--kst-shadow) !important; 
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease !important; 
+    margin: 8px 0 !important;
+  }
+
+  .kst-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1) !important;
+    border-color: var(--kst-main-color) !important;
+  }
+
+  .kst-card h4 { 
+    margin: 0 0 8px !important; 
+    font-size: .95rem !important; 
+    color: var(--kst-text-primary) !important; 
+    font-weight: 500 !important;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li { 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-muted { 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  /* =========================================
+   Image Blocks
+  ========================================== */
+  .kst-image-block {
+    position: relative !important;
+    background: var(--kst-background) !important;
+    border: 1px dashed var(--kst-border) !important;
+    aspect-ratio: 16/9 !important;
+    display: grid !important; 
+    place-items: center !important;
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 500 !important;
+    overflow: hidden !important;
+    margin: 8px 0 !important;
+  }
+
+  .kst-chart-block {
+    position: relative !important;
+    background: var(--kst-background) !important;
+    border: 1px dashed var(--kst-border) !important;
+    aspect-ratio: 4/3 !important;
+    display: grid !important; 
+    place-items: center !important;
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 600 !important;
+    overflow: hidden !important;
+    margin: 8px 0 !important;
+  }
+
+  /* =========================================
+   Definition Lists & Chips
+  ========================================== */
+  .kst-def {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important; 
+    margin: 0 !important;
+  }
+
+  .kst-def-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .kst-def dt { 
+    font-weight: 600 !important; 
+    color: var(--kst-text-primary) !important; 
+  }
+
+  .kst-def dd { 
+    margin: 0 !important; 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-chips { 
+    display: flex !important; 
+    flex-wrap: wrap !important; 
+    gap: 6px !important; 
+    margin: 10px 0 !important;
+  }
+
+  .kst-chip {
+    background: var(--kst-badge-bg) !important;
+    color: var(--kst-badge-text) !important; 
+    border: 1px solid var(--kst-border) !important;
+    padding: 5px 8px !important; 
+    font-size: .75rem !important; 
+    font-weight: 500 !important;
+  }
+
+  /* =========================================
+   Table
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border: 1px solid var(--kst-border) !important;
+    background: var(--kst-card-bg) !important;
+    margin: 8px 0 !important;
+    box-shadow: var(--kst-shadow) !important;
+  }
+
+  .kst-table {
+    border-collapse: collapse !important;
+    min-width: 800px !important;
+    width: 100% !important;
+    color: var(--kst-text-primary) !important;
+    table-layout: auto !important;
+  }
+
+  .kst-table th, .kst-table td {
+    padding: 10px 12px !important; 
+    border-bottom: 1px solid var(--kst-border) !important;
+    border-left: 1px solid #00000000;
+    border-right: 1px solid #00000000;
+    text-align: left !important; 
+    vertical-align: top !important;
+  }
+
+  /* "nowrap-column" 클래스가 적용된 모든 TH와 TD에 스타일 적용 */
+  .nowrap-column {
+    white-space: nowrap !important;
+  }
+
+  .kst-table thead th {
+    position: sticky !important; 
+    top: 0 !important;
+    background: var(--kst-background) !important;
+    z-index: 1 !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar { 
+    height: 6px !important; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-track { 
+    background: var(--kst-border) !important; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-thumb { 
+    background: var(--kst-main-color) !important; 
+  }
+
+  /* =========================================
+   Callouts & KPI
+  ========================================== */
+  .kst-callout {
+    border: 1px solid var(--kst-main-color) !important;
+    background: rgba(135,80,18,.1) !important;
+    color: var(--kst-text-primary) !important;
+    padding: 12px !important;
+    margin: 8px 0 !important;
+  }
+
+  .kst-callout strong { 
+    color: var(--kst-main-color) !important; 
+  }
+
+  .kst-kpi {
+    font-size: 1.6rem !important;
+    font-weight: 600 !important; 
+    color: var(--kst-text-primary) !important;
+  }
+
+  .kst-kpi .kst-unit { 
+    font-size: .8rem !important; 
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 500 !important; 
+    margin-left: 4px !important; 
+  }
+
+  .kst-label-value { 
+    display: flex !important; 
+    flex-direction: column !important;
+    gap: 4px !important; 
+    color: var(--kst-text-primary) !important; 
+    margin-bottom: 8px !important;
+  }
+
+  .kst-label-value .kst-label { 
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 500 !important;
+  }
+
+  /* Motion Preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .kst-main-container * { 
+      animation: none !important; 
+      transition: none !important; 
+    }
+  }
+</style>
+
+<div class="kst-main-container">
+  <header class="kst-container">
+    <div class="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge kst-brand">Medytox</span>
+        <span class="kst-badge">HA Filler</span>
+        <span class="kst-badge">SHAPE Technology</span>
+        <span class="kst-badge">20mg/ml</span>
+      </div>
+      <h1 class="kst-hero-title">NEURAMIS</h1>
+      <h2 class="kst-hero-spec"><span style="color: var(--kst-lidocaine-color);">Lidocaine</span> / <span style="color: var(--kst-light-lidocaine-color);">Light Lidocaine</span> / <span style="color: var(--kst-deep-lidocaine-color);">Deep Lidocaine</span> / <span style="color: var(--kst-deep-non-lido-color);">Deep Non-Lido</span> / <span style="color: var(--kst-volume-lidocaine-color);">Volume Lidocaine</span></h2>
+      <p>Advanced hyaluronic acid dermal fillers manufactured with proprietary SHAPE technology for comprehensive facial aesthetic treatments</p>
+      <div class="kst-highlight">Cross-linked HA 20mg/ml with Lidocaine 0.3% - Reduce wrinkles, restore volume, and enhance facial contours</div>
+      <div class="kst-image-block">[Main Product Image - NEURAMIS Series Overview]</div>
+    </div>
+  </header>
+
+  <main class="kst-container">
+
+    <section class="kst-section" id="kst-product-overview">
+      <h2 class="kst-section-title">Product Overview</h2>
+      <p class="kst-section-sub">Professional-grade hyaluronic acid fillers with specialized formulations for different aesthetic needs</p>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Package Contents</h4>
+          <ul>
+            <li>1ml x 1 pre-filled syringe</li>
+            <li>Cross-linked Hyaluronic Acid 20mg/ml</li>
+            <li>Available in five specialized formulations</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Key Features</h4>
+          <div class="kst-chips">
+            <span class="kst-chip">SHAPE Technology</span>
+            <span class="kst-chip">Cross-linked HA</span>
+            <span class="kst-chip">Long-lasting</span>
+            <span class="kst-chip">6-9 Months</span>
+          </div>
+        </div>
+      </div>
+      <div class="kst-image-block">[Product Overview Image - Five Product Variants]</div>
+    </section>
+
+    <section class="kst-section" id="kst-composition">
+      <h2 class="kst-section-title">Composition & Technical Specifications</h2>
+      <div class="kst-def">
+        <div class="kst-def-item">
+          <dt>Active Ingredient</dt>
+          <dd>Cross-linked Hyaluronic Acid (HA)</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>HA Concentration</dt>
+          <dd>
+            <div class="kst-chips">
+              <span class="kst-badge kst-brand">20mg/ml</span>
+            </div>
+          </dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Lidocaine Concentration</dt>
+          <dd>0.3% (for versions with Lidocaine)</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Cross-linking Technology</dt>
+          <dd>SHAPE (Stabilized Hyaluronic Acid and Purification Enhancement) - Two-step cross-linking process</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>BDDE Content</dt>
+          <dd>Less than 0.4 ppm (highly purified gel)</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Formulation</dt>
+          <dd>Sterile 1ml pre-filled syringe</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Storage Conditions</dt>
+          <dd>Store at 2-25°C, away from direct sunlight</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Duration</dt>
+          <dd>Results typically last 6 to 9 months depending on product version and treatment area</dd>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-product-variants">
+      <h2 class="kst-section-title">Product Variants Comparison</h2>
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Product Comparison Table">
+          <thead>
+            <tr>
+              <th>Version Name</th>
+              <th>Viscosity</th>
+              <th>Treatment Area</th>
+              <th>Injection Layer</th>
+              <th>Needle Gauge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="nowrap-column"><span class="kst-badge kst-light-lidocaine">Light Lidocaine</span></td>
+              <td>Low</td>
+              <td>Fine wrinkles, skin rehydration</td>
+              <td>Upper dermis</td>
+              <td>30G</td>
+            </tr>
+            <tr>
+              <td class="nowrap-column"><span class="kst-badge kst-lidocaine">Lidocaine</span></td>
+              <td>Medium-Low</td>
+              <td>Superficial to mid-dermal wrinkles, lip contouring</td>
+              <td>Mid to upper dermis</td>
+              <td>30G</td>
+            </tr>
+            <tr>
+              <td class="nowrap-column"><span class="kst-badge kst-deep-lidocaine">Deep Lidocaine</span></td>
+              <td>Medium</td>
+              <td>Moderate to deep wrinkles, nasolabial folds, lip volume</td>
+              <td>Middle to deep dermis</td>
+              <td>27G</td>
+            </tr>
+            <tr>
+              <td class="nowrap-column"><span class="kst-badge kst-deep-non-lido">Deep Non-Lido</span></td>
+              <td>Medium</td>
+              <td>Moderate to deep wrinkles, nasolabial folds, lip volume</td>
+              <td>Middle to deep dermis</td>
+              <td>27G</td>
+            </tr>
+            <tr>
+              <td class="nowrap-column"><span class="kst-badge kst-volume-lidocaine">Volume Lidocaine</span></td>
+              <td>High</td>
+              <td>Cheek and chin augmentation, facial contouring, deep folds</td>
+              <td>Deep subcutaneous layer</td>
+              <td>27G</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kst-chart-block">[NEURAMIS Series Comparison Chart]</div>
+    </section>
+
+    <section class="kst-section" id="kst-light-lidocaine">
+      <h2 class="kst-section-title">NEURAMIS Light Lidocaine</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-light-lidocaine">Light Lidocaine</span>
+        <span class="kst-badge">Fine Lines</span>
+        <span class="kst-badge">Skin Hydration</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">Designed for the correction of superficial wrinkles and fine lines, and to restore skin hydrobalance and texture with low viscosity gel for natural-looking results on delicate skin.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Fine Lines</span>
+            <span class="kst-chip">Crow's Feet</span>
+            <span class="kst-chip">Forehead Lines</span>
+            <span class="kst-chip">Glabella</span>
+            <span class="kst-chip">Neck Lines</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Treatment Details</h4>
+          <ul>
+            <li><strong>Duration:</strong> Approximately 3 to 6 months</li>
+            <li><strong>Injection Layer:</strong> Upper dermis using 30G needle</li>
+            <li><strong>Benefits:</strong> Smooth, natural results with Lidocaine for comfort</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kst-image-block">[Light Lidocaine Product and Treatment Areas]</div>
+    </section>
+
+    <section class="kst-section" id="kst-lidocaine">
+      <h2 class="kst-section-title">NEURAMIS (Lidocaine)</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-lidocaine">Lidocaine</span>
+        <span class="kst-badge">Moderate Wrinkles</span>
+        <span class="kst-badge">Lip Contouring</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">Effectively reduces superficial to medium-depth wrinkles and folds. Positioned between Light and Deep versions, ideal for a wide range of common facial wrinkles.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Nasolabial Folds</span>
+            <span class="kst-chip">Frontal Wrinkles</span>
+            <span class="kst-chip">Lip Contouring</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Treatment Details</h4>
+          <ul>
+            <li><strong>Duration:</strong> Approximately 6 to 9 months</li>
+            <li><strong>Injection Layer:</strong> Mid to upper dermis with 30G needle</li>
+            <li><strong>Benefits:</strong> Balanced and effective solution for common facial wrinkles</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-deep-lidocaine">
+      <h2 class="kst-section-title">NEURAMIS Deep Lidocaine</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-deep-lidocaine">Deep Lidocaine</span>
+        <span class="kst-badge">Deep Wrinkles</span>
+        <span class="kst-badge">Lip Volume</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">Effectively reduces moderate to deep facial wrinkles and folds with medium viscosity, offering excellent versatility for treating a range of moderate to severe facial imperfections.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Nasolabial Folds</span>
+            <span class="kst-chip">Marionette Lines</span>
+            <span class="kst-chip">Moderate to Deep Wrinkles</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Treatment Details</h4>
+          <ul>
+            <li><strong>Duration:</strong> Approximately 6 to 9 months</li>
+            <li><strong>Injection Layer:</strong> Middle to deep dermis using 27G needle</li>
+            <li><strong>Benefits:</strong> Alternative for Lidocaine-sensitive patients with same quality results</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+   <section class="kst-section" id="kst-deep-non-lido">
+      <h2 class="kst-section-title">NEURAMIS Deep Non-Lido</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-deep-non-lido">Deep Non-Lido</span>
+        <span class="kst-badge">Lidocaine-Free</span>
+        <span class="kst-badge">Deep Wrinkles</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">Provides the same wrinkle-reducing and contouring benefits as the Deep Lidocaine version, without the added anesthetic. Perfect for patients with sensitivity or allergy to Lidocaine.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Nasolabial Folds</span>
+            <span class="kst-chip">Marionette Lines</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Treatment Details</h4>
+          <ul>
+            <li><strong>Duration:</strong> Approximately 6 to 9 months</li>
+            <li><strong>Injection Layer:</strong> Middle to deep dermis with 27G needle</li>
+            <li><strong>Benefits:</strong> Alternative for Lidocaine-sensitive patients with same quality results</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-volume-lidocaine">
+      <h2 class="kst-section-title">NEURAMIS Volume Lidocaine</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-volume-lidocaine">Volume Lidocaine</span>
+        <span class="kst-badge">Facial Contouring</span>
+        <span class="kst-badge">Deep Augmentation</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">The thickest and most viscous product in the series, ideal for restoring significant volume loss and enhancing facial contours with highest gel elasticity for robust structural support.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Cheek Augmentation</span>
+            <span class="kst-chip">Chin Enhancement</span>
+            <span class="kst-chip">Jawline Contouring</span>
+            <span class="kst-chip">Deep Facial Folds</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Treatment Details</h4>
+          <ul>
+            <li><strong>Duration:</strong> Approximately 6 to 8 months</li>
+            <li><strong>Injection Layer:</strong> Deep subcutaneous layer using 27G needle</li>
+            <li><strong>Benefits:</strong> Long-lasting volumetric effect with robust structural support</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kst-image-block">[Facial Contouring Before and After]</div>
+    </section>
+
+    <section class="kst-section" id="kst-treatment-protocol">
+      <h2 class="kst-section-title">Treatment Guidelines & Protocol</h2>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Efficacy Benefits</h4>
+          <ul>
+            <li>Reduction of superficial to deep wrinkles and folds</li>
+            <li>Facial volume restoration and enhancement</li>
+            <li>Facial contouring, including cheeks and chin</li>
+            <li>Skin hydration and texture improvement</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Treatment Cycle</h4>
+          <div class="kst-label-value">
+            <div class="kst-label">Duration Range</div>
+            <div>The aesthetic effect typically lasts for 6 to 9 months</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Factors</div>
+            <div>Depends on specific product version and treatment area</div>
+          </div>
+        </div>
+      </div>
+      <div class="kst-image-block">[Treatment Areas and Application Methods]</div>
+    </section>
+
+    <section class="kst-section" id="kst-choosing-guide">
+      <h2 class="kst-section-title">Which Product Is Right for Me?</h2>
+      <p class="kst-section-sub">Choose a product with different viscosity and injection layers depending on the treatment area and soft tissue volume</p>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>For Fine Lines & Natural Enhancement</h4>
+          <p class="kst-muted">Choose <strong>Light Lidocaine</strong> for natural enhancement of fine lines, superficial wrinkles, and delicate skin hydration with smooth, comfortable treatment.</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-light-lidocaine">Light Lidocaine</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>For General Wrinkles & Lip Contouring</h4>
+          <p class="kst-muted">Choose <strong>Lidocaine</strong> for versatile treatment of common facial wrinkles, moderate folds, and precise lip contouring with balanced effectiveness.</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-lidocaine">Lidocaine</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>For Deep Wrinkles & Volume Enhancement</h4>
+          <p class="kst-muted">Choose <strong>Deep Lidocaine</strong> for moderate to deep wrinkles, significant lip volume, and comprehensive facial fold correction. For Lidocaine-sensitive patients, choose <strong>Deep Non-Lido</strong>.</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-deep-lidocaine">Deep Lidocaine</span>
+            <span class="kst-badge kst-deep-non-lido">Deep Non-Lido</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>For Pronounced Volume & Facial Contouring</h4>
+          <p class="kst-muted">Choose <strong>Volume Lidocaine</strong> for pronounced volume effects, advanced facial sculpting, and comprehensive structural enhancement with long-lasting results.</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-volume-lidocaine">Volume Lidocaine</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-shape-technology">
+      <h2 class="kst-section-title">SHAPE Technology</h2>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Advanced Cross-linking Process</h4>
+          <p class="kst-muted">Proprietary SHAPE (Stabilized Hyaluronic Acid and Purification Enhancement) technology involves a two-step cross-linking process for enhanced safety and longevity.</p>
+        </div>
+        <div class="kst-card">
+          <h4>High Purity Standards</h4>
+          <p class="kst-muted">The cross-linked HA gel is highly purified to minimize uncross-linked BDDE (less than 0.4 ppm), ensuring safety and a longer-lasting effect.</p>
+        </div>
+      </div>
+      <div class="kst-image-block">[SHAPE Technology Process Diagram]</div>
+    </section>
+
+    <section class="kst-section" id="kst-safety-storage">
+      <h2 class="kst-section-title">Safety Information & Storage Guidelines</h2>
+      <div class="kst-callout">
+        <strong>Important Precautions</strong> - Do not freeze or heat the product. Avoid direct sunlight. Do not put any force or pressure on the product. The product is intended for use by trained medical professionals only.
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Storage Requirements</h4>
+          <ul>
+            <li>Store at temperature between 2°C to 25°C</li>
+            <li>Keep away from direct sunlight</li>
+            <li>Do not freeze or heat</li>
+            <li>Single-use only - use immediately after opening</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Safety Precautions</h4>
+          <ul>
+            <li>Professional administration required</li>
+            <li>Check for hypersensitivity before treatment</li>
+            <li>Follow proper injection techniques</li>
+            <li>Avoid injection into blood vessels</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kst-image-block">[Storage and Handling Instructions]</div>
+    </section>
+
+  </main>
+</div>

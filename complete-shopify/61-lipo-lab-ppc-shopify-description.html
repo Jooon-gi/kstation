@@ -1,0 +1,866 @@
+<style>
+        :root {
+            --kst-main-color: #1B75BB;
+            --kst-sub-color: #5DC0E4;
+            --kst-text-primary: #222222;
+            --kst-text-secondary: #666666;
+            --kst-background: #FFFFFF;
+            --kst-badge-bg: #1B75BB;
+            --kst-badge-text: #FFFFFF;
+            --kst-badge-hover: #5DC0E4;
+        }
+        
+        * {
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f7;
+            color: var(--kst-text-primary) !important;
+            padding: 16px 12px;
+            line-height: 1.4;
+        }
+        
+        .kst-hero-section {
+            text-align: center;
+            margin-bottom: 48px;
+            background: var(--kst-background);
+            border-radius: 16px;
+            padding: 32px 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .kst-product-title {
+            font-size: 36px !important;
+            font-weight: 600 !important; /* Adjusted from 700 */
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 16px;
+            letter-spacing: -1.5px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .kst-product-spec {
+            font-size: 28px !important;
+            font-weight: 400 !important;
+            color: var(--kst-text-primary) !important;
+            margin-top: -16px;
+            margin-bottom: 24px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-product-subtitle {
+            font-size: 18px !important;
+            color: var(--kst-text-secondary) !important;
+            font-weight: 400;
+            margin-bottom: 24px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-category-badge {
+            background: linear-gradient(135deg, var(--kst-main-color), var(--kst-sub-color));
+            color: var(--kst-badge-text) !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px !important;
+            font-weight: 500; /* Adjusted from 600 */
+            display: inline-block;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kst-section-title {
+            font-size: 28px !important;
+            font-weight: 600 !important; /* Adjusted from 700 */
+            color: var(--kst-text-primary) !important;
+            text-align: center;
+            margin: 56px 0 32px 0;
+            letter-spacing: -1px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card {
+            background: var(--kst-background);
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .kst-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .kst-card h3 {
+            font-size: 20px !important;
+            font-weight: 600 !important; /* Adjusted from 700 */
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card p {
+            font-size: 14px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .kst-card ul,
+        .kst-card ol {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+        
+        .kst-card ul li,
+        .kst-card ol li {
+            font-size: 14px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .kst-specs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .kst-spec-item {
+            background: var(--kst-background);
+            border-radius: 12px;
+            padding: 20px 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .kst-spec-icon {
+            width: 32px;
+            height: 32px;
+            background: #f2f2f7;
+            border-radius: 8px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .kst-spec-label {
+            font-size: 12px !important;
+            color: var(--kst-text-secondary) !important;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kst-spec-value {
+            font-size: 24px !important;
+            font-weight: 600 !important; /* Adjusted from 700 */
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 4px;
+            line-height: 1.1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-spec-unit {
+            font-size: 12px !important;
+            color: var(--kst-text-secondary) !important;
+            font-weight: 500;
+        }
+        
+        .kst-spec-description {
+            font-size: 12px !important;
+            color: var(--kst-text-secondary) !important;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+        
+        .kst-spec-featured {
+            background: linear-gradient(135deg, var(--kst-main-color) 0%, var(--kst-sub-color) 100%);
+            color: var(--kst-badge-text) !important;
+        }
+        
+        .kst-spec-featured .kst-spec-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--kst-badge-text) !important;
+        }
+        
+        .kst-spec-featured .kst-spec-label,
+        .kst-spec-featured .kst-spec-value,
+        .kst-spec-featured .kst-spec-unit,
+        .kst-spec-featured .kst-spec-description {
+            color: var(--kst-badge-text) !important;
+        }
+        
+        .kst-ingredient-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .kst-ingredient-item {
+            background: var(--kst-background);
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .kst-ingredient-badge {
+            background: var(--kst-main-color);
+            color: var(--kst-badge-text) !important;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 11px !important;
+            font-weight: 500; /* Adjusted from 600 */
+            display: inline-block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kst-ingredient-item:nth-child(2) .kst-ingredient-badge { background: #34c759; }
+        .kst-ingredient-item:nth-child(3) .kst-ingredient-badge { background: #af52de; }
+        .kst-ingredient-item:nth-child(4) .kst-ingredient-badge { background: #ff9500; }
+        
+        .kst-ingredient-name {
+            font-size: 20px !important;
+            font-weight: 600 !important; /* Adjusted from 700 */
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 8px;
+            line-height: 1.2;
+            word-wrap: break-word;
+        }
+        
+        .kst-ingredient-concentration {
+            font-size: 24px !important;
+            font-weight: 500 !important; /* Adjusted from 800 */
+            color: var(--kst-main-color) !important;
+            margin-bottom: 12px;
+        }
+        
+        .kst-ingredient-item:nth-child(2) .kst-ingredient-concentration { color: #34c759 !important; }
+        .kst-ingredient-item:nth-child(3) .kst-ingredient-concentration { color: #af52de !important; }
+        .kst-ingredient-item:nth-child(4) .kst-ingredient-concentration { color: #ff9500 !important; }
+        
+        .kst-ingredient-description {
+            font-size: 14px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5;
+        }
+        
+        .kst-steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .kst-step-item {
+            background: var(--kst-background);
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .kst-step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--kst-main-color), var(--kst-sub-color));
+            color: var(--kst-badge-text) !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px !important;
+            font-weight: 600; /* Adjusted from 700 */
+            margin: 0 auto 16px;
+        }
+        
+        .kst-step-item:nth-child(2) .kst-step-number { 
+            background: linear-gradient(135deg, #34c759, #32d74b); 
+        }
+        .kst-step-item:nth-child(3) .kst-step-number { 
+            background: linear-gradient(135deg, #af52de, #bf5af2); 
+        }
+        .kst-step-item:nth-child(4) .kst-step-number { 
+            background: linear-gradient(135deg, #ff9500, #ffb340); 
+        }
+        
+        .kst-step-title {
+            font-size: 18px !important;
+            font-weight: 600 !important; /* Adjusted from 700 */
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-step-description {
+            font-size: 14px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5;
+        }
+        
+        .kst-table-wrap {
+            background: var(--kst-background);
+            border-radius: 16px;
+            overflow-x: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 24px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f2f2f7;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: var(--kst-text-secondary);
+            border-radius: 3px;
+        }
+        
+        .kst-table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        
+        .kst-table-wrap th {
+            background: #f2f2f7;
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 500 !important; /* Adjusted from 600 */
+            font-size: 14px !important;
+            color: var(--kst-text-primary) !important;
+            border-bottom: 1px solid #d1d1d6;
+            white-space: nowrap !important;
+        }
+        
+        .kst-table-wrap td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f2f2f7;
+            font-size: 14px !important;
+            color: var(--kst-text-primary) !important;
+            vertical-align: middle;
+        }
+        
+        .kst-table-wrap .kst-spec-category {
+            font-weight: 500 !important; /* Adjusted from 600 */
+            background: #f8f9fa;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-table-wrap .kst-highlight-value {
+            background: var(--kst-main-color);
+            color: var(--kst-badge-text) !important;
+            font-weight: 500 !important; /* Adjusted from 600 */
+            border-radius: 8px;
+            padding: 6px 10px;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        
+        .kst-image-block {
+            background: var(--kst-background);
+            border-radius: 16px;
+            margin: 24px 0;
+            min-height: 200px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .kst-image-block:not(:has(img)) {
+            display: none;
+        }
+        
+        .kst-image-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .kst-warning-section {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin: 32px 0;
+        }
+        
+        .kst-warning-title {
+            font-size: 18px !important;
+            font-weight: 600 !important; /* Adjusted from 700 */
+            color: #856404 !important;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-warning-title::before {
+            content: '⚠️';
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        
+        .kst-warning-content {
+            font-size: 14px !important;
+            color: #856404 !important;
+            line-height: 1.6;
+        }
+        
+        .kst-warning-list {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+        
+        .kst-warning-list li {
+            margin-bottom: 8px;
+            font-size: 14px !important;
+            color: #856404 !important;
+        }
+        
+        .kst-badge {
+            background: #f2f2f7;
+            color: var(--kst-text-primary) !important;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px !important;
+            font-weight: 500;
+            display: inline-block;
+            margin: 2px 4px 2px 0;
+        }
+        
+        .kst-badge-primary {
+            background: var(--kst-main-color);
+            color: var(--kst-badge-text) !important;
+        }
+        
+        .kst-badge-success {
+            background: #34c759;
+            color: var(--kst-badge-text) !important;
+        }
+        
+        .kst-badge-warning {
+            background: #ff9500;
+            color: var(--kst-badge-text) !important;
+        }
+        
+        .kst-value-highlight {
+            font-size: 32px !important;
+            font-weight: 500 !important; /* Adjusted from 800 */
+            background: linear-gradient(135deg, var(--kst-main-color), var(--kst-sub-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 16px 0;
+            line-height: 1.1;
+            text-align: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-text-center {
+            text-align: center;
+        }
+        
+        .kst-mb-16 {
+            margin-bottom: 16px;
+        }
+        
+        .kst-mb-24 {
+            margin-bottom: 24px;
+        }
+        
+        .kst-mb-32 {
+            margin-bottom: 32px;
+        }
+    </style>
+
+    <div class="kst-main-container">
+        
+        <div class="kst-hero-section">
+            <div class="kst-category-badge">Fat Dissolving Solution</div>
+            <h1 class="kst-product-title">Lipo Lab PPC Solution</h1>
+            <h2 class="kst-product-spec">10ml x 10 Vials</h2>
+            <div class="kst-product-subtitle">Professional-grade lipolytic injection for targeted fat reduction</div>
+        </div>
+        
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-card">
+            <h3>Advanced Fat Dissolving Technology</h3>
+            <p>Lipo Lab PPC Solution combines highly purified Phosphatidylcholine (PPC) with Sodium Deoxycholate and L-Carnitine to effectively break down localized fat deposits. This professional-grade formula delivers targeted fat reduction for both facial and body contouring applications.</p>
+        </div>
+        
+        <div class="kst-image-block">
+            </div>
+        
+        <div class="kst-specs-list">
+            <div class="kst-spec-item kst-spec-featured">
+                <div class="kst-spec-icon">💉</div>
+                <div class="kst-spec-label">Volume per Vial</div>
+                <div class="kst-spec-value">10</div>
+                <div class="kst-spec-unit">ml</div>
+                <div class="kst-spec-description">Professional injection volume</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">📦</div>
+                <div class="kst-spec-label">Package Contents</div>
+                <div class="kst-spec-value">10</div>
+                <div class="kst-spec-unit">Vials</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🧪</div>
+                <div class="kst-spec-label">Purity Level</div>
+                <div class="kst-spec-value">High</div>
+                <div class="kst-spec-unit">Grade</div>
+                <div class="kst-spec-description">Pharmaceutical quality assurance</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">💧</div>
+                <div class="kst-spec-label">Injection Dose</div>
+                <div class="kst-spec-value">0.2-0.4</div>
+                <div class="kst-spec-unit">ml per point</div>
+            </div>
+        </div>
+        
+        <div class="kst-value-highlight">Professional-Grade Formula</div>
+        
+        <h2 class="kst-section-title">Treatment Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Target Area</th>
+                        <th>Dose per Point</th>
+                        <th>Special Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="kst-spec-category">Face (Double Chin, Jawline)</td>
+                        <td><span class="kst-highlight-value">0.2-0.4ml</span></td>
+                        <td>Targeted contouring with skin-firming peptides</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Body (Abdomen, Thighs)</td>
+                        <td><span class="kst-highlight-value">0.2-0.4ml</span></td>
+                        <td>Reduces broader fat deposits and cellulite</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Treatment Cycle</td>
+                        <td>4-6 sessions</td>
+                        <td>10-14 day intervals between treatments</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Application Method</td>
+                        <td>Direct injection</td>
+                        <td>Subcutaneous fat layer targeting</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Storage Requirements</td>
+                        <td>2-25°C</td>
+                        <td>Cool, dry place away from sunlight</td>
+                    </tr>
+                    <tr>
+                        <td class="kst-spec-category">Professional Use</td>
+                        <td>Required</td>
+                        <td>Trained professionals only</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2 class="kst-section-title">Active Ingredients</h2>
+        
+        <div class="kst-ingredient-list">
+            <div class="kst-ingredient-item">
+                <div class="kst-ingredient-badge">Primary Active</div>
+                <div class="kst-ingredient-name">Phosphatidylcholine (PPC)</div>
+                <div class="kst-ingredient-concentration">Highly Purified</div>
+                <div class="kst-ingredient-description">
+                    Essential phospholipid that works to destroy fat cell membranes through phospholipase activation. This highly purified compound ensures maximum efficacy in breaking down localized fat deposits while maintaining safety standards.
+                </div>
+            </div>
+            
+            <div class="kst-ingredient-item">
+                <div class="kst-ingredient-badge">Supporting</div>
+                <div class="kst-ingredient-name">Sodium Deoxycholate</div>
+                <div class="kst-ingredient-concentration">Pharmaceutical Grade</div>
+                <div class="kst-ingredient-description">
+                    Bile acid derivative that works synergistically with PPC to emulsify fat cells. This compound enhances the breakdown process and facilitates natural elimination of destroyed fat cells through the lymphatic system.
+                </div>
+            </div>
+            
+            <div class="kst-ingredient-item">
+                <div class="kst-ingredient-badge">Enhancer</div>
+                <div class="kst-ingredient-name">L-Carnitine</div>
+                <div class="kst-ingredient-concentration">Active Form</div>
+                <div class="kst-ingredient-description">
+                    Amino acid that accelerates fat metabolism and energy production. L-Carnitine enhances the body's natural fat-burning processes and helps expedite the elimination of broken-down fat cells.
+                </div>
+            </div>
+            
+            <div class="kst-ingredient-item">
+                <div class="kst-ingredient-badge">Additional</div>
+                <div class="kst-ingredient-name">Peptide Complex</div>
+                <div class="kst-ingredient-concentration">Specialized</div>
+                <div class="kst-ingredient-description">
+                    Advanced peptide formulation designed to improve skin firmness and elasticity in treated areas. This complex helps maintain skin quality during the fat reduction process.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            </div>
+        
+        <h2 class="kst-section-title">Treatment Benefits</h2>
+        
+        <div class="kst-card">
+            <h3>Primary Fat Reduction Effects</h3>
+            <p>Targets and eliminates localized fat deposits through advanced lipolytic action. Results typically become visible within 2-4 weeks as the body naturally processes and eliminates broken-down fat cells.</p>
+            <div class="kst-mb-16">
+                <span class="kst-badge kst-badge-primary">Localized Fat Reduction</span>
+                <span class="kst-badge kst-badge-success">Body Contouring</span>
+                <span class="kst-badge kst-badge-warning">Cellulite Improvement</span>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Secondary Benefits</h3>
+            <p>Beyond fat reduction, Lipo Lab PPC enhances skin elasticity and tightness in treated areas, providing comprehensive body sculpting results.</p>
+            <ul>
+                <li>Improved skin firmness through peptide complex action</li>
+                <li>Enhanced body and facial contouring definition</li>
+                <li>Reduced appearance of cellulite and skin irregularities</li>
+                <li>Natural fat elimination process without surgery</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Treatment Areas</h3>
+            <p>Versatile application for multiple body areas including double chin, jawline, abdomen, love handles, thighs, arms, and back rolls.</p>
+        </div>
+        
+        <div class="kst-image-block">
+            </div>
+        
+        <h2 class="kst-section-title">Professional Application Protocol</h2>
+        
+        <div class="kst-steps-list">
+            <div class="kst-step-item">
+                <div class="kst-step-number">1</div>
+                <div class="kst-step-title">Area Preparation</div>
+                <div class="kst-step-description">Clean and disinfect the treatment area thoroughly. Mark injection points approximately 1cm apart across the target fat deposit area for optimal coverage and results.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">2</div>
+                <div class="kst-step-title">Injection Technique</div>
+                <div class="kst-step-description">Inject 0.2-0.4ml per point directly into the subcutaneous fat layer. Use proper injection technique to ensure even distribution and minimize patient discomfort.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">3</div>
+                <div class="kst-step-title">Post-Treatment Care</div>
+                <div class="kst-step-description">Apply gentle pressure to injection sites and provide aftercare instructions. Patients may experience temporary swelling, bruising, or redness at injection sites.</div>
+            </div>
+            
+            <div class="kst-step-item">
+                <div class="kst-step-number">4</div>
+                <div class="kst-step-title">Follow-up Schedule</div>
+                <div class="kst-step-description">Schedule next session 10-14 days after treatment. Complete treatment cycle typically requires 4-6 sessions for optimal fat reduction results.</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            </div>
+        
+        <h2 class="kst-section-title">Mechanism of Action</h2>
+        
+        <div class="kst-card">
+            <h3>Lipolytic Process</h3>
+            <p>The PPC component works to destroy fat cell membranes through phospholipase activation, while Sodium Deoxycholate helps emulsify the released fat. The body then naturally processes and eliminates the broken-down fat cells through the lymphatic system and metabolism.</p>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Enhanced Metabolism</h3>
+            <p>L-Carnitine accelerates the fat metabolism process, helping the body more efficiently convert released fatty acids into energy and facilitating faster elimination of destroyed fat cells.</p>
+        </div>
+        
+        <div class="kst-image-block">
+            </div>
+        
+        <h2 class="kst-section-title">Treatment Timeline & Results</h2>
+        
+        <div class="kst-specs-list">
+            <div class="kst-spec-item kst-spec-featured">
+                <div class="kst-spec-icon">📅</div>
+                <div class="kst-spec-label">Initial Results</div>
+                <div class="kst-spec-value">2-4</div>
+                <div class="kst-spec-unit">Weeks</div>
+                <div class="kst-spec-description">First visible reduction in treated areas</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🔄</div>
+                <div class="kst-spec-label">Treatment Sessions</div>
+                <div class="kst-spec-value">4-6</div>
+                <div class="kst-spec-unit">Sessions</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">⏱️</div>
+                <div class="kst-spec-label">Session Interval</div>
+                <div class="kst-spec-value">10-14</div>
+                <div class="kst-spec-unit">Days</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">✨</div>
+                <div class="kst-spec-label">Final Results</div>
+                <div class="kst-spec-value">8-12</div>
+                <div class="kst-spec-unit">Weeks</div>
+            </div>
+        </div>
+        
+        <h2 class="kst-section-title">Quality & Safety Standards</h2>
+        
+        <div class="kst-card">
+            <h3>Pharmaceutical Grade Manufacturing</h3>
+            <p>Manufactured under strict pharmaceutical guidelines ensuring consistent quality, purity, and safety. Each batch undergoes rigorous testing for contamination and potency verification.</p>
+        </div>
+        
+        <div class="kst-card">
+            <h3>High Purity Ingredients</h3>
+            <p>All active ingredients are highly purified and sourced from certified suppliers. The formulation maintains stability and efficacy throughout the product's shelf life.</p>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Professional Certification</h3>
+            <p>Designed for use by trained medical professionals with proper certification in aesthetic medicine and injection techniques.</p>
+        </div>
+        
+        <h2 class="kst-section-title">Storage & Handling Guidelines</h2>
+        
+        <div class="kst-card">
+            <h3>Proper Storage Conditions</h3>
+            <p>Store vials in a cool, dry place at 2-25°C (36-77°F). Avoid direct sunlight and freezing temperatures to maintain product integrity and effectiveness.</p>
+            <ul>
+                <li>Temperature range: 2-25°C (36-77°F)</li>
+                <li>Avoid direct sunlight exposure</li>
+                <li>Do not freeze or overheat</li>
+                <li>Keep in original packaging until use</li>
+                <li>Check expiration dates before administration</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Handling Precautions</h3>
+            <p>Use sterile technique when handling vials and preparing injections. Ensure proper disposal of used materials according to medical waste guidelines.</p>
+        </div>
+        
+        <h2 class="kst-section-title">Professional Guidelines</h2>
+        
+        <div class="kst-card">
+            <h3>Practitioner Requirements</h3>
+            <p>This product should only be administered by qualified medical professionals with proper training in aesthetic medicine and injection techniques. Practitioners should have experience with lipolytic treatments.</p>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Patient Consultation</h3>
+            <p>Conduct thorough patient consultation including medical history review, contraindication screening, and realistic expectation setting before treatment initiation.</p>
+        </div>
+        
+        <div class="kst-card">
+            <h3>Treatment Planning</h3>
+            <p>Develop individualized treatment plans based on patient goals, target areas, and fat deposit characteristics. Adjust dosage and session frequency as needed for optimal results.</p>
+        </div>
+        
+        <div class="kst-image-block">
+            </div>
+        
+        <div class="kst-specs-list">
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">💉</div>
+                <div class="kst-spec-label">Injection Volume</div>
+                <div class="kst-spec-value">0.2-0.4</div>
+                <div class="kst-spec-unit">ml per point</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">📋</div>
+                <div class="kst-spec-label">Treatment Frequency</div>
+                <div class="kst-spec-value">Every 10-14</div>
+                <div class="kst-spec-unit">Days</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🏭</div>
+                <div class="kst-spec-label">Manufacturing Standard</div>
+                <div class="kst-spec-value">Pharmaceutical</div>
+                <div class="kst-spec-unit">Grade</div>
+            </div>
+            
+            <div class="kst-spec-item">
+                <div class="kst-spec-icon">🔬</div>
+                <div class="kst-spec-label">Quality Testing</div>
+                <div class="kst-spec-value">Batch</div>
+                <div class="kst-spec-unit">Verified</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            </div>
+        
+          <div class="kst-warning-section">
+            <div class="kst-warning-title">Important Safety Information</div>
+            <div class="kst-warning-content">
+                This product is for professional use only by trained medical practitioners. Proper training and certification are required for safe administration.
+                
+                <ul class="kst-warning-list">
+                    <li>Do not use on pregnant or breastfeeding women</li>
+                    <li>Contraindicated for individuals allergic to peas or beans</li>
+                    <li>Not recommended for patients with heart conditions, diabetes, or cancer</li>
+                    <li>Store vials at 2-25°C, away from direct sunlight and freezing</li>
+                    <li>Wait minimum 10-14 days between treatments on same area</li>
+                    <li>Anesthesia typically not required due to minimal discomfort</li>
+                </ul>
+                
+                Always consult with qualified medical professionals before use and follow proper injection protocols for patient safety.
+            </div>
+        </div>
+
+    </div>

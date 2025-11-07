@@ -1,0 +1,622 @@
+<style>
+        /* CSS Variables for Color Palette */
+    :root {
+        --kst-main-color: #F15A29;
+        --kst-sub-color: #F68B6B;
+        --kst-text-primary: #222222;
+        --kst-text-secondary: #666666;
+        --kst-background: #FFFFFF;
+        --kst-badge-bg: #F15A29;
+        --kst-badge-text: #FFFFFF;
+        --kst-badge-hover: #F68B6B;
+        --kst-border-light: #E2E8F0;
+        --kst-background-alt: #f7fafc;
+    }
+
+    /* Reset and base styles with kst- prefix */
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+        background: var(--kst-background) !important;
+        color: var(--kst-text-primary) !important;
+        padding: 0;
+        line-height: 1.6;
+        box-sizing: border-box;
+        border-left: 1px solid var(--kst-border-light);
+        border-right: 1px solid var(--kst-border-light);
+    }
+
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+
+    /* Hide image blocks when no images are present */
+    .kst-image-block:not(:has(img)) {
+        display: none !important;
+    }
+
+    .kst-image-block:has(img[src=""]) {
+        display: none !important;
+    }
+
+    .kst-chart-block:not(:has(img)) {
+        display: none !important;
+    }
+
+    .kst-chart-block:has(img[src=""]) {
+        display: none !important;
+    }
+
+    /* Hero Section */
+    .kst-hero-section {
+        background: var(--kst-background-alt);
+        padding: 30px 16px;
+        text-align: center;
+        border-bottom: 2px solid var(--kst-border-light);
+        border-top: 2px solid var(--kst-border-light);
+    }
+
+    .kst-product-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 12px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-spec {
+        font-size: 22px;
+        font-weight: 200;
+        color: var(--kst-text-secondary) !important;
+        margin-top: -12px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-subtitle {
+        font-size: 16px;
+        color: var(--kst-main-color) !important;
+        font-weight: 300;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-hero-description {
+        font-size: 14px;
+        color: var(--kst-text-secondary) !important;
+        margin: 0 auto 24px;
+        line-height: 1.7;
+    }
+
+    /* Section Styles */
+    .kst-section {
+        padding: 40px 16px;
+        margin: 0;
+        border-bottom: 1px solid var(--kst-border-light);
+    }
+
+    .kst-section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--kst-text-primary) !important;
+        text-align: left;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-section-alt {
+        background: var(--kst-background-alt);
+    }
+
+    /* Image Blocks */
+    .kst-image-block {
+        background: var(--kst-background-alt);
+        border: none;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid var(--kst-border-light);
+    }
+
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0;
+    }
+
+    .kst-image-placeholder {
+        padding: 40px 20px;
+        text-align: center;
+        color: #A0AEC0 !important;
+        font-size: 14px;
+        font-style: italic;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Card Styles */
+    .kst-card {
+        background: var(--kst-background) !important;
+        border: 1px solid var(--kst-border-light);
+        border-radius: 0;
+        padding: 16px;
+        margin: 12px 0;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .kst-card:hover {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .kst-card-title {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--kst-text-primary) !important;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-card-content {
+        font-size: 14px;
+        color: var(--kst-text-secondary) !important;
+        line-height: 1.6;
+    }
+
+    /* Badge Styles */
+    .kst-badge {
+        background: var(--kst-border-light);
+        color: var(--kst-text-secondary) !important;
+        padding: 4px 12px;
+        border-radius: 0;
+        font-size: 12px;
+        font-weight: 400;
+        display: inline-block;
+        margin: 4px 8px 4px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .kst-badge-primary {
+        background: var(--kst-badge-bg) !important;
+        color: var(--kst-badge-text) !important;
+    }
+
+    .kst-badge-warning {
+        background: #F56565;
+        color: var(--kst-badge-text) !important;
+    }
+
+    /* Grid Layouts */
+    .kst-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px 0;
+    }
+
+    .kst-grid-item {
+        background: var(--kst-background) !important;
+        padding: 16px;
+        border-radius: 0;
+        border: 1px solid var(--kst-border-light);
+        text-align: left;
+    }
+
+    .kst-grid-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 4px;
+    }
+
+    .kst-grid-label {
+        font-size: 12px;
+        color: var(--kst-text-secondary) !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Table Styles */
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 20px 0;
+        border-radius: 0;
+        border: 1px solid var(--kst-border-light);
+    }
+
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: #CBD5E0;
+        border-radius: 3px;
+    }
+
+    .kst-table {
+        min-width: 600px;
+        width: 100%;
+        background: var(--kst-background) !important;
+        border-collapse: collapse;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    .kst-table thead {
+        background: var(--kst-background-alt);
+        color: var(--kst-text-primary) !important;
+        border-bottom: 2px solid var(--kst-border-light);
+    }
+
+    .kst-table th,
+    .kst-table td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid var(--kst-border-light);
+        font-size: 14px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-table th {
+        font-weight: 400;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--kst-text-secondary) !important;
+        white-space: nowrap !important;
+    }
+
+    .kst-table td {
+        color: var(--kst-text-secondary) !important;
+    }
+
+    .kst-table tbody tr:hover {
+        background: var(--kst-background-alt);
+    }
+
+    /* List Styles */
+    .kst-list {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0;
+    }
+
+    .kst-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 6px 0;
+        color: var(--kst-text-primary) !important;
+        font-size: 14px;
+        border-bottom: 1px solid var(--kst-border-light);
+    }
+
+    .kst-list li:last-child {
+        border-bottom: none;
+    }
+
+    .kst-list li::before {
+        content: '•';
+        color: var(--kst-main-color) !important;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    /* Definition List Styles */
+    .kst-dl {
+        margin: 20px 0;
+    }
+
+    .kst-dt {
+        font-weight: 400;
+        color: var(--kst-text-primary) !important;
+        font-size: 14px;
+        margin-bottom: 4px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-dd {
+        color: var(--kst-text-secondary) !important;
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        margin-left: 0;
+        padding-left: 10px;
+        border-left: 2px solid var(--kst-border-light);
+    }
+
+    /* Warning/Safety Styles */
+    .kst-warning {
+        background: #fff8e1;
+        border: 1px solid #FFD700;
+        border-radius: 0;
+        padding: 16px;
+        margin: 16px 0;
+    }
+
+    .kst-warning-title {
+        font-size: 14px;
+        font-weight: 400;
+        color: #B78000 !important;
+        margin-bottom: 8px;
+        padding-top: 0;
+    }
+
+    .kst-warning-content {
+        font-size: 13px;
+        color: #B78000 !important;
+        line-height: 1.6;
+    }
+
+    .kst-warning-list {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0 0;
+    }
+
+    .kst-warning-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 3px 0;
+        font-size: 12px;
+        color: #B78000 !important;
+    }
+
+    .kst-warning-list li::before {
+        content: '•';
+        color: #FFD700 !important;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    /* Text Utilities */
+    .kst-text-center {
+        text-align: center;
+    }
+
+    .kst-text-muted {
+        color: var(--kst-text-secondary) !important;
+    }
+
+    .kst-text-small {
+        font-size: 12px;
+    }
+
+    .kst-mb-0 { margin-bottom: 0; }
+    .kst-mb-1 { margin-bottom: 8px; }
+    .kst-mb-2 { margin-bottom: 16px; }
+    .kst-mb-3 { margin-bottom: 24px; }
+
+    .kst-mt-0 { margin-top: 0; }
+    .kst-mt-1 { margin-top: 8px; }
+    .kst-mt-2 { margin-top: 16px; }
+    .kst-mt-3 { margin-top: 24px; }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-hero-section">
+        <div class="kst-product-title" style="font-size: 20px; margin-bottom: -1px;">HP Cell</div>
+        <div class="kst-product-title">Vitaran i II</div>
+        <div class="kst-product-spec">2mL x 1 Syringe</div>
+        <div class="kst-product-subtitle">Advanced Bio-Stimulating Injectable</div>
+        <div class="kst-hero-description">
+            Highly purified salmon trout DNA polynucleotide for deep skin renewal and bio-restructuring. Designed for larger treatment areas including face, neck, décolletage, hands, and body.
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert Vitaran II Product Image]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <span class="kst-badge kst-badge-primary">Professional Grade</span>
+            <h3 class="kst-card-title">Advanced Bio-Revitalizer</h3>
+            <div class="kst-card-content">
+                HP Cell Vitaran II is an advanced bio-revitalizer formulated with highly purified Polynucleotide Sodium (PN) at a concentration of 20mg/ml. This innovative active ingredient is derived from salmon trout DNA and possesses a high genetic similarity to human DNA, ensuring excellent biocompatibility.
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><span>Promote deep skin renewal and bio-restructuring</span></li>
+            <li><span>Stimulate the production of collagen and elastin</span></li>
+            <li><span>Hydrate and improve skin elasticity</span></li>
+            <li><span>Reduce the appearance of fine lines, wrinkles, and scars</span></li>
+            <li><span>Combat free radical damage with anti-inflammatory and antioxidant properties</span></li>
+        </ul>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Key Ingredients & Composition</h2>
+        
+        <dl class="kst-dl">
+            <dt class="kst-dt">Polynucleotide Sodium (PN)</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">20mg/ml (2%)</span>
+                Highly purified salmon trout DNA with excellent biocompatibility and high genetic similarity to human DNA. Stimulates fibroblasts and boosts natural production of collagen and elastin.
+            </dd>
+        </dl>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert PN Mechanism of Action Infographic]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Formulation & Packaging</h3>
+            <div class="kst-card-content">
+                Pre-filled syringe of 2mL with one sterile 33G needle included. Professional-grade formulation designed for precise application using multi-injection technique or linear-retrograde technique with cannula.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Treatment Areas & Applications</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Full Face</div>
+                <div class="kst-grid-label">2-4ml per treatment</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Neck & Décolletage</div>
+                <div class="kst-grid-label">2-4ml per session</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Hands</div>
+                <div class="kst-grid-label">1-2ml per hand</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Body Areas</div>
+                <div class="kst-grid-label">Variable dosage</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert Treatment Area Map]
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Application Methods</h3>
+            <div class="kst-card-content">
+                Multi-injection technique with a fine needle or linear-retrograde technique with a cannula, depending on the treatment area and desired outcome. The included 2mL syringe and 33G needle are ideal for precise application.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Treatment Protocol</h3>
+            <div class="kst-card-content">
+                Recommended cycle: 2-3 sessions spaced 3-4 weeks apart for optimal results, with annual maintenance treatments advised. This product is specifically designed for larger skin areas requiring comprehensive rejuvenation.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert Treatment Guide with Injection Depth]
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Elements Table</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Product Version</th>
+                        <th>Key Ingredients</th>
+                        <th>Treatment Areas</th>
+                        <th>Main Efficacy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Vitaran II</strong></td>
+                        <td>Polynucleotide Sodium 20mg/ml (2%)</td>
+                        <td>Face, neck, décolletage, hands, and body</td>
+                        <td>Bio-restructuring, scar improvement, hydration, anti-aging</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Which Product Is Right for You?</h3>
+            <div class="kst-card-content">
+                Based on your skin condition and treatment area, choose the appropriate version to experience a customized effect. Vitaran II offers a powerful solution for those seeking comprehensive skin rejuvenation and repair across larger treatment areas.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Clinical Benefits & Efficacy</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Regenerative Effects</h3>
+            <div class="kst-card-content">
+                Unlike traditional skin boosters that primarily offer hydration, this polynucleotide-based formula provides long-lasting regenerative effects by stimulating the skin's natural healing processes. Works at a cellular level to promote deep skin renewal and bio-restructuring.
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><span>Stimulates fibroblasts for enhanced collagen and elastin production</span></li>
+            <li><span>Improves skin firmness, elasticity, and hydration</span></li>
+            <li><span>Effective for reducing scars including acne scars</span></li>
+            <li><span>Improves overall skin texture and combats signs of aging</span></li>
+        </ul>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert Before/After Clinical Results]
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Safety & Precautions</h2>
+        
+        <div class="kst-warning">
+            <h3 class="kst-warning-title">Important Safety Information</h3>
+            <div class="kst-warning-content">
+                This product should be administered by a certified professional only.
+            </div>
+            <ul class="kst-warning-list">
+                <li>Do not use in patients with known hypersensitivity or allergy to fish</li>
+                <li>Contraindicated for pregnant or breastfeeding women</li>
+                <li>Avoid use in patients under 18 years of age</li>
+                <li>Do not apply to areas with active skin infections, inflammation, or other skin conditions</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Storage Instructions</h3>
+            <div class="kst-card-content">
+                Store according to manufacturer's instructions. Use immediately after opening to maintain product efficacy and safety.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Insert Precautions and Storage Infographics]
+            </div>
+        </div>
+    </div>
+    
+</div>

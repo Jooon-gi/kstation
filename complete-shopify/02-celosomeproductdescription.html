@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .kst-main-container {
+            max-width: 760px !important;
+            margin: 0 auto !important;
+            font-family: 'Inter', 'Segoe UI', sans-serif !important;
+            background: linear-gradient(180deg, #fdfbf8 0%, #f9f6f1 100%) !important;
+            color: #2d2a26 !important;
+            padding: 0 !important;
+            line-height: 1.6 !important;
+            overflow-x: hidden !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container * {
+            box-sizing: border-box !important;
+        }
+        
+        .kst-section {
+            max-width: 100% !important;
+            margin: 0 auto !important;
+            padding: 0 12px !important;
+        }
+        
+        .kst-flowing-header {
+            background: radial-gradient(circle at 30% 20%, #e8ddd4 0%, #f4efe8 50%, #faf7f2 100%) !important;
+            padding: 20px 12px 30px !important;
+            text-align: center !important;
+            position: relative !important;
+            overflow: hidden !important;
+            margin: 0 !important;
+        }
+        
+        .kst-flowing-header::before {
+            content: '' !important;
+            position: absolute !important;
+            top: -50% !important;
+            left: -50% !important;
+            width: 200% !important;
+            height: 200% !important;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e8ddd4' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat !important;
+            opacity: 0.3 !important;
+            animation: kst-float 20s ease-in-out infinite !important;
+        }
+        
+        @keyframes kst-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) !important; }
+            50% { transform: translateY(-20px) rotate(180deg) !important; }
+        }
+        
+        .kst-card {
+            background: #ffffff !important;
+            margin: 0 8px 40px !important;
+            padding: 20px 16px !important;
+            border-radius: 0 !important;
+            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.08) !important;
+            position: relative !important;
+            max-width: calc(100% - 16px) !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            color: #2d2a26 !important;
+        }
+        
+        .kst-card::before {
+            content: '' !important;
+            position: absolute !important;
+            top: -20px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 50px !important;
+            height: 4px !important;
+            background: linear-gradient(90deg, #c4975c, #e8c588, #c4975c) !important;
+            border-radius: 10px !important;
+        }
+        
+        .kst-section-tag {
+            background: linear-gradient(135deg, #d4af37, #e8c588) !important;
+            color: #5d4e37 !important;
+            padding: 4px 10px !important;
+            border-radius: 0 !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            display: inline-block !important;
+            margin-bottom: 12px !important;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3) !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }
+        
+        .kst-flowing-title {
+            font-size: 22px !important;
+            font-weight: 300 !important;
+            color: #5d4e37 !important;
+            margin-bottom: 16px !important;
+            text-align: center !important;
+            position: relative !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-product-title {
+            font-size: 36px !important;
+            font-weight: 600 !important;
+            color: #5d4e37 !important;
+            margin-bottom: 8px !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-product-midtitle {
+            font-size: 24px !important;
+            color: #7c613f !important;
+            margin-top: -8px !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+
+        .kst-product-subtitle {
+            font-size: 16px !important;
+            color: #8b7355 !important;
+            margin-bottom: 16px !important;
+            margin-top: 32px !important;
+            text-align: center !important;
+            font-style: italic !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-brand-badge {
+            background: linear-gradient(135deg, #8b4513, #a0522d) !important;
+            color: #ffffff !important;
+            padding: 6px 12px !important;
+            border-radius: 0 !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            display: inline-block !important;
+            margin-bottom: 16px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+        
+        .kst-core-value {
+            background: linear-gradient(135deg, #faf7f2 0%, #f0ebe2 100%) !important;
+            padding: 16px !important;
+            margin: 12px 0 !important;
+            border-radius: 0 !important;
+            border: 2px solid #e8ddd4 !important;
+            position: relative !important;
+            color: #2d2a26 !important;
+            font-size: 14px !important;
+            line-height: 1.6 !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-concentration-pill {
+            background: linear-gradient(135deg, #8b4513, #a0522d) !important;
+            color: #ffffff !important;
+            padding: 4px 10px !important;
+            border-radius: 0 !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            display: inline-block !important;
+            margin-bottom: 10px !important;
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3) !important;
+        }
+        
+        .kst-definition-list {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        .kst-definition-list dt {
+            font-weight: 600 !important;
+            color: #8b4513 !important;
+            margin-top: 12px !important;
+            margin-bottom: 4px !important;
+            font-size: 16px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-definition-list dd {
+            margin: 0 0 8px 0 !important;
+            color: #6b5b4f !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-chip-list {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 8px !important;
+            margin: 12px 0 !important;
+        }
+        
+        .kst-chip {
+            background: linear-gradient(135deg, #d4af37, #e8c588) !important;
+            color: #5d4e37 !important;
+            padding: 6px 12px !important;
+            border-radius: 0 !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            display: inline-block !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }
+        
+        .kst-benefits-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+            margin: 16px 0 !important;
+        }
+        
+        .kst-benefit-item {
+            background: linear-gradient(135deg, #ffffff 0%, #faf7f2 100%) !important;
+            padding: 16px 20px !important;
+            border-radius: 0 !important;
+            border-left: 4px solid #d4af37 !important;
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.1) !important;
+            position: relative !important;
+            color: #2d2a26 !important;
+        }
+        
+        .kst-benefit-number {
+            width: 24px !important;
+            height: 24px !important;
+            background: linear-gradient(135deg, #d4af37, #e8c588) !important;
+            color: #5d4e37 !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-weight: 700 !important;
+            font-size: 11px !important;
+            margin-bottom: 8px !important;
+        }
+        
+        .kst-benefit-title {
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            color: #5d4e37 !important;
+            margin-bottom: 6px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-benefit-text {
+            color: #6b5b4f !important;
+            font-size: 13px !important;
+            line-height: 1.5 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-table-wrap {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            margin: 16px 0 !important;
+            border: 1px solid #e8ddd4 !important;
+            border-radius: 0 !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f1f1f1 !important;
+            border-radius: 3px !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: #c4975c !important;
+            border-radius: 3px !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb:hover {
+            background: #8b4513 !important;
+        }
+        
+        .kst-specs-table {
+            width: 100% !important;
+            min-width: 800px !important;
+            border-collapse: collapse !important;
+            background: #ffffff !important;
+            border-radius: 0 !important;
+            overflow: hidden !important;
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.1) !important;
+        }
+        
+        .kst-specs-table th,
+        .kst-specs-table td {
+            border: 1px solid #e8ddd4 !important; 
+            padding: 12px 10px !important;
+            text-align: left !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-specs-table th {
+            background: #642c04 !important;
+            color: #f1cca7 !important;
+            padding: 12px 10px !important;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            white-space: nowrap !important;
+            align: center;
+        }
+        
+        .kst-specs-table td {
+            color: #6b5b4f !important;
+            font-size: 13px !important;
+        }
+        
+        .kst-specs-table tbody tr:hover {
+            background: #faf7f2 !important;
+        }
+        
+        .kst-vertical-list {
+            margin: 0 !important;
+            padding: 0 !important;
+            list-style: none !important;
+        }
+        
+        .kst-vertical-list li {
+            background: linear-gradient(135deg, #ffffff 0%, #faf7f2 100%) !important;
+            padding: 12px 16px !important;
+            margin-bottom: 8px !important;
+            border-radius: 0 !important;
+            border-left: 3px solid #c4975c !important;
+            color: #2d2a26 !important;
+            font-size: 14px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-keyword-badges {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 6px !important;
+            margin: 12px 0 !important;
+        }
+        
+        .kst-keyword-badge {
+            background: linear-gradient(135deg, #8b4513, #a0522d) !important;
+            color: #ffffff !important;
+            padding: 4px 8px !important;
+            border-radius: 0 !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            display: inline-block !important;
+        }
+        
+        .kst-image-block {
+    /* 이미지가 없을 때만 보이는 스타일 */
+    background: linear-gradient(135deg, #f4efe8 0%, #e8ddd4 100%) !important;
+    border: 2px dashed #c4975c !important;
+    padding: 25px 16px !important;
+    text-align: center !important;
+    margin: 20px 8px !important;
+    border-radius: 0 !important;
+    color: #8b7355 !important;
+    font-size: 11px !important;
+    font-style: italic !important;
+    position: relative !important;
+    overflow: hidden !important;
+    max-width: calc(100% - 16px) !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* 이미지가 있을 때 플레이스홀더 스타일 제거 */
+.kst-image-block:has(img[src]),
+.kst-image-block:has(img:not([src=""])) {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 20px 0 !important;
+}
+.kst-image-block:has(img) .kst-image-placeholder-text {
+    display: none !important;
+}
+.kst-image-block img {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important; /* 이미지 영역을 꽉 채우도록 설정 */
+    border-radius: 0 !important;
+    display: block !important;
+}
+.kst-image-block img:not([src=""]) {
+    /* 이미지가 있을 때만 적용 */
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.kst-image-block img[src=""],
+.kst-image-block img:not([src]) {
+    /* 이미지가 깨졌을 때 아이콘 숨기기 */
+    margin-left: -16px; /* 아이콘을 왼쪽으로 16px만큼 밀어 숨김 */
+    text-indent: 16px; /* 텍스트(alt 속성)를 다시 오른쪽으로 16px만큼 밀어 제 위치로 돌려놓음 */
+}
+        
+        .kst-image-block::before {
+            content: '✦' !important;
+            position: absolute !important;
+            top: 16px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            color: #d4af37 !important;
+            font-size: 18px !important;
+            animation: kst-pulse 2s ease-in-out infinite !important;
+        }
+        
+        @keyframes kst-pulse {
+            0%, 100% { opacity: 0.5 !important; transform: translateX(-50%) scale(1) !important; }
+            50% { opacity: 1 !important; transform: translateX(-50%) scale(1.2) !important; }
+        }
+        
+        .kst-image-block:not(:has(img)),
+        .kst-image-block:has(img[src=""]) {
+            display: block !important;
+        }
+        
+        .kst-image-block img {
+            max-width: 100% !important;
+            height: auto !important;
+            object-fit: cover !important;
+            border-radius: 0 !important;
+        }
+        
+        .kst-package-info {
+            background: linear-gradient(135deg, #ffffff 0%, #faf7f2 100%) !important;
+            padding: 16px !important;
+            margin: 12px 0 !important;
+            border-radius: 0 !important;
+            border: 2px solid #e8ddd4 !important;
+            color: #2d2a26 !important;
+        }
+        
+        .kst-package-title {
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            color: #5d4e37 !important;
+            margin-bottom: 8px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-package-details {
+            color: #6b5b4f !important;
+            font-size: 13px !important;
+            line-height: 1.5 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-safety-warning {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7) !important;
+            border: 2px solid #ffc107 !important;
+            padding: 16px !important;
+            margin: 16px 8px !important;
+            border-radius: 0 !important;
+            position: relative !important;
+            max-width: calc(100% - 16px) !important;
+            color: #856404 !important;
+        }
+        
+        .kst-safety-warning::before {
+            content: '⚠️' !important;
+            position: absolute !important;
+            top: -12px !important;
+            left: 16px !important;
+            background: #ffc107 !important;
+            color: #856404 !important;
+            width: 24px !important;
+            height: 24px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 14px !important;
+        }
+        
+        .kst-safety-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #856404 !important;
+            margin-bottom: 12px !important;
+            margin-left: 12px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-safety-content {
+            color: #6c5609 !important;
+            font-size: 13px !important;
+            line-height: 1.5 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-safety-content p {
+            margin-bottom: 8px !important;
+            color: #6c5609 !important;
+        }
+        
+        .kst-safety-content strong {
+            color: #856404 !important;
+        }
+        
+        .kst-methodology-block {
+            background: linear-gradient(135deg, #f9f6f1 0%, #f4efe8 100%) !important;
+            padding: 16px !important;
+            margin: 12px 0 !important;
+            border-radius: 0 !important;
+            border-left: 4px solid #d4af37 !important;
+            color: #2d2a26 !important;
+        }
+        
+        .kst-methodology-title {
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            color: #5d4e37 !important;
+            margin-bottom: 8px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-methodology-text {
+            color: #6b5b4f !important;
+            font-size: 13px !important;
+            line-height: 1.5 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="kst-main-container">
+        
+        <!-- Basic Product Information -->
+        <div class="kst-flowing-header kst-section">
+            <div class="kst-brand-badge">ExCoBio Co., Ltd.</div>
+            <h1 class="kst-product-title">CELOSOME</h1>
+            <h2 class="kst-product-midtitle">IMPLANT / STRONG / MID / SOFT</h2>
+            <div class="kst-product-subtitle">Hyaluronic Acid Dermal Filler Series</div>
+            <div class="kst-core-value">
+                Advanced HENM cross-linking technology for natural-looking facial volumization, wrinkle correction, and contouring with stabilized hyaluronic acid formulation.
+            </div>
+            <div class="kst-image-block">
+                 <span class="kst-image-placeholder-text">
+                [CELOSOME PRODUCT SERIES HERO IMAGE - All Four Variants Display]
+                </span>
+                 <img src="" alt="Celosome Product Series" onerror="this.style.display='none'">
+            </div>
+        </div>
+        
+        <!-- Product Lineup Overview -->
+        <div class="kst-card kst-section">
+            <div class="kst-section-tag">Product Series</div>
+            <h2 class="kst-flowing-title">CELOSOME Complete Range</h2>
+            
+            <div class="kst-table-wrap">
+                <table class="kst-specs-table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Viscosity</th>
+                            <th>Treatment Area</th>
+                            <th>Injection Layer</th>
+                            <th>Needle Gauge</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Celosome Implant</td>
+                            <td>Highest</td>
+                            <td>Chin, Jawline, Cheekbones, Nose bridge</td>
+                            <td>Deep dermis, subcutaneous, supraperiosteal</td>
+                            <td>23G 1/2"</td>
+                            <td>12-24 months</td>
+                        </tr>
+                        <tr>
+                            <td>Celosome Strong</td>
+                            <td>High</td>
+                            <td>Moderate-to-severe wrinkles, Facial contouring, Nose bridge</td>
+                            <td>Middle and deep dermis</td>
+                            <td>-</td>
+                            <td>12-24 months</td>
+                        </tr>
+                        <tr>
+                            <td>Celosome Mid</td>
+                            <td>Medium</td>
+                            <td>Mid-to-deep wrinkles, Lip contouring, Cheek volumizing</td>
+                            <td>Middle and deep dermis</td>
+                            <td>27G</td>
+                            <td>9-18 months</td>
+                        </tr>
+                        <tr>
+                            <td>Celosome Soft</td>
+                            <td>Low</td>
+                            <td>Fine lines, Periorbital wrinkles, Perioral wrinkles, Forehead lines</td>
+                            <td>Superficial dermis</td>
+                            <td>30G 1/2"</td>
+                            <td>6-9 months</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="kst-image-block">
+                <span class="kst-image-placeholder-text">
+        [CELOSOME SERIES COMPARISON CHART AND VISCOSITY DIAGRAM]
+    </span>
+    <img src="" alt="Celosome Product Series" onerror="this.style.display='none'">
+            </div>
+            
+        </div>
+        
+        <!-- Core Ingredients -->
+        <div class="kst-card kst-section">
+            <div class="kst-section-tag">Core Components</div>
+            <h2 class="kst-flowing-title">Advanced Formulation</h2>
+            
+            <dl class="kst-definition-list">
+                <dt>Stabilized Hyaluronic Acid</dt>
+                <dd>
+                    <div class="kst-concentration-pill">24mg/ml</div>
+                    Non-animal origin hyaluronic acid processed through HENM (High-Efficiency Nano Mesh) cross-linking technology for enhanced stability, longevity, and natural integration with facial tissues.
+                </dd>
+                
+                <dt>Lidocaine</dt>
+                <dd>
+                    <div class="kst-concentration-pill">0.3%</div>
+                    Integrated local anesthetic to minimize discomfort during injection procedures while maintaining product integrity and performance characteristics.
+                </dd>
+            </dl>
+            
+            <div class="kst-methodology-block">
+                <h4 class="kst-methodology-title">HENM Cross-linking Technology</h4>
+                <div class="kst-methodology-text">
+                    High-Efficiency Nano Mesh cross-linking creates optimized viscoelasticity with minimal residual BDDE, endotoxin, and heavy metals through an 8-stage purification process ensuring maximum safety and efficacy.
+                </div>
+            </div>
+            
+            <div class="kst-chip-list">
+                <span class="kst-chip">Non-Animal Origin</span>
+                <span class="kst-chip">8-Stage Purification</span>
+                <span class="kst-chip">HENM Technology</span>
+                <span class="kst-chip">Pre-filled Syringe</span>
+            </div>
+            
+            <div class="kst-image-block">
+                <span class="kst-image-placeholder-text">
+        [HENM CROSS-LINKING MOLECULAR STRUCTURE AND PURIFICATION PROCESS]
+    </span>
+    <img src="" alt="Celosome Product Series" onerror="this.style.display='none'">
+            </div>
+        </div>
+        
+        <!-- Benefits and Efficacy -->
+        <div class="kst-card kst-section">
+            <div class="kst-section-tag">Performance Benefits</div>
+            <h2 class="kst-flowing-title">Treatment Advantages</h2>
+            
+            <div class="kst-benefits-grid">
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">1</div>
+                    <h4 class="kst-benefit-title">Fine to Deep Wrinkle Improvement</h4>
+                    <div class="kst-benefit-text">
+                        Comprehensive correction of facial lines from superficial fine lines to deep nasolabial folds with targeted viscosity matching for optimal results.
+                    </div>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">2</div>
+                    <h4 class="kst-benefit-title">Facial Volumization and Contouring</h4>
+                    <div class="kst-benefit-text">
+                        Structural enhancement of facial features including chin augmentation, jawline definition, and cheekbone volumization for natural-looking results.
+                    </div>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">3</div>
+                    <h4 class="kst-benefit-title">Natural-Looking Lip Augmentation</h4>
+                    <div class="kst-benefit-text">
+                        Subtle to dramatic lip enhancement and contouring with products specifically designed for delicate perioral tissue characteristics.
+                    </div>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">4</div>
+                    <h4 class="kst-benefit-title">General Skin Rejuvenation</h4>
+                    <div class="kst-benefit-text">
+                        Overall improvement in skin texture, hydration, and youthful appearance through hyaluronic acid's natural moisturizing properties.
+                    </div>
+                </div>
+            </div>
+            
+            <ul class="kst-vertical-list">
+                <li>Optimized viscoelasticity for natural tissue integration</li>
+                <li>Extended duration of effect with gradual biodegradation</li>
+                <li>Minimal inflammatory response due to high purity formulation</li>
+                <li>Versatile application across multiple facial zones</li>
+            </ul>
+            
+            <div class="kst-keyword-badges">
+                <span class="kst-keyword-badge">Wrinkle Correction</span>
+                <span class="kst-keyword-badge">Facial Contouring</span>
+                <span class="kst-keyword-badge">Lip Augmentation</span>
+                <span class="kst-keyword-badge">Skin Rejuvenation</span>
+                <span class="kst-keyword-badge">Natural Results</span>
+            </div>
+            
+            <div class="kst-image-block">
+                <span class="kst-image-placeholder-text">
+        [BEFORE/AFTER TREATMENT RESULTS COMPARISON GALLERY]
+    </span>
+    <img src="" alt="Celosome Product Series" onerror="this.style.display='none'">
+            </div>
+        </div>
+        
+        <!-- Individual Product Details -->
+        <div class="kst-card kst-section">
+            <div class="kst-section-tag">Product Specifications</div>
+            <h2 class="kst-flowing-title">Detailed Product Information</h2>
+            
+            <div class="kst-methodology-block">
+                <h4 class="kst-methodology-title">🔹 Celosome Implant</h4>
+                <div class="kst-methodology-text">
+                    <strong>Efficacy:</strong> Provides powerful lifting and augmentation for facial contouring, including the chin, jawline, and nose bridge, as well as volumizing of cheekbones.<br>
+                    <strong>Duration:</strong> Approximately 12-24 months<br>
+                    <strong>Treatment Area:</strong> Chin, Jawline, Cheekbones, Nose bridge<br>
+                    <strong>Usage:</strong> Intended for injection into the deep subcutaneous and supraperiosteal layer for deep-level contouring. Features the densest gel consistency in the Celosome range, providing a strong lifting effect.
+                </div>
+            </div>
+            
+            <div class="kst-methodology-block">
+                <h4 class="kst-methodology-title">🔹 Celosome Strong</h4>
+                <div class="kst-methodology-text">
+                    <strong>Efficacy:</strong> Ideal for correction of moderate-to-severe wrinkles and folds, and for facial contouring and non-surgical facelift effects.<br>
+                    <strong>Duration:</strong> Approximately 12-24 months<br>
+                    <strong>Treatment Area:</strong> Nasolabial folds, Forehead and frown lines, Chin, Jawline, and Nose bridge<br>
+                    <strong>Usage:</strong> The filler is injected into the middle to deep dermis. Its hard formulation and high viscoelasticity make it suitable for defining facial features and correcting pronounced wrinkles.
+                </div>
+            </div>
+            
+            <div class="kst-methodology-block">
+                <h4 class="kst-methodology-title">🔹 Celosome Mid</h4>
+                <div class="kst-methodology-text">
+                    <strong>Efficacy:</strong> Used for filling mid-to-deep facial wrinkles, subtle volumizing, and lip contouring.<br>
+                    <strong>Duration:</strong> Approximately 9-18 months<br>
+                    <strong>Treatment Area:</strong> Nasolabial folds, Marionette lines, Forehead, Eyebrow wrinkles, Lip contouring, and Cheek volumizing<br>
+                    <strong>Usage:</strong> Injected into the middle and deep layers of the dermis. Contains a balanced composition of different molecular weights of HA, allowing for natural volumizing and easy molding.
+                </div>
+            </div>
+            
+            <div class="kst-methodology-block">
+                <h4 class="kst-methodology-title">🔹 Celosome Soft</h4>
+                <div class="kst-methodology-text">
+                    <strong>Efficacy:</strong> Targets fine facial wrinkles, periorbital and perioral lines, and provides subtle volumizing and lip augmentation.<br>
+                    <strong>Duration:</strong> Approximately 6-9 months<br>
+                    <strong>Treatment Area:</strong> Forehead and glabellar lines, Crow's feet, Fine under-eye lines, Nasolabial folds, Marionette lines, and Lip contouring<br>
+                    <strong>Usage:</strong> Injected into the superficial dermis. This is the softest filler in the series, designed for delicate areas and achieving a subtle, natural correction of minor imperfections.
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                <span class="kst-image-placeholder-text">
+        [INDIVIDUAL PRODUCT INJECTION DEPTH AND TECHNIQUE DIAGRAMS]
+    </span>
+    <img src="" alt="Celosome Product Series" onerror="this.style.display='none'">
+            </div>
+        </div>
+        
+        <!-- Treatment Protocol -->
+        <div class="kst-card kst-section">
+            <div class="kst-section-tag">Application Guide</div>
+            <h2 class="kst-flowing-title">Product Selection Guide</h2>
+            
+            <div class="kst-methodology-block">
+                <h4 class="kst-methodology-title">Which Product is Right for Me?</h4>
+                <div class="kst-methodology-text">
+                    Choose a product with different viscosity and injection layers depending on the treatment area and soft tissue volume. For natural improvement of fine lines, choose Soft. For structural volume enhancement, choose Implant. Mid and Strong variants provide intermediate solutions for moderate concerns.
+                </div>
+            </div>
+            
+            <ul class="kst-vertical-list">
+                <li><strong>Fine Lines & Delicate Areas:</strong> Celosome Soft - Superficial dermis injection for subtle corrections</li>
+                <li><strong>Moderate Wrinkles & Volumizing:</strong> Celosome Mid - Middle to deep dermis for balanced enhancement</li>
+                <li><strong>Deep Wrinkles & Contouring:</strong> Celosome Strong - Deep dermis for pronounced corrections</li>
+                <li><strong>Structural Enhancement:</strong> Celosome Implant - Subcutaneous/supraperiosteal for major contouring</li>
+            </ul>
+            
+            <div class="kst-image-block">
+                <span class="kst-image-placeholder-text">
+        [TREATMENT AREA MAPPING AND PRODUCT SELECTION FLOWCHART]
+    </span>
+    <img src="" alt="Celosome Product Series" onerror="this.style.display='none'">
+            </div>
+        </div>
+        
+        <!-- Package Information -->
+        <div class="kst-card kst-section">
+            <div class="kst-section-tag">Product Details</div>
+            <h2 class="kst-flowing-title">Package Specifications</h2>
+            
+            <div class="kst-package-info">
+                <h4 class="kst-package-title">Package Contents</h4>
+                <div class="kst-package-details">
+                    Each CELOSOME product contains 1 pre-filled syringe with 1.1ml of stabilized hyaluronic acid formulation, ready for immediate professional use.
+                </div>
+            </div>
+            
+            <div class="kst-package-info">
+                <h4 class="kst-package-title">Treatment Cycle</h4>
+                <div class="kst-package-details">
+                    The duration of effect is dependent on the product version and can be maintained with regular treatment sessions. Individual results may vary based on skin type, age, lifestyle factors, and injection technique.
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                <span class="kst-image-placeholder-text">
+        [PRODUCT PACKAGING AND SYRINGE SPECIFICATIONS]
+    </span>
+    <img src="" alt="Celosome Product Series" onerror="this.style.display='none'">
+            </div>
+        </div>
+        
+        <!-- Safety and Storage -->
+        <div class="kst-safety-warning kst-section">
+            <h3 class="kst-safety-title">Important Safety Information</h3>
+            <div class="kst-safety-content">
+                <p><strong>Professional Use Only:</strong> CELOSOME products are intended for use by qualified medical professionals only.</p>
+                <p><strong>Contraindications:</strong> Do not use on pregnant or breastfeeding women. Not recommended for patients with known hypersensitivity to hyaluronic acid or lidocaine.</p>
+                <p><strong>Storage Requirements:</strong> Store at temperature between 2-25°C in a cool, dry place away from direct sunlight and freezing temperatures.</p>
+                <p><strong>Manufacturer:</strong> ExCoBio Co., Ltd. - Ensuring quality and safety in every product.</p>
+            </div>
+        </div>
+        
+        <!-- Keywords for SEO -->
+        <div class="kst-card kst-section">
+            <div class="kst-section-tag">Product Keywords</div>
+            <h2 class="kst-flowing-title">Related Terms</h2>
+            
+            <div class="kst-keyword-badges">
+                <span class="kst-keyword-badge">Hyaluronic Acid Filler</span>
+                <span class="kst-keyword-badge">Lidocaine Filler</span>
+                <span class="kst-keyword-badge">Facial Contour</span>
+                <span class="kst-keyword-badge">Facial Volumizing</span>
+                <span class="kst-keyword-badge">Deep Wrinkle Correction</span>
+                <span class="kst-keyword-badge">Fine Line Improvement</span>
+                <span class="kst-keyword-badge">Cross-Linked HA</span>
+                <span class="kst-keyword-badge">HENM Technology</span>
+                <span class="kst-keyword-badge">Derma Filler</span>
+                <span class="kst-keyword-badge">Korean Filler</span>
+                <span class="kst-keyword-badge">Dermal Filler Syringe</span>
+                <span class="kst-keyword-badge">Injectable Filler</span>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

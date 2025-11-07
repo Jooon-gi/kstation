@@ -1,0 +1,710 @@
+<div class="kst-light-container" role="region" aria-label="Product Detail Container">
+  <style>
+    /* ========= KST: Scoped Variables & Base (Light) ========= */
+.kst-light-container {
+      --kst-bg: #FFFFFF;
+      --kst-surface: #FFFFFF;
+      --kst-elev: #F8F9FA;
+      --kst-text: #2D3748;
+      --kst-subtext: #718096;
+      --kst-light-color: #EF87AC;
+      --kst-deep-color: #85D6EA;
+      --kst-volume-color: #C69BD0;
+      --kst-main-accent: #b175d1; /* Original Main purple */
+      --kst-sub-accent: #6FD3E6; /* Original Sub cyan */
+      --kst-accent-3: #EC407A; /* Hot pink for accents */
+      --kst-danger: #E53E3E;
+      --kst-success: #38A169;
+      --kst-warning: #DD6B20;
+
+      --kst-accent: var(--kst-main-accent);
+      --kst-accent-2: var(--kst-sub-accent);
+
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--kst-bg);
+      color: var(--kst-text) !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Pretendard", system-ui, Segoe UI, Roboto, Arial, Apple SD Gothic Neo, "Noto Sans", "Malgun Gothic", sans-serif;
+      line-height: 1.55;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    /* Only affect elements inside container */
+    .kst-light-container * {
+      box-sizing: border-box !important;
+      color: inherit !important;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .kst-container { padding: 16px; }
+    .kst-section { 
+      background: var(--kst-surface); 
+      border: 1px solid #E2E8F0; 
+      border-radius: 16px; 
+      padding: 16px; 
+      margin: 12px 0; 
+      box-shadow: 0 4px 12px rgba(194, 152, 217, 0.08); 
+    }
+    .kst-section-header { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .kst-section-kicker { 
+      font-size: 12px; 
+      letter-spacing: .12em; 
+      color: var(--kst-subtext) !important; 
+      text-transform: uppercase; 
+      font-weight: 600;
+    }
+
+    /* Hero Section Styling */
+    #kst-basic-info {
+      background: linear-gradient(135deg, var(--kst-bg) 0%, #F3F0F8 100%);
+      border: 1px solid rgba(194, 152, 217, 0.3);
+    }
+    
+    .kst-hl {
+      font-weight: 800;
+      font-size: 30px;
+      background: linear-gradient(135deg, var(--kst-volume-color) 0%, var(--kst-accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      hyphens: auto !important;
+    }
+
+    .kst-sp {
+      font-weight: 400;
+      font-size: 24px;
+      background: linear-gradient(135deg, var(--kst-volume-color) 0%, var(--kst-accent-2) 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: -14px;
+      margin-bottom: 20px;
+      opacity: 90%;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      hyphens: auto !important;
+    }
+
+    .kst-muted { color: var(--kst-subtext) !important; }
+    .kst-accent { color: var(--kst-accent) !important; }
+
+    /* Cards & blocks */
+    .kst-card { 
+      background: var(--kst-elev); 
+      border: 1px solid #E2E8F0; 
+      border-radius: 18px; 
+      padding: 18px; 
+      margin: 12px 0; 
+      box-shadow: 0 4px 12px rgba(194, 152, 217, 0.05);
+      display: flex; 
+      flex-direction: column; 
+      gap: 12px; 
+    }
+    .kst-badges { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 8px; 
+      margin-top: 10px;
+    }
+    .kst-badge { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px; 
+      border-radius: 999px; 
+      padding: 8px 14px; 
+      font-size: 12px; 
+      border: 1px solid var(--kst-accent); 
+      background: var(--kst-accent);
+      color: #FFFFFF !important; 
+      font-weight: 600; 
+    }
+    .kst-badge.kst-brand { 
+      border: 1px solid var(--kst-accent); 
+      background: var(--kst-accent);
+      color: #FFFFFF !important; 
+    }
+    .kst-badge.kst-key { 
+      border: 1px solid var(--kst-sub-accent); 
+      background: var(--kst-sub-accent);
+      color: #FFFFFF !important; 
+    }
+    .kst-badge:hover {
+      background: var(--kst-accent-2);
+      border-color: var(--kst-accent-2);
+    }
+
+    /* Lists */
+    .kst-list-vert {
+      display: grid;
+      gap: 14px !important;
+      margin: 10px 0 !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      list-style: none;
+    }
+    .kst-list-vert li { 
+      background: var(--kst-elev); 
+      border: 1px solid #E2E8F0; 
+      border-radius: 12px; 
+      padding: 12px; 
+      list-style: none; 
+    }
+    .kst-kv { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    .kst-kv .kst-k { color: var(--kst-subtext) !important; font-size: 12px; }
+    .kst-kv .kst-v { font-weight: 600; color: var(--kst-text) !important; }
+
+    /* Definition list + chips */
+    .kst-dl { margin: 0; }
+    .kst-dl dt { 
+      font-weight: 800; 
+      margin-top: 16px; 
+      color: var(--kst-text) !important;
+      font-size: 16px;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      hyphens: auto !important;
+    }
+    .kst-dl dd { margin: 8px 0 0 0; }
+    .kst-chipset { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .kst-chip { 
+      font-size: 11px; 
+      padding: 8px 14px; 
+      border-radius: 999px; 
+      border: 1px solid var(--kst-accent);
+      background: var(--kst-accent);
+      color: #FFFFFF !important; 
+      font-weight: 600;
+    }
+
+    /* Images / media blocks */
+    .kst-image-block, .kst-chart-block, .kst-video-block { 
+      position: relative; 
+      border-radius: 18px; 
+      overflow: hidden; 
+      background: var(--kst-elev); 
+      border: 1px dashed #CBD5E0; 
+      min-height: 180px; 
+      display: grid; 
+      place-items: center;
+    }
+    .kst-image-block img, .kst-chart-block img { 
+      width: 100%; 
+      height: auto; 
+      object-fit: cover; 
+      display: block; 
+    }
+    .kst-img-label { 
+      position: absolute; 
+      bottom: 12px; 
+      left: 12px; 
+      font-size: 11px; 
+      background: rgba(255, 255, 255, 0.9);
+      color: #4A5568 !important;
+      font-weight: 700;
+      border: 1px solid #E2E8F0;
+      padding: 6px 12px; 
+      border-radius: 999px; 
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Auto-hide empty media slots (CSS :has) */
+    .kst-image-block:not(:has(img[src])) { display: none; }
+    .kst-image-block:has(img[src=""]) { display: none; }
+    .kst-chart-block:not(:has(img[src])) { display: none; }
+    .kst-chart-block:has(img[src=""]) { display: none; }
+    .kst-video-block:not(:has(video[src])) { display: none; }
+    .kst-video-block:has(video[src=""]) { display: none; }
+
+    /* Table wrapper (horizontal scroll only inside) */
+    .kst-table-wrap { 
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; 
+        border-radius: 12px; 
+    }
+    .kst-table { 
+        min-width: 800px; 
+        border-spacing: 0; /* 셀 간 간격 제거 */ 
+        border-collapse: collapse; 
+        width: 100%; 
+        background: var(--kst-elev); 
+    }
+    .kst-table th, .kst-table td { 
+      text-align: left; 
+      padding: 12px; 
+      border-bottom: 1px solid #E2E8F0; 
+    }
+    .kst-table th { 
+      color: var(--kst-text) !important; 
+      font-weight: 700; 
+    }
+    .kst-table tr:hover { background: #F0F4F8; }
+
+    /* Scrollbar always visible (webkit) */
+    .kst-table-wrap::-webkit-scrollbar { height: 10px; }
+    .kst-table-wrap::-webkit-scrollbar-thumb { 
+      background: var(--kst-accent); 
+      border-radius: 8px; 
+    }
+    .kst-table-wrap::-webkit-scrollbar-track { background: #E2E8F0; }
+
+    /* Numbered steps */
+    .kst-steps { display: grid; gap: 16px; counter-reset: kst-step; }
+    .kst-step { position: relative; padding-left: 54px; }
+    .kst-step::before {
+      counter-increment: kst-step;
+      content: counter(kst-step);
+      position: absolute; left: 0; top: 0;
+      width: 40px; height: 40px; display: grid; place-items: center;
+      border-radius: 999px; 
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%); 
+      color: #FFFFFF !important; 
+      border: none;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(194, 152, 217, 0.3);
+    }
+
+    /* Details / FAQ */
+    .kst-accordion { 
+      border: 1px solid #E2E8F0; 
+      border-radius: 12px; 
+      background: var(--kst-elev); 
+      overflow: hidden; 
+    }
+    .kst-accordion details { border-bottom: 1px solid #E2E8F0; }
+    .kst-accordion details:last-child { border-bottom: 0; }
+    .kst-accordion summary { 
+      cursor: pointer; 
+      padding: 14px; 
+      list-style: none; 
+      color: var(--kst-text) !important; 
+      font-weight: 600;
+    }
+    .kst-accordion summary::-webkit-details-marker { display: none; }
+    .kst-accordion .kst-qa { 
+      padding: 0 14px 14px 14px; 
+      color: var(--kst-subtext) !important; 
+    }
+
+    /* Callouts */
+    .kst-callout { 
+      border-radius: 12px; 
+      padding: 12px; 
+      border: 1px solid #E2E8F0; 
+      background: #F0F4F8; 
+      margin: 14px 0 !important;
+    }
+    .kst-callout.kst-danger { 
+      border-color: #FED7D7; 
+      background: #FFF5F5; 
+      color: #C53030 !important; 
+    }
+    .kst-callout.kst-warning { 
+      border-color: #FEEBC8; 
+      background: #FFFBF0; 
+      color: #DD6B20 !important; 
+    }
+    .kst-callout.kst-success { 
+      border-color: #C6F6D5; 
+      background: #F0FFF4; 
+      color: #276749 !important; 
+    }
+  </style>
+
+  <div class="kst-container">
+
+    <section id="kst-basic-info" class="kst-section">
+      <div class="kst-section-header">
+        <div class="kst-section-kicker">Premium Dermal Filler Series</div>
+      </div>
+      <h1 class="kst-hl">ELRAVIE PREMIER</h1>
+      <h2 class="kst-sp" style="margin-bottom: 20px; margin-top: -9px;">Light / Deep / Volume</h2>
+      <p class="kst-muted">Advanced hyaluronic acid dermal fillers designed for temporary improvement of facial wrinkles, volume restoration, and facial contouring with lasting results</p>
+
+      <div class="kst-badges" aria-label="Product Badges">
+        <span class="kst-badge kst-brand">HUMEDIX</span>
+        <span class="kst-badge">1.0ML PRE-FILLED</span>
+        <span class="kst-badge kst-key">LIDOCAINE 0.3%</span>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="ELRAVIE PREMIER product lineup showcase" />
+          <span class="kst-img-label">Product Lineup</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Three distinct formulations engineered for precise aesthetic enhancement across different treatment areas</p>
+      </div>
+    </section>
+
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Active Ingredients</span></div>
+      <dl class="kst-dl">
+        <dt>Hyaluronic Acid Complex</dt>
+        <dd>Cross-linked HA gel of non-animal origin with advanced HI (High molecular Ideal Reticulated Matrix) technology for enhanced stability and cohesiveness.</dd>
+        <div class="kst-chipset">
+          <span class="kst-chip" style="background:#EF87AC; border-color:#EF87AC;">Hyaluronic Acid 23mg/ml</span>
+          <span class="kst-chip" style="background:#EF87AC; border-color:#EF87AC;">Lidocaine 0.3%</span>
+          <span class="kst-chip" style="background:#EF87AC; border-color:#EF87AC;">Monophasic Structure</span>
+        </div>
+
+        <dt>Advanced Cross-linking Technology</dt>
+        <dd>Monophasic structure with HI technology significantly increases cross-linking efficiency, resulting in stable gel structure with reduced residual BDDE.</dd>
+        <div class="kst-chipset">
+          <span class="kst-chip" style="background:#85D6EA; border-color:#85D6EA;">Low BDDE Residual</span>
+          <span class="kst-chip" style="background:#85D6EA; border-color:#85D6EA;">Enhanced Cohesiveness</span>
+          <span class="kst-chip" style="background:#85D6EA; border-color:#85D6EA;">Pain Relief Formula</span>
+        </div>
+      </dl>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="Molecular structure and cross-linking technology diagram" />
+          <span class="kst-img-label">HI Technology Structure</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Advanced cross-linking method ensures optimal gel consistency and longevity for superior aesthetic results</p>
+      </div>
+    </section>
+
+    <section id="kst-benefits" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Treatment Benefits</span></div>
+
+        <ul class="kst-list-vert" aria-label="Treatment outcomes">
+          <li><strong class="kst-accent">Fine Line Correction</strong><br/><span class="kst-muted">Effective reduction of superficial wrinkles and fine lines for smoother skin texture</span></li>
+          <li><strong class="kst-accent">Deep Wrinkle Treatment</strong><br/><span class="kst-muted">Targeted correction of nasolabial folds and marionette lines with natural-looking results</span></li>
+          <li><strong class="kst-accent">Volume Enhancement</strong><br/><span class="kst-muted">Significant volume restoration for cheeks, chin, and facial contouring applications</span></li>
+          <li><strong class="kst-accent">Long-lasting Results</strong><br/><span class="kst-muted">Effects lasting 9-12 months, extendable up to 18 months with single re-touch treatment</span></li>
+        </ul>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="Before and after treatment comparison" />
+          <span class="kst-img-label">Treatment Results</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Natural-looking enhancement with gradual improvement over treatment period and sustained effectiveness</p>
+      </div>
+    </section>
+
+    <section id="kst-versions" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Product Versions</span></div>
+
+      <div class="kst-table-wrap" role="region" aria-label="Product versions comparison table">
+        <table class="kst-table">
+          <thead>
+            <tr>
+              <th>Product Version</th>
+              <th>Viscosity</th>
+              <th>Treatment Area</th>
+              <th>Injection Layer</th>
+              <th>Needle Gauge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color: #EF87AC !important;">LIGHT</strong></td>
+              <td>Low</td>
+              <td>Fine perioral wrinkles, crow's feet, forehead lines, tear troughs</td>
+              <td>Superficial to upper dermis</td>
+              <td>30G</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #85D6EA !important;">DEEP</strong></td>
+              <td>Medium</td>
+              <td>Medium to deep wrinkles, nasolabial folds, marionette lines, lip augmentation</td>
+              <td>Mid to deep dermis</td>
+              <td>27G</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #C69BD0 !important;">VOLUME</strong></td>
+              <td>High</td>
+              <td>Volumetric correction, deep folds, chin and cheek augmentation, rhinoplasty</td>
+              <td>Subcutaneous tissue</td>
+              <td>23G or 22G cannula</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="Treatment area guide for each version" />
+          <span class="kst-img-label">Treatment Areas Guide</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Choose the appropriate version based on treatment area requirements and desired depth of correction</p>
+      </div>
+    </section>
+
+    <section id="kst-light-version" class="kst-section" style="--kst-accent: var(--kst-light-color);">
+      <div class="kst-section-header"><span class="kst-section-kicker">ELRAVIE PREMIER LIGHT</span></div>
+      
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Primary Application</div>
+            <div class="kst-v">Fine lines and superficial wrinkles correction</div>
+          </div>
+          <div>
+            <div class="kst-k">Treatment Areas</div>
+            <div class="kst-v">Periorbital area, crow's feet, fine perioral wrinkles, tear troughs</div>
+          </div>
+          <div>
+            <div class="kst-k">Duration</div>
+            <div class="kst-v">Approximately 9-12 months</div>
+          </div>
+          <div>
+            <div class="kst-k">Injection Technique</div>
+            <div class="kst-v">Superficial to upper dermal layer using 30G needle</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="kst-muted">Low viscosity formulation allows for precise correction of delicate wrinkles while providing natural results. Ideal for subtle improvements in fine lines.</p>
+
+      <div class="kst-image-block">
+        <img src="" alt="ELRAVIE PREMIER LIGHT treatment areas" />
+        <span class="kst-img-label">Light Version Applications</span>
+      </div>
+    </section>
+
+    <section id="kst-deep-version" class="kst-section" style="--kst-accent: var(--kst-deep-color);">
+      <div class="kst-section-header"><span class="kst-section-kicker">ELRAVIE PREMIER DEEP</span></div>
+      
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Primary Application</div>
+            <div class="kst-v">Medium to deep wrinkles and fold correction</div>
+          </div>
+          <div>
+            <div class="kst-k">Treatment Areas</div>
+            <div class="kst-v">Nasolabial folds, marionette lines, medium-deep forehead wrinkles, lip augmentation</div>
+          </div>
+          <div>
+            <div class="kst-k">Duration</div>
+            <div class="kst-v">Approximately 9-12 months</div>
+          </div>
+          <div>
+            <div class="kst-k">Injection Technique</div>
+            <div class="kst-v">Mid to deep dermal layer using 27G needle</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="kst-muted">Higher cohesiveness and stability make it effective for correcting pronounced wrinkles without spreading to surrounding tissues. Perfect for addressing deeper wrinkles and nasolabial folds.</p>
+
+      <div class="kst-image-block">
+        <img src="" alt="ELRAVIE PREMIER DEEP treatment areas" />
+        <span class="kst-img-label">Deep Version Applications</span>
+      </div>
+    </section>
+
+    <section id="kst-volume-version" class="kst-section" style="--kst-accent: var(--kst-volume-color);">
+      <div class="kst-section-header"><span class="kst-section-kicker">ELRAVIE PREMIER VOLUME</span></div>
+      
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Primary Application</div>
+            <div class="kst-v">Significant volume restoration and facial contouring</div>
+          </div>
+          <div>
+            <div class="kst-k">Treatment Areas</div>
+            <div class="kst-v">Volumetric facial correction, chin and cheekbone modeling, deep skin folds, non-surgical rhinoplasty</div>
+          </div>
+          <div>
+            <div class="kst-k">Duration</div>
+            <div class="kst-v">Approximately 9-12 months</div>
+          </div>
+          <div>
+            <div class="kst-k">Injection Technique</div>
+            <div class="kst-v">Subcutaneous tissue using 23G needle or 22G cannula</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="kst-muted">Highest viscosity in the series provides strong support and resistance to external forces, ensuring stable and long-lasting volumetric effects. Most suitable for significant volume enhancement and contouring.</p>
+
+      <div class="kst-image-block">
+        <img src="" alt="ELRAVIE PREMIER VOLUME treatment areas" />
+        <span class="kst-img-label">Volume Version Applications</span>
+      </div>
+    </section>
+
+    <section id="kst-safety" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Safety & Precautions</span></div>
+      
+      <div class="kst-callout kst-warning">
+        <strong>Storage Requirements</strong> — Store at 1-30°C. Do not freeze. Single-use product, use immediately after opening.
+      </div>
+      
+      <div class="kst-callout kst-danger" style="margin-top:10px">
+        <strong>Contraindications</strong> — Do not use on inflamed or infected skin areas. Not recommended during pregnancy or nursing.
+      </div>
+      
+      <div class="kst-callout" style="margin-top:10px">
+        <strong>Post-Treatment Care</strong> — Avoid strenuous activities, extreme temperatures (saunas, tanning beds), and alcohol consumption for 48 hours post-treatment.
+      </div>
+
+        <ul class="kst-list-vert">
+          <li><strong class="kst-accent">Aseptic Handling</strong><br/><span class="kst-muted">Essential to prevent infection during injection procedure</span></li>
+          <li><strong class="kst-accent">Common Side Effects</strong><br/><span class="kst-muted">Mild swelling, redness, or bruising at injection site, usually resolves within 48 hours</span></li>
+          <li><strong class="kst-accent">Professional Use Only</strong><br/><span class="kst-muted">Treatment should only be performed by qualified medical professionals</span></li>
+        </ul>
+
+      <div class="kst-image-block">
+        <img src="" alt="Safety and storage guidelines infographic" />
+        <span class="kst-img-label">Safety Guidelines</span>
+      </div>
+    </section>
+
+    <section id="kst-faq" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Frequently Asked Questions</span></div>
+      <div class="kst-accordion">
+        <details>
+          <summary>How long do ELRAVIE PREMIER results last?</summary>
+          <div class="kst-qa">The aesthetic effect typically lasts between 9-12 months. With a single re-touch treatment, the duration can be extended up to 18 months, depending on individual factors and treatment area.</div>
+        </details>
+        <details>
+          <summary>Which version should I choose for my treatment?</summary>
+          <div class="kst-qa">Choose LIGHT for fine lines and superficial wrinkles, DEEP for medium to deep wrinkles and nasolabial folds, and VOLUME for significant volume enhancement and facial contouring. Your practitioner will recommend the best option based on your specific needs.</div>
+        </details>
+        <details>
+          <summary>What makes ELRAVIE PREMIER different from other fillers?</summary>
+          <div class="kst-qa">ELRAVIE PREMIER features advanced HI (High molecular Ideal Reticulated Matrix) technology with monophasic gel structure, providing enhanced stability, cohesiveness, and reduced residual BDDE for superior safety and effectiveness.</div>
+        </details>
+        <details>
+          <summary>Is the treatment painful?</summary>
+          <div class="kst-qa">ELRAVIE PREMIER contains 0.3% lidocaine for pain relief during injection. Most patients experience minimal discomfort during the treatment procedure.</div>
+        </details>
+        <details>
+          <summary>What should I expect after treatment?</summary>
+          <div class="kst-qa">Mild swelling, redness, or bruising at the injection site is common and typically resolves within 48 hours. Follow post-treatment care instructions provided by your practitioner for optimal results.</div>
+        </details>
+      </div>
+    </section>
+
+    <section id="kst-specifications" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Product Specifications</span></div>
+      
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Manufacturer</div>
+            <div class="kst-v">Humedix Co., Ltd., South Korea</div>
+          </div>
+          <div>
+            <div class="kst-k">Volume per Syringe</div>
+            <div class="kst-v">1.0ml pre-filled syringe</div>
+          </div>
+          <div>
+            <div class="kst-k">Package Contents</div>
+            <div class="kst-v">One syringe and one needle/cannula per box</div>
+          </div>
+          <div>
+            <div class="kst-k">Gel Structure</div>
+            <div class="kst-v">Monophasic gel type with HI technology</div>
+          </div>
+          <div>
+            <div class="kst-k">Origin</div>
+            <div class="kst-v">Non-animal origin hyaluronic acid</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Product packaging and syringe specifications" />
+        <span class="kst-img-label">Package Specifications</span>
+      </div>
+    </section>
+
+    <section id="kst-treatment-guide" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Treatment Selection Guide</span></div>
+      
+        <h3 style="color: var(--kst-accent) !important; margin-bottom: 12px; font-size: 18px; font-weight: 700;">Which Product is Right for You?</h3>
+        <p class="kst-muted" style="margin-bottom: 16px;">Choose a product with different viscosity and injection layers depending on the treatment area and soft tissue volume requirements.</p>
+        
+        <ul class="kst-list-vert">
+          <li><strong class="kst-accent">For Subtle Fine Line Improvements</strong><br/><span class="kst-muted">ELRAVIE PREMIER LIGHT is ideal for delicate corrections around eyes, forehead, and perioral areas</span></li>
+          <li><strong class="kst-accent">For Deeper Wrinkles & Fold Correction</strong><br/><span class="kst-muted">ELRAVIE PREMIER DEEP effectively addresses nasolabial folds, marionette lines, and lip enhancement</span></li>
+          <li><strong class="kst-accent">For Significant Volume Enhancement</strong><br/><span class="kst-muted">ELRAVIE PREMIER VOLUME provides structural support for cheek augmentation, chin contouring, and rhinoplasty</span></li>
+        </ul>
+
+      <div class="kst-image-block">
+        <img src="" alt="Complete treatment area mapping guide" />
+        <span class="kst-img-label">Treatment Selection Guide</span>
+      </div>
+    </section>
+
+    <section id="kst-clinical-data" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Clinical Performance</span></div>
+      
+        <div class="kst-chart-block">
+          <img src="" alt="Duration and effectiveness clinical study results" />
+          <span class="kst-img-label">Clinical Study Results</span>
+        </div>
+        
+        <ul class="kst-list-vert" style="margin-top: 12px;">
+          <li><strong class="kst-accent">Treatment Cycle Optimization</strong><br/><span class="kst-muted">Single treatment provides 9-12 months of aesthetic improvement</span></li>
+          <li><strong class="kst-accent">Extended Duration Protocol</strong><br/><span class="kst-muted">One re-touch session can extend results up to 18 months total</span></li>
+          <li><strong class="kst-accent">Patient Satisfaction</strong><br/><span class="kst-muted">High cohesiveness ensures natural-looking results with minimal migration</span></li>
+          <li><strong class="kst-accent">Safety Profile</strong><br/><span class="kst-muted">Advanced cross-linking reduces BDDE residuals for enhanced biocompatibility</span></li>
+        </ul>
+    </section>
+
+    <section id="kst-quality-assurance" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Quality & Manufacturing</span></div>
+      
+      <div class="kst-badges">
+        <span class="kst-badge">CE Marked</span>
+        <span class="kst-badge">ISO Certified</span>
+        <span class="kst-badge">GMP Facility</span>
+        <span class="kst-badge kst-key">South Korea Made</span>
+      </div>
+
+      <div class="kst-card" style="margin-top: 12px;">
+        <p><strong class="kst-accent">Advanced Manufacturing Standards</strong></p>
+        <p class="kst-muted">Produced in state-of-the-art facilities by Humedix Co., Ltd. using stringent quality control measures and advanced purification processes to ensure consistent product excellence.</p>
+        
+        <div class="kst-chipset" style="margin-top: 12px;">
+          <span class="kst-chip">Batch Tested</span>
+          <span class="kst-chip">Sterile Production</span>
+          <span class="kst-chip">Quality Verified</span>
+          <span class="kst-chip">Traceability Assured</span>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Manufacturing facility and quality control process" />
+        <span class="kst-img-label">Quality Assurance</span>
+      </div>
+    </section>
+
+    <section id="kst-professional-notes" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">For Medical Professionals</span></div>
+      
+      <div class="kst-callout">
+        <strong>Professional Use Only</strong> — ELRAVIE PREMIER is intended for use by qualified medical professionals trained in facial anatomy and injection techniques.
+      </div>
+
+      <div class="kst-card" style="margin-top: 12px;">
+        <div class="kst-steps">
+          <div class="kst-step"><strong>Patient Assessment</strong><br/><span class="kst-muted">Evaluate facial anatomy, skin condition, and aesthetic goals to determine appropriate product selection</span></div>
+          <div class="kst-step"><strong>Injection Planning</strong><br/><span class="kst-muted">Map treatment areas and select appropriate needle gauge based on product version and injection depth</span></div>
+          <div class="kst-step"><strong>Sterile Technique</strong><br/><span class="kst-muted">Follow aseptic protocols throughout preparation and injection procedure</span></div>
+          <div class="kst-step"><strong>Post-Treatment Care</strong><br/><span class="kst-muted">Provide comprehensive aftercare instructions and schedule appropriate follow-up appointments</span></div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Professional injection technique guide" />
+        <span class="kst-img-label">Professional Guidelines</span>
+      </div>
+    </section>
+
+  </div>
+</div>

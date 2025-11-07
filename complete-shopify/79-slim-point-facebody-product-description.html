@@ -1,0 +1,714 @@
+<style>
+    :root {
+        --kst-main-color: #C32C3A;
+        --kst-sub-color: #555555;
+        --kst-text-white: #FFFFFF;
+        --kst-text-gray: #CCCCCC;
+        --kst-bg-black: #000000;
+        --kst-badge-bg: #C32C3A;
+        --kst-badge-text: #FFFFFF;
+        --kst-badge-hover: #E07B86;
+        --kst-dark-bg: #111111;
+        --kst-card-bg: #141414;
+        --kst-card-bg2: #2b2b2b;
+    }
+
+    .kst-main-container {
+        max-width: 760px !important;
+        margin: 0 auto !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', 'sans-serif' !important;
+        background: var(--kst-bg-black) !important;
+        color: var(--kst-text-gray) !important;
+        padding: 0 12px !important;
+        line-height: 1.6 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        isolation: isolate !important;
+    }
+
+    .kst-main-container * {
+        box-sizing: border-box !important;
+    }
+
+    .kst-section {
+        margin: 20px 0 !important;
+        color: var(--kst-text-gray2) !important;
+    }
+
+    .kst-header-block {
+        background: linear-gradient(135deg, var(--kst-card-bg), var(--kst-dark-bg)) !important;
+        color: var(--kst-text-white) !important;
+        padding: 30px 16px !important;
+        margin: 20px 0 !important;
+        border-radius: 12px !important;
+        border: 1px solid var(--kst-main-color) !important;
+        box-shadow: 0 10px 30px rgba(195, 44, 58, 0.2) !important;
+    }
+
+    .kst-product-title {
+        font-size: 34px !important;
+        font-weight: 300 !important;
+        text-transform: uppercase !important;
+        margin: 0 !important;
+        line-height: 1.1 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        color: var(--kst-text-white) !important;
+        background: linear-gradient(90deg, var(--kst-main-color), var(--kst-badge-hover), #ff6b6b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .kst-product-title-white {
+        font-size: 34px !important;
+        font-weight: 300 !important;
+        text-transform: uppercase !important;
+        margin: 0 !important;
+        line-height: 1.1 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        color: var(--kst-text-white) !important;
+        background: #FFFFFF;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        }
+
+    .kst-product-spec {
+        font-size: 26px !important;
+        font-weight: 300 !important;
+        text-transform: uppercase !important;
+        margin-top: 15px !important;
+        margin-bottom: 20px !important;
+        line-height: 1.2 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        color: var(--kst-text-gray) !important;
+    }
+
+    .kst-subtitle {
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        margin-top: 15px !important;
+        opacity: 0.8 !important;
+        color: var(--kst-text-gray) !important;
+    }
+
+    .kst-category-badge {
+        background: var(--kst-badge-bg) !important;
+        color: var(--kst-badge-text) !important;
+        padding: 6px 14px !important;
+        font-size: 10px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        display: inline-block !important;
+        margin-bottom: 15px !important;
+        border-radius: 999px !important;
+        box-shadow: 0 4px 12px rgba(195, 44, 58, 0.3) !important;
+    }
+
+    .kst-image-block, .kst-chart-block {
+        background: rgba(195, 44, 58, 0.05) !important;
+        border: 1px dashed rgba(195, 44, 58, 0.3) !important;
+        padding: 40px 16px !important;
+        text-align: center !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        margin: 20px 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        color: var(--kst-text-gray) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    }
+
+    .kst-image-block:not(:has(img)) {
+        display: none !important;
+    }
+
+    .kst-image-block img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+        border: none !important;
+        background: none !important;
+        border-radius: 8px !important;
+    }
+
+    .kst-chart-block:not(:has(img)) {
+        display: none !important;
+    }
+
+    .kst-chart-block img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+        border: none !important;
+        background: none !important;
+        border-radius: 8px !important;
+    }
+
+    .kst-core-value {
+        background: rgba(157, 25, 38, 0.1) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(195, 44, 58, 0.2) !important;
+        padding: 25px 16px !important;
+        margin: 20px 0 !important;
+        text-align: center !important;
+        color: var(--kst-text-gray) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    }
+
+    .kst-slogan {
+        font-size: 18px !important;
+        font-weight: 900 !important;
+        text-transform: uppercase !important;
+        letter-spacing: -0.5px !important;
+        margin-bottom: 15px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        color: var(--kst-text-white) !important;
+    }
+
+    .kst-description {
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        line-height: 1.6 !important;
+        font-family: 'Arial', sans-serif !important;
+        color: var(--kst-text-gray) !important;
+    }
+
+    .kst-section-header {
+        background: var(--kst-card-bg2) !important;
+        color: var(--kst-text-white) !important;
+        padding: 16px 16px !important;
+        font-size: 14px !important;
+        font-weight: 900 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        margin: 20px 0 0 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        border-radius: 2px !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+        border-left: 4px solid var(--kst-main-color) !important;
+    }
+
+    .kst-card {
+        background: var(--kst-card-bg) !important;
+        border: 1px solid rgba(195, 44, 58, 0.2) !important;
+        padding: 20px !important;
+        margin: 14px 0 !important;
+        color: var(--kst-text-gray) !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    }
+
+    .kst-card ul,
+    .kst-card ol {
+        margin: 15px 0 !important;
+        padding-left: 20px !important;
+        color: var(--kst-text-gray) !important;
+    }
+
+    .kst-card ul li,
+    .kst-card ol li {
+        margin-bottom: 8px !important;
+        font-size: 13px !important;
+        font-weight: 400 !important;
+        line-height: 1.6 !important;
+        font-family: 'Arial', sans-serif !important;
+        color: var(--kst-text-gray) !important;
+    }
+
+    .kst-ingredient-name {
+        font-size: 16px !important;
+        font-weight: 900 !important;
+        text-transform: uppercase !important;
+        letter-spacing: -0.5px !important;
+        margin-bottom: 12px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        color: var(--kst-text-white) !important;
+    }
+
+    .kst-concentration-badge {
+        background: var(--kst-main-color) !important;
+        color: var(--kst-text-white) !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        padding: 6px 12px !important;
+        display: inline-block !important;
+        margin-bottom: 15px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        border-radius: 999px !important;
+        box-shadow: 0 4px 12px rgba(195, 44, 58, 0.4) !important;
+    }
+
+    .kst-ingredient-info {
+        font-size: 13px !important;
+        font-weight: 400 !important;
+        line-height: 1.6 !important;
+        font-family: 'Arial', sans-serif !important;
+        color: var(--kst-text-gray) !important;
+    }
+
+    .kst-effects-grid {
+        background: var(--kst-bg-black) !important;
+        padding: 2px !important;
+        margin: 0 !important;
+    }
+
+    .kst-effect-card {
+        background: var(--kst-card-bg) !important;
+        padding: 20px 16px !important;
+        margin: 14px 0 !important;
+        color: var(--kst-text-gray) !important;
+        border-radius: 8px !important;
+        border: 1px solid rgba(195, 44, 58, 0.2) !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    }
+
+    .kst-effect-number {
+        font-size: 28px !important;
+        font-weight: 900 !important;
+        color: var(--kst-text-white) !important;
+        line-height: 1 !important;
+        margin-bottom: 12px !important;
+        background: var(--kst-main-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .kst-effect-title {
+        font-size: 14px !important;
+        font-weight: 900 !important;
+        text-transform: uppercase !important;
+        letter-spacing: -0.5px !important;
+        margin-bottom: 8px !important;
+        line-height: 1.3 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        color: var(--kst-text-white) !important;
+    }
+
+    .kst-effect-description {
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        line-height: 1.6 !important;
+        font-family: 'Arial', sans-serif !important;
+        color: var(--kst-text-gray) !important;
+    }
+
+    .kst-table-wrap {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        background: var(--kst-card-bg2) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+        margin: 10px 0 !important;
+    }
+
+    .kst-specs-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        background: var(--kst-card-bg) !important;
+        table-layout: auto !important;
+    }
+
+    .kst-specs-table th {
+        background: var(--kst-dark-bg) !important;
+        color: var(--kst-text-white) !important;
+        padding: 12px 16px !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        text-align: left !important;
+        border-bottom: 1px solid rgba(195, 44, 58, 0.3) !important;
+        border-left: #00000000 !important;
+        border-right: #00000000 !important;
+        white-space: nowrap !important;
+    }
+
+    .kst-specs-table td {
+        padding: 10px 16px !important;
+        border-bottom: 1px solid rgba(195, 44, 58, 0.1) !important;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        font-family: 'Arial', sans-serif !important;
+        color: var(--kst-text-gray) !important;
+        border-left: #00000000 !important;
+        border-right: #00000000 !important;
+    }
+
+    .kst-specs-table tr:nth-child(even) td {
+        background: rgba(195, 44, 58, 0.02) !important;
+    }
+
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 6px !important;
+    }
+
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: var(--kst-card-bg) !important;
+        border-radius: 3px !important;
+    }
+
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-main-color) !important;
+        border-radius: 3px !important;
+    }
+
+    .kst-keyword-badge {
+        background: var(--kst-card-bg) !important;
+        color: var(--kst-text-white) !important;
+        padding: 6px 14px !important;
+        font-size: 10px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        display: inline-block !important;
+        margin: 4px 4px 4px 0 !important;
+        border-radius: 999px !important;
+        border: 1px solid rgba(195, 44, 58, 0.3) !important;
+    }
+
+    .kst-dt {
+        font-weight: 900 !important;
+        font-size: 12px !important;
+        text-transform: uppercase !important;
+        margin-bottom: 8px !important;
+        color: var(--kst-text-white) !important;
+    }
+
+    .kst-dd {
+        margin-left: 0 !important;
+        margin-bottom: 12px !important;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        line-height: 1.6 !important;
+        font-family: 'Arial', sans-serif !important;
+        color: var(--kst-text-gray) !important;
+    }
+
+    .kst-mt-small {
+        margin-top: 12px !important;
+    }
+
+    .kst-safety-section {
+        background: var(--kst-dark-bg) !important;
+        border: 2px solid var(--kst-main-color) !important;
+        margin: 20px 0 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 15px rgba(195, 44, 58, 0.2) !important;
+    }
+
+    .kst-safety-header {
+        background: var(--kst-main-color) !important;
+        color: var(--kst-text-white) !important;
+        padding: 16px !important;
+        font-size: 14px !important;
+        font-weight: 900 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        border-radius: 10px 10px 0 0 !important;
+    }
+
+    .kst-safety-content {
+        padding: 20px !important;
+        font-size: 13px !important;
+        font-weight: 400 !important;
+        line-height: 1.6 !important;
+        font-family: 'Arial', sans-serif !important;
+        color: var(--kst-text-gray) !important;
+    }
+
+    .kst-safety-list {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 15px 0 0 0 !important;
+    }
+
+    .kst-safety-list li {
+        margin-bottom: 8px !important;
+        position: relative !important;
+        padding-left: 16px !important;
+        font-size: 11px !important;
+        color: var(--kst-text-gray) !important;
+    }
+
+    .kst-safety-list li::before {
+        content: '⚠' !important;
+        position: absolute !important;
+        left: 0 !important;
+        color: var(--kst-main-color) !important;
+        font-weight: 900 !important;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-header-block">
+        <div class="kst-category-badge">LIPOLYTIC INJECTION</div>
+        <h1 class="kst-product-title">SLIM<span class="kst-product-title-white"> POINT</span></h1>
+        <span style="color: #898989;">FAT DISSOLVING SOLUTION</span>
+        <h2 class="kst-product-spec">Face & Body Contouring System</h2>
+        <div class="kst-subtitle">Advanced Enzyme-Based Fat Reduction Technology</div>
+    </div>
+    
+    <div class="kst-image-block kst-section">
+        SLIM POINT PRODUCT HERO IMAGE PLACEHOLDER
+    </div>
+    
+    <div class="kst-core-value kst-section">
+        <div class="kst-slogan">BREAKTHROUGH FAT REDUCTION TECHNOLOGY</div>
+        <div class="kst-description">
+            Revolutionary lipolytic solution combining bromelain enzyme, lecithin, and vitamin B12 for targeted fat dissolution, enhanced lymphatic circulation, and improved skin elasticity with minimal downtime.
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">PRODUCT VARIATIONS & SPECIFICATIONS</div>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specs-table">
+                <thead>
+                    <tr>
+                        <th>Product Version</th>
+                        <th>Target Area</th>
+                        <th>Packaging</th>
+                        <th>Key Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Slim Point Face</strong></td>
+                        <td>Double chin, jawline, cheeks</td>
+                        <td>5ml per vial</td>
+                        <td>Facial lifting, collagen production</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Slim Point Body</strong></td>
+                        <td>Abdomen, thighs, arms, waist</td>
+                        <td>30ml x 3 vials</td>
+                        <td>Cellulite reduction, circulation improvement</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">CORE INGREDIENTS & COMPOSITION</div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">BROMELAIN</div>
+            <div class="kst-concentration-badge">LIPASE ENZYME</div>
+            <div class="kst-ingredient-info">
+                Powerful proteolytic enzyme derived from pineapple that breaks down fat cell membranes and reduces post-injection inflammation and edema. Enhances fat metabolism while minimizing swelling.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">LECITHIN</div>
+            <div class="kst-concentration-badge">PHOSPHOLIPID EMULSIFIER</div>
+            <div class="kst-ingredient-info">
+                Natural phospholipid that acts as a biological detergent to disrupt fat cell membranes and emulsify triglycerides, facilitating the breakdown and removal of fat deposits.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-ingredient-name">CYANOCOBALAMIN (VITAMIN B12)</div>
+            <div class="kst-concentration-badge">METABOLIC ENHANCER</div>
+            <div class="kst-ingredient-info">
+                Essential vitamin that enhances lipid metabolism, promotes healthy blood and lymphatic circulation, and supports cellular energy production while reducing post-treatment edema.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">SYNERGISTIC MECHANISM OF ACTION</div>
+            <div class="kst-description">
+                The triple-action formula works synergistically where lecithin disrupts fat cell membranes, bromelain accelerates fat breakdown and reduces inflammation, while vitamin B12 enhances metabolism and circulation for optimal fat elimination.
+            </div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">MEMBRANE DISRUPTION</span>
+                <span class="kst-keyword-badge">ENZYMATIC BREAKDOWN</span>
+                <span class="kst-keyword-badge">METABOLIC ENHANCEMENT</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-section">
+        INGREDIENT MOLECULAR STRUCTURE AND MECHANISM VISUALIZATION PLACEHOLDER
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">KEY BENEFITS & THERAPEUTIC EFFECTS</div>
+        
+        <div class="kst-effects-grid">
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">01</div>
+                <div class="kst-effect-title">TARGETED FAT REDUCTION</div>
+                <div class="kst-effect-description">
+                    Precise breakdown of localized fat deposits through enzymatic action, effectively reducing stubborn areas resistant to diet and exercise while maintaining surrounding tissue integrity.
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">02</div>
+                <div class="kst-effect-title">ENHANCED LYMPHATIC CIRCULATION</div>
+                <div class="kst-effect-description">
+                    Improved lymphatic drainage and blood circulation promotes faster elimination of dissolved fat cells and reduces post-treatment swelling and edema.
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">03</div>
+                <div class="kst-effect-title">SKIN ELASTICITY IMPROVEMENT</div>
+                <div class="kst-effect-description">
+                    Stimulates collagen production and skin tightening, particularly beneficial for facial treatments, resulting in improved skin firmness and reduced sagging.
+                </div>
+            </div>
+            
+            <div class="kst-effect-card">
+                <div class="kst-effect-number">04</div>
+                <div class="kst-effect-title">CELLULITE REDUCTION</div>
+                <div class="kst-effect-description">
+                    Smooths skin texture and reduces the appearance of cellulite through improved circulation and fat metabolism, particularly effective on body areas.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-section">
+        BEFORE AND AFTER TREATMENT RESULTS DOCUMENTATION PLACEHOLDER
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">APPLICATION PROTOCOL & USAGE GUIDE</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">TREATMENT AREAS & DOSAGE</div>
+            <div class="kst-description">
+                <strong>Slim Point Face:</strong> Jawline, double chin, cheeks, fleshy face areas - 0.2cc to 0.5cc per injection point<br>
+                <strong>Slim Point Body:</strong> Abdomen, love handles, thighs, hips, arms, back - 0.2cc to 0.5cc per injection point
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">INJECTION TECHNIQUE</div>
+            <div class="kst-description">
+                Direct subcutaneous injection into the fatty tissue layer using fine-gauge needle. Grid pattern injection with points spaced at least 1cm apart. For facial areas, use thin-gauge needle with precision technique.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">TREATMENT SCHEDULE</div>
+            <div class="kst-description">
+                Minimum 2 weeks interval between sessions for the same treatment area. Multiple sessions (2-6 treatments) may be required for optimal results depending on the area size and fat density.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">POST-TREATMENT CARE</div>
+            <div class="kst-description">
+                After injection, gentle manual massage or electronic massaging device can enhance solution distribution. Stay hydrated to support fat elimination process.
+            </div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">GENTLE MASSAGE</span>
+                <span class="kst-keyword-badge">HYDRATION</span>
+                <span class="kst-keyword-badge">MONITORING</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-image-block kst-section">
+        INJECTION TECHNIQUE AND GRID PATTERN REFERENCE GUIDE PLACEHOLDER
+    </div>
+    
+    <div class="kst-safety-section">
+        <div class="kst-safety-header">PRECAUTIONS & SAFETY INFORMATION</div>
+        <div class="kst-safety-content">
+            Important safety guidelines for proper product use and optimal treatment outcomes
+            
+            <ul class="kst-safety-list">
+                <li>Professional assessment of injection area recommended before treatment</li>
+                <li>Minimum 2 weeks interval required between sessions for same area</li>
+                <li>Avoid vigorous exercise for 24-48 hours post-treatment</li>
+                <li>Avoid heat exposure (saunas, hot baths) for 24-48 hours</li>
+                <li>Stay well-hydrated to support fat elimination process</li>
+                <li>Monitor injection sites for any unusual reactions</li>
+                <li>Store in cool, dry place away from direct sunlight</li>
+                <li>Use sterile injection techniques and equipment</li>
+            </ul>
+            
+            <div class="kst-mt-small">
+                <div class="kst-dt">STORAGE CONDITIONS</div>
+                <div class="kst-description">
+                    Store in cool, dry place away from direct sunlight. Maintain proper storage temperature to preserve ingredient integrity and effectiveness.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <div class="kst-section-header">PRODUCT SPECIFICATIONS & QUALITY</div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">MANUFACTURING STANDARDS</div>
+            <div class="kst-description">
+                Produced under strict quality control standards with comprehensive testing for purity, potency, and safety. Each batch undergoes rigorous quality assurance protocols.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">PRODUCT FEATURES</div>
+            <ul>
+                <li>Non-inflammatory formulation designed for minimal discomfort</li>
+                <li>Reduces fat without significant pain or bruising</li>
+                <li>Suitable for both facial and body applications</li>
+                <li>Compatible with various injection techniques</li>
+                <li>Proven efficacy with minimal downtime</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <div class="kst-dt">META KEYWORDS</div>
+            <div class="kst-mt-small">
+                <span class="kst-keyword-badge">FAT DISSOLVING INJECTION</span>
+                <span class="kst-keyword-badge">CONTOURING INJECTION</span>
+                <span class="kst-keyword-badge">LIPOLYTIC SOLUTION</span>
+                <span class="kst-keyword-badge">FACIAL FAT REMOVAL</span>
+                <span class="kst-keyword-badge">DOUBLE CHIN TREATMENT</span>
+                <span class="kst-keyword-badge">BODY SLIMMING</span>
+                <span class="kst-keyword-badge">BROMELAIN</span>
+                <span class="kst-keyword-badge">LECITHIN</span>
+                <span class="kst-keyword-badge">CYANOCOBALAMIN</span>
+                <span class="kst-keyword-badge">LOCALIZED OBESITY</span>
+                <span class="kst-keyword-badge">CELLULITE REDUCTION</span>
+                <span class="kst-keyword-badge">SKIN ELASTICITY</span>
+                <span class="kst-keyword-badge">MAYPHARM</span>
+            </div>
+        </div>
+    </div>
+</div>

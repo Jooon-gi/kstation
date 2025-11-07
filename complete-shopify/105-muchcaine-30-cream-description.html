@@ -1,0 +1,914 @@
+<style>
+        /* CSS Variables for Color Palette */
+        :root {
+            --kst-main-color: #FFE436;
+            --kst-sub-color: #009FE3;
+            --kst-text-color: #000000;
+            --kst-text-sub: #FFFFFF;
+            --kst-bg-color: #FFE436;
+            --kst-badge-bg: #E91E63;
+            --kst-badge-text: #FFFFFF;
+            --kst-badge-hover: #009FE3;
+        }
+
+        /* Reset and base styles with kst- prefix */
+        .kst-main-container * {
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container {
+            max-width: 760px !important;
+            margin: 0 auto !important;
+            font-family: 'Inter', 'Helvetica Neue', sans-serif !important;
+            background: linear-gradient(135deg, var(--kst-bg-color) 0%, #FFF2A6 100%) !important;
+            color: var(--kst-text-color) !important;
+            padding: 16px !important;
+            line-height: 1.5 !important;
+            overflow-x: hidden !important;
+        }
+        
+        /* Brand Header */
+        .kst-brand-header {
+            text-align: center !important;
+            margin-bottom: 40px !important;
+        }
+        .text-box-1 {
+            color: #ffffff; /* í…ìŠ¤íŠ¸ ì±„ìš°ê¸° ìƒ‰ìƒ */
+            background-color: var(--kst-badge-bg);
+            padding: 2px 8px;
+        }
+        .text-box-2 {
+            color: #ffffff; /* í…ìŠ¤íŠ¸ ì±„ìš°ê¸° ìƒ‰ìƒ */
+            background-color: var(--kst-badge-hover);
+            padding: 2px 8px;
+        }
+        .kst-brand-logo {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            margin-bottom: 20px !important;
+        }
+        
+        .kst-logo-element {
+            width: 32px !important;
+            height: 10px !important;
+            border-radius: 2px !important;
+        }
+        
+        .kst-logo-element:nth-child(1) { background: var(--kst-badge-text) !important; }
+        .kst-logo-element:nth-child(2) { background: var(--kst-sub-color) !important; }
+        .kst-logo-element:nth-child(3) { background: var(--kst-badge-bg) !important; }
+        
+        .kst-brand-name {
+            font-size: 20px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 8px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-brand-tagline {
+            font-size: 12px !important;
+            color: var(--kst-sub-color) !important;
+            font-weight: 400 !important;
+        }
+        
+        .kst-product-title {
+            font-size: 36px !important;
+            font-weight: 700 !important;
+            color: var(--kst-text-color);
+            text-align: center !important;
+            margin-bottom: 32px !important;
+            letter-spacing: -0.5px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+
+        .kst-product-spec {
+            font-size: 24px !important;
+            font-weight: 600 !important;
+            color: var(--kst-sub-color) !important;
+            text-align: center !important;
+            margin-top: -28px !important;
+            margin-bottom: 40px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        /* Section styles */
+        .kst-section {
+            background: var(--kst-text-sub) !important;
+            padding: 24px 16px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            margin-bottom: 16px !important;
+            border: 1px solid #E0E0E0 !important;
+        }
+        
+        .kst-section-title {
+            font-size: 22px !important;
+            font-weight: 400 !important;
+            color: var(--kst-text-color) !important;
+            text-align: center !important;
+            margin-bottom: 24px !important;
+            letter-spacing: -0.3px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        /* Image placeholders with auto-hide */
+        .kst-image-block,
+        .kst-chart-block,
+        .kst-visual-guide {
+            background: #F9FBE7 !important;
+            border: 2px dashed var(--kst-main-color) !important;
+            padding: 24px 12px !important;
+            text-align: center !important;
+            border-radius: 6px !important;
+            color: var(--kst-sub-color) !important;
+            font-size: 12px !important;
+            font-style: italic !important;
+            margin: 16px 0 !important;
+            min-height: 120px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        /* Auto-hide empty image containers */
+        .kst-image-block:not(:has(img)),
+        .kst-chart-block:not(:has(img)),
+        .kst-visual-guide:not(:has(img)) {
+            display: none !important;
+        }
+        
+        .kst-image-block:has(img[src=""]),
+        .kst-chart-block:has(img[src=""]),
+        .kst-visual-guide:has(img[src=""]) {
+            display: none !important;
+        }
+        
+        .kst-image-block img,
+        .kst-chart-block img,
+        .kst-visual-guide img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 4px !important;
+        }
+        
+        /* Main showcase image */
+        .kst-main-showcase {
+            margin: 24px 0 !important;
+            min-height: 200px !important;
+        }
+        
+        /* Component cards - single column layout */
+        .kst-components-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
+            margin-bottom: 24px !important;
+        }
+        
+        .kst-component-card {
+            background: var(--kst-text-sub) !important;
+            padding: 20px 16px !important;
+            border-radius: 6px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            border: 2px solid var(--kst-main-color) !important;
+            overflow: hidden !important;
+            word-wrap: break-word !important;
+        }
+        
+        .kst-component-card:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+            border-color: var(--kst-sub-color) !important;
+        }
+        
+        .kst-card-number {
+            position: absolute !important;
+            top: 12px !important;
+            right: 12px !important;
+            font-size: 20px !important;
+            font-weight: 300 !important;
+            color: #E0E0E0 !important;
+        }
+        
+        .kst-card-flag {
+            display: flex !important;
+            gap: 3px !important;
+            margin-bottom: 16px !important;
+        }
+        
+        .kst-flag-stripe {
+            height: 6px !important;
+            border-radius: 1px !important;
+        }
+        
+        .kst-card-flag.kst-primary .kst-flag-stripe:nth-child(1) { width: 16px !important; background: var(--kst-main-color) !important; }
+        .kst-card-flag.kst-primary .kst-flag-stripe:nth-child(2) { width: 28px !important; background: var(--kst-sub-color) !important; }
+        .kst-card-flag.kst-primary .kst-flag-stripe:nth-child(3) { width: 40px !important; background: var(--kst-badge-bg) !important; }
+        
+        .kst-component-name {
+            font-size: 18px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 8px !important;
+            line-height: 1.3 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-component-type {
+            font-size: 12px !important;
+            color: var(--kst-sub-color) !important;
+            margin-bottom: 4px !important;
+            font-weight: 400 !important;
+        }
+        
+        .kst-component-concentration {
+            font-size: 14px !important;
+            color: var(--kst-badge-bg) !important;
+            font-weight: 500 !important;
+            margin-bottom: 8px !important;
+        }
+        
+        .kst-component-weight {
+            font-size: 11px !important;
+            color: var(--kst-sub-color) !important;
+            margin-bottom: 12px !important;
+        }
+        
+        .kst-component-description {
+            font-size: 13px !important;
+            color: #4A5568 !important;
+            line-height: 1.5 !important;
+        }
+        
+        .kst-progress-bar {
+            width: 100% !important;
+            height: 3px !important;
+            background: #F0F0F0 !important;
+            border-radius: 2px !important;
+            margin: 12px 0 !important;
+            overflow: hidden !important;
+        }
+        
+        .kst-progress-fill {
+            height: 100% !important;
+            border-radius: 2px !important;
+            transition: width 0.8s ease !important;
+            background: var(--kst-main-color) !important;
+            width: 85% !important;
+        }
+        
+        /* Chip badges */
+        .kst-chip-container {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 6px !important;
+            margin: 12px 0 !important;
+        }
+        
+        .kst-chip {
+            display: inline-block !important;
+            padding: 4px 8px !important;
+            background: var(--kst-badge-bg) !important;
+            border: 1px solid var(--kst-badge-bg) !important;
+            border-radius: 12px !important;
+            font-size: 11px !important;
+            font-weight: 500 !important;
+            color: var(--kst-badge-text) !important;
+            transition: all 0.2s ease !important;
+        }
+        
+        .kst-chip:hover {
+            background: var(--kst-badge-hover) !important;
+            border-color: var(--kst-badge-hover) !important;
+        }
+        
+        /* Benefits list - single column */
+        .kst-benefits-list {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+        }
+        
+        .kst-benefit-item {
+            display: flex !important;
+            gap: 12px !important;
+            align-items: flex-start !important;
+        }
+        
+        .kst-benefit-number {
+            width: 32px !important;
+            height: 32px !important;
+            background: var(--kst-main-color) !important;
+            border: 2px solid var(--kst-sub-color) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            color: var(--kst-text-color) !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .kst-benefit-content {
+            flex: 1 !important;
+        }
+        
+        .kst-benefit-title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 6px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-benefit-description {
+            font-size: 13px !important;
+            color: #4A5568 !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* Usage steps */
+        .kst-usage-steps {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
+            margin-top: 24px !important;
+        }
+        
+        .kst-step-card {
+            display: flex !important;
+            gap: 16px !important;
+            align-items: flex-start !important;
+            padding: 20px 16px !important;
+            background: var(--kst-text-sub) !important;
+            border-radius: 6px !important;
+            border: 2px solid var(--kst-main-color) !important;
+            position: relative !important;
+        }
+        
+        .kst-step-number {
+            width: 36px !important;
+            height: 36px !important;
+            background: var(--kst-sub-color) !important;
+            color: var(--kst-text-sub) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .kst-step-content {
+            flex: 1 !important;
+        }
+        
+        .kst-step-title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-color) !important;
+            margin-bottom: 6px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-step-description {
+            font-size: 13px !important;
+            color: #4A5568 !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* Table container with horizontal scroll */
+        .kst-table-wrap {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch;
+            margin: 16px 0 !important;
+            border-radius: 6px !important;
+            border: 1px solid #E0E0E0 !important;
+            scrollbar-color: var(--kst-main-color) #F9FBE7;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px !important;
+            width: 6px !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #F9FBE7 !important;
+            border-radius: 3px !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: var(--kst-main-color) !important;
+            border-radius: 3px !important;
+            border: 1px solid #F0F0E6 !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb:hover {
+            background: var(--kst-sub-color) !important;
+        }
+        
+        .kst-specifications-table {
+            width: 100% !important;
+            min-width: 600px !important;
+            border-collapse: collapse !important;
+            background: var(--kst-text-sub) !important;
+            table-layout: auto !important;
+        }
+        
+        .kst-specifications-table th,
+        .kst-specifications-table td {
+            padding: 12px 16px !important;
+            text-align: left !important;
+            border-bottom: 1px solid #E0E0E0 !important;
+            color: #4A5568 !important;
+            font-size: 13px !important;
+            white-space: nowrap !important;
+        }
+        
+        .kst-specifications-table th {
+            background: var(--kst-main-color) !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-color) !important;
+            font-size: 12px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.3px !important;
+            white-space: nowrap !important;
+        }
+        
+        .kst-specifications-table tr:last-child td {
+            border-bottom: none !important;
+        }
+        
+        /* Safety Warning */
+        .kst-safety-warning {
+            background: #FFE5E5 !important;
+            border: 2px solid var(--kst-badge-bg) !important;
+            border-radius: 6px !important;
+            padding: 20px 16px !important;
+            margin: 20px 0 !important;
+            position: relative !important;
+        }
+        
+        .kst-warning-icon {
+            position: absolute !important;
+            top: 16px !important;
+            left: 16px !important;
+            width: 24px !important;
+            height: 24px !important;
+            background: var(--kst-badge-bg) !important;
+            color: var(--kst-text-sub) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-weight: 600 !important;
+            font-size: 12px !important;
+        }
+        
+        .kst-warning-content {
+            margin-left: 36px !important;
+        }
+        
+        .kst-warning-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: var(--kst-badge-bg) !important;
+            margin-bottom: 8px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-warning-text {
+            font-size: 13px !important;
+            color: #8B0000 !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* Text utilities */
+        .kst-text-center { text-align: center !important; }
+        .kst-text-muted { color: #4A5568 !important; }
+        .kst-text-small { font-size: 12px !important; }
+        .kst-text-bold { font-weight: 600 !important; }
+        
+        /* Margin utilities */
+        .kst-mb-0 { margin-bottom: 0 !important; }
+        .kst-mb-1 { margin-bottom: 8px !important; }
+        .kst-mb-2 { margin-bottom: 16px !important; }
+        .kst-mb-3 { margin-bottom: 24px !important; }
+        .kst-mt-1 { margin-top: 8px !important; }
+        .kst-mt-2 { margin-top: 16px !important; }
+        .kst-mt-3 { margin-top: 24px !important; }
+        
+        /* Lists */
+        .kst-main-container ul,
+        .kst-main-container ol {
+            margin: 12px 0 !important;
+            padding-left: 20px !important;
+        }
+        
+        .kst-main-container ul li,
+        .kst-main-container ol li {
+            font-size: 13px !important;
+            color: #4A5568 !important;
+            line-height: 1.5 !important;
+            margin-bottom: 6px !important;
+        }
+        
+        /* Additional utility classes */
+        .kst-highlight {
+            background: var(--kst-main-color) !important;
+            color: var(--kst-text-color) !important;
+            padding: 2px 6px !important;
+            border-radius: 3px !important;
+            font-weight: 500 !important;
+        }
+        
+        .kst-badge {
+            display: inline-block !important;
+            padding: 3px 8px !important;
+            background: #E0E0E0 !important;
+            color: #4A5568 !important;
+            border-radius: 4px !important;
+            font-size: 11px !important;
+            font-weight: 500 !important;
+        }
+    </style>
+
+    <div class="kst-main-container">
+        
+        <div class="kst-brand-header">
+            <div class="kst-brand-logo">
+                <div class="kst-logo-element"></div>
+                <div class="kst-logo-element"></div>
+                <div class="kst-logo-element"></div>
+            </div>
+            <div class="kst-brand-name">Professional Medical</div>
+            <div class="kst-brand-tagline">Topical Anesthetic Solutions</div>
+        </div>
+        
+        <h1 class="kst-product-title">
+<span class="text-box-1">Muchcaine</span><span class="text-box-2">Cream</span>
+</h1>
+        <h2 class="kst-product-spec">30g Topical Anesthetic Cream</h2>
+        
+        <div class="kst-image-block kst-main-showcase">
+            [MAIN_PRODUCT_IMAGE_MUCHCAINE_CREAM_30G]
+        </div>
+        
+        <div class="kst-section" id="kst-basic-info">
+            <h2 class="kst-section-title">Product Overview</h2>
+            
+            <div class="kst-chip-container">
+                <span class="kst-chip">Topical Anesthetic</span>
+                <span class="kst-chip">Medical Grade</span>
+                <span class="kst-chip">10.56% Lidocaine</span>
+            </div>
+            
+            <p style="font-size: 14px !important; color: #4A5568 !important; line-height: 1.6 !important; margin: 16px 0 !important;">
+                Muchcaine Cream is a professional-grade topical anesthetic cream formulated with 10.56% Lidocaine. Designed to provide effective local anesthesia before injection procedures, cosmetic treatments, and minor medical procedures. This white to yellowish cream comes in a convenient 30g tube format for precise application.
+            </p>
+            
+            <div class="kst-text-center kst-mt-2">
+                <span class="kst-highlight">Strong Numbing Effect for Professional Use</span>
+            </div>
+        </div>
+        
+        <div class="kst-section" id="kst-components">
+            <h2 class="kst-section-title">Active Ingredient</h2>
+            
+            <div class="kst-components-grid">
+                <div class="kst-component-card">
+                    <div class="kst-card-number">1</div>
+                    <div class="kst-card-flag kst-primary">
+                        <div class="kst-flag-stripe"></div>
+                        <div class="kst-flag-stripe"></div>
+                        <div class="kst-flag-stripe"></div>
+                    </div>
+                    <div class="kst-component-name">Lidocaine</div>
+                    <div class="kst-component-type">Active Ingredient</div>
+                    <div class="kst-component-concentration">10.56%</div>
+                    <div class="kst-component-weight">net 30g tube</div>
+                    <div class="kst-progress-bar">
+                        <div class="kst-progress-fill"></div>
+                    </div>
+                    <div class="kst-component-description">
+                        High-concentration lidocaine provides effective local anesthesia by blocking sodium channels in nerve membranes, preventing pain signal transmission to the brain.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-image-block kst-mt-2">
+                [LIDOCAINE_MOLECULAR_STRUCTURE_DIAGRAM]
+            </div>
+        </div>
+        
+        <div class="kst-section" id="kst-benefits">
+            <h2 class="kst-section-title">Key Benefits</h2>
+            
+            <div class="kst-benefits-list">
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">1</div>
+                    <div class="kst-benefit-content">
+                        <div class="kst-benefit-title">Rapid Onset Action</div>
+                        <div class="kst-benefit-description">
+                            Effective numbing begins within 15-30 minutes of application, making it ideal for time-sensitive procedures.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">2</div>
+                    <div class="kst-benefit-content">
+                        <div class="kst-benefit-title">Long-lasting Effect</div>
+                        <div class="kst-benefit-description">
+                            Provides sustained anesthetic effect for 1-2 hours, ensuring comfortable treatment duration.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">3</div>
+                    <div class="kst-benefit-content">
+                        <div class="kst-benefit-title">Professional Strength</div>
+                        <div class="kst-benefit-description">
+                            High lidocaine concentration (10.56%) delivers superior numbing power for medical and cosmetic procedures.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">4</div>
+                    <div class="kst-benefit-content">
+                        <div class="kst-benefit-title">Versatile Application</div>
+                        <div class="kst-benefit-description">
+                            Suitable for various procedures including injections, mesotherapy, micro-liposuction, permanent makeup, and tattoos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-image-block kst-mt-3">
+                [BEFORE_AFTER_PAIN_COMPARISON_CHART]
+            </div>
+        </div>
+        
+        <div class="kst-section" id="kst-usage">
+            <h2 class="kst-section-title">Application Guide</h2>
+            
+            <div class="kst-usage-steps">
+                <div class="kst-step-card">
+                    <div class="kst-step-number">1</div>
+                    <div class="kst-step-content">
+                        <div class="kst-step-title">Clean the Application Area</div>
+                        <div class="kst-step-description">Ensure the skin is clean and dry before application. Remove any oils, lotions, or debris from the treatment area.</div>
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">2</div>
+                    <div class="kst-step-content">
+                        <div class="kst-step-title">Apply Thick Layer</div>
+                        <div class="kst-step-description">Spread a thick layer of cream over the desired area. Maximum recommended dose for adults is 0.5g. Avoid using on large areas or broken skin.</div>
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">3</div>
+                    <div class="kst-step-content">
+                        <div class="kst-step-title">Cover if Needed</div>
+                        <div class="kst-step-description">Optional: Cover with occlusive dressing or plastic wrap to enhance absorption, though not always required.</div>
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">4</div>
+                    <div class="kst-step-content">
+                        <div class="kst-step-title">Wait for Effect</div>
+                        <div class="kst-step-description">Allow 15-30 minutes for most procedures. For more intensive treatments like hair removal or tattoos, wait up to 1 hour.</div>
+                    </div>
+                </div>
+                
+                <div class="kst-step-card">
+                    <div class="kst-step-number">5</div>
+                    <div class="kst-step-content">
+                        <div class="kst-step-title">Remove Before Procedure</div>
+                        <div class="kst-step-description">Gently wipe off the cream just before beginning the procedure. The numbing effect will remain active.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-visual-guide kst-mt-2">
+                [VISUAL_APPLICATION_TECHNIQUE_GUIDE]
+            </div>
+        </div>
+        
+        <div class="kst-section" id="kst-specifications">
+            <h2 class="kst-section-title">Application Areas &amp; Dosage</h2>
+            
+            <div class="kst-table-wrap">
+                <table class="kst-specifications-table">
+                    <thead>
+                        <tr>
+                            <th>Application Area</th>
+                            <th>Recommended Dosage</th>
+                            <th>Application Time</th>
+                            <th>Special Precautions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>General Use (Injections)</td>
+                            <td>Apply thick layer</td>
+                            <td>15-30 minutes</td>
+                            <td>Avoid excessive heat and cold</td>
+                        </tr>
+                        <tr>
+                            <td>Tattoos &amp; Permanent Makeup</td>
+                            <td>Adjust as needed</td>
+                            <td>15 minutes to 1 hour</td>
+                            <td>Do not use on large areas or broken skin</td>
+                        </tr>
+                        <tr>
+                            <td>Sensitive Areas</td>
+                            <td>Use with extra care</td>
+                            <td>Adjust based on sensitivity</td>
+                            <td>Avoid use in or near the eyes</td>
+                        </tr>
+                        <tr>
+                            <td>Mesotherapy</td>
+                            <td>Maximum 0.5g for adults</td>
+                            <td>20-30 minutes</td>
+                            <td>Clean application area thoroughly</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="kst-section" id="kst-technical-specs">
+            <h2 class="kst-section-title">Technical Specifications</h2>
+            
+            <div class="kst-table-wrap">
+                <table class="kst-specifications-table">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Product Name</td>
+                            <td>Muchcaine Cream 30g</td>
+                        </tr>
+                        <tr>
+                            <td>Active Ingredient</td>
+                            <td>Lidocaine 10.56%</td>
+                        </tr>
+                        <tr>
+                            <td>Formulation</td>
+                            <td>White to yellowish cream</td>
+                        </tr>
+                        <tr>
+                            <td>Package Size</td>
+                            <td>30g tube</td>
+                        </tr>
+                        <tr>
+                            <td>Onset of Action</td>
+                            <td>15-30 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>Duration of Effect</td>
+                            <td>1-2 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Maximum Adult Dose</td>
+                            <td>0.5g per application</td>
+                        </tr>
+                        <tr>
+                            <td>Storage Temperature</td>
+                            <td>15°-30°C (59°-86°F)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="kst-safety-warning">
+            <div class="kst-warning-icon">⚠</div>
+            <div class="kst-warning-content">
+                <div class="kst-warning-title">Important Safety Information</div>
+                <div class="kst-warning-text">
+                    Do not use if you have a known sensitivity to lidocaine or other amide preparations. Do not apply to mucous membranes, open wounds, or in or near the eyes. Stop use and consult a doctor if an allergic reaction occurs. Consult a medical professional before use, especially if you have liver or kidney conditions, or are pregnant.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-section" id="kst-storage">
+            <h2 class="kst-section-title">Storage &amp; Handling</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                <div style="background: #F0F8FF; padding: 16px; border-radius: 6px; border-left: 4px solid var(--kst-sub-color);">
+                    <div style="font-weight: 500; color: var(--kst-text-color); margin-bottom: 8px;">Storage Conditions</div>
+                    <ul style="margin: 0; padding-left: 16px;">
+                        <li>Store at controlled room temperature</li>
+                        <li>15°-30°C (59°-86°F)</li>
+                        <li>Protect from sunlight and moisture</li>
+                        <li>Do not freeze</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #FFF8E1; padding: 16px; border-radius: 6px; border-left: 4px solid var(--kst-main-color);">
+                    <div style="font-weight: 500; color: var(--kst-text-color); margin-bottom: 8px;">Handling Precautions</div>
+                    <ul style="margin: 0; padding-left: 16px;">
+                        <li>Avoid excessive heat and cold</li>
+                        <li>Keep tube tightly closed</li>
+                        <li>Use clean hands for application</li>
+                        <li>Check expiration date before use</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-section" id="kst-professional-use">
+            <h2 class="kst-section-title">Professional Applications</h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #F9FBE7; border-radius: 6px;">
+                    <div style="width: 8px; height: 8px; background: var(--kst-badge-bg); border-radius: 50%;"></div>
+                    <span style="font-size: 13px; color: #4A5568;">Injection procedures and pain relief</span>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #F9FBE7; border-radius: 6px;">
+                    <div style="width: 8px; height: 8px; background: var(--kst-badge-bg); border-radius: 50%;"></div>
+                    <span style="font-size: 13px; color: #4A5568;">Mesotherapy and cosmetic treatments</span>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #F9FBE7; border-radius: 6px;">
+                    <div style="width: 8px; height: 8px; background: var(--kst-badge-bg); border-radius: 50%;"></div>
+                    <span style="font-size: 13px; color: #4A5568;">Micro-liposuction procedures</span>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #F9FBE7; border-radius: 6px;">
+                    <div style="width: 8px; height: 8px; background: var(--kst-badge-bg); border-radius: 50%;"></div>
+                    <span style="font-size: 13px; color: #4A5568;">Permanent makeup and tattoo applications</span>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #F9FBE7; border-radius: 6px;">
+                    <div style="width: 8px; height: 8px; background: var(--kst-badge-bg); border-radius: 50%;"></div>
+                    <span style="font-size: 13px; color: #4A5568;">Minor dermatological procedures</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-section" id="kst-keywords">
+            <h2 class="kst-section-title">Product Keywords</h2>
+            
+            <div class="kst-chip-container">
+                <span class="kst-chip">Lidocaine cream</span>
+                <span class="kst-chip">Anesthetic cream</span>
+                <span class="kst-chip">Topical anesthetic</span>
+                <span class="kst-chip">Pre-procedure cream</span>
+                <span class="kst-chip">Pain relief</span>
+                <span class="kst-chip">Muchcaine</span>
+                <span class="kst-chip">Numbing cream</span>
+                <span class="kst-chip">Local anesthesia</span>
+                <span class="kst-chip">Dermal anesthetic</span>
+                <span class="kst-chip">10.56% lidocaine</span>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 24px; background: var(--kst-text-sub); border-radius: 8px; border: 2px solid var(--kst-main-color);">
+            <div style="font-size: 18px; font-weight: 500; color: var(--kst-text-color); margin-bottom: 8px;">
+                Professional Medical Grade Solution
+            </div>
+            <div style="font-size: 13px; color: #4A5568; line-height: 1.5;">
+                Muchcaine Cream 30g - Trusted by medical professionals for effective topical anesthesia.<br>
+                Consult with healthcare providers for proper usage and application guidelines.
+            </div>
+        </div>
+        
+    </div>

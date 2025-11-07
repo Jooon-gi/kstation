@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff !important;
+            color: #1a1a1a !important;
+            padding: 0;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        
+        .kst-hero-section {
+            background: linear-gradient(135deg, #55575B 0%, #1F1F21 100%);
+            padding: 40px 16px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .kst-product-badge {
+            background: #B88938;
+            color: #ffffff !important;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 16px;
+            transition: background 0.3s ease;
+        }
+        
+        .kst-product-badge:hover {
+            background: #D4AF37;
+        }
+        
+        .kst-main-title {
+            font-size: 32px !important;
+            font-weight: 300 !important;
+            color: #ffffff !important;
+            margin-bottom: 12px !important;
+            letter-spacing: -1px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .kst-midtitle {
+            font-size: 24px !important;
+            color: #ffde85 !important;
+            font-weight: 400 !important;
+            margin-top: -20px;
+            margin-bottom: 12px !important;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-subtitle {
+            font-size: 16px !important;
+            color: #B3B3B3 !important;
+            font-weight: 400 !important;
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-section {
+            padding: 16px;
+            margin-bottom: 20px;
+            color: #1a1a1a !important;
+        }
+        
+        .kst-section-label {
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #B88938 !important;
+            margin-bottom: 16px !important;
+        }
+        
+        .kst-section-title {
+            font-size: 22px !important;
+            font-weight: 600 !important;
+            color: #1a1a1a !important;
+            margin-bottom: 20px !important;
+            letter-spacing: -0.5px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-image-block,
+        .kst-chart-block {
+            background: #f8f9fa;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 8px;
+            color: #6c757d !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            border-radius: 8px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .kst-image-block:not(:has(img)),
+        .kst-image-block:has(img[src=""]),
+        .kst-chart-block:not(:has(img)),
+        .kst-chart-block:has(img[src=""]) {
+            display: none;
+        }
+        
+        .kst-image-block img,
+        .kst-chart-block img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .kst-ingredient-card {
+            background: #f8f9fa;
+            padding: 20px 16px;
+            margin-bottom: 16px;
+            border-left: 4px solid #B88938;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.2s ease;
+        }
+        
+        .kst-ingredient-card:hover {
+            border-left-color: #D4AF37;
+            background: #f1f3f4;
+        }
+        
+        .kst-ingredient-header {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .kst-ingredient-name {
+            font-size: 18px !important;
+            font-weight: 600 !important;
+            color: #1a1a1a !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-concentration-tag {
+            background: #B88938;
+            color: #ffffff !important;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            align-self: flex-start;
+        }
+        
+        .kst-ingredient-description {
+            font-size: 14px !important;
+            color: #495057 !important;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-benefits-list {
+            margin: 20px 0;
+        }
+        
+        .kst-benefit-item {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .kst-benefit-number {
+            width: 28px;
+            height: 28px;
+            background: #B88938;
+            color: #ffffff !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            margin-bottom: 12px;
+        }
+        
+        .kst-benefit-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #1a1a1a !important;
+            margin-bottom: 8px !important;
+            line-height: 1.4;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-benefit-description {
+            font-size: 14px !important;
+            color: #495057 !important;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-protocol-section {
+            background: #f8f9fa;
+            padding: 20px 16px;
+            margin: 20px 8px;
+            border-radius: 8px;
+        }
+        
+        .kst-protocol-item {
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            margin-bottom: 12px;
+        }
+        
+        .kst-protocol-icon {
+            width: 40px;
+            height: 40px;
+            background: #B88938;
+            color: #ffffff !important;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600 !important;
+            font-size: 16px !important;
+            margin-bottom: 12px;
+        }
+        
+        .kst-protocol-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #1a1a1a !important;
+            margin-bottom: 8px !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-protocol-description {
+            font-size: 14px !important;
+            color: #495057 !important;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .kst-specs-table {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 600px;
+            width: 100%;
+        }
+        
+        .kst-specs-header {
+            background: #55575B;
+            padding: 16px 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .kst-specs-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #ffffff !important;
+            margin: 0 !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            width: 100%;
+        }
+        
+        .kst-spec-item {
+            padding: 16px 12px;
+            border-right: 1px solid #dee2e6;
+            border-bottom: 1px solid #dee2e6;
+            text-align: center;
+        }
+        
+        .kst-spec-item:nth-child(3n) {
+            border-right: none;
+        }
+        /* 가장 간단한 해결책 */
+* {
+    box-sizing: border-box;
+}
+
+/* 또는 특정 요소에만 적용 */
+.kst-specs-table,
+.kst-specs-grid,
+.kst-spec-item {
+    box-sizing: border-box;
+}
+        .kst-spec-label {
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #B88938 !important;
+            margin-bottom: 6px !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: nowrap !important;
+        }
+        
+        .kst-spec-value {
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            color: #1a1a1a !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-safety-warning {
+            background: #fff3cd;
+            border: 1px solid #B88938;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 8px;
+        }
+        
+        .kst-warning-icon {
+            width: 20px;
+            height: 20px;
+            background: #B88938;
+            color: #ffffff !important;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            font-weight: 600 !important;
+            font-size: 12px !important;
+            vertical-align: top;
+        }
+        
+        .kst-warning-title {
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            color: #856404 !important;
+            margin-bottom: 8px !important;
+            display: inline;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-warning-content {
+            font-size: 13px !important;
+            color: #856404 !important;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #B88938 50%, transparent 100%);
+            margin: 32px 16px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: #B88938;
+            border-radius: 3px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+        
+        .kst-faq-section {
+            margin: 20px 0;
+        }
+        
+        .kst-faq-item {
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 12px;
+        }
+        
+        .kst-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 16px 0;
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            color: #1a1a1a !important;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-faq-question:hover {
+            color: #B88938 !important;
+        }
+        
+        .kst-faq-toggle {
+            font-size: 18px !important;
+            transition: transform 0.3s ease;
+            color: #B88938 !important;
+        }
+        
+        .kst-faq-answer {
+            padding-bottom: 16px;
+            font-size: 14px !important;
+            color: #495057 !important;
+            line-height: 1.6;
+            display: none;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-faq-item.kst-open .kst-faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .kst-faq-item.kst-open .kst-faq-answer {
+            display: block;
+        }
+        
+        .kst-summary-section {
+            background: linear-gradient(135deg, #55575B 0%, #1F1F21 100%);
+            padding: 32px 16px;
+            text-align: center;
+            margin: 20px 8px;
+            border-radius: 8px;
+        }
+        
+        .kst-summary-title {
+            font-size: 20px !important;
+            font-weight: 600 !important;
+            color: #ffffff !important;
+            margin-bottom: 16px !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-summary-text {
+            font-size: 14px !important;
+            color: #B3B3B3 !important;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="kst-main-container">
+        
+        <!-- Hero Section -->
+        <div class="kst-hero-section">
+            <div class="kst-product-badge">Hyaluronic Acid Filler</div>
+            <h1 class="kst-main-title">CARATFILL Professional Series</h1>
+            <h2 class="kst-midtitle">SUB-Q / DEEP / KISS</h2>
+            <p class="kst-subtitle">Advanced cross-linked hyaluronic acid dermal filler with NSE™ technology for natural-looking, long-lasting results</p>
+        </div>
+        
+        <!-- Main Product Image -->
+        <div class="kst-image-block">
+            [CARATFILL Product Line Photography - SUB-Q, DEEP, KISS variants]
+        </div>
+        
+        <!-- Key Ingredients -->
+        <div class="kst-section">
+            <div class="kst-section-label">Composition</div>
+            <h2 class="kst-section-title">Key Ingredients</h2>
+            
+            <div class="kst-ingredient-card">
+                <div class="kst-ingredient-header">
+                    <h3 class="kst-ingredient-name">Cross-linked Hyaluronic Acid</h3>
+                    <div class="kst-concentration-tag">24mg/ml</div>
+                </div>
+                <div class="kst-ingredient-description">
+                    High-quality cross-linked hyaluronic acid utilizing NSE™ (Naturally Safe Effective) technology. Provides optimal viscosity, elasticity, and cohesiveness for long-lasting volumization and wrinkle correction.
+                </div>
+            </div>
+            
+            <div class="kst-ingredient-card">
+                <div class="kst-ingredient-header">
+                    <h3 class="kst-ingredient-name">Lidocaine</h3>
+                    <div class="kst-concentration-tag">0.3%</div>
+                </div>
+                <div class="kst-ingredient-description">
+                    Local anesthetic agent that reduces discomfort during injection procedures, ensuring enhanced patient comfort and improved treatment experience.
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [NSE™ Technology and Molecular Structure Visualization]
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- Benefits -->
+        <div class="kst-section">    
+        <div class="kst-section-label">Advantages</div>
+            <h2 class="kst-section-title">Key Benefits</h2>
+            <div class="kst-benefits-list">
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">1</div>
+                    <h3 class="kst-benefit-title">Deep & Shallow Wrinkle Improvement</h3>
+                    <p class="kst-benefit-description">
+                        Effectively addresses both deep and shallow facial wrinkles through optimized gel structure and cross-linking technology for comprehensive facial rejuvenation.
+                    </p>
+                </div>
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">2</div>
+                    <h3 class="kst-benefit-title">Volume Enhancement & Facial Contouring</h3>
+                    <p class="kst-benefit-description">
+                        Provides significant volume restoration and precise facial contouring capabilities for enhanced facial structure and youthful appearance.
+                    </p>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">3</div>
+                    <h3 class="kst-benefit-title">High Elasticity & Cohesiveness</h3>
+                    <p class="kst-benefit-description">
+                        Superior gel properties ensure natural movement and long-lasting results while maintaining structural integrity at the injection site.
+                    </p>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">4</div>
+                    <h3 class="kst-benefit-title">Long-lasting Natural Results</h3>
+                    <p class="kst-benefit-description">
+                        Duration of effect varies from 8 to 12 months depending on product version and treatment area, providing sustained aesthetic enhancement.
+                    </p>
+                </div>
+            </div>
+            <div class="kst-image-block">
+                [Before & After Treatment Results and Performance Comparison]
+            </div>
+        </div>
+        <div class="kst-divider"></div>
+        
+        <!-- Product Versions Comparison -->
+         <div class="kst-section">
+        <div class="kst-table-wrap">
+            <div class="kst-specs-table">
+                <div class="kst-specs-header">
+                    <h3 class="kst-specs-title">CARATFILL Product Comparison</h3>
+                </div>
+                <table style="width:100%; border-collapse:collapse;">
+                    <thead>
+                        <tr style="background-color:#f1f3f4; text-align:left;">
+                            <th style="padding:12px; border-bottom:1px solid #dee2e6;">Category</th>
+                            <th style="padding:12px; border-bottom:1px solid #dee2e6;">SUB-Q</th>
+                            <th style="padding:12px; border-bottom:1px solid #dee2e6;">DEEP</th>
+                            <th style="padding:12px; border-bottom:1px solid #dee2e6;">KISS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6; font-weight:600;">Viscosity</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">High</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">Medium</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">Low</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6; font-weight:600;">Injection Layer</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">Deep Dermis / Subcutis</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">Mid to Deep Dermis</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">Upper Dermis</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6; font-weight:600;">Needle Gauge</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">23G, 27G</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">27G</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">27G, 30G</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6; font-weight:600;">Duration</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">Up to 12 months</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">6-12 months</td>
+                            <td style="padding:12px; border-bottom:1px solid #dee2e6;">8-12 months</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- Product Variants -->
+         <div class="kst-section">
+            <div class="kst-section-label">Product Line</div>
+            <h2 class="kst-section-title">CARATFILL Variants</h2>
+            
+
+                <div class="kst-protocol-item">
+                    <div class="kst-protocol-icon">SQ</div>
+                    <h3 class="kst-protocol-title">CARATFILL SUB-Q</h3>
+                    <p class="kst-protocol-description">
+                        <strong>Treatment Areas:</strong> Forehead, Nose, Chin, Cheeks, Jawline<br>
+                        <strong>Purpose:</strong> Deep wrinkle correction and significant volume enhancement for facial contouring and structural support. Most viscous formulation with strong lifting capacity for severe volume deficiency correction.
+                    </p>
+                </div>
+                
+                <div class="kst-protocol-item">
+                    <div class="kst-protocol-icon">DP</div>
+                    <h3 class="kst-protocol-title">CARATFILL DEEP</h3>
+                    <p class="kst-protocol-description">
+                        <strong>Treatment Areas:</strong> Cheeks, Marionette lines, Nasolabial folds, Glabella lines, Forehead<br>
+                        <strong>Purpose:</strong> Moderate to deep facial wrinkle correction with natural volumizing effect. Versatile gel structure for easy sculpting and tissue integration.
+                    </p>
+                </div>
+                
+                <div class="kst-protocol-item">
+                    <div class="kst-protocol-icon">KS</div>
+                    <h3 class="kst-protocol-title">CARATFILL KISS</h3>
+                    <p class="kst-protocol-description">
+                        <strong>Treatment Areas:</strong> Lips, Perioral lines, Eye area<br>
+                        <strong>Purpose:</strong> Specialized filler for delicate areas requiring subtle enhancement. Low phase angle and soft gel consistency ensure natural lip movement and comfortable feel.
+                    </p>
+                </div>
+
+            
+            <div class="kst-image-block">
+                [Treatment Area Guide for Each CARATFILL Variant]
+            </div>
+        </div>
+        <div class="kst-divider"></div>
+        
+        <!-- Safety Information -->
+        <div class="kst-section">
+        <div class="kst-safety-warning">
+            <div class="kst-warning-icon">!</div>
+            <span class="kst-warning-title">Important Safety Information</span>
+            <div class="kst-warning-content">
+                Professional use only. Store at temperatures between 2°C and 25°C. Single-use product - discard any unused portion. Should only be administered by qualified professionals. Do not use if pregnant or breastfeeding. Avoid rubbing or scratching treated area for several days post-procedure. Refrain from alcohol consumption and saunas immediately following treatment.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Professional Training and Certification Requirements]
+        </div>
+        </div>  
+
+        <div class="kst-divider"></div>
+        
+        <!-- Technical Specifications -->
+        <div class="kst-section">
+            <div class="kst-section-label">Specifications</div>
+            <h2 class="kst-section-title">Technical Details</h2>
+            
+            <div class="kst-table-wrap">
+                <div class="kst-specs-table">
+                    <div class="kst-specs-header">
+                        <h3 class="kst-specs-title">Product Specifications</h3>
+                    </div>
+                    <div class="kst-specs-grid">
+                        <div class="kst-spec-item">
+                            <div class="kst-spec-label">Volume</div>
+                            <div class="kst-spec-value">1.1ml</div>
+                        </div>
+                        <div class="kst-spec-item">
+                            <div class="kst-spec-label">Formulation</div>
+                            <div class="kst-spec-value">Monophasic Gel</div>
+                        </div>
+                        <div class="kst-spec-item">
+                            <div class="kst-spec-label">Technology</div>
+                            <div class="kst-spec-value">NSE™</div>
+                        </div>
+                        <div class="kst-spec-item">
+                            <div class="kst-spec-label">Storage Temp</div>
+                            <div class="kst-spec-value">2-25°C</div>
+                        </div>
+                        <div class="kst-spec-item">
+                            <div class="kst-spec-label">Packaging</div>
+                            <div class="kst-spec-value">Pre-filled Syringe</div>
+                        </div>
+                        <div class="kst-spec-item">
+                            <div class="kst-spec-label">Usage</div>
+                            <div class="kst-spec-value">Single Use</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- Usage Protocol -->
+        <div class="kst-section">
+            <div class="kst-section-label">Application</div>
+            <h2 class="kst-section-title">Treatment Protocol</h2>
+            
+            <div class="kst-benefits-list">
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">1</div>
+                    <h3 class="kst-benefit-title">Pre-Treatment Assessment</h3>
+                    <p class="kst-benefit-description">
+                        Evaluate patient's medical history, skin condition, and treatment goals. Determine appropriate CARATFILL variant based on treatment area and desired depth of injection.
+                    </p>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">2</div>
+                    <h3 class="kst-benefit-title">Preparation & Anesthesia</h3>
+                    <p class="kst-benefit-description">
+                        Cleanse treatment area and apply topical anesthetic if needed. Allow CARATFILL to reach room temperature before injection. Select appropriate needle gauge based on product variant.
+                    </p>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">3</div>
+                    <h3 class="kst-benefit-title">Injection Technique</h3>
+                    <p class="kst-benefit-description">
+                        Inject using appropriate technique for selected layer (upper dermis, mid-deep dermis, or subcutis). Use slow, controlled injection with gentle massage for optimal distribution.
+                    </p>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">4</div>
+                    <h3 class="kst-benefit-title">Post-Treatment Care</h3>
+                    <p class="kst-benefit-description">
+                        Apply cold compress if needed. Provide aftercare instructions including avoiding alcohol, saunas, and excessive facial manipulation for several days post-treatment.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [Injection Technique Demonstration and Depth Guidelines]
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <!-- FAQ Section -->
+        <div class="kst-section">
+            <div class="kst-section-label">Support</div>
+            <h2 class="kst-section-title">Frequently Asked Questions</h2>
+            
+            <div class="kst-faq-section">
+                <div class="kst-faq-item">
+                    <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                        Which CARATFILL variant should I choose for my patient?
+                        <span class="kst-faq-toggle">+</span>
+                    </button>
+                    <div class="kst-faq-answer">
+                        Choose based on treatment area and desired depth: CARATFILL KISS for delicate areas like lips and eyes, CARATFILL DEEP for moderate wrinkles and cheek volume, and CARATFILL SUB-Q for deep structural enhancement and facial contouring.
+                    </div>
+                </div>
+                
+                <div class="kst-faq-item">
+                    <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                        How long do CARATFILL results typically last?
+                        <span class="kst-faq-toggle">+</span>
+                    </button>
+                    <div class="kst-faq-answer">
+                        Duration varies by variant and treatment area: CARATFILL SUB-Q lasts up to 12 months, CARATFILL DEEP provides 6-12 months of results, and CARATFILL KISS maintains effects for 8-12 months.
+                    </div>
+                </div>
+                
+                <div class="kst-faq-item">
+                    <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                        What makes NSE™ technology unique?
+                        <span class="kst-faq-toggle">+</span>
+                    </button>
+                    <div class="kst-faq-answer">
+                        NSE™ (Naturally Safe Effective) technology ensures optimal cross-linking of hyaluronic acid, providing superior elasticity, cohesiveness, and biocompatibility for natural-looking, long-lasting results with minimal migration.
+                    </div>
+                </div>
+                
+                <div class="kst-faq-item">
+                    <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                        What are the contraindications for CARATFILL?
+                        <span class="kst-faq-toggle">+</span>
+                    </button>
+                    <div class="kst-faq-answer">
+                        Do not use in patients who are pregnant or breastfeeding, have active skin infections at treatment site, known hypersensitivity to hyaluronic acid or lidocaine, or autoimmune diseases affecting connective tissue.
+                    </div>
+                </div>
+                
+                <div class="kst-faq-item">
+                    <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                        How should CARATFILL be stored?
+                        <span class="kst-faq-toggle">+</span>
+                    </button>
+                    <div class="kst-faq-answer">
+                        Store at temperatures between 2°C and 25°C, away from direct sunlight. Do not freeze. Each syringe is for single use only - discard any unused product immediately after treatment.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Summary Section -->
+        <div class="kst-summary-section">
+            <h3 class="kst-summary-title">CARATFILL Excellence</h3>
+            <p class="kst-summary-text">
+                CARATFILL represents advanced dermal filler technology with NSE™ cross-linking for optimal safety and efficacy. Three specialized variants provide comprehensive treatment solutions for facial rejuvenation, volume enhancement, and natural aesthetic improvement with long-lasting, professional-grade results.
+            </p>
+        </div>
+        
+    </div>
+    
+    <script>
+        function kstToggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isOpen = faqItem.classList.contains('kst-open');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.kst-faq-item').forEach(item => {
+                item.classList.remove('kst-open');
+            });
+            
+            // Open the clicked item if it wasn't already open
+            if (!isOpen) {
+                faqItem.classList.add('kst-open');
+            }
+        }
+    </script>
+</body>
+</html>

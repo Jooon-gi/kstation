@@ -1,0 +1,1014 @@
+<style>
+/* Reset and base styles with kst- prefix */
+.kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+    color: #000000 !important;
+    padding: 0;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+.kst-main-container * {
+    box-sizing: border-box;
+}
+
+/* Hide image blocks when no images are present */
+.kst-image-block:not(:has(img)) {
+    display: none !important;
+}
+
+.kst-image-block:has(img[src=""]) {
+    display: none !important;
+}
+
+.kst-chart-block:not(:has(img)) {
+    display: none !important;
+}
+
+.kst-chart-block:has(img[src=""]) {
+    display: none !important;
+}
+
+/* Hero Section */
+.kst-hero-section {
+    background: linear-gradient(135deg, #FFF8E1 0%, #FFFFFF 100%);
+    padding: 40px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.kst-hero-section::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(249, 168, 37, 0.2) 0%, transparent 60%);
+    border-radius: 50%;
+}
+
+.kst-product-logo {
+    width: 60px;
+    height: 60px;
+    background: #F9A825;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 25px rgba(249, 168, 37, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.kst-product-logo::before {
+    content: '+';
+    color: #ffffff !important;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.kst-product-title {
+    font-size: 40px;
+    font-weight: 400;
+    color: #F9A825 !important;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-shadow: 0 3px 5px #fff;
+    hyphens: auto;
+}
+
+.kst-product-spec {
+    font-size: 25px;
+    font-weight: 300;
+    color: #000000 !important;
+    margin-top: -16px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-product-subtitle {
+    font-size: 16px;
+    color: #F9A825 !important;
+    font-weight: 500;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-hero-description {
+    font-size: 14px;
+    color: #4F4F4F !important;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+
+/* Section Styles */
+.kst-section {
+    padding: 40px 16px;
+    margin: 0;
+}
+
+.kst-section-title {
+    font-size: 24px;
+    font-weight: 300;
+    color: #000000 !important;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-section-alt {
+    background: #f7fafc;
+}
+
+/* Image Blocks */
+.kst-image-block {
+    background: linear-gradient(135deg, #f7fafc 0%, #fffbf0 100%);
+    border: 1px solid #F9A825;
+    border-radius: 12px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.kst-image-block img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.kst-image-placeholder {
+    padding: 40px 20px;
+    text-align: center;
+    color: #F9A825 !important;
+    font-size: 12px;
+    font-style: italic;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card Styles */
+.kst-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 12px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.kst-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(249, 168, 37, 0.15);
+}
+
+.kst-card-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000 !important;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-card-content {
+    font-size: 14px;
+    color: #4F4F4F !important;
+    line-height: 1.6;
+}
+
+/* Badge Styles */
+.kst-badge {
+    background: #F9A825;
+    color: #ffffff !important;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 4px 8px 4px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kst-badge-primary {
+    background: #F9A825;
+    color: #ffffff !important;
+}
+
+.kst-badge-warning {
+    background: #f6ad55;
+    color: #c05621 !important;
+}
+
+/* Grid Layouts */
+.kst-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.kst-grid-item {
+    background: #f7fafc;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.kst-grid-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #F9A825 !important;
+    margin-bottom: 4px;
+}
+
+.kst-grid-label {
+    font-size: 12px;
+    color: #4F4F4F !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Step Styles */
+.kst-step {
+    background: linear-gradient(135deg, #fffbf0 0%, #FFFFFF 100%);
+    border: 1px solid #F9A825;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+    position: relative;
+}
+
+.kst-step-number {
+    width: 30px;
+    height: 30px;
+    background: #F9A825;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.kst-step-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000 !important;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-step-description {
+    font-size: 13px;
+    color: #4F4F4F !important;
+    line-height: 1.5;
+}
+
+/* Table Styles */
+.kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(249, 168, 37, 0.1);
+}
+
+.kst-table-wrap::-webkit-scrollbar {
+    height: 6px;
+}
+
+.kst-table-wrap::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.kst-table-wrap::-webkit-scrollbar-thumb {
+    background: #F9A825;
+    border-radius: 3px;
+}
+
+.kst-table {
+    min-width: 600px;
+    width: 100%;
+    background: #ffffff;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.kst-table thead {
+    background: #F9A825;
+    color: #ffffff !important;
+}
+
+.kst-table th,
+.kst-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-table th {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff !important;
+    white-space: nowrap !important;
+}
+
+.kst-table td {
+    font-size: 13px;
+    color: #4F4F4F !important;
+}
+
+.kst-table tbody tr:hover {
+    background: #f7fafc;
+}
+
+/* List Styles */
+.kst-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+}
+
+.kst-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+    color: #000000 !important;
+    font-size: 14px;
+}
+
+.kst-list-icon {
+    width: 16px;
+    height: 16px;
+    background: #F9A825;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important;
+    font-size: 10px;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.kst-list-icon::before {
+    content: '✓';
+}
+
+/* Definition List Styles */
+.kst-dl {
+    margin: 20px 0;
+}
+
+.kst-dt {
+    font-weight: 600;
+    color: #000000 !important;
+    font-size: 14px;
+    margin-bottom: 4px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-dd {
+    color: #4F4F4F !important;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    margin-left: 0;
+    padding-left: 16px;
+    border-left: 3px solid #F9A825;
+}
+
+/* FAQ Styles */
+.kst-faq {
+    background: #f7fafc;
+    border-radius: 12px;
+    margin: 12px 0;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.kst-faq-question {
+    padding: 16px;
+    background: #f7fafc;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000 !important;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-faq-question:hover {
+    background: #fff8e1;
+}
+
+.kst-faq-icon {
+    font-size: 16px;
+    color: #F9A825 !important;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.kst-faq-answer {
+    padding: 0 16px 16px;
+    font-size: 13px;
+    color: #4F4F4F !important;
+    line-height: 1.6;
+    display: none;
+}
+
+.kst-faq.kst-active .kst-faq-answer {
+    display: block;
+}
+
+.kst-faq.kst-active .kst-faq-icon {
+    transform: rotate(45deg);
+}
+
+/* Warning/Safety Styles */
+.kst-warning {
+    background: linear-gradient(135deg, #fef5e7 0%, #ffd89b 100%);
+    border: 2px solid #F9A825;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.kst-warning::before {
+    content: '⚠️';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #F9A825;
+    color: #ffffff !important;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.kst-warning-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000 !important;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.kst-warning-content {
+    font-size: 13px;
+    color: #4F4F4F !important;
+    line-height: 1.6;
+}
+
+.kst-warning-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+}
+
+.kst-warning-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 3px 0;
+    font-size: 12px;
+    color: #4F4F4F !important;
+}
+
+.kst-warning-list li::before {
+    content: '•';
+    color: #F9A825 !important;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Text Utilities */
+.kst-text-center {
+    text-align: center;
+}
+
+.kst-text-muted {
+    color: #4F4F4F !important;
+}
+
+.kst-text-small {
+    font-size: 12px;
+}
+
+.kst-mb-0 { margin-bottom: 0; }
+.kst-mb-1 { margin-bottom: 8px; }
+.kst-mb-2 { margin-bottom: 16px; }
+.kst-mb-3 { margin-bottom: 24px; }
+
+.kst-mt-0 { margin-top: 0; }
+.kst-mt-1 { margin-top: 8px; }
+.kst-mt-2 { margin-top: 16px; }
+.kst-mt-3 { margin-top: 24px; }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-hero-section">
+        <h1 class="kst-product-title">HAPROKIN inj</h1>
+        <h2 class="kst-product-spec">10mL x 10 Ampoules</h2>
+        <div class="kst-product-subtitle">Vitamin B1 Injection</div>
+        <div class="kst-hero-description">
+            Premium Fursultiamine Hydrochloride injection for effective vitamin B1 supplementation and energy metabolism support. Professional-grade treatment for B1 deficiency and enhanced vitality.
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                HAPROKIN Product & Packaging Image
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-card">
+            <div class="kst-badge">Premium B1</div>
+            <h3 class="kst-card-title">Advanced Vitamin B1 Formulation</h3>
+            <div class="kst-card-content">
+                HAPROKIN inj contains Fursultiamine Hydrochloride, a highly bioavailable derivative of vitamin B1 (Thiamine). This advanced formulation ensures superior absorption and utilization by the body, making it ideal for treating vitamin B1 deficiency and supporting increased metabolic demands.
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><div class="kst-list-icon"></div><span>Enhanced bioavailability compared to standard thiamine</span></li>
+            <li><div class="kst-list-icon"></div><span>Supports carbohydrate metabolism and energy production</span></li>
+            <li><div class="kst-list-icon"></div><span>Essential for nervous system, muscle, and heart function</span></li>
+            <li><div class="kst-list-icon"></div><span>Professional-grade injection for clinical use</span></li>
+        </ul>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Active Ingredient & Composition</h2>
+        
+        <dl class="kst-dl">
+            <dt class="kst-dt">Fursultiamine Hydrochloride</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">5.46mg/mL</span>
+                Equivalent to 5mg/mL of Fursultiamine. A lipophilic derivative of vitamin B1 that crosses cell membranes more effectively than thiamine, ensuring superior bioavailability and therapeutic efficacy.
+            </dd>
+        </dl>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Molecular Structure & Bioavailability Comparison Chart
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Mechanism of Action</h3>
+            <div class="kst-card-content">
+                Fursultiamine is converted to thiamine in the body, where it acts as a coenzyme in carbohydrate metabolism. It plays a crucial role in the citric acid cycle and pentose phosphate pathway, essential for cellular energy production and proper neurological function.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Therapeutic Benefits & Applications</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">B1</div>
+                <div class="kst-grid-label">Deficiency Treatment</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Energy</div>
+                <div class="kst-grid-label">Metabolism Support</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Neural</div>
+                <div class="kst-grid-label">Function Support</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Cardiac</div>
+                <div class="kst-grid-label">Health Support</div>
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><div class="kst-list-icon"></div><span>Prevention and treatment of Vitamin B1 deficiency conditions</span></li>
+            <li><div class="kst-list-icon"></div><span>Support for increased B1 demand during pregnancy, hyperthyroidism</span></li>
+            <li><div class="kst-list-icon"></div><span>Relief of neuralgia, muscle pain, and joint discomfort</span></li>
+            <li><div class="kst-list-icon"></div><span>Management of gastrointestinal motility disorders</span></li>
+        </ul>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Clinical Applications & Treatment Benefits Infographic
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Administration & Usage Protocol</h2>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">1</div>
+            <div class="kst-step-title">Professional Assessment</div>
+            <div class="kst-step-description">Healthcare professional evaluates patient's B1 deficiency status and determines appropriate dosage (5-100mg daily based on condition severity).</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">2</div>
+            <div class="kst-step-title">Injection Preparation</div>
+            <div class="kst-step-description">Carefully break ampoule and draw solution into sterile syringe. Handle glass ampoules with caution to prevent contamination.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">3</div>
+            <div class="kst-step-title">Route Selection</div>
+            <div class="kst-step-description">Administer via subcutaneous, intramuscular, or intravenous injection depending on patient condition and clinical requirements.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">4</div>
+            <div class="kst-step-title">Injection Administration</div>
+            <div class="kst-step-description">For IV administration, inject slowly to prevent vascular pain. Monitor patient for any adverse reactions during and after injection.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">5</div>
+            <div class="kst-step-title">Post-Administration Care</div>
+            <div class="kst-step-description">Discard any unused solution immediately. Observe patient for hypersensitivity reactions and document treatment response.</div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Subcutaneous/Intramuscular Administration</h3>
+            <div class="kst-card-content">
+                Preferred for routine B1 supplementation. Common injection sites include deltoid muscle or gluteal region. Ensure proper aseptic technique and rotate injection sites.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Intravenous Administration</h3>
+            <div class="kst-card-content">
+                Reserved for severe deficiency cases or when rapid therapeutic response is required. Must be administered slowly to minimize vascular irritation and patient discomfort.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Injection Sites & Administration Technique Guide
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>Details</th>
+                        <th>Additional Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Active Ingredient</td>
+                        <td>Fursultiamine HCl 5.46mg/mL</td>
+                        <td>Equivalent to 5mg/mL Fursultiamine</td>
+                    </tr>
+                    <tr>
+                        <td>Package Size</td>
+                        <td>10mL ampoules</td>
+                        <td>Box of 10 ampoules</td>
+                    </tr>
+                    <tr>
+                        <td>Administration Routes</td>
+                        <td>SC, IM, IV</td>
+                        <td>Subcutaneous, Intramuscular, Intravenous</td>
+                    </tr>
+                    <tr>
+                        <td>Dosage Range</td>
+                        <td>5-100mg daily</td>
+                        <td>Adjusted based on condition severity</td>
+                    </tr>
+                    <tr>
+                        <td>Storage Temperature</td>
+                        <td>1-30°C</td>
+                        <td>Light-resistant, hermetic container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Storage & Handling Requirements</h3>
+            <div class="kst-card-content">
+                Store in light-resistant, hermetic container at room temperature (1-30°C). Any unused portion of opened ampoule must be discarded immediately to prevent bacterial contamination. Handle glass ampoules with care.
+            </div>
+        </div>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">10</div>
+                <div class="kst-grid-label">Ampoules per Box</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">10mL</div>
+                <div class="kst-grid-label">Volume per Ampoule</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">5mg</div>
+                <div class="kst-grid-label">Fursultiamine per mL</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Safety Information & Precautions</h2>
+        
+        <div class="kst-warning">
+            <div class="kst-warning-title">Important Safety Guidelines</div>
+            <div class="kst-warning-content">
+                HAPROKIN inj is a prescription medication that must be administered by qualified healthcare professionals. Proper safety protocols must be followed during preparation and administration.
+            </div>
+            <ul class="kst-warning-list">
+                <li>Do not use if hypersensitive to fursultiamine or any component</li>
+                <li>Administer IV injections slowly to prevent vascular pain</li>
+                <li>Handle glass ampoules carefully to prevent glass fragment contamination</li>
+                <li>Discontinue immediately if hypersensitivity reactions occur</li>
+                <li>Monitor for rare but serious allergic reactions including shock</li>
+                <li>Discard unused solution from opened ampoules immediately</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Contraindications</h3>
+            <div class="kst-card-content">
+                Known hypersensitivity to fursultiamine hydrochloride or any excipients. Use with caution in patients with history of severe allergic reactions to B-complex vitamins.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Emergency Response</h3>
+            <div class="kst-card-content">
+                In case of hypersensitivity reactions, discontinue injection immediately. Have emergency medications readily available. Monitor vital signs and provide supportive care as needed. Contact emergency services for severe reactions.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Frequently Asked Questions</h2>
+        
+        <div class="kst-faq">
+            <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                <span>What conditions is HAPROKIN inj used for?</span>
+                <span class="kst-faq-icon">+</span>
+            </button>
+            <div class="kst-faq-answer">
+                HAPROKIN inj is used for preventing and treating vitamin B1 deficiency, supporting increased B1 demands during pregnancy or hyperthyroidism, and managing symptoms like neuralgia, muscle pain, and gastrointestinal motility disorders.
+            </div>
+        </div>
+        
+        <div class="kst-faq">
+            <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                <span>How is HAPROKIN inj different from oral vitamin B1?</span>
+                <span class="kst-faq-icon">+</span>
+            </button>
+            <div class="kst-faq-answer">
+                HAPROKIN inj contains Fursultiamine, a lipophilic derivative that has superior bioavailability compared to standard thiamine. Injectable administration ensures 100% bioavailability and rapid therapeutic response, especially important in severe deficiency cases.
+            </div>
+        </div>
+        
+        <div class="kst-faq">
+            <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                <span>What are the possible side effects?</span>
+                <span class="kst-faq-icon">+</span>
+            </button>
+            <div class="kst-faq-answer">
+                Most patients tolerate HAPROKIN inj well. Possible side effects include injection site reactions, vascular pain (with IV administration), and rarely, hypersensitivity reactions. Always inform your healthcare provider of any adverse reactions.
+            </div>
+        </div>
+        
+        <div class="kst-faq">
+            <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                <span>How often should HAPROKIN inj be administered?</span>
+                <span class="kst-faq-icon">+</span>
+            </button>
+            <div class="kst-faq-answer">
+                Administration frequency depends on the severity of B1 deficiency and individual patient needs. Typically administered daily, but your healthcare provider will determine the optimal dosing schedule based on your specific condition.
+            </div>
+        </div>
+        
+        <div class="kst-faq">
+            <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                <span>Can HAPROKIN inj be used with other vitamins?</span>
+                <span class="kst-faq-icon">+</span>
+            </button>
+            <div class="kst-faq-answer">
+                Yes, HAPROKIN inj is often used as part of vitamin cocktails with other B-complex vitamins or nutrients. However, combination protocols should only be determined and administered by qualified healthcare professionals.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Professional Support</h3>
+            <div class="kst-card-content">
+                For detailed technical information, dosing protocols, or clinical guidance, consult with your healthcare provider or contact the manufacturer's medical information department.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Clinical Indications & Patient Suitability</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">B1</div>
+                <div class="kst-grid-label">Deficiency States</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Beriberi</div>
+                <div class="kst-grid-label">Treatment</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Neuritis</div>
+                <div class="kst-grid-label">Management</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Pregnancy</div>
+                <div class="kst-grid-label">Support</div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Ideal Candidates for Treatment</h3>
+            <div class="kst-card-content">
+                Patients with diagnosed vitamin B1 deficiency, individuals with increased metabolic demands (pregnancy, lactation, hyperthyroidism), those experiencing symptoms of neuralgia or myalgia, and patients requiring rapid therapeutic intervention for severe deficiency states.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Clinical Monitoring</h3>
+            <div class="kst-card-content">
+                Regular assessment of neurological symptoms, energy levels, and overall clinical response should be conducted. Monitor for improvement in neuralgia, muscle pain, and gastrointestinal motility. Adjust dosing based on therapeutic response.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Comparison & Selection Guide</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Classification</th>
+                        <th>Primary Use</th>
+                        <th>Key Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Vitamin B1 Supplementation</td>
+                        <td>Deficiency Prevention & Treatment</td>
+                        <td>Energy metabolism, neurological support</td>
+                    </tr>
+                    <tr>
+                        <td>Liver Support Products</td>
+                        <td>Hepatic Protection</td>
+                        <td>Antioxidation, detoxification support</td>
+                    </tr>
+                    <tr>
+                        <td>Skin Enhancement</td>
+                        <td>Aesthetic Improvement</td>
+                        <td>Melanin regulation, skin tone enhancement</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Why Choose HAPROKIN inj?</h3>
+            <div class="kst-card-content">
+                HAPROKIN inj is specifically formulated for addressing vitamin B1 deficiency and supporting increased metabolic demands. If your primary goals are liver detoxification or skin enhancement, other specialized injections may be more appropriate for your needs.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Manufacturing & Quality Assurance</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-badge kst-badge-primary">GMP</div>
+                <div class="kst-card-title">Good Manufacturing Practice</div>
+                <div class="kst-text-small kst-text-muted">Pharmaceutical grade production standards</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-badge kst-badge-primary">Sterile</div>
+                <div class="kst-card-title">Sterile Manufacturing</div>
+                <div class="kst-text-small kst-text-muted">Aseptic production environment</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-badge kst-badge-primary">Quality</div>
+                <div class="kst-card-title">Quality Control</div>
+                <div class="kst-text-small kst-text-muted">Rigorous testing protocols</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-badge kst-badge-primary">Pharma</div>
+                <div class="kst-card-title">Pharmaceutical Grade</div>
+                <div class="kst-text-small kst-text-muted">Professional medical use</div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Hawon Pharmaceutical</h3>
+            <div class="kst-card-content">
+                Manufactured by Hawon Pharmaceutical under strict pharmaceutical manufacturing standards. Each batch undergoes comprehensive quality control testing to ensure purity, potency, and sterility meet international pharmaceutical standards.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Batch Tracking & Traceability</h3>
+            <div class="kst-card-content">
+                Every package includes batch identification for complete traceability. Manufacturing date, expiration date, and batch number are clearly marked on each box to ensure product integrity and patient safety.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function kstToggleFAQ(button) {
+    const faqItem = button.parentElement;
+    const isActive = faqItem.classList.contains('kst-active');
+    
+    // Close all FAQ items
+    document.querySelectorAll('.kst-faq').forEach(item => {
+        item.classList.remove('kst-active');
+    });
+    
+    // Open clicked item if it wasn't active
+    if (!isActive) {
+        faqItem.classList.add('kst-active');
+    }
+}
+</script>

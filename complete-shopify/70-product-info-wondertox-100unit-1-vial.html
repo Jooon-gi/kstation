@@ -1,0 +1,1052 @@
+<style>
+        :root {
+            --kst-main-color: #9E0B0F;
+            --kst-sub-color: #C94C4C;
+            --kst-text-primary: #222222;
+            --kst-text-secondary: #666666;
+            --kst-background: #FFFFFF;
+            --kst-badge-bg: #9E0B0F;
+            --kst-badge-text: #FFFFFF;
+            --kst-badge-hover: #C94C4C;
+        }
+        
+        /* Reset and base styles with kst- prefix */
+        .kst-main-container * {
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container {
+            max-width: 760px !important;
+            margin: 0 auto !important;
+            font-family: 'Inter', 'Helvetica Neue', sans-serif !important;
+            background: linear-gradient(135deg, #faf9f6 0%, #f8f6f0 100%) !important;
+            color: var(--kst-text-primary) !important;
+            padding: 16px !important;
+            line-height: 1.5 !important;
+            overflow-x: hidden !important;
+        }
+        
+        /* Brand Header */
+        .kst-brand-header {
+            text-align: center !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .kst-brand-logo {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            margin-bottom: 20px !important;
+        }
+        
+        .kst-logo-element {
+            width: 32px !important;
+            height: 10px !important;
+            border-radius: 2px !important;
+        }
+        
+        .kst-logo-element:nth-child(1) { background: var(--kst-main-color) !important; }
+        .kst-logo-element:nth-child(2) { background: var(--kst-sub-color) !important; }
+        .kst-logo-element:nth-child(3) { background: #b72b2f !important; }
+        
+        .kst-brand-name {
+            font-size: 20px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 8px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-brand-tagline {
+            font-size: 12px !important;
+            color: var(--kst-sub-color) !important;
+            font-weight: 400 !important;
+        }
+        
+        .kst-product-title {
+            font-size: 32px !important;
+            font-weight: 400 !important;
+            color: var(--kst-text-primary) !important;
+            text-align: center !important;
+            margin-bottom: 32px !important;
+            letter-spacing: -0.5px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+
+        .kst-product-spec {
+            font-size: 24px !important;
+            font-weight: 300 !important;
+            color: var(--kst-badge-bg) !important;
+            text-align: center !important;
+            margin-top: -28px !important;
+            margin-bottom: 40px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        /* Section styles */
+        .kst-section {
+            background: var(--kst-background) !important;
+            padding: 24px 16px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            margin-bottom: 16px !important;
+            border: 1px solid #E0E0E0 !important;
+        }
+        
+        .kst-section-title {
+            font-size: 22px !important;
+            font-weight: 400 !important;
+            color: var(--kst-text-primary) !important;
+            text-align: center !important;
+            margin-bottom: 24px !important;
+            letter-spacing: -0.3px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        /* Image placeholders with auto-hide */
+        .kst-image-block,
+        .kst-chart-block,
+        .kst-visual-guide {
+            background: #fefdf9 !important;
+            border: 2px dashed var(--kst-sub-color) !important;
+            padding: 24px 12px !important;
+            text-align: center !important;
+            border-radius: 6px !important;
+            color: var(--kst-sub-color) !important;
+            font-size: 12px !important;
+            font-style: italic !important;
+            margin: 16px 0 !important;
+            min-height: 120px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        /* Auto-hide empty image containers */
+        .kst-image-block:not(:has(img)),
+        .kst-chart-block:not(:has(img)),
+        .kst-visual-guide:not(:has(img)) {
+            display: none !important;
+        }
+        
+        .kst-image-block:has(img[src=""]),
+        .kst-chart-block:has(img[src=""]),
+        .kst-visual-guide:has(img[src=""]) {
+            display: none !important;
+        }
+        
+        .kst-image-block img,
+        .kst-chart-block img,
+        .kst-visual-guide img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 4px !important;
+        }
+        
+        /* Main showcase image */
+        .kst-main-showcase {
+            margin: 24px 0 !important;
+            min-height: 200px !important;
+        }
+        
+        /* Component cards - single column layout */
+        .kst-components-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
+            margin-bottom: 24px !important;
+        }
+        
+        .kst-component-card {
+            background: var(--kst-background) !important;
+            padding: 20px 16px !important;
+            border-radius: 6px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            border: 1px solid #E0E0E0 !important;
+            overflow: hidden !important;
+            word-wrap: break-word !important;
+        }
+        
+        .kst-component-card:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+        }
+        
+        .kst-card-number {
+            position: absolute !important;
+            top: 12px !important;
+            right: 12px !important;
+            font-size: 20px !important;
+            font-weight: 300 !important;
+            color: #E0E0E0 !important;
+        }
+        
+        .kst-card-flag {
+            display: flex !important;
+            gap: 3px !important;
+            margin-bottom: 16px !important;
+        }
+        
+        .kst-flag-stripe {
+            height: 6px !important;
+            border-radius: 1px !important;
+        }
+        
+        .kst-card-flag.kst-primary .kst-flag-stripe:nth-child(1) { width: 16px !important; background: var(--kst-main-color) !important; }
+        .kst-card-flag.kst-primary .kst-flag-stripe:nth-child(2) { width: 28px !important; background: var(--kst-sub-color) !important; }
+        .kst-card-flag.kst-primary .kst-flag-stripe:nth-child(3) { width: 40px !important; background: #b72b2f !important; }
+        
+        .kst-card-flag.kst-secondary .kst-flag-stripe:nth-child(1) { width: 20px !important; background: var(--kst-main-color) !important; }
+        .kst-card-flag.kst-secondary .kst-flag-stripe:nth-child(2) { width: 32px !important; background: var(--kst-sub-color) !important; }
+        .kst-card-flag.kst-secondary .kst-flag-stripe:nth-child(3) { width: 24px !important; background: #b72b2f !important; }
+        
+        .kst-card-flag.kst-tertiary .kst-flag-stripe:nth-child(1) { width: 18px !important; background: var(--kst-main-color) !important; }
+        .kst-card-flag.kst-tertiary .kst-flag-stripe:nth-child(2) { width: 30px !important; background: var(--kst-sub-color) !important; }
+        .kst-card-flag.kst-tertiary .kst-flag-stripe:nth-child(3) { width: 36px !important; background: #b72b2f !important; }
+        
+        .kst-component-name {
+            font-size: 18px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 8px !important;
+            line-height: 1.3 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-component-type {
+            font-size: 12px !important;
+            color: var(--kst-sub-color) !important;
+            margin-bottom: 4px !important;
+            font-weight: 400 !important;
+        }
+        
+        .kst-component-concentration {
+            font-size: 14px !important;
+            color: var(--kst-main-color) !important;
+            font-weight: 500 !important;
+            margin-bottom: 8px !important;
+        }
+        
+        .kst-component-weight {
+            font-size: 11px !important;
+            color: var(--kst-sub-color) !important;
+            margin-bottom: 12px !important;
+        }
+        
+        .kst-component-description {
+            font-size: 13px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5 !important;
+        }
+        
+        .kst-progress-bar {
+            width: 100% !important;
+            height: 3px !important;
+            background: #F0F0F0 !important;
+            border-radius: 2px !important;
+            margin: 12px 0 !important;
+            overflow: hidden !important;
+        }
+        
+        .kst-progress-fill {
+            height: 100% !important;
+            border-radius: 2px !important;
+            transition: width 0.8s ease !important;
+        }
+        
+        .kst-component-card:nth-child(1) .kst-progress-fill { width: 85% !important; background: var(--kst-main-color) !important; }
+        .kst-component-card:nth-child(2) .kst-progress-fill { width: 70% !important; background: var(--kst-sub-color) !important; }
+        .kst-component-card:nth-child(3) .kst-progress-fill { width: 90% !important; background: #b72b2f !important; }
+        
+        /* Definition lists for ingredients */
+        .kst-ingredients-list {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        .kst-ingredients-list dt {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 4px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-ingredients-list dd {
+            font-size: 13px !important;
+            color: var(--kst-text-secondary) !important;
+            margin: 0 0 16px 0 !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* Chip badges */
+        .kst-chip-container {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 6px !important;
+            margin: 12px 0 !important;
+        }
+        
+        .kst-chip {
+            display: inline-block !important;
+            padding: 4px 8px !important;
+            background: #e2e8f0 !important;
+            border: 1px solid #CBD5E0 !important;
+            border-radius: 12px !important;
+            font-size: 11px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-secondary) !important;
+        }
+        
+        .kst-chip.kst-primary { background: #fefdf9 !important; color: var(--kst-main-color) !important; border-color: var(--kst-sub-color) !important; }
+        .kst-chip.kst-secondary { background: #fefdf9 !important; color: var(--kst-main-color) !important; border-color: var(--kst-sub-color) !important; }
+        .kst-chip.kst-tertiary { background: #fefdf9 !important; color: var(--kst-main-color) !important; border-color: var(--kst-sub-color) !important; }
+        
+        /* Benefits list - single column */
+        .kst-benefits-list {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+        }
+        
+        .kst-benefit-item {
+            display: flex !important;
+            gap: 12px !important;
+            align-items: flex-start !important;
+        }
+        
+        .kst-benefit-number {
+            width: 32px !important;
+            height: 32px !important;
+            background: #f7fafc !important;
+            border: 2px solid #E0E0E0 !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            color: var(--kst-text-secondary) !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .kst-benefit-content {
+            flex: 1 !important;
+        }
+        
+        .kst-benefit-title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 6px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-benefit-description {
+            font-size: 13px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* Usage steps */
+        .kst-usage-steps {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
+            margin-top: 24px !important;
+        }
+        
+        .kst-step-card {
+            display: flex !important;
+            gap: 16px !important;
+            align-items: flex-start !important;
+            padding: 20px 16px !important;
+            background: #f7fafc !important;
+            border-radius: 6px !important;
+            border: 1px solid #E0E0E0 !important;
+            position: relative !important;
+        }
+        
+        .kst-step-number {
+            width: 36px !important;
+            height: 36px !important;
+            background: var(--kst-sub-color) !important;
+            color: var(--kst-background) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .kst-step-content {
+            flex: 1 !important;
+        }
+        
+        .kst-step-title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 6px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-step-description {
+            font-size: 13px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* Protocol cards */
+        .kst-protocol-cards {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
+            margin-top: 24px !important;
+        }
+        
+        .kst-protocol-card {
+            background: #f7fafc !important;
+            padding: 20px 16px !important;
+            border-radius: 6px !important;
+            border: 1px solid #E0E0E0 !important;
+            position: relative !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }
+        
+        .kst-protocol-card::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 3px !important;
+            border-radius: 6px 6px 0 0 !important;
+        }
+        
+        .kst-protocol-card:nth-child(1)::before { background: var(--kst-main-color) !important; }
+        .kst-protocol-card:nth-child(2)::before { background: var(--kst-sub-color) !important; }
+        
+        .kst-protocol-title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 8px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-protocol-content {
+            font-size: 13px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* Table container with horizontal scroll */
+        .kst-table-wrap {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            margin: 16px 0 !important;
+            border-radius: 6px !important;
+            border: 1px solid #E0E0E0 !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px !important;
+            width: 6px !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f8f6f0 !important;
+            border-radius: 3px !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: var(--kst-sub-color) !important;
+            border-radius: 3px !important;
+            border: 1px solid #F0F0E6 !important;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb:hover {
+            background: var(--kst-main-color) !important;
+        }
+        
+        .kst-specifications-table {
+            width: 100% !important;
+            min-width: 600px !important;
+            border-collapse: collapse !important;
+            background: var(--kst-background) !important;
+            table-layout: auto !important;
+        }
+        
+        .kst-specifications-table th,
+        .kst-specifications-table td {
+            padding: 12px 16px !important;
+            text-align: left !important;
+            border-bottom: 1px solid #E0E0E0 !important;
+            color: var(--kst-text-secondary) !important;
+            font-size: 13px !important;
+            white-space: nowrap !important;
+        }
+        
+        .kst-specifications-table th {
+            background: #f7fafc !important;
+            font-weight: 500 !important;
+            color: var(--kst-text-primary) !important;
+            font-size: 12px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.3px !important;
+        }
+        
+        .kst-specifications-table tr:last-child td {
+            border-bottom: none !important;
+        }
+        
+        /* Stats list - single column */
+        .kst-stats-list {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            margin-top: 20px !important;
+        }
+        
+        .kst-stat-card {
+            text-align: center !important;
+            padding: 16px 12px !important;
+            background: var(--kst-background) !important;
+            border-radius: 6px !important;
+            border: 2px solid #E0E0E0 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }
+        
+        .kst-stat-value {
+            font-size: 24px !important;
+            font-weight: 600 !important;
+            color: var(--kst-sub-color) !important;
+            margin-bottom: 6px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-stat-label {
+            font-size: 11px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.3 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        /* Safety Warning */
+        .kst-safety-warning {
+            background: #fefdf9 !important;
+            border: 2px solid var(--kst-sub-color) !important;
+            border-radius: 6px !important;
+            padding: 20px 16px !important;
+            margin: 20px 0 !important;
+            position: relative !important;
+        }
+        
+        .kst-warning-icon {
+            position: absolute !important;
+            top: 16px !important;
+            left: 16px !important;
+            width: 24px !important;
+            height: 24px !important;
+            background: var(--kst-sub-color) !important;
+            color: var(--kst-background) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-weight: 600 !important;
+            font-size: 12px !important;
+        }
+        
+        .kst-warning-content {
+            margin-left: 36px !important;
+        }
+        
+        .kst-warning-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: var(--kst-main-color) !important;
+            margin-bottom: 8px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        .kst-warning-text {
+            font-size: 13px !important;
+            color: var(--kst-main-color) !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* Text utilities */
+        .kst-text-center { text-align: center !important; }
+        .kst-text-muted { color: var(--kst-text-secondary) !important; }
+        .kst-text-small { font-size: 12px !important; }
+        .kst-text-bold { font-weight: 600 !important; }
+        
+        /* Margin utilities */
+        .kst-mb-0 { margin-bottom: 0 !important; }
+        .kst-mb-1 { margin-bottom: 8px !important; }
+        .kst-mb-2 { margin-bottom: 16px !important; }
+        .kst-mb-3 { margin-bottom: 24px !important; }
+        .kst-mt-1 { margin-top: 8px !important; }
+        .kst-mt-2 { margin-top: 16px !important; }
+        .kst-mt-3 { margin-top: 24px !important; }
+        
+        /* Lists */
+        .kst-main-container ul,
+        .kst-main-container ol {
+            margin: 12px 0 !important;
+            padding-left: 20px !important;
+        }
+        
+        .kst-main-container ul li,
+        .kst-main-container ol li {
+            font-size: 13px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.5 !important;
+            margin-bottom: 6px !important;
+        }
+        
+        /* Additional utility classes */
+        .kst-highlight {
+            background: #fefdf9 !important;
+            color: var(--kst-main-color) !important;
+            padding: 2px 6px !important;
+            border-radius: 3px !important;
+            font-weight: 500 !important;
+        }
+        
+        .kst-badge {
+            display: inline-block !important;
+            padding: 3px 8px !important;
+            background: var(--kst-badge-bg) !important;
+            color: var(--kst-badge-text) !important;
+            border-radius: 4px !important;
+            font-size: 11px !important;
+            font-weight: 500 !important;
+        }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-brand-header">
+        <div class="kst-brand-logo">
+            <div class="kst-logo-element"></div>
+            <div class="kst-logo-element"></div>
+            <div class="kst-logo-element"></div>
+        </div>
+        <div class="kst-brand-name">WONDERTOX</div>
+        <div class="kst-brand-tagline">Premium Botulinum Toxin Type A</div>
+    </div>
+    
+    <h1 class="kst-product-title">WONDERTOX</h1>
+    <h2 class="kst-product-spec">100 Units / 1 Vial</h2>
+    
+    <div class="kst-image-block kst-main-showcase">
+        [WONDERTOX_100U_PRODUCT_IMAGE_SHOWCASE]
+    </div>
+    
+    <div class="kst-section" id="kst-basic-info">
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-chip-container">
+            <span class="kst-chip kst-primary">Botulinum Toxin Type A</span>
+            <span class="kst-chip kst-secondary">100 Units</span>
+            <span class="kst-chip kst-tertiary">Professional Grade</span>
+        </div>
+        
+        <p style="font-size: 14px !important; color: var(--kst-text-secondary) !important; line-height: 1.6 !important; margin: 16px 0 !important;">
+            WONDERTOX Inj. 100 units is a premium botulinum toxin type A injection designed for facial aesthetic treatments. This precisely formulated product delivers temporary improvement of moderate to severe glabellar lines (frown lines) associated with corrugator and/or procerus muscle activity, as well as forehead lines and crow's feet.
+        </p>
+        
+        <div class="kst-text-center kst-mt-2">
+            <span class="kst-highlight">Face-Centric Cosmetic Treatment Solution</span>
+        </div>
+    </div>
+    
+    <div class="kst-section" id="kst-components">
+        <h2 class="kst-section-title">Key Components</h2>
+        
+        <div class="kst-components-grid">
+            <div class="kst-component-card">
+                <div class="kst-card-number">1</div>
+                <div class="kst-card-flag kst-primary">
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                </div>
+                <div class="kst-component-name">Clostridium Botulinum Toxin Type A</div>
+                <div class="kst-component-type">Active Ingredient</div>
+                <div class="kst-component-concentration">100 Units</div>
+                <div class="kst-component-weight">per 1 vial</div>
+                <div class="kst-progress-bar">
+                    <div class="kst-progress-fill"></div>
+                </div>
+                <div class="kst-component-description">
+                    Primary active ingredient that temporarily relaxes targeted facial muscles by blocking nerve signals, effectively reducing muscle contractions that cause wrinkles and fine lines.
+                </div>
+            </div>
+            
+            <div class="kst-component-card">
+                <div class="kst-card-number">2</div>
+                <div class="kst-card-flag kst-secondary">
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                </div>
+                <div class="kst-component-name">Albumin (EP)</div>
+                <div class="kst-component-type">Stabilizer</div>
+                <div class="kst-component-concentration">0.5 mg</div>
+                <div class="kst-component-weight">stabilizing agent</div>
+                <div class="kst-progress-bar">
+                    <div class="kst-progress-fill"></div>
+                </div>
+                <div class="kst-component-description">
+                    Protein stabilizer that maintains the integrity and potency of the botulinum toxin during storage and after reconstitution.
+                </div>
+            </div>
+            
+            <div class="kst-component-card">
+                <div class="kst-card-number">3</div>
+                <div class="kst-card-flag kst-tertiary">
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                    <div class="kst-flag-stripe"></div>
+                </div>
+                <div class="kst-component-name">Sodium Chloride (USP)</div>
+                <div class="kst-component-type">Isotonic Agent</div>
+                <div class="kst-component-concentration">0.9 mg</div>
+                <div class="kst-component-weight">buffering agent</div>
+                <div class="kst-progress-bar">
+                    <div class="kst-progress-fill"></div>
+                </div>
+                <div class="kst-component-description">
+                    Maintains proper osmotic balance and ensures comfortable injection by matching the body's natural fluid composition.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block kst-mt-2">
+            [INGREDIENT_MOLECULAR_STRUCTURE_VISUALIZATION]
+        </div>
+    </div>
+    
+    <div class="kst-section" id="kst-benefits">
+        <h2 class="kst-section-title">Key Benefits & Applications</h2>
+        
+        <div class="kst-benefits-list">
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">1</div>
+                <div class="kst-benefit-content">
+                    <div class="kst-benefit-title">Glabellar Lines Treatment</div>
+                    <div class="kst-benefit-description">
+                        Effectively treats moderate to severe glabellar lines (frown lines) associated with corrugator and procerus muscle activity.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">2</div>
+                <div class="kst-benefit-content">
+                    <div class="kst-benefit-title">Forehead Lines Reduction</div>
+                    <div class="kst-benefit-description">
+                        Improves horizontal forehead lines for a smoother, more youthful appearance.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">3</div>
+                <div class="kst-benefit-content">
+                    <div class="kst-benefit-title">Crow's Feet Treatment</div>
+                    <div class="kst-benefit-description">
+                        Reduces periorbital lines (crow's feet) around the eyes for a refreshed look.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">4</div>
+                <div class="kst-benefit-content">
+                    <div class="kst-benefit-title">Facial Muscle Relaxation</div>
+                    <div class="kst-benefit-description">
+                        Provides targeted muscle relaxation for facial contouring and skin-smoothening effects.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block kst-mt-3">
+            [BEFORE_AFTER_COMPARISON_FACIAL_TREATMENT]
+        </div>
+        
+        <div class="kst-text-center kst-mt-2">
+            <p class="kst-text-small kst-text-muted">
+                Long-lasting results with average duration of 3-4 months for face-centric treatments
+            </p>
+        </div>
+    </div>
+    
+    <div class="kst-section" id="kst-usage">
+        <h2 class="kst-section-title">Administration Protocol</h2>
+        
+        <div class="kst-protocol-cards">
+            <div class="kst-protocol-card">
+                <div class="kst-protocol-title">Recommended Dilution</div>
+                <div class="kst-protocol-content">
+                    Dilute one vial (100 units) with 2.5 mL of 0.9% preservative-free sterile saline to achieve a concentration of 4U/0.1 mL for optimal injection consistency.
+                </div>
+            </div>
+            
+            <div class="kst-protocol-card">
+                <div class="kst-protocol-title">Standard Dosage for Glabellar Lines</div>
+                <div class="kst-protocol-content">
+                    The standard dosage is a total of 20 units, injected into 5 sites for effective treatment of glabellar lines.
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-usage-steps">
+            <div class="kst-step-card">
+                <div class="kst-step-number">1</div>
+                <div class="kst-step-content">
+                    <div class="kst-step-title">Pre-treatment Assessment</div>
+                    <div class="kst-step-description">Licensed healthcare professional evaluates treatment areas and determines appropriate dosage based on muscle activity and individual needs.</div>
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">2</div>
+                <div class="kst-step-content">
+                    <div class="kst-step-title">Reconstitution</div>
+                    <div class="kst-step-description">Properly reconstitute with 2.5 mL preservative-free sterile saline using aseptic technique to achieve 4U/0.1 mL concentration.</div>
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">3</div>
+                <div class="kst-step-content">
+                    <div class="kst-step-title">Treatment Administration</div>
+                    <div class="kst-step-description">Inject into predetermined facial sites using appropriate injection technique for the specific treatment area and desired outcome.</div>
+                </div>
+            </div>
+            
+            <div class="kst-step-card">
+                <div class="kst-step-number">4</div>
+                <div class="kst-step-content">
+                    <div class="kst-step-title">Post-treatment Care</div>
+                    <div class="kst-step-description">Monitor for immediate reactions and provide appropriate post-treatment care instructions to ensure optimal results.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-visual-guide kst-mt-2">
+            [FACIAL_INJECTION_TECHNIQUE_VISUAL_GUIDE]
+        </div>
+        
+        <div class="kst-stats-list">
+            <div class="kst-stat-card">
+                <div class="kst-stat-value">2-3 Days</div>
+                <div class="kst-stat-label">Initial Effect Onset</div>
+            </div>
+            
+            <div class="kst-stat-card">
+                <div class="kst-stat-value">1-2 Weeks</div>
+                <div class="kst-stat-label">Maximum Results Visible</div>
+            </div>
+            
+            <div class="kst-stat-card">
+                <div class="kst-stat-value">3-4 Months</div>
+                <div class="kst-stat-label">Average Duration of Effect</div>
+            </div>
+            
+            <div class="kst-stat-card">
+                <div class="kst-stat-value">24 Hours</div>
+                <div class="kst-stat-label">Maximum Storage After Reconstitution</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section" id="kst-specifications">
+        <h2 class="kst-section-title">Product Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-specifications-table">
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product Volume</td>
+                        <td>100 units / 1 vial</td>
+                        <td>Lyophilized powder form</td>
+                    </tr>
+                    <tr>
+                        <td>Storage Temperature</td>
+                        <td>2-8°C</td>
+                        <td>Refrigerated storage required</td>
+                    </tr>
+                    <tr>
+                        <td>Reconstitution Volume</td>
+                        <td>2.5 mL sterile saline</td>
+                        <td>0.9% preservative-free</td>
+                    </tr>
+                    <tr>
+                        <td>Final Concentration</td>
+                        <td>4U/0.1 mL</td>
+                        <td>After proper dilution</td>
+                    </tr>
+                    <tr>
+                        <td>Shelf Life After Reconstitution</td>
+                        <td>Use immediately / Max 24 hours</td>
+                        <td>Store at 2-8°C, do not freeze</td>
+                    </tr>
+                    <tr>
+                        <td>Treatment Area Focus</td>
+                        <td>Face-centric procedures</td>
+                        <td>Glabella, forehead, crow's feet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-mt-3">
+            <h4 style="font-size: 16px !important; font-weight: 500 !important; color: var(--kst-text-primary) !important; margin-bottom: 12px !important;">Storage & Handling Requirements</h4>
+            <ul>
+                <li>Store unopened vials in refrigerator at 2-8°C (36-46°F)</li>
+                <li>Protect from light during storage</li>
+                <li>Use reconstituted solution immediately or within 24 hours maximum under refrigerated conditions</li>
+                <li>One vial should be used for one patient only</li>
+                <li>Do not use if packaging is damaged or product appears discolored</li>
+                <li>Solution should be clear and transparent after reconstitution</li>
+            </ul>
+        </div>
+        
+        <div class="kst-image-block kst-mt-2">
+            [STORAGE_CONDITIONS_INFOGRAPHIC]
+        </div>
+    </div>
+    
+    <div class="kst-safety-warning">
+        <div class="kst-warning-icon">!</div>
+        <div class="kst-warning-content">
+            <div class="kst-warning-title">Professional Use Only</div>
+            <div class="kst-warning-text">This product should only be administered by licensed healthcare professionals, dermatologists, or certified aesthetic practitioners. Proper training in injection techniques and patient assessment is essential for safe and effective treatment outcomes.</div>
+        </div>
+    </div>
+    
+    <div class="kst-section" id="kst-safety">
+        <h2 class="kst-section-title">Safety Information & Precautions</h2>
+        
+        <div class="kst-mb-3">
+            <h4 style="font-size: 16px !important; font-weight: 500 !important; color: var(--kst-text-primary) !important; margin-bottom: 12px !important;">Important Precautions</h4>
+            <ul>
+                <li>Must be administered by licensed healthcare professionals only</li>
+                <li>Proper patient assessment and medical history review required</li>
+                <li>Use aseptic technique during reconstitution and injection</li>
+                <li>Monitor for allergic reactions or adverse responses</li>
+                <li>Ensure proper dosage calculation based on treatment area</li>
+                <li>One vial per patient policy must be strictly followed</li>
+            </ul>
+        </div>
+        
+        <div class="kst-mb-3">
+            <h4 style="font-size: 16px !important; font-weight: 500 !important; color: var(--kst-text-primary) !important; margin-bottom: 12px !important;">Contraindications</h4>
+            <ul>
+                <li>Do not use if packaging is damaged or expiration date has passed</li>
+                <li>Discard if particles or discoloration are observed after reconstitution</li>
+                <li>Highly purified to remove any impurities for enhanced safety</li>
+                <li>Maintain cold chain throughout handling and storage</li>
+            </ul>
+        </div>
+        
+        <div class="kst-image-block kst-mt-2">
+            [SAFETY_PROTOCOL_VISUAL_GUIDE]
+        </div>
+    </div>
+    
+    <div class="kst-section" id="kst-technical">
+        <h2 class="kst-section-title">Technical Advantages</h2>
+        
+        <p style="font-size: 14px !important; color: var(--kst-text-secondary) !important; line-height: 1.6 !important; margin: 16px 0 !important;">
+            The 100-unit formulation of WONDERTOX is specifically designed for face-centric cosmetic procedures, making it ideal for targeted facial aesthetic treatments. This optimized dosage provides:
+        </p>
+        
+        <div class="kst-benefits-list kst-mt-2">
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">1</div>
+                <div class="kst-benefit-content">
+                    <div class="kst-benefit-title">Optimized Facial Treatment Volume</div>
+                    <div class="kst-benefit-description">
+                        Perfect unit count for comprehensive facial treatments including glabella, forehead, and periorbital areas.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">2</div>
+                <div class="kst-benefit-content">
+                    <div class="kst-benefit-title">Low Risk of Resistance</div>
+                    <div class="kst-benefit-description">
+                        Reduced risk of developing resistance due to appropriate dosing for facial applications.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-benefit-item">
+                <div class="kst-benefit-number">3</div>
+                <div class="kst-benefit-content">
+                    <div class="kst-benefit-title">High Purity Formula</div>
+                    <div class="kst-benefit-description">
+                        Highly purified to remove any impurities, ensuring enhanced safety and efficacy for aesthetic procedures.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-text-center kst-mt-3">
+            <span class="kst-highlight">Manufactured with Advanced Purification Technology - Clear Glass Vial with Lyophilized White Powder</span>
+        </div>
+        
+        <div class="kst-image-block kst-mt-2">
+            [PRODUCT_PACKAGING_AND_VIAL_DETAILS]
+        </div>
+    </div>
+    
+</div>

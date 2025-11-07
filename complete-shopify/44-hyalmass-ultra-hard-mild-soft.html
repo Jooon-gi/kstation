@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hyalmass Dermal Filler Series</title>
+<style>
+  /* =========================================
+   Shopify-Optimized Mobile Template Styles
+  ========================================== */
+
+  /* Basic Reset - kst- prefix applied */
+  .kst-main-container *, 
+  .kst-main-container *::before, 
+  .kst-main-container *::after { 
+    box-sizing: border-box !important; 
+  }
+  
+  .kst-main-container {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif !important;
+    color: var(--kst-muted) !important;
+    line-height: 1.6 !important;
+    background: var(--kst-background) !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    isolation: isolate !important;
+  }
+
+  /* Auto-hide image functionality - CSS :has() based */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none !important;
+  }
+
+  .kst-main-container img, 
+  .kst-main-container video { 
+    max-width: 100% !important; 
+    height: auto !important; 
+    display: block !important;
+    object-fit: cover !important;
+  }
+  
+  /* =========================================
+   Design Tokens (Custom Green Theme)
+  ========================================== */
+  .kst-main-container {
+    --kst-background: #FFFFFF;
+    --kst-card: #FFFFFF;
+    --kst-border: #E2E8F0;
+    --kst-muted: #7b7b7b;
+    --kst-ink: #006838;
+    --kst-acc-1: #006838;
+    --kst-acc-2: #FEC20F;
+    --kst-acc-3: #006838;
+    --kst-acc-4: #FEC20F;
+    --kst-ring: #006838;
+    --kst-text-normal: #3f3f3f;
+    --kst-shadow: 0 4px 12px rgba(0,104,56,0.08);
+    --kst-radiance: conic-gradient(from 180deg at 50% 50%,
+      rgba(0,104,56,.2), rgba(254,194,15,.2), rgba(0,104,56,.2), rgba(254,194,15,.2), rgba(0,104,56,.2));
+  }
+
+  /* =========================================
+   Container
+  ========================================== */
+  .kst-container {
+    padding: 16px 12px !important;
+  }
+
+  /* =========================================
+   Sections
+  ========================================== */
+  .kst-section {
+    position: relative !important;
+    background: var(--kst-card) !important;
+    border: 1px solid var(--kst-border) !important;
+    padding: 20px 16px !important;
+    margin: 16px 8px !important;
+    box-shadow: var(--kst-shadow) !important;
+    overflow: hidden !important;
+  }
+
+  .kst-section::before {
+    content: "" !important;
+    position: absolute !important; 
+    inset: -1px -1px auto -1px !important; 
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--kst-acc-1), #b9c811, var(--kst-acc-1)) !important;
+    opacity: .8 !important;
+  }
+
+  .kst-section-title {
+    margin: 0 0 12px !important;
+    font-weight: 400 !important;
+    font-size: 1.25rem !important;
+    letter-spacing: .2px !important;
+    color: var(--kst-ink) !important;
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  
+  .kst-section-title::after {
+    content: "" !important;
+    height: 8px !important; 
+    width: 32px !important;
+    background: var(--kst-radiance) !important;
+    filter: blur(8px) !important;
+    opacity: .7 !important;
+  }
+
+  .kst-section-sub { 
+    margin: 0 0 14px !important; 
+    color: var(--kst-text-normal) !important; 
+    font-size: .9rem !important; 
+  }
+  
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: var(--kst-card) !important;
+    border: 1px solid var(--kst-border) !important;
+    padding: 20px 16px !important;
+    position: relative !important; 
+    overflow: hidden !important;
+    margin: 12px 8px !important;
+    box-shadow: var(--kst-shadow) !important;
+  }
+
+  .kst-hero::before {
+    content: "" !important;
+    position: absolute !important; 
+    inset: -20% -10% auto auto !important; 
+    width: 280px !important; 
+    height: 280px !important;
+    background: var(--kst-radiance) !important; 
+    filter: blur(25px) !important; 
+    opacity: .3 !important;
+    animation: kst-blob 20s linear infinite !important;
+  }
+
+  @keyframes kst-blob {
+    0% { transform: translate(0,0) rotate(0deg) !important; }
+    50% { transform: translate(-8px, 4px) rotate(6deg) !important; }
+    100% { transform: translate(0,0) rotate(0deg) !important; }
+  }
+
+  .kst-labels { 
+    display: flex !important; 
+    gap: 6px !important; 
+    flex-wrap: wrap !important; 
+    margin-bottom: 12px !important;
+  }
+
+  .kst-badge {
+    display: inline-flex !important; 
+    align-items: center !important; 
+    gap: 4px !important;
+    padding: 6px 10px !important;
+    background: var(--kst-acc-1) !important;
+    border: 1px solid var(--kst-acc-1) !important;
+    color: #FFFFFF !important; 
+    font-size: .75rem !important; 
+    font-weight: 400 !important;
+    transition: background .2s ease !important;
+  }
+
+  .kst-badge:hover { 
+    background: var(--kst-acc-2) !important;
+    border-color: var(--kst-acc-2) !important;
+  }
+
+  .kst-badge.kst-brand { 
+    background: var(--kst-acc-1) !important;
+    color: #FFFFFF !important;
+  }
+  .kst-badge.kst-keyword { 
+    background: var(--kst-acc-2) !important;
+    color: var(--kst-ink) !important;
+  }
+  .kst-badge.kst-warn { 
+    background: var(--kst-acc-2) !important;
+    color: var(--kst-ink) !important;
+  }
+  .kst-badge.kst-num { 
+    background: var(--kst-acc-1) !important;
+    color: #FFFFFF !important;
+  }
+
+  .kst-hero-title {
+    margin: 0 0 8px !important;
+    font-weight: 500 !important;
+    font-size: 2rem !important;
+    letter-spacing: .2px !important;
+    color: var(--kst-ink) !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+
+  .kst-hero-spec {
+    margin: -8px 0 15px !important;
+    font-weight: 500 !important;
+    font-size: 1.4rem !important;
+    letter-spacing: .1px !important;
+    color: var(--kst-ink) !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+
+  .kst-hero p { 
+    margin: 0 0 10px !important; 
+    color: var(--kst-muted) !important; 
+  }
+
+  .kst-highlight {
+    border: 1px solid var(--kst-border) !important;
+    background: rgba(0,104,56,0.05) !important;
+    padding: 10px 12px !important; 
+    color: var(--kst-ink) !important;
+    margin-bottom: 12px !important;
+    font-weight: 300 !important;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important; 
+  }
+
+  .kst-card {
+    background: var(--kst-card) !important; 
+    border: 1px solid var(--kst-border) !important; 
+    padding: 14px !important; 
+    box-shadow: var(--kst-shadow) !important; 
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease !important; 
+    margin: 10px 0 0 !important;
+  }
+
+  .kst-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0,104,56,0.12) !important;
+    border-color: var(--kst-acc-1) !important;
+  }
+
+  .kst-card h4 { 
+    margin: 0 0 8px !important; 
+    font-size: .95rem !important; 
+    color: var(--kst-ink) !important;
+    font-weight: 400 !important;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li { 
+    color: var(--kst-muted) !important; 
+  }
+
+  .kst-muted { 
+    color: var(--kst-muted) !important; 
+  }
+
+  /* =========================================
+   Image Blocks
+  ========================================== */
+  .kst-image-block {
+    position: relative !important;
+    background: rgba(0,104,56,0.05) !important;
+    border: 1px dashed var(--kst-border) !important;
+    aspect-ratio: 16/9 !important;
+    display: grid !important; 
+    place-items: center !important;
+    color: var(--kst-muted) !important; 
+    font-weight: 400 !important;
+    overflow: hidden !important;
+    margin: 8px !important;
+  }
+
+  .kst-image-block::after {
+    content: "" !important;
+    position: absolute !important; 
+    inset: -40% -20% auto auto !important; 
+    height: 100px !important; 
+    width: 100px !important;
+    background: var(--kst-radiance) !important; 
+    filter: blur(12px) !important; 
+    opacity: .6 !important;
+    animation: kst-drift 12s ease-in-out infinite alternate !important;
+  }
+
+  @keyframes kst-drift { 
+    to { transform: translate(-15px, 10px) rotate(6deg) !important; } 
+  }
+
+  .kst-chart-block {
+    position: relative !important;
+    background: rgba(0,104,56,0.05) !important;
+    border: 1px dashed var(--kst-border) !important;
+    aspect-ratio: 4/3 !important;
+    display: grid !important; 
+    place-items: center !important;
+    color: var(--kst-muted) !important; 
+    font-weight: 400 !important;
+    overflow: hidden !important;
+    margin: 8px !important;
+  }
+
+  /* =========================================
+   Definition Lists & Chips
+  ========================================== */
+  .kst-def {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important; 
+    margin: 0 !important;
+  }
+
+  .kst-def-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .kst-def dt { 
+    font-weight: 500 !important; 
+    color: var(--kst-ink) !important; 
+  }
+
+  .kst-def dd { 
+    margin: 0 !important; 
+    color: var(--kst-muted) !important; 
+  }
+
+  .kst-chips { 
+    display: flex !important; 
+    flex-wrap: wrap !important; 
+    gap: 6px !important; 
+  }
+
+  .kst-chip {
+    background: var(--kst-acc-1) !important;
+    color: #FFFFFF !important; 
+    border: 1px solid var(--kst-acc-1) !important;
+    padding: 5px 8px !important; 
+    font-size: .75rem !important; 
+    font-weight: 400 !important;
+  }
+
+  .kst-chip:hover {
+    background: var(--kst-acc-2) !important;
+    color: var(--kst-ink) !important;
+    border-color: var(--kst-acc-2) !important;
+  }
+
+  /* =========================================
+   Steps
+  ========================================== */
+  .kst-steps { 
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important; 
+    counter-reset: kst-step !important; 
+  }
+
+  .kst-step {
+    display: flex !important; 
+    align-items: flex-start !important; 
+    gap: 10px !important;
+    padding: 16px !important;
+    margin: 2px 0 !important;
+    border: 1px solid var(--kst-border) !important;
+    background: var(--kst-card) !important;
+    box-shadow: var(--kst-shadow) !important;
+  }
+
+  .kst-step .kst-num {
+    min-width: 28px !important; 
+    height: 28px !important;
+    display: grid !important; 
+    place-items: center !important;
+    background: var(--kst-acc-1) !important;
+    color: #FFFFFF !important; 
+    font-weight: 600 !important; 
+    border: 1px solid var(--kst-acc-1) !important;
+    counter-increment: kst-step !important;
+  }
+
+  .kst-step .kst-num::before { 
+    content: counter(kst-step) !important; 
+  }
+
+  .kst-step strong { 
+    color: var(--kst-ink) !important; 
+  }
+
+  .kst-step .kst-muted { 
+    color: var(--kst-muted) !important; 
+  }
+
+  .kst-split { 
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important; 
+  }
+
+  /* =========================================
+   Table
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border: 1px solid var(--kst-border) !important;
+    background: var(--kst-card) !important;
+    margin: 16px 0 !important;
+    box-shadow: var(--kst-shadow) !important;
+  }
+
+  .kst-table {
+    min-width: 700px !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
+    color: var(--kst-ink) !important;
+    table-layout: auto !important;
+  }
+
+  .kst-table th, .kst-table td {
+    padding: 10px 12px !important; 
+    border-bottom: 1px solid #E2E8F0 !important;
+    text-align: left !important; 
+    vertical-align: top !important;
+  }
+
+  .kst-table td { 
+      white-space: nowrap !important; 
+    } 
+
+  .kst-table thead th {
+    position: sticky !important; 
+    top: 0 !important;
+    background: rgba(0,104,56,0.05) !important;
+    z-index: 1 !important;
+    white-space: nowrap !important;
+    font-weight: 500 !important;
+    color: var(--kst-ink) !important;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar { 
+    height: 6px !important; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-track { 
+    background: #E2E8F0 !important; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-thumb { 
+    background: var(--kst-acc-1) !important; 
+  }
+
+  /* =========================================
+   Callouts & KPI
+  ========================================== */
+  .kst-callout {
+    border: 1px solid var(--kst-acc-2) !important;
+    background: rgba(254,194,15,.1) !important;
+    color: var(--kst-ink) !important;
+    padding: 12px !important;
+    margin: 8px !important;
+  }
+
+  .kst-callout strong { 
+    color: var(--kst-ink) !important; 
+  }
+
+  .kst-kpi {
+    font-size: 1.6rem !important;
+    font-weight: 600 !important; 
+    color: var(--kst-ink) !important;
+  }
+
+  .kst-kpi .kst-unit { 
+    font-size: .8rem !important; 
+    color: var(--kst-muted) !important; 
+    font-weight: 400 !important; 
+    margin-left: 4px !important; 
+  }
+
+  .kst-label-value { 
+    display: flex !important; 
+    flex-direction: column !important;
+    gap: 4px !important; 
+    color: var(--kst-ink) !important; 
+    margin-bottom: 8px !important;
+  }
+
+  .kst-label-value .kst-label { 
+    color: var(--kst-muted) !important; 
+    font-weight: 300 !important;
+  }
+
+  /* =========================================
+   FAQ Accordion
+  ========================================== */
+  .kst-accordion { 
+    border: 1px solid var(--kst-border) !important;
+    background: var(--kst-card) !important;
+    margin: 8px !important;
+    box-shadow: var(--kst-shadow) !important;
+  }
+
+  .kst-ac-item { 
+    border-bottom: 1px solid #E2E8F0 !important; 
+  }
+
+  .kst-ac-item:last-child { 
+    border-bottom: none !important; 
+  }
+
+  .kst-ac-button {
+    width: 100% !important; 
+    text-align: left !important; 
+    background: transparent !important; 
+    border: 0 !important; 
+    padding: 14px !important; 
+    color: var(--kst-ink) !important; 
+    display: flex !important; 
+    justify-content: space-between !important;
+    cursor: pointer !important;
+    font-weight: 300 !important;
+  }
+
+  .kst-ac-panel { 
+    padding: 0 14px 14px !important; 
+    color: var(--kst-muted) !important;
+    display: none !important;
+  }
+
+  .kst-ac-panel.kst-show { 
+    display: block !important; 
+  }
+
+  /* Footer */
+  .kst-footer {
+    color: var(--kst-muted) !important; 
+    padding: 20px 12px 30px !important;
+  }
+
+  /* Motion Preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .kst-main-container * { 
+      animation: none !important; 
+      transition: none !important; 
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="kst-main-container">
+    <header class="kst-container">
+      <div class="kst-hero">
+        <div class="kst-labels">
+          <span class="kst-badge kst-brand">Hyaluronic Acid Filler</span>
+          <span class="kst-badge">Dermal Filler</span>
+          <span class="kst-badge kst-keyword">Hy-BRID Technology</span>
+        </div>
+        <h1 class="kst-hero-title">Hyalmass Dermal Filler Series</h1>
+        <h2 class="kst-hero-spec">Ultra / Hard / Mild / Soft - 1.0ml Pre-filled Syringe</h2>
+        <p>Advanced hyaluronic acid dermal fillers with lidocaine for comprehensive facial contouring and wrinkle improvement</p>
+        <div class="kst-highlight">Professional-grade HA fillers with Hy-BRID Technology for superior density and elasticity</div>
+        <div class="kst-image-block">Main Product Image Placeholder - Hyalmass Series</div>
+      </div>
+    </header>
+
+    <main class="kst-container">
+
+      <section class="kst-section" id="kst-basic-info">
+        <h2 class="kst-section-title">Basic Information</h2>
+        <p class="kst-section-sub">Complete line of hyaluronic acid dermal fillers designed for different treatment depths and applications</p>
+        <div class="kst-grid">
+          <div class="kst-card">
+            <h4>Package Contents</h4>
+            <ul>
+              <li>1 pre-filled syringe of 1.0ml</li>
+              <li>2 sterile needles per package</li>
+              <li>Single-use disposable format</li>
+            </ul>
+          </div>
+          <div class="kst-card">
+            <h4>Technology Features</h4>
+            <div class="kst-image-block">Hy-BRID Technology Visualization</div>
+            <p class="kst-muted">Hyper cross-linked Based on non-animal HA Residue-free Improved Density and elasticity</p>
+          </div>
+          <div class="kst-card">
+            <h4>Product Demonstration</h4>
+            <div class="kst-image-block">Product Application Video Poster</div>
+            <p class="kst-muted">Professional injection techniques and expected outcomes</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="kst-section" id="kst-composition">
+        <h2 class="kst-section-title">Composition & Components</h2>
+        <div class="kst-split">
+          <div>
+            <div class="kst-def">
+              <div class="kst-def-item">
+                <dt>Active Ingredients</dt>
+                <dd>
+                  <div class="kst-chips">
+                    <span class="kst-chip">Hyaluronic Acid</span>
+                    <span class="kst-chip">Lidocaine</span>
+                  </div>
+                </dd>
+              </div>
+
+              <div class="kst-def-item">
+                <dt>Concentration Levels</dt>
+                <dd>
+                  <div class="kst-chips">
+                    <span class="kst-badge kst-num">24mg/mL HA</span>
+                    <span class="kst-badge kst-num">0.3% Lidocaine</span>
+                  </div>
+                </dd>
+              </div>
+
+              <div class="kst-def-item">
+                <dt>Formulation Type</dt>
+                <dd>Biphasic HA filler with gel-type formulation utilizing cross-linking technology for enhanced stability and longevity</dd>
+              </div>
+
+              <div class="kst-def-item">
+                <dt>Component Synergy</dt>
+                <dd>Highly purified hyaluronic acid provides volume and hydration while lidocaine ensures patient comfort during injection procedures</dd>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="kst-image-block" style="aspect-ratio:1/1;">HA Molecular Structure & Cross-linking Visualization</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="kst-section" id="kst-benefits">
+        <h2 class="kst-section-title">Expected Benefits & Functions</h2>
+        <div class="kst-grid">
+          <div class="kst-card">
+            <h4>Wrinkle Improvement</h4>
+            <p class="kst-muted">Addresses deep wrinkles, fine lines, and moderate facial creases</p>
+            <div class="kst-chips">
+              <span class="kst-badge kst-keyword">Anti-aging</span>
+              <span class="kst-badge kst-keyword">Smoothing</span>
+            </div>
+          </div>
+          <div class="kst-card">
+            <h4>Volume Enhancement</h4>
+            <p class="kst-muted">Restores lost facial volume and improves overall facial contouring</p>
+            <div class="kst-chips">
+              <span class="kst-badge kst-keyword">Lifting</span>
+              <span class="kst-badge kst-keyword">Contouring</span>
+            </div>
+          </div>
+          <div class="kst-card">
+            <h4>Skin Elasticity</h4>
+            <p class="kst-muted">Enhances skin elasticity and provides natural-looking results</p>
+            <div class="kst-chips">
+              <span class="kst-badge kst-keyword">Firmness</span>
+              <span class="kst-badge kst-keyword">Hydration</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kst-split">
+          <div class="kst-image-block">Before Treatment - Baseline Condition</div>
+          <div class="kst-image-block">After Treatment - Expected Results</div>
+        </div>
+
+        <p class="kst-muted">Long-term benefits may include sustained improvement in facial appearance with effects lasting 3 to over 12 months depending on the product variant and treatment area.</p>
+
+        <div class="kst-card">
+          <h4>Key Treatment Benefits</h4>
+          <ul>
+            <li>Improvement of deep wrinkles and fine lines</li>
+            <li>Enhanced facial volume and contouring capabilities</li>
+            <li>Restored skin elasticity and natural appearance</li>
+            <li>Minimized discomfort during injection with lidocaine inclusion</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="kst-section" id="kst-variants">
+        <h2 class="kst-section-title">Product Variants & Selection Guide</h2>
+        <div class="kst-grid">
+          <div class="kst-card">
+            <h4>Hyalmass Soft</h4>
+            <div class="kst-chips">
+              <span class="kst-badge kst-num">200 μm</span>
+              <span class="kst-badge kst-keyword">Superficial</span>
+            </div>
+            <p class="kst-muted">Ideal for delicate areas with shallow wrinkles such as under-eye area, tear troughs, and fine lines</p>
+            <ul>
+              <li>Duration: 3-6 months</li>
+              <li>Needle: 30G</li>
+              <li>Layer: Superficial dermal</li>
+            </ul>
+          </div>
+          <div class="kst-card">
+            <h4>Hyalmass Mild</h4>
+            <div class="kst-chips">
+              <span class="kst-badge kst-num">400 μm</span>
+              <span class="kst-badge kst-keyword">Medium Depth</span>
+            </div>
+            <p class="kst-muted">Suitable for moderate wrinkles and facial contouring in areas like cheeks, lips, and forehead</p>
+            <ul>
+              <li>Duration: 6-12 months</li>
+              <li>Needle: 27G</li>
+              <li>Layer: Mid epidermis to deep dermis</li>
+            </ul>
+          </div>
+          <div class="kst-card">
+            <h4>Hyalmass Hard</h4>
+            <div class="kst-chips">
+              <span class="kst-badge kst-num">600 μm</span>
+              <span class="kst-badge kst-keyword">Deep Treatment</span>
+            </div>
+            <p class="kst-muted">Designed for stubborn folds and significant volume enhancement in nasolabial folds and jawline</p>
+            <ul>
+              <li>Duration: 8-12 months</li>
+              <li>Needle: 25G to 27G</li>
+              <li>Layer: Mid to deep dermal</li>
+            </ul>
+          </div>
+          <div class="kst-card">
+            <h4>Hyalmass Ultra</h4>
+            <div class="kst-chips">
+              <span class="kst-badge kst-num">900 μm</span>
+              <span class="kst-badge kst-keyword">Maximum Volume</span>
+            </div>
+            <p class="kst-muted">Most robust option for deep augmentation and contouring of chin tip and nose bridge</p>
+            <ul>
+              <li>Duration: Over 12 months</li>
+              <li>Needle: 25G to 27G</li>
+              <li>Layer: Deep dermis to subcutaneous</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="kst-image-block">Product Variant Comparison Visual Guide</div>
+      </section>
+
+      <section class="kst-section" id="kst-specs">
+        <h2 class="kst-section-title">Specifications & Technical Data</h2>
+        <div class="kst-grid">
+          <div class="kst-card">
+            <div class="kst-kpi">24<span class="kst-unit">mg/mL</span></div>
+            <div class="kst-muted">Hyaluronic Acid Concentration</div>
+          </div>
+          <div class="kst-card">
+            <div class="kst-kpi">0.3<span class="kst-unit">%</span></div>
+            <div class="kst-muted">Lidocaine Content</div>
+          </div>
+          <div class="kst-card">
+            <div class="kst-kpi">1.0<span class="kst-unit">mL</span></div>
+            <div class="kst-muted">Syringe Volume</div>
+          </div>
+        </div>
+
+        <div class="kst-table-wrap">
+          <table class="kst-table" role="table" aria-label="Product Specification Comparison">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Viscosity</th>
+                <th>Treatment Area</th>
+                <th>Injection Layer</th>
+                <th>Needle Gauge</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hyalmass Ultra</td>
+                <td>Highest</td>
+                <td>Chin tip, nose bridge, facial contouring</td>
+                <td>Deep dermis to subcutaneous layer</td>
+                <td>25G to 27G</td>
+                <td>Over 12 months</td>
+              </tr>
+              <tr>
+                <td>Hyalmass Hard</td>
+                <td>High</td>
+                <td>Nasolabial folds, forehead volume, chin, jawline</td>
+                <td>Mid to deep dermal layer</td>
+                <td>25G to 27G</td>
+                <td>8-12 months</td>
+              </tr>
+              <tr>
+                <td>Hyalmass Mild</td>
+                <td>Medium</td>
+                <td>Forehead lines, cheeks, lips, perioral lines</td>
+                <td>Mid epidermis to deep dermis</td>
+                <td>27G</td>
+                <td>6-12 months</td>
+              </tr>
+              <tr>
+                <td>Hyalmass Soft</td>
+                <td>Lowest</td>
+                <td>Shallow wrinkles, under eyes, tear troughs, glabella lines</td>
+                <td>Superficial dermal layer</td>
+                <td>30G</td>
+                <td>3-6 months</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="kst-card">
+          <div class="kst-label-value">
+            <div class="kst-label">Storage & Handling Requirements</div>
+            <div>Store at room temperature (1°C to 30°C). Avoid freezing or direct sunlight exposure. Single-use product with 24-month shelf life from manufacturing date if unopened.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="kst-section" id="kst-usage">
+        <h2 class="kst-section-title">Application Protocol & Usage</h2>
+        <div class="kst-steps" aria-label="Professional Application Protocol">
+          <div class="kst-step">
+            <div class="kst-num" aria-hidden="true"></div>
+            <div>
+              <strong>Assessment & Planning</strong>
+              <div class="kst-muted">Evaluate treatment area and select appropriate Hyalmass variant based on injection depth and desired outcome</div>
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-num" aria-hidden="true"></div>
+            <div>
+              <strong>Preparation & Sterilization</strong>
+              <div class="kst-muted">Prepare injection site with appropriate antiseptic and ensure sterile technique throughout procedure</div>
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-num" aria-hidden="true"></div>
+            <div>
+              <strong>Injection Technique</strong>
+              <div class="kst-muted">Inject at recommended depth using appropriate needle gauge with slow, controlled technique</div>
+            </div>
+          </div>
+          <div class="kst-step">
+            <div class="kst-num" aria-hidden="true"></div>
+            <div>
+              <strong>Post-Treatment Care</strong>
+              <div class="kst-muted">Apply gentle massage if required and provide post-treatment care instructions to patient</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="kst-split">
+          <div class="kst-card">
+            <h4>Treatment Considerations</h4>
+            <ul>
+              <li>Select product based on treatment depth requirements</li>
+              <li>Consider patient's skin type and expected longevity</li>
+              <li>Evaluate anatomical considerations for optimal placement</li>
+            </ul>
+          </div>
+          <div class="kst-card">
+            <h4>Professional Guidelines</h4>
+            <ul>
+              <li>Maintain sterile technique throughout procedure</li>
+              <li>Use recommended needle gauges for each variant</li>
+              <li>Follow manufacturer's injection depth guidelines</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="kst-image-block">Injection Technique & Depth Visualization Guide</div>
+        <p class="kst-muted">Treatment cycles vary from 3 months to over 12 months depending on product variant, injection site, and individual patient factors. Maintenance treatments may be performed as clinically indicated.</p>
+      </section>
+
+      <section class="kst-section" id="kst-safety">
+        <h2 class="kst-section-title">Safety Information & Precautions</h2>
+        <div class="kst-callout">
+          <strong>Professional Use Only</strong> – This product is intended for use by qualified medical professionals experienced in dermal filler injection techniques.
+        </div>
+        <div class="kst-split">
+          <div class="kst-card">
+            <h4>General Precautions</h4>
+            <ul>
+              <li>Avoid touching or massaging treated area for 24-48 hours post-injection</li>
+              <li>Refrain from intense physical activity for at least 48 hours</li>
+              <li>Avoid alcohol consumption and extreme temperature exposure initially</li>
+              <li>Use cold compresses if swelling or bruising occurs</li>
+            </ul>
+          </div>
+          <div class="kst-card">
+            <h4>Emergency Considerations</h4>
+            <ol>
+              <li>Monitor for signs of adverse reactions</li>
+              <li>Ensure emergency protocols are readily available</li>
+              <li>Maintain appropriate reversal agents if clinically indicated</li>
+              <li>Provide clear post-treatment contact information</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="kst-section" id="kst-quality">
+        <h2 class="kst-section-title">Quality & Compliance Standards</h2>
+        <div class="kst-labels">
+          <span class="kst-badge">Medical Grade</span>
+          <span class="kst-badge">Non-Animal Origin</span>
+          <span class="kst-badge">Sterile Processing</span>
+          <span class="kst-badge">Batch Traceable</span>
+        </div>
+        <div class="kst-card">
+          <p class="kst-muted">Hyalmass products undergo rigorous quality control testing and professional validation to ensure consistent performance and safety standards. Each batch is traceable through comprehensive documentation systems.</p>
+        </div>
+      </section>
+
+      <section class="kst-section" id="kst-faq">
+        <h2 class="kst-section-title">Frequently Asked Questions</h2>
+        <div class="kst-accordion" role="tablist">
+          <div class="kst-ac-item" aria-expanded="false">
+            <button class="kst-ac-button" aria-controls="kst-ac1" aria-expanded="false">
+              How do I choose the right Hyalmass variant for my patient? <span>＋</span>
+            </button>
+            <div id="kst-ac1" class="kst-ac-panel">Selection depends on treatment depth, area characteristics, and desired longevity. Soft for superficial areas, Mild for moderate depth, Hard for deep folds, and Ultra for maximum volume and contouring.</div>
+          </div>
+          <div class="kst-ac-item" aria-expanded="false">
+            <button class="kst-ac-button" aria-controls="kst-ac2" aria-expanded="false">
+              What is the expected duration of results? <span>＋</span>
+            </button>
+            <div id="kst-ac2" class="kst-ac-panel">Duration varies by product: Soft (3-6 months), Mild (6-12 months), Hard (8-12 months), and Ultra (over 12 months). Individual results may vary based on patient factors and treatment area.</div>
+          </div>
+          <div class="kst-ac-item" aria-expanded="false">
+            <button class="kst-ac-button" aria-controls="kst-ac3" aria-expanded="false">
+              What makes Hy-BRID Technology different? <span>＋</span>
+            </button>
+            <div id="kst-ac3" class="kst-ac-panel">Hy-BRID Technology creates hyper cross-linked, non-animal based HA with residue-free processing, resulting in improved density, elasticity, and uniformly sized particles for consistent performance.</div>
+          </div>
+          <div class="kst-ac-item" aria-expanded="false">
+            <button class="kst-ac-button" aria-controls="kst-ac4" aria-expanded="false">
+              How should Hyalmass products be stored? <span>＋</span>
+            </button>
+            <div id="kst-ac4" class="kst-ac-panel">Store at room temperature (1°C to 30°C), avoid freezing or direct sunlight. Products have a 24-month shelf life when unopened. Single-use only - discard any remaining content after use.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="kst-section" id="kst-related">
+        <h2 class="kst-section-title">Professional Resources & Support</h2>
+        <div class="kst-grid">
+          <div class="kst-card">
+            <div class="kst-image-block">Technical Manual & Guidelines</div>
+            <h4>Professional Training Materials</h4>
+            <p class="kst-muted">Comprehensive injection techniques and best practices for optimal patient outcomes</p>
+          </div>
+          <div class="kst-card">
+            <div class="kst-image-block">Product Safety Data</div>
+            <h4>Safety Documentation</h4>
+            <p class="kst-muted">Complete safety profiles and contraindication guidelines for professional reference</p>
+          </div>
+          <div class="kst-card">
+            <div class="kst-image-block">Clinical Study Results</div>
+            <h4>Clinical Evidence</h4>
+            <p class="kst-muted">Published research and clinical trial data supporting product efficacy and safety</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="kst-footer">
+      <div class="kst-label-value">
+        <div class="kst-label">Professional Support</div>
+        <div>For technical questions and professional support, contact your authorized distributor or medical representative</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // FAQ Accordion with kst prefix
+    document.querySelectorAll('.kst-ac-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.kst-ac-item');
+        const panel = item.querySelector('.kst-ac-panel');
+        const isOpen = item.getAttribute('aria-expanded') === 'true';
+        
+        // Close all other panels
+        document.querySelectorAll('.kst-ac-item').forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.kst-ac-button').setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.kst-ac-panel').classList.remove('kst-show');
+            otherItem.querySelector('.kst-ac-button span').textContent = '＋';
+          }
+        });
+        
+        // Toggle current panel
+        item.setAttribute('aria-expanded', String(!isOpen));
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        panel.classList.toggle('kst-show');
+        btn.querySelector('span').textContent = isOpen ? '＋' : '−';
+      });
+    });
+  </script>
+</body>
+</html>

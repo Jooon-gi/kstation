@@ -1,0 +1,724 @@
+<style>
+  /* =========================================
+   REVITRANE HA10 Shopify Mobile Template Styles
+  ========================================== */
+
+  /* Basic Reset with kst- prefix */
+  .kst-main-container *, 
+  .kst-main-container *::before, 
+  .kst-main-container *::after { 
+    box-sizing: border-box !important; 
+  }
+  
+  .kst-main-container {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif !important;
+    color: var(--kst-text-primary) !important;
+    line-height: 1.6 !important;
+    background: #f0f1f4 !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    isolation: isolate !important;
+  }
+
+  /* Auto-hide image blocks with CSS :has() */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none !important;
+  }
+
+  .kst-main-container img, 
+  .kst-main-container video { 
+    max-width: 100% !important; 
+    height: auto !important; 
+    display: block !important;
+    object-fit: cover !important;
+  }
+  
+  /* =========================================
+   Design Tokens - REVITRANE Brand Colors
+  ========================================== */
+  .kst-main-container {
+    --kst-main-color: #054F8D;
+    --kst-sub-color: #054F8D;
+    --kst-text-primary: #213445;
+    --kst-text-secondary: #466b8b;
+    --kst-background: #E4E7F4;
+    --kst-badge-bg: #DAE2EB;
+    --kst-badge-text: #FFFFFF;
+    --kst-classic-color: #970040;
+    --kst-volume-color: #3E4AE9;
+    --kst-premium-color: #2BA5F1;
+    --kst-card-bg: #FFFFFF;
+    --kst-border: #D6DCE5;
+    --kst-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  /* =========================================
+   Container
+  ========================================== */
+  .kst-container {
+    padding: 16px 12px !important;
+  }
+
+  /* =========================================
+   Sections
+  ========================================== */
+  .kst-section {
+    position: relative !important;
+    background: var(--kst-card-bg) !important;
+    border: 1px solid var(--kst-border) !important;
+    padding: 20px 16px !important;
+    margin: 16px 8px !important;
+    box-shadow: var(--kst-shadow) !important;
+    overflow: hidden !important;
+  }
+
+  .kst-section::before {
+    content: "" !important;
+    position: absolute !important; 
+    inset: -1px -1px auto -1px !important; 
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--kst-main-color), var(--kst-premium-color)) !important;
+    opacity: .8 !important;
+  }
+
+  .kst-section-title {
+    margin: 0 0 12px !important;
+    font-weight: 800 !important;
+    font-size: 1.25rem !important;
+    letter-spacing: .2px !important;
+    color: var(--kst-text-primary) !important;
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  
+  .kst-section-sub { 
+    margin: 0 0 14px !important; 
+    color: var(--kst-text-secondary) !important; 
+    font-size: .9rem !important; 
+  }
+  
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: var(--kst-card-bg) !important;
+    border: 1px solid var(--kst-border) !important;
+    padding: 20px 16px !important;
+    position: relative !important; 
+    overflow: hidden !important;
+    margin: 12px 8px !important;
+    box-shadow: var(--kst-shadow) !important;
+  }
+
+  .kst-hero::before {
+    content: "" !important;
+    position: absolute !important; 
+    inset: -20% -10% auto auto !important; 
+    width: 200px !important; 
+    height: 200px !important;
+    background: radial-gradient(circle, rgba(5,79,141,0.15), rgba(43,165,241,0.1)) !important; 
+    filter: blur(40px) !important; 
+    opacity: .7 !important;
+    animation: kst-hero-glow 18s linear infinite !important;
+  }
+
+  @keyframes kst-hero-glow {
+    0% { transform: translate(0,0) rotate(0deg) !important; }
+    50% { transform: translate(-10px, 5px) rotate(8deg) !important; }
+    100% { transform: translate(0,0) rotate(0deg) !important; }
+  }
+
+  .kst-labels { 
+    display: flex !important; 
+    gap: 6px !important; 
+    flex-wrap: wrap !important; 
+    margin-bottom: 12px !important;
+  }
+
+  .kst-badge {
+    display: inline-flex !important; 
+    align-items: center !important; 
+    gap: 4px !important;
+    padding: 6px 10px !important;
+    background: var(--kst-badge-bg) !important;
+    border: 1px solid var(--kst-border) !important;
+    color: var(--kst-text-primary) !important; 
+    font-size: .75rem !important; 
+    font-weight: 700 !important;
+  }
+
+  .kst-badge.kst-classic { 
+    background: var(--kst-classic-color) !important;
+    color: var(--kst-badge-text) !important;
+    border-color: var(--kst-classic-color) !important;
+  }
+  
+  .kst-badge.kst-volume { 
+    background: var(--kst-volume-color) !important;
+    color: var(--kst-badge-text) !important;
+    border-color: var(--kst-volume-color) !important;
+  }
+
+  .kst-badge.kst-premium { 
+    background: var(--kst-premium-color) !important;
+    color: var(--kst-badge-text) !important;
+    border-color: var(--kst-premium-color) !important;
+  }
+
+  .kst-badge.kst-brand { 
+    background: var(--kst-main-color) !important;
+    color: var(--kst-badge-text) !important;
+    border-color: var(--kst-main-color) !important;
+  }
+
+  .kst-hero-title {
+    margin: 0 0 8px !important;
+    font-weight: 900 !important;
+    font-size: 2rem !important;
+    letter-spacing: .2px !important;
+    color: var(--kst-text-primary) !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .kst-hero-spec {
+    margin: -8px 0 15px !important;
+    font-weight: 600 !important;
+    font-size: 1.4rem !important;
+    letter-spacing: .1px !important;
+    color: var(--kst-main-color) !important;
+  }
+
+  .kst-hero p { 
+    margin: 0 0 10px !important; 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-highlight {
+    border: 1px solid var(--kst-border) !important;
+    background: var(--kst-background) !important;
+    padding: 10px 12px !important; 
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important; 
+  }
+
+  .kst-card {
+    background: var(--kst-card-bg) !important; 
+    border: 1px solid var(--kst-border) !important; 
+    padding: 14px !important; 
+    box-shadow: var(--kst-shadow) !important; 
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease !important; 
+    margin: 8px 0 !important;
+  }
+
+  .kst-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1) !important;
+    border-color: var(--kst-main-color) !important;
+  }
+
+  .kst-card h4 { 
+    margin: 0 0 8px !important; 
+    font-size: .95rem !important; 
+    color: var(--kst-text-primary) !important; 
+    font-weight: 700 !important;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li { 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-muted { 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  /* =========================================
+   Image Blocks
+  ========================================== */
+  .kst-image-block {
+    position: relative !important;
+    background: var(--kst-background) !important;
+    border: 1px dashed var(--kst-border) !important;
+    aspect-ratio: 16/9 !important;
+    display: grid !important; 
+    place-items: center !important;
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 700 !important;
+    overflow: hidden !important;
+    margin: 8px 0 !important;
+  }
+
+  .kst-chart-block {
+    position: relative !important;
+    background: var(--kst-background) !important;
+    border: 1px dashed var(--kst-border) !important;
+    aspect-ratio: 4/3 !important;
+    display: grid !important; 
+    place-items: center !important;
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 700 !important;
+    overflow: hidden !important;
+    margin: 8px 0 !important;
+  }
+
+  /* =========================================
+   Definition Lists & Chips
+  ========================================== */
+  .kst-def {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important; 
+    margin: 0 !important;
+  }
+
+  .kst-def-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .kst-def dt { 
+    font-weight: 800 !important; 
+    color: var(--kst-text-primary) !important; 
+  }
+
+  .kst-def dd { 
+    margin: 0 !important; 
+    color: var(--kst-text-secondary) !important; 
+  }
+
+  .kst-chips { 
+    display: flex !important; 
+    flex-wrap: wrap !important; 
+    gap: 6px !important; 
+  }
+
+  .kst-chip {
+    background: var(--kst-badge-bg) !important;
+    color: var(--kst-text-primary) !important; 
+    border: 1px solid var(--kst-border) !important;
+    padding: 5px 8px !important; 
+    font-size: .75rem !important; 
+    font-weight: 700 !important;
+  }
+
+  /* =========================================
+   Table
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border: 1px solid var(--kst-border) !important;
+    background: var(--kst-card-bg) !important;
+    margin: 8px 0 !important;
+    box-shadow: var(--kst-shadow) !important;
+  }
+
+  .kst-table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    color: var(--kst-text-primary) !important;
+    table-layout: auto !important;
+  }
+
+  .kst-table th, .kst-table td {
+    padding: 10px 12px !important; 
+    border-bottom: 1px solid var(--kst-border) !important;
+    text-align: left !important; 
+    vertical-align: top !important;
+    white-space: nowrap !important;
+  }
+
+  .kst-table thead th {
+    position: sticky !important; 
+    top: 0 !important;
+    background: var(--kst-background) !important;
+    z-index: 1 !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar { 
+    height: 6px !important; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-track { 
+    background: var(--kst-border) !important; 
+  }
+  .kst-table-wrap::-webkit-scrollbar-thumb { 
+    background: var(--kst-main-color) !important; 
+  }
+
+  /* =========================================
+   Callouts & KPI
+  ========================================== */
+  .kst-callout {
+    border: 1px solid var(--kst-main-color) !important;
+    background: rgba(5,79,141,.1) !important;
+    color: var(--kst-text-primary) !important;
+    padding: 12px !important;
+    margin: 8px 0 !important;
+  }
+
+  .kst-callout strong { 
+    color: var(--kst-main-color) !important; 
+  }
+
+  .kst-kpi {
+    font-size: 1.6rem !important;
+    font-weight: 900 !important; 
+    color: var(--kst-text-primary) !important;
+  }
+
+  .kst-kpi .kst-unit { 
+    font-size: .8rem !important; 
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 700 !important; 
+    margin-left: 4px !important; 
+  }
+
+  .kst-label-value { 
+    display: flex !important; 
+    flex-direction: column !important;
+    gap: 4px !important; 
+    color: var(--kst-text-primary) !important; 
+    margin-bottom: 8px !important;
+  }
+
+  .kst-label-value .kst-label { 
+    color: var(--kst-text-secondary) !important; 
+    font-weight: 600 !important;
+  }
+
+  /* Motion Preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .kst-main-container * { 
+      animation: none !important; 
+      transition: none !important; 
+    }
+  }
+</style>
+
+<div class="kst-main-container">
+  <header class="kst-container">
+    <div class="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge kst-brand">BR Pharm</span>
+        <span class="kst-badge">HA Filler</span>
+        <span class="kst-badge">Cross-linked</span>
+        <span class="kst-badge">20mg/ml</span>
+      </div>
+      <h1 class="kst-hero-title">REVITRANE HA10</h1>
+      <h2 class="kst-hero-spec"><span style="color: #970040;">Classic</span> / <span style="color: #3E4AE9;">Volume</span> / <span style="color: #2BA5F1;">Premium</span></h2>
+      <p>Advanced cross-linked hyaluronic acid dermal fillers for comprehensive facial aesthetic treatments</p>
+      <div class="kst-highlight">Cross-linked HA 20mg/ml - Restore volume, correct wrinkles, and improve facial contours</div>
+      <div class="kst-image-block">[Main Product Image - REVITRANE HA10 Series]</div>
+    </div>
+  </header>
+
+  <main class="kst-container">
+
+    <section class="kst-section" id="kst-product-overview">
+      <h2 class="kst-section-title">Product Overview</h2>
+      <p class="kst-section-sub">Professional-grade hyaluronic acid fillers with specialized formulations for different treatment areas</p>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Package Contents</h4>
+          <ul>
+            <li>1ml x 1 pre-filled syringe</li>
+            <li>Cross-linked Hyaluronic Acid 20mg/ml</li>
+            <li>Available in three specialized formulations</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Key Features</h4>
+          <div class="kst-chips">
+            <span class="kst-chip">Cross-linked HA</span>
+            <span class="kst-chip">Long-lasting</span>
+            <span class="kst-chip">Natural Results</span>
+            <span class="kst-chip">7-12 Months</span>
+          </div>
+        </div>
+      </div>
+      <div class="kst-image-block">[Product Overview Image - Three Variants]</div>
+    </section>
+
+    <section class="kst-section" id="kst-composition">
+      <h2 class="kst-section-title">Composition & Technical Specifications</h2>
+      <div class="kst-def">
+        <div class="kst-def-item">
+          <dt>Active Ingredient</dt>
+          <dd>Cross-linked Hyaluronic Acid (HA)</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Concentration</dt>
+          <dd>
+            <div class="kst-chips">
+              <span class="kst-badge kst-brand">20mg/ml</span>
+            </div>
+          </dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Formulation</dt>
+          <dd>Pre-filled syringe (1ml)</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Storage Conditions</dt>
+          <dd>Store at 2-25°C, away from direct sunlight</dd>
+        </div>
+        <div class="kst-def-item">
+          <dt>Duration</dt>
+          <dd>Results typically last 7 to 12 months depending on product version and injection area</dd>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-product-variants">
+      <h2 class="kst-section-title">Product Variants Comparison</h2>
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Product Comparison Table">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Treatment Areas</th>
+              <th>Main Efficacy</th>
+              <th>Application Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="kst-badge kst-classic">Classic</span></td>
+              <td>Lips, fine lines, under-eyes, smile lines</td>
+              <td>Lip definition, fine wrinkle correction</td>
+              <td>Superficial to mid-dermis</td>
+            </tr>
+            <tr>
+              <td><span class="kst-badge kst-volume">Volume</span></td>
+              <td>Nasolabial folds, marionette lines, deep wrinkles</td>
+              <td>Volumizing, deep wrinkle correction</td>
+              <td>Mid-dermis</td>
+            </tr>
+            <tr>
+              <td><span class="kst-badge kst-premium">Premium</span></td>
+              <td>Cheeks, chin, jawline, nose, facial contouring</td>
+              <td>Augmentation, deep structural support</td>
+              <td>Deep dermis or sub-Q layer</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kst-image-block">[Treatment Areas Diagram]</div>
+    </section>
+
+    <section class="kst-section" id="kst-classic">
+      <h2 class="kst-section-title">REVITRANE HA10 Classic</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-classic">Classic</span>
+        <span class="kst-badge">Fine Lines</span>
+        <span class="kst-badge">Lip Enhancement</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">Designed for precise contouring and soft tissue augmentation. Excels at defining lips, including techniques like the "Russian lip," and correcting fine to moderate wrinkles.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Lips</span>
+            <span class="kst-chip">Fine Lines</span>
+            <span class="kst-chip">Under-eyes</span>
+            <span class="kst-chip">Smile Lines</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Key Benefits</h4>
+          <ul>
+            <li>Soft, viscoelastic gel texture with fine particles</li>
+            <li>Seamless integration for natural-looking results</li>
+            <li>Perfect for delicate facial areas</li>
+            <li>Ideal for lip definition and enhancement</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kst-image-block">[REVITRANE Classic Treatment Areas]</div>
+    </section>
+
+    <section class="kst-section" id="kst-volume">
+      <h2 class="kst-section-title">REVITRANE HA10 Volume</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-volume">Volume</span>
+        <span class="kst-badge">Deep Wrinkles</span>
+        <span class="kst-badge">Volumizing</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">A medium-viscosity filler that provides long-lasting volume and correction for deeper facial lines, such as nasolabial folds and marionette lines.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Nasolabial Folds</span>
+            <span class="kst-chip">Marionette Lines</span>
+            <span class="kst-chip">Deep Wrinkles</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Key Benefits</h4>
+          <ul>
+            <li>Balanced texture offering structure and softness</li>
+            <li>Reliable results without sacrificing natural movement</li>
+            <li>Long-lasting volume enhancement</li>
+            <li>Optimal for mid-dermis injections</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kst-image-block">[REVITRANE Volume Product Packaging]</div>
+    </section>
+
+    <section class="kst-section" id="kst-premium">
+      <h2 class="kst-section-title">REVITRANE HA10 Premium</h2>
+      <div class="kst-labels">
+        <span class="kst-badge kst-premium">Premium</span>
+        <span class="kst-badge">Facial Contouring</span>
+        <span class="kst-badge">Structural Support</span>
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Primary Applications</h4>
+          <p class="kst-muted">A high-density, thick filler developed for deeper injections and areas requiring strong structural support and volume. Provides exceptional projection and lift for advanced facial sculpting.</p>
+          <div class="kst-chips">
+            <span class="kst-chip">Cheeks</span>
+            <span class="kst-chip">Jawline</span>
+            <span class="kst-chip">Chin</span>
+            <span class="kst-chip">Nose</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>Key Benefits</h4>
+          <ul>
+            <li>High level of cohesivity to maintain shape</li>
+            <li>No migration for long-lasting sculpted look</li>
+            <li>Exceptional projection and lift capabilities</li>
+            <li>Perfect for advanced facial contouring</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kst-image-block">[Before/After Comparison of REVITRANE Premium Treatment]</div>
+    </section>
+
+    <section class="kst-section" id="kst-treatment-protocol">
+      <h2 class="kst-section-title">Treatment Guidelines</h2>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Treatment Areas</h4>
+          <p class="kst-muted">Lips, cheeks, chin, jawline, nose, various wrinkles and facial folds</p>
+        </div>
+        <div class="kst-card">
+          <h4>Application Method</h4>
+          <p class="kst-muted">Direct syringe injection into the dermis or sub-Q layer, based on the specific version and treatment area</p>
+        </div>
+        <div class="kst-card">
+          <div class="kst-label-value">
+            <div class="kst-label">Recommended Cycle</div>
+            <div>Results typically last from 7 to 12 months</div>
+          </div>
+          <div class="kst-label-value">
+            <div class="kst-label">Duration Factors</div>
+            <div>Depends on specific product version and injection area</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-safety-storage">
+      <h2 class="kst-section-title">Safety Information & Storage</h2>
+      <div class="kst-callout">
+        <strong>Important Precautions</strong> – Do not use in patients with known hypersensitivity to hyaluronic acid or history of severe allergies. Professional use only.
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Storage Requirements</h4>
+          <ul>
+            <li>Store at 2-25°C room temperature</li>
+            <li>Keep away from direct sunlight</li>
+            <li>Do not freeze</li>
+            <li>Use immediately after opening</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Safety Guidelines</h4>
+          <ul>
+            <li>Do not inject into blood vessels</li>
+            <li>Check for hypersensitivity before treatment</li>
+            <li>Professional administration required</li>
+            <li>Follow proper injection techniques</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kst-image-block">[Storage and Handling Instructions]</div>
+    </section>
+
+    <section class="kst-section" id="kst-choosing-guide">
+      <h2 class="kst-section-title">Which Product Is Right for Me?</h2>
+      <p class="kst-section-sub">Based on your skin condition and treatment area, choose the appropriate version to experience a customized effect</p>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>For Fine Lines & Lip Enhancement</h4>
+          <p class="kst-muted">Choose <strong>Classic</strong> for precise lip definition, fine wrinkle correction, and delicate facial areas requiring natural-looking enhancement</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-classic">Classic</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>For Deep Wrinkles & Volume</h4>
+          <p class="kst-muted">Choose <strong>Volume</strong> for nasolabial folds, marionette lines, and areas requiring medium-density volume restoration</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-volume">Volume</span>
+          </div>
+        </div>
+        <div class="kst-card">
+          <h4>For Facial Contouring & Augmentation</h4>
+          <p class="kst-muted">Choose <strong>Premium</strong> for cheeks, chin, jawline, and nose contouring requiring strong structural support and advanced facial sculpting</p>
+          <div class="kst-chips">
+            <span class="kst-badge kst-premium">Premium</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kst-section" id="kst-efficacy">
+      <h2 class="kst-section-title">Expected Efficacy</h2>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Volume Restoration</h4>
+          <p class="kst-muted">Restore lost facial volume and definition with natural-looking results</p>
+        </div>
+        <div class="kst-card">
+          <h4>Wrinkle Correction</h4>
+          <p class="kst-muted">Correct fine to deep wrinkles and facial folds for smoother skin appearance</p>
+        </div>
+        <div class="kst-card">
+          <h4>Facial Contouring</h4>
+          <p class="kst-muted">Improve facial contours and augment specific areas for enhanced facial harmony</p>
+        </div>
+      </div>
+      <div class="kst-image-block">[Treatment Results Comparison]</div>
+    </section>
+
+  </main>
+</div>

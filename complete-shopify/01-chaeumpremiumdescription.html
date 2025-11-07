@@ -1,0 +1,882 @@
+<style>
+        /* Shopify conflict prevention with kst- prefix */
+        .kst-main-container {
+            max-width: 760px !important;
+            margin: 0 auto !important;
+            font-family: 'Helvetica Neue', 'Arial', sans-serif !important;
+            background: #ffffff !important;
+            color: #333333 !important;
+            padding: 0 !important;
+            line-height: 1.6 !important;
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container * {
+            box-sizing: border-box !important;
+        }
+        
+        /* Title overflow prevention */
+        .kst-section-title, .kst-pillar-title, .kst-category-title, .kst-protocol-header,
+        .kst-ingredient-name, .kst-benefit-title, .kst-step-title, .kst-related-title,
+        .kst-faq-question, .kst-warning-title {
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        /* Basic section styles */
+        .kst-section {
+            padding: 40px 12px !important;
+            margin: 0 !important;
+            background: #f8f9fa !important;
+            color: #333333 !important;
+        }
+        
+        .kst-section:nth-child(even) {
+            background: #ffffff !important;
+        }
+        
+        .kst-section-title {
+            font-size: 24px !important;
+            font-weight: 300 !important;
+            color: #333333 !important;
+            text-align: center !important;
+            margin-bottom: 30px !important;
+            margin-top: 0 !important;
+        }
+        
+        /* Hero section */
+        .kst-hero-section {
+            background: #f8f9fa !important;
+            padding: 40px 12px !important;
+            border-bottom: 1px solid #e9ecef !important;
+        }
+        
+        .kst-hero-box {
+            background: #ffffff !important;
+            padding: 20px !important;
+            border-radius: 0px !important;
+            margin: 20px 8px !important;
+            min-height: 200px !important;
+            display: flex !important;
+            flex-direction: column ;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+        } 
+
+        .kst-hero-title {
+            font-size: 36px !important; /* 상품 제목(24px)의 0.8배 */
+            font-weight: 600 !important;
+            color: #DC3545 !important;
+            text-align: center !important;
+            margin-top: 0px !important; /* 상품 제목과의 간격 조절 */
+            margin-bottom: 15px !important;
+            line-height: 1.3 !important;
+            word-break: break-all;
+        }
+        .kst-hero-subtitle {
+            font-size: 24px !important; /* 상품 제목(24px)의 0.8배 */
+            font-weight: 400 !important;
+            color: #ff7280 !important;
+            text-align: center !important;
+            margin-top: 0px !important; /* 상품 제목과의 간격 조절 */
+            margin-bottom: 15px !important;
+            line-height: 1.3 !important;
+            word-break: break-all;
+        }
+        
+        .kst-hero-visual {
+            background: #ffffff !important;
+            padding: 20px !important;
+            border-radius: 0px !important;
+            margin: 20px 8px !important;
+            min-height: 200px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+        }
+        
+        .kst-hero-products {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+            margin: 20px 8px !important;
+        }
+        
+        .kst-product-box {
+            background: #ffffff !important;
+            border: 1px solid #e9ecef !important;
+            padding: 16px !important;
+            text-align: center !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-product-name {
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            color: #495057 !important;
+            margin-bottom: 8px !important;
+            margin-top: 0 !important;
+        }
+        
+        .kst-product-volume {
+            font-size: 12px !important;
+            color: #6c757d !important;
+            margin: 0 !important;
+        }
+        
+        /* Brand pillars section */
+        .kst-brand-pillars {
+            background: #ffffff !important;
+            padding: 0 !important;
+        }
+        
+        .kst-pillar-card {
+            padding: 40px 20px !important;
+            text-align: center !important;
+            border-bottom: 1px solid #e9ecef !important;
+            margin: 0 !important;
+        }
+        
+        .kst-pillar-card:last-child {
+            border-bottom: none !important;
+        }
+        
+        .kst-pillar-icon {
+            width: 60px !important;
+            height: 60px !important;
+            margin: 0 auto 20px !important;
+            background: #f8f9fa !important;
+            border: 2px dashed #dee2e6 !important;
+            border-radius: 0px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #6c757d !important;
+            font-size: 10px !important;
+            font-style: italic !important;
+        }
+        
+        .kst-pillar-title {
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            color: #dc3545 !important;
+            text-transform: uppercase !important;
+            margin-bottom: 15px !important;
+            margin-top: 0 !important;
+            letter-spacing: 1px !important;
+        }
+        
+        .kst-pillar-subtitle {
+            font-size: 14px !important;
+            color: #495057 !important;
+            margin-bottom: 15px !important;
+            margin-top: 0 !important;
+            line-height: 1.5 !important;
+            font-weight: 500 !important;
+        }
+        
+        .kst-pillar-divider {
+            width: 60px !important;
+            height: 3px !important;
+            background: #dc3545 !important;
+            margin: 15px auto !important;
+        }
+        
+        .kst-pillar-description {
+            font-size: 12px !important;
+            color: #6c757d !important;
+            line-height: 1.5 !important;
+            margin: 0 !important;
+        }
+        
+        /* Ingredients section */
+        .kst-ingredient-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            margin: 30px 8px !important;
+        }
+        
+        .kst-ingredient-card {
+            background: #ffffff !important;
+            padding: 25px !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+            border-top: 4px solid #dc3545 !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-ingredient-name {
+            font-size: 18px !important;
+            font-weight: 600 !important;
+            color: #333333 !important;
+            margin-bottom: 10px !important;
+            margin-top: 0 !important;
+        }
+        
+        .kst-ingredient-concentration {
+            background: #dc3545 !important;
+            color: #ffffff !important;
+            padding: 4px 12px !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            display: inline-block !important;
+            margin-bottom: 15px !important;
+            text-transform: uppercase !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-ingredient-description {
+            font-size: 14px !important;
+            color: #6c757d !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+        
+        /* Benefits section */
+        .kst-benefits-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            margin: 30px 8px !important;
+        }
+        
+        .kst-benefit-category {
+            padding: 25px !important;
+            border: 1px solid #e9ecef !important;
+            position: relative !important;
+            background: #ffffff !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-benefit-category::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 4px !important;
+            background: #dc3545 !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-category-title {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #dc3545 !important;
+            text-transform: uppercase !important;
+            margin-bottom: 20px !important;
+            margin-top: 0 !important;
+            letter-spacing: 1px !important;
+        }
+        
+        .kst-benefit-list {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        .kst-benefit-item {
+            padding: 12px 0 !important;
+            border-bottom: 1px solid #f8f9fa !important;
+            position: relative !important;
+            padding-left: 20px !important;
+            margin: 0 !important;
+        }
+        
+        .kst-benefit-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        .kst-benefit-item::before {
+            content: '' !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 18px !important;
+            width: 6px !important;
+            height: 6px !important;
+            background: #dc3545 !important;
+            border-radius: 50% !important;
+        }
+        
+        .kst-benefit-title {
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            color: #333333 !important;
+            margin-bottom: 5px !important;
+            margin-top: 0 !important;
+        }
+        
+        .kst-benefit-description {
+            font-size: 13px !important;
+            color: #6c757d !important;
+            line-height: 1.5 !important;
+            margin: 0 !important;
+        }
+        
+        /* Protocol/product comparison section */
+        .kst-protocol-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            margin: 30px 8px !important;
+        }
+        
+        .kst-protocol-card {
+            background: #ffffff !important;
+            padding: 25px !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+            position: relative !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-protocol-card::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 4px !important;
+            background: linear-gradient(90deg, #dc3545, #c82333) !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-protocol-header {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #dc3545 !important;
+            text-transform: uppercase !important;
+            margin-bottom: 15px !important;
+            margin-top: 0 !important;
+            letter-spacing: 1px !important;
+        }
+        
+        .kst-protocol-content {
+            font-size: 13px !important;
+            color: #495057 !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+        
+        /* Table styles */
+        .kst-table-wrap {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            margin: 25px 8px !important;
+            border-radius: 0px !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px; 
+        }
+        .kst-table-wrap::-webkit-scrollbar-thumb { 
+            background: #dc3545; 
+        }
+        .kst-table-wrap::-webkit-scrollbar-track { 
+            background: #dee2e6; 
+        }
+        
+        .kst-specs-table {
+            width: 100% !important;
+            min-width: 600px !important;
+            border-collapse: separate !important;
+            border-spacing: 0 !important;
+            background: #ffffff !important;
+        }
+        
+        .kst-specs-table th {
+            background: #dc3545 !important;
+            color: #ffffff !important;
+            padding: 12px 16px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            border: none !important;
+        }
+        
+        .kst-specs-table td {
+            background: #ffffff !important;
+            padding: 12px 16px !important;
+            border-bottom: 1px solid #e9ecef !important;
+            font-size: 13px !important;
+            color: #495057 !important;
+            border-left: none !important;
+            border-right: none !important;
+        }
+        
+        .kst-specs-table tr:last-child td {
+            border-bottom: none !important;
+        }
+        
+        /* Safety warning section */
+        .kst-warning-box {
+            background: #fff3cd !important;
+            border: 1px solid #ffeaa7 !important;
+            border-left: 6px solid #f39c12 !important;
+            padding: 20px !important;
+            margin: 25px 8px !important;
+            border-radius: 0px !important;
+        }
+        
+        .kst-warning-title {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #856404 !important;
+            margin-bottom: 12px !important;
+            margin-top: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        .kst-warning-title::before {
+            content: '⚠' !important;
+            margin-right: 8px !important;
+            font-size: 18px !important;
+        }
+        
+        .kst-warning-content {
+            font-size: 13px !important;
+            color: #856404 !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+        
+        /* Image placeholders */
+        .kst-image-block, .kst-chart-block {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+            border: 2px dashed #dee2e6 !important;
+            padding: 30px 15px !important;
+            text-align: center !important;
+            margin: 25px 8px !important;
+            color: #6c757d !important;
+            font-size: 13px !important;
+            font-style: italic !important;
+            min-height: 120px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border-radius: 0px !important;
+        }
+        
+        /* Auto-hide images without src */
+        .kst-image-block:not(:has(img)), 
+        .kst-chart-block:not(:has(img)),
+        .kst-image-block:has(img[src=""]), 
+        .kst-chart-block:has(img[src=""]) {
+            display: none !important;
+        }
+        
+        .kst-image-block img, 
+        .kst-chart-block img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 0px !important;
+        }
+        
+        /* Badge styles */
+        .kst-badge {
+            background: #dc3545 !important;
+            color: #ffffff !important;
+            padding: 3px 8px !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            border-radius: 0px !important;
+            text-transform: uppercase !important;
+            display: inline-block !important;
+            margin: 0 3px 3px 0 !important;
+        }
+        
+        .kst-badge.kst-secondary {
+            background: #6c757d !important;
+        }
+        
+        .kst-badge.kst-success {
+            background: #28a745 !important;
+        }
+        
+        .kst-badge.kst-info {
+            background: #17a2b8 !important;
+        }
+        
+        /* Text utilities */
+        .kst-text-center {
+            text-align: center !important;
+        }
+        
+        .kst-text-muted {
+            color: #6c757d !important;
+        }
+        
+        .kst-text-small {
+            font-size: 12px !important;
+        }
+        
+        .kst-font-weight-bold {
+            font-weight: 600 !important;
+        }
+        
+        /* Margin utilities */
+        .kst-mb-0 { margin-bottom: 0 !important; }
+        .kst-mb-1 { margin-bottom: 8px !important; }
+        .kst-mb-2 { margin-bottom: 16px !important; }
+        .kst-mb-3 { margin-bottom: 24px !important; }
+        
+        .kst-mt-0 { margin-top: 0 !important; }
+        .kst-mt-1 { margin-top: 8px !important; }
+        .kst-mt-2 { margin-top: 16px !important; }
+        .kst-mt-3 { margin-top: 24px !important; }
+    </style>
+
+    <div class="kst-main-container">
+        
+        <!-- Hero Section -->
+        <div class="kst-hero-section">
+            <div class="kst-text-center">
+                <div class="kst-hero-box">
+                    <span class="kst-hero-title">CHAEUM PREMIUM</span>
+                    <p class="kst-hero-subtitle">No.2 / No.3 / No.4</p>
+                </div>
+                
+                <div class="kst-hero-visual">
+                    <div class="kst-image-block">
+                        High-quality product photography showing CHAEUM PREMIUM syringe packaging with elegant medical aesthetic
+                    </div>
+                </div>
+                
+                <div class="kst-hero-products">
+                    <div class="kst-product-box">
+                        <div class="kst-product-name">CHAEUM PREMIUM No.2</div>
+                        <div class="kst-product-volume">2 x 1.1 ml syringes</div>
+                    </div>
+                    <div class="kst-product-box">
+                        <div class="kst-product-name">CHAEUM PREMIUM No.3</div>
+                        <div class="kst-product-volume">2 x 1.1 ml syringes</div>
+                    </div>
+                    <div class="kst-product-box">
+                        <div class="kst-product-name">CHAEUM PREMIUM No.4</div>
+                        <div class="kst-product-volume">2 x 1.1 ml syringes</div>
+                    </div>
+                </div>
+                
+                <div class="kst-text-center kst-mt-3">
+                    <h1 class="kst-section-title">Premium Hyaluronic Acid Dermal Filler</h1>
+                    <p class="kst-text-muted">Advanced BDDE cross-linking technology for natural-looking facial enhancement and wrinkle correction</p>
+                    <div class="kst-mt-2">
+                        <span class="kst-badge">Hyaluronic Acid</span>
+                        <span class="kst-badge kst-secondary">Hugel Pharma</span>
+                        <span class="kst-badge kst-success">With Lidocaine</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Brand Pillars Section -->
+        <div class="kst-brand-pillars">
+            <div class="kst-pillar-card">
+                <div class="kst-pillar-title">Technology</div>
+                <div class="kst-pillar-subtitle">BDDE cross-linking for superior performance</div>
+                <div class="kst-pillar-divider"></div>
+                <div class="kst-pillar-description">
+                    Monophasic and even HA structure ensures optimal distribution and natural-looking results with enhanced durability
+                </div>
+            </div>
+            
+            <div class="kst-pillar-card">
+                <div class="kst-pillar-title">Lidocaine</div>
+                <div class="kst-pillar-subtitle">Enhanced patient comfort during treatment</div>
+                <div class="kst-pillar-divider"></div>
+                <div class="kst-pillar-description">
+                    0.3% Lidocaine concentration provides effective pain management for comfortable procedures
+                </div>
+            </div>
+            
+            <div class="kst-pillar-card">
+                <div class="kst-pillar-title">Quality</div>
+                <div class="kst-pillar-subtitle">Manufactured by Hugel Pharma, South Korea</div>
+                <div class="kst-pillar-divider"></div>
+                <div class="kst-pillar-description">
+                    Rigorous quality control and advanced manufacturing standards ensure consistent, reliable results
+                </div>
+            </div>
+        </div>
+        
+        <!-- Key Ingredients Section -->
+        <div class="kst-section">
+            <h2 class="kst-section-title">Key Ingredients & Formulation</h2>
+            
+            <div class="kst-ingredient-grid">
+                <div class="kst-ingredient-card">
+                    <div class="kst-ingredient-name">Cross-linked Hyaluronic Acid</div>
+                    <div class="kst-ingredient-concentration">20 mg/ml</div>
+                    <div class="kst-ingredient-description">
+                        Highly purified hyaluronic acid with advanced BDDE cross-linking technology creates a monophasic gel structure for optimal tissue integration and natural-looking results. The varying cross-linking rates across the product line provide specific performance characteristics for different treatment areas.
+                    </div>
+                </div>
+                
+                <div class="kst-ingredient-card">
+                    <div class="kst-ingredient-name">Lidocaine Hydrochloride</div>
+                    <div class="kst-ingredient-concentration">0.3% (3 mg/ml)</div>
+                    <div class="kst-ingredient-description">
+                        Local anesthetic integrated into the gel formulation to minimize discomfort during injection procedures. Provides immediate pain relief while maintaining the integrity of the hyaluronic acid structure for enhanced patient experience.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                Molecular structure diagram showing BDDE cross-linked hyaluronic acid chain formation and gel architecture
+            </div>
+        </div>
+        
+        <!-- Benefits & Applications Section -->
+        <div class="kst-section">
+            <h2 class="kst-section-title">Clinical Benefits & Applications</h2>
+            
+            <div class="kst-benefits-grid">
+                <div class="kst-benefit-category">
+                    <div class="kst-category-title">Primary Applications</div>
+                    <ul class="kst-benefit-list">
+                        <li class="kst-benefit-item">
+                            <div class="kst-benefit-title">Wrinkle Correction</div>
+                            <div class="kst-benefit-description">Effective treatment for fine to deep wrinkles with long-lasting results</div>
+                        </li>
+                        <li class="kst-benefit-item">
+                            <div class="kst-benefit-title">Facial Volumization</div>
+                            <div class="kst-benefit-description">Restores lost volume and enhances facial contours for youthful appearance</div>
+                        </li>
+                        <li class="kst-benefit-item">
+                            <div class="kst-benefit-title">Lip Enhancement</div>
+                            <div class="kst-benefit-description">Natural lip augmentation with precise volume control and definition</div>
+                        </li>
+                        <li class="kst-benefit-item">
+                            <div class="kst-benefit-title">Facial Rejuvenation</div>
+                            <div class="kst-benefit-description">Comprehensive facial revitalization through targeted treatment approach</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="kst-benefit-category">
+                    <div class="kst-category-title">Technical Advantages</div>
+                    <ul class="kst-benefit-list">
+                        <li class="kst-benefit-item">
+                            <div class="kst-benefit-title">Even Distribution</div>
+                            <div class="kst-benefit-description">Regular and dense gel structure ensures uniform treatment results</div>
+                        </li>
+                        <li class="kst-benefit-item">
+                            <div class="kst-benefit-title">Natural Integration</div>
+                            <div class="kst-benefit-description">Monophasic formulation blends seamlessly with natural tissue</div>
+                        </li>
+                        <li class="kst-benefit-item">
+                            <div class="kst-benefit-title">Minimal Inflammation</div>
+                            <div class="kst-benefit-description">High purity formulation reduces post-injection inflammatory response</div>
+                        </li>
+                        <li class="kst-benefit-item">
+                            <div class="kst-benefit-title">Extended Duration</div>
+                            <div class="kst-benefit-description">Advanced cross-linking provides lasting results from 6-12+ months</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                Before and after treatment comparison photos showing natural-looking enhancement results across different facial areas
+            </div>
+        </div>
+        
+        <!-- Product Variants Comparison Section -->
+        <div class="kst-section">
+            <h2 class="kst-section-title">Product Variants & Treatment Guide</h2>
+            
+            <div class="kst-protocol-grid">
+                <div class="kst-protocol-card">
+                    <div class="kst-protocol-header">CHAEUM PREMIUM No.2</div>
+                    <div class="kst-protocol-content">
+                        <strong>Viscosity:</strong> Medium | <strong>Injection Layer:</strong> Middle and superficial dermis | <strong>Needle:</strong> 27G<br><br>
+                        <strong>Treatment Areas:</strong> Glabellar and forehead lines, periorbital and perioral wrinkles, lip augmentation<br><br>
+                        <strong>Duration:</strong> 6-9 months | Ideal for medium wrinkles and lip enhancement with seamless injection in sensitive areas
+                    </div>
+                </div>
+                
+                <div class="kst-protocol-card">
+                    <div class="kst-protocol-header">CHAEUM PREMIUM No.3</div>
+                    <div class="kst-protocol-content">
+                        <strong>Viscosity:</strong> High | <strong>Injection Layer:</strong> Middle and deep dermis | <strong>Needle:</strong> 25G<br><br>
+                        <strong>Treatment Areas:</strong> Nasolabial folds, chin wrinkles, facial volumization (forehead, chin, cheekbones), nose bridge<br><br>
+                        <strong>Duration:</strong> 8-12 months | High cross-linking rate provides strong lifting effect for areas requiring more support
+                    </div>
+                </div>
+                
+                <div class="kst-protocol-card">
+                    <div class="kst-protocol-header">CHAEUM PREMIUM No.4</div>
+                    <div class="kst-protocol-content">
+                        <strong>Viscosity:</strong> Very High | <strong>Injection Layer:</strong> Deep subcutaneous layer | <strong>Needle:</strong> 23G<br><br>
+                        <strong>Treatment Areas:</strong> Facial contouring, volume augmentation (chin, cheeks, cheekbones, temples), chin correction<br><br>
+                        <strong>Duration:</strong> 12+ months | Highest cross-linking rate for substantial lift and structural shaping
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-table-wrap">
+                <table class="kst-specs-table">
+                    <thead>
+                        <tr>
+                            <th>Product Version</th>
+                            <th>Viscosity</th>
+                            <th>Injection Layer</th>
+                            <th>Needle Gauge</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CHAEUM PREMIUM No.2</td>
+                            <td>Medium</td>
+                            <td>Middle & Superficial Dermis</td>
+                            <td>27G</td>
+                            <td>6-9 months</td>
+                        </tr>
+                        <tr>
+                            <td>CHAEUM PREMIUM No.3</td>
+                            <td>High</td>
+                            <td>Middle & Deep Dermis</td>
+                            <td>25G</td>
+                            <td>8-12 months</td>
+                        </tr>
+                        <tr>
+                            <td>CHAEUM PREMIUM No.4</td>
+                            <td>Very High</td>
+                            <td>Deep Subcutaneous</td>
+                            <td>23G</td>
+                            <td>12+ months</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="kst-image-block">
+                Facial mapping diagram showing optimal injection sites and treatment areas for each product variant
+            </div>
+        </div>
+        
+        <!-- Treatment Protocol Section -->
+        <div class="kst-section">
+            <h2 class="kst-section-title">Professional Treatment Guidelines</h2>
+            
+            <div class="kst-protocol-grid">
+                <div class="kst-protocol-card">
+                    <div class="kst-protocol-header">Pre-Treatment Preparation</div>
+                    <div class="kst-protocol-content">
+                        Assess treatment area and select appropriate product variant based on desired outcome. Ensure sterile conditions and prepare injection equipment. Verify patient medical history and obtain informed consent for procedure.
+                    </div>
+                </div>
+                
+                <div class="kst-protocol-card">
+                    <div class="kst-protocol-header">Injection Technique</div>
+                    <div class="kst-protocol-content">
+                        Use recommended needle gauge for selected product variant. Inject slowly into appropriate tissue layer with proper angle and depth. Monitor gel distribution and adjust technique as needed for optimal results.
+                    </div>
+                </div>
+                
+                <div class="kst-protocol-card">
+                    <div class="kst-protocol-header">Post-Treatment Care</div>
+                    <div class="kst-protocol-content">
+                        Apply gentle pressure if needed to achieve desired contour. Provide post-treatment instructions including activity restrictions and follow-up schedule. Monitor for any adverse reactions or complications.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                Step-by-step injection technique demonstration showing proper needle placement and gel distribution methods
+            </div>
+        </div>
+        
+        <!-- Safety Information Section -->
+        <div class="kst-section">
+            <h2 class="kst-section-title">Safety Information & Precautions</h2>
+            
+            <div class="kst-warning-box">
+                <div class="kst-warning-title">Important Safety Guidelines</div>
+                <div class="kst-warning-content">
+                    For professional use only. This product should only be administered by qualified healthcare professionals with appropriate training in dermal filler injection techniques. Store at room temperature and use immediately upon opening. Single-use product - do not reuse or resterilize.
+                </div>
+            </div>
+            
+            <div class="kst-warning-box">
+                <div class="kst-warning-title">Post-Treatment Precautions</div>
+                <div class="kst-warning-content">
+                    Patients should avoid touching or massaging the treated area for 24 hours. Refrain from strenuous physical activity, alcohol consumption, and exposure to extreme heat or cold for 48 hours. Mild redness, swelling, or bruising at injection site is normal and typically resolves within a few days.
+                </div>
+            </div>
+            
+            <div class="kst-warning-box">
+                <div class="kst-warning-title">Contraindications</div>
+                <div class="kst-warning-content">
+                    Do not use if pregnant or breastfeeding. Not recommended for patients with known hypersensitivity to hyaluronic acid or lidocaine. Avoid in areas with active skin infection or inflammation. Consult medical professional for complete list of contraindications and drug interactions.
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                Safety symbols and proper storage guidelines with temperature and handling requirements
+            </div>
+        </div>
+        
+        <!-- Storage & Handling Section -->
+        <div class="kst-section">
+            <h2 class="kst-section-title">Storage & Handling Instructions</h2>
+            
+            <div class="kst-protocol-grid">
+                <div class="kst-protocol-card">
+                    <div class="kst-protocol-header">Storage Conditions</div>
+                    <div class="kst-protocol-content">
+                        Store at room temperature in original packaging. Protect from direct sunlight and extreme temperatures. Do not freeze or expose to temperatures above 25°C (77°F). Keep in dry environment away from moisture.
+                    </div>
+                </div>
+                
+                <div class="kst-protocol-card">
+                    <div class="kst-protocol-header">Handling Guidelines</div>
+                    <div class="kst-protocol-content">
+                        Handle syringes with care to prevent damage. Use sterile technique when preparing for injection. Check product integrity before use - do not use if packaging is damaged or product appears compromised.
+                    </div>
+                </div>
+                
+                <div class="kst-protocol-card">
+                    <div class="kst-protocol-header">Shelf Life Information</div>
+                    <div class="kst-protocol-content">
+                        Product maintains stability and effectiveness when stored under recommended conditions. Check expiration date before use. Single-use product - discard after opening and do not attempt to preserve for future use.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Manufacturer Information Section -->
+        <div class="kst-section">
+            <h2 class="kst-section-title">Manufacturer & Quality Assurance</h2>
+            
+            <div class="kst-text-center">
+                <div class="kst-mb-3">
+                    <span class="kst-badge kst-info">Hugel Pharma Co., Ltd.</span>
+                    <span class="kst-badge kst-secondary">South Korea</span>
+                    <span class="kst-badge kst-success">ISO Certified</span>
+                </div>
+                
+                <p class="kst-text-muted kst-mb-2">
+                    Manufactured by Hugel Pharma Co., Ltd., a leading pharmaceutical company in South Korea specializing in advanced dermal filler technology and aesthetic medicine solutions.
+                </p>
+                
+                <p class="kst-text-small kst-text-muted">
+                    Quality assurance through rigorous testing protocols and compliance with international pharmaceutical manufacturing standards. Each batch undergoes comprehensive quality control testing to ensure consistent performance and safety.
+                </p>
+            </div>
+            
+            <div class="kst-image-block">
+                Hugel Pharma manufacturing facility and quality control laboratory showcasing advanced production capabilities
+            </div>
+        </div>
+        
+    </div>

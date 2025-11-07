@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --kst-main-color: #C81F4E;
+            --kst-sub-color: #71294D;
+            --kst-text-primary: #222222;
+            --kst-text-secondary: #666666;
+            --kst-background: #FFFFFF;
+            --kst-badge-bg: #C81F4E;
+            --kst-badge-text: #FFFFFF;
+            --kst-badge-hover: #E27B99;
+            --kst-light-bg: #f8f9fa;
+            --kst-border: #dee2e6;
+        }
+        
+        * {
+            box-sizing: border-box !important;
+        }
+        
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--kst-background) !important;
+            color: var(--kst-text-primary) !important;
+            padding: 0;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        
+        .kst-hero-section {
+            background: linear-gradient(135deg, var(--kst-light-bg) 0%, #e9ecef 100%);
+            padding: 40px 16px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .kst-product-badge {
+            background: var(--kst-badge-bg);
+            color: var(--kst-badge-text) !important;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .kst-main-title {
+            font-size: 36px !important;
+            font-weight: 300 !important;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 12px !important;
+            letter-spacing: -1px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .kst-main-subtitle {
+            font-size: 20px !important;
+            font-weight: 200 !important;
+            color: var(--kst-sub-color) !important;
+            margin-bottom: 18px !important;
+            margin-top: -12px !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-subtitle {
+            font-size: 16px !important;
+            color: var(--kst-text-secondary) !important;
+            font-weight: 400 !important;
+            margin: 0 auto;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-section {
+            padding: 16px;
+            margin-bottom: 20px;
+            color: var(--kst-text-primary) !important;
+        }
+        
+        .kst-section-label {
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--kst-main-color) !important;
+            margin-bottom: 16px !important;
+        }
+        
+        .kst-section-title {
+            font-size: 22px !important;
+            font-weight: 600 !important;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 20px !important;
+            letter-spacing: -0.5px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-image-block,
+        .kst-chart-block {
+            background: var(--kst-light-bg);
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 8px;
+            color: var(--kst-text-secondary) !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            border-radius: 8px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .kst-image-block:not(:has(img)),
+        .kst-image-block:has(img[src=""]),
+        .kst-chart-block:not(:has(img)),
+        .kst-chart-block:has(img[src=""]) {
+            display: none;
+        }
+        
+        .kst-image-block img,
+        .kst-chart-block img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .kst-ingredient-card {
+            background: var(--kst-light-bg);
+            padding: 20px 16px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--kst-main-color);
+            border-radius: 0 8px 8px 0;
+            transition: all 0.2s ease;
+        }
+        
+        .kst-ingredient-card:hover {
+            border-left-color: var(--kst-sub-color);
+            background: #f1f3f4;
+        }
+        
+        .kst-ingredient-header {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .kst-ingredient-name {
+            font-size: 18px !important;
+            font-weight: 600 !important;
+            color: var(--kst-text-primary) !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-concentration-tag {
+            background: var(--kst-main-color);
+            color: var(--kst-badge-text) !important;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            align-self: flex-start;
+        }
+        
+        .kst-ingredient-description {
+            font-size: 14px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-benefits-list {
+            margin: 20px 0;
+        }
+        
+        .kst-benefit-item {
+            background: var(--kst-background);
+            border: 1px solid var(--kst-border);
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .kst-benefit-number {
+            width: 28px;
+            height: 28px;
+            background: var(--kst-main-color);
+            color: var(--kst-badge-text) !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            margin-bottom: 12px;
+        }
+        
+        .kst-benefit-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 8px !important;
+            line-height: 1.4;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-benefit-description {
+            font-size: 14px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .kst-specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            box-sizing: border-box;
+            border-spacing: 0;
+            table-layout: auto !important;
+        }
+
+        .kst-specs-table th,
+        .kst-specs-table td {
+            padding: 12px;
+            border: 1px solid var(--kst-border);
+            text-align: center;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: var(--kst-text-primary) !important;
+        }
+
+        .kst-specs-table th {
+            background-color: var(--kst-light-bg);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--kst-sub-color) !important;
+            white-space: nowrap !important;
+        }
+        
+        .kst-specs-header {
+            background: var(--kst-light-bg);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--kst-border);
+            text-align: left;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        
+        .kst-specs-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: var(--kst-text-primary) !important;
+            margin: 0 !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-faq-section {
+            margin: 20px 0;
+        }
+        
+        .kst-faq-item {
+            border-bottom: 1px solid var(--kst-border);
+            margin-bottom: 12px;
+        }
+        
+        .kst-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 16px 0;
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            color: var(--kst-text-primary) !important;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-faq-question:hover {
+            color: var(--kst-main-color) !important;
+        }
+        
+        .kst-faq-toggle {
+            font-size: 18px !important;
+            transition: transform 0.3s ease;
+            color: var(--kst-main-color) !important;
+        }
+        
+        .kst-faq-answer {
+            padding-bottom: 16px;
+            font-size: 14px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.6;
+            display: none;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-faq-item.kst-open .kst-faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .kst-faq-item.kst-open .kst-faq-answer {
+            display: block;
+        }
+        
+        .kst-safety-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 8px;
+        }
+        
+        .kst-warning-icon {
+            width: 20px;
+            height: 20px;
+            background: #f39c12;
+            color: var(--kst-badge-text) !important;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            font-weight: 600 !important;
+            font-size: 12px !important;
+            vertical-align: top;
+        }
+        
+        .kst-warning-title {
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            color: #856404 !important;
+            margin-bottom: 8px !important;
+            display: inline;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-warning-content {
+            font-size: 13px !important;
+            color: #856404 !important;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .kst-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--kst-border) 50%, transparent 100%);
+            margin: 32px 16px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb:hover {
+            background: #a1a1a1;
+        }
+        
+        .kst-tech-section {
+            background: var(--kst-light-bg);
+            padding: 20px 16px;
+            margin: 20px 8px;
+            border-radius: 8px;
+        }
+        
+        .kst-tech-item {
+            background: var(--kst-background);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--kst-border);
+            margin-bottom: 12px;
+        }
+        
+        .kst-tech-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: var(--kst-text-primary) !important;
+            margin-bottom: 8px !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-tech-description {
+            font-size: 14px !important;
+            color: var(--kst-text-secondary) !important;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="kst-main-container">
+        
+        <div class="kst-hero-section">
+            <div class="kst-product-badge">Dermal Filler</div>
+            <h1 class="kst-main-title">STARFILL PLUS</h1>
+            <h2 class="kst-main-subtitle">PLUS • DEEP PLUS • IMPLANT PLUS Lidocaine</h2>
+            <p class="kst-subtitle">Advanced Hyaluronic Acid dermal filler series with ZEEP technology for optimal safety and natural-looking results</p>
+        </div>
+        
+        <div class="kst-image-block">
+            [STARFILL Product Line Photography - All Three Variants]
+        </div>
+        
+        <div class="kst-section">
+            <div class="kst-section-label">Composition</div>
+            <h2 class="kst-section-title">Key Ingredients & Concentration</h2>
+            
+            <div class="kst-ingredient-card">
+                <div class="kst-ingredient-header">
+                    <h3 class="kst-ingredient-name">Hyaluronic Acid (HA)</h3>
+                    <div class="kst-concentration-tag">24mg/ml</div>
+                </div>
+                <div class="kst-ingredient-description">
+                    Highly purified, stabilized, and cross-linked Hyaluronic Acid gel using advanced BDDE cross-linking technology. Provides volumization, wrinkle reduction, and enhanced facial contouring with long-lasting aesthetic effects.
+                </div>
+            </div>
+            
+            <div class="kst-ingredient-card">
+                <div class="kst-ingredient-header">
+                    <h3 class="kst-ingredient-name">Lidocaine</h3>
+                    <div class="kst-concentration-tag">0.3%</div>
+                </div>
+                <div class="kst-ingredient-description">
+                    Local anesthetic agent included for enhanced comfort during injection procedures, significantly reducing patient discomfort and improving overall treatment experience.
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [Molecular Structure and Cross-linking Technology Illustration]
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <div class="kst-section">
+            <div class="kst-section-label">Advantages</div>
+            <h2 class="kst-section-title">Key Benefits</h2>
+            
+            <div class="kst-benefits-list">
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">1</div>
+                    <h3 class="kst-benefit-title">Advanced ZEEP Technology</h3>
+                    <p class="kst-benefit-description">
+                        ZEEP (Zero Endotoxin and BDDE Entire Process) is a proprietary manufacturing process that minimizes endotoxin levels below 0.1 EU/ml and reduces residual BDDE, ensuring high safety and minimizing allergic reactions and swelling.
+                    </p>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">2</div>
+                    <h3 class="kst-benefit-title">Superior Viscoelasticity</h3>
+                    <p class="kst-benefit-description">
+                        High viscoelasticity and cohesiveness ensure even gel distribution during injection, maintaining uniform extrusion force and providing natural-looking, stable results.
+                    </p>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">3</div>
+                    <h3 class="kst-benefit-title">Monophasic Gel Structure</h3>
+                    <p class="kst-benefit-description">
+                        Uniform monophasic gel particles provide consistent performance and smooth injection experience, ensuring predictable and reliable aesthetic outcomes.
+                    </p>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">4</div>
+                    <h3 class="kst-benefit-title">Long-lasting Results</h3>
+                    <p class="kst-benefit-description">
+                        Enhanced durability with aesthetic effects lasting 6-18 months depending on product variant and treatment area, providing excellent value and patient satisfaction.
+                    </p>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">5</div>
+                    <h3 class="kst-benefit-title">Comprehensive Wrinkle Reduction</h3>
+                    <p class="kst-benefit-description">
+                        Effectively reduces the appearance of fine, medium, and deep wrinkles and folds, providing versatile treatment options for various skin concerns.
+                    </p>
+                </div>
+                
+                <div class="kst-benefit-item">
+                    <div class="kst-benefit-number">6</div>
+                    <h3 class="kst-benefit-title">Enhanced Skin Hydration</h3>
+                    <p class="kst-benefit-description">
+                        Improves skin elasticity and hydration, contributing to a more youthful and radiant complexion beyond just volume restoration.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="kst-image-block">
+                [ZEEP Technology Process and Gel Structure Comparison]
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <div class="kst-section">
+            <div class="kst-table-wrap">
+                <table class="kst-specs-table">
+                    <caption class="kst-specs-header">
+                        <h3 class="kst-specs-title">STARFILL Product Comparison</h3>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>STARFILL PLUS</th>
+                            <th>STARFILL DEEP PLUS</th>
+                            <th>STARFILL IMPLANT PLUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Viscosity</strong></td>
+                            <td>Low-Medium</td>
+                            <td>Medium</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Treatment Area</strong></td>
+                            <td>Fine lines, periorbital area, subtle lip contouring</td>
+                            <td>Moderate to deep wrinkles, nasolabial folds, lip augmentation</td>
+                            <td>Severe lines, facial volumization, cheeks, chin, jawline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Injection Layer</strong></td>
+                            <td>Superficial to mid dermis</td>
+                            <td>Mid to deep dermis</td>
+                            <td>Subcutaneous/supraperiosteal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Duration</strong></td>
+                            <td>6-12 months</td>
+                            <td>9-15 months</td>
+                            <td>12-18 months</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Needle Gauge</strong></td>
+                            <td>27G</td>
+                            <td>27G</td>
+                            <td>27G</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="kst-image-block">
+                [Treatment Area Guide and Application Zones Illustration]
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <div class="kst-tech-section">
+            <div class="kst-section-label">Technology</div>
+            <h2 class="kst-section-title">Technical Features</h2>
+            
+            <div class="kst-tech-item">
+                <h3 class="kst-tech-title">Manufacturer Excellence</h3>
+                <p class="kst-tech-description">
+                    Manufactured by Jetema Co., Ltd., South Korea - a leading innovator in aesthetic medicine with advanced quality control systems and cutting-edge production facilities.
+                </p>
+            </div>
+            
+            <div class="kst-tech-item">
+                <h3 class="kst-tech-title">Advanced Cross-linking</h3>
+                <p class="kst-tech-description">
+                    Utilizes advanced BDDE cross-linking method with high degree of cross-linking, ensuring optimal gel stability and longevity while maintaining biocompatibility.
+                </p>
+            </div>
+            
+            <div class="kst-tech-item">
+                <h3 class="kst-tech-title">Sterile Pre-filled System</h3>
+                <p class="kst-tech-description">
+                    Each box contains 1 sterile pre-filled syringe (1.1 ml) and 2 needles, ensuring convenience, safety, and precise dosing for professional applications.
+                </p>
+            </div>
+            
+            <div class="kst-tech-item">
+                <h3 class="kst-tech-title">Proprietary ZEEP Technology</h3>
+                <p class="kst-tech-description">
+                    ZEEP (Zero Endotoxin and BDDE Entire Process) is a proprietary manufacturing process that minimizes the levels of endotoxin (below 0.1 EU/ml) and residual BDDE, ensuring high safety and minimizing the risk of side effects like allergic reactions and swelling.
+                </p>
+            </div>
+            
+            <div class="kst-image-block">
+                [Manufacturing Process and Quality Control Visualization]
+            </div>
+        </div>
+        
+        <div class="kst-divider"></div>
+        
+        <div class="kst-section">
+            <div class="kst-section-label">Product Details</div>
+            <h2 class="kst-section-title">Detailed Product Versions</h2>
+            
+            <div class="kst-tech-item">
+                <h3 class="kst-tech-title">STARFILL PLUS Lidocaine</h3>
+                <p class="kst-tech-description">
+                    Designed for the correction of fine, superficial facial lines and wrinkles. It is ideal for subtle enhancements. Its low-medium viscosity and uniform gel texture make it suitable for delicate areas, providing a smooth and natural finish.
+                </p>
+            </div>
+            
+            <div class="kst-tech-item">
+                <h3 class="kst-tech-title">STARFILL DEEP PLUS Lidocaine</h3>
+                <p class="kst-tech-description">
+                    Targets moderately pronounced and deep facial lines and wrinkles. It is also suitable for lip augmentation and contouring. This version has a balanced viscosity that provides both structure and flexibility, making it versatile for treating a range of moderate to deep lines and folds.
+                </p>
+            </div>
+            
+            <div class="kst-tech-item">
+                <h3 class="kst-tech-title">STARFILL IMPLANT PLUS Lidocaine</h3>
+                <p class="kst-tech-description">
+                    Used for severe lines and folds, as well as for facial volumization and contouring. It can also be used for nose bridge improvement. With the highest viscosity in the series, STARFILL IMPLANT PLUS provides the necessary structure and lifting capacity for profound volume enhancement and the correction of severe facial depressions.
+                </p>
+            </div>
+        </div>
+
+        <div class="kst-divider"></div>
+        
+        <div class="kst-section">
+            <div class="kst-section-label">Support</div>
+            <h2 class="kst-section-title">Frequently Asked Questions</h2>
+            
+            <div class="kst-faq-section">
+                <div class="kst-faq-item">
+                    <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                        Which STARFILL product is right for my treatment needs?
+                        <span class="kst-faq-toggle">+</span>
+                    </button>
+                    <div class="kst-faq-answer">
+                        Choose based on viscosity and injection depth: STARFILL PLUS for fine lines and superficial treatment, DEEP PLUS for moderate wrinkles and lip augmentation, and IMPLANT PLUS for severe lines and facial volumization.
+                    </div>
+                </div>
+                
+                <div class="kst-faq-item">
+                    <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                        What are the storage requirements for STARFILL products?
+                        <span class="kst-faq-toggle">+</span>
+                    </button>
+                    <div class="kst-faq-answer">
+                        Store at 2-25°C in a cool, dry place away from direct sunlight. Do not freeze. The shelf life is 2 years from the date of manufacture when stored properly.
+                    </div>
+                </div>
+                
+                <div class="kst-faq-item">
+                    <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                        What is ZEEP technology and how does it benefit patients?
+                        <span class="kst-faq-toggle">+</span>
+                    </button>
+                    <div class="kst-faq-answer">
+                        ZEEP (Zero Endotoxin and BDDE Entire Process) is a proprietary manufacturing process that minimizes endotoxin levels below 0.1 EU/ml and reduces residual BDDE, ensuring high safety and minimizing allergic reactions and swelling.
+                    </div>
+                </div>
+                
+                <div class="kst-faq-item">
+                    <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                        How long do the aesthetic effects typically last?
+                        <span class="kst-faq-toggle">+</span>
+                    </button>
+                    <div class="kst-faq-answer">
+                        Treatment duration varies by product: STARFILL PLUS lasts 6-12 months, DEEP PLUS lasts 9-15 months, and IMPLANT PLUS provides results for 12-18 months, depending on the treatment area and individual factors.
+                    </div>
+                </div>
+                
+                <div class="kst-faq-item">
+                    <button class="kst-faq-question" onclick="kstToggleFAQ(this)">
+                        Are there any contraindications for STARFILL treatments?
+                        <span class="kst-faq-toggle">+</span>
+                    </button>
+                    <div class="kst-faq-answer">
+                        Do not use in pregnant or breastfeeding women. Avoid if there is a known allergy to hyaluronic acid or lidocaine. Intended for use by trained professionals only. Consult medical history before treatment.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kst-safety-warning">
+            <div class="kst-warning-icon">!</div>
+            <span class="kst-warning-title">Important Safety Information</span>
+            <div class="kst-warning-content">
+                Professional use only. Intended for use by trained medical professionals. Do not use in pregnant or breastfeeding women. Avoid if allergic to any ingredients including hyaluronic acid or lidocaine. Store according to specified conditions (2-25°C). Read all instructions thoroughly before use.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            [Professional Training Materials and Certification Documentation]
+        </div>
+        
+    </div>
+    
+    <script>
+        function kstToggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isOpen = faqItem.classList.contains('kst-open');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.kst-faq-item').forEach(item => {
+                item.classList.remove('kst-open');
+            });
+            
+            // Open the clicked item if it wasn't already open
+            if (!isOpen) {
+                faqItem.classList.add('kst-open');
+            }
+        }
+    </script>
+</body>
+</html>

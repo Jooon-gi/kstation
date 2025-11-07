@@ -1,0 +1,784 @@
+<style>
+        /* Reset and base styles with kst- prefix */
+        .kst-main-container {
+            max-width: 760px;
+            margin: 0 auto;
+            font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FFFFFF;
+            color: #222222 !important;
+            padding: 0;
+            line-height: 1.6;
+            box-sizing: border-box;
+        }
+        
+        .kst-main-container * {
+            box-sizing: border-box;
+        }
+        
+        /* Hide image blocks when no images are present */
+        .kst-image-block:not(:has(img)) {
+            display: none !important;
+        }
+        
+        .kst-image-block:has(img[src=""]) {
+            display: none !important;
+        }
+        
+        .kst-chart-block:not(:has(img)) {
+            display: none !important;
+        }
+        
+        .kst-chart-block:has(img[src=""]) {
+            display: none !important;
+        }
+        
+        /* Hero Section */
+        .kst-hero-section {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kst-hero-section::before {
+            content: '';
+            position: absolute;
+            top: -75px;
+            right: -75px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(244, 212, 59, 0.12) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+        
+        .kst-product-logo {
+            width: 60px;
+            height: 60px;
+            background: #F4D43B;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 25px rgba(244, 212, 59, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .kst-product-logo::before {
+            content: '+';
+            color: #222222 !important;
+            font-size: 24px;
+            font-weight: 300;
+        }
+        
+        .kst-product-title {
+            font-size: 40px;
+            font-weight: 500;
+            color: #222222 !important;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            position: relative;
+            margin: 20px;
+            z-index: 2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .kst-product-spec {
+            font-size: 25px;
+            font-weight: 300;
+            color: #222222 !important;
+            margin-top: -16px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-product-subtitle {
+            font-size: 16px;
+            color: #f6d21f !important;
+            font-weight: 500;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-hero-description {
+            font-size: 14px;
+            color: #202020 !important;
+            background-color: #fff45e !important;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Section Styles */
+        .kst-section {
+            padding: 40px 16px;
+            margin: 0;
+        }
+        
+        .kst-section-title {
+            font-size: 24px;
+            font-weight: 300;
+            color: #222222 !important;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-section-alt {
+            background: #f7fafc;
+        }
+        
+        /* Image Blocks */
+        .kst-image-block {
+            background: linear-gradient(135deg, #f7fafc 0%, #F7E27C 100%);
+            border: 1px solid #F4D43B;
+            border-radius: 12px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kst-image-block img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        
+        .kst-image-placeholder {
+            padding: 40px 20px;
+            text-align: center;
+            color: #F4D43B !important;
+            font-size: 12px;
+            font-style: italic;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Card Styles */
+        .kst-card {
+            background: #FFFFFF;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 12px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .kst-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(244, 212, 59, 0.15);
+        }
+        
+        .kst-card-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #222222 !important;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-card-content {
+            font-size: 14px;
+            color: #666666 !important;
+            line-height: 1.6;
+        }
+        
+        /* Badge Styles */
+        .kst-badge {
+            background: #F4D43B;
+            color: #222222 !important;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 4px 8px 4px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kst-badge-primary {
+            background: #F4D43B;
+            color: #222222 !important;
+        }
+        
+        .kst-badge-warning {
+            background: #F7E27C;
+            color: #222222 !important;
+        }
+        
+        /* Grid Layouts */
+        .kst-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .kst-grid-item {
+            background: #f7fafc;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .kst-grid-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #F4D43B !important;
+            margin-bottom: 4px;
+        }
+        
+        .kst-grid-label {
+            font-size: 12px;
+            color: #666666 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Step Styles */
+        .kst-step {
+            background: linear-gradient(135deg, #fff8d8 0%, #FFFFFF 100%);
+            border: 1px solid #F4D43B;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+            position: relative;
+        }
+        
+        .kst-step-number {
+            width: 30px;
+            height: 30px;
+            background: #F4D43B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #222222 !important;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .kst-step-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #222222 !important;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-step-description {
+            font-size: 13px;
+            color: #666666 !important;
+            line-height: 1.5;
+        }
+        
+        /* Table Styles */
+        .kst-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(244, 212, 59, 0.1);
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        
+        .kst-table-wrap::-webkit-scrollbar-thumb {
+            background: #F4D43B;
+            border-radius: 3px;
+        }
+        
+        .kst-table {
+            min-width: 600px;
+            width: 100%;
+            background: #FFFFFF;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .kst-table thead {
+            background: #F4D43B;
+            color: #222222 !important;
+        }
+        
+        .kst-table th,
+        .kst-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-table th {
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #222222 !important;
+            white-space: nowrap !important;
+        }
+        
+        .kst-table td {
+            font-size: 13px;
+            color: #666666 !important;
+        }
+        
+        .kst-table tbody tr:hover {
+            background: #f7fafc;
+        }
+        
+        /* List Styles */
+        .kst-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+        
+        .kst-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 0;
+            color: #222222 !important;
+            font-size: 14px;
+        }
+        
+        .kst-list-icon {
+            width: 16px;
+            height: 16px;
+            background: #F4D43B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #222222 !important;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .kst-list-icon::before {
+            content: '✓';
+        }
+        
+        /* Definition List Styles */
+        .kst-dl {
+            margin: 20px 0;
+        }
+        
+        .kst-dt {
+            font-weight: 600;
+            color: #222222 !important;
+            font-size: 14px;
+            margin-bottom: 4px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-dd {
+            color: #666666 !important;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            margin-left: 0;
+            padding-left: 16px;
+            border-left: 3px solid #F4D43B;
+        }
+        
+        /* Warning/Safety Styles */
+        .kst-warning {
+            background: linear-gradient(135deg, #F7E27C 0%, #F4D43B 100%);
+            border: 2px solid #F4D43B;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .kst-warning::before {
+            content: '⚠️';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #F4D43B;
+            color: #222222 !important;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .kst-warning-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #222222 !important;
+            margin-bottom: 8px;
+            margin-top: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .kst-warning-content {
+            font-size: 13px;
+            color: #222222 !important;
+            line-height: 1.6;
+        }
+        
+        .kst-warning-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0;
+        }
+        
+        .kst-warning-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            padding: 3px 0;
+            font-size: 12px;
+            color: #222222 !important;
+        }
+        
+        .kst-warning-list li::before {
+            content: '•';
+            color: #222222 !important;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        /* Chart Placeholder */
+        .kst-chart-block {
+            background: linear-gradient(135deg, #f7fafc 0%, #F7E27C 100%);
+            border: 1px solid #F4D43B;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            color: #F4D43B !important;
+            font-size: 12px;
+            font-style: italic;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        /* Text Utilities */
+        .kst-text-center {
+            text-align: center;
+        }
+        
+        .kst-text-muted {
+            color: #666666 !important;
+        }
+        
+        .kst-text-small {
+            font-size: 12px;
+        }
+        
+        .kst-mb-0 { margin-bottom: 0; }
+        .kst-mb-1 { margin-bottom: 8px; }
+        .kst-mb-2 { margin-bottom: 16px; }
+        .kst-mb-3 { margin-bottom: 24px; }
+        
+        .kst-mt-0 { margin-top: 0; }
+        .kst-mt-1 { margin-top: 8px; }
+        .kst-mt-2 { margin-top: 16px; }
+        .kst-mt-3 { margin-top: 24px; }
+</style>
+
+<div class="kst-main-container">
+    
+    <div class="kst-hero-section">
+        <h1 class="kst-product-title">VITAMIN C Injection</h1>
+        <h2 class="kst-product-spec">20mL × 10 Vials</h2>
+        <div class="kst-product-subtitle">High-Potency Antioxidant Solution</div>
+        <div class="kst-hero-description">
+            Professional-grade Ascorbic Acid injection for enhanced collagen synthesis, skin brightening, and powerful antioxidant protection.
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Main Product Image - Vitamin C Injection Vials
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-card">
+            <div class="kst-badge">Premium Quality</div>
+            <h3 class="kst-card-title">Vitamin C Injection 10g</h3>
+            <div class="kst-card-content">
+                This package contains 10 vials, each with 20ml of high-concentration Ascorbic Acid solution. Designed for professional clinical use to deliver maximum antioxidant benefits and support various health and aesthetic applications.
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><div class="kst-list-icon"></div><span>Powerful antioxidant protection against free radicals</span></li>
+            <li><div class="kst-list-icon"></div><span>Enhanced collagen synthesis for improved skin texture</span></li>
+            <li><div class="kst-list-icon"></div><span>Skin brightening and hyperpigmentation reduction</span></li>
+            <li><div class="kst-list-icon"></div><span>Liver function support and overall vitality boost</span></li>
+        </ul>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Active Ingredients & Formulation</h2>
+        
+        <dl class="kst-dl">
+            <dt class="kst-dt">Ascorbic Acid (Vitamin C)</dt>
+            <dd class="kst-dd">
+                <span class="kst-badge kst-badge-primary">10g/20mL</span>
+                Ascorbic acid is a powerful antioxidant that protects cells from damage by free radicals. It serves as a cofactor in collagen synthesis, crucial for skin elasticity and repair. Additionally, it reduces melanin production by inhibiting tyrosinase enzyme, leading to brighter skin tone.
+            </dd>
+        </dl>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Ingredient Mechanism Diagram - Vitamin C Pathways
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Mechanism of Action</h3>
+            <div class="kst-card-content">
+                Vitamin C works at the cellular level to neutralize harmful free radicals, supports collagen and elastin production, inhibits melanin formation, and enhances liver detoxification processes. Its water-soluble nature allows for efficient cellular uptake and utilization.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Expected Benefits & Effects</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">✓</div>
+                <div class="kst-grid-label">Antioxidant Protection</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">✓</div>
+                <div class="kst-grid-label">Skin Brightening</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">✓</div>
+                <div class="kst-grid-label">Collagen Synthesis</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">✓</div>
+                <div class="kst-grid-label">Liver Support</div>
+            </div>
+        </div>
+        
+        <ul class="kst-list">
+            <li><div class="kst-list-icon"></div><span>Reduces hyperpigmentation and dark spots</span></li>
+            <li><div class="kst-list-icon"></div><span>Improves skin texture and elasticity</span></li>
+            <li><div class="kst-list-icon"></div><span>Strengthens immune system function</span></li>
+            <li><div class="kst-list-icon"></div><span>Supports fatigue recovery and overall vitality</span></li>
+        </ul>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Before/After Results Comparison
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Usage Protocol & Administration</h2>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">1</div>
+            <div class="kst-step-title">Professional Assessment</div>
+            <div class="kst-step-description">Consultation with qualified medical professional to determine appropriate dosage and treatment plan based on individual needs.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">2</div>
+            <div class="kst-step-title">Dilution Preparation</div>
+            <div class="kst-step-description">The solution must be properly diluted before intravenous administration. Never administer undiluted.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">3</div>
+            <div class="kst-step-title">Administration Method</div>
+            <div class="kst-step-description">Can be administered via intravenous (IV) or intramuscular (IM) injection in clinical setting only.</div>
+        </div>
+        
+        <div class="kst-step">
+            <div class="kst-step-number">4</div>
+            <div class="kst-step-title">Treatment Cycle</div>
+            <div class="kst-step-description">For severe deficiency: 500mg to 1g daily. For skin and antioxidant benefits: as determined by medical professional.</div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Combination Therapy</h3>
+            <div class="kst-card-content">
+                Often combined with Glutathione to enhance skin whitening and antioxidant effects. Can also be used with placental extracts or thioctic acid for synergistic anti-aging and fatigue recovery benefits.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                Administration Guide Visual
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Specification</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Active Ingredient</td>
+                        <td>Ascorbic Acid</td>
+                        <td>10g per 20mL vial</td>
+                    </tr>
+                    <tr>
+                        <td>Package Contents</td>
+                        <td>10 Vials</td>
+                        <td>20mL each vial</td>
+                    </tr>
+                    <tr>
+                        <td>Administration</td>
+                        <td>IV/IM Injection</td>
+                        <td>Clinical setting required</td>
+                    </tr>
+                    <tr>
+                        <td>Storage Temperature</td>
+                        <td>2°C - 8°C</td>
+                        <td>Light-resistant container</td>
+                    </tr>
+                    <tr>
+                        <td>Shelf Life</td>
+                        <td>Use within 4 hours</td>
+                        <td>After vial puncture</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Storage & Handling Requirements</h3>
+            <div class="kst-card-content">
+                Store in light-resistant, hermetic container between 2°C and 8°C. The solution is preservative-free. Once the vial is punctured, any unused portion must be discarded within 4 hours to prevent microbial contamination.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Safety Information & Precautions</h2>
+        
+        <div class="kst-warning">
+            <div class="kst-warning-title">Important Safety Guidelines</div>
+            <div class="kst-warning-content">
+                This product must be diluted before intravenous administration and requires prescription use in clinical settings only.
+            </div>
+            <ul class="kst-warning-list">
+                <li>Do not administer undiluted</li>
+                <li>High doses may cause gastrointestinal discomfort</li>
+                <li>May affect urine acidity levels</li>
+                <li>Professional medical supervision required</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Contraindications</h3>
+            <div class="kst-card-content">
+                Use with caution in patients with renal impairment, history of kidney stones, or certain genetic disorders. Should not be administered to patients with hyperoxaluria. Consult medical professional before use if pregnant, breastfeeding, or taking other medications.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-section">
+        <h2 class="kst-section-title">Combination Recommendations</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Combination</th>
+                        <th>Expected Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Skin Brightening</td>
+                        <td>Vitamin C + Glutathione</td>
+                        <td>Enhanced whitening & antioxidant effects</td>
+                    </tr>
+                    <tr>
+                        <td>Anti-Aging</td>
+                        <td>Vitamin C + Placental Extract</td>
+                        <td>Improved vitality & skin regeneration</td>
+                    </tr>
+                    <tr>
+                        <td>Detoxification</td>
+                        <td>Vitamin C + Thioctic Acid</td>
+                        <td>Enhanced liver function & metabolism</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Synergistic Effects</h3>
+            <div class="kst-card-content">
+                Vitamin C helps regenerate and sustain the reduced form of glutathione in the body, maximizing its effectiveness. The antioxidant properties work synergistically to provide comprehensive cellular protection and enhanced therapeutic outcomes.
+            </div>
+        </div>
+    </div>
+    
+</div>

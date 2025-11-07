@@ -1,0 +1,458 @@
+<!-- Shopify Description HTML – Mobile-only template (max 760px) -->
+<div class="kst-main-container" role="region" aria-label="Product Detail Container">
+  <style>
+    /* ========= KST: Scoped Variables & Base ========= */
+    .kst-main-container {
+      --kst-bg: #0A1E55;
+      --kst-surface: #132555;
+      --kst-elev: #1B2E5F;
+      --kst-text: #FFFFFF;
+      --kst-subtext: #CCCCCC;
+      --kst-accent: #F5C242;
+      --kst-accent-2: #E29AA0;
+      --kst-accent-3: #C57A1B;
+      --kst-danger: #ff4757;
+      --kst-success: #2ed573;
+      --kst-warning: #ffa502;
+
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--kst-bg);
+      color: var(--kst-text) !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Pretendard", system-ui, Segoe UI, Roboto, Arial, Apple SD Gothic Neo, "Noto Sans", "Malgun Gothic", sans-serif;
+      line-height: 1.55;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    /* Only affect elements inside container */
+    .kst-main-container * {
+      box-sizing: border-box;
+      color: inherit !important;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .kst-container { padding: 16px; }
+    .kst-section { background: var(--kst-surface); border: 1px solid #2A3A6B; border-radius: 16px; padding: 16px; margin: 12px 0; }
+    .kst-section-header { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .kst-section-kicker { font-size: 12px; letter-spacing: .12em; color: var(--kst-subtext) !important; text-transform: uppercase; }
+    
+    /* Hero Section Styling */
+    #kst-basic-info {
+      background: linear-gradient(135deg, #0A1E55 0%, #1B2E5F 50%, #0A1E55 100%);
+      border: 1px solid rgba(245, 194, 66, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #kst-basic-info::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(245, 194, 66, 0.1), transparent);
+      animation: kst-rotate 20s linear infinite;
+      z-index: 0;
+    }
+    
+    #kst-basic-info > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    @keyframes kst-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .kst-hl {
+      font-weight: 800;
+      font-size: 30px;
+      background: var(--kst-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+      text-shadow: 0 0 30px rgba(245, 194, 66, 0.3);
+    }
+
+    .kst-sp {
+      font-weight: 400;
+      font-size: 24px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: -14px;
+      margin-bottom: 20px;
+      opacity: 90%;
+      text-shadow: 0 0 30px rgba(245, 194, 66, 0.3);
+    }
+
+    .kst-muted { color: var(--kst-subtext) !important; }
+    .kst-accent { color: var(--kst-accent) !important; }
+
+    /* Cards & blocks */
+    .kst-card { 
+      background: linear-gradient(135deg, var(--kst-elev) 0%, #0A1E55 100%); 
+      border: 1px solid rgba(245, 194, 66, 0.2); 
+      border-radius: 18px; 
+      padding: 18px; 
+      margin: 12px 0; 
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      display: flex; 
+      flex-direction: column; 
+      gap: 12px; 
+    }
+    .kst-badges { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 8px; 
+      margin-top: 10px;
+    }
+    
+    .kst-badge { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px; 
+      border-radius: 999px; 
+      padding: 8px 14px; 
+      font-size: 12px; 
+      border: 1px solid #2e3342; 
+      background: linear-gradient(135deg, #151821 0%, #1a1d25 100%); 
+      font-weight: 600; 
+    }
+    .kst-badge.kst-brand { 
+      border: 1px solid var(--kst-accent); 
+      background: var(--kst-accent);
+      color: var(--kst-bg) !important; 
+      box-shadow: 0 0 20px rgba(245, 194, 66, 0.2);
+    }
+    .kst-badge.kst-key { 
+      border: 1px solid var(--kst-accent-2); 
+      background: linear-gradient(135deg, rgba(226, 154, 160, 0.1) 0%, rgba(226, 154, 160, 0.05) 100%);
+      color: var(--kst-accent-2) !important; 
+      box-shadow: 0 0 15px rgba(226, 154, 160, 0.2);
+    }
+
+    /* Lists */
+    .kst-list-vert {
+      display: grid;
+      gap: 8px !important;
+      margin: 0 !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      list-style-position: inside !important;
+    }
+    .kst-list-vert li { 
+      background: var(--kst-elev); 
+      border: 1px solid #2A3A6B; 
+      border-radius: 12px; 
+      padding: 12px; 
+      list-style-position: inside !important; 
+    }
+    .kst-kv { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    .kst-kv .kst-k { color: var(--kst-subtext) !important; font-size: 12px; }
+    .kst-kv .kst-v { font-weight: 600; }
+
+    /* Definition list + chips */
+    .kst-dl { margin: 0; }
+    .kst-dl dt { 
+      font-weight: 800; 
+      margin-top: 16px; 
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 16px;
+    }
+    .kst-dl dd { margin: 8px 0 0 0; }
+    .kst-chipset { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .kst-chip { 
+      font-size: 11px; 
+      padding: 8px 14px; 
+      border-radius: 999px; 
+      border: 1px solid rgba(245, 194, 66, 0.4);
+      background: linear-gradient(135deg, rgba(245, 194, 66, 0.1) 0%, rgba(226, 154, 160, 0.1) 100%);
+      color: var(--kst-accent) !important; 
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(245, 194, 66, 0.2);
+    }
+
+    /* Images / media blocks */
+    .kst-image-block, .kst-chart-block, .kst-video-block { 
+      position: relative; 
+      border-radius: 18px; 
+      overflow: hidden; 
+      background: linear-gradient(135deg, #0A1E55 0%, #1B2E5F 100%); 
+      border: 1px solid rgba(245, 194, 66, 0.3); 
+      min-height: 180px; 
+      display: grid; 
+      place-items: center;
+      box-shadow: inset 0 0 30px rgba(245, 194, 66, 0.1);
+    }
+    .kst-image-block img, .kst-chart-block img { width: 100%; height: 240px; object-fit: cover; display: block; }
+    .kst-img-label { 
+      position: absolute; 
+      bottom: 12px; 
+      left: 12px; 
+      font-size: 11px; 
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%); 
+      color: var(--kst-bg) !important;
+      font-weight: 700;
+      border: none;
+      padding: 6px 12px; 
+      border-radius: 999px; 
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(245, 194, 66, 0.4);
+    }
+
+    /* Auto-hide empty media slots (CSS :has) */
+    .kst-image-block:not(:has(img[src])) { display: none; }
+    .kst-image-block:has(img[src=""]) { display: none; }
+    .kst-chart-block:not(:has(img[src])) { display: none; }
+    .kst-chart-block:has(img[src=""]) { display: none; }
+    .kst-video-block:not(:has(video[src])) { display: none; }
+    .kst-video-block:has(video[src=""]) { display: none; }
+
+    /* Table wrapper (horizontal scroll only inside) */
+    .kst-table-wrap { 
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch; 
+      border-radius: 12px; 
+    }
+
+    .kst-table { 
+      min-width: 760px; 
+      border-spacing: 0; /* 셀 간 간격 제거 */ 
+      border-collapse: collapse; 
+      width: 100%; 
+      background: var(--kst-elev); 
+    }
+
+    .kst-table th, .kst-table td { 
+      text-align: left; 
+      padding: 12px; 
+      border: 1px solid #384b85; /* 세로줄을 만들기 위해 right 보더 추가 */
+    } /* white-space: nowrap !important; 제거 */
+
+    .kst-table th { 
+      color: var(--kst-accent) !important; 
+      font-weight: 700; 
+      white-space: nowrap; 
+    } /* 헤더만 nowrap 적용 */
+
+    .kst-table tr:hover { 
+      background: #243266; 
+    }
+
+    /* Scrollbar always visible (webkit) */
+    .kst-table-wrap::-webkit-scrollbar { height: 10px; }
+    .kst-table-wrap::-webkit-scrollbar-thumb { background: #2A3A6B; border-radius: 8px; }
+    .kst-table-wrap::-webkit-scrollbar-track { background: #1B2E5F; }
+
+    /* Callouts */
+    .kst-callout { border-radius: 12px; padding: 12px; border: 1px solid #2A3A6B; background: #1B2E5F; }
+    .kst-callout.kst-danger { border-color: #4a2b2b; background: #2B1B1B; color: #ffbdbd !important; }
+    .kst-callout.kst-warning { border-color: #4a3a1f; background: #2B251B; color: #ffe3a3 !important; }
+    .kst-callout.kst-success { border-color: #1f3a30; background: #1B2B21; color: #b8f1d7 !important; }
+  </style>
+
+  <div class="kst-container">
+
+    <!-- 🧩 Basic Information -->
+    <section id="kst-basic-info" class="kst-section">
+      <div class="kst-section-header">
+        <div class="kst-section-kicker">Premium Hyaluronic Acid</div>
+      </div>
+      <h1 class="kst-hl">BEADSMAX</h1>
+      <h2 class="kst-sp">FINE • MID • HIGH</h2>
+      <p class="kst-muted">Premium hyaluronic acid dermal filler line with patented Multi Staged Crosslinking (MCL) technology for superior results and longevity</p>
+
+      <div class="kst-badges" aria-label="Product Badges">
+        <span class="kst-badge kst-brand">MAXCORE GLOBAL</span>
+        <span class="kst-badge">20mg/ml HA</span>
+        <span class="kst-badge kst-key">0.3% LIDOCAINE</span>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="BEADSMAX dermal filler product line showcase" />
+          <span class="kst-img-label">BEADSMAX Product Line</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Each pack contains 1 syringe x 1.0 ml with premium cross-linked hyaluronic acid gel</p>
+      </div>
+    </section>
+
+    <!-- 🧬 Key Ingredients & Technology -->
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Advanced Formulation</span></div>
+      <dl class="kst-dl">
+        <dt>Cross-Linked Hyaluronic Acid Complex</dt>
+        <dd>Premium quality hyaluronic acid with patented Multi Staged Crosslinking (MCL) technology enhancing viscosity and longevity.</dd>
+        <div class="kst-chipset">
+          <span class="kst-chip">Hyaluronic Acid 20mg/ml</span>
+          <span class="kst-chip">Lidocaine 0.3%</span>
+          <span class="kst-chip">MCL Technology</span>
+        </div>
+
+        <dt>Patented Processing Technology</dt>
+        <dd>3-step micro-bead processing technology creates a semi-solid, highly cohesive gel with high hydrophilic capacity.</dd>
+        <div class="kst-chipset">
+          <span class="kst-chip">Minimal Migration</span>
+          <span class="kst-chip">Excellent Molding</span>
+          <span class="kst-chip">Pre-filled Syringe</span>
+        </div>
+      </dl>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="MCL technology molecular structure diagram" />
+        <span class="kst-img-label">MCL Technology Structure</span>
+      </div>
+    </section>
+
+    <!-- 💡 Product Variants & Applications -->
+    <section id="kst-benefits" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Product Range & Benefits</span></div>
+
+      <div class="kst-card">
+        <h3 style="color: var(--kst-accent) !important; margin: 0 0 12px 0; font-size: 18px;">BEADSMAX FINE</h3>
+        <ul class="kst-list-vert" aria-label="BEADSMAX FINE applications">
+          <li><strong>Application:</strong> Fine lines, under-eye hollows, lips, forehead, glabella, neck</li>
+          <li><strong>Duration:</strong> Approximately 7-12 months</li>
+          <li><strong>Injection:</strong> Mid-dermis layer with 30G needle</li>
+          <li><strong>Benefits:</strong> Subtle volume enhancement for delicate areas</li>
+        </ul>
+        <div class="kst-image-block" style="margin-top:10px">
+          <img src="" alt="BEADSMAX FINE treatment areas and results" />
+          <span class="kst-img-label">FINE Treatment Results</span>
+        </div>
+      </div>
+
+      <div class="kst-card">
+        <h3 style="color: var(--kst-accent) !important; margin: 0 0 12px 0; font-size: 18px;">BEADSMAX MID</h3>
+        <ul class="kst-list-vert" aria-label="BEADSMAX MID applications">
+          <li><strong>Application:</strong> Medium-deep wrinkles, nasolabial folds, cheeks, facial contouring</li>
+          <li><strong>Duration:</strong> Approximately 12-18 months</li>
+          <li><strong>Injection:</strong> Mid-deep dermis layer with 27G needle</li>
+          <li><strong>Benefits:</strong> Strong support for contouring with natural appearance</li>
+        </ul>
+        <div class="kst-image-block" style="margin-top:10px">
+          <img src="" alt="BEADSMAX MID treatment areas and results" />
+          <span class="kst-img-label">MID Treatment Results</span>
+        </div>
+      </div>
+
+      <div class="kst-card">
+        <h3 style="color: var(--kst-accent) !important; margin: 0 0 12px 0; font-size: 18px;">BEADSMAX HIGH</h3>
+        <ul class="kst-list-vert" aria-label="BEADSMAX HIGH applications">
+          <li><strong>Application:</strong> Deep wrinkles, volume enhancement for cheeks, temples, chin</li>
+          <li><strong>Duration:</strong> Approximately 12-18 months</li>
+          <li><strong>Injection:</strong> Deep dermis/Sub-Q layer with 25G needle</li>
+          <li><strong>Benefits:</strong> Maximum lifting capacity and structural enhancement</li>
+        </ul>
+        <div class="kst-image-block" style="margin-top:10px">
+          <img src="" alt="BEADSMAX HIGH treatment areas and results" />
+          <span class="kst-img-label">HIGH Treatment Results</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📊 Product Specifications & Comparison -->
+    <section id="kst-specs" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Technical Specifications</span></div>
+
+      <div class="kst-table-wrap" role="region" aria-label="Product specifications comparison table">
+        <table class="kst-table">
+          <thead>
+            <tr>
+              <th>Product Version</th>
+              <th>Viscosity</th>
+              <th>Treatment Area</th>
+              <th>Injection Layer</th>
+              <th>Needle Gauge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>BEADSMAX FINE</td><td>Low-Medium</td><td>Fine lines, lips, under-eye</td><td>Mid-dermis</td><td>30G</td>
+            </tr>
+            <tr>
+              <td>BEADSMAX MID</td><td>Medium</td><td>Wrinkles, contouring</td><td>Mid-deep dermis</td><td>27G</td>
+            </tr>
+            <tr>
+              <td>BEADSMAX HIGH</td><td>High</td><td>Deep wrinkles, volume</td><td>Deep dermis/Sub-Q</td><td>25G</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="Side-by-side comparison of BEADSMAX FINE, MID, and HIGH viscosity" />
+          <span class="kst-img-label">Viscosity Comparison</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Choose the appropriate viscosity based on treatment area and desired volume enhancement</p>
+      </div>
+    </section>
+
+    <!-- ⚠️ Safety Information & Storage -->
+    <section id="kst-safety" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Safety & Storage Guidelines</span></div>
+      
+      <div class="kst-callout kst-warning">
+        <strong>Professional Use Only</strong> — Use by certified medical professionals is highly recommended. Do not inject into blood vessels.
+      </div>
+      
+      <div class="kst-callout" style="margin-top:10px">
+        <strong>Storage Instructions</strong> — Store in light-resistant hermetic container at room temperature (2-8°C recommended). Avoid freezing or excessive heat.
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div><div class="kst-k">Shelf Life</div><div class="kst-v">24 months from manufacturing date</div></div>
+          <div><div class="kst-k">Dissolution</div><div class="kst-v">Dissolvable with hyaluronidase</div></div>
+          <div><div class="kst-k">Pain Management</div><div class="kst-v">0.3% Lidocaine included for comfort</div></div>
+          <div><div class="kst-k">Package Size</div><div class="kst-v">1 syringe x 1.0 ml per pack</div></div>
+        </div>
+      </div>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="Storage and safety pictogram guide for BEADSMAX" />
+        <span class="kst-img-label">Safety Guidelines</span>
+      </div>
+    </section>
+
+    <!-- 🎯 Treatment Selection Guide -->
+    <section id="kst-guide" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Which Product Is Right?</span></div>
+      
+      <div class="kst-steps">
+        <div class="kst-step">
+          <strong>Fine Lines & Delicate Areas</strong><br/>
+          <span class="kst-muted">Choose BEADSMAX FINE for natural improvement of under-eye hollows, fine wrinkles, and subtle enhancement</span>
+        </div>
+        <div class="kst-step">
+          <strong>Medium Wrinkles & Contouring</strong><br/>
+          <span class="kst-muted">Select BEADSMAX MID for nasolabial folds, facial contouring, and medium-depth correction</span>
+        </div>
+        <div class="kst-step">
+          <strong>Structural Volume Enhancement</strong><br/>
+          <span class="kst-muted">Use BEADSMAX HIGH for cheeks, chin augmentation, and significant facial sculpting</span>
+        </div>
+      </div>
+
+      <div class="kst-card" style="margin-top:16px">
+        <div class="kst-image-block">
+          <img src="" alt="Treatment selection guide flowchart for BEADSMAX products" />
+          <span class="kst-img-label">Selection Guide</span>
+        </div>
+        <p class="kst-muted" style="margin-top:10px">Professional consultation recommended to determine the most suitable product for individual treatment goals and anatomy</p>
+      </div>
+    </section>
+
+  </div>
+</div>
