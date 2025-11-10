@@ -1,0 +1,597 @@
+<style>
+  /* CSS Variables - Color Palette */
+  :root {
+    --kst-main-color: #c53327;
+    --kst-sub-color: #7a1a12;
+    --kst-text-white: #ffffff;
+    --kst-text-secondary: #f2c3be;
+    --kst-bg-white: #ffffff;
+    --kst-badge-bg: #c53327;
+    --kst-badge-text: #ffffff;
+    --kst-badge-hover: #7a1a12;
+  }
+
+  /* Box Sizing Reset */
+  .kst-main-container,
+  .kst-main-container * {
+    box-sizing: border-box !important;
+  }
+
+  /* Main Container */
+  .kst-main-container {
+    max-width: 760px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--kst-sub-color) !important;
+    background-color: var(--kst-bg-white);
+  }
+
+  /* Section Styles */
+  .kst-section {
+    padding: 24px 16px;
+    margin-bottom: 0;
+    background-color: var(--kst-bg-white);
+  }
+
+  .kst-section-alt {
+    background-color: #fafafa;
+  }
+
+  /* Typography */
+  .kst-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--kst-main-color) !important;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--kst-main-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-section-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--kst-sub-color) !important;
+    margin: 24px 0 12px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .kst-text {
+    font-size: 15px;
+    color: var(--kst-sub-color) !important;
+    margin: 0 0 16px 0;
+    line-height: 1.7;
+  }
+
+  .kst-muted {
+    color: #666666 !important;
+    font-size: 14px;
+  }
+
+  /* Product Header */
+  .kst-product-header {
+    text-align: center;
+    padding: 32px 16px;
+    background: linear-gradient(135deg, var(--kst-main-color) 0%, var(--kst-sub-color) 100%);
+    color: var(--kst-text-white) !important;
+  }
+
+  .kst-product-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: var(--kst-text-white) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .kst-product-subtitle {
+    font-size: 16px;
+    color: var(--kst-text-secondary) !important;
+    margin: 0;
+  }
+
+  /* Badge Styles */
+  .kst-badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+  }
+
+  .kst-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: var(--kst-badge-bg);
+    color: var(--kst-badge-text) !important;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Card Styles */
+  .kst-card {
+    background-color: var(--kst-bg-white);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+
+  .kst-card-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--kst-main-color) !important;
+    margin: 0 0 12px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* List Styles */
+  .kst-card ul,
+  .kst-card ol {
+    margin: 0 0 16px 0;
+    padding-left: 20px;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li {
+    margin-bottom: 8px;
+    color: var(--kst-sub-color) !important;
+    line-height: 1.6;
+  }
+
+  .kst-list-item-title {
+    font-weight: 600;
+    color: var(--kst-sub-color) !important;
+  }
+
+  /* Definition List */
+  .kst-definition-list {
+    margin: 16px 0;
+  }
+
+  .kst-definition-item {
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 3px solid var(--kst-main-color);
+  }
+
+  .kst-definition-term {
+    font-weight: 600;
+    color: var(--kst-main-color) !important;
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+
+  .kst-definition-desc {
+    color: var(--kst-sub-color) !important;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Table Styles */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-main-color);
+    border-radius: 4px;
+  }
+
+  .kst-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    min-width: 600px;
+  }
+
+  .kst-table thead th {
+    background-color: var(--kst-main-color);
+    color: var(--kst-text-white) !important;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .kst-table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    color: var(--kst-sub-color) !important;
+    font-size: 14px;
+  }
+
+  .kst-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .kst-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+
+  /* Image Block */
+  .kst-image-block {
+    margin: 24px 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-image-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .kst-image-caption {
+    text-align: center;
+    font-size: 13px;
+    color: #666666 !important;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* Chart Block */
+  .kst-chart-block {
+    margin: 24px 0;
+    padding: 16px;
+    background-color: #fafafa;
+    border-radius: 8px;
+  }
+
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-chart-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Highlight Box */
+  .kst-highlight-box {
+    background-color: #fff5f4;
+    border-left: 4px solid var(--kst-main-color);
+    padding: 16px;
+    margin: 20px 0;
+    border-radius: 4px;
+  }
+
+  .kst-highlight-box p {
+    margin: 0;
+    color: var(--kst-sub-color) !important;
+    font-size: 15px;
+  }
+
+  /* Icon List */
+  .kst-icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+  }
+
+  .kst-icon-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    color: var(--kst-sub-color) !important;
+  }
+
+  .kst-icon-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--kst-main-color) !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  /* Warning Box */
+  .kst-warning-box {
+    background-color: #fff9e6;
+    border: 1px solid #ffd700;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+  }
+
+  .kst-warning-title {
+    font-weight: 600;
+    color: #cc8800 !important;
+    margin: 0 0 8px 0;
+    font-size: 16px;
+  }
+
+  .kst-warning-box p {
+    margin: 0 0 8px 0;
+    color: #666666 !important;
+    font-size: 14px;
+  }
+
+  .kst-warning-box p:last-child {
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="kst-main-container">
+  <!-- Product Header -->
+  <div class="kst-product-header">
+    <h1 class="kst-product-name">SEDY LINE</h1>
+    <p class="kst-product-subtitle">Lipolysis Solution - Fat Dissolver</p>
+    <div class="kst-badge-container">
+      <span class="kst-badge">60ml / 1 Vial</span>
+      <span class="kst-badge">PPC-Free Formula</span>
+      <span class="kst-badge">Face & Body</span>
+    </div>
+  </div>
+
+  <!-- Key Ingredients Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">Key Ingredients & Formulation</h2>
+    
+    <div class="kst-image-block">
+      <img src="" alt="SEDY LINE Ingredients and Mechanism">
+      <p class="kst-image-caption">SEDY LINE Active Ingredients Infographic</p>
+    </div>
+
+    <div class="kst-definition-list">
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Sodium Deoxycholate (DCA)</div>
+        <div class="kst-definition-desc">Primary active agent that acts as a bile salt to chemically break down cell membranes of localized fat cells, causing adipocyte destruction.</div>
+      </div>
+
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">L-Carnitine</div>
+        <div class="kst-definition-desc">Critical amino acid that transports released fatty acids into cell mitochondria, significantly boosting energy conversion and accelerating fat metabolism.</div>
+      </div>
+
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Centella Asiatica Extract (Gotu Kola)</div>
+        <div class="kst-definition-desc">Enhances microcirculation, promotes lymphatic drainage, and strengthens blood vessel walls for efficient waste removal and cellulite inhibition.</div>
+      </div>
+
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Juglans Regia Seed Extract</div>
+        <div class="kst-definition-desc">Walnut seed extract providing additional metabolic support and skin conditioning benefits.</div>
+      </div>
+
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Vitamin B12</div>
+        <div class="kst-definition-desc">Essential vitamin supporting cellular energy production and metabolic processes.</div>
+      </div>
+    </div>
+
+    <div class="kst-highlight-box">
+      <p><strong>High-Capacity Formula:</strong> Supplied in a 60ml vial for extensive treatment flexibility across both facial and body applications.</p>
+    </div>
+  </div>
+
+  <!-- Expected Effects Section -->
+  <div class="kst-section kst-section-alt">
+    <h2 class="kst-section-title">Expected Effects</h2>
+    
+    <ul class="kst-icon-list">
+      <li><strong>Targeted Volume Reduction:</strong> Effective removal of localized subcutaneous fat pockets on face and body</li>
+      <li><strong>Contouring & Definition:</strong> Sharper facial V-lines and sculpted body areas (flanks, arms, thighs)</li>
+      <li><strong>Improved Metabolism:</strong> Direct promotion of lipid metabolism and energy utilization in treated areas</li>
+      <li><strong>Cellulite Management:</strong> Triple-action formula aids in cellulite inhibition and rapid toxin removal</li>
+      <li><strong>Enhanced Lymphatic Drainage:</strong> Efficient removal of dissolved lipids via the lymphatic system</li>
+    </ul>
+  </div>
+
+  <!-- Treatment Protocol Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">Treatment Protocol</h2>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Treatment Areas</h3>
+      <ul>
+        <li>Double Chin (Submental Fat)</li>
+        <li>Jawline & Cheeks</li>
+        <li>Upper Arms</li>
+        <li>Abdomen & Flanks (Love Handles)</li>
+        <li>Inner/Outer Thighs</li>
+        <li>Bra Rolls</li>
+      </ul>
+    </div>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Recommended Treatment Cycle</h3>
+      <p class="kst-text"><strong>Body Areas:</strong> 3 to 6 sessions with 10-14 day intervals between treatments</p>
+      <p class="kst-text"><strong>Facial Areas:</strong> 3 to 6 sessions with 3-4 week intervals to allow full inflammation resolution</p>
+    </div>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Application Method</h3>
+      <p class="kst-text">Direct, localized injection into the subcutaneous fat layer using 30G needle or cannula technique (standard practice).</p>
+    </div>
+  </div>
+
+  <!-- Comparison Table Section -->
+  <div class="kst-section kst-section-alt">
+    <h2 class="kst-section-title">Treatment Strategies: Face vs Body</h2>
+
+    <div class="kst-table-wrap">
+      <table class="kst-table">
+        <thead>
+          <tr>
+            <th>Treatment Strategy</th>
+            <th>Key Ingredient Focus</th>
+            <th>Target Area</th>
+            <th>Dose per Point</th>
+            <th>Total Volume (per session)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Facial Protocol</strong></td>
+            <td>Deoxycholate / Centella</td>
+            <td>Chin, Jawline, Jowls</td>
+            <td>0.1 - 0.2ml</td>
+            <td>5 - 10ml (Max 1/6th of vial)</td>
+          </tr>
+          <tr>
+            <td><strong>Body Protocol</strong></td>
+            <td>Deoxycholate / Carnitine</td>
+            <td>Abdomen, Thighs, Flanks</td>
+            <td>0.2 - 0.5ml</td>
+            <td>20 - 40ml (Up to 2/3rds of vial)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Facial Contouring Protocol -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">🔹 Facial Contouring Protocol</h2>
+
+    <div class="kst-image-block">
+      <img src="" alt="V-line Contouring Injection Points">
+      <p class="kst-image-caption">Facial Injection Point Mapping</p>
+    </div>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Ingredient Composition</h3>
+      <p class="kst-text">Focus on controlled cytolysis (DCA) and lymphatic activation (Centella Asiatica)</p>
+    </div>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Target Area & Efficacy</h3>
+      <p class="kst-text"><strong>Primary Target:</strong> Achieving slender V-line, particularly targeting submental fat (double chin) and pre-jowl fat pads</p>
+      <p class="kst-text"><strong>Efficacy:</strong> Precise and potent elimination of localized fat while minimizing post-procedure downtime through enhanced drainage</p>
+    </div>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Application Technique</h3>
+      <ul>
+        <li><strong>Injection Depth:</strong> Shallow, 4-6mm depth is critical for facial fat pads</li>
+        <li><strong>Spacing:</strong> Injection points closely spaced at approximately 0.8-1 cm apart</li>
+        <li><strong>Volume Control:</strong> Conservative total volume due to facial sensitivity</li>
+        <li><strong>Result:</strong> Smooth, blended contouring with natural appearance</li>
+      </ul>
+    </div>
+
+    <div class="kst-highlight-box">
+      <p><strong>Important:</strong> Sessions must be adequately spaced to allow for full inflammation resolution in the delicate facial area.</p>
+    </div>
+  </div>
+
+  <!-- Body Protocol Section -->
+  <div class="kst-section kst-section-alt">
+    <h2 class="kst-section-title">🔹 Broad Body Area Protocol</h2>
+
+    <div class="kst-image-block">
+      <img src="" alt="Body Treatment Before and After Comparison">
+      <p class="kst-image-caption">Body Treatment Results</p>
+    </div>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Ingredient Composition</h3>
+      <p class="kst-text">High levels of DCA for broad destruction, supported by L-Carnitine for rapid fat processing</p>
+    </div>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Target Areas & Efficacy</h3>
+      <p class="kst-text"><strong>Primary Targets:</strong> Large deposits including lower abdomen, flanks, upper back (bra rolls), and inner/outer thighs</p>
+      <p class="kst-text"><strong>Efficacy:</strong> Powerful volume reduction across wide areas with rapid utilization and excretion of dissolved fat</p>
+    </div>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Application Technique</h3>
+      <ul>
+        <li><strong>Injection Depth:</strong> Deeper, 10-15mm to reach major subcutaneous fat layer</li>
+        <li><strong>Spacing:</strong> Injection points spaced 1-2 cm apart for even coverage</li>
+        <li><strong>Volume:</strong> Larger total volume per session for extensive treatment areas</li>
+        <li><strong>Coverage:</strong> Ensure entire treatment area is evenly covered</li>
+      </ul>
+    </div>
+
+    <div class="kst-highlight-box">
+      <p><strong>Post-Treatment Enhancement:</strong> Massage and external lymphatic drainage methods (compression garments, RF devices) are highly recommended in the days following body procedures to optimize results and accelerate recovery.</p>
+    </div>
+  </div>
+
+  <!-- Precautions Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">Precautions & Storage</h2>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Storage Conditions</h3>
+      <p class="kst-text">Store sealed and unopened in a dry, ventilated, dark place at room temperature (1°C to 30°C). Use immediately after opening to maintain sterility.</p>
+    </div>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Treatment Intervals</h3>
+      <p class="kst-text">Strict adherence to the <strong>10-14 day minimum interval</strong> for body areas, or <strong>longer for facial areas</strong> (3-4 weeks), is mandatory to prevent excessive inflammation and potential tissue complications.</p>
+    </div>
+
+    <div class="kst-warning-box">
+      <h4 class="kst-warning-title">⚠️ Contraindications</h4>
+      <p><strong>Do Not Use:</strong></p>
+      <p>• In areas close to the eyes</p>
+      <p>• During pregnancy or breastfeeding</p>
+      <p>• In patients with severe systemic disease</p>
+      <p>• In patients with blood clotting disorders</p>
+      <p>• In patients with known allergies to ingredients</p>
+    </div>
+
+    <div class="kst-card">
+      <h3 class="kst-card-title">Post-Treatment Recommendations</h3>
+      <ul class="kst-icon-list">
+        <li>Maintain abundant daily water intake for optimal fat processing</li>
+        <li>Avoid high-fat diet and late-night snacks</li>
+        <li>Alternate daily light massages with gentle exercise</li>
+        <li>Apply hot compress 2-3 days post-procedure for improved comfort</li>
+        <li>Use compression garments if treating body areas</li>
+        <li>Consider lymphatic drainage treatments to enhance results</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Key Features Summary -->
+  <div class="kst-section kst-section-alt">
+    <h2 class="kst-section-title">Why Choose SEDY LINE?</h2>
+    
+    <div class="kst-card">
+      <ul class="kst-icon-list">
+        <li><strong>PPC-Free Formula:</strong> Advanced lipolysis without phosphatidylcholine</li>
+        <li><strong>High-Capacity Vial:</strong> Cost-effective 60ml volume for extensive treatments</li>
+        <li><strong>Triple-Action System:</strong> Fat destruction, metabolism boost, and lymphatic drainage</li>
+        <li><strong>Versatile Application:</strong> Suitable for both delicate facial work and large body areas</li>
+        <li><strong>Natural Extracts:</strong> Enhanced with Centella Asiatica and Vitamin B12</li>
+        <li><strong>Proven Results:</strong> Effective contouring and volume reduction with minimal downtime</li>
+      </ul>
+    </div>
+  </div>
+</div>

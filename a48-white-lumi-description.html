@@ -1,0 +1,579 @@
+<div class="kst-light-container" role="region" aria-label="Product Detail Container">
+  <style>
+    /* ========= KST: Scoped Variables & Base (Light) ========= */
+    .kst-light-container {
+      --kst-bg: #F7F9FC;
+      --kst-surface: #FFFFFF;
+      --kst-elev: #F0F4F8;
+      --kst-text: #2D3748;
+      --kst-subtext: #718096;
+      --kst-accent: #E1B846;
+      --kst-accent-2: #FF7F50;
+      --kst-accent-3: #EC407A;
+      --kst-danger: #E53E3E;
+      --kst-success: #38A169;
+      --kst-warning: #DD6B20;
+
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--kst-bg);
+      color: var(--kst-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Pretendard", system-ui, Segoe UI, Roboto, Arial, Apple SD Gothic Neo, "Noto Sans", "Malgun Gothic", sans-serif;
+      line-height: 1.55;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .kst-light-container * {
+      box-sizing: border-box;
+      color: inherit;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .kst-container { padding: 16px; }
+    .kst-section { background: var(--kst-surface); border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; margin: 12px 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+    .kst-section-header { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .kst-section-kicker { font-size: 12px; letter-spacing: .12em; color: var(--kst-subtext); text-transform: uppercase; }
+
+    #kst-basic-info {
+      background: linear-gradient(135deg, var(--kst-bg) 0%, #E6EBF1 100%);
+      border: 1px solid rgba(225, 184, 70, 0.3);
+    }
+    
+    .kst-hl {
+      font-weight: 600;
+      font-size: 30px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+    }
+
+    .kst-sp {
+      font-weight: 400;
+      font-size: 24px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: -14px;
+      margin-bottom: 20px;
+      opacity: 90%;
+    }
+
+    .kst-muted { color: var(--kst-subtext); }
+    .kst-accent { color: var(--kst-accent); }
+
+    .kst-card { 
+      background: var(--kst-elev); 
+      border: 1px solid #E2E8F0; 
+      border-radius: 18px; 
+      padding: 18px; 
+      margin: 12px 0; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: flex; 
+      flex-direction: column; 
+      gap: 12px; 
+    }
+    .kst-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .kst-badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 8px 14px; font-size: 12px; border: 1px solid #CBD5E0; background: #F0F4F8; font-weight: 500; }
+    .kst-badge.kst-brand { 
+      border: 1px solid var(--kst-accent); 
+      background: rgba(225, 184, 70, 0.1);
+      color: #9D7B1C; 
+    }
+    .kst-badge.kst-key { 
+      border: 1px solid var(--kst-accent-2); 
+      background: rgba(255, 127, 80, 0.1);
+      color: #CC562A; 
+    }
+
+    .kst-list-vert {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .kst-list-vert li { background: var(--kst-elev); border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px; list-style: none; }
+    .kst-kv { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    .kst-kv .kst-k { color: var(--kst-subtext); font-size: 12px; }
+    .kst-kv .kst-v { font-weight: 500; color: var(--kst-text); }
+
+    .kst-dl { margin: 0; }
+    .kst-dl dt { 
+      font-weight: 600; 
+      margin-top: 16px; 
+      color: var(--kst-text);
+      font-size: 16px;
+    }
+    .kst-dl dd { margin: 8px 0 0 0; }
+    .kst-chipset { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .kst-chip { 
+      font-size: 11px; 
+      padding: 8px 14px; 
+      border-radius: 999px; 
+      border: 1px solid rgba(225, 184, 70, 0.4);
+      background: rgba(225, 184, 70, 0.1);
+      color: #9D7B1C; 
+      font-weight: 500;
+    }
+
+    .kst-image-block, .kst-chart-block { 
+      position: relative; 
+      border-radius: 18px; 
+      overflow: hidden; 
+      background: var(--kst-elev); 
+      border: 1px dashed #CBD5E0; 
+      min-height: 180px; 
+      display: grid; 
+      place-items: center;
+    }
+    .kst-image-block img, .kst-chart-block img { width: 100%; height: auto; object-fit: cover; display: block; }
+    .kst-img-label { 
+      position: absolute; 
+      bottom: 12px; 
+      left: 12px; 
+      font-size: 11px; 
+      background: rgba(255, 255, 255, 0.8);
+      color: #4A5568;
+      font-weight: 500;
+      border: 1px solid #E2E8F0;
+      padding: 6px 12px; 
+      border-radius: 999px; 
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .kst-image-block:not(:has(img[src])) { display: none; }
+    .kst-image-block:has(img[src=""]) { display: none; }
+    .kst-chart-block:not(:has(img[src])) { display: none; }
+    .kst-chart-block:has(img[src=""]) { display: none; }
+
+    .kst-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+    }
+    .kst-table-wrap::-webkit-scrollbar { width: 8px; height: 8px; }
+    .kst-table-wrap::-webkit-scrollbar-track { background: var(--kst-elev); border-radius: 6px; }
+    .kst-table-wrap::-webkit-scrollbar-thumb { background: #CBD5E0; border-radius: 6px; }
+    .kst-table-wrap::-webkit-scrollbar-thumb:hover { background: #A0AEC0; }
+
+    .kst-table {
+      border-collapse: collapse;
+      width: 100%;
+      background: var(--kst-elev);
+      table-layout: auto;
+    }
+    .kst-table th,
+    .kst-table td {
+      border-bottom: 1px solid #E2E8F0;
+      padding: 12px;
+      text-align: left;
+      color: var(--kst-text);
+    }
+    .kst-table th {
+      font-weight: 600;
+      background: rgba(225, 184, 70, 0.08);
+      white-space: nowrap;
+    }
+    .kst-table tbody tr:last-child td { border-bottom: none; }
+
+    .kst-steps {
+      display: grid;
+      gap: 10px;
+      counter-reset: kst-step-counter;
+    }
+    .kst-step {
+      background: var(--kst-elev);
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 14px;
+      position: relative;
+      padding-left: 54px;
+      counter-increment: kst-step-counter;
+    }
+    .kst-step::before {
+      content: counter(kst-step-counter);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+    }
+
+    .kst-callout {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid;
+    }
+    .kst-callout.kst-warning {
+      background: rgba(221, 107, 32, 0.08);
+      border-color: var(--kst-warning);
+      color: #9C4221;
+    }
+    .kst-callout.kst-danger {
+      background: rgba(229, 62, 62, 0.08);
+      border-color: var(--kst-danger);
+      color: #9B2C2C;
+    }
+    .kst-callout.kst-success {
+      background: rgba(56, 161, 105, 0.08);
+      border-color: var(--kst-success);
+      color: #276749;
+    }
+
+    .kst-accordion { display: grid; gap: 8px; }
+    .kst-accordion details {
+      background: var(--kst-elev);
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .kst-accordion summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--kst-text);
+      list-style: none;
+      user-select: none;
+    }
+    .kst-accordion summary::-webkit-details-marker { display: none; }
+    .kst-accordion .kst-qa {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #E2E8F0;
+      color: var(--kst-subtext);
+    }
+  </style>
+
+  <div class="kst-container">
+    <!-- Basic Product Information -->
+    <section id="kst-basic-info" class="kst-section">
+      <h1 class="kst-hl">White Lumi & White Lumi EX</h1>
+      <p class="kst-sp">Advanced Skin Brightening & Regeneration Booster</p>
+      
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="White Lumi product packaging" />
+          <span class="kst-img-label">Product Image</span>
+        </div>
+      </div>
+
+      <div class="kst-badges">
+        <span class="kst-badge kst-brand">PDRN</span>
+        <span class="kst-badge kst-brand">Glutathione</span>
+        <span class="kst-badge kst-key">Skin Regeneration</span>
+        <span class="kst-badge kst-key">Brightening</span>
+        <span class="kst-badge kst-key">Anti-Aging</span>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Product Type</div>
+            <div class="kst-v">Liquid Ampoule / Skin Booster</div>
+          </div>
+          <div>
+            <div class="kst-k">Volume</div>
+            <div class="kst-v">2.5ml per vial</div>
+          </div>
+          <div>
+            <div class="kst-k">Package Configuration</div>
+            <div class="kst-v">5 vials per box</div>
+          </div>
+          <div>
+            <div class="kst-k">Manufacturer</div>
+            <div class="kst-v">Stunmedical</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Ingredients -->
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Key Ingredients & Composition</span></div>
+      
+      <div class="kst-card">
+        <dl class="kst-dl">
+          <dt>🧬 PDRN (Polydeoxyribonucleotide)</dt>
+          <dd>Promotes cell growth and tissue repair, boosting collagen and elastin production for improved skin regeneration and elasticity.</dd>
+
+          <dt>✨ Glutathione</dt>
+          <dd>Powerful antioxidant that helps inhibit melanin production for a clearer, more radiant complexion with enhanced brightening effects.</dd>
+
+          <dt>💧 Hydrating & Soothing Agents</dt>
+          <dd>Provides deep hydration, aids in the recovery of damaged skin barrier, and soothes irritated skin for optimal moisture retention.</dd>
+        </dl>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Key ingredients visualization" />
+        <span class="kst-img-label">Ingredient Composition</span>
+      </div>
+
+      <div class="kst-card">
+        <p><strong class="kst-accent">Storage Conditions</strong></p>
+        <ul class="kst-list-vert">
+          <li>Store in a cool, dark place between 1°C to 30°C</li>
+          <li>Protect from direct sunlight and heat exposure</li>
+          <li>Use immediately after opening for best results and stability</li>
+          <li>Discard any unused portions after opening</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Expected Efficacy -->
+    <section id="kst-efficacy" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Expected Benefits & Efficacy</span></div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="Before and after treatment results" />
+          <span class="kst-img-label">Treatment Results</span>
+        </div>
+      </div>
+
+      <ul class="kst-list-vert">
+        <li>
+          <strong>Skin Regeneration & Elasticity</strong><br/>
+          <span class="kst-muted">PDRN promotes cell growth and tissue repair, enhancing collagen and elastin production for firmer, more resilient skin</span>
+        </li>
+        <li>
+          <strong>Whitening & Brightening</strong><br/>
+          <span class="kst-muted">Glutathione acts as a powerful antioxidant, inhibiting melanin production for a clearer, more radiant complexion</span>
+        </li>
+        <li>
+          <strong>Moisture & Barrier Strengthening</strong><br/>
+          <span class="kst-muted">Provides deep hydration and aids in recovery of damaged skin barrier while soothing irritated skin</span>
+        </li>
+        <li>
+          <strong>Fine Wrinkle & Texture Improvement</strong><br/>
+          <span class="kst-muted">Contributes to overall anti-aging effects by firming the skin and refining pores for smoother texture</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Usage Protocol -->
+    <section id="kst-howto" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Treatment Protocol & Guidelines</span></div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="Recommended treatment cycle visualization" />
+          <span class="kst-img-label">Treatment Cycle Guide</span>
+        </div>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Recommended Treatment Cycle</div>
+            <div class="kst-v">3 to 5 sessions at intervals of 1 to 2 weeks</div>
+          </div>
+          <div>
+            <div class="kst-k">Maintenance Sessions</div>
+            <div class="kst-v">Every 2-3 months after initial treatment</div>
+          </div>
+          <div>
+            <div class="kst-k">Treatment Areas</div>
+            <div class="kst-v">Face, Neck, Décolleté, Back of Hands</div>
+          </div>
+          <div>
+            <div class="kst-k">Application Methods</div>
+            <div class="kst-v">MTS, Derma Roller, Micro-needle Injection</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Professional treatment application guide" />
+        <span class="kst-img-label">Professional Treatment Guide</span>
+      </div>
+
+      <div class="kst-card">
+        <p class="kst-muted">Can be concentrated on areas with pigmentation or loss of elasticity. Application should be performed by trained professionals using appropriate techniques such as MTS (Microneedle Therapy System), derma roller, or micro-needle injection (mesotherapy) for optimal results.</p>
+      </div>
+    </section>
+
+    <!-- Version Comparison -->
+    <section id="kst-comparison" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Product Version Comparison</span></div>
+
+      <div class="kst-table-wrap" role="region" aria-label="White Lumi version comparison table">
+        <table class="kst-table">
+          <thead>
+            <tr>
+              <th>Product Version</th>
+              <th>Key Ingredients</th>
+              <th>Treatment Areas</th>
+              <th>Primary Focus</th>
+              <th>Main Efficacy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>White Lumi</strong></td>
+              <td>PDRN, Glutathione</td>
+              <td>Face, Neck, Hands</td>
+              <td>General Radiance, Soothing</td>
+              <td>Skin Brightening, Anti-aging, Hydration</td>
+            </tr>
+            <tr>
+              <td><strong>White Lumi EX</strong></td>
+              <td>Higher Concentration PDRN, Enhanced Glutathione, Peptides</td>
+              <td>Face, Neck, Hands</td>
+              <td>Enhanced Whitening, Intensive Elasticity</td>
+              <td>Intensive Brightening, Firming, Deep Regeneration</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-card">
+        <p><strong class="kst-accent">Which Product Is Right for You?</strong></p>
+        <dl class="kst-dl">
+          <dt>Choose White Lumi for:</dt>
+          <dd>Balanced effect of skin regeneration and general brightening, ideal for maintenance or moderately dull/fatigued skin requiring foundational rejuvenation.</dd>
+
+          <dt>Choose White Lumi EX for:</dt>
+          <dd>Intensive treatment targeting significant pigmentation, sun damage, or pronounced need for lifting and firming due to enhanced formula with higher active concentrations.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- White Lumi Standard Version -->
+    <section id="kst-standard" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">White Lumi (Standard Version)</span></div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="White Lumi standard version product" />
+          <span class="kst-img-label">White Lumi Standard</span>
+        </div>
+      </div>
+
+      <div class="kst-card">
+        <p><strong>Ingredient Composition</strong></p>
+        <p class="kst-muted">PDRN (concentration varies), Glutathione, and hydrating/soothing agents formulated for balanced skin rejuvenation.</p>
+
+        <p style="margin-top: 14px;"><strong>Usage Area</strong></p>
+        <p class="kst-muted">General application for the entire face, especially effective on areas lacking radiance and showing signs of mild fatigue.</p>
+
+        <p style="margin-top: 14px;"><strong>Efficacy Summary</strong></p>
+        <p class="kst-muted">Delivers essential nutrients to help restore the skin's natural turnover cycle. Focuses on achieving a clear and translucent complexion while providing fundamental anti-aging benefits.</p>
+
+        <p style="margin-top: 14px;"><strong>Application Method</strong></p>
+        <p class="kst-muted">Suitable for surface application via MTS or micro-needles to maximize absorption and stimulate the dermis.</p>
+      </div>
+
+      <div class="kst-callout kst-success">
+        <strong>Perfect For:</strong> All skin types looking for a "glow-up" effect with regenerative properties. Known for its soothing properties post-procedure, making it an ideal foundational skin booster.
+      </div>
+    </section>
+
+    <!-- White Lumi EX Version -->
+    <section id="kst-upgraded" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">White Lumi EX (Upgraded/Extended Version)</span></div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="White Lumi EX upgraded version product" />
+          <span class="kst-img-label">White Lumi EX</span>
+        </div>
+      </div>
+
+      <div class="kst-card">
+        <p><strong>Ingredient Composition</strong></p>
+        <p class="kst-muted">Higher concentration of PDRN and Glutathione, often supplemented with functional peptides or HA (Hyaluronic Acid) for enhanced results.</p>
+
+        <p style="margin-top: 14px;"><strong>Usage Area</strong></p>
+        <p class="kst-muted">Ideal for targeted treatment on areas with noticeable pigmentation, acne scars, sun spots, and significant loss of firmness.</p>
+
+        <p style="margin-top: 14px;"><strong>Efficacy Summary</strong></p>
+        <p class="kst-muted">Designed for a more dramatic effect, delivering intensive ingredients for enhanced collagen synthesis and powerful melanin suppression. Provides a noticeable firming and lifting effect.</p>
+
+        <p style="margin-top: 14px;"><strong>Application Method</strong></p>
+        <p class="kst-muted">Due to its concentrated nature, it's often preferred for more in-depth delivery methods (e.g., direct injection) or use with finer needles under professional supervision.</p>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="White Lumi EX mechanism of action" />
+        <span class="kst-img-label">Mechanism of Action</span>
+      </div>
+
+      <div class="kst-callout kst-success">
+        <strong>Recommended For:</strong> Those seeking maximum results in brightening and regeneration, acting as an intensive repair and whitening booster for pronounced skin concerns.
+      </div>
+    </section>
+
+    <!-- Safety & Precautions -->
+    <section id="kst-safety" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Precautions & Safety Information</span></div>
+
+      <div class="kst-callout kst-warning">
+        <strong>Professional Use Only</strong> — This product is intended for professional use only. Application should be performed by trained specialists.
+      </div>
+
+      <div class="kst-callout kst-danger" style="margin-top: 10px;">
+        <strong>Contraindications</strong> — Do not use on damaged or irritated skin. Stop use immediately and consult a specialist if adverse reactions occur.
+      </div>
+
+      <div class="kst-card">
+        <p><strong class="kst-accent">Storage & Handling Requirements</strong></p>
+        <ul class="kst-list-vert">
+          <li>Storage Temperature: 1°C to 30°C</li>
+          <li>Keep away from direct sunlight and heat</li>
+          <li>Must be used immediately after opening</li>
+          <li>Product contains active, sensitive ingredients</li>
+          <li>Intended for single-session professional use</li>
+          <li>Discard any unused portions after opening</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="kst-faq" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Frequently Asked Questions</span></div>
+      
+      <div class="kst-accordion">
+        <details>
+          <summary>What is the difference between White Lumi and White Lumi EX?</summary>
+          <div class="kst-qa">White Lumi is a standard formulation ideal for general brightening and maintenance, while White Lumi EX contains higher concentrations of active ingredients (PDRN, Glutathione) and additional peptides for more intensive treatment of significant pigmentation and firmness concerns.</div>
+        </details>
+        
+        <details>
+          <summary>How many treatment sessions are typically needed?</summary>
+          <div class="kst-qa">The recommended initial treatment cycle consists of 3 to 5 sessions at intervals of 1 to 2 weeks. After completing the initial cycle, maintenance sessions every 2-3 months help sustain the results.</div>
+        </details>
+        
+        <details>
+          <summary>What areas can be treated with White Lumi products?</summary>
+          <div class="kst-qa">White Lumi can be applied to the entire face, neck, décolleté, and back of hands. Treatment can be concentrated on specific areas with pigmentation concerns or loss of elasticity.</div>
+        </details>
+        
+        <details>
+          <summary>What application methods are used for White Lumi?</summary>
+          <div class="kst-qa">White Lumi can be applied using professional methods such as MTS (Microneedle Therapy System), derma roller, or micro-needle injection (mesotherapy). Application should be performed by trained professionals for optimal and safe results.</div>
+        </details>
+
+        <details>
+          <summary>How should the product be stored?</summary>
+          <div class="kst-qa">Store White Lumi in a cool, dark place between 1°C to 30°C. Keep away from direct sunlight and heat. The product must be used immediately after opening as it contains active, sensitive ingredients and is intended for single-session use.</div>
+        </details>
+      </div>
+    </section>
+
+  </div>
+</div>

@@ -1,0 +1,632 @@
+<style>
+    /* Reset and base styles with kst- prefix */
+    :root {
+        --kst-primary: #40b4a6;
+        --kst-secondary: #d3d3d3;
+        --kst-text: #1e1e1e;
+        --kst-text-muted: #6f6f6f;
+        --kst-bg: #f9f9f9;
+        --kst-badge-bg: #40b4a6;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #2a9186;
+        --kst-border: #e0e0e0;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+        background: #ffffff;
+        color: var(--kst-text);
+        padding: 0;
+        line-height: 1.6;
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    /* Hide image blocks when no images are present */
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .kst-hero-section {
+        background: var(--kst-bg);
+        padding: 30px 16px;
+        text-align: center;
+        border-bottom: 2px solid var(--kst-border);
+    }
+    
+    .kst-product-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--kst-text) !important;
+        margin-bottom: 12px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-spec {
+        font-size: 20px;
+        font-weight: 400;
+        color: var(--kst-text-muted) !important;
+        margin-bottom: 20px;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-subtitle {
+        font-size: 16px;
+        color: var(--kst-primary) !important;
+        font-weight: 500;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-hero-description {
+        font-size: 14px;
+        color: var(--kst-text-muted) !important;
+        margin: 0 auto 24px;
+        line-height: 1.7;
+        max-width: 90%;
+    }
+    
+    /* Section Styles */
+    .kst-section {
+        padding: 40px 16px;
+        margin: 0;
+        border-bottom: 1px solid var(--kst-border);
+    }
+    
+    .kst-section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--kst-text) !important;
+        text-align: left;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-alt {
+        background: var(--kst-bg);
+    }
+    
+    /* Image Blocks */
+    .kst-image-block {
+        background: transparent;
+        border: none;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0;
+    }
+    
+    .kst-image-placeholder {
+        padding: 40px 20px;
+        text-align: center;
+        color: var(--kst-secondary);
+        font-size: 14px;
+        font-style: italic;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--kst-bg);
+        border: 2px dashed var(--kst-border);
+    }
+    
+    /* Card Styles */
+    .kst-card {
+        background: #ffffff;
+        border: 1px solid var(--kst-border);
+        border-radius: 0;
+        padding: 20px 16px;
+        margin: 16px 0;
+        position: relative;
+    }
+    
+    .kst-card-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-text) !important;
+        margin-bottom: 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card-content {
+        font-size: 14px;
+        color: var(--kst-text-muted) !important;
+        line-height: 1.7;
+    }
+    
+    .kst-card-content p {
+        margin-bottom: 12px;
+        color: var(--kst-text-muted) !important;
+    }
+    
+    .kst-card-content ul,
+    .kst-card-content ol {
+        margin: 12px 0;
+        padding-left: 24px;
+    }
+    
+    .kst-card-content ul li,
+    .kst-card-content ol li {
+        margin-bottom: 8px;
+        color: var(--kst-text-muted) !important;
+        line-height: 1.6;
+    }
+    
+    /* Badge Styles */
+    .kst-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        padding: 6px 14px;
+        border-radius: 0;
+        font-size: 12px;
+        font-weight: 500;
+        display: inline-block;
+        margin: 4px 8px 4px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .kst-badge-primary {
+        background: var(--kst-primary);
+        color: var(--kst-badge-text) !important;
+    }
+    
+    .kst-badge-warning {
+        background: #e74c3c;
+        color: var(--kst-badge-text) !important;
+    }
+    
+    /* Grid Layouts */
+    .kst-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px 0;
+    }
+    
+    .kst-grid-item {
+        background: #ffffff;
+        padding: 20px 16px;
+        border-radius: 0;
+        border: 1px solid var(--kst-border);
+        text-align: left;
+    }
+    
+    .kst-grid-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--kst-primary) !important;
+        margin-bottom: 6px;
+    }
+    
+    .kst-grid-label {
+        font-size: 14px;
+        color: var(--kst-text-muted) !important;
+        line-height: 1.4;
+    }
+    
+    /* Definition Lists */
+    .kst-definition-list {
+        margin: 20px 0;
+    }
+    
+    .kst-definition-item {
+        border-bottom: 1px solid var(--kst-border);
+        padding: 16px 0;
+    }
+    
+    .kst-definition-item:last-child {
+        border-bottom: none;
+    }
+    
+    .kst-definition-term {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--kst-text) !important;
+        margin-bottom: 8px;
+    }
+    
+    .kst-definition-desc {
+        font-size: 14px;
+        color: var(--kst-text-muted) !important;
+        line-height: 1.7;
+    }
+    
+    /* Table Styles */
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 20px 0;
+        border: 1px solid var(--kst-border);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+        display: block;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: var(--kst-bg);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-secondary);
+        border-radius: 4px;
+    }
+    
+    .kst-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+        background: #ffffff;
+    }
+    
+    .kst-table thead th {
+        background: var(--kst-primary);
+        color: var(--kst-badge-text) !important;
+        padding: 12px 16px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 14px;
+        white-space: nowrap;
+        border: 1px solid var(--kst-border);
+    }
+    
+    .kst-table tbody td {
+        padding: 12px 16px;
+        border: 1px solid var(--kst-border);
+        font-size: 14px;
+        color: var(--kst-text-muted) !important;
+        line-height: 1.6;
+    }
+    
+    .kst-table tbody tr:nth-child(even) {
+        background: var(--kst-bg);
+    }
+    
+    /* Warning Styles */
+    .kst-warning {
+        background: #fff3cd;
+        border-left: 4px solid #f0ad4e;
+        padding: 20px 16px;
+        margin: 20px 0;
+    }
+    
+    .kst-warning-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #856404 !important;
+        margin-bottom: 12px;
+    }
+    
+    .kst-warning-content {
+        font-size: 14px;
+        color: #856404 !important;
+        line-height: 1.7;
+        margin-bottom: 12px;
+    }
+    
+    .kst-warning-list {
+        margin: 0;
+        padding-left: 24px;
+    }
+    
+    .kst-warning-list li {
+        margin-bottom: 8px;
+        color: #856404 !important;
+        line-height: 1.6;
+    }
+    
+    /* Text Utilities */
+    .kst-text-small {
+        font-size: 13px;
+        color: var(--kst-text-muted) !important;
+    }
+    
+    .kst-text-muted {
+        color: var(--kst-text-muted) !important;
+    }
+    
+    .kst-text-center {
+        text-align: center;
+    }
+    
+    /* Lists */
+    .kst-list {
+        margin: 16px 0;
+        padding-left: 24px;
+    }
+    
+    .kst-list li {
+        margin-bottom: 10px;
+        color: var(--kst-text-muted) !important;
+        line-height: 1.7;
+    }
+    
+    .kst-list li strong {
+        color: var(--kst-text) !important;
+        font-weight: 600;
+    }
+</style>
+
+<div class="kst-main-container">
+    <!-- Hero Section -->
+    <div class="kst-hero-section">
+        <h1 class="kst-product-title">Miracle Touch BR</h1>
+        <p class="kst-product-spec">Brightening Skin Booster</p>
+        <p class="kst-product-subtitle">5 Vials × 2ml Each</p>
+        <p class="kst-hero-description">Advanced brightening formula combining Multi-Peptide Complex, Hyaluronic Acid, and Niacinamide for radiant, even-toned skin</p>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Product Image: Miracle Touch BR Vials]
+            </div>
+        </div>
+    </div>
+    
+    <!-- Key Ingredients Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Key Ingredients & Formulation</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Active Ingredient Complex</h3>
+            <div class="kst-card-content">
+                <ul class="kst-list">
+                    <li><strong>Multi-Peptide Complex:</strong> Supports collagen and elastin production for improved skin structure and firmness</li>
+                    <li><strong>Hyaluronic Acid (HA):</strong> Provides deep, lasting hydration to enhance skin's moisture barrier</li>
+                    <li><strong>Niacinamide (Vitamin B3):</strong> Powerful brightening agent that reduces dark spots and evens skin tone</li>
+                    <li><strong>Antioxidant Agents:</strong> Skin-conditioning components for enhanced radiance and protection</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Formulation Details</h3>
+            <div class="kst-card-content">
+                <p><strong>Type:</strong> Liquid ampoule/vial configuration</p>
+                <p><strong>Volume:</strong> 2ml × 5 vials per package</p>
+                <p><strong>Storage:</strong> Store at room temperature (1-30°C) away from direct sunlight. Use immediately after opening to maintain sterility.</p>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Image: Ingredient Visualization]
+            </div>
+        </div>
+    </div>
+    
+    <!-- Expected Efficacy Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Expected Results & Benefits</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Brightening</div>
+                <div class="kst-grid-label">Significant improvement in dull skin tone and overall radiance</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Pigmentation</div>
+                <div class="kst-grid-label">Reduction of age spots and post-inflammatory hyperpigmentation</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Hydration</div>
+                <div class="kst-grid-label">Deep moisture replenishment for dewy, healthy-looking skin</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">Elasticity</div>
+                <div class="kst-grid-label">Enhanced skin firmness and overall texture improvement</div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">How It Works</h3>
+            <div class="kst-card-content">
+                <p>Miracle Touch BR works by inhibiting melanin transfer to the skin's surface, resulting in a visibly lighter and more uniform skin tone. The synergistic blend of peptides ensures skin regeneration, while hyaluronic acid maintains optimal moisture levels. Niacinamide brightens the complexion, leading to a healthier-looking, illuminated appearance with enhanced light-reflecting properties.</p>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Image: Before & After Results]
+            </div>
+        </div>
+    </div>
+    
+    <!-- Usage Protocol Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Treatment Protocol & Application</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Recommended Treatment Cycle</h3>
+            <div class="kst-card-content">
+                <p><strong>Initial Treatment:</strong> 3 to 5 sessions administered at 1 to 2-week intervals</p>
+                <p><strong>Maintenance:</strong> Follow-up treatments every 2 to 3 months to maintain optimal results</p>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Treatment Areas</h3>
+            <div class="kst-card-content">
+                <ul class="kst-list">
+                    <li>Entire face (for overall brightening and tone correction)</li>
+                    <li>Neck and décolleté</li>
+                    <li>Back of hands</li>
+                    <li>Targeted areas with uneven tone, melasma, sun damage, or post-acne marks</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Application Methods</h3>
+            <div class="kst-card-content">
+                <p><strong>Professional Application Options:</strong></p>
+                <ul class="kst-list">
+                    <li><strong>Mesotherapy Injection:</strong> Precise application into superficial or papillary dermis for targeted pigmentation treatment (recommended for best results)</li>
+                    <li><strong>Microneedling Devices:</strong> MTS (Microneedle Therapy System), derma roller, or derma pen for enhanced absorption</li>
+                    <li><strong>Nano-Needles:</strong> For topical absorption with minimal invasiveness</li>
+                </ul>
+                <p><strong>Note:</strong> Professional application technique is highly recommended for optimal results.</p>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Image: Treatment Area Facial Mapping]
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Comparison Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Miracle Touch Product Line Comparison</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Which Product Is Right for You?</h3>
+            <div class="kst-card-content">
+                <p>The Miracle Touch series offers specialized formulations targeting specific skin concerns. Choose the version that best matches your primary skincare goals.</p>
+            </div>
+        </div>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Version</th>
+                        <th>Key Ingredients</th>
+                        <th>Main Focus</th>
+                        <th>Primary Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Miracle Touch UP</strong></td>
+                        <td>Multi-Peptide Complex, HA, Regenerative factors</td>
+                        <td>Elasticity loss, wrinkles, dryness</td>
+                        <td>Skin rejuvenation, tightening, deep hydration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Miracle Touch BR</strong></td>
+                        <td>Multi-Peptide Complex, HA, Niacinamide</td>
+                        <td>Dullness, uneven skin tone, age spots</td>
+                        <td>Brightening, pigmentation reduction, radiance</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-definition-list">
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">Choose Miracle Touch UP for:</div>
+                <div class="kst-definition-desc">Advanced skin rejuvenation, targeting firmness, deep wrinkles, and overall anti-aging concerns</div>
+            </div>
+            <div class="kst-definition-item">
+                <div class="kst-definition-term">Choose Miracle Touch BR for:</div>
+                <div class="kst-definition-desc">Correcting skin tone, fading dark spots, and achieving a radiant, even complexion with enhanced brightness</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Precautions & Safety Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Precautions & Post-Treatment Care</h2>
+        
+        <div class="kst-warning">
+            <h3 class="kst-warning-title">Important Safety Information</h3>
+            <div class="kst-warning-content">
+                Please read the following precautions carefully before use:
+            </div>
+            <ul class="kst-warning-list">
+                <li>Do not use on broken skin, open wounds, or areas with active infections</li>
+                <li>Contraindicated for individuals with known allergies to any product components</li>
+                <li>Store in a cool, dry place away from direct sunlight</li>
+                <li>Use immediately after opening to maintain product sterility</li>
+            </ul>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Post-Treatment Care Guidelines</h3>
+            <div class="kst-card-content">
+                <p><strong>Sun Protection (Critical):</strong> Strictly avoid direct sun exposure following treatment. Apply high-SPF sunscreen (SPF 30+) daily to maintain results and prevent hyperpigmentation or reversal of brightening effects.</p>
+                <p><strong>Skincare Routine:</strong> Use gentle, non-irritating products for at least 24-48 hours post-treatment. Avoid active ingredients like retinoids or acids immediately after application.</p>
+                <p><strong>Hydration:</strong> Maintain adequate skin hydration with recommended moisturizers to support the treatment's efficacy.</p>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Image: Precautions & Care Infographic]
+            </div>
+        </div>
+    </div>
+    
+    <!-- Additional Information Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Why Choose Miracle Touch BR</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Synergistic Effect</h3>
+            <div class="kst-card-content">
+                <p>The combination of Multi-Peptide Complex and Hyaluronic Acid ensures that skin regeneration and moisture are optimally supported, while Niacinamide delivers powerful brightening action. This synergistic approach leads to comprehensive improvement in skin health, tone, and luminosity.</p>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Professional-Grade Formula</h3>
+            <div class="kst-card-content">
+                <p>Miracle Touch BR is formulated for professional use, ensuring consistent, visible results when applied by trained practitioners. The precise concentration of active ingredients is optimized for maximum efficacy and safety.</p>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Suitable Skin Concerns</h3>
+            <div class="kst-card-content">
+                <ul class="kst-list">
+                    <li>Dull, lackluster complexion</li>
+                    <li>Uneven skin tone and texture</li>
+                    <li>Melasma and age spots</li>
+                    <li>Post-inflammatory hyperpigmentation</li>
+                    <li>Sun damage and photoaging</li>
+                    <li>Loss of skin radiance and luminosity</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</div>

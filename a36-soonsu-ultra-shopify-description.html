@@ -1,0 +1,671 @@
+<style>
+    :root {
+        --kst-main-color: #e6e6e6;
+        --kst-sub-color: #bfbfbf;
+        --kst-text-color: #1c1c1c;
+        --kst-text-muted: #6e6e6e;
+        --kst-bg-color: #fdfdfd;
+        --kst-badge-bg: #e6e6e6;
+        --kst-badge-text: #000000;
+        --kst-badge-hover: #cccccc;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Helvetica Neue', 'Arial', sans-serif;
+        background: var(--kst-bg-color);
+        color: var(--kst-text-color) !important;
+        line-height: 1.4;
+        padding: 25px 15px;
+        overflow-x: hidden;
+    }
+    
+    .kst-section {
+        margin-bottom: 60px;
+        padding: 0 12px;
+    }
+    
+    .kst-section-number {
+        font-size: 12px;
+        font-weight: 300;
+        color: var(--kst-text-muted);
+        margin-bottom: 8px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-title {
+        font-size: 20px;
+        font-weight: 300;
+        color: var(--kst-text-color) !important;
+        margin-bottom: 32px;
+        letter-spacing: 1px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-image-block {
+        background: var(--kst-main-color);
+        border: 1px solid var(--kst-sub-color);
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 32px 0;
+        color: var(--kst-text-muted);
+        font-size: 11px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 0px;
+        overflow: hidden;
+    }
+    
+    .kst-image-block:not(:has(img)), 
+    .kst-image-block:has(img[src=""]),
+    .kst-chart-block:not(:has(img)), 
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-image-block img,
+    .kst-chart-block img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .kst-chart-block {
+        background: var(--kst-main-color);
+        border: 1px solid var(--kst-sub-color);
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 32px 0;
+        color: var(--kst-text-muted);
+        font-size: 11px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 0px;
+        overflow: hidden;
+    }
+    
+    .kst-product-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .kst-product-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        padding: 6px 16px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 20px;
+        display: inline-block;
+        margin-bottom: 16px;
+    }
+    
+    .kst-product-title {
+        font-size: 28px;
+        font-weight: 400;
+        color: var(--kst-text-color) !important;
+        margin-bottom: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-spec {
+        font-size: 22px;
+        font-weight: 300;
+        color: var(--kst-text-color) !important;
+        margin-bottom: 24px;
+        margin-top: -12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-subtitle {
+        font-size: 16px;
+        font-weight: 300;
+        color: var(--kst-text-muted);
+        margin-bottom: 24px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-value-summary {
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--kst-text-muted);
+        line-height: 1.6;
+        margin: 24px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-text-block {
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--kst-text-color) !important;
+        line-height: 1.7;
+        margin: 20px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-divider {
+        height: 1px;
+        background: var(--kst-main-color);
+        margin: 60px 0;
+    }
+    
+    .kst-ingredient-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .kst-ingredient-item {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--kst-main-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .kst-ingredient-item:last-child {
+        border-bottom: 1px solid var(--kst-text-color);
+    }
+    
+    .kst-ingredient-content {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .kst-ingredient-name {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--kst-text-color) !important;
+        margin-bottom: 6px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-ingredient-description {
+        font-size: 13px;
+        font-weight: 300;
+        color: var(--kst-text-muted);
+        line-height: 1.5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-concentration-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        padding: 4px 10px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 12px;
+        white-space: nowrap;
+    }
+    
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 24px 0;
+        border: 1px solid var(--kst-main-color);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: var(--kst-bg-color);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-sub-color);
+        border-radius: 4px;
+    }
+    
+    .kst-comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+    }
+    
+    .kst-comparison-table thead th {
+        background: var(--kst-main-color);
+        color: var(--kst-text-color) !important;
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 13px;
+        font-weight: 500;
+        border-bottom: 1px solid var(--kst-sub-color);
+        white-space: nowrap;
+    }
+    
+    .kst-comparison-table tbody td {
+        padding: 16px;
+        border-bottom: 1px solid var(--kst-main-color);
+        font-size: 13px;
+        color: var(--kst-text-color) !important;
+        font-weight: 300;
+        line-height: 1.6;
+    }
+    
+    .kst-comparison-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .kst-comparison-list {
+        list-style: none;
+        padding: 0;
+        margin: 24px 0;
+    }
+    
+    .kst-comparison-item {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+        padding: 16px;
+        background: var(--kst-bg-color);
+        border-left: 3px solid var(--kst-main-color);
+    }
+    
+    .kst-comparison-check {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    
+    .kst-comparison-text {
+        flex: 1;
+        font-size: 14px;
+        color: var(--kst-text-color) !important;
+        font-weight: 300;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-usage-step {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding: 20px;
+        background: var(--kst-bg-color);
+        border: 1px solid var(--kst-main-color);
+    }
+    
+    .kst-step-number {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+    .kst-step-content {
+        flex: 1;
+    }
+    
+    .kst-step-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--kst-text-color) !important;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-step-description {
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--kst-text-muted);
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-safety-warning {
+        background: var(--kst-main-color);
+        border-left: 4px solid var(--kst-badge-text);
+        padding: 20px;
+        margin: 24px 0;
+    }
+    
+    .kst-warning-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--kst-text-color) !important;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-warning-icon {
+        font-size: 20px;
+    }
+    
+    .kst-warning-content {
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+</style>
+
+<div class="kst-main-container">
+    
+    <!-- Product Header -->
+    <div class="kst-section">
+        <div class="kst-product-header">
+            <div class="kst-product-badge">PREMIUM SKIN BOOSTER</div>
+            <h1 class="kst-product-title">SOONSU Ultra</h1>
+            <div class="kst-product-spec">White Solution & Reju</div>
+            <div class="kst-product-subtitle">Advanced DNA-Derived Regenerative Complexes</div>
+        </div>
+        
+        <div class="kst-image-block">
+            <img src="" alt="SOONSU Ultra Product Line">
+        </div>
+        
+        <div class="kst-value-summary">
+            SOONSU Ultra line features two specialized boosters centered on powerful regenerative, brightening, and hydrating components, including DNA-derived ingredients and complex peptides. Each product targets specific skin concerns with professional-grade formulations designed for comprehensive skin rejuvenation.
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Basic Information -->
+    <div class="kst-section">
+        <div class="kst-section-number">01</div>
+        <h2 class="kst-section-title">Product Overview</h2>
+        
+        <div class="kst-text-block">
+            SOONSU Ultra offers two distinct formulations, each packaged in solution/liquid form within glass vials. Typically sold as 5 vials with 3ml each (15ml total), these professional-grade boosters are designed for clinical application using advanced injection techniques.
+        </div>
+        
+        <ul class="kst-ingredient-list">
+            <li class="kst-ingredient-item">
+                <div class="kst-ingredient-content">
+                    <div class="kst-ingredient-name">SOONSU Ultra White Solution</div>
+                    <div class="kst-ingredient-description">Targeted reduction of pigmentation, dark spots, and melasma. Promotes overall skin brightening, enhanced elasticity, and anti-aging benefits through cellular regeneration.</div>
+                </div>
+            </li>
+            
+            <li class="kst-ingredient-item">
+                <div class="kst-ingredient-content">
+                    <div class="kst-ingredient-name">SOONSU Ultra Reju</div>
+                    <div class="kst-ingredient-description">Comprehensive skin rejuvenation and renewal. Stimulates collagen and elastin synthesis, improves skin density and texture, reduces fine wrinkles, and helps eliminate scars and enlarged pores.</div>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="kst-image-block">
+            <img src="" alt="Product Packaging Details">
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Key Ingredients -->
+    <div class="kst-section">
+        <div class="kst-section-number">02</div>
+        <h2 class="kst-section-title">Key Ingredients & Formulation</h2>
+        
+        <div class="kst-text-block">
+            Each formulation features scientifically-proven active ingredients designed for maximum efficacy in their respective treatment areas.
+        </div>
+        
+        <ul class="kst-ingredient-list">
+            <li class="kst-ingredient-item">
+                <div class="kst-ingredient-content">
+                    <div class="kst-ingredient-name">Ultra White Complex</div>
+                    <div class="kst-ingredient-description">Tranexamoyl Dipeptide-23, Glutathione, Vitamin C, Arbutin, Niacinamide, N-Acetyl Glucosamine, Peptides (Tetrapeptide, Oligopeptide-2(IGF-1), Polypeptide-1(bFGF)), and Sodium DNA work synergistically to inhibit melanin synthesis and promote cellular turnover.</div>
+                </div>
+            </li>
+            
+            <li class="kst-ingredient-item">
+                <div class="kst-ingredient-content">
+                    <div class="kst-ingredient-name">Ultra Reju Formula</div>
+                    <div class="kst-ingredient-description">Polynucleotides (PN) and Polydeoxyribonucleotides (PDRN) at 1% concentration each provide profound biological effects on cellular repair and growth, stimulating fibroblasts and keratinocytes for enhanced collagen and elastin production.</div>
+                </div>
+                <div class="kst-concentration-badge">PN/PDRN 1%</div>
+            </li>
+        </ul>
+        
+        <div class="kst-image-block">
+            <img src="" alt="Active Ingredients Visualization">
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Version Comparison -->
+    <div class="kst-section">
+        <div class="kst-section-number">03</div>
+        <h2 class="kst-section-title">Product Comparison Guide</h2>
+        
+        <div class="kst-text-block">
+            These products are distinct versions within the SOONSU Ultra line, differing in their primary active ingredients and targeted concerns. Choose the appropriate version based on your specific skin condition and treatment goals.
+        </div>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-comparison-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Key Ingredients</th>
+                        <th>Treatment Areas</th>
+                        <th>Main Efficacy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ultra White</strong></td>
+                        <td>Tranexamoyl Dipeptide-23, Glutathione, Vitamin C, Arbutin, Niacinamide, Sodium DNA</td>
+                        <td>Face (pigmentation spots, melasma), Neck, Décolletage, Hands</td>
+                        <td>Whitening, Pigmentation Reduction, Brightening, Antioxidant Protection</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ultra Reju</strong></td>
+                        <td>Polynucleotides (PN) 1%, Polydeoxyribonucleotides (PDRN) 1%</td>
+                        <td>Entire Face, Neck, Scars (acne/surgical), Enlarged Pores</td>
+                        <td>Skin Regeneration, Collagen Synthesis, Fine Wrinkle Reduction, Elasticity, Pore Contraction</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="kst-chart-block">
+            <img src="" alt="Efficacy Comparison Infographic">
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Detailed Descriptions -->
+    <div class="kst-section">
+        <div class="kst-section-number">04</div>
+        <h2 class="kst-section-title">Detailed Product Information</h2>
+        
+        <div class="kst-text-block" style="margin-bottom: 32px;">
+            <strong style="font-size: 16px; display: block; margin-bottom: 12px; color: var(--kst-text-color);">🔹 SOONSU Ultra White Solution</strong>
+            
+            <div style="margin-bottom: 16px;">
+                <strong>Ingredient Composition:</strong> Features a potent complex of Tranexamoyl Dipeptide-23, Glutathione, Vitamin C, and Arbutin—key components for melanin inhibition. The inclusion of Niacinamide and Sodium DNA aids in overall barrier strengthening and mild regeneration.
+            </div>
+            
+            <div style="margin-bottom: 16px;">
+                <strong>Usage Area:</strong> Most effective on areas prone to hyperpigmentation, including stubborn dark spots, melasma, post-acne scars on the face, and discoloration on the neck, décolletage, and hands.
+            </div>
+            
+            <div style="margin-bottom: 16px;">
+                <strong>Efficacy Summary:</strong> Works by actively blocking the tyrosinase enzyme pathway, effectively reducing new melanin synthesis while promoting the turnover of existing pigmented cells. This results in a brighter, more luminous, and even complexion with strong antioxidant defense.
+            </div>
+            
+            <div style="margin-bottom: 16px;">
+                <strong>Application Method:</strong> Mesotherapy or micro-needle injection into the superficial to mid-dermis layer. A recommended dosage is 1.5-2ml for the entire face.
+            </div>
+            
+            <div>
+                <strong>Additional Information:</strong> This multi-step solution is highly valued for its non-peeling action and suitability for sensitive skin types seeking significant lightening results. For optimal effect, follow the recommended treatment cycle and post-care protocol.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <img src="" alt="Ultra White Application Results">
+        </div>
+        
+        <div class="kst-text-block" style="margin-top: 40px;">
+            <strong style="font-size: 16px; display: block; margin-bottom: 12px; color: var(--kst-text-color);">🔹 SOONSU Ultra Reju</strong>
+            
+            <div style="margin-bottom: 16px;">
+                <strong>Ingredient Composition:</strong> Contains a balanced concentration of Polynucleotides (PN) and Polydeoxyribonucleotides (PDRN) at 1% each. These DNA fragments are known for their profound biological effect on cellular repair and growth.
+            </div>
+            
+            <div style="margin-bottom: 16px;">
+                <strong>Usage Area:</strong> Ideal for general facial rejuvenation, targeting deep hydration, fine lines, and improving skin quality. Effective for treating scars (including acne scars) and improving skin tension on the neck.
+            </div>
+            
+            <div style="margin-bottom: 16px;">
+                <strong>Efficacy Summary:</strong> The PN/PDRN combination works as a scaffolding agent, stimulating fibroblasts and keratinocytes to boost the body's natural production of collagen and elastin. This leads to increased skin thickness, improved elasticity, enhanced wound healing, and a reduction in the appearance of wrinkles and large pores.
+            </div>
+            
+            <div style="margin-bottom: 16px;">
+                <strong>Application Method:</strong> Micro-injections (e.g., 5-point technique or micro-bolus injection) into the dermis.
+            </div>
+            
+            <div>
+                <strong>Additional Information:</strong> This version focuses on dermal restructuring and strengthening the skin's foundation from within. Due to its natural compound composition, it provides safe and long-lasting rejuvenating results, often showing an initial improvement in hydration followed by structural changes over the course of the treatment period.
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <img src="" alt="Ultra Reju Before/After Comparison">
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Treatment Protocol -->
+    <div class="kst-section">
+        <div class="kst-section-number">05</div>
+        <h2 class="kst-section-title">Usage Protocol & Treatment Guide</h2>
+        
+        <div class="kst-image-block">
+            <img src="" alt="Recommended Injection Depth and Angle">
+        </div>
+        
+        <div class="kst-usage-step">
+            <div class="kst-step-number">1</div>
+            <div class="kst-step-content">
+                <div class="kst-step-title">Treatment Cycle</div>
+                <div class="kst-step-description">Typically administered in a course of 3-4 sessions, spaced 2 to 4 weeks apart, followed by maintenance treatments every 3-6 months as needed.</div>
+            </div>
+        </div>
+        
+        <div class="kst-usage-step">
+            <div class="kst-step-number">2</div>
+            <div class="kst-step-content">
+                <div class="kst-step-title">Treatment Areas</div>
+                <div class="kst-step-description">Entire face, neck, décolletage (chest), and hands (back of hands for age spots/discoloration). Ultra White is particularly effective for targeted pigmentation areas.</div>
+            </div>
+        </div>
+        
+        <div class="kst-usage-step">
+            <div class="kst-step-number">3</div>
+            <div class="kst-step-content">
+                <div class="kst-step-title">Application Method</div>
+                <div class="kst-step-description">Micro-injection techniques such as mesotherapy, micro-needle injection (e.g., using 33G nano-needles), or application with a Microneedling Therapy System (MTS).</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Precautions & Storage -->
+    <div class="kst-section">
+        <div class="kst-section-number">06</div>
+        <h2 class="kst-section-title">Precautions & Storage</h2>
+        
+        <div class="kst-safety-warning">
+            <div class="kst-warning-title">
+                <span class="kst-warning-icon">⚠</span>
+                Professional Use Only
+            </div>
+            <div class="kst-warning-content">
+                Must be administered by a certified professional using appropriate injection techniques. Temporary redness, swelling, or minor bruising at the injection site are common and typically resolve within 1-3 days.
+            </div>
+        </div>
+        
+        <ul class="kst-comparison-list">
+            <li class="kst-comparison-item">
+                <div class="kst-comparison-check">!</div>
+                <div class="kst-comparison-text">Store in a cool and dry place, away from direct sunlight and excessive heat. Do not freeze.</div>
+            </li>
+            
+            <li class="kst-comparison-item">
+                <div class="kst-comparison-check">!</div>
+                <div class="kst-comparison-text">Product is for professional use. Contents of an open vial should be used immediately after opening; any remaining solution must be discarded.</div>
+            </li>
+            
+            <li class="kst-comparison-item">
+                <div class="kst-comparison-check">!</div>
+                <div class="kst-comparison-text">Avoid sun exposure immediately after the procedure and follow post-care instructions provided by your healthcare professional.</div>
+            </li>
+        </ul>
+    </div>
+    
+</div>

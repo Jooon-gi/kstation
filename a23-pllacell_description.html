@@ -1,0 +1,440 @@
+<style>
+  /* CSS Variables for Color Palette */
+  :root {
+    --kst-primary: #ea74c1;
+    --kst-secondary: #39AAAE;
+    --kst-text: #242424;
+    --kst-background: #F4F4F4;
+    --kst-badge-bg: #ea74c1;
+    --kst-badge-text: #ffffff;
+    --kst-badge-hover: #c858a5;
+  }
+
+  /* Universal Box Sizing */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Main Container */
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: var(--kst-background);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--kst-text) !important;
+    line-height: 1.6;
+  }
+
+  /* Section Styling */
+  .kst-section {
+    background: #ffffff;
+    margin: 16px 12px;
+    padding: 24px 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .kst-section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--kst-primary) !important;
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--kst-primary);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-section-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--kst-secondary) !important;
+    margin: 20px 0 12px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Image Block with Auto-hide */
+  .kst-image-block {
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-image-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Text Styling */
+  .kst-text {
+    font-size: 15px;
+    color: var(--kst-text) !important;
+    margin: 12px 0;
+    line-height: 1.7;
+  }
+
+  .kst-text-muted {
+    color: #666666 !important;
+    font-size: 14px;
+  }
+
+  .kst-text-bold {
+    font-weight: 600;
+    color: var(--kst-text) !important;
+  }
+
+  /* List Styling */
+  .kst-list {
+    margin: 16px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .kst-list li {
+    padding: 10px 0 10px 28px;
+    position: relative;
+    color: var(--kst-text) !important;
+    line-height: 1.6;
+  }
+
+  .kst-list li:before {
+    content: "▸";
+    position: absolute;
+    left: 8px;
+    color: var(--kst-primary);
+    font-weight: bold;
+  }
+
+  /* Definition List */
+  .kst-definition-list {
+    margin: 16px 0;
+  }
+
+  .kst-definition-term {
+    font-weight: 600;
+    color: var(--kst-secondary) !important;
+    margin-top: 12px;
+    font-size: 15px;
+  }
+
+  .kst-definition-desc {
+    margin: 6px 0 0 0;
+    padding-left: 12px;
+    color: var(--kst-text) !important;
+    line-height: 1.6;
+  }
+
+  /* Badge Styling */
+  .kst-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: var(--kst-badge-bg);
+    color: var(--kst-badge-text) !important;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+
+  /* Info Box */
+  .kst-info-box {
+    background-color: #f0f9ff;
+    border-left: 4px solid var(--kst-secondary);
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 4px;
+  }
+
+  .kst-info-box p {
+    margin: 0;
+    color: var(--kst-text) !important;
+    line-height: 1.6;
+  }
+
+  /* Warning Box */
+  .kst-warning-box {
+    background-color: #fff4e6;
+    border-left: 4px solid #ff9800;
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 4px;
+  }
+
+  .kst-warning-box p {
+    margin: 0;
+    color: var(--kst-text) !important;
+    line-height: 1.6;
+  }
+
+  /* Table Wrapper */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-secondary);
+    border-radius: 4px;
+  }
+
+  .kst-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    background: #ffffff;
+  }
+
+  .kst-table thead th {
+    background-color: var(--kst-primary);
+    color: #ffffff !important;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .kst-table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    color: var(--kst-text) !important;
+    font-size: 14px;
+  }
+
+  .kst-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Divider */
+  .kst-divider {
+    height: 2px;
+    background: linear-gradient(to right, var(--kst-primary), var(--kst-secondary));
+    margin: 24px 0;
+    border: none;
+  }
+
+  /* Icon Text (for emoji/icon + text combinations) */
+  .kst-icon-text {
+    display: flex;
+    align-items: flex-start;
+    margin: 12px 0;
+  }
+
+  .kst-icon-text-icon {
+    font-size: 20px;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  .kst-icon-text-content {
+    flex: 1;
+    color: var(--kst-text) !important;
+  }
+</style>
+
+<div class="kst-main-container">
+  
+  <!-- Product Name Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">PLLACELL Hybrid Biostimulator</h2>
+    
+    <div class="kst-image-block">
+      <img src="" alt="PLLACELL Product Image">
+    </div>
+
+    <div class="kst-text">
+      <span class="kst-text-bold">Full Name:</span> PLLACELL 100mg (35mg PLLA | 8mg PN)
+    </div>
+    
+    <div class="kst-text">
+      <span class="kst-text-bold">Package Composition:</span> 10 vials per box (Each vial contains 100mg of lyophilized powder)
+    </div>
+
+    <div class="kst-info-box">
+      <p>This PLLACELL product is an advanced <strong>Multi-Action Hybrid Skin Booster</strong> combining powerful ingredients for comprehensive skin rejuvenation.</p>
+    </div>
+  </div>
+
+  <!-- Key Ingredients Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">Key Ingredients & Concentration</h2>
+    
+    <dl class="kst-definition-list">
+      <dt class="kst-definition-term">Poly-L-Lactic Acid (PLLA): 35 mg per vial</dt>
+      <dd class="kst-definition-desc">Powerful collagen stimulator for gradual volume and firmness restoration.</dd>
+      
+      <dt class="kst-definition-term">Polynucleotides (PN / Sodium DNA): 8 mg per vial</dt>
+      <dd class="kst-definition-desc">Aids in tissue repair, cell regeneration, and improvement of skin elasticity and hydration.</dd>
+      
+      <dt class="kst-definition-term">Other Key Components</dt>
+      <dd class="kst-definition-desc">
+        <strong>Glutathione</strong> and <strong>Vitamin C</strong> - Potent antioxidants for skin brightening and protection against oxidative stress<br>
+        <strong>Sodium Hyaluronate</strong> - Provides initial hydration and supports skin barrier function
+      </dd>
+      
+      <dt class="kst-definition-term">Lidocaine</dt>
+      <dd class="kst-definition-desc"><strong>Not included</strong> in the powder formulation. Topical anesthetic is generally applied prior to treatment.</dd>
+    </dl>
+  </div>
+
+  <!-- Efficacy Benefits Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">Efficacy Benefits</h2>
+    
+    <div class="kst-image-block">
+      <img src="" alt="Efficacy Benefits Infographic">
+    </div>
+
+    <ul class="kst-list">
+      <li><strong>Collagen Renewal:</strong> Stimulates the body's natural collagen production for long-term improvement in skin structure, firmness, and volume.</li>
+      <li><strong>Skin Regeneration:</strong> Polynucleotides promote cell repair, accelerating the healing of damaged or aged skin.</li>
+      <li><strong>Hydration & Radiance:</strong> Sodium Hyaluronate delivers intense moisture, while Glutathione and Vitamin C brighten the complexion and even out skin tone.</li>
+      <li><strong>Wrinkle Reduction:</strong> Gradually smooths fine lines and wrinkles by restoring lost elasticity and structural support.</li>
+    </ul>
+  </div>
+
+  <!-- Treatment Protocol Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">Protocol (Treatment Instructions)</h2>
+    
+    <div class="kst-image-block">
+      <img src="" alt="Vials and Reconstitution Process">
+    </div>
+
+    <h3 class="kst-section-subtitle">Product Preparation</h3>
+    <p class="kst-text">Supplied as a dry powder, the product <strong>must be reconstituted</strong> with 4 to 6cc of sterile water for injection before use. Shake thoroughly and allow it to stand for approximately 3 minutes.</p>
+
+    <h3 class="kst-section-subtitle">Application Depth by Treatment Area</h3>
+    <p class="kst-text"><strong>Superficial to Mid-Dermis</strong> (Generally 1.0mm to 2.0mm depth). The application is more superficial than traditional PLLA fillers.</p>
+
+    <h3 class="kst-section-subtitle">Recommended Delivery Method</h3>
+    <p class="kst-text">Mesotherapy technique (microinjections), Multi-needle injector, Microneedling, or BAP (Bio Aesthetic Point) technique.</p>
+
+    <h3 class="kst-section-subtitle">Treatment Cycle</h3>
+    <div class="kst-info-box">
+      <p>A course of <strong>3 to 4 sessions</strong> is typically recommended, spaced <strong>3 to 4 weeks apart</strong>, depending on skin condition and desired results. Results develop gradually over 4 to 6 weeks.</p>
+    </div>
+  </div>
+
+  <!-- Technical Features Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">Key Ingredients and Technical Features</h2>
+    
+    <ul class="kst-list">
+      <li><strong>Biostimulation Mechanism:</strong> Combines the structural restoration of PLLA with the cellular repair of PN, creating a synergistic effect for holistic skin rejuvenation.</li>
+      <li><strong>Formulation Type:</strong> Lyophilized, sterile powder (must be reconstituted). Supplied in glass vials.</li>
+      <li><strong>Microparticle Size:</strong> PLLA microparticles are designed to be smooth for superficial injection without causing lumps, unlike deep-injection PLLA fillers.</li>
+      <li><strong>Gel Structure:</strong> Upon reconstitution, it forms a liquid solution/suspension suitable for superficial dermal injection, not a high-viscosity cross-linked gel like traditional HA fillers.</li>
+    </ul>
+  </div>
+
+  <hr class="kst-divider">
+
+  <!-- Which Product is Right for Me Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">Which Product is Right for Me?</h2>
+    
+    <p class="kst-text">PLLACELL is ideal if your goal is <strong>overall skin quality improvement</strong>, including <strong>elasticity, tone, texture, and hydration</strong>, rather than immediate, structural volume replacement.</p>
+    
+    <div class="kst-info-box">
+      <p>It is a non-cross-linked product designed to trigger the skin's natural regeneration process for a long-lasting, natural glow.</p>
+    </div>
+  </div>
+
+  <!-- Detailed Product Description Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">Detailed Description of PLLACELL Hybrid Biostimulator</h2>
+    
+    <h3 class="kst-section-subtitle">🔹 PLLACELL 100mg</h3>
+    
+    <div class="kst-image-block">
+      <img src="" alt="Efficacy Infographic - Collagen, Repair, Brightening">
+    </div>
+
+    <dl class="kst-definition-list">
+      <dt class="kst-definition-term">Efficacy</dt>
+      <dd class="kst-definition-desc">Simultaneous improvement of elasticity, fine lines, skin tone, and hydration through synergistic PLLA and PN action. Aims for a long-term revitalized and radiant complexion.</dd>
+      
+      <dt class="kst-definition-term">Duration</dt>
+      <dd class="kst-definition-desc">Results are long-lasting, typically maintained for <strong>6-12 months</strong> or more with proper maintenance after the initial treatment course.</dd>
+      
+      <dt class="kst-definition-term">Treatment Area</dt>
+      <dd class="kst-definition-desc">Face, Neck, Décolletage, and Hands. Ideal for treating large areas and improving overall skin quality.</dd>
+      
+      <dt class="kst-definition-term">Usage</dt>
+      <dd class="kst-definition-desc">Delivered via micro-injections (Mesotherapy/BAP) into the superficial to mid-dermis. <strong>Must not be injected deep</strong> into the subcutaneous layer or with large-bore cannulas typically used for PLLA fillers.</dd>
+      
+      <dt class="kst-definition-term">Additional Information</dt>
+      <dd class="kst-definition-desc">The hybrid formulation provides dual-action: the PLLA stimulates delayed collagen production, while the PN provides immediate regenerative support and the HA provides instant hydration, ensuring visible improvements over the full treatment cycle. It is often combined with other aesthetic treatments but should be spaced appropriately.</dd>
+    </dl>
+  </div>
+
+  <!-- Precautions and Storage Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">Common Precautions and Storage Guide</h2>
+    
+    <div class="kst-image-block">
+      <img src="" alt="Precautions and Storage Guide Infographics">
+    </div>
+
+    <h3 class="kst-section-subtitle">Storage Temperature</h3>
+    <p class="kst-text">Store in a cool, dry place, typically at room temperature (below <strong>30°C</strong> or as specified by the manufacturer). Avoid direct sunlight and freezing.</p>
+
+    <h3 class="kst-section-subtitle">Shelf Life After Reconstitution</h3>
+    <div class="kst-warning-box">
+      <p>The product should be used <strong>immediately</strong> after reconstitution with sterile water. Any remaining solution must be safely discarded.</p>
+    </div>
+
+    <h3 class="kst-section-subtitle">Precautions</h3>
+    <ul class="kst-list">
+      <li>Do not inject into blood vessels.</li>
+      <li>Temporary redness, swelling, or mild bruising at the injection sites are common and usually resolve within 24-48 hours.</li>
+      <li>Patients should avoid intense heat, direct sun exposure, and strenuous exercise for at least 24 hours post-treatment.</li>
+      <li>Administered only by trained professionals.</li>
+    </ul>
+  </div>
+
+  <!-- Meta Keywords Section -->
+  <div class="kst-section">
+    <h2 class="kst-section-title">🔖 Product Keywords</h2>
+    
+    <div>
+      <span class="kst-badge">PLLA Skin Booster</span>
+      <span class="kst-badge">PN Skin Booster</span>
+      <span class="kst-badge">Poly-L-Lactic Acid</span>
+      <span class="kst-badge">Polynucleotide</span>
+      <span class="kst-badge">Hybrid Biostimulator</span>
+      <span class="kst-badge">Collagen Stimulator</span>
+      <span class="kst-badge">Skin Rejuvenation</span>
+      <span class="kst-badge">Mesotherapy</span>
+      <span class="kst-badge">Glow Treatment</span>
+      <span class="kst-badge">Skin Elasticity</span>
+      <span class="kst-badge">Vitamin C</span>
+      <span class="kst-badge">Glutathione</span>
+      <span class="kst-badge">PLLACELL</span>
+    </div>
+  </div>
+
+</div>

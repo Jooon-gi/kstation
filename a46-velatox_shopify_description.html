@@ -1,0 +1,605 @@
+<style>
+/* ==================== CSS Variables & Reset ==================== */
+:root {
+  --kst-main-color: #d2263a;
+  --kst-sub-color: #f5f5f5;
+  --kst-point-color-1: #fce7ea;
+  --kst-point-color-2: #e0e0e0;
+  --kst-text-primary: #1a1a1a;
+  --kst-text-secondary: #707070;
+  --kst-bg-white: #ffffff;
+  --kst-badge-bg: #d2263a;
+  --kst-badge-text: #ffffff;
+  --kst-badge-hover: #b81f31;
+}
+
+* {
+  box-sizing: border-box !important;
+}
+
+/* ==================== Main Container ==================== */
+.kst-main-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--kst-bg-white);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--kst-text-primary) !important;
+  line-height: 1.6;
+}
+
+.kst-main-container * {
+  color: inherit !important;
+}
+
+/* ==================== Section Styles ==================== */
+.kst-section {
+  padding: 24px 16px;
+  margin: 0;
+  border-bottom: 1px solid var(--kst-point-color-2);
+}
+
+.kst-section:last-child {
+  border-bottom: none;
+}
+
+.kst-section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--kst-text-primary) !important;
+  margin: 0 0 16px 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.kst-section-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--kst-text-primary) !important;
+  margin: 20px 0 12px 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ==================== Hero Section ==================== */
+.kst-hero {
+  background: linear-gradient(135deg, var(--kst-point-color-1) 0%, var(--kst-bg-white) 100%);
+  padding: 32px 16px;
+  text-align: center;
+  border-bottom: 2px solid var(--kst-main-color);
+}
+
+.kst-hero-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--kst-main-color) !important;
+  margin: 0 0 8px 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.kst-hero-subtitle {
+  font-size: 16px;
+  color: var(--kst-text-secondary) !important;
+  margin: 0 0 20px 0;
+  font-weight: 500;
+}
+
+/* ==================== Badge Styles ==================== */
+.kst-badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.kst-badge {
+  display: inline-block;
+  background-color: var(--kst-badge-bg);
+  color: var(--kst-badge-text) !important;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ==================== Image Block ==================== */
+.kst-image-block {
+  margin: 20px 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.kst-image-block:not(:has(img)),
+.kst-image-block:has(img[src=""]) {
+  display: none;
+}
+
+.kst-image-block img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.kst-chart-block {
+  margin: 20px 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.kst-chart-block:not(:has(img)),
+.kst-chart-block:has(img[src=""]) {
+  display: none;
+}
+
+.kst-chart-block img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ==================== Card Styles ==================== */
+.kst-card {
+  background-color: var(--kst-sub-color);
+  border-left: 4px solid var(--kst-main-color);
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 6px;
+}
+
+.kst-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--kst-main-color) !important;
+  margin: 0 0 10px 0;
+}
+
+/* ==================== List Styles ==================== */
+.kst-card ul,
+.kst-card ol,
+.kst-section ul,
+.kst-section ol {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.kst-card ul li,
+.kst-section ul li {
+  margin: 6px 0;
+  color: var(--kst-text-primary) !important;
+  line-height: 1.6;
+}
+
+.kst-card ol li,
+.kst-section ol li {
+  margin: 6px 0;
+  color: var(--kst-text-primary) !important;
+  line-height: 1.6;
+}
+
+/* ==================== Description List ==================== */
+.kst-description-list {
+  margin: 16px 0;
+}
+
+.kst-description-item {
+  margin: 12px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--kst-point-color-2);
+}
+
+.kst-description-item:last-child {
+  border-bottom: none;
+}
+
+.kst-description-term {
+  font-weight: 700;
+  color: var(--kst-main-color) !important;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.kst-description-detail {
+  color: var(--kst-text-primary) !important;
+  margin: 0;
+  padding-left: 12px;
+}
+
+/* ==================== Table Styles ==================== */
+.kst-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 16px 0;
+  border: 1px solid var(--kst-point-color-2);
+  border-radius: 6px;
+}
+
+.kst-table-wrap::-webkit-scrollbar {
+  height: 8px;
+}
+
+.kst-table-wrap::-webkit-scrollbar-track {
+  background: var(--kst-sub-color);
+}
+
+.kst-table-wrap::-webkit-scrollbar-thumb {
+  background: var(--kst-point-color-2);
+  border-radius: 4px;
+}
+
+.kst-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  background-color: var(--kst-bg-white);
+}
+
+.kst-table thead th {
+  background-color: var(--kst-main-color);
+  color: var(--kst-badge-text) !important;
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.kst-table tbody td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--kst-point-color-2);
+  color: var(--kst-text-primary) !important;
+  font-size: 14px;
+}
+
+.kst-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.kst-table tbody tr:nth-child(even) {
+  background-color: var(--kst-sub-color);
+}
+
+/* ==================== Highlight Box ==================== */
+.kst-highlight-box {
+  background-color: var(--kst-point-color-1);
+  border: 2px solid var(--kst-main-color);
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
+.kst-highlight-box p {
+  margin: 8px 0;
+  color: var(--kst-text-primary) !important;
+}
+
+/* ==================== Text Utilities ==================== */
+.kst-text-muted {
+  color: var(--kst-text-secondary) !important;
+  font-size: 14px;
+}
+
+.kst-text-bold {
+  font-weight: 700;
+}
+
+.kst-text-center {
+  text-align: center;
+}
+
+/* ==================== Spacing Utilities ==================== */
+.kst-mb-small {
+  margin-bottom: 8px;
+}
+
+.kst-mb-medium {
+  margin-bottom: 16px;
+}
+
+.kst-mb-large {
+  margin-bottom: 24px;
+}
+
+/* ==================== Icon Bullets ==================== */
+.kst-icon-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.kst-icon-list li {
+  padding-left: 24px;
+  position: relative;
+  margin: 10px 0;
+}
+
+.kst-icon-list li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--kst-main-color) !important;
+  font-weight: 700;
+  font-size: 16px;
+}
+</style>
+
+<div class="kst-main-container">
+  <!-- Hero Section -->
+  <div class="kst-hero">
+    <h1 class="kst-hero-title">VELATOX GF11 Premium Skin Booster</h1>
+    <p class="kst-hero-subtitle">Dual Solution System for Complete Skin Revitalization</p>
+    <div class="kst-badge-container">
+      <span class="kst-badge">11 Growth Factors</span>
+      <span class="kst-badge">Multi-Peptide Complex</span>
+      <span class="kst-badge">Antioxidant Vitamins</span>
+      <span class="kst-badge">Anti-Aging</span>
+      <span class="kst-badge">Skin Regeneration</span>
+    </div>
+  </div>
+
+  <!-- Product Overview -->
+  <div class="kst-section" id="kst-product-overview">
+    <h2 class="kst-section-title">Product Overview</h2>
+    <p>VELATOX GF11 is a comprehensive dual solution system designed for professional skin rejuvenation. Combining the power of <strong>VELATOX (3mL x 5 Vials)</strong> intensive treatment solution with <strong>VELASEM (10mL x 2 Vials)</strong> post-care solution, this premium skin booster delivers exceptional anti-aging, regeneration, and brightening results.</p>
+    
+    <div class="kst-image-block">
+      <img src="" alt="VELATOX GF11 Product Package">
+    </div>
+  </div>
+
+  <!-- Key Ingredients -->
+  <div class="kst-section" id="kst-key-ingredients">
+    <h2 class="kst-section-title">Key Ingredients & Formulation</h2>
+    
+    <h3 class="kst-section-subtitle">🔬 VELATOX Solution (3mL x 5 Vials)</h3>
+    <div class="kst-card">
+      <p class="kst-card-title">11 Cell Growth Factors</p>
+      <ul>
+        <li><strong>EGF (Epidermal Growth Factor)</strong> - Promotes skin cell regeneration</li>
+        <li><strong>FGF (Fibroblast Growth Factor)</strong> - Stimulates collagen production</li>
+        <li><strong>IGF (Insulin-like Growth Factor)</strong> - Enhances cellular metabolism</li>
+        <li>Plus 8 additional growth factors for comprehensive skin renewal</li>
+      </ul>
+    </div>
+
+    <div class="kst-card">
+      <p class="kst-card-title">Multi-Peptide Complex</p>
+      <ul>
+        <li><strong>Acetyl Hexapeptide-8</strong> - Reduces expression lines (botox-like effect)</li>
+        <li><strong>Palmitoyl Pentapeptide-4</strong> - Stimulates collagen and elastin synthesis</li>
+        <li><strong>Palmitoyl Tetrapeptide-7</strong> - Anti-inflammatory properties</li>
+        <li><strong>Nicotinoyl Tripeptide-1</strong> - Improves skin tone and texture</li>
+        <li><strong>Dipeptide Diaminobutyroyl Benzylamide (Syn-AKE-like)</strong> - Natural muscle relaxant</li>
+      </ul>
+    </div>
+
+    <div class="kst-card">
+      <p class="kst-card-title">Antioxidant Vitamin Complex</p>
+      <ul>
+        <li><strong>Vitamin C</strong> - Brightening and antioxidant protection</li>
+        <li><strong>Vitamin B2</strong> - Skin cell energy metabolism</li>
+        <li><strong>Vitamin B3 (Niacinamide)</strong> - Pore refinement and barrier strengthening</li>
+        <li><strong>Vitamin B12</strong> - Anti-inflammatory and regenerative</li>
+      </ul>
+    </div>
+
+    <div class="kst-card">
+      <p class="kst-card-title">Additional Active Ingredients</p>
+      <ul>
+        <li><strong>Adenosine</strong> - Wrinkle improvement</li>
+        <li><strong>Arbutin</strong> - Melanin synthesis inhibition</li>
+        <li><strong>L-Carnitine</strong> - Cellular energy production</li>
+      </ul>
+    </div>
+
+    <div class="kst-image-block">
+      <img src="" alt="VELATOX Vial and Syringe Configuration">
+    </div>
+
+    <h3 class="kst-section-subtitle">💧 VELASEM After-Treatment Solution (10mL x 2 Vials)</h3>
+    <div class="kst-card">
+      <ul>
+        <li><strong>Arbutin</strong> - Anti-pigmentation and whitening</li>
+        <li><strong>Moisturizing Complex</strong> - Intense hydration and soothing</li>
+        <li><strong>Antibacterial Components</strong> - Post-treatment protection</li>
+      </ul>
+    </div>
+
+    <div class="kst-image-block">
+      <img src="" alt="VELASEM Spray Bottle">
+    </div>
+  </div>
+
+  <!-- Expected Efficacy -->
+  <div class="kst-section" id="kst-efficacy">
+    <h2 class="kst-section-title">Expected Efficacy & Benefits</h2>
+    
+    <div class="kst-description-list">
+      <div class="kst-description-item">
+        <p class="kst-description-term">🎯 Intense Anti-Aging & Wrinkle Reduction</p>
+        <p class="kst-description-detail">Promotes <strong>collagen and elastin regeneration</strong> through 11 Growth Factors and peptides, visibly reducing wrinkles, fine lines, and expression lines for smoother, younger-looking skin.</p>
+      </div>
+
+      <div class="kst-description-item">
+        <p class="kst-description-term">✨ Antioxidant Protection & Anti-Pigmentation</p>
+        <p class="kst-description-detail">Powerful antioxidant vitamins neutralize free radicals to prevent premature aging. Arbutin works to <strong>suppress melanin production</strong>, resulting in a brighter, more even complexion.</p>
+      </div>
+
+      <div class="kst-description-item">
+        <p class="kst-description-term">🔄 Skin Regeneration & Barrier Reinforcement</p>
+        <p class="kst-description-detail">Accelerates the skin's natural renewal process by supporting cell growth and strengthening the skin barrier. Particularly beneficial for <strong>faster recovery after cosmetic procedures</strong>.</p>
+      </div>
+
+      <div class="kst-description-item">
+        <p class="kst-description-term">💪 Elasticity and Firmness</p>
+        <p class="kst-description-detail">Significantly improves overall skin elasticity and firmness, delivering a lifted, more youthful appearance with enhanced skin density.</p>
+      </div>
+
+      <div class="kst-description-item">
+        <p class="kst-description-term">🛡️ Anti-Inflammatory Action</p>
+        <p class="kst-description-detail">Decreases inflammation that can impede the skin's natural regeneration process, creating optimal conditions for healing and rejuvenation.</p>
+      </div>
+    </div>
+
+    <div class="kst-image-block">
+      <img src="" alt="Before and After Results">
+    </div>
+  </div>
+
+  <!-- Treatment Protocol -->
+  <div class="kst-section" id="kst-treatment-protocol">
+    <h2 class="kst-section-title">Treatment Protocol & Usage Guide</h2>
+    
+    <div class="kst-highlight-box">
+      <p><strong>Recommended Treatment Cycle:</strong> 3-5 sessions at intervals of once every two weeks</p>
+    </div>
+
+    <h3 class="kst-section-subtitle">📍 Treatment Areas</h3>
+    <ul class="kst-icon-list">
+      <li>Entire face (comprehensive rejuvenation)</li>
+      <li>Forehead (worry lines and horizontal wrinkles)</li>
+      <li>Cheeks (volume and elasticity improvement)</li>
+      <li>Around the eyes (crow's feet and under-eye area)</li>
+      <li>Chin (definition and firmness)</li>
+      <li>Nasolabial folds (smile lines)</li>
+      <li>Neck (anti-aging and texture improvement)</li>
+    </ul>
+
+    <h3 class="kst-section-subtitle">💉 VELATOX Application Method</h3>
+    <div class="kst-card">
+      <ul>
+        <li><strong>Application Technique:</strong> Professional application via MTS (Microneedling Therapy System), nano-needles, or direct micro-injection</li>
+        <li><strong>Dosage:</strong> Do not exceed 0.1-0.2mL per application point</li>
+        <li><strong>Needle Depth Guidelines:</strong>
+          <ul>
+            <li>Forehead: 0.2~0.5mm</li>
+            <li>Cheeks: 0.2~0.5mm</li>
+            <li>Neck: 0.2~0.7mm</li>
+            <li>Eye area: Adjust carefully based on skin thickness</li>
+          </ul>
+        </li>
+        <li><strong>Important:</strong> Do not mix with other solutions to maintain efficacy</li>
+      </ul>
+    </div>
+
+    <div class="kst-image-block">
+      <img src="" alt="Treatment Depth Guide for Face and Neck">
+    </div>
+
+    <h3 class="kst-section-subtitle">🌟 VELASEM Post-Treatment Application</h3>
+    <div class="kst-card">
+      <ul>
+        <li><strong>Application Timing:</strong> Immediately after VELATOX procedure</li>
+        <li><strong>Application Method:</strong> Spray 3-5 times on the face OR apply evenly as serum and gently tap to absorb</li>
+        <li><strong>Alternative Method:</strong> Use with airbrush for even distribution</li>
+        <li><strong>Purpose:</strong> Provides immediate soothing, hydration, and anti-pigmentation benefits to maximize treatment results</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Comparison Table -->
+  <div class="kst-section" id="kst-comparison-table">
+    <h2 class="kst-section-title">Product Comparison & Selection Guide</h2>
+    
+    <div class="kst-table-wrap">
+      <table class="kst-table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Key Ingredients</th>
+            <th>Treatment Areas</th>
+            <th>Skin Type</th>
+            <th>Main Efficacy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>VELATOX GF11</strong></td>
+            <td>11 GF, Multi-Peptides, Vitamin Complex</td>
+            <td>Entire face, Neck, Eye area</td>
+            <td>All Skin Types</td>
+            <td>Regeneration, Anti-aging, Brightening, Elasticity</td>
+          </tr>
+          <tr>
+            <td><strong>VELASEM</strong> (Aftercare)</td>
+            <td>Anti-Pigmentation, Moisturizing Factors</td>
+            <td>Entire face, Treated areas</td>
+            <td>All Skin Types</td>
+            <td>Soothing, Anti-Pigmentation, Hydration</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kst-highlight-box">
+      <p><strong>Which Product Is Right for Me?</strong></p>
+      <p>VELATOX GF11 is designed as a comprehensive skin revitalization solution, perfect for individuals seeking <strong>all-in-one anti-aging, elasticity, and brightening effects</strong>. The dual system ensures not only deep revitalization with VELATOX but also provides essential aftercare, soothing, and anti-pigmentation benefits with VELASEM.</p>
+    </div>
+  </div>
+
+  <!-- Storage & Precautions -->
+  <div class="kst-section" id="kst-storage-precautions">
+    <h2 class="kst-section-title">Storage Conditions & Precautions</h2>
+    
+    <div class="kst-card">
+      <p class="kst-card-title">📦 Storage Requirements</p>
+      <ul>
+        <li><strong>Unopened Product:</strong> Store in a cool, dry place between 1°C - 30°C, away from direct sunlight</li>
+        <li><strong>After Opening:</strong> Must be refrigerated between 5°C - 15°C and used within <strong>15 days (two weeks)</strong></li>
+      </ul>
+    </div>
+
+    <div class="kst-card">
+      <p class="kst-card-title">⚠️ Important Precautions</p>
+      <ul>
+        <li><strong>Professional Use Only:</strong> This product should only be administered by trained professionals</li>
+        <li><strong>Do Not Mix:</strong> Do not mix VELATOX with other solutions to maintain optimal efficacy</li>
+        <li><strong>Skin Condition:</strong> Not recommended for use on sensitive, irritated, or wounded skin</li>
+        <li><strong>Post-Treatment Care:</strong> Avoid excessive massaging of the treated area after application</li>
+        <li><strong>Consultation Required:</strong> Proper consultation and assessment should be performed before treatment</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Product Specifications -->
+  <div class="kst-section" id="kst-specifications">
+    <h2 class="kst-section-title">Product Specifications</h2>
+    
+    <div class="kst-description-list">
+      <div class="kst-description-item">
+        <p class="kst-description-term">Product Name</p>
+        <p class="kst-description-detail">VELATOX GF11 Premium Skin Booster (Dual Solution System)</p>
+      </div>
+
+      <div class="kst-description-item">
+        <p class="kst-description-term">Package Contents</p>
+        <p class="kst-description-detail">VELATOX (3mL x 5 Vials) + VELASEM (10mL x 2 Vials)</p>
+      </div>
+
+      <div class="kst-description-item">
+        <p class="kst-description-term">Formulation Type</p>
+        <p class="kst-description-detail">VELATOX: Ampoule type for injection/microneedling<br>VELASEM: Spray/Serum type for topical application</p>
+      </div>
+
+      <div class="kst-description-item">
+        <p class="kst-description-term">Recommended Treatment Cycle</p>
+        <p class="kst-description-detail">3-5 sessions at intervals of once every two weeks</p>
+      </div>
+
+      <div class="kst-description-item">
+        <p class="kst-description-term">Suitable Skin Types</p>
+        <p class="kst-description-detail">All skin types seeking anti-aging, regeneration, and brightening effects</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meta Keywords Section -->
+  <div class="kst-section" id="kst-meta-keywords">
+    <h2 class="kst-section-title">Product Tags & Keywords</h2>
+    <p class="kst-text-muted">Skin booster, Cell Growth Factor, EGF, FGF, IGF, Peptide, Acetyl Hexapeptide-8, Antioxidant Vitamin, Anti-aging, Wrinkle Reduction, Elasticity, Brightening, Skin Regeneration, Post-treatment care, Microneedling ampoule, Multi-shot, VELASEM, Professional skin treatment, Collagen boosting, Premium aesthetic solution</p>
+  </div>
+
+</div>

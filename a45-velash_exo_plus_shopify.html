@@ -1,0 +1,894 @@
+<style>
+  /* =========================================
+   VELASH EXO Plus - Shopify Mobile Template
+  ========================================== */
+
+  /* Base Reset - kst prefix applied */
+  .kst-container *, 
+  .kst-container *::before, 
+  .kst-container *::after { 
+    box-sizing: border-box; 
+  }
+  
+  .kst-container {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+    color: var(--kst-text);
+    line-height: 1.6;
+    background: var(--kst-background);
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* Auto-hide image blocks without images */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-container img, 
+  .kst-container video { 
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    object-fit: cover;
+  }
+  
+  /* =========================================
+   Design Tokens (Blue Theme)
+  ========================================== */
+  .kst-container {
+    --kst-main: #4cb3e2;
+    --kst-sub: #ffffff;
+    --kst-point-1: #f3f8fb;
+    --kst-point-2: #d8e6f2;
+    --kst-text: #1a1a1a;
+    --kst-text-muted: #7b7b7b;
+    --kst-background: #ffffff;
+    --kst-badge-bg: #4cb3e2;
+    --kst-badge-text: #ffffff;
+    --kst-badge-hover: #3a9ac6;
+    --kst-border: #d8e6f2;
+    --kst-shadow: 0 4px 12px rgba(76, 179, 226, 0.08);
+    --kst-radiance: linear-gradient(135deg, rgba(76, 179, 226, 0.15), rgba(216, 230, 242, 0.15));
+  }
+
+  /* =========================================
+   Container & Sections
+  ========================================== */
+  .kst-main-container {
+    padding: 16px 12px;
+  }
+
+  .kst-section {
+    position: relative;
+    background: var(--kst-sub);
+    border: 1px solid var(--kst-border);
+    padding: 20px 16px;
+    margin: 16px 8px;
+    box-shadow: var(--kst-shadow);
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .kst-section::before {
+    content: "";
+    position: absolute; 
+    inset: -1px -1px auto -1px; 
+    height: 3px;
+    background: linear-gradient(90deg, var(--kst-main), var(--kst-point-2));
+    opacity: .6;
+  }
+
+  .kst-section-title {
+    margin: 0 0 16px;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: .2px;
+    color: var(--kst-text);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .kst-section-title::after {
+    content: "";
+    height: 10px; 
+    width: 36px;
+    background: var(--kst-radiance);
+    filter: blur(8px);
+    opacity: .8;
+  }
+
+  .kst-section-sub { 
+    margin: 0 0 16px; 
+    color: var(--kst-text-muted); 
+    font-size: .95rem; 
+    line-height: 1.65;
+  }
+  
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: var(--kst-sub);
+    border: 1px solid var(--kst-border);
+    padding: 24px 16px;
+    position: relative; 
+    overflow: hidden;
+    margin: 12px 8px;
+    box-shadow: var(--kst-shadow);
+  }
+
+  .kst-hero::before {
+    content: "";
+    position: absolute; 
+    inset: -15% -10% auto auto; 
+    width: 260px; 
+    height: 260px;
+    background: radial-gradient(circle, rgba(76, 179, 226, 0.12), rgba(216, 230, 242, 0.08)); 
+    filter: blur(30px); 
+    opacity: .5;
+    animation: kst-blob 18s ease-in-out infinite;
+  }
+
+  @keyframes kst-blob {
+    0% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(-12px, 8px) scale(1.05); }
+    100% { transform: translate(0,0) scale(1); }
+  }
+
+  .kst-labels { 
+    display: flex; 
+    gap: 8px; 
+    flex-wrap: wrap; 
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-badge {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 5px;
+    padding: 7px 12px;
+    background: var(--kst-badge-bg);
+    color: var(--kst-badge-text); 
+    font-size: .78rem; 
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background .2s ease, transform .2s ease;
+  }
+
+  .kst-badge:hover {
+    background: var(--kst-badge-hover);
+    transform: translateY(-1px);
+  }
+
+  .kst-hero-title {
+    margin: 0 0 10px;
+    font-weight: 800;
+    font-size: 2.1rem;
+    letter-spacing: .3px;
+    color: var(--kst-text);
+    position: relative;
+    z-index: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .kst-hero-spec {
+    margin: 0 0 18px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: .1px;
+    color: var(--kst-main);
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-hero p { 
+    margin: 0 0 12px; 
+    color: var(--kst-text-muted); 
+    position: relative;
+    z-index: 1;
+    line-height: 1.7;
+  }
+
+  .kst-highlight {
+    border: 1px solid var(--kst-border);
+    background: var(--kst-point-1);
+    padding: 12px 14px; 
+    color: var(--kst-text);
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+    border-radius: 4px;
+  }
+
+  /* =========================================
+   Image Blocks
+  ========================================== */
+  .kst-image-block {
+    width: 100%;
+    margin: 16px 0;
+    border: 1px solid var(--kst-border);
+    background: var(--kst-point-1);
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--kst-text-muted);
+    font-size: .85rem;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .kst-image-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .kst-chart-block {
+    width: 100%;
+    margin: 16px 0;
+    border: 1px solid var(--kst-border);
+    background: var(--kst-point-1);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--kst-text-muted);
+    font-size: .85rem;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+  }
+
+  .kst-card {
+    background: var(--kst-sub); 
+    border: 1px solid var(--kst-border); 
+    padding: 16px; 
+    box-shadow: var(--kst-shadow); 
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; 
+    margin: 0 8px;
+    border-radius: 4px;
+  }
+
+  .kst-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(76, 179, 226, 0.12);
+    border-color: var(--kst-main);
+  }
+
+  .kst-card h3, .kst-card h4 {
+    margin: 0 0 10px;
+    color: var(--kst-text);
+    font-weight: 600;
+  }
+
+  .kst-card p {
+    margin: 0 0 8px;
+    color: var(--kst-text-muted);
+    line-height: 1.65;
+  }
+
+  .kst-card ul, .kst-card ol {
+    margin: 0 0 10px 0;
+    padding-left: 20px;
+    color: var(--kst-text-muted);
+  }
+
+  .kst-card ul li, .kst-card ol li {
+    margin-bottom: 6px;
+    line-height: 1.6;
+    color: var(--kst-text-muted);
+  }
+
+  .kst-card ul li strong, .kst-card ol li strong {
+    color: var(--kst-text);
+    font-weight: 600;
+  }
+
+  /* =========================================
+   Split Layout
+  ========================================== */
+  .kst-split {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  /* =========================================
+   Definition List
+  ========================================== */
+  .kst-def-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .kst-def-item {
+    border-bottom: 1px solid var(--kst-border);
+    padding: 12px 0;
+  }
+
+  .kst-def-item:last-child {
+    border-bottom: none;
+  }
+
+  .kst-def-term {
+    font-weight: 600;
+    color: var(--kst-text);
+    margin-bottom: 6px;
+    font-size: .95rem;
+  }
+
+  .kst-def-desc {
+    color: var(--kst-text-muted);
+    line-height: 1.65;
+    font-size: .9rem;
+  }
+
+  /* =========================================
+   Table Styles
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 0;
+    border: 1px solid var(--kst-border);
+    border-radius: 4px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: var(--kst-point-1);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-main);
+    border-radius: 4px;
+  }
+
+  .kst-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    background: var(--kst-sub);
+  }
+
+  .kst-table thead th {
+    background: var(--kst-point-2);
+    color: var(--kst-text);
+    font-weight: 600;
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 2px solid var(--kst-main);
+    white-space: nowrap;
+    font-size: .9rem;
+  }
+
+  .kst-table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid var(--kst-border);
+    color: var(--kst-text-muted);
+    font-size: .88rem;
+  }
+
+  .kst-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .kst-table tbody tr:hover {
+    background: var(--kst-point-1);
+  }
+
+  /* =========================================
+   Label-Value Pairs
+  ========================================== */
+  .kst-label-value {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .kst-label {
+    font-weight: 600;
+    color: var(--kst-text);
+    font-size: .9rem;
+  }
+
+  .kst-label-value > div:last-child {
+    color: var(--kst-text-muted);
+    line-height: 1.65;
+    font-size: .88rem;
+  }
+
+  /* =========================================
+   Steps
+  ========================================== */
+  .kst-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 16px 0;
+  }
+
+  .kst-step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .kst-num {
+    flex-shrink: 0;
+    max-width: 28px;
+    height: 28px;
+    background: var(--kst-main);
+    color: var(--kst-badge-text);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .85rem;
+  }
+
+  .kst-step > div {
+    flex: 1;
+  }
+
+  .kst-step strong {
+    color: var(--kst-text);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .kst-muted {
+    color: var(--kst-text-muted);
+    font-size: .88rem;
+    line-height: 1.6;
+  }
+
+  /* =========================================
+   Callout
+  ========================================== */
+  .kst-callout {
+    background: var(--kst-point-1);
+    border-left: 4px solid var(--kst-main);
+    padding: 14px 16px;
+    margin: 16px 0;
+    color: var(--kst-text);
+    border-radius: 4px;
+  }
+
+  .kst-callout strong {
+    color: var(--kst-text);
+    font-weight: 600;
+  }
+
+  /* =========================================
+   Accordion (FAQ)
+  ========================================== */
+  .kst-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .kst-ac-item {
+    border: 1px solid var(--kst-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .kst-ac-button {
+    width: 100%;
+    background: var(--kst-sub);
+    border: none;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--kst-text);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background .2s ease;
+    font-size: .95rem;
+  }
+
+  .kst-ac-button:hover {
+    background: var(--kst-point-1);
+  }
+
+  .kst-ac-button span {
+    color: var(--kst-main);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .kst-ac-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    background: var(--kst-point-1);
+  }
+
+  .kst-ac-panel.kst-show {
+    max-height: 500px;
+    padding: 14px 16px;
+    border-top: 1px solid var(--kst-border);
+  }
+
+  .kst-ac-panel p {
+    margin: 0;
+    color: var(--kst-text-muted);
+    line-height: 1.65;
+  }
+
+  /* =========================================
+   Footer
+  ========================================== */
+  .kst-footer {
+    background: var(--kst-point-1);
+    border-top: 1px solid var(--kst-border);
+    padding: 20px 16px;
+    margin: 24px 8px 16px;
+    text-align: center;
+    color: var(--kst-text-muted);
+    font-size: .88rem;
+    border-radius: 4px;
+  }
+</style>
+
+<div class="kst-container">
+  <div class="kst-main-container">
+
+    <!-- Hero Section -->
+    <div class="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge">Exosome Technology</span>
+        <span class="kst-badge">PDRN 10,000 ppm</span>
+        <span class="kst-badge">Professional Use</span>
+      </div>
+      
+      <h1 class="kst-hero-title">VELASH EXO Plus</h1>
+      <div class="kst-hero-spec">Exosome + PDRN + Scalp & Hair Growth Factors</div>
+      
+      <div class="kst-image-block">
+        <!-- Insert product packaging image here -->
+      </div>
+      
+      <p>VELASH EXO Plus is an advanced scalp regeneration solution combining high-purity CICA-Exosomes, PDRN (10,000 ppm), and a comprehensive complex of growth factors and peptides. Designed for professional topical application, this innovative formula targets hair follicle regeneration, scalp health improvement, and enhanced hair density through biotechnology-driven cellular communication.</p>
+      
+      <div class="kst-highlight">
+        <strong>Volume:</strong> 1 x 10 ml vial (Available in complete programs: 7 vials x 10ml = 70ml total)
+      </div>
+    </div>
+
+    <!-- Key Ingredients Section -->
+    <section class="kst-section" id="kst-ingredients">
+      <h2 class="kst-section-title">Key Ingredients & Mechanism</h2>
+      
+      <div class="kst-image-block">
+        <!-- Insert ingredient infographic image here -->
+      </div>
+      
+      <div class="kst-card">
+        <h3>CICA Exosome (Centella Asiatica Callus Extracellular Vesicles)</h3>
+        <p>High-purity, plant-derived exosomes containing approximately 500 million nanovesicles per ml. These act as tiny nanocarriers facilitating cell-to-cell communication, delivering essential signaling molecules to damaged scalp and hair follicle cells. This process stimulates cell renewal, reduces inflammation, and rejuvenates hair follicles, promoting a healthy environment for hair growth.</p>
+      </div>
+
+      <div class="kst-card">
+        <h3>PDRN (Sodium DNA/HPDRN 10,000 ppm)</h3>
+        <p>Derived from salmon DNA, PDRN works to increase scalp hydration, support the reconstruction of damaged scalp tissue, and improve microcirculation (blood flow), which is vital for nourishing hair follicles. It also provides an antioxidant barrier against environmental stress.</p>
+      </div>
+
+      <div class="kst-card">
+        <h3>Growth Factor Complex & Peptides</h3>
+        <p>Includes Copper Tripeptide-1, Biotinoyl Tripeptide-1, Nicotinoyl Tripeptide-1, Galloyl Pentapeptide-74 (SEATIDE), Myristoyl Pentapeptide-17, along with 8 amino peptides and 5 natural enzymes. These molecules directly nourish hair roots, strengthen follicle activity, and support the production of collagen and elastin in the scalp, necessary for maintaining hair bulb integrity and density.</p>
+      </div>
+
+      <div class="kst-card">
+        <h3>Additional Components</h3>
+        <p>Atelocollagen, Biotin, and botanical extracts including Ecklonia Cava Extract and Hydrolyzed Pea Protein enhance the formula's regenerative properties and provide comprehensive scalp nourishment.</p>
+      </div>
+    </section>
+
+    <!-- Main Effects Section -->
+    <section class="kst-section" id="kst-effects">
+      <h2 class="kst-section-title">Expected Effects</h2>
+      
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Hair Follicle Regeneration</h4>
+          <p>Activation of scalp-resident cells to revitalize dormant or weakened hair follicles, promoting cellular renewal at the source.</p>
+        </div>
+
+        <div class="kst-card">
+          <h4>Improved Hair Density & Growth</h4>
+          <p>Supports the stimulation of new, healthy hair growth and helps maintain the hair bulb diameter to prevent shrinkage, leading to fuller, thicker-looking hair.</p>
+        </div>
+
+        <div class="kst-card">
+          <h4>Scalp Health Improvement</h4>
+          <p>Deep cleansing and exfoliation, reduction of inflammation, and restoration of the scalp's moisture balance and antioxidant defense barrier for optimal follicle environment.</p>
+        </div>
+
+        <div class="kst-card">
+          <h4>Enhanced Hair Cycle Maintenance</h4>
+          <p>Helps reduce the transition of hair follicles into the catagen (resting/shedding) phase, thereby prolonging the active growth (anagen) phase for sustained hair vitality.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Usage Protocol Section -->
+    <section class="kst-section" id="kst-usage">
+      <h2 class="kst-section-title">Usage Protocol</h2>
+      
+      <div class="kst-callout">
+        <strong>Important:</strong> This product is designed for professional topical/cosmetic application only and is not intended for injectable use.
+      </div>
+
+      <div class="kst-steps">
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true">1</div>
+          <div>
+            <strong>Preparation</strong>
+            <div class="kst-muted">Apply the solution to clean, slightly moist scalp. Ensure the treatment area is free from other topical products.</div>
+          </div>
+        </div>
+
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true">2</div>
+          <div>
+            <strong>Application Method</strong>
+            <div class="kst-muted">For simple topical use, apply and gently massage for 1-3 minutes until fully absorbed. For optimal professional results, a second application followed by use with an AMTS/Microneedling device (0.25mm to 0.5mm depth) is recommended to maximize penetration.</div>
+          </div>
+        </div>
+
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true">3</div>
+          <div>
+            <strong>Treatment Frequency</strong>
+            <div class="kst-muted">Apply once per week for a full course (4 to 7 weeks), followed by maintenance treatments as needed. Visible results may appear as early as 30 days of consistent use.</div>
+          </div>
+        </div>
+
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true">4</div>
+          <div>
+            <strong>Post-Treatment Care</strong>
+            <div class="kst-muted">Avoid washing the treated area for 24 hours. Minimize exposure to heat or harsh chemical treatments. Consider complementary LED Light Therapy to enhance regeneration and reduce redness.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <!-- Insert usage visual guide image here -->
+      </div>
+
+      <div class="kst-card">
+        <h4>Complementary Products & Techniques</h4>
+        <ul>
+          <li><strong>Automated Microneedle Therapy System (AMTS):</strong> For maximized penetration and enhanced absorption of active ingredients</li>
+          <li><strong>Mild, Soothing Scalp Shampoos:</strong> Post-treatment cleansing to maintain scalp health</li>
+          <li><strong>LED Light Therapy:</strong> To enhance regeneration and reduce post-treatment redness</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Target Guide Section -->
+    <section class="kst-section" id="kst-target-guide">
+      <h2 class="kst-section-title">Recommended Guide by Hair Condition</h2>
+      
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Usage Classification Table">
+          <thead>
+            <tr>
+              <th>Usage Classification</th>
+              <th>Symptoms/Situation</th>
+              <th>Mechanism/Target Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Early Hair Thinning</strong></td>
+              <td>Noticeable increase in hair shedding, reduced hair fullness</td>
+              <td>Exosome signaling and Growth Factors stimulate cell vitality to mitigate thinning</td>
+            </tr>
+            <tr>
+              <td><strong>Scalp Health Issues</strong></td>
+              <td>Chronic dryness, mild irritation, signs of inflammation, clogged pores</td>
+              <td>CICA-Exosome and enzymes provide cleansing, soothing, and inflammation reduction</td>
+            </tr>
+            <tr>
+              <td><strong>Pre & Post Hair Transplant Support</strong></td>
+              <td>Preparing the scalp or supporting the retention of transplanted follicles</td>
+              <td>PDRN and Growth Factors strengthen existing/transplanted follicles and improve the scalp microenvironment</td>
+            </tr>
+            <tr>
+              <td><strong>Complementary Therapy</strong></td>
+              <td>Used in conjunction with other hair growth treatments (topical or oral products)</td>
+              <td>Provides a potent blend of regenerative ingredients to enhance overall treatment efficacy at the cellular level</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-callout">
+        VELASH EXO Plus is specifically formulated for individuals seeking advanced support for scalp regeneration and enhanced hair growth through biotechnology. Based on your current condition and goals, choose this product focusing on scalp health and hair density concerns.
+      </div>
+    </section>
+
+    <!-- Detailed Description Section -->
+    <section class="kst-section" id="kst-details">
+      <h2 class="kst-section-title">Product Details</h2>
+      
+      <div class="kst-image-block">
+        <!-- Insert product vial configuration image here -->
+      </div>
+
+      <dl class="kst-def-list">
+        <div class="kst-def-item">
+          <dt class="kst-def-term">Ingredient Composition</dt>
+          <dd class="kst-def-desc">High-purity CICA-Exosomes (approx. 500 million nanovesicles/ml), HPDRN (10,000 ppm), Atelocollagen, a complex of 8 Peptides/Growth Factors including Copper Tripeptide-1, Biotinoyl Tripeptide-1, Nicotinoyl Tripeptide-1, Galloyl Pentapeptide-74, Myristoyl Pentapeptide-17, and various botanical extracts such as Ecklonia Cava Extract and Hydrolyzed Pea Protein.</dd>
+        </div>
+
+        <div class="kst-def-item">
+          <dt class="kst-def-term">Efficacy Summary</dt>
+          <dd class="kst-def-desc">Targets the fundamental cause of hair weakening by promoting cellular-level regeneration. It cleanses the scalp, reduces inflammatory factors, strengthens hair roots, and provides the essential building blocks (PDRN, Collagen) and signals (Exosomes, Growth Factors) for healthier, more resilient hair growth.</dd>
+        </div>
+
+        <div class="kst-def-item">
+          <dt class="kst-def-term">Suitable For</dt>
+          <dd class="kst-def-desc">Individuals experiencing various stages of hair thinning, those with poor scalp condition, and patients undergoing hair transplantation (pre/post-operative care) who require advanced follicle strengthening.</dd>
+        </div>
+
+        <div class="kst-def-item">
+          <dt class="kst-def-term">Additional Information</dt>
+          <dd class="kst-def-desc">The plant-derived CICA Exosomes provide targeted delivery of active components, while the presence of PDRN and Growth Factors creates a highly synergistic formula designed to delay the catagen phase of the hair cycle and stimulate the anagen phase, leading to visible improvement in hair fullness and scalp vitality.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Precautions & Storage Section -->
+    <section class="kst-section" id="kst-safety">
+      <h2 class="kst-section-title">Precautions & Storage</h2>
+      
+      <div class="kst-image-block">
+        <!-- Insert storage and precautions infographic image here -->
+      </div>
+
+      <div class="kst-split">
+        <div class="kst-card">
+          <h4>Storage Conditions</h4>
+          <ul>
+            <li><strong>Temperature:</strong> Store between 1°C and 30°C (do not freeze)</li>
+            <li><strong>Light Exposure:</strong> Keep away from direct sunlight</li>
+            <li><strong>After Opening:</strong> Highly recommended to store any remaining solution in the refrigerator to maintain stability</li>
+            <li><strong>Usage Timeframe:</strong> For optimal efficacy and safety, opened vials should be used within 24 hours</li>
+          </ul>
+        </div>
+
+        <div class="kst-card">
+          <h4>General Precautions</h4>
+          <ul>
+            <li>This product is intended for professional topical/cosmetic use only</li>
+            <li>Should not be used for injection purposes</li>
+            <li>Avoid washing the treated area for 24 hours post-application</li>
+            <li>Minimize exposure to heat or harsh chemical treatments immediately after use</li>
+            <li>Consult with a professional if you have any scalp sensitivities or conditions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="kst-section" id="kst-faq">
+      <h2 class="kst-section-title">Frequently Asked Questions</h2>
+      
+      <div class="kst-accordion" role="tablist">
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac1" aria-expanded="false">
+            How soon can I expect to see results? <span>＋</span>
+          </button>
+          <div id="kst-ac1" class="kst-ac-panel">
+            <p>Visible results may appear as early as 30 days of consistent use. The typical intensive program suggests application once per week for 4 to 7 weeks. However, individual results may vary depending on the initial condition of your scalp and hair, consistency of application, and overall hair care routine.</p>
+          </div>
+        </div>
+
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac2" aria-expanded="false">
+            Can I use VELASH EXO Plus with other hair treatments? <span>＋</span>
+          </button>
+          <div id="kst-ac2" class="kst-ac-panel">
+            <p>Yes, VELASH EXO Plus is designed as a complementary therapy that can be used in conjunction with other hair growth treatments, whether topical or oral. The product provides a potent blend of regenerative ingredients that enhance overall treatment efficacy at the cellular level. However, it's recommended to consult with a professional to ensure proper timing and application protocols.</p>
+          </div>
+        </div>
+
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac3" aria-expanded="false">
+            Is microneedling necessary for this product to work? <span>＋</span>
+          </button>
+          <div id="kst-ac3" class="kst-ac-panel">
+            <p>While microneedling is not mandatory, it is highly recommended for optimal professional results. Simple topical application with gentle massage (1-3 minutes) will still provide benefits. However, using an Automated Microneedle Therapy System (AMTS) or derma-stamping/rolling (0.25mm to 0.5mm depth) with a second application maximizes penetration and absorption of the active ingredients.</p>
+          </div>
+        </div>
+
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac4" aria-expanded="false">
+            What makes VELASH EXO Plus different from other hair growth products? <span>＋</span>
+          </button>
+          <div id="kst-ac4" class="kst-ac-panel">
+            <p>VELASH EXO Plus combines three key biotechnology elements: high-purity plant-derived CICA-Exosomes for targeted cellular communication, PDRN at 10,000 ppm concentration for tissue reconstruction and hydration, and a comprehensive complex of 8 growth factors and peptides. This synergistic formula targets hair weakening at the cellular level, addressing not just the symptoms but the fundamental causes of hair thinning and poor scalp health.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="kst-footer">
+      <div class="kst-label-value">
+        <div class="kst-label">Keywords</div>
+        <div>VELASH EXO Plus, Exosome ampoule, PDRN hair loss, Scalp booster, Hair regeneration solution, Hair growth factors, CICA exosome, Microneedling scalp, Hair density treatment, Follicle strengthening, Scalp health ampoule, Hair mesotherapy</div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  // FAQ Accordion with kst prefix
+  (function() {
+    document.querySelectorAll('.kst-ac-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.kst-ac-item');
+        const panel = item.querySelector('.kst-ac-panel');
+        const isOpen = item.getAttribute('aria-expanded') === 'true';
+        
+        // Close all other panels
+        document.querySelectorAll('.kst-ac-item').forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.kst-ac-button').setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.kst-ac-panel').classList.remove('kst-show');
+            otherItem.querySelector('.kst-ac-button span').textContent = '＋';
+          }
+        });
+        
+        // Toggle current panel
+        item.setAttribute('aria-expanded', String(!isOpen));
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        panel.classList.toggle('kst-show');
+        btn.querySelector('span').textContent = isOpen ? '＋' : '−';
+      });
+    });
+  })();
+</script>

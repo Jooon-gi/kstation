@@ -1,0 +1,655 @@
+<style>
+    /* Reset and base styles with kst- prefix */
+    :root {
+        --kst-main-color: #60414f;
+        --kst-sub-color: #c9b9b4;
+        --kst-text-color: #2b2b2b;
+        --kst-text-muted: #7e7e7e;
+        --kst-bg-light: #faf8f8;
+        --kst-badge-bg: #60414f;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #4c2f3b;
+        --kst-border-color: #e8e0de;
+    }
+    
+    .kst-main-container {
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+        background: #ffffff;
+        color: var(--kst-text-color) !important;
+        padding: 0;
+        line-height: 1.6;
+        box-sizing: border-box;
+        border-left: 1px solid var(--kst-border-color);
+        border-right: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-main-container * {
+        box-sizing: border-box;
+    }
+    
+    /* Hide image blocks when no images are present */
+    .kst-image-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-image-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    .kst-chart-block:not(:has(img)) {
+        display: none;
+    }
+    
+    .kst-chart-block:has(img[src=""]) {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .kst-hero-section {
+        background: var(--kst-bg-light);
+        padding: 30px 16px;
+        text-align: center;
+        border-bottom: 2px solid var(--kst-border-color);
+        border-top: 2px solid var(--kst-border-color);
+    }
+    
+    .kst-product-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 12px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .kst-product-spec {
+        font-size: 22px;
+        font-weight: 400;
+        color: var(--kst-text-color) !important;
+        margin-top: -12px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-product-subtitle {
+        font-size: 16px;
+        color: var(--kst-main-color) !important;
+        font-weight: 500;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-hero-description {
+        font-size: 14px;
+        color: var(--kst-text-muted) !important;
+        margin: 0 auto 24px;
+        line-height: 1.7;
+    }
+    
+    /* Section Styles */
+    .kst-section {
+        padding: 40px 16px;
+        margin: 0;
+        border-bottom: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--kst-main-color) !important;
+        text-align: left;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-section-alt {
+        background: var(--kst-bg-light);
+    }
+    
+    /* Image Blocks */
+    .kst-image-block {
+        background: transparent;
+        border: none;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kst-image-block img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0;
+    }
+    
+    .kst-image-placeholder {
+        padding: 40px 20px;
+        text-align: center;
+        color: var(--kst-sub-color) !important;
+        font-size: 14px;
+        font-style: italic;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--kst-bg-light);
+        border: 1px dashed var(--kst-sub-color);
+    }
+    
+    /* Card Styles */
+    .kst-card {
+        background: #ffffff;
+        border: 1px solid var(--kst-border-color);
+        border-radius: 0;
+        padding: 16px;
+        margin: 12px 0;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .kst-card:hover {
+        box-shadow: 0 2px 10px rgba(96, 65, 79, 0.1);
+    }
+    
+    .kst-card-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .kst-card-content {
+        font-size: 14px;
+        color: var(--kst-text-color) !important;
+        line-height: 1.6;
+    }
+    
+    .kst-card-content ul,
+    .kst-card-content ol {
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+    
+    .kst-card-content ul li,
+    .kst-card-content ol li {
+        color: var(--kst-text-color) !important;
+        margin-bottom: 6px;
+        line-height: 1.5;
+    }
+    
+    /* Badge Styles */
+    .kst-badge {
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
+        padding: 4px 12px;
+        border-radius: 0;
+        font-size: 12px;
+        font-weight: 500;
+        display: inline-block;
+        margin: 4px 8px 4px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .kst-badge-primary {
+        background: var(--kst-main-color);
+        color: var(--kst-badge-text) !important;
+    }
+    
+    /* Grid Layouts */
+    .kst-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px 0;
+    }
+    
+    .kst-grid-item {
+        background: #ffffff;
+        padding: 16px;
+        border-radius: 0;
+        border: 1px solid var(--kst-border-color);
+        text-align: left;
+    }
+    
+    .kst-grid-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 4px;
+    }
+    
+    .kst-grid-label {
+        font-size: 13px;
+        color: var(--kst-text-muted) !important;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Definition List */
+    .kst-dl {
+        margin: 16px 0;
+    }
+    
+    .kst-dl-item {
+        display: flex;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--kst-border-color);
+        align-items: flex-start;
+    }
+    
+    .kst-dl-item:last-child {
+        border-bottom: none;
+    }
+    
+    .kst-dl-term {
+        flex: 0 0 120px;
+        font-weight: 600;
+        color: var(--kst-main-color) !important;
+        font-size: 14px;
+        padding-right: 16px;
+    }
+    
+    .kst-dl-desc {
+        flex: 1;
+        color: var(--kst-text-color) !important;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    /* Table Styles */
+    .kst-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 20px 0;
+        border: 1px solid var(--kst-border-color);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar {
+        height: 8px;
+        display: block;
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-track {
+        background: var(--kst-bg-light);
+    }
+    
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--kst-sub-color);
+        border-radius: 4px;
+    }
+    
+    .kst-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+        background: #ffffff;
+    }
+    
+    .kst-table thead th {
+        background: var(--kst-main-color);
+        color: var(--kst-badge-text) !important;
+        padding: 12px 16px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 14px;
+        white-space: nowrap;
+        border-bottom: 2px solid var(--kst-badge-hover);
+    }
+    
+    .kst-table tbody td {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--kst-border-color);
+        color: var(--kst-text-color) !important;
+        font-size: 14px;
+        vertical-align: top;
+    }
+    
+    .kst-table tbody tr:hover {
+        background: var(--kst-bg-light);
+    }
+    
+    /* Text Utilities */
+    .kst-text-muted {
+        color: var(--kst-text-muted) !important;
+        font-size: 14px;
+    }
+    
+    .kst-text-small {
+        font-size: 13px;
+    }
+    
+    .kst-text-strong {
+        font-weight: 600;
+        color: var(--kst-main-color) !important;
+    }
+    
+    /* Warning/Notice Box */
+    .kst-notice {
+        background: #fff9f5;
+        border-left: 4px solid var(--kst-main-color);
+        padding: 16px;
+        margin: 16px 0;
+    }
+    
+    .kst-notice-title {
+        font-weight: 600;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 8px;
+        font-size: 15px;
+    }
+    
+    .kst-notice-content {
+        color: var(--kst-text-color) !important;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .kst-notice-content ul {
+        margin: 8px 0;
+        padding-left: 20px;
+    }
+    
+    .kst-notice-content ul li {
+        margin-bottom: 4px;
+        color: var(--kst-text-color) !important;
+    }
+</style>
+
+<div class="kst-main-container">
+    <!-- Hero Section -->
+    <div class="kst-hero-section">
+        <h1 class="kst-product-title">Miracle Touch UP</h1>
+        <div class="kst-product-spec">Skin Booster</div>
+        <p class="kst-product-subtitle">PCL + Hyaluronic Acid | 2ml per vial</p>
+        <p class="kst-hero-description">Advanced biocompatible formula with Polycaprolactone for sustained stem cell regeneration and long-lasting skin rejuvenation</p>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Product packaging and vial configuration image]
+            </div>
+        </div>
+    </div>
+    
+    <!-- Key Features Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Key Features</h2>
+        
+        <div class="kst-grid">
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">10%</div>
+                <div class="kst-grid-label">PCL Concentration</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">1.5%</div>
+                <div class="kst-grid-label">Hyaluronic Acid</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">2ml</div>
+                <div class="kst-grid-label">Per Vial</div>
+            </div>
+            <div class="kst-grid-item">
+                <div class="kst-grid-value">12 Months</div>
+                <div class="kst-grid-label">Results Duration</div>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🔬 Sustained Stem Cell Regeneration</h3>
+            <div class="kst-card-content">
+                Promotes continuous stem cell proliferation in the skin - a unique mechanism for long-lasting skin rejuvenation that goes beyond traditional skin boosters.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">💪 Collagen Stimulation</h3>
+            <div class="kst-card-content">
+                The PCL component stimulates the skin's own collagen production, leading to firmer, tighter skin with natural elasticity improvement.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">✨ Anti-Aging & Elasticity</h3>
+            <div class="kst-card-content">
+                Reduces the appearance of wrinkles and fine lines while improving overall skin elasticity and firmness for a youthful complexion.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">💧 Deep Hydration & Tone</h3>
+            <div class="kst-card-content">
+                Deeply moisturizes the skin due to Hyaluronic Acid, improves skin texture, and provides an all-around tone-up effect.
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">🩹 Repair & Restoration</h3>
+            <div class="kst-card-content">
+                Designed to repair mature and sun-damaged skin, and aids in the elimination of scars and post-acne spots.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Ingredients Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Key Ingredients</h2>
+        
+        <div class="kst-dl">
+            <div class="kst-dl-item">
+                <div class="kst-dl-term">PCL (10%)</div>
+                <div class="kst-dl-desc">Polycaprolactone - Biodegradable and biocompatible polymer that acts as a potent collagen stimulator and promotes continuous stem cell proliferation</div>
+            </div>
+            <div class="kst-dl-item">
+                <div class="kst-dl-term">HA (1.5%)</div>
+                <div class="kst-dl-desc">Hyaluronic Acid Sodium Salt (unstabilized) - Provides deep hydration and improves skin moisture retention</div>
+            </div>
+            <div class="kst-dl-item">
+                <div class="kst-dl-term">Pyroglutamic Acid</div>
+                <div class="kst-dl-desc">Natural moisturizing factor that enhances skin hydration and barrier function</div>
+            </div>
+            <div class="kst-dl-item">
+                <div class="kst-dl-term">Additional</div>
+                <div class="kst-dl-desc">Water, Glycerin, Polyethylene Glycol, Sodium Carboxymethylcellulose, Sodium Lactate</div>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Mechanism of PCL collagen stimulation diagram]
+            </div>
+        </div>
+    </div>
+    
+    <!-- Treatment Protocol Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Treatment Protocol</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Recommended Treatment Course</h3>
+            <div class="kst-card-content">
+                <ul>
+                    <li><span class="kst-text-strong">Number of Sessions:</span> 2 to 3 treatment sessions for optimal results</li>
+                    <li><span class="kst-text-strong">Interval Between Sessions:</span> 2 weeks apart</li>
+                    <li><span class="kst-text-strong">Evaluation:</span> Additional treatment may be determined by a professional after the third session</li>
+                    <li><span class="kst-text-strong">Volume Per Session:</span> 2ml applied into the dermis layer</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Treatment Areas</h3>
+            <div class="kst-card-content">
+                <ul>
+                    <li>Entire face for general rejuvenation</li>
+                    <li>Areas with wrinkles and fine lines</li>
+                    <li>Skin sagginess zones (e.g., cheeks, jawline)</li>
+                    <li>Areas with scars and post-acne spots</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Application Methods</h3>
+            <div class="kst-card-content">
+                Applied into the dermis layer using professional techniques:
+                <ul>
+                    <li><span class="kst-text-strong">MTS Roller:</span> Microneedling technique</li>
+                    <li><span class="kst-text-strong">Meso-stamp:</span> Controlled delivery method</li>
+                    <li><span class="kst-text-strong">Mesotherapy:</span> General injection techniques</li>
+                </ul>
+                <p class="kst-text-muted" style="margin-top: 10px;">Proper depth and technique are crucial for optimal PCL delivery and collagen induction.</p>
+            </div>
+        </div>
+        
+        <div class="kst-image-block">
+            <div class="kst-image-placeholder">
+                [Treatment area facial mapping image]
+            </div>
+        </div>
+    </div>
+    
+    <!-- Efficacy & Results Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Expected Results</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Complex Rejuvenating Effect</h3>
+            <div class="kst-card-content">
+                Miracle Touch UP provides comprehensive anti-aging benefits:
+                <ul>
+                    <li>Thickening of the skin for improved structure</li>
+                    <li>Increased elasticity and firmness</li>
+                    <li>Deep hydration and moisture retention</li>
+                    <li>Improved overall skin smoothness</li>
+                    <li>Reduction in skin sagginess and dryness</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Long-Lasting Results</h3>
+            <div class="kst-card-content">
+                Results are visible for up to <span class="kst-text-strong">12 months</span> after the initial treatment course, thanks to the biodegradable polymer technology that provides sustained anti-aging effects.
+            </div>
+        </div>
+        
+        <div class="kst-notice">
+            <div class="kst-notice-title">💡 Enhanced Results</div>
+            <div class="kst-notice-content">
+                For enhanced whitening and anti-pigmentation effects, Miracle Touch UP can be combined with a whitening-focused product like Miracle Touch BR.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Who Should Use Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Ideal Candidates</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Perfect For</h3>
+            <div class="kst-card-content">
+                Miracle Touch UP is the ideal choice for individuals seeking:
+                <ul>
+                    <li><span class="kst-text-strong">Comprehensive anti-aging:</span> Targeting loss of elasticity and moderate wrinkles</li>
+                    <li><span class="kst-text-strong">Regenerative effects:</span> Long-lasting results through sustained stem cell activity</li>
+                    <li><span class="kst-text-strong">Environmental damage repair:</span> Sun-damaged and mature skin restoration</li>
+                    <li><span class="kst-text-strong">Scar improvement:</span> Post-acne spots and minor scarring reduction</li>
+                    <li><span class="kst-text-strong">Overall skin quality:</span> Improvement in texture, tone, and hydration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Storage & Precautions Section -->
+    <div class="kst-section kst-section-alt">
+        <h2 class="kst-section-title">Storage & Precautions</h2>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">Storage Conditions</h3>
+            <div class="kst-card-content">
+                <ul>
+                    <li><span class="kst-text-strong">Temperature:</span> Store in a cool, dry place at 1°C to 30°C (34°F to 86°F)</li>
+                    <li><span class="kst-text-strong">Light:</span> Keep away from direct sunlight</li>
+                    <li><span class="kst-text-strong">Important:</span> Do not freeze</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="kst-card">
+            <h3 class="kst-card-title">After Opening</h3>
+            <div class="kst-card-content">
+                This is a sterile product. Once opened, any unused portion in the vial should be <span class="kst-text-strong">discarded immediately</span> to maintain sterility and prevent contamination.
+            </div>
+        </div>
+        
+        <div class="kst-notice">
+            <div class="kst-notice-title">⚠️ General Precautions</div>
+            <div class="kst-notice-content">
+                <ul>
+                    <li>For professional use only</li>
+                    <li>Avoid if you have known allergies to any of the ingredients</li>
+                    <li>Not recommended for use on broken or severely irritated skin</li>
+                    <li>Post-procedure care includes hydration and strict sun protection</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Specifications Section -->
+    <div class="kst-section">
+        <h2 class="kst-section-title">Product Specifications</h2>
+        
+        <div class="kst-table-wrap">
+            <table class="kst-table">
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="kst-text-strong">Product Name</span></td>
+                        <td>Miracle Touch UP Skin Booster</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kst-text-strong">Volume</span></td>
+                        <td>2ml per vial</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kst-text-strong">Packaging</span></td>
+                        <td>Glass vial (sold as 1 vial or box of 5 vials)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kst-text-strong">Formulation</span></td>
+                        <td>Liquid solution</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kst-text-strong">Main Active</span></td>
+                        <td>PCL 10%, HA 1.5%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kst-text-strong">Target Area</span></td>
+                        <td>Face (dermis layer)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>

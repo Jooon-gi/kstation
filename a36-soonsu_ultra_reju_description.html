@@ -4,44 +4,48 @@
     }
     
     :root {
-        --kst-color-main: #d64233;
-        --kst-color-sub: #126BB2;
-        --kst-color-text-primary: #ffffff;
-        --kst-color-text-secondary: #f1f1f1;
-        --kst-color-bg: #f8f8f8;
-        --kst-color-badge-bg: #d64233;
-        --kst-color-badge-text: #ffffff;
-        --kst-color-badge-hover: #a72920;
-        --kst-color-dark: #1a1a1a;
-        --kst-color-muted: #6c757d;
-        --kst-color-border: #dee2e6;
+        --kst-main-color: #d64233;
+        --kst-sub-color: #126BB2;
+        --kst-text-white: #ffffff;
+        --kst-text-secondary: #f1f1f1;
+        --kst-bg-light: #f8f8f8;
+        --kst-badge-bg: #d64233;
+        --kst-badge-text: #ffffff;
+        --kst-badge-hover: #a72920;
+        --kst-text-dark: #333333;
+        --kst-text-muted: #666666;
+        --kst-border-light: #e0e0e0;
     }
     
     .kst-main-container {
         max-width: 760px;
         margin: 0 auto;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        background: var(--kst-color-text-primary);
-        color: var(--kst-color-dark) !important;
+        background: var(--kst-text-white);
+        color: var(--kst-text-dark) !important;
         padding: 0;
-        line-height: 1.5;
+        line-height: 1.6;
         overflow-x: hidden;
     }
     
     .kst-main-container * {
-        color: var(--kst-color-dark);
+        color: var(--kst-text-dark) !important;
     }
     
     .kst-hero-section {
-        background: linear-gradient(135deg, var(--kst-color-main) 0%, var(--kst-color-badge-hover) 100%);
+        background: linear-gradient(135deg, var(--kst-main-color) 0%, var(--kst-badge-hover) 100%);
         padding: 40px 16px;
         text-align: center;
         margin-bottom: 24px;
     }
     
+    .kst-hero-section * {
+        color: var(--kst-text-white) !important;
+    }
+    
     .kst-product-badge {
-        background: var(--kst-color-badge-bg);
-        color: var(--kst-color-badge-text) !important;
+        background: var(--kst-text-white);
+        color: var(--kst-main-color) !important;
         padding: 6px 16px;
         border-radius: 20px;
         font-size: 11px;
@@ -55,20 +59,20 @@
     .kst-main-title {
         font-size: 28px;
         font-weight: 700;
-        color: var(--kst-color-text-primary) !important;
+        color: var(--kst-text-white) !important;
         margin-bottom: 12px;
-        letter-spacing: -1px;
+        letter-spacing: -0.5px;
         word-wrap: break-word;
         overflow-wrap: break-word;
         hyphens: auto;
     }
-
+    
     .kst-main-subtitle {
         font-size: 18px;
-        font-weight: 400;
-        color: var(--kst-color-text-secondary) !important;
+        font-weight: 300;
+        color: var(--kst-text-secondary) !important;
         margin-bottom: 18px;
-        margin-top: -8px;
+        margin-top: 8px;
         word-wrap: break-word;
         overflow-wrap: break-word;
         hyphens: auto;
@@ -76,7 +80,7 @@
     
     .kst-subtitle {
         font-size: 15px;
-        color: var(--kst-color-text-secondary) !important;
+        color: var(--kst-text-secondary) !important;
         font-weight: 400;
         margin: 0 auto;
         line-height: 1.6;
@@ -87,7 +91,6 @@
     .kst-section {
         padding: 16px;
         margin-bottom: 20px;
-        color: var(--kst-color-dark) !important;
     }
     
     .kst-section-label {
@@ -95,14 +98,14 @@
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 2px;
-        color: var(--kst-color-main) !important;
-        margin-bottom: 16px;
+        color: var(--kst-sub-color) !important;
+        margin-bottom: 12px;
     }
     
     .kst-section-title {
         font-size: 22px;
         font-weight: 600;
-        color: var(--kst-color-dark) !important;
+        color: var(--kst-text-dark) !important;
         margin-bottom: 20px;
         letter-spacing: -0.5px;
         word-wrap: break-word;
@@ -112,7 +115,7 @@
     
     .kst-image-block,
     .kst-chart-block {
-        background: var(--kst-color-bg);
+        background: var(--kst-bg-light);
         padding: 0;
         text-align: center;
         margin: 20px 8px;
@@ -135,18 +138,50 @@
         object-fit: cover;
     }
     
+    .kst-info-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 16px 0;
+    }
+    
+    .kst-info-item {
+        background: var(--kst-bg-light);
+        padding: 16px;
+        border-radius: 8px;
+        border-left: 4px solid var(--kst-main-color);
+    }
+    
+    .kst-info-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--kst-text-muted) !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+    }
+    
+    .kst-info-value {
+        font-size: 15px;
+        color: var(--kst-text-dark) !important;
+        font-weight: 500;
+        line-height: 1.5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
     .kst-ingredient-card {
-        background: var(--kst-color-bg);
+        background: var(--kst-bg-light);
         padding: 20px 16px;
         margin-bottom: 16px;
-        border-left: 4px solid var(--kst-color-main);
+        border-left: 4px solid var(--kst-sub-color);
         border-radius: 0 8px 8px 0;
         transition: all 0.2s ease;
     }
     
     .kst-ingredient-card:hover {
-        border-left-color: var(--kst-color-badge-hover);
-        background: #f1f1f1;
+        border-left-color: var(--kst-main-color);
+        background: #f0f0f0;
     }
     
     .kst-ingredient-header {
@@ -159,14 +194,14 @@
     .kst-ingredient-name {
         font-size: 18px;
         font-weight: 600;
-        color: var(--kst-color-dark) !important;
+        color: var(--kst-text-dark) !important;
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
     
     .kst-concentration-tag {
-        background: var(--kst-color-main);
-        color: var(--kst-color-text-primary) !important;
+        background: var(--kst-badge-bg);
+        color: var(--kst-badge-text) !important;
         padding: 4px 12px;
         border-radius: 4px;
         font-size: 12px;
@@ -178,7 +213,7 @@
     
     .kst-ingredient-description {
         font-size: 14px;
-        color: #495057 !important;
+        color: var(--kst-text-muted) !important;
         line-height: 1.6;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -189,32 +224,32 @@
     }
     
     .kst-benefit-item {
-        background: var(--kst-color-text-primary);
-        border: 1px solid var(--kst-color-border);
+        background: var(--kst-text-white);
+        border: 1px solid var(--kst-border-light);
         padding: 16px;
         margin-bottom: 12px;
         border-radius: 8px;
         position: relative;
     }
     
-    .kst-benefit-number {
-        width: 28px;
-        height: 28px;
-        background: var(--kst-color-main);
-        color: var(--kst-color-text-primary) !important;
+    .kst-benefit-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--kst-main-color);
+        color: var(--kst-text-white) !important;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: 600;
-        font-size: 13px;
+        font-size: 16px;
         margin-bottom: 12px;
     }
     
     .kst-benefit-title {
         font-size: 16px;
         font-weight: 600;
-        color: var(--kst-color-dark) !important;
+        color: var(--kst-text-dark) !important;
         margin-bottom: 8px;
         line-height: 1.4;
         word-wrap: break-word;
@@ -223,235 +258,262 @@
     
     .kst-benefit-description {
         font-size: 14px;
-        color: #495057 !important;
+        color: var(--kst-text-muted) !important;
         line-height: 1.6;
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
     
-    .kst-info-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+    .kst-usage-protocol {
+        background: linear-gradient(135deg, var(--kst-sub-color) 0%, #0d5a94 100%);
+        padding: 24px 16px;
+        border-radius: 12px;
+        margin: 20px 8px;
     }
     
-    .kst-info-item {
-        background: var(--kst-color-bg);
-        padding: 16px;
+    .kst-usage-protocol * {
+        color: var(--kst-text-white) !important;
+    }
+    
+    .kst-protocol-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .kst-protocol-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 14px;
+        margin-bottom: 10px;
         border-radius: 8px;
-        border-left: 3px solid var(--kst-color-sub);
+        border-left: 3px solid var(--kst-text-white);
     }
     
-    .kst-info-label {
+    .kst-protocol-label {
         font-size: 12px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: var(--kst-color-sub) !important;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
+        opacity: 0.9;
     }
     
-    .kst-info-value {
+    .kst-protocol-value {
         font-size: 15px;
-        color: var(--kst-color-dark) !important;
+        font-weight: 500;
         line-height: 1.5;
+    }
+    
+    .kst-application-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 16px 0;
+    }
+    
+    .kst-method-card {
+        background: var(--kst-bg-light);
+        padding: 16px;
+        border-radius: 8px;
+        border: 2px solid var(--kst-border-light);
+        transition: all 0.2s ease;
+    }
+    
+    .kst-method-card:hover {
+        border-color: var(--kst-main-color);
+        background: #ffffff;
+    }
+    
+    .kst-method-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 8px;
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
     
-    .kst-protocol-steps {
-        margin: 20px 0;
+    .kst-method-description {
+        font-size: 14px;
+        color: var(--kst-text-muted) !important;
+        line-height: 1.5;
     }
     
-    .kst-step-item {
+    .kst-highlight-box {
+        background: linear-gradient(135deg, #fff5f4 0%, #ffe8e6 100%);
+        border: 2px solid var(--kst-main-color);
+        padding: 20px 16px;
+        border-radius: 12px;
+        margin: 20px 8px;
+    }
+    
+    .kst-highlight-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--kst-main-color) !important;
+        margin-bottom: 12px;
         display: flex;
-        gap: 16px;
-        margin-bottom: 24px;
-        align-items: flex-start;
+        align-items: center;
+        gap: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     
-    .kst-step-number {
-        min-width: 40px;
-        width: 40px;
-        height: 40px;
-        background: var(--kst-color-main);
-        color: var(--kst-color-text-primary) !important;
+    .kst-highlight-icon {
+        width: 24px;
+        height: 24px;
+        background: var(--kst-main-color);
+        color: var(--kst-text-white) !important;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 14px;
         font-weight: 700;
-        font-size: 16px;
         flex-shrink: 0;
     }
     
-    .kst-step-content {
-        flex: 1;
-        padding-top: 4px;
+    .kst-highlight-content {
+        font-size: 14px;
+        color: var(--kst-text-dark) !important;
+        line-height: 1.6;
     }
     
-    .kst-step-title {
+    .kst-highlight-content ul {
+        margin: 12px 0;
+        padding-left: 20px;
+    }
+    
+    .kst-highlight-content ul li {
+        margin-bottom: 8px;
+        color: var(--kst-text-dark) !important;
+    }
+    
+    .kst-storage-info {
+        background: var(--kst-bg-light);
+        padding: 20px 16px;
+        border-radius: 8px;
+        margin: 16px 0;
+    }
+    
+    .kst-storage-title {
         font-size: 16px;
         font-weight: 600;
-        color: var(--kst-color-dark) !important;
-        margin-bottom: 6px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    .kst-step-description {
-        font-size: 14px;
-        color: #495057 !important;
-        line-height: 1.6;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    .kst-highlight-box {
-        background: linear-gradient(135deg, var(--kst-color-main) 0%, var(--kst-color-badge-hover) 100%);
-        padding: 24px 20px;
-        border-radius: 12px;
-        margin: 20px 8px;
-        text-align: center;
-    }
-    
-    .kst-highlight-title {
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--kst-color-text-primary) !important;
+        color: var(--kst-text-dark) !important;
         margin-bottom: 12px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
     }
     
-    .kst-highlight-text {
-        font-size: 15px;
-        color: var(--kst-color-text-secondary) !important;
+    .kst-storage-item {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--kst-border-light);
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .kst-storage-item:last-child {
+        border-bottom: none;
+    }
+    
+    .kst-storage-icon {
+        width: 20px;
+        height: 20px;
+        background: var(--kst-sub-color);
+        color: var(--kst-text-white) !important;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    
+    .kst-storage-text {
+        font-size: 14px;
+        color: var(--kst-text-muted) !important;
+        line-height: 1.5;
+        flex: 1;
+    }
+    
+    .kst-warning-box {
+        background: #fff9e6;
+        border: 2px solid #ffc107;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 16px 8px;
+    }
+    
+    .kst-warning-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .kst-warning-icon {
+        width: 28px;
+        height: 28px;
+        background: #ffc107;
+        color: var(--kst-text-dark) !important;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+    
+    .kst-warning-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--kst-text-dark) !important;
+    }
+    
+    .kst-warning-content {
+        font-size: 14px;
+        color: var(--kst-text-muted) !important;
         line-height: 1.6;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+        padding-left: 38px;
     }
     
     .kst-divider {
         height: 1px;
-        background: var(--kst-color-border);
+        background: var(--kst-border-light);
         margin: 32px 16px;
     }
     
-    .kst-warning-box {
-        background: #fff3cd;
-        border-left: 4px solid #ffc107;
+    .kst-meta-tags {
+        background: var(--kst-bg-light);
         padding: 16px;
-        margin: 20px 8px;
-        border-radius: 0 8px 8px 0;
+        border-radius: 8px;
+        margin: 16px 8px;
     }
     
-    .kst-warning-title {
+    .kst-meta-title {
         font-size: 14px;
         font-weight: 600;
-        color: #856404 !important;
-        margin-bottom: 8px;
+        color: var(--kst-text-dark) !important;
+        margin-bottom: 10px;
+    }
+    
+    .kst-tag-list {
         display: flex;
-        align-items: center;
+        flex-wrap: wrap;
         gap: 8px;
     }
     
-    .kst-warning-icon {
-        width: 20px;
-        height: 20px;
-        background: #ffc107;
-        color: #856404 !important;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 14px;
-    }
-    
-    .kst-warning-text {
-        font-size: 13px;
-        color: #856404 !important;
-        line-height: 1.5;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    .kst-features-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin: 20px 0;
-    }
-    
-    .kst-feature-card {
-        background: var(--kst-color-text-primary);
-        border: 1px solid var(--kst-color-border);
-        padding: 16px;
-        border-radius: 8px;
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-    }
-    
-    .kst-feature-icon {
-        width: 32px;
-        height: 32px;
-        background: var(--kst-color-main);
-        color: var(--kst-color-text-primary) !important;
-        border-radius: 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 16px;
-        flex-shrink: 0;
-    }
-    
-    .kst-feature-content {
-        flex: 1;
-    }
-    
-    .kst-feature-title {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--kst-color-dark) !important;
-        margin-bottom: 4px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    .kst-feature-description {
-        font-size: 13px;
-        color: #495057 !important;
-        line-height: 1.5;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    .kst-summary-section {
-        background: var(--kst-color-bg);
-        padding: 24px 20px;
-        border-radius: 12px;
-        margin: 32px 8px;
-        text-align: center;
-    }
-    
-    .kst-summary-title {
-        font-size: 20px;
-        font-weight: 600;
-        color: var(--kst-color-dark) !important;
-        margin-bottom: 12px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    .kst-summary-text {
-        font-size: 14px;
-        color: #495057 !important;
-        line-height: 1.7;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+    .kst-tag {
+        background: var(--kst-text-white);
+        color: var(--kst-text-muted) !important;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        border: 1px solid var(--kst-border-light);
     }
 </style>
 
@@ -459,21 +521,21 @@
     
     <!-- Hero Section -->
     <div class="kst-hero-section">
-        <div class="kst-product-badge">Advanced Skin Solution</div>
+        <div class="kst-product-badge">Advanced Skin Rejuvenation</div>
         <h1 class="kst-main-title">Soonsu Ultra Reju</h1>
-        <p class="kst-main-subtitle">Advanced Skin Rejuvenating Solution</p>
-        <p class="kst-subtitle">PN + PDRN Complex for Intensive Tissue Regeneration</p>
+        <p class="kst-main-subtitle">PN + PDRN Complex Solution</p>
+        <p class="kst-subtitle">Professional-grade regenerative treatment for comprehensive skin rejuvenation and anti-aging</p>
     </div>
     
-    <!-- Product Image -->
+    <!-- Product Image Placeholder -->
     <div class="kst-image-block">
-        <img src="" alt="Soonsu Ultra Reju Product Package">
+        <img src="" alt="Soonsu Ultra Reju Product">
     </div>
     
-    <!-- Basic Product Information -->
+    <!-- Basic Information -->
     <div class="kst-section">
-        <div class="kst-section-label">Product Details</div>
-        <h2 class="kst-section-title">Basic Information</h2>
+        <div class="kst-section-label">Product Overview</div>
+        <h2 class="kst-section-title">Product Information</h2>
         
         <div class="kst-info-grid">
             <div class="kst-info-item">
@@ -483,7 +545,7 @@
             
             <div class="kst-info-item">
                 <div class="kst-info-label">Volume & Configuration</div>
-                <div class="kst-info-value">3 mL per vial<br>Available: 5 vials × 3 mL or 1 vial × 3 mL</div>
+                <div class="kst-info-value">3 mL per vial | Available in 5 vials × 3 mL or 1 vial × 3 mL</div>
             </div>
             
             <div class="kst-info-item">
@@ -492,18 +554,23 @@
             </div>
             
             <div class="kst-info-item">
-                <div class="kst-info-label">Storage Conditions</div>
+                <div class="kst-info-label">Storage</div>
                 <div class="kst-info-value">Store in a cool, dry place. Use immediately after opening.</div>
             </div>
         </div>
+    </div>
+    
+    <!-- Packaging Image Placeholder -->
+    <div class="kst-image-block">
+        <img src="" alt="Product Vials and Packaging">
     </div>
     
     <div class="kst-divider"></div>
     
     <!-- Key Ingredients -->
     <div class="kst-section">
-        <div class="kst-section-label">Formula Composition</div>
-        <h2 class="kst-section-title">Key Active Ingredients</h2>
+        <div class="kst-section-label">Active Formulation</div>
+        <h2 class="kst-section-title">Key Ingredients</h2>
         
         <div class="kst-ingredient-card">
             <div class="kst-ingredient-header">
@@ -511,7 +578,7 @@
                 <div class="kst-concentration-tag">1% Concentration</div>
             </div>
             <div class="kst-ingredient-description">
-                Advanced DNA-based molecules that stimulate cellular regeneration and enhance the skin's natural healing processes. PN works at the cellular level to promote tissue repair and rejuvenation.
+                High compatibility with human cellular DNA, designed to stimulate deep and long-lasting skin regeneration through enhanced cellular communication and tissue repair mechanisms.
             </div>
         </div>
         
@@ -521,27 +588,32 @@
                 <div class="kst-concentration-tag">1% Concentration</div>
             </div>
             <div class="kst-ingredient-description">
-                High-compatibility DNA fragments that activate fibroblast proliferation, improve blood circulation, and enhance collagen and elastin production for comprehensive skin regeneration.
+                Powerful regenerative component that activates the body's natural tissue regeneration mechanism, promoting wound healing, reducing inflammation, and supporting cellular renewal.
             </div>
         </div>
         
-        <div class="kst-ingredient-card">
-            <div class="kst-ingredient-header">
-                <div class="kst-ingredient-name">Supporting Complex</div>
+        <div class="kst-highlight-box">
+            <div class="kst-highlight-title">
+                <span class="kst-highlight-icon">+</span>
+                Additional Functional Components
             </div>
-            <div class="kst-ingredient-description">
-                <strong>Niacinamide:</strong> Brightening and anti-acne properties<br>
-                <strong>Adenosine:</strong> Cell-communicating ingredient for wrinkle improvement<br>
-                <strong>Peptide Complex:</strong> Acetyl Hexapeptide-8, SH-Oligopeptide-1, SH-Oligopeptide-2, SH-Polypeptide-1<br>
-                <strong>Hydrolyzed Collagen:</strong> Deep moisture and skin structure support<br>
-                <strong>Allantoin & Panthenol:</strong> Soothing and hydration enhancement
+            <div class="kst-highlight-content">
+                <ul>
+                    <li><strong>Niacinamide</strong> - Brightening and anti-acne properties</li>
+                    <li><strong>Adenosine</strong> - Cell-communicating ingredient</li>
+                    <li><strong>Acetyl Hexapeptide-8</strong> - Smoothing peptide</li>
+                    <li><strong>SH-Oligopeptide-1, SH-Oligopeptide-2, SH-Polypeptide-1</strong> - Vitality-enhancing peptides</li>
+                    <li><strong>Hydrolyzed Collagen</strong> - Structural protein support</li>
+                    <li><strong>Allantoin</strong> - Soothing and protective</li>
+                    <li><strong>Panthenol</strong> - Deep hydration and skin barrier support</li>
+                </ul>
             </div>
         </div>
     </div>
     
-    <!-- Ingredient Mechanism Image -->
+    <!-- Mechanism Image Placeholder -->
     <div class="kst-image-block">
-        <img src="" alt="PN and PDRN Mechanism Diagram">
+        <img src="" alt="PN/PDRN Mechanism Diagram">
     </div>
     
     <div class="kst-divider"></div>
@@ -553,190 +625,192 @@
         
         <div class="kst-benefits-list">
             <div class="kst-benefit-item">
-                <div class="kst-benefit-number">1</div>
-                <div class="kst-benefit-title">Intensive Tissue Repair and Regeneration</div>
+                <div class="kst-benefit-icon">1</div>
+                <div class="kst-benefit-title">Intensive Tissue Repair & Regeneration</div>
                 <div class="kst-benefit-description">
-                    Activates the body's natural tissue regeneration mechanism, supporting wound healing and cellular renewal at the deepest levels for long-lasting rejuvenation.
+                    Activates the human body's natural tissue regeneration mechanism, supporting wound healing and cellular renewal at the deepest levels for comprehensive skin restoration.
                 </div>
             </div>
             
             <div class="kst-benefit-item">
-                <div class="kst-benefit-number">2</div>
-                <div class="kst-benefit-title">Wrinkle and Fine Line Reduction</div>
+                <div class="kst-benefit-icon">2</div>
+                <div class="kst-benefit-title">Wrinkle & Fine Line Reduction</div>
                 <div class="kst-benefit-description">
-                    Stimulates collagen and elastin synthesis to improve skin density and elasticity, visibly reducing the appearance of wrinkles and fine lines.
+                    Stimulates collagen and elastin synthesis for improved skin density and elasticity, resulting in visibly smoother, firmer skin with reduced signs of aging.
                 </div>
             </div>
             
             <div class="kst-benefit-item">
-                <div class="kst-benefit-number">3</div>
-                <div class="kst-benefit-title">Improved Skin Tone and Texture</div>
+                <div class="kst-benefit-icon">3</div>
+                <div class="kst-benefit-title">Enhanced Skin Tone & Texture</div>
                 <div class="kst-benefit-description">
-                    Delivers deep moisturization, brightening effects, reduction of large pores, and improvement of acne scars and pigmentation for a refined, luminous complexion.
+                    Delivers deep moisturization, brightening effects, reduction of enlarged pores, and improvement of acne scars and pigmentation for a luminous, even complexion.
                 </div>
             </div>
             
             <div class="kst-benefit-item">
-                <div class="kst-benefit-number">4</div>
+                <div class="kst-benefit-icon">4</div>
                 <div class="kst-benefit-title">Anti-Inflammatory Effect</div>
                 <div class="kst-benefit-description">
-                    Contains PDRN and PN to help reduce inflammation, calm irritated skin, and restore overall skin health and balance.
+                    Contains PDRN/PN complex to help reduce inflammation, calm irritated skin, and restore overall skin health and balance.
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Highlight Box -->
-    <div class="kst-highlight-box">
-        <div class="kst-highlight-title">Immediate & Long-Lasting Results</div>
-        <div class="kst-highlight-text">
-            Demonstrates immediate effects post-administration with notable collagen synthesis increase within 24 hours. Deep cellular rearrangement leads to rejuvenating effects lasting up to 12 months.
-        </div>
-    </div>
-    
     <div class="kst-divider"></div>
     
-    <!-- Treatment Protocol -->
+    <!-- Usage Protocol -->
     <div class="kst-section">
-        <div class="kst-section-label">Application Guide</div>
+        <div class="kst-section-label">Treatment Guidelines</div>
         <h2 class="kst-section-title">Usage Protocol</h2>
         
-        <div class="kst-protocol-steps">
-            <div class="kst-step-item">
-                <div class="kst-step-number">1</div>
-                <div class="kst-step-content">
-                    <div class="kst-step-title">Treatment Cycle</div>
-                    <div class="kst-step-description">
-                        Recommended 3 to 5 sessions with 1 to 2 weeks interval between each session for optimal results. Maintenance treatment may follow based on individual needs.
-                    </div>
-                </div>
+        <div class="kst-usage-protocol">
+            <div class="kst-protocol-title">Recommended Treatment Cycle</div>
+            
+            <div class="kst-protocol-item">
+                <div class="kst-protocol-label">Sessions</div>
+                <div class="kst-protocol-value">3 to 5 sessions for optimal results</div>
             </div>
             
-            <div class="kst-step-item">
-                <div class="kst-step-number">2</div>
-                <div class="kst-step-content">
-                    <div class="kst-step-title">Treatment Areas</div>
-                    <div class="kst-step-description">
-                        Entire face, neck, décolletage, and back of hands to address signs of aging, scars, and overall texture improvement.
-                    </div>
-                </div>
+            <div class="kst-protocol-item">
+                <div class="kst-protocol-label">Interval</div>
+                <div class="kst-protocol-value">1 to 2 weeks between each session</div>
             </div>
             
-            <div class="kst-step-item">
-                <div class="kst-step-number">3</div>
-                <div class="kst-step-content">
-                    <div class="kst-step-title">Application Methods</div>
-                    <div class="kst-step-description">
-                        Professional application using direct syringe injection (micro-papules technique), MTS (Microneedle Therapy System), or nano-needles depending on treatment goals and skin condition.
-                    </div>
-                </div>
+            <div class="kst-protocol-item">
+                <div class="kst-protocol-label">Maintenance</div>
+                <div class="kst-protocol-value">Maintenance treatment may follow initial cycle</div>
             </div>
         </div>
-    </div>
-    
-    <!-- Treatment Cycle Image -->
-    <div class="kst-image-block">
-        <img src="" alt="Recommended Treatment Cycle and Dosage Diagram">
-    </div>
-    
-    <div class="kst-divider"></div>
-    
-    <!-- Detailed Features -->
-    <div class="kst-section">
-        <div class="kst-section-label">Advanced Technology</div>
-        <h2 class="kst-section-title">What Makes Ultra Reju Unique</h2>
         
-        <div class="kst-features-grid">
-            <div class="kst-feature-card">
-                <div class="kst-feature-icon">✓</div>
-                <div class="kst-feature-content">
-                    <div class="kst-feature-title">Optimal PN + PDRN Complex</div>
-                    <div class="kst-feature-description">
-                        Unique combination of 1% Polynucleotides and 1% Polydeoxyribonucleotide with high compatibility to human cellular DNA for deep, long-lasting regeneration.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="kst-feature-card">
-                <div class="kst-feature-icon">✓</div>
-                <div class="kst-feature-content">
-                    <div class="kst-feature-title">Fibroblast & Keratinocyte Activation</div>
-                    <div class="kst-feature-description">
-                        Increases proliferation of key skin cells, improves blood circulation, and activates natural collagen and elastin production.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="kst-feature-card">
-                <div class="kst-feature-icon">✓</div>
-                <div class="kst-feature-content">
-                    <div class="kst-feature-title">Multi-Functional Peptide Enhancement</div>
-                    <div class="kst-feature-description">
-                        Enriched with specialized peptides for enhanced smoothness, vitality, and comprehensive anti-aging benefits.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="kst-feature-card">
-                <div class="kst-feature-icon">✓</div>
-                <div class="kst-feature-content">
-                    <div class="kst-feature-title">Comprehensive Skin Concerns</div>
-                    <div class="kst-feature-description">
-                        Targets wrinkles, fine lines, dryness, dullness, scars, large pores, and loss of elasticity in one powerful formula.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="kst-divider"></div>
-    
-    <!-- Precautions -->
-    <div class="kst-section">
-        <div class="kst-section-label">Safety Information</div>
-        <h2 class="kst-section-title">Precautions & Storage</h2>
-        
-        <div class="kst-warning-box">
-            <div class="kst-warning-title">
-                <div class="kst-warning-icon">!</div>
-                Professional Use Only
-            </div>
-            <div class="kst-warning-text">
-                This product is intended for use by certified cosmetologists or medical professionals trained in aesthetic medicine procedures. Do not use if the seal is broken or if the product appears compromised.
-            </div>
+        <!-- Treatment Cycle Diagram Placeholder -->
+        <div class="kst-image-block">
+            <img src="" alt="Treatment Cycle and Dosage Diagram">
         </div>
         
         <div class="kst-info-grid" style="margin-top: 20px;">
             <div class="kst-info-item">
-                <div class="kst-info-label">Storage Temperature</div>
-                <div class="kst-info-value">Store in a cool, dry environment, away from direct sunlight</div>
-            </div>
-            
-            <div class="kst-info-item">
-                <div class="kst-info-label">Shelf Life After Opening</div>
-                <div class="kst-info-value">Product must be used immediately once the vial is opened as it is a sterile solution</div>
-            </div>
-            
-            <div class="kst-info-item">
-                <div class="kst-info-label">General Precaution</div>
-                <div class="kst-info-value">For professional use only. Proper training in aesthetic procedures is essential for safe and effective application.</div>
+                <div class="kst-info-label">Treatment Areas</div>
+                <div class="kst-info-value">Entire face, neck, décolletage, and back of hands to address signs of aging, scars, and overall texture improvement</div>
             </div>
         </div>
     </div>
     
-    <!-- Product Documentation Image -->
-    <div class="kst-image-block">
-        <img src="" alt="Product Documentation and Certifications">
+    <!-- Application Methods -->
+    <div class="kst-section">
+        <div class="kst-section-label">Application Techniques</div>
+        <h2 class="kst-section-title">Professional Application Methods</h2>
+        
+        <div class="kst-application-methods">
+            <div class="kst-method-card">
+                <div class="kst-method-title">Direct Syringe Injection</div>
+                <div class="kst-method-description">Micro-papules technique for precise delivery and targeted treatment</div>
+            </div>
+            
+            <div class="kst-method-card">
+                <div class="kst-method-title">MTS (Microneedle Therapy System)</div>
+                <div class="kst-method-description">Enhanced absorption through controlled micro-channel creation</div>
+            </div>
+            
+            <div class="kst-method-card">
+                <div class="kst-method-title">Nano-Needle Application</div>
+                <div class="kst-method-description">Minimally invasive delivery for sensitive areas and optimal comfort</div>
+            </div>
+        </div>
     </div>
     
     <div class="kst-divider"></div>
     
-    <!-- Summary -->
-    <div class="kst-summary-section">
-        <h3 class="kst-summary-title">The Ultimate Skin Rejuvenation Solution</h3>
-        <p class="kst-summary-text">
-            Soonsu Ultra Reju represents the pinnacle of advanced regenerative skincare technology, combining the powerful synergy of Polynucleotides and Polydeoxyribonucleotide with a sophisticated peptide complex. Designed for professional aesthetic applications, it delivers comprehensive rejuvenation from the cellular level, providing both immediate visible results and long-lasting transformative effects that can extend up to 12 months. Trust in the science of deep tissue regeneration for your most demanding aesthetic goals.
-        </p>
+    <!-- Detailed Mechanism -->
+    <div class="kst-section">
+        <div class="kst-section-label">Scientific Approach</div>
+        <h2 class="kst-section-title">How Soonsu Ultra Reju Works</h2>
+        
+        <div class="kst-highlight-box">
+            <div class="kst-highlight-title">
+                <span class="kst-highlight-icon">★</span>
+                Mechanism of Action
+            </div>
+            <div class="kst-highlight-content">
+                The powerful PN + PDRN complex formula works by increasing the proliferation of fibroblasts and keratinocytes, improving blood circulation, and activating collagen and elastin production. This multi-faceted approach results in firmer skin, a significant reduction in visible signs of aging, and a refreshed, luminous appearance.
+                <br><br>
+                The formula is enriched with multi-functional components including Niacinamide (brightening, anti-acne), Adenosine (cell-communicating), and various Peptides to enhance smoothness and vitality.
+            </div>
+        </div>
+        
+        <div class="kst-highlight-box">
+            <div class="kst-highlight-title">
+                <span class="kst-highlight-icon">⏱</span>
+                Immediate & Long-Term Results
+            </div>
+            <div class="kst-highlight-content">
+                <strong>Immediate Effect:</strong> Noticeable increase in collagen synthesis within 24 hours post-administration
+                <br><br>
+                <strong>Long-Term Benefits:</strong> Deep cellular rearrangement leads to rejuvenating effects lasting up to 12 months
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Precautions & Storage -->
+    <div class="kst-section">
+        <div class="kst-section-label">Important Information</div>
+        <h2 class="kst-section-title">Precautions & Storage</h2>
+        
+        <div class="kst-storage-info">
+            <div class="kst-storage-title">Storage Guidelines</div>
+            
+            <div class="kst-storage-item">
+                <div class="kst-storage-icon">📦</div>
+                <div class="kst-storage-text">Store in a cool, dry environment, away from direct sunlight</div>
+            </div>
+            
+            <div class="kst-storage-item">
+                <div class="kst-storage-icon">⚡</div>
+                <div class="kst-storage-text">Use immediately once the vial is opened (sterile solution)</div>
+            </div>
+            
+            <div class="kst-storage-item">
+                <div class="kst-storage-icon">✓</div>
+                <div class="kst-storage-text">Do not use if the seal is broken or if the product appears compromised</div>
+            </div>
+        </div>
+        
+        <div class="kst-warning-box">
+            <div class="kst-warning-header">
+                <div class="kst-warning-icon">!</div>
+                <div class="kst-warning-title">Professional Use Only</div>
+            </div>
+            <div class="kst-warning-content">
+                Intended for use by certified cosmetologists or medical professionals trained in aesthetic medicine procedures. Proper training and certification are required for safe and effective application.
+            </div>
+        </div>
+    </div>
+    
+    <div class="kst-divider"></div>
+    
+    <!-- Meta Keywords -->
+    <div class="kst-meta-tags">
+        <div class="kst-meta-title">Product Categories & Keywords</div>
+        <div class="kst-tag-list">
+            <span class="kst-tag">Skin Booster</span>
+            <span class="kst-tag">PDRN</span>
+            <span class="kst-tag">PN</span>
+            <span class="kst-tag">Polynucleotides</span>
+            <span class="kst-tag">Polydeoxyribonucleotide</span>
+            <span class="kst-tag">Skin Regeneration</span>
+            <span class="kst-tag">Elasticity Enhancement</span>
+            <span class="kst-tag">Wrinkle Reduction</span>
+            <span class="kst-tag">Acne Scars</span>
+            <span class="kst-tag">Large Pores</span>
+            <span class="kst-tag">Hydrating Ampoule</span>
+            <span class="kst-tag">Anti-Aging</span>
+            <span class="kst-tag">Ultra Reju</span>
+            <span class="kst-tag">Micro-Needling Solution</span>
+            <span class="kst-tag">Derma Rejuvenating</span>
+        </div>
     </div>
     
 </div>

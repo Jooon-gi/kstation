@@ -1,0 +1,562 @@
+<style>
+  /* CSS Variables for Color Palette */
+  :root {
+    --kst-main-color: #d4af37;
+    --kst-sub-color: #000000;
+    --kst-text-primary: #ffffff;
+    --kst-text-secondary: #b5b5b5;
+    --kst-bg-color: #0a0a0a;
+    --kst-badge-bg: #d4af37;
+    --kst-badge-text: #000000;
+    --kst-badge-hover: #c9a131;
+  }
+
+  /* Global Reset */
+  * {
+    box-sizing: border-box !important;
+  }
+
+  /* Main Container */
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    background-color: var(--kst-bg-color);
+    color: var(--kst-text-primary) !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    padding: 0;
+  }
+
+  .kst-main-container * {
+    color: var(--kst-text-primary) !important;
+  }
+
+  /* Hero Header Section */
+  .kst-hero-section {
+    position: relative;
+    padding: 40px 20px;
+    margin: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .kst-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .kst-hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-hero-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--kst-text-secondary) !important;
+    margin: 0 0 16px 0;
+    font-weight: 500;
+  }
+
+  .kst-hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: var(--kst-main-color) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.2;
+  }
+
+  .kst-hero-subtitle {
+    font-size: 16px;
+    color: rgba(212, 175, 55, 0.8) !important;
+    margin: 0 0 24px 0;
+    font-weight: 400;
+  }
+
+  .kst-hero-description {
+    font-size: 15px;
+    color: var(--kst-text-secondary) !important;
+    line-height: 1.7;
+    margin: 24px 0 0 0;
+  }
+
+  .kst-hero-badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 0 0;
+  }
+
+  .kst-hero-info-box {
+    background: rgba(212, 175, 55, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 24px 0 0 0;
+  }
+
+  .kst-hero-info-box p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--kst-text-secondary) !important;
+    line-height: 1.6;
+  }
+
+  /* Section Styles */
+  .kst-section {
+    padding: 24px 16px;
+    margin: 0;
+  }
+
+  .kst-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: var(--kst-main-color) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-section-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px 0 12px 0;
+    color: var(--kst-main-color) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Image Blocks */
+  .kst-image-block {
+    width: 100%;
+    margin: 16px 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-image-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Badge Styles */
+  .kst-badge {
+    display: inline-block;
+    background-color: var(--kst-badge-bg);
+    color: var(--kst-badge-text) !important;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 4px 4px 4px 0;
+  }
+
+  /* Card Styles */
+  .kst-card {
+    background-color: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+  }
+
+  .kst-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: var(--kst-main-color) !important;
+  }
+
+  /* List Styles */
+  .kst-card ul,
+  .kst-card ol {
+    margin: 8px 0;
+    padding-left: 20px;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li {
+    margin: 6px 0;
+    color: var(--kst-text-primary) !important;
+  }
+
+  .kst-section ul,
+  .kst-section ol {
+    margin: 12px 0;
+    padding-left: 20px;
+  }
+
+  .kst-section ul li,
+  .kst-section ol li {
+    margin: 8px 0;
+    color: var(--kst-text-primary) !important;
+  }
+
+  /* Text Styles */
+  .kst-text-muted {
+    color: var(--kst-text-secondary) !important;
+    font-size: 14px;
+  }
+
+  .kst-highlight {
+    color: var(--kst-main-color) !important;
+    font-weight: 600;
+  }
+
+  /* Table Styles */
+  .kst-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 0;
+    border-radius: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: rgba(212, 175, 55, 0.1);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-main-color);
+    border-radius: 4px;
+  }
+
+  .kst-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+  }
+
+  .kst-table thead th {
+    background-color: var(--kst-main-color);
+    color: var(--kst-sub-color) !important;
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .kst-table tbody td {
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    color: var(--kst-text-primary) !important;
+    font-size: 14px;
+  }
+
+  .kst-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Divider */
+  .kst-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--kst-main-color), transparent);
+    margin: 32px 0;
+  }
+
+  /* Strong Text */
+  strong {
+    color: var(--kst-main-color) !important;
+    font-weight: 600;
+  }
+
+  /* Paragraph */
+  p {
+    margin: 12px 0;
+    line-height: 1.7;
+  }
+</style>
+
+<div class="kst-main-container">
+  
+  <!-- Hero Header Section -->
+  <div class="kst-hero-section">
+    <div class="kst-hero-content">
+      <div class="kst-hero-label">PREMIUM COLLECTION</div>
+      
+      <h1 class="kst-hero-title">ULTRA HAIR</h1>
+      
+      <div class="kst-hero-subtitle">Stem Cell Exosome-Based Hair Loss Treatment</div>
+      
+      <div class="kst-hero-badge-container">
+        <div class="kst-badge">Platinum Series</div>
+        <div class="kst-badge">Ultra Exclusive</div>
+        <div class="kst-badge">Master Crafted</div>
+      </div>
+      
+      <div class="kst-hero-info-box">
+        <p>Ultra-premium formulation engineered for uncompromising excellence and extraordinary results</p>
+      </div>
+      
+      <p class="kst-hero-description">
+        Advanced stem cell exosome-based hair loss treatment that delivers powerful regenerative signals directly to hair follicles. This cutting-edge therapy harnesses nano-sized extracellular vesicles to activate dormant follicles, prolong hair growth phases, and restore optimal scalp health.
+      </p>
+    </div>
+    
+    <div class="kst-image-block">
+      <img src="" alt="ULTRA HAIR Product">
+    </div>
+  </div>
+
+  <div class="kst-divider"></div>
+
+  <!-- Package Contents -->
+  <div class="kst-section">
+    <h3 class="kst-section-subtitle">Package Contents</h3>
+    <p>
+      Typically supplied as a lyophilized (freeze-dried) <strong>Exosome Powder</strong> component and a separate <strong>Activating Solution/Diluent</strong> for mixing prior to application. Exact volume/vial count may vary by supplier, often 5 vials x 5ml or similar professional volume.
+    </p>
+  </div>
+
+  <div class="kst-divider"></div>
+
+  <!-- Key Ingredients -->
+  <div class="kst-section">
+    <h3 class="kst-section-subtitle">Key Ingredients & Mechanism of Action</h3>
+    
+    <div class="kst-card">
+      <div class="kst-card-title">Ingredient Composition</div>
+      <ul>
+        <li><strong>Stem Cell-Derived Exosomes</strong> containing abundant Growth Factors, Signal Proteins, and MicroRNAs</li>
+        <li><strong>Hyaluronic Acid</strong> for enhanced moisture retention and scalp conditioning</li>
+        <li><strong>Vitamin & Peptide Complex</strong> in the activating solution for synergistic effects</li>
+      </ul>
+    </div>
+
+    <div class="kst-image-block">
+      <img src="" alt="Exosome Mechanism of Action">
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">How Exosomes Work</div>
+      <p>
+        <strong>Exosomes</strong> are nano-sized extracellular vesicles released by stem cells. When administered to the scalp, they act as <strong>biological messengers</strong>, delivering their potent cargo (growth factors like VEGF, FGF, HGF, and signal proteins) directly to the <strong>dermal papilla cells</strong> and <strong>hair follicle stem cells</strong>.
+      </p>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Key Actions</div>
+      <ul>
+        <li><strong>Activate Dormant Follicles:</strong> Promote the transition of hair follicles from the resting (Telogen) phase back to the active growth (Anagen) phase</li>
+        <li><strong>Prolong the Anagen Phase:</strong> Extend the lifespan of growing hair</li>
+        <li><strong>Reduce Hair Follicle Apoptosis:</strong> Inhibit programmed cell death in hair cells</li>
+        <li><strong>Modulate Scalp Environment:</strong> Reduce inflammation and promote angiogenesis (new blood vessel formation) for enhanced nutrient supply</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="kst-divider"></div>
+
+  <!-- Main Expected Effects -->
+  <div class="kst-section">
+    <h3 class="kst-section-subtitle">Main Expected Effects</h3>
+    
+    <div class="kst-card">
+      <ul>
+        <li><strong>Significant reduction in pathological hair shedding</strong> and stabilization of hair loss progression (Androgenetic Alopecia, Telogen Effluvium)</li>
+        <li><strong>Increase in hair density and overall hair count</strong> due to activation of dormant follicles</li>
+        <li><strong>Improved hair quality and thickness</strong> (increased hair shaft diameter)</li>
+        <li><strong>Scalp health rejuvenation</strong> by reducing inflammation and creating an optimal microenvironment for hair growth</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="kst-divider"></div>
+
+  <!-- Usage Protocol -->
+  <div class="kst-section">
+    <h3 class="kst-section-subtitle">Usage Protocol</h3>
+    
+    <div class="kst-card">
+      <div class="kst-card-title">Application Method</div>
+      <p>
+        Professional administration via <strong>Microinjection (Mesotherapy)</strong> or <strong>Microneedling (MTS)</strong> directly into the scalp's papillary layer, targeting areas of thinning.
+      </p>
+    </div>
+
+    <div class="kst-image-block">
+      <img src="" alt="Scalp Microinjection vs Microneedling Application">
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Treatment Cycle</div>
+      <p>
+        <strong>Initial Intensive Phase:</strong> 1 session every 1-2 weeks for 4-8 sessions
+      </p>
+      <p>
+        <strong>Maintenance Phase:</strong> 1 session every 1-3 months as advised by a specialist
+      </p>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Complementary Treatments</div>
+      <p>
+        Enhanced synergy is achieved when combined with in-clinic treatments such as <strong>Low-Level Laser Therapy (LLLT)</strong>, or used as a booster alongside prescription oral/topical hair loss medications.
+      </p>
+    </div>
+  </div>
+
+  <div class="kst-divider"></div>
+
+  <!-- Target Guide -->
+  <div class="kst-section">
+    <h3 class="kst-section-subtitle">Recommended Guide by Target</h3>
+    
+    <div class="kst-table-wrap">
+      <table class="kst-table">
+        <thead>
+          <tr>
+            <th>Target</th>
+            <th>Symptoms/Situation</th>
+            <th>Treatment Strategy</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Early to Moderate Androgenetic Alopecia (AGA)</strong></td>
+            <td>Diffuse thinning, noticeable widening of the part, or receding hairline</td>
+            <td>Intensive initial course (4-8 sessions)</td>
+            <td>Exosomes directly target hair follicle stem cells, a key mechanism in combating hereditary thinning</td>
+          </tr>
+          <tr>
+            <td><strong>Non-Scarring Alopecia</strong></td>
+            <td>Hair loss following stress, illness (e.g., post-COVID), or hormonal imbalance (Telogen Effluvium)</td>
+            <td>Initial course for recovery and stabilization</td>
+            <td>Potent anti-inflammatory and regenerative signals restore the scalp's natural growth cycle quickly</td>
+          </tr>
+          <tr>
+            <td><strong>Poor Response to Conventional Treatment</strong></td>
+            <td>Stagnant results despite using Minoxidil or Finasteride/Dutasteride</td>
+            <td>Add-on therapy to stimulate new pathways</td>
+            <td>Provides a non-hormonal, regenerative boost that complements pharmaceutical mechanisms</td>
+          </tr>
+          <tr>
+            <td><strong>Post-Hair Transplant</strong></td>
+            <td>Desire to strengthen existing hair and accelerate graft integration/growth</td>
+            <td>Maintenance or booster treatments</td>
+            <td>Exosomes enhance blood flow and strengthen both transplanted and surrounding native follicles</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="kst-divider"></div>
+
+  <!-- Detailed Product Description -->
+  <div class="kst-section">
+    <h3 class="kst-section-subtitle">Detailed Product Information</h3>
+    
+    <div class="kst-card">
+      <div class="kst-card-title">Ingredient Composition</div>
+      <p>
+        High-purity Stem Cell Exosomes. The accompanying diluent usually contains stabilizing agents, moisture-binding ingredients like Hyaluronic Acid, and possibly complementary growth-stimulating peptides.
+      </p>
+    </div>
+
+    <div class="kst-image-block">
+      <img src="" alt="Exosome Technology Infographic">
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Efficacy Summary</div>
+      <p>
+        Delivers thousands of active molecules that communicate with hair follicle cells, leading to robust hair growth signaling, prolonged hair life, and significant revitalization of the scalp matrix. This process is highly sophisticated and <strong>minimally invasive</strong>.
+      </p>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">How to Use</div>
+      <p>
+        The lyophilized powder must be reconstituted with the provided solution just prior to the procedure to ensure the highest activity of the exosomes. It is then delivered to the scalp typically at a depth suitable for reaching the dermal papilla.
+      </p>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Suitable For</div>
+      <p>
+        Both men and women with active hair loss who are seeking a highly advanced, non-surgical regenerative solution. It is particularly effective for those sensitive to or looking for alternatives to systemic drug therapies.
+      </p>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Additional Information</div>
+      <p>
+        As a high-technology regenerative aesthetic product, the purity and concentration of the stem cell exosomes are key to its clinical efficacy. The treatment is well-tolerated, with minimal downtime compared to surgical options.
+      </p>
+    </div>
+  </div>
+
+  <div class="kst-divider"></div>
+
+  <!-- Precautions and Storage -->
+  <div class="kst-section">
+    <h3 class="kst-section-subtitle">Precautions and Storage</h3>
+    
+    <div class="kst-card">
+      <div class="kst-card-title">Storage Temperature</div>
+      <p>
+        The <strong>Lyophilized Powder</strong> component must be stored <strong>refrigerated (2°C - 8°C)</strong> or as specifically directed by the manufacturer, typically in a dark environment. The <strong>Activating Solution</strong> may be stored at room temperature, but it is best to follow the strict temperature guidelines for the main exosome component.
+      </p>
+    </div>
+
+    <div class="kst-image-block">
+      <img src="" alt="Storage and Reconstitution Guide">
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Time Limit for Use After Opening</div>
+      <p>
+        Once the powder is <strong>reconstituted (mixed)</strong> with the diluent, the solution must be <strong>used immediately (within 1 hour)</strong> and any remaining product must be safely discarded to prevent degradation and contamination.
+      </p>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">General Precautions</div>
+      <ul>
+        <li>Strictly for professional, topical application or sterile injection only</li>
+        <li>Avoid exposure to extreme heat</li>
+        <li>Ensure the scalp is clean and free of active infection or significant irritation prior to application</li>
+        <li>Avoid aggressive shampooing or excessive sweating for 24-48 hours post-procedure</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="kst-divider"></div>
+
+  <!-- Keywords -->
+  <div class="kst-section">
+    <p class="kst-text-muted" style="font-size: 12px; text-align: center;">
+      Stem cell exosome • Exosome hair loss treatment • Hair regeneration • Hair mesotherapy • Dermal papilla stimulation • Follicular activation • Non-surgical hair restoration • Growth factor therapy
+    </p>
+  </div>
+
+</div>

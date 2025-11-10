@@ -1,0 +1,790 @@
+<style>
+  /* =========================================
+   Shopify-Optimized Mobile Template Styles
+  ========================================== */
+
+  /* 기본 리셋 - kst 접두사 적용 */
+  .kst-container *, 
+  .kst-container *::before, 
+  .kst-container *::after { 
+    box-sizing: border-box; 
+  }
+  
+  .kst-container {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--kst-text-secondary);
+    line-height: 1.6;
+    background: var(--kst-bg);
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* 이미지 자동 숨김 기능 - CSS :has() 기반 */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-container img, 
+  .kst-container video { 
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    object-fit: cover;
+  }
+  
+  /* =========================================
+   Design Tokens
+  ========================================== */
+  .kst-container {
+    --kst-main: #000000;
+    --kst-sub: #ffffff;
+    --kst-point-light: #f3f3f3;
+    --kst-point-mid: #d8d8d8;
+    --kst-text-primary: #000000;
+    --kst-text-secondary: #6c6c6c;
+    --kst-bg: #ffffff;
+    --kst-badge-bg: #000000;
+    --kst-badge-text: #ffffff;
+    --kst-badge-hover: #262626;
+    --kst-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  /* =========================================
+   Container
+  ========================================== */
+  .kst-wrap {
+    padding: 16px 12px;
+  }
+
+  /* =========================================
+   Sections
+  ========================================== */
+  .kst-section {
+    position: relative;
+    background: var(--kst-sub);
+    border: 1px solid var(--kst-point-mid);
+    padding: 20px 16px;
+    margin: 16px 8px;
+    box-shadow: var(--kst-shadow);
+    overflow: hidden;
+  }
+
+  .kst-section::before {
+    content: "";
+    position: absolute; 
+    inset: -1px -1px auto -1px; 
+    height: 2px;
+    background: var(--kst-main);
+    opacity: .25;
+  }
+
+  .kst-section-title {
+    margin: 0 0 12px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: .2px;
+    color: var(--kst-text-primary);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-section-sub { 
+    margin: 0 0 14px; 
+    color: var(--kst-text-secondary); 
+    font-size: .9rem; 
+  }
+  
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: var(--kst-sub);
+    border: 1px solid var(--kst-point-mid);
+    padding: 20px 16px;
+    position: relative; 
+    overflow: hidden;
+    margin: 12px 8px;
+    box-shadow: var(--kst-shadow);
+  }
+
+  .kst-hero::before {
+    content: "";
+    position: absolute; 
+    inset: -20% -10% auto auto; 
+    width: 200px; 
+    height: 200px;
+    background: var(--kst-point-light); 
+    filter: blur(60px); 
+    opacity: .6;
+  }
+
+  .kst-labels { 
+    display: flex; 
+    gap: 6px; 
+    flex-wrap: wrap; 
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-badge {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 4px;
+    padding: 6px 10px;
+    background: var(--kst-badge-bg);
+    color: var(--kst-badge-text); 
+    font-size: .75rem; 
+    font-weight: 600;
+    transition: background .2s ease;
+  }
+
+  .kst-badge:hover {
+    background: var(--kst-badge-hover);
+  }
+
+  .kst-hero-title {
+    margin: 0 0 8px;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: .2px;
+    color: var(--kst-text-primary);
+    position: relative;
+    z-index: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-hero-spec {
+    margin: -4px 0 15px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: .1px;
+    color: var(--kst-text-primary);
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-hero p { 
+    margin: 0 0 10px; 
+    color: var(--kst-text-secondary);
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-highlight {
+    border: 1px solid var(--kst-point-mid);
+    background: var(--kst-point-light);
+    padding: 10px 12px; 
+    color: var(--kst-text-primary);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+  }
+
+  .kst-card {
+    background: var(--kst-sub); 
+    border: 1px solid var(--kst-point-mid); 
+    padding: 14px; 
+    box-shadow: var(--kst-shadow); 
+    transition: transform .2s ease, box-shadow .2s ease; 
+    margin: 0;
+  }
+
+  .kst-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+
+  .kst-card h3, .kst-card h4 { 
+    margin: 0 0 8px; 
+    font-weight: 700; 
+    font-size: 1.05rem; 
+    color: var(--kst-text-primary); 
+  }
+
+  .kst-card p { 
+    margin: 0 0 10px; 
+    color: var(--kst-text-secondary); 
+    font-size: .95rem; 
+  }
+
+  .kst-card ul, .kst-card ol { 
+    margin: 0; 
+    padding-left: 20px; 
+    color: var(--kst-text-secondary); 
+  }
+
+  .kst-card ul li, .kst-card ol li { 
+    margin-bottom: 6px; 
+    line-height: 1.5;
+  }
+
+  .kst-card strong {
+    color: var(--kst-text-primary);
+    font-weight: 600;
+  }
+
+  /* =========================================
+   Split Layout
+  ========================================== */
+  .kst-split { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+  }
+
+  /* =========================================
+   Image & Chart Blocks
+  ========================================== */
+  .kst-image-block, .kst-chart-block {
+    width: 100%; 
+    aspect-ratio: 16/9; 
+    background: var(--kst-point-light); 
+    border: 1px solid var(--kst-point-mid);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    color: var(--kst-text-secondary); 
+    font-size: .85rem; 
+    margin: 12px 0;
+    overflow: hidden;
+  }
+
+  .kst-image-block img, .kst-chart-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* =========================================
+   Steps
+  ========================================== */
+  .kst-steps { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+  }
+
+  .kst-step {
+    display: flex; 
+    gap: 12px; 
+    padding: 12px; 
+    background: var(--kst-point-light); 
+    border: 1px solid var(--kst-point-mid);
+  }
+
+  .kst-num {
+    width: 32px; 
+    height: 32px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    background: var(--kst-main); 
+    color: var(--kst-sub); 
+    font-weight: 700; 
+    font-size: .9rem;
+    flex-shrink: 0;
+    counter-increment: kst-step-counter;
+  }
+
+  .kst-num::before {
+    content: counter(kst-step-counter);
+  }
+
+  .kst-steps {
+    counter-reset: kst-step-counter;
+  }
+
+  .kst-step strong {
+    color: var(--kst-text-primary);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .kst-muted {
+    color: var(--kst-text-secondary);
+    font-size: .9rem;
+  }
+
+  /* =========================================
+   KPI & Metrics
+  ========================================== */
+  .kst-kpi {
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    color: var(--kst-text-primary); 
+    margin-bottom: 4px;
+  }
+
+  .kst-unit {
+    font-size: 1.2rem; 
+    font-weight: 500; 
+    margin-left: 4px;
+  }
+
+  /* =========================================
+   Table
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0;
+    border: 1px solid var(--kst-point-mid);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: var(--kst-point-light);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-point-mid);
+  }
+
+  .kst-table {
+    width: 100%; 
+    border-collapse: collapse;
+    table-layout: auto;
+    background: var(--kst-sub);
+  }
+
+  .kst-table th {
+    background: var(--kst-main); 
+    color: var(--kst-sub); 
+    padding: 10px 12px; 
+    text-align: left; 
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .kst-table td {
+    padding: 10px 12px; 
+    border-bottom: 1px solid var(--kst-point-mid);
+    color: var(--kst-text-secondary);
+  }
+
+  .kst-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .kst-table tbody tr:hover {
+    background: var(--kst-point-light);
+  }
+
+  /* =========================================
+   Label-Value Pairs
+  ========================================== */
+  .kst-label-value {
+    display: flex; 
+    flex-direction: column; 
+    gap: 6px;
+  }
+
+  .kst-label {
+    font-weight: 600; 
+    color: var(--kst-text-primary); 
+    font-size: .9rem;
+  }
+
+  .kst-label-value > div:not(.kst-label) {
+    color: var(--kst-text-secondary);
+  }
+
+  /* =========================================
+   Callout
+  ========================================== */
+  .kst-callout {
+    background: var(--kst-point-light); 
+    border-left: 3px solid var(--kst-main); 
+    padding: 12px; 
+    margin: 12px 0;
+  }
+
+  .kst-callout strong {
+    color: var(--kst-text-primary);
+    font-weight: 700;
+  }
+
+  /* =========================================
+   Accordion (FAQ)
+  ========================================== */
+  .kst-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .kst-ac-item {
+    border: 1px solid var(--kst-point-mid);
+    background: var(--kst-sub);
+  }
+
+  .kst-ac-button {
+    width: 100%;
+    padding: 12px 14px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-weight: 600;
+    color: var(--kst-text-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background .2s ease;
+  }
+
+  .kst-ac-button:hover {
+    background: var(--kst-point-light);
+  }
+
+  .kst-ac-button span {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .kst-ac-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    padding: 0 14px;
+    color: var(--kst-text-secondary);
+  }
+
+  .kst-ac-panel.kst-show {
+    max-height: 500px;
+    padding: 0 14px 12px;
+  }
+
+  /* =========================================
+   Footer
+  ========================================== */
+  .kst-footer {
+    padding: 20px 16px;
+    margin: 16px 8px;
+    background: var(--kst-point-light);
+    border: 1px solid var(--kst-point-mid);
+    color: var(--kst-text-secondary);
+  }
+</style>
+
+<div class="kst-container">
+  <main class="kst-wrap">
+
+    <!-- Hero Section -->
+    <section class="kst-hero" id="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge">Wells line</span>
+        <span class="kst-badge">Lipolytic Complex</span>
+        <span class="kst-badge">10ml × 5 Vials</span>
+        <span class="kst-badge">Professional Use</span>
+      </div>
+      <h1 class="kst-hero-title">Wells line Contouring Serum</h1>
+      <div class="kst-hero-spec">Targeted Fat Reduction & Body Contouring</div>
+      <div class="kst-image-block">
+        <img src="" alt="Wells line Contouring Serum Product Image">
+      </div>
+      <p>A professional-grade lipolytic solution designed for targeted fat reduction in facial and body areas. Formulated with a potent blend of Deoxycholic Acid, L-Carnitine, and botanical extracts to break down localized fat deposits and enhance body contours.</p>
+      <div class="kst-highlight">
+        <strong>Package Configuration:</strong> 10ml × 5 Vials / Ampoule Type
+      </div>
+    </section>
+
+    <!-- Key Ingredients -->
+    <section class="kst-section" id="kst-ingredients">
+      <h2 class="kst-section-title">Core Ingredients</h2>
+      <div class="kst-image-block">
+        <img src="" alt="Key Ingredients Visualization">
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Deoxycholic Acid</h4>
+          <p>Primary active agent that acts as a detergent to destroy the membrane of adipocytes (fat cells), leading to lipolysis and breakdown of localized fat deposits.</p>
+        </div>
+        <div class="kst-card">
+          <h4>L-Carnitine</h4>
+          <p>Assists in transporting broken-down fatty acids into the mitochondria for metabolic processing and energy conversion.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Botanical Extract Complex</h4>
+          <p>Includes Walnut Seed Extract and Horse Chestnut Extract to promote lymphatic circulation and reduce localized swelling for enhanced elimination of destroyed fat and toxins.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expected Effects -->
+    <section class="kst-section" id="kst-effects">
+      <h2 class="kst-section-title">Expected Effects</h2>
+      <div class="kst-image-block">
+        <img src="" alt="Before and After Results">
+      </div>
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Targeted Fat Reduction</h4>
+          <p>Specifically designed for breakdown of localized fat deposits in facial areas (double chin, jawline) and body regions (flanks, abdomen, arms, thighs).</p>
+        </div>
+        <div class="kst-card">
+          <h4>Contouring & Definition</h4>
+          <p>Helps achieve a slimmer, more defined facial or body contour by reducing volume in treated areas and creating noticeable V-line effects.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Swelling Reduction</h4>
+          <p>Active ingredients work to minimize post-treatment edema and improve the overall appearance of treated areas through enhanced circulation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Treatment Protocol -->
+    <section class="kst-section" id="kst-usage">
+      <h2 class="kst-section-title">Usage Protocol</h2>
+      <div class="kst-section-sub">Professional application guidelines for optimal results</div>
+      
+      <div class="kst-image-block">
+        <img src="" alt="Treatment Area Mapping">
+      </div>
+
+      <div class="kst-card">
+        <h4>Treatment Areas</h4>
+        <ul>
+          <li>Double Chin & Submental Fat</li>
+          <li>Jawline (Jowl Fat)</li>
+          <li>Abdomen (Love Handles)</li>
+          <li>Flanks</li>
+          <li>Inner/Outer Thighs</li>
+          <li>Back Fat</li>
+          <li>Arms</li>
+        </ul>
+      </div>
+
+      <div class="kst-steps">
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div>
+            <strong>Consultation & Assessment</strong>
+            <div class="kst-muted">Evaluate treatment areas and determine appropriate volume and injection points based on fat deposit distribution.</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div>
+            <strong>Direct Injection</strong>
+            <div class="kst-muted">Administer via direct injection into the subcutaneous fat layer using appropriate gauge syringe for precise placement.</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div>
+            <strong>Session Spacing</strong>
+            <div class="kst-muted">Allow 7-14 days between sessions to permit the body's natural elimination process of broken-down fat.</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div>
+            <strong>Recommended Cycle</strong>
+            <div class="kst-muted">Typically 2-4 sessions are recommended for noticeable contouring results.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Injection Technique Guide">
+      </div>
+    </section>
+
+    <!-- Treatment Strategies -->
+    <section class="kst-section" id="kst-comparison">
+      <h2 class="kst-section-title">Treatment Strategy Comparison</h2>
+      <div class="kst-section-sub">Selecting the appropriate approach based on treatment area and fat volume</div>
+
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Treatment Strategy Comparison">
+          <thead>
+            <tr>
+              <th>Target Area</th>
+              <th>Key Components</th>
+              <th>Treatment Zone</th>
+              <th>Dose Per Session</th>
+              <th>Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Facial Contouring</strong></td>
+              <td>Deoxycholic Acid, L-Carnitine</td>
+              <td>Chin, Jawline, Jowl Area</td>
+              <td>0.5-1ml per point (Max 5-8ml)</td>
+              <td>Optimized for delicate facial fat pockets</td>
+            </tr>
+            <tr>
+              <td><strong>Body Contouring</strong></td>
+              <td>Deoxycholic Acid, L-Carnitine</td>
+              <td>Abdomen, Thighs, Arms, Flanks</td>
+              <td>2-4ml per point (Max 15-20ml)</td>
+              <td>Suitable for broader, deeper fat layers</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-split">
+        <div class="kst-card">
+          <h4>Facial Contouring Strategy</h4>
+          <p><strong>Target Areas:</strong> Double chin, defined jawline contour (jowls), chubby cheeks</p>
+          <p><strong>Application Method:</strong> Local injection into subcutaneous fat layer using fine gauge syringe. Inject small amounts (0.5-1ml) per spot, spaced approximately 1cm apart.</p>
+          <p><strong>Efficacy:</strong> Highly effective fat breakdown for submental and lower facial definition, leading to noticeable V-line effect and reduced appearance of double chin.</p>
+          <p class="kst-muted">Due to the delicate nature of facial areas, strict adherence to recommended volumes and injection depths is essential. Post-treatment swelling is common and resolves over several days.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Body Contouring Strategy</h4>
+          <p><strong>Target Areas:</strong> Abdomen, love handles (flanks), inner/outer thighs, back rolls, underarm fat</p>
+          <p><strong>Application Method:</strong> Local injection into subcutaneous fat layer using slightly longer gauge needle for deeper body fat layers. Larger volumes administered per session, spread evenly with 1-2cm spacing.</p>
+          <p><strong>Efficacy:</strong> Promotes broad area cellulite reduction and volume loss in stubborn body fat pockets, supporting smoother and more contoured body profile.</p>
+          <p class="kst-muted">Combining treatment with healthy diet and lymphatic massage post-treatment can enhance elimination of released fat. Multiple sessions typically required for optimal body sculpting.</p>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Treatment Technique Comparison">
+      </div>
+    </section>
+
+    <!-- Precautions & Storage -->
+    <section class="kst-section" id="kst-safety">
+      <h2 class="kst-section-title">Precautions & Safety Information</h2>
+      
+      <div class="kst-callout">
+        <strong>Professional Use Only</strong> — This product is intended for administration by qualified healthcare professionals only.
+      </div>
+
+      <div class="kst-split">
+        <div class="kst-card">
+          <h4>Contraindications</h4>
+          <ul>
+            <li>Pregnancy or breastfeeding</li>
+            <li>Blood clotting disorders</li>
+            <li>Known allergies to any ingredients</li>
+            <li>Active infection at treatment site</li>
+            <li>Severe underlying medical conditions</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Common Side Effects</h4>
+          <ul>
+            <li>Swelling at injection site (temporary)</li>
+            <li>Redness and bruising</li>
+            <li>Tenderness and discomfort</li>
+            <li>Minor edema (resolves naturally)</li>
+          </ul>
+          <p class="kst-muted">These effects are temporary and typically resolve within several days to weeks.</p>
+        </div>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-label-value">
+          <div class="kst-label">Storage Conditions</div>
+          <div>Store in a cool, dark place between 1°C and 30°C. Do not freeze. Keep away from direct sunlight. Once opened, use vial contents within the timeframe specified by manufacturer guidelines to ensure sterility and potency.</div>
+        </div>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-label-value">
+          <div class="kst-label">Treatment Intervals</div>
+          <div>Do not administer follow-up treatments sooner than 7 days after the previous session. A 10-14 day interval is often preferred to allow the body to process lipolysis and swelling adequately.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="kst-section" id="kst-faq">
+      <h2 class="kst-section-title">Frequently Asked Questions</h2>
+      <div class="kst-accordion" role="tablist">
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac1" aria-expanded="false">
+            How many sessions are needed for visible results? <span>＋</span>
+          </button>
+          <div id="kst-ac1" class="kst-ac-panel">Typically, 2-4 sessions are recommended for noticeable contouring results. The exact number depends on the treatment area, fat volume, and individual response to the treatment. Sessions should be spaced 7-14 days apart.</div>
+        </div>
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac2" aria-expanded="false">
+            What is the difference between facial and body contouring applications? <span>＋</span>
+          </button>
+          <div id="kst-ac2" class="kst-ac-panel">Facial contouring uses smaller volumes (0.5-1ml per point, max 5-8ml total) with precise injection techniques for delicate areas like the double chin and jawline. Body contouring uses larger volumes (2-4ml per point, max 15-20ml total) for broader areas like abdomen, thighs, and flanks with deeper injection depth.</div>
+        </div>
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac3" aria-expanded="false">
+            Are there any post-treatment care recommendations? <span>＋</span>
+          </button>
+          <div id="kst-ac3" class="kst-ac-panel">Combining treatment with a healthy diet and lymphatic massage can enhance the elimination of released fat and improve results. Avoid strenuous exercise for 24-48 hours post-treatment. Stay well-hydrated and follow any specific aftercare instructions provided by your healthcare professional.</div>
+        </div>
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac4" aria-expanded="false">
+            How long does swelling typically last? <span>＋</span>
+          </button>
+          <div id="kst-ac4" class="kst-ac-panel">Post-treatment swelling is common and typically resolves over several days to two weeks. The duration may vary depending on the treatment area, volume injected, and individual healing response. Facial treatments may show more visible swelling initially due to the delicate nature of the area.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="kst-footer">
+    <div class="kst-label-value">
+      <div class="kst-label">Product Information</div>
+      <div>Wells line Contouring Serum | Professional Lipolytic Complex | For Healthcare Professional Use Only</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // FAQ Accordion with kst prefix
+  document.querySelectorAll('.kst-ac-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.kst-ac-item');
+      const panel = item.querySelector('.kst-ac-panel');
+      const isOpen = item.getAttribute('aria-expanded') === 'true';
+      
+      // Close all other panels
+      document.querySelectorAll('.kst-ac-item').forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.setAttribute('aria-expanded', 'false');
+          otherItem.querySelector('.kst-ac-button').setAttribute('aria-expanded', 'false');
+          otherItem.querySelector('.kst-ac-panel').classList.remove('kst-show');
+          otherItem.querySelector('.kst-ac-button span').textContent = '＋';
+        }
+      });
+      
+      // Toggle current panel
+      item.setAttribute('aria-expanded', String(!isOpen));
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      panel.classList.toggle('kst-show');
+      btn.querySelector('span').textContent = isOpen ? '＋' : '−';
+    });
+  });
+</script>

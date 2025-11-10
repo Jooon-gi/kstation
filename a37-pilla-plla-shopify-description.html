@@ -1,0 +1,1050 @@
+<style>
+  /* =========================================
+   PILLA PLLA Shopify Product Description
+   Mobile-Optimized (Max 760px)
+  ========================================== */
+
+  /* Base Reset with kst prefix */
+  .kst-main-container *, 
+  .kst-main-container *::before, 
+  .kst-main-container *::after { 
+    box-sizing: border-box; 
+  }
+  
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--kst-text);
+    line-height: 1.6;
+    background: var(--kst-background);
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* Auto-hide empty image blocks */
+  .kst-image-block:not(:has(img)),
+  .kst-image-block:has(img[src=""]),
+  .kst-chart-block:not(:has(img)),
+  .kst-chart-block:has(img[src=""]) {
+    display: none;
+  }
+
+  .kst-main-container img { 
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    object-fit: cover;
+  }
+  
+  /* =========================================
+   Design Tokens - PILLA Brand Colors
+  ========================================== */
+  .kst-main-container {
+    --kst-main: #4dc6be;
+    --kst-sub: #2f2f2f;
+    --kst-text: #1a1a1a;
+    --kst-text-muted: #7a7a7a;
+    --kst-background: #f5f9f9;
+    --kst-badge-bg: #4dc6be;
+    --kst-badge-text: #ffffff;
+    --kst-badge-hover: #33a9a1;
+    --kst-card: #ffffff;
+    --kst-border: #e5e5e5;
+    --kst-shadow: 0 4px 12px rgba(77,198,190,0.08);
+  }
+
+  /* =========================================
+   Container
+  ========================================== */
+  .kst-container {
+    padding: 16px 12px;
+  }
+
+  /* =========================================
+   Sections
+  ========================================== */
+  .kst-section {
+    position: relative;
+    background: var(--kst-card);
+    border: 1px solid var(--kst-border);
+    padding: 20px 16px;
+    margin: 16px 8px;
+    box-shadow: var(--kst-shadow);
+    overflow: hidden;
+  }
+
+  .kst-section::before {
+    content: "";
+    position: absolute; 
+    inset: -1px -1px auto -1px; 
+    height: 3px;
+    background: linear-gradient(90deg, var(--kst-main), var(--kst-badge-hover));
+    opacity: .6;
+  }
+
+  .kst-section-title {
+    margin: 0 0 16px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: .3px;
+    color: var(--kst-text);
+    position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-section-sub { 
+    margin: 0 0 14px; 
+    color: var(--kst-text-muted); 
+    font-size: .9rem; 
+    line-height: 1.5;
+  }
+  
+  /* =========================================
+   Hero Section
+  ========================================== */
+  .kst-hero {
+    background: var(--kst-card);
+    border: 1px solid var(--kst-border);
+    padding: 24px 16px;
+    position: relative; 
+    overflow: hidden;
+    margin: 12px 8px;
+    box-shadow: var(--kst-shadow);
+  }
+
+  .kst-hero::before {
+    content: "";
+    position: absolute; 
+    inset: -20% -10% auto auto; 
+    width: 300px; 
+    height: 300px;
+    background: radial-gradient(circle, rgba(77,198,190,0.15), transparent 70%); 
+    filter: blur(30px); 
+    animation: kst-glow 15s ease-in-out infinite;
+  }
+
+  @keyframes kst-glow {
+    0%, 100% { opacity: .4; transform: translate(0,0); }
+    50% { opacity: .6; transform: translate(-10px, 5px); }
+  }
+
+  .kst-labels { 
+    display: flex; 
+    gap: 8px; 
+    flex-wrap: wrap; 
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-badge {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 4px;
+    padding: 6px 12px;
+    background: var(--kst-badge-bg);
+    color: var(--kst-badge-text); 
+    font-size: .75rem; 
+    font-weight: 600;
+    border-radius: 4px;
+    letter-spacing: .3px;
+    transition: background .2s ease;
+  }
+
+  .kst-badge:hover { 
+    background: var(--kst-badge-hover); 
+  }
+
+  .kst-hero-title {
+    margin: 0 0 8px;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: .3px;
+    color: var(--kst-text);
+    position: relative;
+    z-index: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-hero-spec {
+    margin: -4px 0 16px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    letter-spacing: .2px;
+    color: var(--kst-main);
+    position: relative;
+    z-index: 1;
+  }
+
+  .kst-hero p { 
+    margin: 0 0 12px; 
+    color: var(--kst-text-muted); 
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+  }
+
+  .kst-highlight {
+    border-left: 3px solid var(--kst-main);
+    background: rgba(77,198,190,0.05);
+    padding: 12px 14px; 
+    color: var(--kst-text);
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* =========================================
+   Cards & Grid
+  ========================================== */
+  .kst-grid { 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+  }
+
+  .kst-card {
+    background: var(--kst-card); 
+    border: 1px solid var(--kst-border); 
+    padding: 16px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); 
+    margin: 0;
+    transition: box-shadow .2s ease;
+  }
+
+  .kst-card:hover {
+    box-shadow: 0 4px 16px rgba(77,198,190,0.12);
+  }
+
+  .kst-card h3,
+  .kst-card h4 {
+    margin: 0 0 10px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--kst-text);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .kst-card p { 
+    margin: 0 0 8px; 
+    color: var(--kst-text-muted); 
+    font-size: .95rem;
+    line-height: 1.5;
+  }
+
+  .kst-card ul,
+  .kst-card ol {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--kst-text-muted);
+  }
+
+  .kst-card ul li,
+  .kst-card ol li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  /* =========================================
+   Definition List
+  ========================================== */
+  .kst-def-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+  }
+
+  .kst-def-item {
+    background: var(--kst-card);
+    border: 1px solid var(--kst-border);
+    padding: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  }
+
+  .kst-def-term {
+    font-weight: 600;
+    color: var(--kst-main);
+    margin-bottom: 6px;
+    font-size: 1rem;
+  }
+
+  .kst-def-desc {
+    color: var(--kst-text-muted);
+    margin: 0;
+    font-size: .95rem;
+    line-height: 1.5;
+  }
+
+  /* =========================================
+   Table
+  ========================================== */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 0;
+    border: 1px solid var(--kst-border);
+    border-radius: 4px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-main);
+    border-radius: 4px;
+  }
+
+  .kst-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    background: var(--kst-card);
+  }
+
+  .kst-table thead th {
+    background: var(--kst-main);
+    color: var(--kst-badge-text);
+    padding: 12px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: .9rem;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--kst-badge-hover);
+  }
+
+  .kst-table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid var(--kst-border);
+    color: var(--kst-text-muted);
+    font-size: .9rem;
+  }
+
+  .kst-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .kst-table tbody tr:hover {
+    background: rgba(77,198,190,0.03);
+  }
+
+  /* =========================================
+   Labels & Values
+  ========================================== */
+  .kst-label-value {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .kst-label {
+    font-weight: 600;
+    color: var(--kst-main);
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+
+  .kst-label-value > div:last-child {
+    color: var(--kst-text);
+    line-height: 1.5;
+  }
+
+  /* =========================================
+   Steps / Process
+  ========================================== */
+  .kst-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 16px 0;
+  }
+
+  .kst-step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px;
+    background: var(--kst-card);
+    border: 1px solid var(--kst-border);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  }
+
+  .kst-num {
+    flex: 0 0 auto;
+    width: fit-content;
+    max-width: 28px;
+    height: 28px;
+    padding: 0 3px;
+    background: var(--kst-main);
+    color: var(--kst-badge-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: .9rem;
+    counter-increment: kst-step-counter;
+  }
+
+  .kst-num::before {
+    content: counter(kst-step-counter);
+  }
+
+  .kst-steps {
+    counter-reset: kst-step-counter;
+  }
+
+  .kst-step > div {
+    flex: 1;
+  }
+
+  .kst-step strong {
+    display: block;
+    color: var(--kst-text);
+    margin-bottom: 4px;
+    font-size: 1rem;
+  }
+
+  .kst-muted {
+    color: var(--kst-text-muted);
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+
+  /* =========================================
+   Callout / Alert
+  ========================================== */
+  .kst-callout {
+    background: rgba(77,198,190,0.08);
+    border-left: 4px solid var(--kst-main);
+    padding: 14px 16px;
+    margin: 16px 0;
+    color: var(--kst-text);
+    line-height: 1.6;
+  }
+
+  .kst-callout strong {
+    color: var(--kst-text);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* =========================================
+   Image Blocks
+  ========================================== */
+  .kst-image-block,
+  .kst-chart-block {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--kst-text-muted);
+    font-size: .85rem;
+    margin: 16px 0;
+    border: 1px solid var(--kst-border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kst-image-block img,
+  .kst-chart-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+
+  /* =========================================
+   Split Layout (Mobile Column)
+  ========================================== */
+  .kst-split {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  /* =========================================
+   Accordion (FAQ)
+  ========================================== */
+  .kst-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .kst-ac-item {
+    border: 1px solid var(--kst-border);
+    background: var(--kst-card);
+    overflow: hidden;
+  }
+
+  .kst-ac-button {
+    width: 100%;
+    padding: 14px 16px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-weight: 600;
+    color: var(--kst-text);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background .2s ease;
+  }
+
+  .kst-ac-button:hover {
+    background: rgba(77,198,190,0.05);
+  }
+
+  .kst-ac-button span {
+    font-size: 1.2rem;
+    color: var(--kst-main);
+    transition: transform .2s ease;
+  }
+
+  .kst-ac-item[aria-expanded="true"] .kst-ac-button span {
+    transform: rotate(45deg);
+  }
+
+  .kst-ac-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    padding: 0 16px;
+    color: var(--kst-text-muted);
+  }
+
+  .kst-ac-panel.kst-show {
+    max-height: 500px;
+    padding: 0 16px 14px;
+  }
+
+  /* =========================================
+   Footer
+  ========================================== */
+  .kst-footer {
+    padding: 20px 12px;
+    margin-top: 20px;
+    text-align: center;
+    color: var(--kst-text-muted);
+    font-size: .85rem;
+  }
+</style>
+
+<div class="kst-main-container">
+  <main class="kst-container">
+
+    <!-- Hero Section -->
+    <section class="kst-hero" id="kst-hero">
+      <div class="kst-labels">
+        <span class="kst-badge">Poly-L-Lactic Acid</span>
+        <span class="kst-badge">PLLA 365mg</span>
+        <span class="kst-badge">Collagen Stimulator</span>
+      </div>
+      <h1 class="kst-hero-title">PILLA PLLA Dermal Filler</h1>
+      <div class="kst-hero-spec">Long-Lasting Volume Enhancement Through Neocollagenesis</div>
+      
+      <p>PILLA PLLA Dermal Filler is a biocompatible and biodegradable poly-L-lactic acid (PLLA) based injectable that stimulates natural collagen production for gradual volume restoration and skin quality improvement.</p>
+      
+      <div class="kst-highlight">
+        <strong>Key Feature:</strong> Unlike traditional fillers, PILLA works by triggering the body's natural collagen production process, leading to results that improve over time and can last up to 2 years or more.
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="PILLA PLLA Product Image">
+      </div>
+    </section>
+
+    <!-- Composition & Key Ingredients -->
+    <section class="kst-section" id="kst-composition">
+      <h2 class="kst-section-title">Composition & Key Ingredients</h2>
+      
+      <div class="kst-card">
+        <div class="kst-label-value">
+          <div class="kst-label">Primary Active Ingredient</div>
+          <div><strong>Poly-L-Lactic Acid (PLLA) 365mg</strong> per vial as lyophilized powder</div>
+        </div>
+      </div>
+
+      <div class="kst-def-list">
+        <div class="kst-def-item">
+          <div class="kst-def-term">Biocompatible Polymer</div>
+          <div class="kst-def-desc">PLLA has been safely used in medical devices and sutures for decades, offering proven biocompatibility and safety profile.</div>
+        </div>
+        <div class="kst-def-item">
+          <div class="kst-def-term">Collagen Stimulator</div>
+          <div class="kst-def-desc">Works gradually to restore facial volume and improve skin texture by encouraging the body's natural collagen production.</div>
+        </div>
+        <div class="kst-def-item">
+          <div class="kst-def-term">Microparticle Technology</div>
+          <div class="kst-def-desc">Precisely sized particles (40µm to 63µm) minimize phagocytosis and maximize collagen stimulation effect.</div>
+        </div>
+        <div class="kst-def-item">
+          <div class="kst-def-term">Reconstitution Option</div>
+          <div class="kst-def-desc">Not pre-mixed with lidocaine. Recommended to be reconstituted with sterile water for injection and optionally 1% Lidocaine for enhanced patient comfort.</div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="PLLA Microparticle Structure">
+      </div>
+    </section>
+
+    <!-- Mechanism of Action -->
+    <section class="kst-section" id="kst-mechanism">
+      <h2 class="kst-section-title">Mechanism of Action</h2>
+      <div class="kst-section-sub">Understanding how PLLA stimulates natural collagen formation</div>
+
+      <div class="kst-steps">
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div>
+            <strong>PLLA Injection</strong>
+            <div class="kst-muted">When injected into the deep dermis or sub-dermal layer, PLLA microparticles are distributed throughout the treatment area.</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div>
+            <strong>Controlled Absorption</strong>
+            <div class="kst-muted">The PLLA microparticles are gradually absorbed by the body, triggering a mild inflammatory response.</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div>
+            <strong>Fibroblast Activation</strong>
+            <div class="kst-muted">This response stimulates fibroblast activity, the cells responsible for collagen production.</div>
+          </div>
+        </div>
+        <div class="kst-step">
+          <div class="kst-num" aria-hidden="true"></div>
+          <div>
+            <strong>Neocollagenesis</strong>
+            <div class="kst-muted">New collagen formation occurs over weeks to months, gradually restoring volume and improving skin quality.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="PLLA Mechanism of Action Infographic">
+      </div>
+    </section>
+
+    <!-- Efficacy & Benefits -->
+    <section class="kst-section" id="kst-benefits">
+      <h2 class="kst-section-title">Clinical Benefits</h2>
+
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Gradual Volume Restoration</h4>
+          <p>Provides subtle yet significant volume to areas of fat and collagen loss, creating natural-looking results that develop over time.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Long-Term Collagen Stimulation</h4>
+          <p>Induces the body's natural collagen production, leading to results that can last up to 2 years or more after the final treatment session.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Reduction of Deep Lines and Folds</h4>
+          <p>Effectively treats deep nasolabial folds, marionette lines, and temple hollowing through structural volume enhancement.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Improved Skin Quality</h4>
+          <p>Enhances skin thickness, firmness, and overall quality due to neocollagenesis, improving texture and tone.</p>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Before and After Treatment Results">
+      </div>
+    </section>
+
+    <!-- Treatment Protocol -->
+    <section class="kst-section" id="kst-protocol">
+      <h2 class="kst-section-title">Treatment Protocol</h2>
+      <div class="kst-section-sub">Professional reconstitution and injection guidelines</div>
+
+      <div class="kst-callout">
+        <strong>Important:</strong> PILLA PLLA is a lyophilized powder that must be reconstituted prior to injection. For use by qualified, licensed medical professionals only.
+      </div>
+
+      <div class="kst-def-list">
+        <div class="kst-def-item">
+          <div class="kst-def-term">Reconstitution Volume</div>
+          <div class="kst-def-desc">Typically requires 5mL to 8mL of sterile water for injection, plus 1mL to 2mL of 1% Lidocaine (as recommended by the physician). Must be mixed 24-72 hours before treatment for full hydration.</div>
+        </div>
+        <div class="kst-def-item">
+          <div class="kst-def-term">Injection Depth</div>
+          <div class="kst-def-desc">Sub-dermal layer or deep dermis. Avoid superficial injection to minimize risk of nodule formation.</div>
+        </div>
+        <div class="kst-def-item">
+          <div class="kst-def-term">Recommended Needle/Cannula</div>
+          <div class="kst-def-desc">Typically 26G or 27G cannula for general facial contouring and volume enhancement.</div>
+        </div>
+        <div class="kst-def-item">
+          <div class="kst-def-term">Injection Technique</div>
+          <div class="kst-def-desc">Fanning or linear threading technique to ensure even dispersion throughout the treatment area.</div>
+        </div>
+        <div class="kst-def-item">
+          <div class="kst-def-term">Treatment Cycle</div>
+          <div class="kst-def-desc">A complete treatment generally consists of 2 to 4 sessions, spaced approximately 4 to 6 weeks apart for optimal results.</div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Injection Technique Illustration">
+      </div>
+    </section>
+
+    <!-- Treatment Strategy Comparison -->
+    <section class="kst-section" id="kst-strategy">
+      <h2 class="kst-section-title">Treatment Strategy Guide</h2>
+      <div class="kst-section-sub">Adjusting reconstitution volume and injection depth based on treatment goals</div>
+
+      <div class="kst-table-wrap">
+        <table class="kst-table" role="table" aria-label="Treatment Strategy Comparison">
+          <thead>
+            <tr>
+              <th>Treatment Strategy</th>
+              <th>Reconstitution Volume</th>
+              <th>Treatment Area</th>
+              <th>Injection Layer</th>
+              <th>Needle/Cannula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Facial Volumizing</strong></td>
+              <td>7-8mL</td>
+              <td>Temples, Mid-face, Cheeks, Jawline</td>
+              <td>Sub-dermis / Pre-periosteal</td>
+              <td>26G or 27G Cannula</td>
+            </tr>
+            <tr>
+              <td><strong>Fine Lines & Skin Quality</strong></td>
+              <td>9-10mL</td>
+              <td>Mid-to-lower face, Cheek (superficial)</td>
+              <td>Deep Dermis / Sub-dermis</td>
+              <td>27G Cannula or 30G Needle</td>
+            </tr>
+            <tr>
+              <td><strong>Correction of Folds</strong></td>
+              <td>6-7mL</td>
+              <td>Nasolabial Folds, Marionette Lines</td>
+              <td>Deep Dermis</td>
+              <td>26G Cannula</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-card">
+        <h4>Strategy Selection Guide</h4>
+        <p>PILLA is a single-formulation product. The optimal strategy involves adjusting the volume of sterile water and Lidocaine used for reconstitution (which affects dispersion and thickness) and the injection depth to match the treatment goal.</p>
+        <ul>
+          <li><strong>Higher reconstitution volumes</strong> (9-10mL) are used for more superficial and diffuse treatments focused on skin quality improvement</li>
+          <li><strong>Lower volumes</strong> (6-7mL) are used for localized volume correction in deep folds and targeted areas</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Recommended Treatment Areas -->
+    <section class="kst-section" id="kst-areas">
+      <h2 class="kst-section-title">Recommended Treatment Areas</h2>
+
+      <div class="kst-grid">
+        <div class="kst-card">
+          <h4>Temples</h4>
+          <p>Restore volume loss in the temporal region for a more youthful facial contour.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Cheeks & Mid-Face</h4>
+          <p>Enhance cheek projection and address mid-face volume depletion.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Jawline</h4>
+          <p>Improve jawline definition and address lower face volume loss.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Deep Nasolabial Folds</h4>
+          <p>Reduce the appearance of pronounced nasolabial folds through structural support.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Marionette Lines</h4>
+          <p>Soften marionette lines and improve lower face contour.</p>
+        </div>
+      </div>
+
+      <div class="kst-callout">
+        <strong>Note:</strong> Not recommended for thin skin areas like the lips or directly under the eyes due to the risk of visible irregularities.
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Facial Treatment Area Mapping">
+      </div>
+    </section>
+
+    <!-- Duration of Results -->
+    <section class="kst-section" id="kst-duration">
+      <h2 class="kst-section-title">Duration of Results</h2>
+
+      <div class="kst-card">
+        <h4>Progressive & Long-Lasting Enhancement</h4>
+        <p>Results from PILLA PLLA are not immediate. Volume enhancement becomes visible gradually over weeks to months as neocollagenesis occurs.</p>
+        <ul>
+          <li><strong>Initial Changes:</strong> Visible improvements typically begin 4-6 weeks after the first treatment session</li>
+          <li><strong>Progressive Development:</strong> Results continue to improve over 3-6 months as collagen production increases</li>
+          <li><strong>Duration:</strong> Results can last up to 2 years or more after the final treatment session, as the PLLA is absorbed and replaced by the body's own collagen</li>
+          <li><strong>Maintenance:</strong> Touch-up treatments may be recommended to maintain optimal results</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Post-Treatment Care -->
+    <section class="kst-section" id="kst-post-care">
+      <h2 class="kst-section-title">Post-Treatment Care</h2>
+      <div class="kst-section-sub">Essential guidelines for optimal results</div>
+
+      <div class="kst-callout">
+        <strong>Critical:</strong> Post-treatment massage is crucial for even product distribution and minimizing nodule formation.
+      </div>
+
+      <div class="kst-card">
+        <h4>The Rule of 5 for Massage</h4>
+        <p>Patients should massage the treated area following this protocol:</p>
+        <ul>
+          <li><strong>5 times</strong> per day</li>
+          <li>For <strong>5 minutes</strong> each session</li>
+          <li>For <strong>5 days</strong> following treatment</li>
+        </ul>
+        <p class="kst-muted">Proper massage technique ensures even distribution of the product and helps prevent nodule formation.</p>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Post-Treatment Massage Guide">
+      </div>
+
+      <div class="kst-split">
+        <div class="kst-card">
+          <h4>Expected Side Effects</h4>
+          <p>Temporary side effects may include:</p>
+          <ul>
+            <li>Redness at injection sites</li>
+            <li>Mild swelling</li>
+            <li>Bruising</li>
+            <li>Tenderness or sensitivity</li>
+          </ul>
+          <p class="kst-muted">These effects typically resolve within a few days to one week.</p>
+        </div>
+        <div class="kst-card">
+          <h4>Activities to Avoid</h4>
+          <p>For the first 24-48 hours after treatment:</p>
+          <ul>
+            <li>Avoid excessive sun exposure</li>
+            <li>Avoid extreme temperatures (sauna, hot tub)</li>
+            <li>Avoid strenuous exercise</li>
+            <li>Avoid excessive facial movements in treated areas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Storage & Handling -->
+    <section class="kst-section" id="kst-storage">
+      <h2 class="kst-section-title">Storage & Handling</h2>
+
+      <div class="kst-def-list">
+        <div class="kst-def-item">
+          <div class="kst-def-term">Storage Temperature</div>
+          <div class="kst-def-desc">Store at room temperature (below 30°C or 86°F). Do not freeze.</div>
+        </div>
+        <div class="kst-def-item">
+          <div class="kst-def-term">Shelf Life After Reconstitution</div>
+          <div class="kst-def-desc">Once reconstituted, the product must typically be used within 72 hours. Manufacturer-specific instructions should be strictly followed.</div>
+        </div>
+        <div class="kst-def-item">
+          <div class="kst-def-term">Handling Precautions</div>
+          <div class="kst-def-desc">Product must be stored in original packaging until use. Avoid exposure to direct sunlight.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safety Information & Precautions -->
+    <section class="kst-section" id="kst-safety">
+      <h2 class="kst-section-title">Safety Information & Precautions</h2>
+
+      <div class="kst-callout">
+        <strong>Professional Use Only:</strong> For use by qualified, licensed medical professionals only. Requires proper reconstitution and knowledge of injection techniques for PLLA products.
+      </div>
+
+      <div class="kst-split">
+        <div class="kst-card">
+          <h4>Critical Safety Warnings</h4>
+          <ul>
+            <li><strong>Strictly avoid injection into blood vessels</strong></li>
+            <li>Not recommended for thin skin areas (lips, under eyes)</li>
+            <li>Proper injection depth is essential to minimize nodule risk</li>
+            <li>Post-treatment massage is mandatory</li>
+            <li>Patients must be informed of gradual result timeline</li>
+          </ul>
+        </div>
+        <div class="kst-card">
+          <h4>Contraindications</h4>
+          <ul>
+            <li>Active skin infections or inflammation at treatment site</li>
+            <li>Known hypersensitivity to PLLA or any component</li>
+            <li>History of keloid formation or hypertrophic scarring</li>
+            <li>Patients with bleeding disorders</li>
+            <li>Pregnancy or breastfeeding</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kst-card">
+        <h4>Professional Requirements</h4>
+        <p>Healthcare providers should have:</p>
+        <ul>
+          <li>Comprehensive knowledge of facial anatomy</li>
+          <li>Experience with PLLA-based products</li>
+          <li>Understanding of reconstitution protocols</li>
+          <li>Proficiency in cannula and needle injection techniques</li>
+          <li>Ability to educate patients on expected timeline and post-care</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="kst-section" id="kst-faq">
+      <h2 class="kst-section-title">Frequently Asked Questions</h2>
+      <div class="kst-accordion" role="tablist">
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac1" aria-expanded="false">
+            How long does it take to see results from PILLA PLLA? <span>＋</span>
+          </button>
+          <div id="kst-ac1" class="kst-ac-panel">PILLA PLLA results are not immediate. Initial changes typically become visible 4-6 weeks after the first treatment session, with progressive improvement continuing over 3-6 months as neocollagenesis occurs.</div>
+        </div>
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac2" aria-expanded="false">
+            How many treatment sessions are typically needed? <span>＋</span>
+          </button>
+          <div id="kst-ac2" class="kst-ac-panel">A complete treatment course generally consists of 2 to 4 sessions, spaced approximately 4 to 6 weeks apart. The exact number depends on individual treatment goals and the degree of volume loss.</div>
+        </div>
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac3" aria-expanded="false">
+            What is the difference between PILLA and hyaluronic acid fillers? <span>＋</span>
+          </button>
+          <div id="kst-ac3" class="kst-ac-panel">Unlike hyaluronic acid fillers that provide immediate volume through gel injection, PILLA works as a collagen stimulator. It triggers the body's natural collagen production for gradual, progressive results that can last significantly longer (up to 2+ years versus 6-18 months for most HA fillers).</div>
+        </div>
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac4" aria-expanded="false">
+            Why is post-treatment massage so important? <span>＋</span>
+          </button>
+          <div id="kst-ac4" class="kst-ac-panel">Post-treatment massage following the Rule of 5 (5 times per day, for 5 minutes, for 5 days) is crucial for ensuring even distribution of the PLLA product throughout the treatment area and minimizing the risk of nodule formation.</div>
+        </div>
+        <div class="kst-ac-item" aria-expanded="false">
+          <button class="kst-ac-button" aria-controls="kst-ac5" aria-expanded="false">
+            Can PILLA be used in the lips or under eyes? <span>＋</span>
+          </button>
+          <div id="kst-ac5" class="kst-ac-panel">No, PILLA is not recommended for thin skin areas like the lips or directly under the eyes due to the risk of visible irregularities and nodule formation. It is best suited for areas with significant volume loss such as cheeks, temples, jawline, and deep folds.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Specifications -->
+    <section class="kst-section" id="kst-specs">
+      <h2 class="kst-section-title">Technical Specifications</h2>
+
+      <div class="kst-grid">
+        <div class="kst-card">
+          <div class="kst-label-value">
+            <div class="kst-label">Product Name</div>
+            <div>PILLA PLLA Dermal Filler</div>
+          </div>
+        </div>
+        <div class="kst-card">
+          <div class="kst-label-value">
+            <div class="kst-label">Active Ingredient</div>
+            <div>Poly-L-Lactic Acid (PLLA) 365mg</div>
+          </div>
+        </div>
+        <div class="kst-card">
+          <div class="kst-label-value">
+            <div class="kst-label">Formulation Type</div>
+            <div>Lyophilized powder in glass vial</div>
+          </div>
+        </div>
+        <div class="kst-card">
+          <div class="kst-label-value">
+            <div class="kst-label">Microparticle Size</div>
+            <div>40µm to 63µm</div>
+          </div>
+        </div>
+        <div class="kst-card">
+          <div class="kst-label-value">
+            <div class="kst-label">Storage Condition</div>
+            <div>Room temperature (below 30°C / 86°F)</div>
+          </div>
+        </div>
+        <div class="kst-card">
+          <div class="kst-label-value">
+            <div class="kst-label">Packaging</div>
+            <div>1 vial per box</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="kst-footer">
+    <div class="kst-label-value">
+      <div class="kst-label">Professional Use Only</div>
+      <div>This product is intended for use by qualified, licensed medical professionals. For additional information, consult the complete product documentation.</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // FAQ Accordion functionality
+  document.querySelectorAll('.kst-ac-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.kst-ac-item');
+      const panel = item.querySelector('.kst-ac-panel');
+      const isOpen = item.getAttribute('aria-expanded') === 'true';
+      
+      // Close all other panels
+      document.querySelectorAll('.kst-ac-item').forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.setAttribute('aria-expanded', 'false');
+          otherItem.querySelector('.kst-ac-button').setAttribute('aria-expanded', 'false');
+          otherItem.querySelector('.kst-ac-panel').classList.remove('kst-show');
+          otherItem.querySelector('.kst-ac-button span').textContent = '＋';
+        }
+      });
+      
+      // Toggle current panel
+      item.setAttribute('aria-expanded', String(!isOpen));
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      panel.classList.toggle('kst-show');
+      btn.querySelector('span').textContent = isOpen ? '＋' : '−';
+    });
+  });
+</script>

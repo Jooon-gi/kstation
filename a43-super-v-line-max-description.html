@@ -1,0 +1,741 @@
+<!-- Shopify Description HTML — Mobile-only template (max 760px) -->
+<div class="kst-main-container" role="region" aria-label="Product Detail Container">
+  <style>
+    /* ========= KST: Scoped Variables & Base ========= */
+    .kst-main-container {
+      --kst-bg: #0b0b0b;
+      --kst-surface: #111318;
+      --kst-elev: #16191f;
+      --kst-text: #f8f8f8;
+      --kst-subtext: #bfbfbf;
+      --kst-accent: #d4af37;
+      --kst-accent-hover: #c19f2c;
+      --kst-sub-black: #000000;
+      --kst-point-white: #ffffff;
+      --kst-point-dark: #2d2d2d;
+      --kst-badge-bg: #d4af37;
+      --kst-badge-text: #000000;
+
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--kst-bg);
+      color: var(--kst-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Pretendard", system-ui, Segoe UI, Roboto, Arial, Apple SD Gothic Neo, "Noto Sans", "Malgun Gothic", sans-serif;
+      line-height: 1.55;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .kst-main-container * {
+      box-sizing: border-box;
+      color: inherit;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .kst-container {
+      padding: 16px;
+    }
+
+    .kst-section {
+      background: var(--kst-surface);
+      border: 1px solid #232631;
+      border-radius: 16px;
+      padding: 16px;
+      margin: 12px 0;
+    }
+
+    .kst-section-header {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .kst-section-kicker {
+      font-size: 12px;
+      letter-spacing: .12em;
+      color: var(--kst-subtext);
+      text-transform: uppercase;
+    }
+
+    /* Hero Section Styling */
+    #kst-basic-info {
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a1d23 50%, #0b0b0b 100%);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #kst-basic-info::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+      animation: kst-rotate 20s linear infinite;
+      z-index: 0;
+    }
+
+    #kst-basic-info > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes kst-rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .kst-hl {
+      font-weight: 600;
+      font-size: 30px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+      text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .kst-sp {
+      font-weight: 400;
+      font-size: 24px;
+      background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: -14px;
+      margin-bottom: 20px;
+      opacity: 90%;
+      text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .kst-muted {
+      color: var(--kst-subtext) !important;
+    }
+
+    .kst-accent {
+      color: var(--kst-accent) !important;
+    }
+
+    /* Cards & blocks */
+    .kst-card {
+      background: linear-gradient(135deg, var(--kst-elev) 0%, #1c1f26 100%);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 18px;
+      padding: 18px;
+      margin: 16px 0;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .kst-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .kst-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 12px;
+      border: 1px solid var(--kst-accent);
+      background: var(--kst-badge-bg);
+      color: var(--kst-badge-text) !important;
+      font-weight: 500;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    }
+
+    .kst-badge.kst-brand {
+      border: 1px solid var(--kst-accent);
+      background: var(--kst-badge-bg);
+      color: var(--kst-badge-text) !important;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .kst-badge.kst-key {
+      border: 1px solid var(--kst-accent);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+      color: var(--kst-accent) !important;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    /* Lists */
+    .kst-list-vert {
+      display: grid;
+      margin: 16px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .kst-list-vert li {
+      background: var(--kst-elev);
+      border: 1px solid #242836;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 10px 0;
+      list-style: none;
+      color: var(--kst-text) !important;
+    }
+
+    .kst-kv {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .kst-kv .kst-k {
+      color: var(--kst-subtext) !important;
+      font-size: 12px;
+    }
+
+    .kst-kv .kst-v {
+      font-weight: 500;
+      color: var(--kst-text) !important;
+    }
+
+    /* Definition list + chips */
+    .kst-dl {
+      display: grid;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .kst-dl-item {
+      background: var(--kst-elev);
+      border: 1px solid #242836;
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .kst-dl-dt {
+      font-weight: 600;
+      color: var(--kst-accent) !important;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .kst-dl-dd {
+      margin: 0;
+      color: var(--kst-text) !important;
+      line-height: 1.5;
+    }
+
+    /* Steps */
+    .kst-steps {
+      display: grid;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .kst-step {
+      background: var(--kst-elev);
+      border-left: 3px solid var(--kst-accent);
+      border-radius: 8px;
+      padding: 14px;
+      color: var(--kst-text) !important;
+    }
+
+    .kst-step strong {
+      color: var(--kst-accent) !important;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* Images */
+    .kst-image-block {
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--kst-point-dark);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .kst-image-block:not(:has(img[src])),
+    .kst-image-block:has(img[src=""]) {
+      display: none;
+    }
+
+    .kst-image-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .kst-img-label {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      color: var(--kst-subtext) !important;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .kst-chart-block {
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--kst-point-dark);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .kst-chart-block:not(:has(img[src])),
+    .kst-chart-block:has(img[src=""]) {
+      display: none;
+    }
+
+    .kst-chart-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Tables */
+    .kst-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 16px 0;
+      border-radius: 12px;
+      border: 1px solid #242836;
+    }
+
+    .kst-table-wrap::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .kst-table-wrap::-webkit-scrollbar-track {
+      background: var(--kst-elev);
+    }
+
+    .kst-table-wrap::-webkit-scrollbar-thumb {
+      background: var(--kst-accent);
+      border-radius: 4px;
+    }
+
+    .kst-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: auto;
+    }
+
+    .kst-table thead {
+      background: var(--kst-point-dark);
+    }
+
+    .kst-table th {
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--kst-accent) !important;
+      border-bottom: 2px solid var(--kst-accent);
+      white-space: nowrap;
+    }
+
+    .kst-table td {
+      padding: 12px;
+      border-bottom: 1px solid #242836;
+      color: var(--kst-text) !important;
+    }
+
+    .kst-table tbody tr:hover {
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    /* Callouts */
+    .kst-callout {
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px 0;
+      border-left: 4px solid;
+    }
+
+    .kst-callout.kst-warning {
+      background: rgba(255, 165, 2, 0.1);
+      border-left-color: #ffa502;
+      color: var(--kst-text) !important;
+    }
+
+    .kst-callout.kst-danger {
+      background: rgba(255, 71, 87, 0.1);
+      border-left-color: #ff4757;
+      color: var(--kst-text) !important;
+    }
+
+    .kst-callout.kst-success {
+      background: rgba(46, 213, 115, 0.1);
+      border-left-color: #2ed573;
+      color: var(--kst-text) !important;
+    }
+
+    .kst-callout strong {
+      color: var(--kst-accent) !important;
+    }
+
+    /* Accordion */
+    .kst-accordion {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .kst-accordion details {
+      background: var(--kst-elev);
+      border: 1px solid #242836;
+      border-radius: 12px;
+      padding: 14px;
+      cursor: pointer;
+    }
+
+    .kst-accordion summary {
+      font-weight: 600;
+      color: var(--kst-accent) !important;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .kst-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .kst-accordion summary::before {
+      content: '▶';
+      display: inline-block;
+      margin-right: 8px;
+      transition: transform 0.2s;
+    }
+
+    .kst-accordion details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .kst-qa {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #242836;
+      color: var(--kst-text) !important;
+      line-height: 1.6;
+    }
+  </style>
+
+  <div class="kst-container">
+    <!-- 🏷️ Basic Product Information -->
+    <section id="kst-basic-info" class="kst-section">
+      <div class="kst-hl">Super V-Line Max</div>
+      <div class="kst-sp">Mesofat Solution</div>
+
+      <div class="kst-badges">
+        <span class="kst-badge kst-brand">Maxcore Globul</span>
+        <span class="kst-badge kst-key">5 Vials x 10mL</span>
+        <span class="kst-badge kst-key">Made in Korea</span>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Full Product Name</div>
+            <div class="kst-v">Super V-Line Max (Mesofat Solution)</div>
+          </div>
+          <div>
+            <div class="kst-k">Package Configuration</div>
+            <div class="kst-v">5 Vials × 10 mL per package</div>
+          </div>
+          <div>
+            <div class="kst-k">Manufacturer</div>
+            <div class="kst-v">Maxcore Globul, South Korea</div>
+          </div>
+          <div>
+            <div class="kst-k">Product Type</div>
+            <div class="kst-v">Indirect Lipolytic Injectable Solution</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Super V-Line Max product packaging" />
+        <span class="kst-img-label">Product Image</span>
+      </div>
+    </section>
+
+    <!-- 🧪 Key Ingredients & Mechanism -->
+    <section id="kst-ingredients" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Key Ingredients & Mechanism</span></div>
+
+      <div class="kst-card">
+        <p><strong class="kst-accent">Primary Active Ingredients</strong></p>
+        <div class="kst-dl">
+          <div class="kst-dl-item">
+            <div class="kst-dl-dt">Tyrosine</div>
+            <div class="kst-dl-dd">Precursor to metabolism-boosting hormones that enhance the body's natural fat-burning processes.</div>
+          </div>
+          <div class="kst-dl-item">
+            <div class="kst-dl-dt">L-Carnitine</div>
+            <div class="kst-dl-dd">Transports long-chain fatty acids into mitochondria for oxidation, promoting efficient fat metabolism and energy production.</div>
+          </div>
+          <div class="kst-dl-item">
+            <div class="kst-dl-dt">Aesculus Hippocastanum Extract (Escin)</div>
+            <div class="kst-dl-dd">Horse chestnut extract with vasoprotective properties that accelerates lymphatic circulation and reduces local swelling.</div>
+          </div>
+          <div class="kst-dl-item">
+            <div class="kst-dl-dt">Juglans Regia Seed Extract</div>
+            <div class="kst-dl-dd">Walnut seed extract supporting skin regeneration and structural integrity for a lifting effect.</div>
+          </div>
+        </div>
+
+        <p class="kst-muted" style="margin-top:10px">Supporting agents include Water, Sodium Chloride, and Thermus thermophilus for optimal formulation stability.</p>
+      </div>
+
+      <div class="kst-card">
+        <p><strong class="kst-accent">How It Works: Indirect Lipolysis</strong></p>
+        <ul class="kst-list-vert">
+          <li><strong>Fat Mobilization:</strong> Stimulates the body's natural processes to break down and metabolize stored subcutaneous fat through enhanced metabolism and fatty acid transportation.</li>
+          <li><strong>Enhanced Circulation:</strong> Accelerates lymphatic drainage and microcirculation to efficiently remove dissolved fat components from the treatment area.</li>
+          <li><strong>Skin Tightening:</strong> Supports local cell regeneration and skin structural integrity, resulting in a lifting and tightening effect for defined contours.</li>
+          <li><strong>Non-Destructive Approach:</strong> Works indirectly by activating natural metabolic pathways rather than directly destroying fat cell membranes.</li>
+        </ul>
+      </div>
+
+      <div class="kst-image-block">
+        <img src="" alt="Mechanism of action infographic showing fat cell reduction and lymphatic drainage" />
+        <span class="kst-img-label">Mechanism of Action</span>
+      </div>
+    </section>
+
+    <!-- ✨ Expected Effects & Results -->
+    <section id="kst-effects" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Main Expected Effects</span></div>
+
+      <div class="kst-card">
+        <ul class="kst-list-vert">
+          <li><strong>Facial Contouring & V-Curve Creation:</strong> Effective reduction of localized fat deposits in double chin, sagging jowls, and chubby cheeks to sculpt a sharp, defined V-line facial contour.</li>
+          <li><strong>Rapid Puffiness Reduction:</strong> Quickly reduces fluid retention and swelling through improved lymphatic drainage.</li>
+          <li><strong>Skin Firming & Lifting:</strong> Improves skin elasticity and provides a lifting effect, preventing skin laxity after fat reduction.</li>
+          <li><strong>Quick Visible Results:</strong> Treatment typically takes 5-10 minutes with results often noticeable within the first week.</li>
+        </ul>
+
+        <div class="kst-badges" style="margin-top:10px">
+          <span class="kst-badge kst-key">V-Line Sculpting</span>
+          <span class="kst-badge kst-key">Fast Results</span>
+          <span class="kst-badge kst-key">Skin Firming</span>
+          <span class="kst-badge kst-key">Minimal Swelling</span>
+        </div>
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-image-block">
+          <img src="" alt="Before treatment facial contour" />
+          <span class="kst-img-label">Before Treatment</span>
+        </div>
+        <div class="kst-image-block" style="margin-top:10px">
+          <img src="" alt="After treatment showing improved V-line contour" />
+          <span class="kst-img-label">After Treatment Results</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 💉 Treatment Protocol & Usage -->
+    <section id="kst-protocol" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Treatment Protocol</span></div>
+
+      <div class="kst-callout kst-warning">
+        <strong>Professional Use Only</strong> — Must be administered by a qualified and trained medical professional experienced in mesotherapy injection techniques.
+      </div>
+
+      <div class="kst-card">
+        <div class="kst-kv">
+          <div>
+            <div class="kst-k">Application Method</div>
+            <div class="kst-v">Subcutaneous Injection</div>
+          </div>
+          <div>
+            <div class="kst-k">Treatment Interval</div>
+            <div class="kst-v">Every 7-10 days</div>
+          </div>
+          <div>
+            <div class="kst-k">Typical Treatment Course</div>
+            <div class="kst-v">3-5 sessions until satisfactory results achieved</div>
+          </div>
+          <div>
+            <div class="kst-k">Maximum Dosage Per Session</div>
+            <div class="kst-v">2 cc (mL) for entire facial area</div>
+          </div>
+          <div>
+            <div class="kst-k">Procedure Duration</div>
+            <div class="kst-v">5-10 minutes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kst-callout kst-danger" style="margin-top:10px">
+        <strong>Critical Dosage Warning</strong> — DO NOT use more than 2 cc (mL) of product at a time for the face to avoid hot sensation and potential adverse effects.
+      </div>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="Facial mapping showing injection points for V-Line Max treatment" />
+        <span class="kst-img-label">Injection Point Mapping</span>
+      </div>
+
+      <div class="kst-card" style="margin-top:10px">
+        <p><strong class="kst-accent">Complementary Care</strong></p>
+        <p class="kst-muted">While Super V-Line Max works effectively as a standalone solution, complementing the treatment with regenerative serums or soothing masks post-procedure may enhance recovery and optimize local skin health.</p>
+      </div>
+    </section>
+
+    <!-- 🎯 Target Area Guide -->
+    <section id="kst-target-guide" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Treatment Target Areas</span></div>
+
+      <div class="kst-table-wrap" role="region" aria-label="Target area treatment guide">
+        <table class="kst-table">
+          <thead>
+            <tr>
+              <th>Target Area</th>
+              <th>Symptoms/Situation</th>
+              <th>Suitability</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Double Chin / Submental Fat</td>
+              <td>Noticeable fat deposit under chin, undefined neck-to-jaw angle</td>
+              <td>Primary Focus</td>
+              <td>Highly effective at mobilizing exercise-resistant fat in this area</td>
+            </tr>
+            <tr>
+              <td>Jowls & Lower Face</td>
+              <td>Sagging cheeks, square or rounded lower face shape due to fat accumulation</td>
+              <td>Excellent for Contouring</td>
+              <td>Creates lifting effect by reducing fat and promoting skin tightening</td>
+            </tr>
+            <tr>
+              <td>Puffiness & Bloating</td>
+              <td>Persistent morning facial swelling or fluid retention</td>
+              <td>Effective Adjunct</td>
+              <td>Horse chestnut extract boosts lymph circulation for detoxification</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kst-card">
+        <p><strong class="kst-accent">Who Is This Product Right For?</strong></p>
+        <p>Super V-Line Max is ideal for individuals seeking a non-surgical, non-invasive solution to redefine and slim their facial profile by safely and effectively reducing localized fat deposits in the chin, jawline, and cheek areas. It offers the comprehensive benefits of fat dissolution, swelling reduction, and skin firming in a single treatment system.</p>
+      </div>
+    </section>
+
+    <!-- ⚠️ Precautions & Safety -->
+    <section id="kst-safety" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Precautions & Safety</span></div>
+
+      <div class="kst-callout kst-danger">
+        <strong>Administration Precaution</strong> — Strictly for use by trained professionals in mesotherapy injection techniques. Avoid injecting into blood vessels.
+      </div>
+
+      <div class="kst-callout kst-warning" style="margin-top:10px">
+        <strong>Dosage Limit</strong> — DO NOT exceed 2 cc (mL) per session for facial treatment to prevent hot sensation.
+      </div>
+
+      <div class="kst-callout kst-success" style="margin-top:10px">
+        <strong>Advantage</strong> — Known for minimal to no swelling side effects post-procedure, a major advantage over older lipolytic solutions.
+      </div>
+
+      <div class="kst-card" style="margin-top:10px">
+        <p><strong class="kst-accent">Single-Session Use Protocol</strong></p>
+        <p>As an injectable product, it is standard professional practice to treat vials as single-session use and discard any unused solution to maintain sterility and ensure patient safety.</p>
+      </div>
+    </section>
+
+    <!-- 📦 Storage & Handling -->
+    <section id="kst-storage" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Storage & Handling</span></div>
+
+      <div class="kst-card">
+        <ul class="kst-list-vert">
+          <li><strong>Storage Temperature:</strong> Store in a dry place at temperatures between 12°C and 28°C (54°F - 82°F)</li>
+          <li><strong>Protection:</strong> Keep away from direct sunlight and extreme temperature fluctuations</li>
+          <li><strong>Container Management:</strong> Keep vials tightly sealed when not in use</li>
+          <li><strong>After Opening:</strong> Single-session use recommended; discard unused solution to maintain sterility</li>
+        </ul>
+      </div>
+
+      <div class="kst-image-block" style="margin-top:10px">
+        <img src="" alt="Storage and handling guidelines for Super V-Line Max" />
+        <span class="kst-img-label">Storage Guidelines</span>
+      </div>
+    </section>
+
+    <!-- ❓ Frequently Asked Questions -->
+    <section id="kst-faq" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Frequently Asked Questions</span></div>
+
+      <div class="kst-accordion">
+        <details>
+          <summary>How many treatment sessions are typically needed?</summary>
+          <div class="kst-qa">Most patients require 3-5 treatment sessions spaced 7-10 days apart to achieve their desired facial contouring results. Individual needs may vary based on treatment area and goals.</div>
+        </details>
+
+        <details>
+          <summary>When will I see visible results?</summary>
+          <div class="kst-qa">Results often become noticeable within the first week after treatment. Optimal results typically develop progressively over the full treatment course of 3-5 sessions.</div>
+        </details>
+
+        <details>
+          <summary>What makes this different from direct lipolytic treatments?</summary>
+          <div class="kst-qa">Super V-Line Max works as an indirect lipolytic, stimulating your body's natural metabolic processes rather than directly destroying fat cell membranes. This approach often results in minimal swelling and a more natural outcome.</div>
+        </details>
+
+        <details>
+          <summary>Is the procedure painful?</summary>
+          <div class="kst-qa">The treatment is performed via subcutaneous injection by trained professionals who can use appropriate numbing techniques. Most patients report minimal discomfort during the quick 5-10 minute procedure.</div>
+        </details>
+
+        <details>
+          <summary>Can I combine this with other aesthetic treatments?</summary>
+          <div class="kst-qa">Super V-Line Max works effectively as a standalone solution. For optimal results or combination treatments, consult with your qualified medical professional to develop a personalized treatment plan.</div>
+        </details>
+
+        <details>
+          <summary>What should I expect after treatment?</summary>
+          <div class="kst-qa">One of the major advantages of Super V-Line Max is minimal to no swelling post-procedure. Most patients can resume normal activities shortly after treatment with appropriate aftercare guidance from their provider.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 🏷️ Product Keywords -->
+    <section id="kst-keywords" class="kst-section">
+      <div class="kst-section-header"><span class="kst-section-kicker">Product Keywords</span></div>
+      
+      <div class="kst-badges">
+        <span class="kst-badge">Super V-Line Max</span>
+        <span class="kst-badge">Mesofat</span>
+        <span class="kst-badge">Indirect Lipolytic</span>
+        <span class="kst-badge">Fat Dissolving Injection</span>
+        <span class="kst-badge">Facial Contouring</span>
+        <span class="kst-badge">V-Line Injection</span>
+        <span class="kst-badge">Double Chin Removal</span>
+        <span class="kst-badge">L-Carnitine</span>
+        <span class="kst-badge">Tyrosine</span>
+        <span class="kst-badge">Horse Chestnut Extract</span>
+        <span class="kst-badge">Non-Surgical Liposuction</span>
+        <span class="kst-badge">Cheek Fat Reduction</span>
+        <span class="kst-badge">Jawline Sculpting</span>
+        <span class="kst-badge">Korean Aesthetic</span>
+        <span class="kst-badge">Subcutaneous Injection</span>
+      </div>
+    </section>
+
+  </div>
+</div>

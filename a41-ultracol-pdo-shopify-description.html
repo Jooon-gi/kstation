@@ -1,0 +1,591 @@
+<style>
+  /* Color Palette Variables */
+  :root {
+    --kst-main: #d4a441;
+    --kst-sub: #bfbfbf;
+    --kst-point-red: #ee4b3a;
+    --kst-point-blue: #4aa5d2;
+    --kst-point-yellow: #f0b233;
+    --kst-text-primary: #1c1c1c;
+    --kst-text-secondary: #7a7a7a;
+    --kst-bg-light: #f9f9f9;
+    --kst-badge-bg: #d4a441;
+    --kst-badge-text: #ffffff;
+    --kst-badge-hover: #b88c34;
+  }
+
+  /* Reset & Base */
+  * {
+    box-sizing: border-box;
+  }
+
+  .kst-main-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--kst-text-primary) !important;
+    line-height: 1.6;
+    background: #ffffff;
+  }
+
+  .kst-main-container * {
+    color: var(--kst-text-primary) !important;
+  }
+
+  /* Section Styling */
+  .kst-section {
+    padding: 24px 16px;
+    margin: 0;
+  }
+
+  .kst-section:nth-child(even) {
+    background: var(--kst-bg-light);
+  }
+
+  .kst-section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--kst-text-primary) !important;
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--kst-main);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .kst-section-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--kst-text-primary) !important;
+    margin: 20px 0 12px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Product Header */
+  .kst-product-header {
+    text-align: center;
+    padding: 32px 16px;
+    background: linear-gradient(135deg, var(--kst-bg-light) 0%, #ffffff 100%);
+  }
+
+  .kst-product-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--kst-text-primary) !important;
+    margin: 0 0 8px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .kst-product-subtitle {
+    font-size: 16px;
+    color: var(--kst-text-secondary) !important;
+    margin: 0 0 16px 0;
+  }
+
+  .kst-badge {
+    display: inline-block;
+    background: var(--kst-badge-bg);
+    color: var(--kst-badge-text) !important;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 4px;
+  }
+
+  /* Image Blocks */
+  .kst-image-block,
+  .kst-chart-block {
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .kst-image-block:not(:has(img)),
+  .kst-chart-block:not(:has(img)) {
+    display: none;
+  }
+
+  .kst-image-block img,
+  .kst-chart-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .kst-image-placeholder {
+    width: 100%;
+    padding: 40px 20px;
+    background: var(--kst-bg-light);
+    border: 2px dashed var(--kst-sub);
+    border-radius: 8px;
+    text-align: center;
+    color: var(--kst-text-secondary) !important;
+    font-size: 14px;
+    margin: 16px 0;
+  }
+
+  /* List Styling */
+  .kst-card ul,
+  .kst-card ol {
+    margin: 12px 0;
+    padding-left: 20px;
+  }
+
+  .kst-card ul li,
+  .kst-card ol li {
+    margin: 8px 0;
+    color: var(--kst-text-primary) !important;
+    line-height: 1.6;
+  }
+
+  .kst-card ul li::marker {
+    color: var(--kst-main) !important;
+  }
+
+  /* Definition List */
+  .kst-definition-list {
+    margin: 16px 0;
+  }
+
+  .kst-definition-item {
+    margin: 12px 0;
+    padding: 12px;
+    background: #ffffff;
+    border-left: 3px solid var(--kst-main);
+    border-radius: 4px;
+  }
+
+  .kst-definition-term {
+    font-weight: 700;
+    color: var(--kst-text-primary) !important;
+    margin-bottom: 4px;
+  }
+
+  .kst-definition-desc {
+    color: var(--kst-text-primary) !important;
+    margin: 0;
+  }
+
+  /* Table Styling */
+  .kst-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-track {
+    background: var(--kst-bg-light);
+  }
+
+  .kst-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--kst-sub);
+    border-radius: 4px;
+  }
+
+  .kst-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    background: #ffffff;
+  }
+
+  .kst-comparison-table thead th {
+    background: var(--kst-main);
+    color: var(--kst-badge-text) !important;
+    font-weight: 600;
+    padding: 12px 8px;
+    text-align: left;
+    font-size: 14px;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--kst-badge-hover);
+  }
+
+  .kst-comparison-table tbody td {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--kst-bg-light);
+    color: var(--kst-text-primary) !important;
+    font-size: 14px;
+  }
+
+  .kst-comparison-table tbody tr:hover {
+    background: var(--kst-bg-light);
+  }
+
+  /* Card Styling */
+  .kst-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .kst-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--kst-text-primary) !important;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .kst-card-title::before {
+    content: '🔹';
+    margin-right: 8px;
+  }
+
+  .kst-card-content {
+    color: var(--kst-text-primary) !important;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Highlight Box */
+  .kst-highlight-box {
+    background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+    border-left: 4px solid var(--kst-point-yellow);
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 4px;
+  }
+
+  .kst-highlight-box p {
+    margin: 8px 0;
+    color: var(--kst-text-primary) !important;
+  }
+
+  /* Meta Keywords */
+  .kst-meta-section {
+    padding: 20px 16px;
+    background: var(--kst-bg-light);
+    border-top: 1px solid var(--kst-sub);
+  }
+
+  .kst-meta-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 0 0;
+  }
+
+  .kst-keyword-tag {
+    display: inline-block;
+    background: #ffffff;
+    color: var(--kst-text-secondary) !important;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    border: 1px solid var(--kst-sub);
+  }
+
+  /* Muted Text */
+  .kst-muted {
+    color: var(--kst-text-secondary) !important;
+    font-size: 13px;
+  }
+
+  /* Strong Text */
+  strong {
+    color: var(--kst-text-primary) !important;
+    font-weight: 600;
+  }
+</style>
+
+<div class="kst-main-container">
+  
+  <!-- Product Header -->
+  <div class="kst-product-header">
+    <h1 class="kst-product-name">Ultracol (PDO 200mg)</h1>
+    <p class="kst-product-subtitle">PCL/PDO Microsphere - Advanced Collagen Stimulator</p>
+    <div>
+      <span class="kst-badge">Biocompatible</span>
+      <span class="kst-badge">Fully Resorbable</span>
+      <span class="kst-badge">Long-Lasting Results</span>
+    </div>
+  </div>
+
+  <!-- Product Overview -->
+  <section class="kst-section">
+    <h2 class="kst-section-title">Product Overview</h2>
+    
+    <div class="kst-definition-list">
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Product Name</div>
+        <div class="kst-definition-desc">Ultracol (PCL/PDO Microsphere)</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Volume & Components</div>
+        <div class="kst-definition-desc">1 vial containing 200mg Polydioxanone microparticles</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Formulation Type</div>
+        <div class="kst-definition-desc">Lyophilized (freeze-dried) powder in glass vial, requiring reconstitution before use</div>
+      </div>
+    </div>
+
+    <div class="kst-image-block">
+      <div class="kst-image-placeholder">📷 [Product Image Placeholder]</div>
+    </div>
+  </section>
+
+  <!-- Key Ingredients -->
+  <section class="kst-section">
+    <h2 class="kst-section-title">Key Ingredients & Concentration</h2>
+    
+    <div class="kst-card">
+      <div class="kst-card-title">Polydioxanone (PDO) Microspheres - 200mg</div>
+      <div class="kst-card-content">
+        <p>This product contains <strong>200mg of Polydioxanone (PDO) micro-spheres</strong> in lyophilized powder form. PDO is a synthetic absorbable material widely used in surgical sutures, known for its excellent <strong>biocompatibility</strong> and ability to stimulate <strong>collagen production</strong> (neocollagenesis) as it naturally degrades over time.</p>
+      </div>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Reconstitution Requirements</div>
+      <div class="kst-card-content">
+        <p>The PDO micro-spheres are mixed with a sterile diluent (such as Saline and/or Lidocaine solution, prepared by the practitioner) prior to injection.</p>
+      </div>
+    </div>
+
+    <div class="kst-highlight-box">
+      <p><strong>Note on Lidocaine:</strong> This product <strong>does not inherently contain Lidocaine</strong>. Lidocaine is typically added by the administering practitioner during the reconstitution process for patient comfort.</p>
+    </div>
+  </section>
+
+  <!-- Efficacy Benefits -->
+  <section class="kst-section">
+    <h2 class="kst-section-title">Efficacy Benefits</h2>
+    
+    <div class="kst-definition-list">
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Collagen Stimulation</div>
+        <div class="kst-definition-desc">Induces the body's natural collagen production over several months, resulting in long-term skin improvement</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Volume and Elasticity Enhancement</div>
+        <div class="kst-definition-desc">Provides gradual volume enhancement and restoration of skin elasticity lost due to aging</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Fine Line and Wrinkle Improvement</div>
+        <div class="kst-definition-desc">Effectively reduces the appearance of fine lines and wrinkles</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Pore Reduction and Skin Texture Refinement</div>
+        <div class="kst-definition-desc">Contributes to a smoother, more refined skin texture and reduced pore size</div>
+      </div>
+    </div>
+
+    <div class="kst-image-block">
+      <div class="kst-image-placeholder">📷 [Before & After Results Image Placeholder]</div>
+    </div>
+  </section>
+
+  <!-- Mechanism of Action -->
+  <section class="kst-section">
+    <h2 class="kst-section-title">Mechanism of Action & Technical Features</h2>
+    
+    <div class="kst-card">
+      <div class="kst-card-content">
+        <p>When injected, the PDO micro-spheres create a scaffold that gradually stimulates fibroblasts to produce new collagen around them. As the PDO material naturally absorbs over <strong>6-8 months</strong>, the newly generated collagen remains, sustaining the rejuvenating effect.</p>
+      </div>
+    </div>
+
+    <div class="kst-definition-list">
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Particle Size</div>
+        <div class="kst-definition-desc">Uniform and optimized micro-sphere size for smooth injection, even distribution, and maximized collagen stimulation surface area</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Microsphere Technology Advantage</div>
+        <div class="kst-definition-desc">Offers advantages over traditional PDO thread treatments by allowing for a more uniform and widespread distribution of the collagen-stimulating material across a larger treatment plane</div>
+      </div>
+    </div>
+
+    <div class="kst-image-block">
+      <div class="kst-image-placeholder">📷 [Mechanism of Action - Collagen Induction Diagram Placeholder]</div>
+    </div>
+  </section>
+
+  <!-- Protocol & Instructions -->
+  <section class="kst-section">
+    <h2 class="kst-section-title">Protocol & Instructions</h2>
+    
+    <div class="kst-definition-list">
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Injection Layer by Treatment Area</div>
+        <div class="kst-definition-desc">Mid-to-deep dermis, or Subcutaneous layer, depending on the targeted correction (e.g., deep wrinkles vs. overall volume)</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Recommended Needle Gauge</div>
+        <div class="kst-definition-desc">Typically 27G or 30G needle, or a <strong>Cannula (e.g., 25G or 27G)</strong>, depending on the area, injection depth, and practitioner's technique</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Treatment Cycle</div>
+        <div class="kst-definition-desc">A primary treatment followed by 1-2 additional sessions, usually spaced 4-8 weeks apart, may be recommended for optimal results. Maintenance is generally recommended every 12-18 months</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treatment Strategy Comparison -->
+  <section class="kst-section">
+    <h2 class="kst-section-title">Treatment Strategy Comparison</h2>
+    
+    <p class="kst-muted">The following table compares different approaches when using the Ultracol product, based on desired outcome and injection layer.</p>
+    
+    <div class="kst-table-wrap">
+      <table class="kst-comparison-table">
+        <thead>
+          <tr>
+            <th>Treatment Strategy</th>
+            <th>Viscosity (Reconstitution)</th>
+            <th>Treatment Area</th>
+            <th>Injection Layer</th>
+            <th>Needle/Cannula Gauge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Deep Volume/Lifting</strong></td>
+            <td>Higher (Less Diluent)</td>
+            <td>Cheeks, Jawline, Temple</td>
+            <td>Subcutaneous (Sub-Q)</td>
+            <td>25G or 27G Cannula</td>
+          </tr>
+          <tr>
+            <td><strong>Fine Lines/Skin Tightening</strong></td>
+            <td>Lower (More Diluent)</td>
+            <td>Periorbital, Neck, Forehead</td>
+            <td>Mid-to-Deep Dermis</td>
+            <td>27G or 30G Needle/Cannula</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Which Product is Right for Me -->
+  <section class="kst-section">
+    <h2 class="kst-section-title">Which Product is Right for Me?</h2>
+    
+    <p>Ultracol is a single product that can be tailored for different needs by adjusting the <strong>dilution ratio</strong> (affecting "viscosity") and the <strong>injection technique</strong>.</p>
+    
+    <div class="kst-card">
+      <div class="kst-card-title">For Structural Volume & Lifting</div>
+      <div class="kst-card-content">
+        <p>A less diluted solution injected into the Sub-Q layer is preferred.</p>
+      </div>
+    </div>
+    
+    <div class="kst-card">
+      <div class="kst-card-title">For Overall Skin Texture & Fine Wrinkle Improvement</div>
+      <div class="kst-card-content">
+        <p>A more diluted solution injected superficially into the dermis is recommended.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Description -->
+  <section class="kst-section">
+    <h2 class="kst-section-title">Detailed Product Description</h2>
+    
+    <h3 class="kst-section-subtitle">🔹 Ultracol (PDO 200mg)</h3>
+    
+    <div class="kst-definition-list">
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Efficacy</div>
+        <div class="kst-definition-desc">Gradually corrects moderate to severe facial wrinkles and folds, improves skin elasticity, texture, and provides long-lasting volumetric and lifting effects through <strong>autologous collagen regeneration</strong></div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Duration</div>
+        <div class="kst-definition-desc">The PDO material is absorbed over approximately 6-8 months, but the resulting new collagen can maintain visible improvement for <strong>up to 12-18 months or more</strong></div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Treatment Area</div>
+        <div class="kst-definition-desc">Full face rejuvenation, including the cheeks, nasolabial folds, marionette lines, temples, forehead, neck, and hands</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Usage</div>
+        <div class="kst-definition-desc">The product is reconstituted with sterile water for injection and/or Lidocaine solution. It is then injected into the target skin layer (Mid-to-deep dermis or Sub-Q) using fine needles or cannulas in a gentle, even manner to ensure uniform distribution of the micro-spheres</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Additional Information</div>
+        <div class="kst-definition-desc">Ultracol is distinctive as it uses <strong>microsphere technology</strong>, offering advantages over traditional PDO thread treatments by allowing for a more uniform and widespread distribution of the collagen-stimulating material across a larger treatment plane. It is <strong>biocompatible</strong> and <strong>fully resorbable</strong></div>
+      </div>
+    </div>
+
+    <div class="kst-image-block">
+      <div class="kst-image-placeholder">📷 [Treatment Area Facial Mapping Guide Placeholder]</div>
+    </div>
+  </section>
+
+  <!-- Precautions & Storage -->
+  <section class="kst-section">
+    <h2 class="kst-section-title">Common Precautions & Storage Guide</h2>
+    
+    <div class="kst-definition-list">
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Storage Temperature</div>
+        <div class="kst-definition-desc">Store at room temperature (1-30°C / 33.8-86°F), away from direct sunlight. Do not freeze</div>
+      </div>
+      
+      <div class="kst-definition-item">
+        <div class="kst-definition-term">Shelf Life After Opening</div>
+        <div class="kst-definition-desc">Product is for single-use only. Any reconstituted material remaining after treatment must be discarded</div>
+      </div>
+    </div>
+
+    <div class="kst-card">
+      <div class="kst-card-title">Important Precautions</div>
+      <div class="kst-card-content">
+        <ul>
+          <li>Treatment should only be administered by a qualified, trained professional</li>
+          <li>Avoid use in patients with known allergies to PDO</li>
+          <li>Temporary swelling, redness, bruising, or tenderness at the injection site are common</li>
+          <li>Advise patients to avoid strenuous exercise, excessive sun/heat exposure, and alcohol for 24-48 hours post-treatment</li>
+          <li>Do not inject into blood vessels</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meta Keywords -->
+  <section class="kst-meta-section">
+    <h2 class="kst-section-title">Product Tags</h2>
+    <div class="kst-meta-keywords">
+      <span class="kst-keyword-tag">PDO Microsphere</span>
+      <span class="kst-keyword-tag">Collagen Stimulator</span>
+      <span class="kst-keyword-tag">Polydioxanone</span>
+      <span class="kst-keyword-tag">Non-HA Filler</span>
+      <span class="kst-keyword-tag">Volume Restoration</span>
+      <span class="kst-keyword-tag">Skin Tightening</span>
+      <span class="kst-keyword-tag">Neocollagenesis</span>
+      <span class="kst-keyword-tag">Long-Lasting Filler</span>
+      <span class="kst-keyword-tag">Absorbable Polymer</span>
+      <span class="kst-keyword-tag">Biostimulatory Filler</span>
+    </div>
+  </section>
+
+</div>
