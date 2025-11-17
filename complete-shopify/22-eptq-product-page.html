@@ -561,7 +561,7 @@
 
 /* 1) 이전 방어규칙(6번)이 true/false 모두 숨기던 문제를 무력화하고,
       버튼의 aria-expanded 값에 따라 표시되도록 강제 */
-.kst-accordion .kst-ac-item .kst-ac-button[aria-expanded="false"] + .kst-ac-panel {
+.kst-accordion .kst-ac-item .kst-ac-button[aria-expanded="true"] + .kst-ac-panel {
   display: none !important;
 }
 .kst-accordion .kst-ac-item .kst-ac-button[aria-expanded="true"] + .kst-ac-panel {
@@ -573,7 +573,7 @@
   display: block !important;
 }
 
-/* --- KST Accordion: no-JS (<details>/<summary>) hard override --- */
+/* --- KST Accordion: no-JS (<details open>/<summary>) hard override --- */
 
 /* 리셋/격리 */
 .kst-accordion { position: relative !important; isolation: isolate !important; }
@@ -861,23 +861,23 @@
       <section class="kst-section" id="kst-faq">
         <h2 class="kst-section-title">Frequently Asked Questions</h2>
         <div class="kst-accordion" role="tablist">
-  <details class="kst-ac-item">
+  <details class="kst-ac-item" open>
     <summary class="kst-ac-button">How long do the results last? <span>+</span></summary>
-    <div class="kst-ac-panel">
+    <div class="kst-ac-panel kst-show">
       Results typically last 6-12 months for S100 and S300, and 12-18 months for S500, depending on treatment area, skin type, and individual metabolism.
     </div>
   </details>
 
-  <details class="kst-ac-item">
+  <details class="kst-ac-item" open>
     <summary class="kst-ac-button">What makes E.P.T.Q. different from other fillers? <span>+</span></summary>
-    <div class="kst-ac-panel">
+    <div class="kst-ac-panel kst-show">
       E.P.T.Q. features patented HIVE-structure technology and BDDE cross-linking for superior elasticity, shape retention, and natural-looking results with integrated lidocaine for enhanced comfort.
     </div>
   </details>
 
-  <details class="kst-ac-item">
+  <details class="kst-ac-item" open>
     <summary class="kst-ac-button">Which variant should I choose for my treatment? <span>+</span></summary>
-    <div class="kst-ac-panel">
+    <div class="kst-ac-panel kst-show">
       S100 for fine lines and delicate areas, S300 for moderate wrinkles and lip enhancement, S500 for deep volume restoration and facial contouring. Consult with your practitioner for personalized recommendations.
     </div>
   </details>
