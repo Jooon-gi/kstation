@@ -8,70 +8,71 @@
         --kst-badge-bg: #e33a2f;
         --kst-badge-text: #ffffff;
         --kst-badge-hover: #b62820;
+        --kst-section-gap: 16px; /* 오토 레이아웃 간격 변수 추가 */
     }
 
     .kst-main-container {
-        max-width: 760px;
-        margin: 0 auto;
-        font-family: 'Arial', 'Helvetica', sans-serif;
-        background: var(--kst-bg-white);
-        color: #000000;
-        padding: 0 12px;
-        line-height: 1.2;
-        overflow-x: hidden;
-        box-sizing: border-box;
+        max-width: 760px !important;
+        margin: 0 auto !important;
+        font-family: 'Arial', 'Helvetica', sans-serif !important;
+        background: var(--kst-bg-white) !important;
+        color: #000000 !important;
+        padding: 0 12px !important;
+        line-height: 1.2 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+        
+        /* Figma 오토 레이아웃 최적화: 섹션 간 Gap 제어 */
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--kst-section-gap) !important;
     }
     
-    .kst-main-container * {
-        box-sizing: border-box;
+    .kst-main-container *,
+    .kst-main-container *::before,
+    .kst-main-container *::after {
+        box-sizing: border-box !important;
+        /* 모든 요소의 폰트 색상과 라인 하이트를 명시적으로 제어 */
+        color: inherit !important;
+        line-height: inherit !important;
     }
     
     .kst-section {
-        margin: 8px 0;
-        color: #000000;
+        /* Figma 오토 레이아웃 최적화: 상위 컨테이너의 Gap이 간격을 제어하도록 마진 제거 */
+        margin: 0 !important;
+        color: #000000 !important;
+        
+        /* Figma 오토 레이아웃 최적화: 섹션 내부 요소의 Gap 제어 */
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        padding: 0 !important; /* 섹션 내부 패딩 제거 (필요시 내부 블록에 패딩 적용) */
+    }
+
+    /* 섹션 내 모든 직계 자식 요소의 마진 제거 -> Gap이 간격 제어 */
+    .kst-section > * {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
     }
     
+    /* Header Block은 섹션 외부에 있으므로 마진을 개별적으로 유지 */
     .kst-header-block {
         background: var(--kst-main-color);
         color: var(--kst-text-white);
         padding: 30px 16px;
-        margin: 8px 0;
+        margin: 8px 0 0 0 !important; /* 상단 마진만 유지 */
     }
     
-    .kst-product-title {
-        font-size: 36px;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin: 0;
-        line-height: 1;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-        color: var(--kst-text-white);
+    .kst-product-title, .kst-product-spec, .kst-subtitle {
+        color: var(--kst-text-white) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
     }
 
-    .kst-product-spec {
-        font-size: 26px;
-        font-weight: 100;
-        text-transform: uppercase;
-        margin-top: 10px;
-        margin-bottom: 12px;
-        line-height: 1.1;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-        color: var(--kst-text-white);
-    }
-    
-    .kst-subtitle {
-        font-size: 14px;
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-top: 10px;
-        opacity: 0.9;
-        color: var(--kst-text-white);
-    }
+    .kst-product-title { font-size: 36px !important; font-weight: 600 !important; line-height: 1 !important; margin: 0 !important; }
+    .kst-product-spec { font-size: 26px !important; font-weight: 100 !important; margin-top: 10px !important; margin-bottom: 12px !important; line-height: 1.1 !important; }
+    .kst-subtitle { font-size: 14px !important; letter-spacing: 2px !important; margin-top: 10px !important; opacity: 0.9 !important; }
     
     .kst-category-badge {
         background: var(--kst-badge-bg);
@@ -79,382 +80,329 @@
         padding: 4px 8px;
         font-size: 10px;
         font-weight: 500;
-        text-transform: uppercase;
         letter-spacing: 1px;
         display: inline-block;
         margin-bottom: 15px;
     }
     
-    .kst-image-block {
-        background: var(--kst-main-color);
-        color: var(--kst-text-white);
-        padding: 40px 16px;
-        text-align: center;
-        font-size: 12px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin: 8px 0;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
+    .kst-image-block, .kst-chart-block {
+        background: var(--kst-main-color) !important;
+        color: var(--kst-text-white) !important;
+        padding: 40px 16px !important;
+        text-align: center !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        letter-spacing: 2px !important;
+        /* 섹션 내부 gap이 제어하므로 마진 제거 */
+        margin: 0 !important; 
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
     }
     
-    .kst-image-block:not(:has(img)) {
-        display: none;
+    .kst-image-block:not(:has(img)),
+    .kst-image-block:has(img[src=""]),
+    .kst-chart-block:not(:has(img)),
+    .kst-chart-block:has(img[src=""]) {
+        display: none !important;
     }
     
-    .kst-image-block img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border: none;
-        background: none;
-    }
-    
-    .kst-chart-block {
-        background: var(--kst-main-color);
-        color: var(--kst-text-white);
-        padding: 40px 16px;
-        text-align: center;
-        font-size: 12px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin: 8px 0;
-    }
-    
-    .kst-chart-block:not(:has(img)) {
-        display: none;
-    }
-    
-    .kst-chart-block img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border: none;
-        background: none;
+    .kst-image-block img, .kst-chart-block img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+        border: none !important;
+        background: none !important;
     }
     
     .kst-core-value {
-        background: #f5f5f5;
-        padding: 20px 16px;
-        margin: 8px 0;
-        text-align: center;
-        color: #000000;
+        background: #f5f5f5 !important;
+        padding: 20px 16px !important;
+        /* 섹션 내부 gap이 제어하므로 마진 제거 */
+        margin: 0 !important; 
+        text-align: center !important;
+        color: #000000 !important;
     }
     
     .kst-slogan {
-        font-size: 18px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: -0.5px;
-        margin-bottom: 10px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-        color: var(--kst-main-color);
+        font-size: 18px !important;
+        font-weight: 500 !important;
+        letter-spacing: -0.5px !important;
+        margin-bottom: 10px !important;
+        color: var(--kst-main-color) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
     }
     
     .kst-description {
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 1.4;
-        font-family: 'Arial', sans-serif;
-        color: #000000;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        line-height: 1.4 !important;
+        color: #000000 !important;
     }
     
     .kst-section-header {
-        background: var(--kst-main-color);
-        color: var(--kst-text-white);
-        padding: 12px 16px;
-        font-size: 14px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin: 8px 0 0 0;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
+        background: var(--kst-main-color) !important;
+        color: var(--kst-text-white) !important;
+        padding: 12px 16px !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        letter-spacing: 1px !important;
+        margin: 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
     }
     
     .kst-card {
-        background: var(--kst-bg-white);
-        border: 2px solid var(--kst-main-color);
-        padding: 16px;
-        margin: 4px 0;
-        color: #000000;
+        background: var(--kst-bg-white) !important;
+        border: 2px solid var(--kst-main-color) !important;
+        padding: 16px !important;
+        /* 섹션 내부 gap이 제어하므로 마진 제거 */
+        margin: 0 !important; 
+        color: #000000 !important;
     }
     
     .kst-card ul,
     .kst-card ol {
-        margin: 10px 0;
-        padding-left: 20px;
-        color: #000000;
+        margin: 10px 0 !important;
+        padding-left: 20px !important;
+        color: #000000 !important;
     }
     
     .kst-card ul li,
     .kst-card ol li {
-        margin-bottom: 6px;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 1.4;
-        font-family: 'Arial', sans-serif;
-        color: #000000;
+        margin-bottom: 6px !important;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        line-height: 1.4 !important;
+        color: #000000 !important;
     }
     
     .kst-ingredient-name {
-        font-size: 16px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: -0.5px;
-        margin-bottom: 8px;
-        color: var(--kst-main-color);
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        letter-spacing: -0.5px !important;
+        margin-bottom: 8px !important;
+        color: var(--kst-main-color) !important;
     }
     
     .kst-ingredient-desc {
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 1.4;
-        color: #000000;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        line-height: 1.4 !important;
+        color: #000000 !important;
     }
     
     .kst-dt {
-        font-size: 14px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 8px;
-        color: var(--kst-main-color);
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.5px !important;
+        margin-bottom: 8px !important;
+        color: var(--kst-main-color) !important;
     }
     
     .kst-highlight-box {
-        background: #f9f9f9;
-        border-left: 4px solid var(--kst-main-color);
-        padding: 12px 16px;
-        margin: 8px 0;
+        background: #f9f9f9 !important;
+        border-left: 4px solid var(--kst-main-color) !important;
+        padding: 12px 16px !important;
+        /* 섹션 내부 gap이 제어하므로 마진 제거 */
+        margin: 0 !important; 
     }
     
     .kst-highlight-text {
-        font-size: 13px;
-        font-weight: 500;
-        line-height: 1.5;
-        color: #000000;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        line-height: 1.5 !important;
+        color: #000000 !important;
     }
     
     .kst-keyword-badge {
-        background: var(--kst-badge-bg);
-        color: var(--kst-badge-text);
-        padding: 4px 8px;
-        font-size: 10px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: inline-block;
-        margin: 3px 2px;
+        background: var(--kst-badge-bg) !important;
+        color: var(--kst-badge-text) !important;
+        padding: 4px 8px !important;
+        font-size: 10px !important;
+        font-weight: 500 !important;
+        letter-spacing: 1px !important;
+        display: inline-block !important;
+        margin: 3px 2px !important;
     }
     
     .kst-table-wrap {
-        overflow-x: auto;
-        margin: 8px 0;
-        -webkit-overflow-scrolling: touch;
+        overflow-x: auto !important;
+        margin: 0 !important; /* 섹션 내부 gap이 제어하므로 마진 제거 */
+        -webkit-overflow-scrolling: touch !important;
     }
     
-    .kst-table-wrap::-webkit-scrollbar {
-        height: 8px;
-    }
-    
-    .kst-table-wrap::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-    
-    .kst-table-wrap::-webkit-scrollbar-thumb {
-        background: var(--kst-main-color);
-    }
+    .kst-table-wrap::-webkit-scrollbar { height: 8px !important; }
+    .kst-table-wrap::-webkit-scrollbar-track { background: #f1f1f1 !important; }
+    .kst-table-wrap::-webkit-scrollbar-thumb { background: var(--kst-main-color) !important; }
     
     .kst-table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: auto;
-        min-width: 100%;
+        width: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: auto !important;
+        min-width: 100% !important;
     }
     
     .kst-table th {
-        background: var(--kst-main-color);
-        color: var(--kst-text-white);
-        padding: 10px 12px;
-        text-align: left;
-        font-size: 11px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
+        background: var(--kst-main-color) !important;
+        color: var(--kst-text-white) !important;
+        padding: 10px 12px !important;
+        text-align: left !important;
+        font-size: 11px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
     }
     
     .kst-table td {
-        border: 1px solid #ddd;
-        padding: 10px 12px;
-        font-size: 11px;
-        line-height: 1.4;
-        color: #000000;
+        border: 1px solid #ddd !important;
+        padding: 10px 12px !important;
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+        color: #000000 !important;
     }
     
     .kst-table tr:nth-child(even) {
-        background: #f9f9f9;
+        background: #f9f9f9 !important;
     }
     
-    .kst-mt-small {
-        margin-top: 12px;
+    .kst-mt-small, .kst-mt-medium { 
+        margin-top: 0 !important; 
     }
     
-    .kst-mt-medium {
-        margin-top: 16px;
-    }
-    
+    /* === FAQ/ACCORDION STYLES: JS 기능 제거 및 Expanded 고정 === */
     .kst-faq-item {
-        margin: 4px 0;
-        border: 2px solid var(--kst-main-color);
+        /* 아코디언 기능 제거: 기본 노출 상태 */
+        margin: 0 !important;
+        border: 2px solid var(--kst-main-color) !important;
+        overflow: hidden !important;
     }
     
     .kst-faq-question {
-        background: var(--kst-main-color);
-        color: var(--kst-text-white);
-        padding: 12px 16px;
-        font-size: 12px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        cursor: pointer;
-        position: relative;
+        background: var(--kst-main-color) !important;
+        color: var(--kst-text-white) !important;
+        padding: 12px 16px !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.5px !important;
+        position: relative !important;
+        /* 커서 및 JS 관련 스타일 제거 */
+        cursor: default !important; 
     }
     
+    /* 아코디언 아이콘 제거 (CSS ::after 제거) */
     .kst-faq-question::after {
-        content: '+';
-        position: absolute;
-        right: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 18px;
+        content: none !important;
     }
     
-    .kst-faq-question.kst-active::after {
-        content: '−';
-    }
-    
+    /* 아코디언 답변 영역: 항상 노출 */
     .kst-faq-answer {
-        padding: 0 16px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        background: var(--kst-bg-white);
-    }
-    
-    .kst-faq-answer.kst-active {
-        padding: 12px 16px;
-        max-height: 1000px;
+        padding: 12px 16px !important; /* max-height 트랜지션 제거 후 실제 패딩 적용 */
+        max-height: none !important; 
+        overflow: visible !important;
+        transition: none !important; 
+        background: var(--kst-bg-white) !important;
     }
     
     .kst-faq-answer .kst-description {
-        font-size: 11px;
-        line-height: 1.5;
-        color: #000000;
+        font-size: 11px !important;
+        line-height: 1.5 !important;
+        color: #000000 !important;
     }
     
     .kst-warning-banner {
-        background: var(--kst-main-color);
-        color: var(--kst-text-white);
-        padding: 16px;
-        text-align: center;
-        font-size: 11px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        margin: 8px 0;
+        background: var(--kst-main-color) !important;
+        color: var(--kst-text-white) !important;
+        padding: 16px !important;
+        text-align: center !important;
+        font-size: 11px !important;
+        font-weight: 500 !important;
+        letter-spacing: 1.5px !important;
+        margin: 0 !important; /* 섹션 내부 gap이 제어하므로 마진 제거 */
     }
     
     .kst-tech-specs {
-        background: #f5f5f5;
-        padding: 20px 16px;
-        margin: 8px 0;
+        background: #f5f5f5 !important;
+        padding: 20px 16px !important;
+        margin: 0 !important; /* 섹션 내부 gap이 제어하므로 마진 제거 */
     }
     
     .kst-tech-title {
-        font-size: 16px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 16px;
-        text-align: center;
-        color: var(--kst-main-color);
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 16px !important;
+        text-align: center !important;
+        color: var(--kst-main-color) !important;
     }
     
     .kst-tech-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 8px;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
     }
     
     .kst-spec-item {
-        background: var(--kst-bg-white);
-        border: 1px solid var(--kst-main-color);
-        padding: 10px 12px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        background: var(--kst-bg-white) !important;
+        border: 1px solid var(--kst-main-color) !important;
+        padding: 10px 12px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
     }
     
     .kst-spec-label {
-        font-size: 10px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: var(--kst-main-color);
+        font-size: 10px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.5px !important;
+        color: var(--kst-main-color) !important;
     }
     
     .kst-spec-value {
-        font-size: 11px;
-        font-weight: 500;
-        color: #000000;
+        font-size: 11px !important;
+        font-weight: 500 !important;
+        color: #000000 !important;
     }
     
     .kst-safety-box {
-        background: #fff5f4;
-        border: 2px solid var(--kst-main-color);
-        padding: 16px;
-        margin: 4px 0;
+        background: #fff5f4 !important;
+        border: 2px solid var(--kst-main-color) !important;
+        padding: 16px !important;
+        margin: 0 !important; /* 섹션 내부 gap이 제어하므로 마진 제거 */
     }
     
     .kst-safety-header {
-        font-size: 14px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 12px;
-        color: var(--kst-main-color);
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 12px !important;
+        color: var(--kst-main-color) !important;
     }
     
     .kst-safety-content {
-        font-size: 12px;
-        line-height: 1.5;
-        color: #000000;
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+        color: #000000 !important;
     }
     
     .kst-safety-list {
-        margin: 12px 0;
-        padding-left: 20px;
+        margin: 12px 0 !important;
+        padding-left: 20px !important;
     }
     
     .kst-safety-list li {
-        margin-bottom: 6px;
-        font-size: 11px;
-        line-height: 1.4;
-        color: #000000;
+        margin-bottom: 6px !important;
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+        color: #000000 !important;
     }
 </style>
 
 <div class="kst-main-container">
     
-    <!-- Product Header -->
     <div class="kst-header-block">
         <div class="kst-category-badge">LIPOLYTIC SOLUTION</div>
         <h1 class="kst-product-title">LIPOVELA V</h1>
@@ -462,12 +410,10 @@
         <div class="kst-subtitle">V-LINE CONTOURING SOLUTION</div>
     </div>
     
-    <!-- Product Image Placeholder -->
     <div class="kst-image-block">
         [PRODUCT IMAGE PLACEHOLDER - LIPOVELA V VIAL]
     </div>
     
-    <!-- Core Value -->
     <div class="kst-core-value">
         <div class="kst-slogan">PRECISION FAT REDUCTION FOR DEFINED FACIAL CONTOURS</div>
         <div class="kst-description">
@@ -475,7 +421,6 @@
         </div>
     </div>
     
-    <!-- Product Specifications -->
     <div class="kst-section">
         <div class="kst-section-header">PRODUCT SPECIFICATIONS</div>
         <div class="kst-card">
@@ -486,7 +431,6 @@
         </div>
     </div>
     
-    <!-- Key Ingredients -->
     <div class="kst-section">
         <div class="kst-section-header">KEY ACTIVE INGREDIENTS</div>
         
@@ -519,12 +463,10 @@
         </div>
     </div>
     
-    <!-- Mechanism Image -->
     <div class="kst-image-block">
         [MECHANISM OF ACTION INFOGRAPHIC - PPC/DEOXYCHOLIC ACID PROCESS]
     </div>
     
-    <!-- Expected Effects -->
     <div class="kst-section">
         <div class="kst-section-header">EXPECTED TREATMENT EFFECTS</div>
         
@@ -559,12 +501,10 @@
         </div>
     </div>
     
-    <!-- Treatment Areas Image -->
     <div class="kst-image-block">
         [TREATMENT AREA FACIAL MAPPING & DOSAGE GUIDE]
     </div>
     
-    <!-- Treatment Protocol -->
     <div class="kst-section">
         <div class="kst-section-header">USAGE PROTOCOL & TREATMENT GUIDE</div>
         
@@ -603,7 +543,6 @@
         </div>
     </div>
     
-    <!-- Treatment Strategy Comparison Table -->
     <div class="kst-section">
         <div class="kst-section-header">TREATMENT STRATEGIES BY AREA</div>
         <div class="kst-table-wrap">
@@ -637,7 +576,6 @@
         </div>
     </div>
     
-    <!-- Detailed Product Description -->
     <div class="kst-section">
         <div class="kst-section-header">DETAILED PRODUCT DESCRIPTION</div>
         
@@ -677,7 +615,6 @@
         </div>
     </div>
     
-    <!-- Precautions & Storage -->
     <div class="kst-section">
         <div class="kst-section-header">PRECAUTIONS & STORAGE GUIDELINES</div>
         
@@ -721,7 +658,6 @@
         </div>
     </div>
     
-    <!-- Technical Specifications -->
     <div class="kst-tech-specs kst-section">
         <div class="kst-tech-title">TECHNICAL SPECIFICATIONS</div>
         <div class="kst-tech-grid">
@@ -752,70 +688,69 @@
         </div>
     </div>
     
-    <!-- FAQ Section -->
     <div class="kst-section">
         <div class="kst-section-header">FREQUENTLY ASKED QUESTIONS</div>
         
-        <div class="kst-faq-item kst-active">
-            <div class="kst-faq-question kst-active" onclick="kstToggleFAQ(this)">
+        <div class="kst-faq-item">
+            <div class="kst-faq-question">
                 HOW DOES LIPOVELA V WORK TO REDUCE FAT?
             </div>
-            <div class="kst-faq-answer kst-active">
+            <div class="kst-faq-answer">
                 <div class="kst-description">
                     LIPOVELA V contains Deoxycholic Acid and Phosphatidylcholine (PPC) that work synergistically to destroy fat cell membranes through lipolysis. Once the fat cells are broken down, L-Carnitine facilitates the transport and metabolism of liberated fatty acids, allowing them to be naturally processed and excreted by the body. This results in permanent fat cell destruction and long-lasting contouring results.
                 </div>
             </div>
         </div>
         
-        <div class="kst-faq-item kst-active">
-            <div class="kst-faq-question kst-active" onclick="kstToggleFAQ(this)">
+        <div class="kst-faq-item">
+            <div class="kst-faq-question">
                 WHAT IS THE EXPECTED TIMELINE FOR VISIBLE RESULTS?
             </div>
-            <div class="kst-faq-answer kst-active">
+            <div class="kst-faq-answer">
                 <div class="kst-description">
                     Initial results may be visible within 2-4 weeks after the first treatment as the body begins to metabolize destroyed fat cells. Progressive improvements occur with each session. Optimal results are typically achieved 4-6 weeks after completing the full treatment cycle (3-6 sessions). Individual results may vary based on the treatment area, volume of fat, and patient's metabolic rate.
                 </div>
             </div>
         </div>
         
-        <div class="kst-faq-item kst-active">
-            <div class="kst-faq-question kst-active" onclick="kstToggleFAQ(this)">
+        <div class="kst-faq-item">
+            <div class="kst-faq-question">
                 ARE THERE ANY CONTRAINDICATIONS OR LIMITATIONS?
             </div>
-            <div class="kst-faq-answer kst-active">
+            <div class="kst-faq-answer">
                 <div class="kst-description">
                     LIPOVELA V should not be used in patients with active infections in the treatment area, bleeding disorders, or allergies to any of the ingredients. Pregnant or breastfeeding women should avoid this treatment. Patients with severe liver or kidney disease should consult with a healthcare professional before treatment. Not recommended for large-volume fat reduction or as a substitute for weight loss.
                 </div>
             </div>
         </div>
         
-        <div class="kst-faq-item kst-active">
-            <div class="kst-faq-question kst-active" onclick="kstToggleFAQ(this)">
+        <div class="kst-faq-item">
+            <div class="kst-faq-question">
                 WHAT ARE THE PROPER STORAGE REQUIREMENTS?
             </div>
-            <div class="kst-faq-answer kst-active">
+            <div class="kst-faq-answer">
                 <div class="kst-description">
                     Store unopened vials at room temperature between 1°C to 30°C, away from direct sunlight and extreme temperatures. Do not freeze the product. Once a vial is opened, any unused solution should be discarded immediately to maintain sterility and efficacy. Keep out of reach of children and unauthorized personnel. Check expiration date before use.
                 </div>
             </div>
         </div>
         
-        <div class="kst-faq-item kst-active">
-            <div class="kst-faq-question kst-active" onclick="kstToggleFAQ(this)">
+        <div class="kst-faq-item">
+            <div class="kst-faq-question">
                 HOW IS LIPOVELA V DIFFERENT FROM OTHER FAT REDUCTION PRODUCTS?
             </div>
-            <div class="kst-faq-answer kst-active">
+            <div class="kst-faq-answer">
                 <div class="kst-description">
                     LIPOVELA V features a unique triple-action formula combining Deoxycholic Acid for fat cell destruction, PPC for emulsification, and L-Carnitine for enhanced metabolism. The addition of botanical extracts helps minimize swelling and maintain skin elasticity. This comprehensive formulation is specifically designed for facial contouring and small localized areas, offering permanent fat reduction with minimal downtime and reduced post-treatment discomfort compared to traditional lipolytic treatments.
                 </div>
             </div>
         </div>
         
-        <div class="kst-faq-item kst-active">
-            <div class="kst-faq-question kst-active" onclick="kstToggleFAQ(this)">
+        <div class="kst-faq-item">
+            <div class="kst-faq-question">
                 WHAT SHOULD PATIENTS EXPECT DURING RECOVERY?
             </div>
-            <div class="kst-faq-answer kst-active">
+            <div class="kst-faq-answer">
                 <div class="kst-description">
                     Patients may experience mild swelling, bruising, or tenderness in the treated area for 3-7 days post-treatment. These effects are normal and indicate the product is working. Cold compresses can help reduce swelling. Most patients can return to normal activities within 24-48 hours, though strenuous exercise and heat exposure should be avoided for several days. Gentle massage of the treated area may promote lymphatic drainage and faster recovery.
                 </div>
@@ -823,7 +758,6 @@
         </div>
     </div>
     
-    <!-- Product Keywords -->
     <div class="kst-section">
         <div class="kst-card">
             <div class="kst-dt">PRODUCT KEYWORDS</div>
@@ -841,33 +775,12 @@
         </div>
     </div>
     
-    <!-- Final Product Image -->
     <div class="kst-image-block kst-section">
         [PRODUCT PACKAGING AND SPECIFICATIONS PLACEHOLDER]
     </div>
     
-    <!-- Professional Use Banner -->
     <div class="kst-warning-banner kst-section">
         PROFESSIONAL USE ONLY - FOR LICENSED PRACTITIONERS - FOLLOW ALL ADMINISTRATION GUIDELINES
     </div>
     
 </div>
-
-<script>
-    function kstToggleFAQ(element) {
-        const answer = element.nextElementSibling;
-        const isActive = element.classList.contains('kst-active');
-        
-        // Close all FAQ items
-        document.querySelectorAll('.kst-faq-question').forEach(q => {
-            q.classList.remove('kst-active');
-            q.nextElementSibling.classList.remove('kst-active');
-        });
-        
-        // Open clicked item if it wasn't already active
-        if (!isActive) {
-            element.classList.add('kst-active');
-            answer.classList.add('kst-active');
-        }
-    }
-</script>
