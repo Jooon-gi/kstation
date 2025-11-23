@@ -27,15 +27,20 @@
 
     /* Only affect elements inside container */
     .kst-main-container * {
-      box-sizing: border-box;
+      box-sizing: border-box !important;
       color: inherit !important;
       word-wrap: break-word;
       overflow-wrap: break-word;
       hyphens: auto;
     }
 
-    .kst-container { padding: 16px; }
-    .kst-section { background: var(--kst-surface); border: 1px solid #2A3A6B; border-radius: 16px; padding: 16px; margin: 12px 0; }
+    .kst-container { 
+      padding: 16px; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 20px !important; 
+    }
+    .kst-section { background: var(--kst-surface); border: 1px solid #2A3A6B; border-radius: 16px; padding: 16px; margin: 0; }
     .kst-section-header { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
     .kst-section-kicker { font-size: 12px; letter-spacing: .12em; color: var(--kst-subtext) !important; text-transform: uppercase; }
     
@@ -55,18 +60,12 @@
       width: 200%;
       height: 200%;
       background: conic-gradient(from 0deg, transparent, rgba(245, 194, 66, 0.1), transparent);
-      animation: kst-rotate 20s linear infinite;
       z-index: 0;
     }
     
     #kst-basic-info > * {
       position: relative;
       z-index: 1;
-    }
-    
-    @keyframes kst-rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
     }
 
     .kst-hl {
@@ -101,7 +100,7 @@
       border: 1px solid rgba(245, 194, 66, 0.2); 
       border-radius: 18px; 
       padding: 18px; 
-      margin: 12px 0; 
+      margin: 0; 
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       display: flex; 
       flex-direction: column; 
@@ -210,13 +209,7 @@
       box-shadow: 0 4px 15px rgba(245, 194, 66, 0.4);
     }
 
-    /* Auto-hide empty media slots (CSS :has) */
-    .kst-image-block:not(:has(img[src])) { display: none; }
-    .kst-image-block:has(img[src=""]) { display: none; }
-    .kst-chart-block:not(:has(img[src])) { display: none; }
-    .kst-chart-block:has(img[src=""]) { display: none; }
-    .kst-video-block:not(:has(video[src])) { display: none; }
-    .kst-video-block:has(video[src=""]) { display: none; }
+    /* Empty media slots remain visible for Figma capture */
 
     /* Table wrapper (horizontal scroll only inside) */
     .kst-table-wrap { 
@@ -259,6 +252,22 @@
     .kst-callout.kst-danger { border-color: #4a2b2b; background: #2B1B1B; color: #ffbdbd !important; }
     .kst-callout.kst-warning { border-color: #4a3a1f; background: #2B251B; color: #ffe3a3 !important; }
     .kst-callout.kst-success { border-color: #1f3a30; background: #1B2B21; color: #b8f1d7 !important; }
+
+    /* Steps styling */
+    .kst-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px !important;
+      margin: 0;
+      padding: 0;
+    }
+    .kst-step {
+      background: var(--kst-elev);
+      border: 1px solid #2A3A6B;
+      border-radius: 12px;
+      padding: 16px;
+      line-height: 1.6;
+    }
   </style>
 
   <div class="kst-container">
@@ -283,7 +292,7 @@
           <img src="" alt="BEADSMAX dermal filler product line showcase" />
           <span class="kst-img-label">BEADSMAX Product Line</span>
         </div>
-        <p class="kst-muted" style="margin-top:10px">Each pack contains 1 syringe x 1.0 ml with premium cross-linked hyaluronic acid gel</p>
+        <p class="kst-muted">Each pack contains 1 syringe x 1.0 ml with premium cross-linked hyaluronic acid gel</p>
       </div>
     </section>
 
@@ -308,7 +317,7 @@
         </div>
       </dl>
 
-      <div class="kst-image-block" style="margin-top:10px">
+      <div class="kst-image-block">
         <img src="" alt="MCL technology molecular structure diagram" />
         <span class="kst-img-label">MCL Technology Structure</span>
       </div>
@@ -326,7 +335,7 @@
           <li><strong>Injection:</strong> Mid-dermis layer with 30G needle</li>
           <li><strong>Benefits:</strong> Subtle volume enhancement for delicate areas</li>
         </ul>
-        <div class="kst-image-block" style="margin-top:10px">
+        <div class="kst-image-block">
           <img src="" alt="BEADSMAX FINE treatment areas and results" />
           <span class="kst-img-label">FINE Treatment Results</span>
         </div>
@@ -340,7 +349,7 @@
           <li><strong>Injection:</strong> Mid-deep dermis layer with 27G needle</li>
           <li><strong>Benefits:</strong> Strong support for contouring with natural appearance</li>
         </ul>
-        <div class="kst-image-block" style="margin-top:10px">
+        <div class="kst-image-block">
           <img src="" alt="BEADSMAX MID treatment areas and results" />
           <span class="kst-img-label">MID Treatment Results</span>
         </div>
@@ -354,7 +363,7 @@
           <li><strong>Injection:</strong> Deep dermis/Sub-Q layer with 25G needle</li>
           <li><strong>Benefits:</strong> Maximum lifting capacity and structural enhancement</li>
         </ul>
-        <div class="kst-image-block" style="margin-top:10px">
+        <div class="kst-image-block">
           <img src="" alt="BEADSMAX HIGH treatment areas and results" />
           <span class="kst-img-label">HIGH Treatment Results</span>
         </div>
@@ -395,7 +404,7 @@
           <img src="" alt="Side-by-side comparison of BEADSMAX FINE, MID, and HIGH viscosity" />
           <span class="kst-img-label">Viscosity Comparison</span>
         </div>
-        <p class="kst-muted" style="margin-top:10px">Choose the appropriate viscosity based on treatment area and desired volume enhancement</p>
+        <p class="kst-muted">Choose the appropriate viscosity based on treatment area and desired volume enhancement</p>
       </div>
     </section>
 
@@ -407,7 +416,7 @@
         <strong>Professional Use Only</strong> — Use by certified medical professionals is highly recommended. Do not inject into blood vessels.
       </div>
       
-      <div class="kst-callout" style="margin-top:10px">
+      <div class="kst-callout">
         <strong>Storage Instructions</strong> — Store in light-resistant hermetic container at room temperature (2-8°C recommended). Avoid freezing or excessive heat.
       </div>
 
@@ -420,7 +429,7 @@
         </div>
       </div>
 
-      <div class="kst-image-block" style="margin-top:10px">
+      <div class="kst-image-block">
         <img src="" alt="Storage and safety pictogram guide for BEADSMAX" />
         <span class="kst-img-label">Safety Guidelines</span>
       </div>
@@ -445,12 +454,12 @@
         </div>
       </div>
 
-      <div class="kst-card" style="margin-top:16px">
+      <div class="kst-card">
         <div class="kst-image-block">
           <img src="" alt="Treatment selection guide flowchart for BEADSMAX products" />
           <span class="kst-img-label">Selection Guide</span>
         </div>
-        <p class="kst-muted" style="margin-top:10px">Professional consultation recommended to determine the most suitable product for individual treatment goals and anatomy</p>
+        <p class="kst-muted">Professional consultation recommended to determine the most suitable product for individual treatment goals and anatomy</p>
       </div>
     </section>
 
