@@ -23,6 +23,9 @@
       line-height: 1.55;
       overflow: hidden;
       border-radius: 14px;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
     }
 
     /* Only affect elements inside container */
@@ -36,12 +39,21 @@
 
     .kst-container { 
       padding: 16px; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 20px !important; 
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
     }
-    .kst-section { background: var(--kst-surface); border: 1px solid #2A3A6B; border-radius: 16px; padding: 16px; margin: 0; }
-    .kst-section-header { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .kst-section { 
+      background: var(--kst-surface); 
+      border: 1px solid #2A3A6B; 
+      border-radius: 16px; 
+      padding: 16px; 
+      margin: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+    }
+    .kst-section-header { display: flex; gap: 10px; align-items: center; margin: 0 !important; }
     .kst-section-kicker { font-size: 12px; letter-spacing: .12em; color: var(--kst-subtext) !important; text-transform: uppercase; }
     
     /* Hero Section Styling */
@@ -60,12 +72,18 @@
       width: 200%;
       height: 200%;
       background: conic-gradient(from 0deg, transparent, rgba(245, 194, 66, 0.1), transparent);
+      animation: kst-rotate 20s linear infinite;
       z-index: 0;
     }
     
     #kst-basic-info > * {
       position: relative;
       z-index: 1;
+    }
+    
+    @keyframes kst-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     .kst-hl {
@@ -75,7 +93,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 14px;
+      margin: 0 !important;
       text-shadow: 0 0 30px rgba(245, 194, 66, 0.3);
     }
 
@@ -85,8 +103,7 @@
       background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-top: -14px;
-      margin-bottom: 20px;
+      margin: 0 !important;
       opacity: 90%;
       text-shadow: 0 0 30px rgba(245, 194, 66, 0.3);
     }
@@ -100,7 +117,7 @@
       border: 1px solid rgba(245, 194, 66, 0.2); 
       border-radius: 18px; 
       padding: 18px; 
-      margin: 0; 
+      margin: 0 !important; 
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       display: flex; 
       flex-direction: column; 
@@ -110,7 +127,7 @@
       display: flex; 
       flex-wrap: wrap; 
       gap: 8px; 
-      margin-top: 10px;
+      margin: 0 !important;
     }
     
     .kst-badge { 
@@ -146,6 +163,12 @@
       padding-left: 0 !important;
       list-style-position: inside !important;
     }
+    
+    /* Remove vertical margins from all direct children of sections */
+    .kst-section > * {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
     .kst-list-vert li { 
       background: var(--kst-elev); 
       border: 1px solid #2A3A6B; 
@@ -161,15 +184,15 @@
     .kst-dl { margin: 0; }
     .kst-dl dt { 
       font-weight: 800; 
-      margin-top: 16px; 
+      margin: 0 !important; 
       background: linear-gradient(135deg, var(--kst-accent) 0%, var(--kst-accent-2) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       font-size: 16px;
     }
-    .kst-dl dd { margin: 8px 0 0 0; }
-    .kst-chipset { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .kst-dl dd { margin: 0 !important; }
+    .kst-chipset { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 !important; }
     .kst-chip { 
       font-size: 11px; 
       padding: 8px 14px; 
@@ -209,7 +232,13 @@
       box-shadow: 0 4px 15px rgba(245, 194, 66, 0.4);
     }
 
-    /* Empty media slots remain visible for Figma capture */
+    /* Auto-hide empty media slots (CSS :has) */
+    .kst-image-block:not(:has(img[src])) { display: none !important; }
+    .kst-image-block:has(img[src=""]) { display: none !important; }
+    .kst-chart-block:not(:has(img[src])) { display: none !important; }
+    .kst-chart-block:has(img[src=""]) { display: none !important; }
+    .kst-video-block:not(:has(video[src])) { display: none !important; }
+    .kst-video-block:has(video[src=""]) { display: none !important; }
 
     /* Table wrapper (horizontal scroll only inside) */
     .kst-table-wrap { 
@@ -238,35 +267,30 @@
       white-space: nowrap; 
     } /* 헤더만 nowrap 적용 */
 
-    .kst-table tr:hover { 
-      background: #243266; 
-    }
-
     /* Scrollbar always visible (webkit) */
     .kst-table-wrap::-webkit-scrollbar { height: 10px; }
     .kst-table-wrap::-webkit-scrollbar-thumb { background: #2A3A6B; border-radius: 8px; }
     .kst-table-wrap::-webkit-scrollbar-track { background: #1B2E5F; }
 
     /* Callouts */
-    .kst-callout { border-radius: 12px; padding: 12px; border: 1px solid #2A3A6B; background: #1B2E5F; }
+    .kst-callout { border-radius: 12px; padding: 12px; border: 1px solid #2A3A6B; background: #1B2E5F; margin: 0 !important; }
     .kst-callout.kst-danger { border-color: #4a2b2b; background: #2B1B1B; color: #ffbdbd !important; }
     .kst-callout.kst-warning { border-color: #4a3a1f; background: #2B251B; color: #ffe3a3 !important; }
     .kst-callout.kst-success { border-color: #1f3a30; background: #1B2B21; color: #b8f1d7 !important; }
-
-    /* Steps styling */
+    
+    /* Steps */
     .kst-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 16px !important;
-      margin: 0;
-      padding: 0;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      margin: 0 !important;
     }
     .kst-step {
       background: var(--kst-elev);
       border: 1px solid #2A3A6B;
       border-radius: 12px;
-      padding: 16px;
-      line-height: 1.6;
+      padding: 12px;
+      margin: 0 !important;
     }
   </style>
 
@@ -317,10 +341,10 @@
         </div>
       </dl>
 
-      <div class="kst-image-block">
-        <img src="" alt="MCL technology molecular structure diagram" />
-        <span class="kst-img-label">MCL Technology Structure</span>
-      </div>
+        <div class="kst-image-block">
+          <img src="" alt="MCL technology molecular structure diagram" />
+          <span class="kst-img-label">MCL Technology Structure</span>
+        </div>
     </section>
 
     <!-- 💡 Product Variants & Applications -->
@@ -328,7 +352,7 @@
       <div class="kst-section-header"><span class="kst-section-kicker">Product Range & Benefits</span></div>
 
       <div class="kst-card">
-        <h3 style="color: var(--kst-accent) !important; margin: 0 0 12px 0; font-size: 18px;">BEADSMAX FINE</h3>
+        <h3 style="color: var(--kst-accent) !important; margin: 0 !important; font-size: 18px;">BEADSMAX FINE</h3>
         <ul class="kst-list-vert" aria-label="BEADSMAX FINE applications">
           <li><strong>Application:</strong> Fine lines, under-eye hollows, lips, forehead, glabella, neck</li>
           <li><strong>Duration:</strong> Approximately 7-12 months</li>
@@ -342,7 +366,7 @@
       </div>
 
       <div class="kst-card">
-        <h3 style="color: var(--kst-accent) !important; margin: 0 0 12px 0; font-size: 18px;">BEADSMAX MID</h3>
+        <h3 style="color: var(--kst-accent) !important; margin: 0 !important; font-size: 18px;">BEADSMAX MID</h3>
         <ul class="kst-list-vert" aria-label="BEADSMAX MID applications">
           <li><strong>Application:</strong> Medium-deep wrinkles, nasolabial folds, cheeks, facial contouring</li>
           <li><strong>Duration:</strong> Approximately 12-18 months</li>
@@ -356,7 +380,7 @@
       </div>
 
       <div class="kst-card">
-        <h3 style="color: var(--kst-accent) !important; margin: 0 0 12px 0; font-size: 18px;">BEADSMAX HIGH</h3>
+        <h3 style="color: var(--kst-accent) !important; margin: 0 !important; font-size: 18px;">BEADSMAX HIGH</h3>
         <ul class="kst-list-vert" aria-label="BEADSMAX HIGH applications">
           <li><strong>Application:</strong> Deep wrinkles, volume enhancement for cheeks, temples, chin</li>
           <li><strong>Duration:</strong> Approximately 12-18 months</li>
