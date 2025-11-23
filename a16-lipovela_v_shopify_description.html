@@ -1,4 +1,5 @@
 <style>
+    /* Figma 오토 레이아웃 최적화를 위한 전역 설정 변수 */
     :root {
         --kst-main-color: #e33a2f;
         --kst-sub-color: #b62820;
@@ -8,8 +9,46 @@
         --kst-badge-bg: #e33a2f;
         --kst-badge-text: #ffffff;
         --kst-badge-hover: #b62820;
-        --kst-section-gap: 16px; /* 오토 레이아웃 간격 변수 추가 */
+        --kst-gap-size: 16px; /* 모든 오토 레이아웃 간격 통일 */
     }
+
+    /* ======================================================= */
+    /* === [STEP 1] 극단적인 마진/패딩 초기화 (Figma 인식 최적화) === */
+    /* ======================================================= */
+    
+    /* kst-section 내부에 있는 모든 블록 요소의 수직 마진을 0으로 강제 */
+    /* Flexbox gap이 간격을 책임지도록 모든 수직 마진을 0으로 강제합니다. */
+    .kst-section h1,
+    .kst-section h2,
+    .kst-section h3,
+    .kst-section h4,
+    .kst-section h5,
+    .kst-section h6,
+    .kst-section p,
+    .kst-section ul,
+    .kst-section ol,
+    .kst-section dl,
+    .kst-section div, 
+    .kst-section .kst-card,
+    .kst-section .kst-image-block,
+    .kst-section .kst-highlight-box,
+    .kst-section .kst-safety-box,
+    .kst-section .kst-table-wrap,
+    .kst-section .kst-tech-specs {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* 리스트 아이템의 기본 수직 마진도 0으로 설정 */
+    .kst-section ul li, 
+    .kst-section ol li {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* ======================================================= */
+    /* === [STEP 2] 컨테이너 및 섹션의 Flexbox Gap 제어 설정 === */
+    /* ======================================================= */
 
     .kst-main-container {
         max-width: 760px !important;
@@ -25,43 +64,44 @@
         /* Figma 오토 레이아웃 최적화: 섹션 간 Gap 제어 */
         display: flex !important;
         flex-direction: column !important;
-        gap: var(--kst-section-gap) !important;
+        gap: var(--kst-gap-size) !important; /* 섹션 간 간격 */
     }
     
     .kst-main-container *,
     .kst-main-container *::before,
     .kst-main-container *::after {
         box-sizing: border-box !important;
-        /* 모든 요소의 폰트 색상과 라인 하이트를 명시적으로 제어 */
         color: inherit !important;
         line-height: inherit !important;
     }
     
     .kst-section {
-        /* Figma 오토 레이아웃 최적화: 상위 컨테이너의 Gap이 간격을 제어하도록 마진 제거 */
-        margin: 0 !important;
+        /* 상위 컨테이너의 Gap이 간격을 제어하도록 수직 마진 제거 */
+        margin: 0 !important; 
         color: #000000 !important;
         
         /* Figma 오토 레이아웃 최적화: 섹션 내부 요소의 Gap 제어 */
         display: flex !important;
         flex-direction: column !important;
-        gap: 16px !important;
-        padding: 0 !important; /* 섹션 내부 패딩 제거 (필요시 내부 블록에 패딩 적용) */
+        gap: var(--kst-gap-size) !important; /* 섹션 내부 요소 간 간격 */
+        padding: 0 !important; 
     }
 
-    /* 섹션 내 모든 직계 자식 요소의 마진 제거 -> Gap이 간격 제어 */
-    .kst-section > * {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-    }
-    
-    /* Header Block은 섹션 외부에 있으므로 마진을 개별적으로 유지 */
+    /* Header Block은 섹션 외부에 있으므로 gap 제어를 위해 수직 마진 제거 */
     .kst-header-block {
         background: var(--kst-main-color);
         color: var(--kst-text-white);
         padding: 30px 16px;
-        margin: 8px 0 0 0 !important; /* 상단 마진만 유지 */
+        margin: 0 !important; /* 수직 마진 제거 */
     }
+    /* 기타 유틸리티 클래스 마진 제거 */
+    .kst-mt-small, .kst-mt-medium { 
+        margin-top: 0 !important; 
+    }
+    
+    /* ======================================================= */
+    /* === [STEP 3] 나머지 스타일 유지 및 FAQ Expanded 강제 === */
+    /* ======================================================= */
     
     .kst-product-title, .kst-product-spec, .kst-subtitle {
         color: var(--kst-text-white) !important;
@@ -70,9 +110,9 @@
         hyphens: auto !important;
     }
 
-    .kst-product-title { font-size: 36px !important; font-weight: 600 !important; line-height: 1 !important; margin: 0 !important; }
+    .kst-product-title { font-size: 36px !important; font-weight: 600 !important; line-height: 1 !important; }
     .kst-product-spec { font-size: 26px !important; font-weight: 100 !important; margin-top: 10px !important; margin-bottom: 12px !important; line-height: 1.1 !important; }
-    .kst-subtitle { font-size: 14px !important; letter-spacing: 2px !important; margin-top: 10px !important; opacity: 0.9 !important; }
+    .kst-subtitle { font-size: 14px !important; letter-spacing: 2px !important; opacity: 0.9 !important; }
     
     .kst-category-badge {
         background: var(--kst-badge-bg);
@@ -82,7 +122,7 @@
         font-weight: 500;
         letter-spacing: 1px;
         display: inline-block;
-        margin-bottom: 15px;
+        margin-bottom: 15px !important;
     }
     
     .kst-image-block, .kst-chart-block {
@@ -93,8 +133,6 @@
         font-size: 12px !important;
         font-weight: 500 !important;
         letter-spacing: 2px !important;
-        /* 섹션 내부 gap이 제어하므로 마진 제거 */
-        margin: 0 !important; 
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
         hyphens: auto !important;
@@ -118,8 +156,6 @@
     .kst-core-value {
         background: #f5f5f5 !important;
         padding: 20px 16px !important;
-        /* 섹션 내부 gap이 제어하므로 마진 제거 */
-        margin: 0 !important; 
         text-align: center !important;
         color: #000000 !important;
     }
@@ -149,7 +185,6 @@
         font-size: 14px !important;
         font-weight: 500 !important;
         letter-spacing: 1px !important;
-        margin: 0 !important;
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
         hyphens: auto !important;
@@ -159,8 +194,6 @@
         background: var(--kst-bg-white) !important;
         border: 2px solid var(--kst-main-color) !important;
         padding: 16px !important;
-        /* 섹션 내부 gap이 제어하므로 마진 제거 */
-        margin: 0 !important; 
         color: #000000 !important;
     }
     
@@ -188,50 +221,8 @@
         color: var(--kst-main-color) !important;
     }
     
-    .kst-ingredient-desc {
-        font-size: 12px !important;
-        font-weight: 400 !important;
-        line-height: 1.4 !important;
-        color: #000000 !important;
-    }
-    
-    .kst-dt {
-        font-size: 14px !important;
-        font-weight: 500 !important;
-        letter-spacing: 0.5px !important;
-        margin-bottom: 8px !important;
-        color: var(--kst-main-color) !important;
-    }
-    
-    .kst-highlight-box {
-        background: #f9f9f9 !important;
-        border-left: 4px solid var(--kst-main-color) !important;
-        padding: 12px 16px !important;
-        /* 섹션 내부 gap이 제어하므로 마진 제거 */
-        margin: 0 !important; 
-    }
-    
-    .kst-highlight-text {
-        font-size: 13px !important;
-        font-weight: 500 !important;
-        line-height: 1.5 !important;
-        color: #000000 !important;
-    }
-    
-    .kst-keyword-badge {
-        background: var(--kst-badge-bg) !important;
-        color: var(--kst-badge-text) !important;
-        padding: 4px 8px !important;
-        font-size: 10px !important;
-        font-weight: 500 !important;
-        letter-spacing: 1px !important;
-        display: inline-block !important;
-        margin: 3px 2px !important;
-    }
-    
     .kst-table-wrap {
         overflow-x: auto !important;
-        margin: 0 !important; /* 섹션 내부 gap이 제어하므로 마진 제거 */
         -webkit-overflow-scrolling: touch !important;
     }
     
@@ -265,18 +256,8 @@
         color: #000000 !important;
     }
     
-    .kst-table tr:nth-child(even) {
-        background: #f9f9f9 !important;
-    }
-    
-    .kst-mt-small, .kst-mt-medium { 
-        margin-top: 0 !important; 
-    }
-    
-    /* === FAQ/ACCORDION STYLES: JS 기능 제거 및 Expanded 고정 === */
+    /* === FAQ/ACCORDION STYLES: JS 기능 제거 및 Expanded 고정 (Figma 최적화) === */
     .kst-faq-item {
-        /* 아코디언 기능 제거: 기본 노출 상태 */
-        margin: 0 !important;
         border: 2px solid var(--kst-main-color) !important;
         overflow: hidden !important;
     }
@@ -289,21 +270,18 @@
         font-weight: 500 !important;
         letter-spacing: 0.5px !important;
         position: relative !important;
-        /* 커서 및 JS 관련 스타일 제거 */
-        cursor: default !important; 
+        cursor: default !important; /* 인터랙션 제거 */
     }
     
-    /* 아코디언 아이콘 제거 (CSS ::after 제거) */
-    .kst-faq-question::after {
-        content: none !important;
-    }
+    /* 아코디언 아이콘 및 상태 변화 CSS 제거 */
+    .kst-faq-question::after { content: none !important; }
     
-    /* 아코디언 답변 영역: 항상 노출 */
+    /* 아코디언 답변 영역: 항상 노출 (Expanded) */
     .kst-faq-answer {
-        padding: 12px 16px !important; /* max-height 트랜지션 제거 후 실제 패딩 적용 */
-        max-height: none !important; 
+        padding: 12px 16px !important; 
+        max-height: none !important; /* 높이 제한 해제 */
         overflow: visible !important;
-        transition: none !important; 
+        transition: none !important; /* 애니메이션 제거 */
         background: var(--kst-bg-white) !important;
     }
     
@@ -321,13 +299,11 @@
         font-size: 11px !important;
         font-weight: 500 !important;
         letter-spacing: 1.5px !important;
-        margin: 0 !important; /* 섹션 내부 gap이 제어하므로 마진 제거 */
     }
     
     .kst-tech-specs {
         background: #f5f5f5 !important;
         padding: 20px 16px !important;
-        margin: 0 !important; /* 섹션 내부 gap이 제어하므로 마진 제거 */
     }
     
     .kst-tech-title {
@@ -371,7 +347,6 @@
         background: #fff5f4 !important;
         border: 2px solid var(--kst-main-color) !important;
         padding: 16px !important;
-        margin: 0 !important; /* 섹션 내부 gap이 제어하므로 마진 제거 */
     }
     
     .kst-safety-header {
@@ -752,7 +727,7 @@
             </div>
             <div class="kst-faq-answer">
                 <div class="kst-description">
-                    Patients may experience mild swelling, bruising, or tenderness in the treated area for 3-7 days post-treatment. These effects are normal and indicate the product is working. Cold compresses can help reduce swelling. Most patients can return to normal activities within 24-48 hours, though strenuous exercise and heat exposure should be avoided for several days. Gentle massage of the treated area may promote lymphatic drainage and faster recovery.
+                    Patients may experience mild swelling, bruising, or tenderness in the treated area for 3-7 days post-treatment. These effects are normal and indicate the product is working. Cold compresses can help reduce swelling. Most patients can return to normal activities within 24-48 hours, though strenuous exercise and heat exposure should be avoided for several days. Gentle massage of the treated area may help promote lymphatic drainage and faster recovery.
                 </div>
             </div>
         </div>
@@ -761,7 +736,7 @@
     <div class="kst-section">
         <div class="kst-card">
             <div class="kst-dt">PRODUCT KEYWORDS</div>
-            <div class="kst-mt-small">
+            <div>
                 <span class="kst-keyword-badge">PPC LIPOLYSIS</span>
                 <span class="kst-keyword-badge">DEOXYCHOLIC ACID</span>
                 <span class="kst-keyword-badge">FACIAL FAT DISSOLVING</span>
@@ -775,11 +750,11 @@
         </div>
     </div>
     
-    <div class="kst-image-block kst-section">
+    <div class="kst-image-block">
         [PRODUCT PACKAGING AND SPECIFICATIONS PLACEHOLDER]
     </div>
     
-    <div class="kst-warning-banner kst-section">
+    <div class="kst-warning-banner">
         PROFESSIONAL USE ONLY - FOR LICENSED PRACTITIONERS - FOLLOW ALL ADMINISTRATION GUIDELINES
     </div>
     
